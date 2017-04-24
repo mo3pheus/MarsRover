@@ -3,6 +3,8 @@ package space.exploration.mars.rover.kernel;
 public class Rover {
 	public final String	ROVER_NAME	= "Curiosity";
 
+	/* Graphics stack */
+	
 	/* Rover technology stack */
 	Battery				battery		= new Battery();
 
