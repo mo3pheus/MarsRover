@@ -1,7 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
-import space.exploration.mars.rover.kernel.util.PowerAssessmentUtil;
 
 public class Listening implements State {
 

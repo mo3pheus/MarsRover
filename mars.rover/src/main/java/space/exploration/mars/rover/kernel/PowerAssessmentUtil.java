@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.kernel.util;
+package space.exploration.mars.rover.kernel;
 
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 
