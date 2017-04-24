@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package space.exploration.mars.rover;
+
+message InstructionPayload{
+	string payloadName = 1;
+	int64 timeStamp = 2;
+	bytes payload = 3;
+}
