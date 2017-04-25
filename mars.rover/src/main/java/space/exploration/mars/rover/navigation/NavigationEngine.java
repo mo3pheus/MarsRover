@@ -11,8 +11,8 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import space.exploration.mars.rover.animation.AnimationUtil;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
-import space.exploration.mars.rover.environment.animation.AnimationUtil;
 
 public class NavigationEngine implements PerformsNavigation {
 

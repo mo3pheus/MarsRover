@@ -1,7 +1,7 @@
 /**
  * 
  */
-package space.exploration.mars.rover.environment.animation;
+package space.exploration.mars.rover.animation;
 
 import java.awt.Component;
 import java.awt.Point;

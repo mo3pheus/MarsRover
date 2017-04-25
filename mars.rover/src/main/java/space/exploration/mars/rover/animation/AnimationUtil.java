@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.environment.animation;
+package space.exploration.mars.rover.animation;
 
 import java.awt.Point;
 import java.util.ArrayList;
