@@ -6,6 +6,8 @@ import java.util.Properties;
 
 import javax.swing.JFrame;
 
+import space.exploration.mars.rover.environment.animation.LayeredAnimationEngine;
+
 public class MatrixArchitect {
 	private JFrame					matrixWorld		= null;
 	private Properties				matrixConfig	= null;
