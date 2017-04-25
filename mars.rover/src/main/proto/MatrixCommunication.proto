@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package space.exploration.mars.rover.communication;
+
+message MatrixCall{
+	int64 timeStamp = 1;
+	int32 messageType = 2;
+	string commandCenter = 3;
+	bytes matrixConfig =4;
+	bytes path = 5;
+}
