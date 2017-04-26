@@ -23,6 +23,7 @@ public class EnvironmentUtils {
 	public static final String	ANIMATION_STEP_SIZE					= "maze.environment.animation.step.size";
 	public static final String	ANIMATION_PROFILE_NUMBER_POSITIONS	= "maze.environment.animation.number.positions";
 	public static final String	ANIMATION_PROFILE_POSITION_HEADER	= "maze.environment.animation.position.";
+	public static final String	LIDAR_ANIMATION_SCAN_DELAY			= "mars.rover.lidar.scan.delay";
 
 	public static Color findColor(String color) {
 		if (color.equals("red")) {
