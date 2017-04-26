@@ -6,12 +6,12 @@ import java.util.Properties;
 
 import javax.swing.JFrame;
 
-import space.exploration.mars.rover.animation.LayeredAnimationEngine;
+import space.exploration.mars.rover.animation.TrackingAnimationEngine;
 
 public class MatrixArchitect {
 	private JFrame					matrixWorld		= null;
 	private Properties				matrixConfig	= null;
-	private LayeredAnimationEngine	animationEngine	= null;
+	private TrackingAnimationEngine	animationEngine	= null;
 
 	public MatrixArchitect(Properties matrixDefinition, List<Point> robotPath) {
 		this.matrixConfig = matrixDefinition;
@@ -21,8 +21,8 @@ public class MatrixArchitect {
 
 		matrixWorld.setSize(frameWidth, frameHeight);
 		matrixWorld.setTitle("Matrix");
-		this.animationEngine = new LayeredAnimationEngine(matrixConfig, matrixWorld, robotPath);
-		animationEngine.renderAnimation();
+		this.animationEngine = new TrackingAnimationEngine(matrixConfig, matrixWorld, robotPath);
+		animationEngine.renderRobotAnimation();
 	}
 	
 	public MatrixArchitect(Properties matrixDefinition) {
@@ -33,7 +33,7 @@ public class MatrixArchitect {
 
 		matrixWorld.setSize(frameWidth, frameHeight);
 		matrixWorld.setTitle("Matrix");
-		this.animationEngine = new LayeredAnimationEngine(matrixConfig, matrixWorld);
+		this.animationEngine = new TrackingAnimationEngine(matrixConfig, matrixWorld);
 	}
 	
 	public void updateRobotPositions(List<Point> robotPath){
