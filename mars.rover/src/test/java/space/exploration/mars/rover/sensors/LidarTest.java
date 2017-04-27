@@ -18,7 +18,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import space.exploration.mars.rover.animation.TrackingAnimationEngine;
+import space.exploration.mars.rover.animation.AnimationUtil;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.Grid;
@@ -87,7 +87,7 @@ public class LidarTest {
 		Grid grid = new Grid(matrixConfig);
 		WallBuilder wallBuilder = new WallBuilder(matrixConfig);
 		Cell destinationCell = new Cell(matrixConfig);
-		Cell startingCell = TrackingAnimationEngine.getStartLocation(matrixConfig);
+		Cell startingCell = AnimationUtil.getStartLocation(matrixConfig);
 
 		content.add(grid);
 		content.add(wallBuilder);

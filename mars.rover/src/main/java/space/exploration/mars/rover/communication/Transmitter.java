@@ -27,8 +27,8 @@ import space.exploration.mars.rover.navigation.NavigationPath;
  * @author sanketkorgaonkar
  *
  */
-public class MatrixController {
-	private Producer<String, byte[]>	kafkaTrain;
+public class Transmitter {
+	private Producer<String, byte[]>	earthChannel;
 	private InputStream					inputStream;
 	private Properties					kafkaProperties;
 
@@ -67,7 +67,7 @@ public class MatrixController {
 		return call.toByteArray();
 	}
 
-	public MatrixController(KafkaShipmentBuilder kafkaShipmentBuilder) {
+	public Transmitter(KafkaShipmentBuilder kafkaShipmentBuilder) {
 		/*
 		 * Set up Kafka producer
 		 */
@@ -77,7 +77,7 @@ public class MatrixController {
 			kafkaProperties = new Properties();
 			kafkaProperties.load(inputStream);
 			kafkaProperties.put("sourceTopic", kafkaShipmentBuilder.sourceTopic);
-			kafkaTrain = new Producer<String, byte[]>(new ProducerConfig(kafkaProperties));
+			earthChannel = new Producer<String, byte[]>(new ProducerConfig(kafkaProperties));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -85,13 +85,27 @@ public class MatrixController {
 		}
 	}
 
+	public Transmitter(Properties comsConfig) {
+		kafkaProperties = comsConfig;
+		earthChannel = new Producer<String, byte[]>(new ProducerConfig(kafkaProperties));
+	}
+
 	public void sendMessage() throws InterruptedException, InvalidProtocolBufferException {
 		for (int i = 0; i < 1; i++) {
 			byte[] outputKafkaBytes = makeCall();
-			kafkaTrain.send(
+			earthChannel.send(
 					new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
 			System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("sourceTopic"));
 			System.out.println(" Sent message = " + MatrixCall.parseFrom(outputKafkaBytes));
+			Thread.sleep(1500l);
+		}
+	}
+	
+	public void transmitMessage(byte[] message) throws InterruptedException, InvalidProtocolBufferException {
+		for (int i = 0; i < 1; i++) {
+			earthChannel.send(
+					new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), message));
+			System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("sourceTopic"));
 			Thread.sleep(1500l);
 		}
 	}
@@ -100,17 +114,17 @@ public class MatrixController {
 		List<byte[]> messages = generatePathSplits();
 		for (int i = 0; i < messages.size(); i++) {
 			byte[] outputKafkaBytes = messages.get(i);
-			kafkaTrain.send(
+			earthChannel.send(
 					new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
 			System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("sourceTopic"));
 			System.out.println(" Sent message = " + MatrixCall.parseFrom(outputKafkaBytes));
-			//Thread.sleep(20l);
+			// Thread.sleep(20l);
 		}
 	}
 
 	public void cleanUp() throws IOException {
 		this.inputStream.close();
-		this.kafkaTrain.close();
+		this.earthChannel.close();
 	}
 
 	public static class KafkaShipmentBuilder {

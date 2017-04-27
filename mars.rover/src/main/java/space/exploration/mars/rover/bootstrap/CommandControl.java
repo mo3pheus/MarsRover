@@ -2,15 +2,15 @@ package space.exploration.mars.rover.bootstrap;
 
 import java.util.Scanner;
 
-import space.exploration.mars.rover.communication.MatrixController;
-import space.exploration.mars.rover.communication.MatrixController.KafkaShipmentBuilder;
+import space.exploration.mars.rover.communication.Transmitter;
+import space.exploration.mars.rover.communication.Transmitter.KafkaShipmentBuilder;
 
 public class CommandControl {
 	public static void main(String[] args) throws Exception {
 		String path = CommandControl.class.getResource("/kafka.properties").getPath();
 		KafkaShipmentBuilder builder = new KafkaShipmentBuilder().withPropertyFileAt(path)
 				.withSourceTopic("nebuchadnezzar.main.deck.com.2").build();
-		MatrixController zionComs = new MatrixController(builder);
+		Transmitter zionComs = new Transmitter(builder);
 
 		int choice = 0;
 		while (choice != 2) {
