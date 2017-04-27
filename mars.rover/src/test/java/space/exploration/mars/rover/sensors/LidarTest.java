@@ -43,7 +43,7 @@ public class LidarTest {
 		lidar = new Lidar(new Point(75, 75), 25);
 		matrixConfig = MatrixCreation.getMatrixConfig();
 		lidar.setWallBuilder(new WallBuilder(matrixConfig));
-		lidar.performSweep();
+		lidar.scanArea();
 		for (Point p : lidar.getContacts()) {
 			System.out.println(" Contacts = " + p);
 		}

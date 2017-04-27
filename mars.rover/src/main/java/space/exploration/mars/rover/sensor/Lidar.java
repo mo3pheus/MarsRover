@@ -4,61 +4,37 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
 
 public class Lidar {
 	private static final int DELTA_THETA = 5;
 
+	private Logger		logger		= LoggerFactory.getLogger(Lidar.class);
 	private WallBuilder	wallBuilder	= null;
-	private Point[]		sweepPoints	= null;
 	private List<Point>	contacts	= null;
 	private List<Point>	scanRadius	= null;
 	private Point		origin		= null;
-	private double		radius		= 0.0d;
-	private int			range		= 0;
+	private double		range		= 0;
 
 	public Lidar(Point origin, int range) {
-		sweepPoints = new Point[8];
 		contacts = new ArrayList<Point>();
 		this.origin = origin;
 		this.range = range;
-		this.radius = Math.sqrt((2.0d * range * range));
-		computeScanRadius();
-	}
-
-	public void performSweep() {
-		int count = 0;
-		for (int x = origin.x - range; x <= (origin.x + range); x = x + range) {
-			for (int y = origin.y - range; y <= (origin.y + range); y = y + range) {
-				
-				Point temp = new Point(x, y);
-				System.out.println(" Point under eval = " + temp);
-				if (temp.equals(origin)) {
-					continue;
-				} else {
-					sweepPoints[count] = temp;
-					for (Wall w : wallBuilder.getWalls()) {
-						if (w.intersects(temp)) {
-							contacts.add(temp);
-						}
-					}
-					count++;
-				}
-			}
-		}
+		this.range = Math.sqrt((2.0d * range * range));
+		logger.info("Lidar instantiated");
 	}
 
 	public void setWallBuilder(WallBuilder wallBuilder) {
+		logger.info("Wallbuilder set for lidar");
 		this.wallBuilder = wallBuilder;
 	}
 
 	public List<Point> getContacts() {
 		return contacts;
-	}
-
-	public Point[] sweepPoints() {
-		return sweepPoints;
 	}
 
 	public List<Point> getScanRadius() {
@@ -69,14 +45,35 @@ public class Lidar {
 		return origin;
 	}
 
+	public void scanArea() {
+		if (wallBuilder != null) {
+			computeScanRadius();
+		}
+	}
+
+	private boolean isPointOfContact(Point p) {
+		for (Wall w : wallBuilder.getWalls()) {
+			if (w.intersects(p)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private void computeScanRadius() {
 		scanRadius = new ArrayList<Point>();
+		int i = 0;
 		for (int theta = 0; theta < 360; theta = theta + DELTA_THETA) {
-			double thetaR = Math.PI/180.0d * theta;
-			int x = (int) (radius * Math.cos(thetaR));
-			int y = (int) (radius * Math.sin(thetaR));
+			double thetaR = Math.PI / 180.0d * theta;
+			int x = (int) (range * Math.cos(thetaR));
+			int y = (int) (range * Math.sin(thetaR));
 			Point temp = new Point(origin.x + x, origin.y + y);
-			System.out.println("Scan Points = " + temp);
+			if (isPointOfContact(temp)) {
+				contacts.add(temp);
+				logger.info(
+						"Lidar reporting contact designate Id:: " + i++ + " bearing:: " + theta + " range:: " + range);
+			}
+
 			scanRadius.add(temp);
 		}
 	}

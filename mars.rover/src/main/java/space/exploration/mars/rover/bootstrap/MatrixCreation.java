@@ -26,7 +26,7 @@ public class MatrixCreation {
 
 	public static void configureLogging() {
 		FileAppender fa = new FileAppender();
-		fa.setFile("navEngineOutput/navEnginePath_" + Long.toString(System.currentTimeMillis()) + ".txt");
+		fa.setFile("roverStatusReports/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".txt");
 		fa.setLayout(new PatternLayout("%-4r [%t] %-5p %c %x - %m%n"));
 		fa.setThreshold(Level.toLevel(Priority.INFO_INT));
 		fa.activateOptions();
