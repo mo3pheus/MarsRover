@@ -1,9 +1,9 @@
 package space.exploration.mars.rover.kernel;
 
 public interface State {
-	public void receiveMessage();
+	public void receiveMessage(byte[] message);
 
-	public void transmitMessage();
+	public void transmitMessage(byte[] message);
 
 	public void exploreArea();
 
