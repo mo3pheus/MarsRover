@@ -26,8 +26,8 @@ public class Radio {
 		receiver.start();
 	}
 
-	public byte[] receiveMessage(InstructionPayload instructionPayload) {
-		return instructionPayload.toByteArray();
+	public void receiveMessage(InstructionPayload instructionPayload) {
+		rover.receiveMessage(instructionPayload.toByteArray());
 	}
 
 	public void sendMessage(byte[] message) {
