@@ -10,7 +10,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.Priority;
 
-import space.exploration.mars.rover.environment.MatrixArchitect;
+import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.navigation.NavigationEngine;
 
 public class MatrixCreation {
@@ -21,7 +21,7 @@ public class MatrixCreation {
 		configureLogging();
 		System.out.println("Hello to the Robo-Maze_World");
 		NavigationEngine navEngine = new NavigationEngine(getMatrixConfig());
-		new MatrixArchitect(getMatrixConfig(), navEngine.getAnimationCalibratedRobotPath());
+		new MarsArchitect(getMatrixConfig(), navEngine.getAnimationCalibratedRobotPath());
 	}
 
 	public static void configureLogging() {
@@ -35,6 +35,14 @@ public class MatrixCreation {
 
 	public static Properties getMatrixConfig() throws IOException {
 		URL url = MatrixCreation.class.getResource("/mazeDefinition.properties");
+		FileInputStream propFile = new FileInputStream(url.getPath());
+		matrixConfig = new Properties();
+		matrixConfig.load(propFile);
+		return matrixConfig;
+	}
+	
+	public static Properties getComsConfig() throws IOException {
+		URL url = MatrixCreation.class.getResource("/kafka.properties");
 		FileInputStream propFile = new FileInputStream(url.getPath());
 		matrixConfig = new Properties();
 		matrixConfig.load(propFile);

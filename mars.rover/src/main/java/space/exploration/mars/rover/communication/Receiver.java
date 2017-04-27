@@ -17,8 +17,9 @@ import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
+import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;
-import space.exploration.mars.rover.environment.MatrixArchitect;
+import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.PortableMatrixConfig;
 import space.exploration.mars.rover.navigation.NavigationEngine;
 import space.exploration.mars.rover.navigation.NavigationPath;
@@ -28,13 +29,14 @@ import space.exploration.mars.rover.communication.MatrixCommunication.MatrixCall
  * @author sanketkorgaonkar
  *
  */
-public class MatrixReceptor extends Thread {
+public class Receiver extends Thread {
 	final static String	clientId			= "ControlRoomZion";
 	final static String	TOPIC				= "nebuchadnezzar.main.deck.com.2";
 	ConsumerConnector	consumerConnector	= null;
-	MatrixArchitect		architect			= null;
+	MarsArchitect		architect			= null;
+	Radio				radio				= null;
 
-	public MatrixReceptor() throws Exception {
+	public Receiver() throws Exception {
 		Properties properties = new Properties();
 		properties.put("zookeeper.connect", "localhost:2181");
 		properties.put("group.id", "test-coms-zion-controlRoom");
@@ -47,8 +49,14 @@ public class MatrixReceptor extends Thread {
 		matrixConfig.load(propFile);
 
 		if (matrixConfig != null) {
-			this.architect = new MatrixArchitect(matrixConfig);
+			this.architect = new MarsArchitect(matrixConfig);
 		}
+	}
+
+	public Receiver(Properties comsConfig, Radio radio) {
+		ConsumerConfig consumerConfig = new ConsumerConfig(comsConfig);
+		consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
+		this.radio = radio;
 	}
 
 	@Override
@@ -62,27 +70,12 @@ public class MatrixReceptor extends Thread {
 		ConsumerIterator<byte[], byte[]> it = stream.iterator();
 		while (it.hasNext())
 			try {
-				MatrixCall received = (MatrixCall.parseFrom(it.next().message()));
+				InstructionPayload received = (InstructionPayload.parseFrom(it.next().message()));
+				radio.receiveMessage(received);
 				System.out.println(received);
-
-				if (received.getMessageType() == 2) {
-					NavigationPath navPath = (NavigationPath) SerializationUtil
-							.deserialize(received.getPath().toByteArray());
-					architect.updateRobotPositions(navPath.getPath());
-				} else if (received.getMessageType() == 1) {
-					PortableMatrixConfig matrixConfig = (PortableMatrixConfig) SerializationUtil
-							.deserialize(received.getMatrixConfig().toByteArray());
-
-					NavigationEngine navEngine = new NavigationEngine(matrixConfig.getMatrixConfig());
-					architect = new MatrixArchitect(matrixConfig.getMatrixConfig(),
-							navEngine.getAnimationCalibratedRobotPath());
-				}
-
 			} catch (InvalidProtocolBufferException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 	}

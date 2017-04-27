@@ -18,11 +18,13 @@ public class Cell extends VirtualElement {
 	public static final String	CELL_WIDTH			= "maze.environment.cell.width";
 	public static final String	CELL_LOCATION		= "maze.environment.destination.position";
 	public static final String	CELL_COLOR			= "maze.environment.destination.color";
-	private Color				cellColor			= null;
-	private Point				location			= null;
-	private Properties			matrixConfig		= null;
-	private Logger				logger				= LoggerFactory.getLogger(Cell.class);
-	private int					cellWidth;
+	public static final Integer	ROBOT_DEPTH			= new Integer(100);
+
+	private Color		cellColor		= null;
+	private Point		location		= null;
+	private Properties	matrixConfig	= null;
+	private Logger		logger			= LoggerFactory.getLogger(Cell.class);
+	private int			cellWidth;
 
 	private Rectangle2D getCell() {
 		return new Rectangle2D.Double(location.getX(), location.getY(), (double) cellWidth, (double) cellWidth);
