@@ -26,7 +26,7 @@ public class WallBuilder extends VirtualElement {
 
 	private List<Wall>	walls			= null;
 	private Properties	matrixConfig	= null;
-
+	
 	public WallBuilder(Properties matrixConfig) {
 		this.matrixConfig = matrixConfig;
 		this.walls = new ArrayList<Wall>();
@@ -45,12 +45,13 @@ public class WallBuilder extends VirtualElement {
 		super.setMatrixConfig(matrixConfig);
 		super.setLayout();
 		int wallNum = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.NUM_WALLS_PROPERTY));
-
+	
 		for (int i = 0; i < wallNum; i++) {
 			int[] wallDef = getWallDefinition(i);
+			String wallColor = getWallColor(i);
 			Wall wall = new Wall(matrixConfig);
 			try {
-				wall.setDefinition(wallDef);
+				wall.setDefinition(wallDef, wallColor);
 			} catch (IllegalWallDefinitionException e) {
 				e.printStackTrace();
 			}
@@ -65,6 +66,12 @@ public class WallBuilder extends VirtualElement {
 
 	public List<Wall> getWalls() {
 		return walls;
+	}
+	
+	private String getWallColor(int wallNo){
+		String[] wallProps = matrixConfig.getProperty(EnvironmentUtils.WALL_DEFS_PROPERTY + Integer.toString(wallNo))
+				.split(",");
+		return wallProps[4];
 	}
 
 	private int[] getWallDefinition(int wallNo) {

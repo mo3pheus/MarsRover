@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Properties;
 
 public class Wall extends VirtualElement {
-	private static final String	WALL_COLOR			= "maze.environment.wall.color";
 	private static final long	serialVersionUID	= 4408125108099073421L;
 
-	private int[]				definition			= new int[4];
-	private Properties			matrixConfig		= null;
-	private int					frameWidth;
-	private int					frameHeight;
-	private int					cellWidth;
+	private int[]		definition		= new int[4];
+	private Properties	matrixConfig	= null;
+	private int			frameWidth;
+	private int			frameHeight;
+	private int			cellWidth;
+	private Color		wallColor		= null;
 
 	public static class IllegalWallDefinitionException extends Exception {
 
@@ -71,7 +71,7 @@ public class Wall extends VirtualElement {
 		return cell.intersects(wl);
 	}
 
-	public void setDefinition(int[] definition) throws IllegalWallDefinitionException {
+	public void setDefinition(int[] definition, String color) throws IllegalWallDefinitionException {
 		if (definition.length == 4 || definition[0] + definition[3] >= frameWidth
 				|| definition[1] + definition[2] >= frameHeight) {
 			this.definition = definition;
@@ -80,6 +80,7 @@ public class Wall extends VirtualElement {
 					" Invalid definition passed in. definition[] should be of length = 4"
 							+ " \n Format is as follows: 0,1 are x0,y0 point of origin, 2,3 are height, width of the wall");
 		}
+		this.wallColor = EnvironmentUtils.findColor(color);
 	}
 
 	@Override
@@ -97,6 +98,6 @@ public class Wall extends VirtualElement {
 
 	@Override
 	public Color getColor() {
-		return EnvironmentUtils.findColor(matrixConfig.getProperty(WALL_COLOR));
+		return wallColor;
 	}
 }

@@ -2,8 +2,6 @@ package space.exploration.mars.rover.navigation;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 

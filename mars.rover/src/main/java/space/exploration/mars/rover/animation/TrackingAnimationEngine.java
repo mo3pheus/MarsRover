@@ -23,7 +23,7 @@ import space.exploration.mars.rover.environment.*;
 public class TrackingAnimationEngine {
 	private static final Integer	ROBOT_DEPTH				= new Integer(100);
 	private LidarAnimationEngine	lidarAnimationEngine	= null;
-	private Properties				matrixConfig			= null;
+	private Properties				marsRoverConfig			= null;
 	private JFrame					frame					= null;
 	private List<Point>				robotPositions			= null;
 	private List<Point>				hotContacts				= null;
@@ -33,7 +33,7 @@ public class TrackingAnimationEngine {
 		if (robotPositions == null || robotPositions.isEmpty()) {
 			return;
 		}
-		this.matrixConfig = matrixConfig;
+		this.marsRoverConfig = matrixConfig;
 		this.frame = frame;
 		this.robotPositions = robotPositions;
 		this.lidarAnimationEngine = null;
@@ -42,7 +42,7 @@ public class TrackingAnimationEngine {
 	}
 
 	public TrackingAnimationEngine(Properties matrixConfig, JFrame frame) {
-		this.matrixConfig = matrixConfig;
+		this.marsRoverConfig = matrixConfig;
 		this.frame = frame;
 	}
 
@@ -52,18 +52,18 @@ public class TrackingAnimationEngine {
 	}
 
 	public void activateLidar() {
-		int radius = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		int radius = Integer.parseInt(marsRoverConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		Lidar lidar = new Lidar(robot.getLocation(), radius);
-		lidar.setWallBuilder(new WallBuilder(matrixConfig));
-		lidar.performSweep();
+		lidar.setWallBuilder(new WallBuilder(marsRoverConfig));
+		lidar.scanArea();
 		this.hotContacts = lidar.getContacts();
-		lidarAnimationEngine = new LidarAnimationEngine(lidar, matrixConfig);
+		lidarAnimationEngine = new LidarAnimationEngine(lidar, marsRoverConfig);
 		renderLidarAnimation();
 	}
 
 	public void renderLidarAnimation() {
-		int delayMs = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.LIDAR_ANIMATION_SCAN_DELAY));
-		JLayeredPane contentPane = getContent();
+		int delayMs = Integer.parseInt(marsRoverConfig.getProperty(EnvironmentUtils.LIDAR_ANIMATION_SCAN_DELAY));
+		JLayeredPane contentPane = getContent(marsRoverConfig);
 		contentPane.add(this.robot, ROBOT_DEPTH);
 		for (Laser laser : lidarAnimationEngine.getLaserBeams()) {
 			contentPane.add(laser, LidarAnimationEngine.LIDAR_DEPTH);
@@ -79,13 +79,13 @@ public class TrackingAnimationEngine {
 	}
 
 	public void renderRobotAnimation() {
-		int delayMs = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_PACE_DELAY));
-		JLayeredPane contentPane = getContent();
+		int delayMs = Integer.parseInt(marsRoverConfig.getProperty(EnvironmentUtils.ANIMATION_PACE_DELAY));
+		JLayeredPane contentPane = getContent(marsRoverConfig);
 		for (Point position : robotPositions) {
-			this.robot = new Cell(matrixConfig);
+			this.robot = new Cell(marsRoverConfig);
 			this.robot.setLocation(position);
 			this.robot.setCellWidth(14);
-			this.robot.setColor(EnvironmentUtils.findColor(matrixConfig.getProperty(EnvironmentUtils.ROBOT_COLOR)));
+			this.robot.setColor(EnvironmentUtils.findColor(marsRoverConfig.getProperty(EnvironmentUtils.ROBOT_COLOR)));
 
 			contentPane.add(this.robot, ROBOT_DEPTH);
 			frame.setContentPane(contentPane);
@@ -113,14 +113,17 @@ public class TrackingAnimationEngine {
 		return start;
 	}
 
-	private JLayeredPane getContent() {
-		JLayeredPane matrixPane = new JLayeredPane();
+	public static JLayeredPane getContent(Properties marsRoverConfig) {
+		JLayeredPane marsSurface = new JLayeredPane();
+		marsSurface.setBackground(
+				EnvironmentUtils.findColor(marsRoverConfig.getProperty(EnvironmentUtils.MARS_SURFACE_COLOR)));
+		marsSurface.setOpaque(true);
 		List<Component> content = new ArrayList<Component>();
 
-		Grid grid = new Grid(matrixConfig);
-		WallBuilder wallBuilder = new WallBuilder(matrixConfig);
-		Cell destinationCell = new Cell(matrixConfig);
-		Cell startingCell = getStartLocation(matrixConfig);
+		Grid grid = new Grid(marsRoverConfig);
+		WallBuilder wallBuilder = new WallBuilder(marsRoverConfig);
+		Cell destinationCell = new Cell(marsRoverConfig);
+		Cell startingCell = getStartLocation(marsRoverConfig);
 
 		content.add(grid);
 		content.add(wallBuilder);
@@ -128,9 +131,9 @@ public class TrackingAnimationEngine {
 		content.add(destinationCell);
 
 		for (int i = 0; i < content.size(); i++) {
-			matrixPane.add(content.get(i), new Integer(i));
+			marsSurface.add(content.get(i), new Integer(i));
 		}
 
-		return matrixPane;
+		return marsSurface;
 	}
 }
