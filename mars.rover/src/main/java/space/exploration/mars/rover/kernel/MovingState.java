@@ -15,12 +15,12 @@ public class MovingState implements State {
 		this.rover = rover;
 	}
 
-	public void receiveMessage() {
+	public void receiveMessage(byte[] message) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void transmitMessage() {
+	public void transmitMessage(byte[] message) {
 		// TODO Auto-generated method stub
 
 	}
@@ -37,7 +37,6 @@ public class MovingState implements State {
 
 	public void move() {
 		// TODO Auto-generated method stub
-
 	}
 
 	public void hibernate() {

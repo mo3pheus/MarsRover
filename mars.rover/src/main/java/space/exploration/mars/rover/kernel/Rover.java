@@ -22,7 +22,7 @@ public class Rover {
 	Radio	radio	= null;
 
 	/* States supported */
-	State	receivingState;
+	State	listeningState;
 	State	sensingState;
 	State	movingState;
 	State	exploringState;
@@ -37,7 +37,7 @@ public class Rover {
 	public Rover(Properties marsConfig, Properties comsConfig) {
 		this.marsConfig = marsConfig;
 		this.comsConfig = comsConfig;
-		this.receivingState = new ReceivingState(this);
+		this.listeningState = new ListeningState(this);
 		this.hibernatingState = new HibernatingState(this);
 		this.exploringState = new ExploringState(this);
 		this.movingState = new MovingState(this);
@@ -47,8 +47,16 @@ public class Rover {
 
 		this.marsArchitect = new MarsArchitect(marsConfig);
 		marsArchitect.setUpSurface();
-		state = receivingState;
+		state = listeningState;
 		
-		this.radio = new Radio(comsConfig);
+		this.radio = new Radio(comsConfig, this);
+	}
+	
+	public void receiveMessage(byte[] message){
+		state.receiveMessage(message);
+	}
+	
+	public Radio getRadio(){
+		return radio;
 	}
 }

@@ -14,14 +14,15 @@ public class TransmittingState implements State {
 		this.rover = rover;
 	}
 
-	public void receiveMessage() {
+	public void receiveMessage(byte[] message) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void transmitMessage() {
+	public void transmitMessage(byte[] message) {
 		// TODO Auto-generated method stub
-
+		rover.getRadio().sendMessage(message);
+		rover.state = rover.listeningState;
 	}
 
 	public void exploreArea() {
