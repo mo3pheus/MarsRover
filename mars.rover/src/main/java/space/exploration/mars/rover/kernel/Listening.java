@@ -1,6 +1,5 @@
 package space.exploration.mars.rover.kernel;
 
-import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 
 public class Listening implements State {
 
@@ -17,12 +16,6 @@ public class Listening implements State {
 		System.out.println(
 				"First thing I will do is check if the powerRequested by the instructionPayload can be supported");
 
-		InstructionPayload insPayload = InstructionPayload.newBuilder().build();
-		if (rover.getBatter().requestPower(PowerAssessmentUtil.estimatePowerUsage(insPayload), false)) {
-			System.out.println("Execute instruction payload");
-		} else {
-			System.out.println("Can not execute instructionPayload due to insufficient power");
-		}
 	}
 
 	public void transmitMessage() {

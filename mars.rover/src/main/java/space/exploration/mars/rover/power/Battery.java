@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.kernel;
+package space.exploration.mars.rover.power;
 
 public class Battery {
 	private int	primaryPowerUnits;

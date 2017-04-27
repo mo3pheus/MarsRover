@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package space.exploration.mars.rover;
+
+message TargetPackage{
+		string roverModule = 1;
+		int32 estimatedPowerUsage = 2;
+		string action = 3;
+		bytes auxiliaryData = 4;
+	}

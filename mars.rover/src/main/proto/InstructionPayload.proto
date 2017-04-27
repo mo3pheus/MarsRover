@@ -3,7 +3,8 @@ syntax="proto3";
 package space.exploration.mars.rover;
 
 message InstructionPayload{
-	string payloadName = 1;
-	int64 timeStamp = 2;
-	bytes payload = 3;
+	int64 timeStamp = 1;
+	bool SOS = 2;
+	string roverModule = 3;
+	bytes payload = 4;
 }

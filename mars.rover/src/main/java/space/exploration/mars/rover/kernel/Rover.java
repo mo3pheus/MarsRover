@@ -1,5 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
+import space.exploration.mars.rover.power.Battery;
+
 public class Rover {
 	public final String	ROVER_NAME	= "Curiosity";
 
