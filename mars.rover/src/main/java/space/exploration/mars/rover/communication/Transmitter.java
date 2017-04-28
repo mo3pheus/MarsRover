@@ -104,8 +104,8 @@ public class Transmitter {
 	public void transmitMessage(byte[] message) throws InterruptedException, InvalidProtocolBufferException {
 		for (int i = 0; i < 1; i++) {
 			earthChannel.send(
-					new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), message));
-			System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("sourceTopic"));
+					new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("destination.topic"), message));
+			System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("destination.topic"));
 			Thread.sleep(1500l);
 		}
 	}

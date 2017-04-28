@@ -19,6 +19,7 @@ public class Lidar {
 	private List<Point>	scanRadius	= null;
 	private Point		origin		= null;
 	private double		range		= 0;
+	private String		status		= "";
 
 	public Lidar(Point origin, int range) {
 		contacts = new ArrayList<Point>();
@@ -26,10 +27,12 @@ public class Lidar {
 		this.range = range;
 		this.range = Math.sqrt((2.0d * range * range));
 		logger.info("Lidar instantiated");
+		status = "Instantiated";
 	}
 
 	public void setWallBuilder(WallBuilder wallBuilder) {
 		logger.info("Wallbuilder set for lidar");
+		status += "\nWallBuilder set for lidar";
 		this.wallBuilder = wallBuilder;
 	}
 
@@ -72,9 +75,15 @@ public class Lidar {
 				contacts.add(temp);
 				logger.info(
 						"Lidar reporting contact designate Id:: " + i++ + " bearing:: " + theta + " range:: " + range);
+				status += "\n" + "Lidar reporting contact designate Id:: " + i++ + " bearing:: " + theta + " range:: "
+						+ range;
 			}
 
 			scanRadius.add(temp);
 		}
+	}
+
+	public String getStatus() {
+		return status;
 	}
 }

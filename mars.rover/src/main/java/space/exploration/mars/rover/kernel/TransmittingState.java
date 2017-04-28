@@ -16,7 +16,6 @@ public class TransmittingState implements State {
 
 	public void receiveMessage(byte[] message) {
 		// TODO Auto-generated method stub
-
 	}
 
 	public void transmitMessage(byte[] message) {
