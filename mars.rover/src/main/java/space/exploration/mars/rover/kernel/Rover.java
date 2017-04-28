@@ -8,27 +8,30 @@ import space.exploration.mars.rover.sensor.Lidar;
 import java.util.Properties;
 
 public class Rover {
-	public final String ROVER_NAME = "Curiosity";
+	public final String	ROVER_NAME		= "Curiosity";
 
 	/* Configuration */
-	Properties		marsConfig		= null;
-	Properties		comsConfig		= null;
-	MarsArchitect	marsArchitect	= null;
-	State			state			= null;
+	Properties			marsConfig		= null;
+	Properties			comsConfig		= null;
+	MarsArchitect		marsArchitect	= null;
+	State				state			= null;
 
 	/* Equipment Stack */
-	Battery	battery	= new Battery();
-	Lidar	lidar	= null;
-	Radio	radio	= null;
+	Battery				battery			= new Battery();
+	Lidar				lidar			= null;
+	Radio				radio			= null;
 
 	/* States supported */
-	State	listeningState;
-	State	sensingState;
-	State	movingState;
-	State	exploringState;
-	State	transmittingState;
-	State	hibernatingState;
-	State	rechargingState;
+	State				listeningState;
+	State				sensingState;
+	State				movingState;
+	State				exploringState;
+	State				transmittingState;
+	State				hibernatingState;
+	State				rechargingState;
+
+	/* Status messages */
+	String				status			= "";
 
 	public Battery getBatter() {
 		return battery;
@@ -48,15 +51,19 @@ public class Rover {
 		this.marsArchitect = new MarsArchitect(marsConfig);
 		marsArchitect.setUpSurface();
 		state = listeningState;
-		
+
 		this.radio = new Radio(comsConfig, this);
 	}
-	
-	public void receiveMessage(byte[] message){
+
+	public void receiveMessage(byte[] message) {
 		state.receiveMessage(message);
 	}
-	
-	public Radio getRadio(){
+
+	public Radio getRadio() {
 		return radio;
+	}
+	
+	public void setStatus(String status){
+		this.status = status;
 	}
 }
