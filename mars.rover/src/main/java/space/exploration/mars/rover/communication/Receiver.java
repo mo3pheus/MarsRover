@@ -4,13 +4,10 @@
 package space.exploration.mars.rover.communication;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
-import com.google.protobuf.InvalidProtocolBufferException;
 
 import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;
@@ -19,25 +16,20 @@ import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;
-import space.exploration.mars.rover.environment.MarsArchitect;
-import space.exploration.mars.rover.environment.PortableMatrixConfig;
-import space.exploration.mars.rover.navigation.NavigationEngine;
-import space.exploration.mars.rover.navigation.NavigationPath;
-import space.exploration.mars.rover.communication.MatrixCommunication.MatrixCall;
+import com.google.protobuf.InvalidProtocolBufferException;
 
 /**
  * @author sanketkorgaonkar
  *
  */
 public class Receiver extends Thread {
-	final static String	clientId			= "ControlRoomZion";
-	final static String	TOPIC				= "nebuchadnezzar.main.deck.com.2";
+	final static String	clientId			= "Curiosity";
+	final static String	TOPIC				= "secure_com_from_earth_channel_0";
 	ConsumerConnector	consumerConnector	= null;
-	MarsArchitect		architect			= null;
 	Radio				radio				= null;
 
 	public Receiver() throws Exception {
-		Properties properties = new Properties();
+		Properties properties = new Properties(); 
 		properties.put("zookeeper.connect", "localhost:2181");
 		properties.put("group.id", "test-coms-zion-controlRoom");
 		ConsumerConfig consumerConfig = new ConsumerConfig(properties);
@@ -47,10 +39,6 @@ public class Receiver extends Thread {
 		FileInputStream propFile = new FileInputStream(
 				"/Users/sanketkorgaonkar/Documents/CodeRepos/AdvancedMatrix/advanced.matrix/src/main/resources/mazeDefinition.properties");
 		matrixConfig.load(propFile);
-
-		if (matrixConfig != null) {
-			this.architect = new MarsArchitect(matrixConfig);
-		}
 	}
 
 	public Receiver(Properties comsConfig, Radio radio) {
@@ -72,10 +60,7 @@ public class Receiver extends Thread {
 			try {
 				InstructionPayload received = (InstructionPayload.parseFrom(it.next().message()));
 				radio.receiveMessage(received);
-				System.out.println(received);
 			} catch (InvalidProtocolBufferException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
 				e.printStackTrace();
 			}
 	}

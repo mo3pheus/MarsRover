@@ -3,22 +3,32 @@ package space.exploration.mars.rover.kernel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.protobuf.InvalidProtocolBufferException;
+
+import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
+
 public class ListeningState implements State {
-	
-	private Logger logger = LoggerFactory.getLogger(ListeningState.class);
-	private Rover rover = null;
+
+	private Logger	logger	= LoggerFactory.getLogger(ListeningState.class);
+	private Rover	rover	= null;
 
 	public ListeningState(Rover rover) {
 		this.rover = rover;
 	}
 
 	public void receiveMessage(byte[] message) {
-		System.out.println(
-				"Rover " + rover.ROVER_NAME + " has received message and will now act upon it - come what may!");
-		System.out.println("What state the rover goes to next is completely dependent on the instructions");
-		System.out.println(
-				"First thing I will do is check if the powerRequested by the instructionPayload can be supported");
-
+		InstructionPayload payload = null;
+		try {
+			System.out.println("This is the listening module");
+			payload = InstructionPayload.parseFrom(message);
+			System.out.println(payload);
+			logger.info(payload.toString());
+			
+			rover.setStatus("Sending a message to earth!");
+		} catch (InvalidProtocolBufferException e) {
+			logger.error("InvalidProtocolBufferException");
+			logger.error(e.getMessage());
+		}
 	}
 
 	public void transmitMessage(byte[] message) {
