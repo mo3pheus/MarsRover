@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
+import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 
 public class ListeningState implements State {
 
@@ -24,7 +25,12 @@ public class ListeningState implements State {
 			System.out.println(payload);
 			logger.info(payload.toString());
 			
-			rover.setStatus("Sending a message to earth!");
+			TargetPackage tp = payload.getTargets(0);
+			if(tp.getRoverModule() == ModuleDirectory.Module.SENSOR_LIDAR.getValue()){
+				System.out.println("Got lidar message");
+				rover.state = rover.sensingState;
+				rover.scanSurroundings();
+			}
 		} catch (InvalidProtocolBufferException e) {
 			logger.error("InvalidProtocolBufferException");
 			logger.error(e.getMessage());
