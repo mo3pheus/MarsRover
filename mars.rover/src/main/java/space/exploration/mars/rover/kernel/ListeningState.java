@@ -7,6 +7,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
+import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
+import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
 public class ListeningState implements State {
 
@@ -24,12 +26,21 @@ public class ListeningState implements State {
 			payload = InstructionPayload.parseFrom(message);
 			System.out.println(payload);
 			logger.info(payload.toString());
-			
-			TargetPackage tp = payload.getTargets(0);
-			if(tp.getRoverModule() == ModuleDirectory.Module.SENSOR_LIDAR.getValue()){
-				System.out.println("Got lidar message");
-				rover.state = rover.sensingState;
-				rover.scanSurroundings();
+
+			for (TargetPackage tp : payload.getTargetsList()) {
+				if (tp.getRoverModule() == Module.SENSOR_LIDAR.getValue()) {
+					System.out.println("Got lidar message");
+					rover.state = rover.sensingState;
+					rover.scanSurroundings();
+				} else if (tp.getRoverModule() == Module.PROPULSION.getValue()) {
+					System.out.println("Rover " + Rover.ROVER_NAME + " is on the move!");
+					rover.state = rover.movingState;
+					rover.move(RobotPositions.parseFrom(tp.getAuxiliaryData().toByteArray()));
+				} else if (tp.getRoverModule() == Module.SCIENCE.getValue()) {
+					System.out.println("Rover " + Rover.ROVER_NAME + " is on a scientific mission!");
+					rover.state = rover.exploringState;
+					rover.exploreArea();
+				}
 			}
 		} catch (InvalidProtocolBufferException e) {
 			logger.error("InvalidProtocolBufferException");
@@ -42,38 +53,27 @@ public class ListeningState implements State {
 	}
 
 	public void exploreArea() {
-		// TODO Auto-generated method stub
-
+		logger.error("Can not explore area while in the listening state");
 	}
 
 	public void performExperiments() {
-		// TODO Auto-generated method stub
-
+		logger.error("Can not perform experiments while in the listening state");
 	}
 
-	public void move() {
-		// TODO Auto-generated method stub
-
+	public void move(RobotPositions positions) {
+		logger.error("Can not move while in the listening state");
 	}
 
 	public void hibernate() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void rechargeBattery() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void scanSurroundings() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void performDiagnostics() {
-		// TODO Auto-generated method stub
-
 	}
 
 }

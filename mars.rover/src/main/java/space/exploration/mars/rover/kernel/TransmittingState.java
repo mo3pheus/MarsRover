@@ -3,14 +3,16 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
+
 /**
  * @author sanketkorgaonkar
  *
  */
 public class TransmittingState implements State {
 	private Rover rover = null;
-	
-	public TransmittingState(Rover rover){
+
+	public TransmittingState(Rover rover) {
 		this.rover = rover;
 	}
 
@@ -34,7 +36,7 @@ public class TransmittingState implements State {
 
 	}
 
-	public void move() {
+	public void move(RobotPositions positions) {
 		// TODO Auto-generated method stub
 
 	}

@@ -3,6 +3,8 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
+
 /**
  * @author sanketkorgaonkar
  *
@@ -34,7 +36,7 @@ public class HibernatingState implements State {
 
 	}
 
-	public void move() {
+	public void move(RobotPositions positions) {
 		// TODO Auto-generated method stub
 
 	}

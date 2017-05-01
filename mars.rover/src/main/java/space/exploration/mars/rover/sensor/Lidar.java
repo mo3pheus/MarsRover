@@ -13,18 +13,18 @@ import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
 
 public class Lidar {
-	private static final int	DELTA_THETA	= 5;
+	private static final int DELTA_THETA = 5;
 
-	private Logger				logger		= LoggerFactory.getLogger(Lidar.class);
-	private WallBuilder			wallBuilder	= null;
-	private List<Point>			contacts	= null;
-	private List<Point>			scanRadius	= null;
-	private Point				origin		= null;
-	private Point[]				gridCells	= new Point[8];
+	private Logger		logger		= LoggerFactory.getLogger(Lidar.class);
+	private WallBuilder	wallBuilder	= null;
+	private List<Point>	contacts	= null;
+	private List<Point>	scanRadius	= null;
+	private Point		origin		= null;
+	private Point[]		gridCells	= new Point[8];
 
-	private double				range		= 0;
-	private String				status		= "";
-	private int					cellWidth	= 0;
+	private double	range		= 0;
+	private String	status		= "";
+	private int		cellWidth	= 0;
 
 	public Lidar(Point origin, int range, int cellWidth) {
 		contacts = new ArrayList<Point>();
@@ -79,6 +79,7 @@ public class Lidar {
 				status += " Contact " + i++ + "::" + p.toString();
 			}
 		}
+		logger.info(" Scanning at location = " + this.origin + " Length of contacts  = " + contacts.size());
 	}
 
 	private void fillGridCells() {

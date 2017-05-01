@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Properties;
 
 public class Wall extends VirtualElement {
-	private static final long	serialVersionUID	= 4408125108099073421L;
+	private static final long serialVersionUID = 4408125108099073421L;
 
 	private int[]		definition		= new int[4];
 	private Properties	matrixConfig	= null;
@@ -37,6 +37,11 @@ public class Wall extends VirtualElement {
 
 	public int[] getDefinition() {
 		return definition;
+	}
+
+	public String toString() {
+		return " Origin at " + definition[0] + "," + definition[1] + " width = " + definition[2] + " height = "
+				+ definition[3];
 	}
 
 	/**
