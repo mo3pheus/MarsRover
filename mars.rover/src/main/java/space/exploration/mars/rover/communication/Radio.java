@@ -1,12 +1,14 @@
 package space.exploration.mars.rover.communication;
 
 import java.util.Properties;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 
+import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.kernel.Rover;
 
@@ -27,11 +29,17 @@ public class Radio {
 	}
 
 	public void receiveMessage(InstructionPayload instructionPayload) {
-		rover.receiveMessage(instructionPayload.toByteArray());
+		try {
+			Thread.sleep(getComsDelaySecs());
+			rover.receiveMessage(instructionPayload.toByteArray());
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 	}
 
 	public void sendMessage(byte[] message) {
 		try {
+			Thread.sleep(getComsDelaySecs());
 			transmitter.transmitMessage(message);
 		} catch (InvalidProtocolBufferException e) {
 			logger.error("InvalidProtocolBufferException error - common guys send me a good message!");
@@ -40,5 +48,9 @@ public class Radio {
 			logger.error("InterruptedException");
 			logger.error(e.getMessage());
 		}
+	}
+
+	private int getComsDelaySecs() {
+		return ThreadLocalRandom.current().nextInt(3, 22);
 	}
 }
