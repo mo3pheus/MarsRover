@@ -81,11 +81,9 @@ public class AnimationUtil {
 		return marsSurface;
 	}
 	
-	public static Cell getRobot(Properties marsRoverConfig, Point position){
-		Cell robot = new Cell(marsRoverConfig);
+	public static void getRobot(Properties marsRoverConfig, Point position, Cell robot){
 		robot.setLocation(position);
 		robot.setCellWidth(12);
 		robot.setColor(EnvironmentUtils.findColor(marsRoverConfig.getProperty(EnvironmentUtils.ROBOT_COLOR)));
-		return robot;
 	}
 }

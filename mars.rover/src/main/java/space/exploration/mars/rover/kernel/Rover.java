@@ -3,6 +3,7 @@ package space.exploration.mars.rover.kernel;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.power.Battery;
+import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.sensor.Lidar;
 
 import java.util.Properties;
@@ -38,24 +39,7 @@ public class Rover {
 	RoverStatus	status			= null;
 	long		creationTime	= 0l;
 
-	public long getOneSolDuration() {
-		long time = TimeUnit.HOURS.toMillis(24);
-		time += TimeUnit.MINUTES.toMillis(39);
-		time += TimeUnit.SECONDS.toMillis(35);
-		time += 244;
-		return time;
-	}
-
-	public Battery getBatter() {
-		return battery;
-	}
-
-	public int getSol() {
-		long diff = System.currentTimeMillis() - creationTime;
-		long solMs = getOneSolDuration();
-		return Math.round(diff / solMs);
-	}
-
+	/* Sets up the rover and the boot-up sequence */
 	public Rover(Properties marsConfig, Properties comsConfig) {
 		this.creationTime = System.currentTimeMillis();
 		this.marsConfig = marsConfig;
@@ -69,7 +53,6 @@ public class Rover {
 		this.transmittingState = new TransmittingState(this);
 		this.radio = new Radio(comsConfig, this);
 		this.marsArchitect = new MarsArchitect(marsConfig);
-		marsArchitect.setUpSurface();
 		state = transmittingState;
 		transmitMessage(getBootupMessage());
 	}
@@ -80,6 +63,18 @@ public class Rover {
 
 	public void scanSurroundings() {
 		state.scanSurroundings();
+	}
+
+	public void move(RobotPositions positions) {
+		state.move(positions);
+	}
+
+	public void exploreArea() {
+		state.exploreArea();
+	}
+
+	public void transmitMessage(byte[] message) {
+		state.transmitMessage(message);
 	}
 
 	public Radio getRadio() {
@@ -94,15 +89,30 @@ public class Rover {
 		this.status = status;
 	}
 
-	public void transmitMessage(byte[] message) {
-		state.transmitMessage(message);
-	}
-
 	public Properties getMarsConfig() {
 		return marsConfig;
 	}
 
-	public byte[] getBootupMessage() {
+	public long getOneSolDuration() {
+		/* Time scaled by a factor of 60. */
+		long time = TimeUnit.MINUTES.toMillis(24);
+		time += TimeUnit.SECONDS.toMillis(39);
+		time += 35;
+		time += 244;
+		return time;
+	}
+
+	public Battery getBatter() {
+		return battery;
+	}
+
+	public int getSol() {
+		long diff = System.currentTimeMillis() - creationTime;
+		long solMs = getOneSolDuration();
+		return Math.round(diff / solMs);
+	}
+
+	private byte[] getBootupMessage() {
 		Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
 				.setY(marsArchitect.getRobot().getLocation().y).build();
 		RoverStatus.Builder rBuilder = RoverStatus.newBuilder();

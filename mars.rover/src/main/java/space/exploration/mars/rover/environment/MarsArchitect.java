@@ -13,46 +13,49 @@ import space.exploration.mars.rover.animation.AnimationUtil;
 import space.exploration.mars.rover.animation.LidarAnimationEngine;
 
 public class MarsArchitect {
-	private JFrame					matrixWorld		= null;
-	private Properties				matrixConfig	= null;
-	private TrackingAnimationEngine	animationEngine	= null;
-	private LidarAnimationEngine	lidarEngine		= null;
-	private Cell					robot			= null;
-	private int						cellWidth		= 0;
+	private JFrame					marsSurface			= null;
+	private Properties				marsConfig			= null;
+	private TrackingAnimationEngine	propulsionEngine	= null;
+	private LidarAnimationEngine	lidarEngine			= null;
+	private Cell					robot				= null;
+	private int						cellWidth			= 0;
+	private int						robotStepSize		= 0;
 
+	@Deprecated
 	public MarsArchitect(Properties matrixDefinition, List<Point> robotPath) {
-		this.matrixConfig = matrixDefinition;
-		this.matrixWorld = new JFrame();
-		int frameHeight = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
-		int frameWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+		this.marsConfig = matrixDefinition;
+		this.marsSurface = new JFrame();
+		int frameHeight = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		int frameWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
 
-		matrixWorld.setSize(frameWidth, frameHeight);
-		matrixWorld.setTitle("Matrix");
-		this.animationEngine = new TrackingAnimationEngine(matrixConfig, matrixWorld, robotPath);
-		this.cellWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
-		animationEngine.renderRobotAnimation();
+		marsSurface.setSize(frameWidth, frameHeight);
+		marsSurface.setTitle("Matrix");
+		this.cellWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		propulsionEngine.renderRobotAnimation();
 	}
 
 	public MarsArchitect(Properties matrixDefinition) {
-		this.matrixConfig = matrixDefinition;
-		this.matrixWorld = new JFrame();
-		int frameHeight = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
-		int frameWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+		this.marsConfig = matrixDefinition;
+		this.marsSurface = new JFrame();
+		int frameHeight = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+		int frameWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
 
-		matrixWorld.setSize(frameWidth, frameHeight);
-		matrixWorld.setTitle("Matrix");
-		this.cellWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
-		this.animationEngine = new TrackingAnimationEngine(matrixConfig, matrixWorld);
+		marsSurface.setSize(frameWidth, frameHeight);
+		marsSurface.setTitle("Mars");
+		this.cellWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		this.robotStepSize = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE));
+		setUpSurface();
+		this.propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robot);
 	}
 
 	public void setLidarAnimationEngine(Lidar lidar) {
-		this.lidarEngine = new LidarAnimationEngine(matrixConfig);
-		lidarEngine.setMarsSurface(matrixWorld);
+		this.lidarEngine = new LidarAnimationEngine(marsConfig,robot);
+		lidarEngine.setMarsSurface(marsSurface);
 		lidarEngine.setLidar(lidar);
 	}
 
 	public void updateRobotPositions(List<Point> robotPath) {
-		animationEngine.updateRobotPosition(robotPath);
+		propulsionEngine.updateRobotPosition(robotPath);
 	}
 
 	public LidarAnimationEngine getLidarAnimationEngine() {
@@ -63,17 +66,22 @@ public class MarsArchitect {
 		return cellWidth;
 	}
 
-	public void setUpSurface() {
-		JLayeredPane content = AnimationUtil.getContent(matrixConfig);
+	public int getRobotStepSize() {
+		return robotStepSize;
+	}
 
-		int roboX = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
-		int roboY = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]);
-		robot = AnimationUtil.getRobot(matrixConfig, new Point(roboX, roboY));
+	private void setUpSurface() {
+		JLayeredPane content = AnimationUtil.getContent(marsConfig);
+
+		int roboX = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
+		int roboY = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]);
+		this.robot = new Cell(marsConfig);
+		AnimationUtil.getRobot(marsConfig, new Point(roboX, roboY), robot);
 		content.add(robot, Cell.ROBOT_DEPTH);
 
-		matrixWorld.setContentPane(content);
-		matrixWorld.setVisible(true);
-		matrixWorld.setName("Mars Surface");
+		marsSurface.setContentPane(content);
+		marsSurface.setVisible(true);
+		marsSurface.setName("Mars Surface");
 	}
 
 	public Cell getRobot() {

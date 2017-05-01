@@ -1,5 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
+import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
+
 public interface State {
 	public void receiveMessage(byte[] message);
 
@@ -9,7 +11,7 @@ public interface State {
 
 	public void performExperiments();
 
-	public void move();
+	public void move(RobotPositions positions);
 
 	public void hibernate();
 

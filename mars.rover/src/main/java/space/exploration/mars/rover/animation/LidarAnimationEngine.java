@@ -32,11 +32,13 @@ public class LidarAnimationEngine {
 	private Point				origin		= null;
 	private Properties			marsConfig	= null;
 	private Lidar				lidar		= null;
+	private Cell				robot		= null;
 	private Logger				logger		= LoggerFactory.getLogger(LidarAnimationEngine.class);
 
-	public LidarAnimationEngine(Properties marsConfig) {
+	public LidarAnimationEngine(Properties marsConfig, Cell robot) {
 		laserBeams = new ArrayList<Laser>();
 		this.marsConfig = marsConfig;
+		this.robot = robot;
 	}
 
 	public void setLidar(Lidar lidar) {
@@ -48,6 +50,10 @@ public class LidarAnimationEngine {
 
 	public void setMarsSurface(JFrame surface) {
 		this.marsSurface = surface;
+	}
+	
+	public Cell getRobot(){
+		return robot;
 	}
 
 	private void generateLaserBeams() {
@@ -73,7 +79,7 @@ public class LidarAnimationEngine {
 	public void renderLidarAnimation() {
 		int delayMs = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.LIDAR_ANIMATION_SCAN_DELAY));
 		JLayeredPane contentPane = AnimationUtil.getContent(marsConfig);
-		contentPane.add(AnimationUtil.getRobot(marsConfig, origin), Cell.ROBOT_DEPTH);
+		contentPane.add(robot, Cell.ROBOT_DEPTH);
 		for (Laser laser : getLaserBeams()) {
 			contentPane.add(laser, LidarAnimationEngine.LIDAR_DEPTH);
 			marsSurface.setContentPane(contentPane);

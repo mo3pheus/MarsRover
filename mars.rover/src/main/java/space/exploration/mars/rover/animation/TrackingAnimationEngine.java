@@ -18,24 +18,25 @@ import space.exploration.mars.rover.environment.EnvironmentUtils;
  *
  */
 public class TrackingAnimationEngine {
-	private Properties				marsRoverConfig	= null;
-	private JFrame					frame			= null;
-	private List<Point>				robotPositions	= null;
-	private Cell					robot			= null;
+	private Properties	marsRoverConfig	= null;
+	private JFrame		frame			= null;
+	private List<Point>	robotPositions	= null;
+	private Cell		robot			= null;
 
-	public TrackingAnimationEngine(Properties matrixConfig, JFrame frame, List<Point> robotPositions) {
+	public TrackingAnimationEngine(Properties matrixConfig, JFrame frame, List<Point> robotPositions, Cell robot) {
 		if (robotPositions == null || robotPositions.isEmpty()) {
 			return;
 		}
 		this.marsRoverConfig = matrixConfig;
 		this.frame = frame;
 		this.robotPositions = robotPositions;
-		this.robot = new Cell(matrixConfig);
+		this.robot = robot;
 	}
 
-	public TrackingAnimationEngine(Properties matrixConfig, JFrame frame) {
+	public TrackingAnimationEngine(Properties matrixConfig, JFrame frame, Cell robot) {
 		this.marsRoverConfig = matrixConfig;
 		this.frame = frame;
+		this.robot = robot;
 	}
 
 	public void updateRobotPosition(List<Point> robotPositions) {
@@ -47,7 +48,7 @@ public class TrackingAnimationEngine {
 		int delayMs = Integer.parseInt(marsRoverConfig.getProperty(EnvironmentUtils.ANIMATION_PACE_DELAY));
 		JLayeredPane contentPane = AnimationUtil.getContent(marsRoverConfig);
 		for (Point position : robotPositions) {
-			this.robot = AnimationUtil.getRobot(marsRoverConfig, position);
+			AnimationUtil.getRobot(marsRoverConfig, position, robot);
 			contentPane.add(this.robot, Cell.ROBOT_DEPTH);
 			frame.setContentPane(contentPane);
 			frame.setVisible(true);

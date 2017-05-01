@@ -10,6 +10,7 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverSta
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.WallBuilder;
+import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.sensor.Lidar;
 
 /**
@@ -44,7 +45,7 @@ public class SensingState implements State {
 
 	}
 
-	public void move() {
+	public void move(RobotPositions positions) {
 		// TODO Auto-generated method stub
 
 	}
@@ -80,8 +81,7 @@ public class SensingState implements State {
 		RoverStatus status = rBuilder.setBatteryLevel(rover.getBatter().getPrimaryPowerUnits())
 				.setSolNumber(rover.getSol()).setLocation(location).setNotes("Lidar exercised here.")
 				.setModuleMessage(lidarFeedback.build().toByteString()).setScet(System.currentTimeMillis())
-				.setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).setSolNumber(rover.getSol())
-				.build();
+				.setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
 
 		rover.transmitMessage(status.toByteArray());
 	}
