@@ -61,7 +61,8 @@ public class SensingState implements State {
 
 	public void scanSurroundings() {
 		MarsArchitect marsArchitect = rover.getMarsArchitect();
-		Lidar lidar = new Lidar(marsArchitect.getRobot().getLocation(), 25);
+		Lidar lidar = new Lidar(marsArchitect.getRobot().getLocation(), marsArchitect.getCellWidth(),
+				marsArchitect.getCellWidth());
 		lidar.setWallBuilder(new WallBuilder(rover.getMarsConfig()));
 		lidar.scanArea();
 		marsArchitect.setLidarAnimationEngine(lidar);

@@ -19,10 +19,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import space.exploration.mars.rover.animation.AnimationUtil;
+import space.exploration.mars.rover.animation.LidarAnimationEngine;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;
 import space.exploration.mars.rover.environment.Cell;
+import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.Grid;
 import space.exploration.mars.rover.environment.Laser;
+import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.WallBuilder;
 import space.exploration.mars.rover.sensor.Lidar;
 
@@ -32,21 +35,23 @@ import space.exploration.mars.rover.sensor.Lidar;
  */
 public class LidarTest {
 
-	Lidar		lidar			= null;
-	Properties	matrixConfig	= null;
+	Lidar			lidar			= null;
+	Properties		matrixConfig	= null;
+	MarsArchitect	marsArchitect	= null;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		lidar = new Lidar(new Point(75, 75), 25);
 		matrixConfig = MatrixCreation.getMatrixConfig();
+		marsArchitect = new MarsArchitect(matrixConfig);
+		int cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		lidar = new Lidar(new Point(75, 75), cellWidth, cellWidth);
 		lidar.setWallBuilder(new WallBuilder(matrixConfig));
 		lidar.scanArea();
-		for (Point p : lidar.getContacts()) {
-			System.out.println(" Contacts = " + p);
-		}
+		marsArchitect.setLidarAnimationEngine(lidar);
+		marsArchitect.getLidarAnimationEngine().activateLidar();
 	}
 
 	/**
@@ -59,45 +64,6 @@ public class LidarTest {
 
 	@Test
 	public void test() {
-		assertEquals(lidar.getScanRadius().size(), 72);
-
-		JFrame frame = new JFrame();
-		frame.setSize(700, 700);
-		JLayeredPane content = getContent();
-		
-		for (Point dest : lidar.getScanRadius()) {
-			Laser laser = new Laser(new Point(75, 75), dest, matrixConfig);
-			content.add(laser, new Integer(101));
-			try {
-				Thread.sleep(40);
-				frame.setContentPane(content);
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace(System.out);
-			}
-			content.remove(laser);
-		}
-
-	}
-
-	private JLayeredPane getContent() {
-		JLayeredPane matrixPane = new JLayeredPane();
-		List<Component> content = new ArrayList<Component>();
-
-		Grid grid = new Grid(matrixConfig);
-		WallBuilder wallBuilder = new WallBuilder(matrixConfig);
-		Cell destinationCell = new Cell(matrixConfig);
-		Cell startingCell = AnimationUtil.getStartLocation(matrixConfig);
-
-		content.add(grid);
-		content.add(wallBuilder);
-		content.add(startingCell);
-		content.add(destinationCell);
-
-		for (int i = 0; i < content.size(); i++) {
-			matrixPane.add(content.get(i), new Integer(i));
-		}
-
-		return matrixPane;
+		assertEquals(72, lidar.getScanRadius().size());
 	}
 }

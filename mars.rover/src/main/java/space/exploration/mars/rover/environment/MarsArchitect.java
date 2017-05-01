@@ -18,6 +18,7 @@ public class MarsArchitect {
 	private TrackingAnimationEngine	animationEngine	= null;
 	private LidarAnimationEngine	lidarEngine		= null;
 	private Cell					robot			= null;
+	private int						cellWidth		= 0;
 
 	public MarsArchitect(Properties matrixDefinition, List<Point> robotPath) {
 		this.matrixConfig = matrixDefinition;
@@ -28,6 +29,7 @@ public class MarsArchitect {
 		matrixWorld.setSize(frameWidth, frameHeight);
 		matrixWorld.setTitle("Matrix");
 		this.animationEngine = new TrackingAnimationEngine(matrixConfig, matrixWorld, robotPath);
+		this.cellWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		animationEngine.renderRobotAnimation();
 	}
 
@@ -39,6 +41,7 @@ public class MarsArchitect {
 
 		matrixWorld.setSize(frameWidth, frameHeight);
 		matrixWorld.setTitle("Matrix");
+		this.cellWidth = Integer.parseInt(this.matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 		this.animationEngine = new TrackingAnimationEngine(matrixConfig, matrixWorld);
 	}
 
@@ -56,8 +59,8 @@ public class MarsArchitect {
 		return lidarEngine;
 	}
 
-	public void setLidarPath() {
-		// lidarEngine.
+	public int getCellWidth() {
+		return cellWidth;
 	}
 
 	public void setUpSurface() {
