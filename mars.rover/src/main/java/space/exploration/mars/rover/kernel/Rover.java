@@ -107,7 +107,7 @@ public class Rover {
 				.setY(marsArchitect.getRobot().getLocation().y).build();
 		RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
 		rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
-		rBuilder.setTimeStamp(System.currentTimeMillis());
+		rBuilder.setScet(System.currentTimeMillis());
 		rBuilder.setLocation(location);
 		rBuilder.setBatteryLevel(this.getBatter().getPrimaryPowerUnits());
 		rBuilder.setSolNumber(getSol());

@@ -3,13 +3,14 @@ syntax="proto3";
 package space.exploration.mars.rover.communication;
 
 message RoverStatus{
-	int64 timeStamp = 1;
-	int32 solNumber = 2;
-	Location location = 3;
-	int32 batteryLevel = 4;
-	int32 moduleReporting = 5;
-	string notes = 6;
-	bytes moduleMessage = 7;
+	int64 scet = 1;
+	int64 ert = 2;
+	int32 solNumber = 3;
+	Location location = 4;
+	int32 batteryLevel = 5;
+	int32 moduleReporting = 6;
+	string notes = 7;
+	bytes moduleMessage = 8;
 	
 	message Location{
 		int32 x = 1;
