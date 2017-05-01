@@ -1,7 +1,6 @@
 package space.exploration.mars.rover.communication;
 
 import java.util.Properties;
-import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +50,6 @@ public class Radio {
 	}
 
 	private int getComsDelaySecs() {
-		return ThreadLocalRandom.current().nextInt(3, 22);
+		return ThreadLocalRandom.current().nextInt(3000, 22000);
 	}
 }

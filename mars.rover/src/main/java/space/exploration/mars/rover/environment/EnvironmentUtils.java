@@ -45,14 +45,14 @@ public class EnvironmentUtils {
 			// return new Color(102, 51, 0);
 			return new Color(139, 37, 0);
 		} else if (color.equals("darkBrown")) {
-			//return new Color(139, 90, 43);
+			// return new Color(139, 90, 43);
 			return new Color(205, 55, 0);
 		} else if (color.equals("royalBlue")) {
 			return new Color(0, 102, 255);
 		} else if (color.equals("lavendar")) {
 			return new Color(123, 104, 238);
 		} else if (color.equals("marsSurfaceRed")) {
-			//return new Color(205, 133, 0);
+			// return new Color(205, 133, 0);
 			return new Color(238, 118, 0);
 		} else if (color.equals("black")) {
 			return Color.BLACK;
