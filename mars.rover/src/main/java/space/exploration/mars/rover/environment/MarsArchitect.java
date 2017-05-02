@@ -31,6 +31,8 @@ public class MarsArchitect {
 		marsSurface.setSize(frameWidth, frameHeight);
 		marsSurface.setTitle("Matrix");
 		this.cellWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+		setUpSurface();
+		propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robotPath, robot);
 		propulsionEngine.renderRobotAnimation();
 	}
 
