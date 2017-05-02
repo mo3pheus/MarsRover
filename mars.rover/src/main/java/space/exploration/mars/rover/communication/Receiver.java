@@ -24,7 +24,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
  */
 public class Receiver extends Thread {
 	final static String	clientId			= "Curiosity";
-	final static String	TOPIC				= "secure_com_from_earth_channel_1";
+	final static String	TOPIC				= "secure_com_from_earth_channel_2";
 	ConsumerConnector	consumerConnector	= null;
 	Radio				radio				= null;
 
