@@ -5,6 +5,7 @@ import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.sensor.Lidar;
+import space.exploration.mars.rover.sensor.Spectrometer;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -22,9 +23,8 @@ public class Rover {
 	State			state			= null;
 
 	/* Equipment Stack */
-	Battery	battery	= new Battery();
-	Lidar	lidar	= null;
-	Radio	radio	= null;
+	Battery			battery			= new Battery();
+	Radio			radio			= null;
 
 	/* States supported */
 	State	listeningState;

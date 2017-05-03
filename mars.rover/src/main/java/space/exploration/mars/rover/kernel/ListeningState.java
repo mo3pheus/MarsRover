@@ -12,68 +12,68 @@ import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPosition
 
 public class ListeningState implements State {
 
-	private Logger	logger	= LoggerFactory.getLogger(ListeningState.class);
-	private Rover	rover	= null;
+    private Logger logger = LoggerFactory.getLogger(ListeningState.class);
+    private Rover  rover  = null;
 
-	public ListeningState(Rover rover) {
-		this.rover = rover;
-	}
+    public ListeningState(Rover rover) {
+        this.rover = rover;
+    }
 
-	public void receiveMessage(byte[] message) {
-		InstructionPayload payload = null;
-		try {
-			System.out.println("This is the listening module");
-			payload = InstructionPayload.parseFrom(message);
-			System.out.println(payload);
-			logger.info(payload.toString());
+    public void receiveMessage(byte[] message) {
+        InstructionPayload payload = null;
+        try {
+            System.out.println("This is the listening module");
+            payload = InstructionPayload.parseFrom(message);
+            System.out.println(payload);
+            logger.info(payload.toString());
 
-			for (TargetPackage tp : payload.getTargetsList()) {
-				if (tp.getRoverModule() == Module.SENSOR_LIDAR.getValue()) {
-					System.out.println("Got lidar message");
-					rover.state = rover.sensingState;
-					rover.scanSurroundings();
-				} else if (tp.getRoverModule() == Module.PROPULSION.getValue()) {
-					System.out.println("Rover " + Rover.ROVER_NAME + " is on the move!");
-					rover.state = rover.movingState;
-					rover.move(RobotPositions.parseFrom(tp.getAuxiliaryData().toByteArray()));
-				} else if (tp.getRoverModule() == Module.SCIENCE.getValue()) {
-					System.out.println("Rover " + Rover.ROVER_NAME + " is on a scientific mission!");
-					rover.state = rover.exploringState;
-					rover.exploreArea();
-				}
-			}
-		} catch (InvalidProtocolBufferException e) {
-			logger.error("InvalidProtocolBufferException");
-			logger.error(e.getMessage());
-		}
-	}
+            for (TargetPackage tp : payload.getTargetsList()) {
+                if (tp.getRoverModule() == Module.SENSOR_LIDAR.getValue()) {
+                    System.out.println("Got lidar message");
+                    rover.state = rover.sensingState;
+                    rover.scanSurroundings();
+                } else if (tp.getRoverModule() == Module.PROPULSION.getValue()) {
+                    System.out.println("Rover " + Rover.ROVER_NAME + " is on the move!");
+                    rover.state = rover.movingState;
+                    rover.move(RobotPositions.parseFrom(tp.getAuxiliaryData().toByteArray()));
+                } else if (tp.getRoverModule() == Module.SCIENCE.getValue()) {
+                    System.out.println("Rover " + Rover.ROVER_NAME + " is on a scientific mission!");
+                    rover.state = rover.exploringState;
+                    rover.exploreArea();
+                }
+            }
+        } catch (InvalidProtocolBufferException e) {
+            logger.error("InvalidProtocolBufferException");
+            logger.error(e.getMessage());
+        }
+    }
 
-	public void transmitMessage(byte[] message) {
-		logger.error("Can not transmit message while in the listening state");
-	}
+    public void transmitMessage(byte[] message) {
+        logger.error("Can not transmit message while in the listening state");
+    }
 
-	public void exploreArea() {
-		logger.error("Can not explore area while in the listening state");
-	}
+    public void exploreArea() {
+        logger.error("Can not explore area while in the listening state");
+    }
 
-	public void performExperiments() {
-		logger.error("Can not perform experiments while in the listening state");
-	}
+    public void performExperiments() {
+        logger.error("Can not perform experiments while in the listening state");
+    }
 
-	public void move(RobotPositions positions) {
-		logger.error("Can not move while in the listening state");
-	}
+    public void move(RobotPositions positions) {
+        logger.error("Can not move while in the listening state");
+    }
 
-	public void hibernate() {
-	}
+    public void hibernate() {
+    }
 
-	public void rechargeBattery() {
-	}
+    public void rechargeBattery() {
+    }
 
-	public void scanSurroundings() {
-	}
+    public void scanSurroundings() {
+    }
 
-	public void performDiagnostics() {
-	}
+    public void performDiagnostics() {
+    }
 
 }
