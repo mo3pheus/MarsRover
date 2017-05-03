@@ -1,0 +1,84 @@
+0    [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+24   [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+24   [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+24   [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+24   [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+24   [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+24   [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+67   [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+67   [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+67   [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+67   [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover
+67   [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+67   [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+68   [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+5097 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], Connecting to zookeeper instance at localhost:2181
+5105 [ZkClient-EventThread-15-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+16150 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+16150 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=10.0.0.229
+16150 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_121
+16150 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+16150 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+16150 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/Users/sanketkorgaonkar/Documents/workspace/mars.rover.project/mars.rover/target/classes:/Users/sanketkorgaonkar/.m2/repository/com/google/protobuf/protobuf-java/3.0.0/protobuf-java-3.0.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/Users/sanketkorgaonkar/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/Users/sanketkorgaonkar/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/Users/sanketkorgaonkar/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/Users/sanketkorgaonkar/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/Users/sanketkorgaonkar/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/Users/sanketkorgaonkar/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/sanketkorgaonkar/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar
+16150 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/Users/sanketkorgaonkar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+16150 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/var/folders/5h/gwr26fh90zs2zgrhjqr0pm1r0000gn/T/
+16151 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+16151 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Mac OS X
+16151 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=x86_64
+16151 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=10.12.4
+16151 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanketkorgaonkar
+16151 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/Users/sanketkorgaonkar
+16151 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/Users/sanketkorgaonkar/Documents/workspace/mars.rover.project/mars.rover
+16152 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@75c072cb
+16167 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+16171 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+16226 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+16234 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15bc1ca48ea007b, negotiated timeout = 6000
+16236 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+16244 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], starting auto committer every 60000 ms
+16266 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], begin registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c in ZK
+16303 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c (is it secure? false)
+16414 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+16415 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], end registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c in ZK
+16419 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], starting watcher executor thread for consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c
+16441 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c try #0
+16554 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493779797670] Stopping leader finder thread
+16554 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493779797670] Stopping all fetchers
+16555 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493779797670] All connections stopped
+16556 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], Cleared all relevant queues for this fetcher
+16557 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], Cleared the data chunks in all the consumer message iterators
+16557 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], Committing all offsets after clearing the fetcher queues
+16558 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], Releasing partition ownership
+16595 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_2 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-0)
+16597 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-0 attempting to claim partition 0
+16632 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-0 successfully owned partition 0 for topic secure_com_from_earth_channel_2
+16650 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c selected partitions : secure_com_from_earth_channel_2:0: fetched offset = 31: consumed offset = 31
+16661 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread], Starting 
+16662 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c try #0
+16677 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+16677 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+16677 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.0.0.229:9092
+16677 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+16692 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.0.0.229,9092) with correlation id 0 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+16698 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.0.0.229:9092 for producing
+16717 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.0.0.229:9092
+16734 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-0-0], Starting 
+16738 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493779786524-77aa738c-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493779797670] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_2,0], initOffset 31 to broker BrokerEndPoint(0,10.0.0.229,9092)] )
+30168 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(secure_com_to_earth_channel_2)
+30169 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+30170 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+30183 [main] INFO  kafka.producer.SyncProducer  - Connected to 10.0.0.229:9092 for producing
+35258 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1493779607725
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+73770 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1493779818022
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+

@@ -62,6 +62,10 @@ public class Cell extends VirtualElement {
 		this.cellWidth = cellWidth;
 	}
 
+	public int getCellWidth() {
+		return cellWidth;
+	}
+
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.setColor((cellColor == null) ? getColor() : cellColor);
