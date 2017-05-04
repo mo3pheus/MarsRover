@@ -20,10 +20,22 @@ public class ListeningState implements State {
     }
 
     public void receiveMessage(byte[] message) {
+        byte[] currentInstruction;
+
+        /* Process instructions in FIFO */
+        if(!rover.getInstructionQueue().isEmpty()){
+            currentInstruction = rover.getInstructionQueue().poll();
+            rover.getInstructionQueue().add(message);
+            rover.state = rover.transmittingState;
+            rover.transmitMessage(rover.getLaggingAlertMsg());
+        } else {
+            currentInstruction = message;
+        }
+
         InstructionPayload payload = null;
         try {
             System.out.println("This is the listening module");
-            payload = InstructionPayload.parseFrom(message);
+            payload = InstructionPayload.parseFrom(currentInstruction);
             System.out.println(payload);
             logger.info(payload.toString());
 

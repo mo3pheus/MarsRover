@@ -25,7 +25,7 @@ public class SensingState implements State {
 
 	public void receiveMessage(byte[] message) {
 		// TODO Auto-generated method stub
-
+        rover.getInstructionQueue().add(message);
 	}
 
 	public void transmitMessage(byte[] message) {
@@ -60,19 +60,20 @@ public class SensingState implements State {
 
 	public void scanSurroundings() {
 		MarsArchitect marsArchitect = rover.getMarsArchitect();
-		Lidar lidar = new Lidar(marsArchitect.getRobot().getLocation(), marsArchitect.getCellWidth(),
+
+		rover.configureLidar(marsArchitect.getRobot().getLocation(), marsArchitect.getCellWidth(),
 				marsArchitect.getCellWidth());
-		lidar.setWallBuilder(new WallBuilder(rover.getMarsConfig()));
-		lidar.scanArea();
-		marsArchitect.setLidarAnimationEngine(lidar);
+		rover.getLidar().setWallBuilder(new WallBuilder(rover.getMarsConfig()));
+		rover.getLidar().scanArea();
+		marsArchitect.setLidarAnimationEngine(rover.getLidar());
 		marsArchitect.getLidarAnimationEngine().activateLidar();
 		marsArchitect.returnSurfaceToNormal();
 		
 		RoverPing.Builder lidarFeedback = RoverPing.newBuilder();
 		lidarFeedback.setTimeStamp(System.currentTimeMillis());
-		lidarFeedback.setMsg(lidar.getStatus());
+        lidarFeedback.setMsg(rover.getLidar().getStatus());
 
-		Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
+        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
 				.setY(marsArchitect.getRobot().getLocation().y).build();
 
 		RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
