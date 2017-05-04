@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
 import space.exploration.mars.rover.environment.Cell;
@@ -47,6 +48,13 @@ public class AnimationUtil {
 
 		return positions;
 	}
+	
+	public static void getStaticEnvironment(Properties marsConfig, Cell robot, JFrame marsSurface){
+		JLayeredPane contentPane = AnimationUtil.getContent(marsConfig);
+		contentPane.add(robot, Cell.ROBOT_DEPTH);
+		marsSurface.setContentPane(contentPane);
+		marsSurface.setVisible(true);
+	}
 
 	public static Cell getStartLocation(Properties matrixConfig) {
 		Cell start = new Cell(matrixConfig);
@@ -67,11 +75,9 @@ public class AnimationUtil {
 		Grid grid = new Grid(marsRoverConfig);
 		WallBuilder wallBuilder = new WallBuilder(marsRoverConfig);
 		Cell destinationCell = new Cell(marsRoverConfig);
-		Cell startingCell = getStartLocation(marsRoverConfig);
-
+		
 		content.add(grid);
 		content.add(wallBuilder);
-		content.add(startingCell);
 		content.add(destinationCell);
 
 		for (int i = 0; i < content.size(); i++) {

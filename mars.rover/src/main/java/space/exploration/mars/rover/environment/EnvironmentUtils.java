@@ -16,19 +16,21 @@ import java.util.HashMap;
 public class EnvironmentUtils {
 	public static Logger logger = LoggerFactory.getLogger(EnvironmentUtils.class);
 
-	public static final String	FRAME_HEIGHT_PROPERTY		= "maze.environment.frame.height";
-	public static final String	FRAME_WIDTH_PROPERTY		= "maze.environment.frame.width";
-	public static final String	CELL_WIDTH_PROPERTY			= "maze.environment.cell.width";
-	public static final String	NUM_WALLS_PROPERTY			= "maze.environment.num.walls";
-	public static final String	WALL_DEFS_PROPERTY			= "maze.environment.wall.definitions.";
-	public static final String	START_CELL_COLOR			= "maze.environment.starting.position.color";
-	public static final String	DESTN_POSN_PROPERTY			= "maze.environment.destination.position";
-	public static final String	ROBOT_START_LOCATION		= "maze.environment.robot.position";
-	public static final String	ROBOT_COLOR					= "maze.environment.robot.color";
-	public static final String	ANIMATION_PACE_DELAY		= "maze.environment.animation.pace.delay";
-	public static final String	ANIMATION_STEP_SIZE			= "maze.environment.animation.step.size";
-	public static final String	LIDAR_ANIMATION_SCAN_DELAY	= "mars.rover.lidar.scan.delay";
-	public static final String	MARS_SURFACE_COLOR			= "mars.surface.color";
+	public static final String	FRAME_HEIGHT_PROPERTY			= "maze.environment.frame.height";
+	public static final String	FRAME_WIDTH_PROPERTY			= "maze.environment.frame.width";
+	public static final String	CELL_WIDTH_PROPERTY				= "maze.environment.cell.width";
+	public static final String	NUM_WALLS_PROPERTY				= "maze.environment.num.walls";
+	public static final String	WALL_DEFS_PROPERTY				= "maze.environment.wall.definitions.";
+	public static final String	START_CELL_COLOR				= "maze.environment.starting.position.color";
+	public static final String	DESTN_POSN_PROPERTY				= "maze.environment.destination.position";
+	public static final String	ROBOT_START_LOCATION			= "maze.environment.robot.position";
+	public static final String	ROBOT_COLOR						= "maze.environment.robot.color";
+	public static final String	ANIMATION_PACE_DELAY			= "maze.environment.animation.pace.delay";
+	public static final String	ANIMATION_STEP_SIZE				= "maze.environment.animation.step.size";
+	public static final String	LIDAR_ANIMATION_SCAN_DELAY		= "mars.rover.lidar.scan.delay";
+	public static final String	SPECTROMETER_ANIMATION_DELAY	= "mars.rover.spectrometer.scan.delay";
+	public static final String	MARS_SURFACE_COLOR				= "mars.surface.color";
+	public static final String	SPECTROMETER_SCAN_COLOR			= "mars.rover.spectrometer.scan.color";
 
 	public static Color findColor(String color) {
 		if (color.equals("red")) {
@@ -58,6 +60,8 @@ public class EnvironmentUtils {
 		} else if (color.equals("marsSurfaceRed")) {
 			// return new Color(205, 133, 0);
 			return new Color(238, 118, 0);
+		} else if (color.equals("spectrometerScanColor")) {
+			return new Color(227, 168, 105);
 		} else if (color.equals("black")) {
 			return Color.BLACK;
 		} else {
@@ -96,10 +100,12 @@ public class EnvironmentUtils {
 			}
 		}
 
-		/*System.out.println("Keyset for spectroscope = " + surfaceComp.keySet().size());
-		for (Point p : surfaceComp.keySet()) {
-			System.out.println(" Point = " + p.toString() + " SoilComp = " + surfaceComp.get(p).toString());
-		}*/
+		/*
+		 * System.out.println("Keyset for spectroscope = " +
+		 * surfaceComp.keySet().size()); for (Point p : surfaceComp.keySet()) {
+		 * System.out.println(" Point = " + p.toString() + " SoilComp = " +
+		 * surfaceComp.get(p).toString()); }
+		 */
 		return surfaceComp;
 	}
 }
