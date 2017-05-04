@@ -74,7 +74,7 @@ public class Lidar {
 	private void scanGridCells() {
 		int i = 0;
 		for (Point p : gridCells) {
-			if (isPointOfContact(p)) {
+			if (p!= null && isPointOfContact(p)) {
 				contacts.add(p);
 				status += " Contact " + i++ + "::" + p.toString();
 			}
