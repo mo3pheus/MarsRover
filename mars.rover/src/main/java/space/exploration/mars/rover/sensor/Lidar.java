@@ -2,9 +2,7 @@ package space.exploration.mars.rover.sensor;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,11 +24,11 @@ public class Lidar {
 	private String	status		= "";
 	private int		cellWidth	= 0;
 
-	public Lidar(Point origin, int range, int cellWidth) {
+      public Lidar(Point origin, int range, int cellWidth) {
 		contacts = new ArrayList<Point>();
 		this.origin = origin;
-		this.range = range;
 		this.range = Math.sqrt((2.0d * range * range));
+
 		logger.info("Lidar instantiated");
 		status = "Instantiated";
 		this.cellWidth = cellWidth;
@@ -53,7 +51,27 @@ public class Lidar {
 		return contacts;
 	}
 
-	public List<Point> getScanRadius() {
+    public void setOrigin(Point origin) {
+        this.origin = origin;
+    }
+
+    public double getRange() {
+        return range;
+    }
+
+    public void setRange(double range) {
+        this.range = range;
+    }
+
+    public int getCellWidth() {
+        return cellWidth;
+    }
+
+    public void setCellWidth(int cellWidth) {
+        this.cellWidth = cellWidth;
+    }
+
+    public List<Point> getScanRadius() {
 		return scanRadius;
 	}
 

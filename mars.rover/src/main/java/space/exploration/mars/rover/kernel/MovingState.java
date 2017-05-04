@@ -24,6 +24,7 @@ public class MovingState implements State {
 	}
 
 	public void receiveMessage(byte[] message) {
+	    rover.getInstructionQueue().add(message);
 	}
 
 	public void transmitMessage(byte[] message) {

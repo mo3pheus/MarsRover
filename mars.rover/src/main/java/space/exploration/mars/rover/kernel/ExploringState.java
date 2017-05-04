@@ -8,7 +8,6 @@ import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPosition
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.Cell;
-import space.exploration.mars.rover.sensor.Spectrometer;
 
 /**
  * @author sanketkorgaonkar
@@ -23,6 +22,7 @@ public class ExploringState implements State {
 	}
 
 	public void receiveMessage(byte[] message) {
+	    rover.getInstructionQueue().add(message);
 	}
 
 	public void transmitMessage(byte[] message) {
@@ -31,12 +31,12 @@ public class ExploringState implements State {
 	public void exploreArea() {
 		MarsArchitect marsArchitect = rover.getMarsArchitect();
 		Cell robot = marsArchitect.getRobot();
-		Spectrometer spectrometer = new Spectrometer(robot.getLocation());
-		spectrometer.setCellWidth(marsArchitect.getCellWidth());
-		spectrometer.setSurfaceComp(marsArchitect.getSoilCompositionMap());
-		spectrometer.processSurroundingArea();
+		rover.configureSpectrometer(robot.getLocation());
+		rover.getSpectrometer().setCellWidth(marsArchitect.getCellWidth());
+		rover.getSpectrometer().setSurfaceComp(marsArchitect.getSoilCompositionMap());
+		rover.getSpectrometer().processSurroundingArea();
 
-		marsArchitect.setSpectrometerAnimationEngine(spectrometer);
+		marsArchitect.setSpectrometerAnimationEngine(rover.getSpectrometer());
 		marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
 		marsArchitect.returnSurfaceToNormal();
 
@@ -45,7 +45,7 @@ public class ExploringState implements State {
 		RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
 		RoverStatus status = rBuilder.setBatteryLevel(rover.getBatter().getPrimaryPowerUnits())
 				.setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
-				.setModuleMessage(spectrometer.getSpectrometerReading().toByteString())
+				.setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
 				.setScet(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE.getValue())
 				.build();
 
