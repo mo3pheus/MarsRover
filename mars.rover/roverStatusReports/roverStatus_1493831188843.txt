@@ -1,0 +1,472 @@
+0    [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+29   [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+29   [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+29   [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+30   [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+30   [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+30   [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+75   [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+75   [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+75   [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+75   [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover
+75   [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+76   [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+76   [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+5114 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Connecting to zookeeper instance at localhost:2181
+5123 [ZkClient-EventThread-15-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+10147 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+10147 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=10.36.201.112
+10147 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_121
+10147 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+10147 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+10147 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/Users/sanketkorgaonkar/Documents/workspace/mars.rover.project/mars.rover/target/classes:/Users/sanketkorgaonkar/.m2/repository/com/google/protobuf/protobuf-java/3.0.0/protobuf-java-3.0.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/Users/sanketkorgaonkar/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/Users/sanketkorgaonkar/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/Users/sanketkorgaonkar/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/Users/sanketkorgaonkar/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/Users/sanketkorgaonkar/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/Users/sanketkorgaonkar/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/sanketkorgaonkar/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar
+10147 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/Users/sanketkorgaonkar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+10148 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/var/folders/5h/gwr26fh90zs2zgrhjqr0pm1r0000gn/T/
+10148 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+10148 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Mac OS X
+10148 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=x86_64
+10148 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=10.12.4
+10148 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanketkorgaonkar
+10148 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/Users/sanketkorgaonkar
+10148 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/Users/sanketkorgaonkar/Documents/workspace/mars.rover.project/mars.rover
+10149 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@75c072cb
+10166 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+10169 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+10229 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+10236 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15bc1ca48ea009e, negotiated timeout = 6000
+10237 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+10246 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], starting auto committer every 60000 ms
+10269 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], begin registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 in ZK
+10303 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 (is it secure? false)
+10383 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+10383 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], end registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 in ZK
+10388 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], starting watcher executor thread for consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2
+10411 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+10533 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping leader finder thread
+10534 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping all fetchers
+10534 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] All connections stopped
+10535 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared all relevant queues for this fetcher
+10536 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared the data chunks in all the consumer message iterators
+10536 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Committing all offsets after clearing the fetcher queues
+10538 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Releasing partition ownership
+10571 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_2 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0)
+10573 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 attempting to claim partition 0
+10604 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 successfully owned partition 0 for topic secure_com_from_earth_channel_2
+10626 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 selected partitions : secure_com_from_earth_channel_2:0: fetched offset = 48: consumed offset = 48
+10638 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Starting 
+10639 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+10653 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+10653 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+10653 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+10653 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+10670 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 0 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+10675 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+10687 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+10704 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Starting 
+10706 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_2,0], initOffset 48 to broker BrokerEndPoint(0,10.36.201.112,9092)] )
+19961 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(secure_com_to_earth_channel_2)
+19962 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+19963 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+19975 [main] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+63938 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1493831240384
+targets {
+  estimatedPowerUsage: 20
+  action: "ScanArea"
+}
+
+63939 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar instantiated
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Wallbuilder set for lidar
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  -  Scanning at location = java.awt.Point[x=125,y=175] Length of contacts  = 5
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 0 bearing:: 0 range:: 35.35533905932738
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 1 bearing:: 5 range:: 35.35533905932738
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 2 bearing:: 10 range:: 35.35533905932738
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 3 bearing:: 15 range:: 35.35533905932738
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 4 bearing:: 20 range:: 35.35533905932738
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 5 bearing:: 25 range:: 35.35533905932738
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 6 bearing:: 30 range:: 35.35533905932738
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 7 bearing:: 35 range:: 35.35533905932738
+63940 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 8 bearing:: 40 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 9 bearing:: 50 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 10 bearing:: 55 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 11 bearing:: 60 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 12 bearing:: 65 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 13 bearing:: 70 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 14 bearing:: 75 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 15 bearing:: 80 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 16 bearing:: 85 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 17 bearing:: 90 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 18 bearing:: 95 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 19 bearing:: 100 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 20 bearing:: 105 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 21 bearing:: 110 range:: 35.35533905932738
+63941 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 22 bearing:: 115 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 23 bearing:: 120 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 24 bearing:: 125 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 25 bearing:: 130 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 26 bearing:: 135 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 27 bearing:: 140 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 28 bearing:: 145 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 29 bearing:: 150 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 30 bearing:: 155 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 31 bearing:: 160 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 32 bearing:: 165 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 33 bearing:: 170 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 34 bearing:: 175 range:: 35.35533905932738
+63942 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 35 bearing:: 230 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 36 bearing:: 235 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 37 bearing:: 240 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 38 bearing:: 245 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 39 bearing:: 250 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 40 bearing:: 255 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 41 bearing:: 260 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 42 bearing:: 265 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 43 bearing:: 270 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 44 bearing:: 275 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 45 bearing:: 280 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 46 bearing:: 285 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 47 bearing:: 290 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 48 bearing:: 295 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 49 bearing:: 300 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 50 bearing:: 305 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 51 bearing:: 310 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 52 bearing:: 315 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 53 bearing:: 320 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 54 bearing:: 325 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 55 bearing:: 330 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 56 bearing:: 335 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 57 bearing:: 340 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 58 bearing:: 345 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 59 bearing:: 350 range:: 35.35533905932738
+63943 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 60 bearing:: 355 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 0 bearing:: 0 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 1 bearing:: 5 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 2 bearing:: 10 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 3 bearing:: 15 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 4 bearing:: 20 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 5 bearing:: 25 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 6 bearing:: 30 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 7 bearing:: 35 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 8 bearing:: 40 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 9 bearing:: 50 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 10 bearing:: 55 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 11 bearing:: 60 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 12 bearing:: 65 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 13 bearing:: 70 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 14 bearing:: 75 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 15 bearing:: 80 range:: 35.35533905932738
+63945 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 16 bearing:: 85 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 17 bearing:: 90 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 18 bearing:: 95 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 19 bearing:: 100 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 20 bearing:: 105 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 21 bearing:: 110 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 22 bearing:: 115 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 23 bearing:: 120 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 24 bearing:: 125 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 25 bearing:: 130 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 26 bearing:: 135 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 27 bearing:: 140 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 28 bearing:: 145 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 29 bearing:: 150 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 30 bearing:: 155 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 31 bearing:: 160 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 32 bearing:: 165 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 33 bearing:: 170 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 34 bearing:: 175 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 35 bearing:: 230 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 36 bearing:: 235 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 37 bearing:: 240 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 38 bearing:: 245 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 39 bearing:: 250 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 40 bearing:: 255 range:: 35.35533905932738
+63946 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 41 bearing:: 260 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 42 bearing:: 265 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 43 bearing:: 270 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 44 bearing:: 275 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 45 bearing:: 280 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 46 bearing:: 285 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 47 bearing:: 290 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 48 bearing:: 295 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 49 bearing:: 300 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 50 bearing:: 305 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 51 bearing:: 310 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 52 bearing:: 315 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 53 bearing:: 320 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 54 bearing:: 325 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 55 bearing:: 330 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 56 bearing:: 335 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 57 bearing:: 340 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 58 bearing:: 345 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 59 bearing:: 350 range:: 35.35533905932738
+63947 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 60 bearing:: 355 range:: 35.35533905932738
+147039 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1493831314909
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\004\b2\0202"
+}
+
+221193 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1493831398890
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\b\302\003\0202"
+}
+
+285046 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1493831456200
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\b\364\003\0202"
+}
+
+320551 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1493831490207
+targets {
+  estimatedPowerUsage: 20
+  action: "ScanArea"
+}
+
+320552 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar instantiated
+320552 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Wallbuilder set for lidar
+320552 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  -  Scanning at location = java.awt.Point[x=500,y=50] Length of contacts  = 2
+320552 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 0 bearing:: 230 range:: 35.35533905932738
+320552 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 1 bearing:: 235 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 2 bearing:: 240 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 3 bearing:: 245 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 4 bearing:: 250 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 5 bearing:: 255 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 6 bearing:: 260 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 7 bearing:: 265 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 8 bearing:: 270 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 9 bearing:: 275 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 10 bearing:: 280 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 11 bearing:: 285 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 12 bearing:: 290 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 13 bearing:: 295 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 14 bearing:: 300 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 15 bearing:: 305 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 16 bearing:: 310 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 17 bearing:: 315 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 18 bearing:: 320 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 19 bearing:: 325 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 20 bearing:: 330 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 21 bearing:: 335 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 22 bearing:: 340 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 23 bearing:: 345 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 24 bearing:: 350 range:: 35.35533905932738
+320553 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 25 bearing:: 355 range:: 35.35533905932738
+320554 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 0 bearing:: 230 range:: 35.35533905932738
+320554 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 1 bearing:: 235 range:: 35.35533905932738
+320554 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 2 bearing:: 240 range:: 35.35533905932738
+320554 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 3 bearing:: 245 range:: 35.35533905932738
+320554 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 4 bearing:: 250 range:: 35.35533905932738
+320554 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 5 bearing:: 255 range:: 35.35533905932738
+320554 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 6 bearing:: 260 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 7 bearing:: 265 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 8 bearing:: 270 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 9 bearing:: 275 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 10 bearing:: 280 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 11 bearing:: 285 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 12 bearing:: 290 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 13 bearing:: 295 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 14 bearing:: 300 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 15 bearing:: 305 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 16 bearing:: 310 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 17 bearing:: 315 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 18 bearing:: 320 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 19 bearing:: 325 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 20 bearing:: 330 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 21 bearing:: 335 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 22 bearing:: 340 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 23 bearing:: 345 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 24 bearing:: 350 range:: 35.35533905932738
+320555 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar reporting contact designate Id:: 25 bearing:: 355 range:: 35.35533905932738
+375769 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1493831545356
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=25] Composition =  Point = java.awt.Point[x=475,y=25] Composition =  Al2O3 = 0.5269668375602333 Na2O = 0.5001859939655983 FeO = 0.757768825619946 MgO = 0.19754046218452004
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=50] Composition =  Point = java.awt.Point[x=475,y=50] Composition =  Al2O3 = 0.2632146561461255 Na2O = 0.3341052878367478 FeO = 0.47108994333531407 MgO = 0.5622888003748788
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=75] Composition =  Point = java.awt.Point[x=475,y=75] Composition =  Al2O3 = 0.1856604665368712 Na2O = 0.3021483369101476 FeO = 0.06965043812283432 MgO = 0.022654056067021956
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=500,y=25] Composition =  Point = java.awt.Point[x=500,y=25] Composition =  Al2O3 = 0.21956000477035342 Na2O = 0.4566602583428483 FeO = 0.6719417874704625 MgO = 0.7952811237900052
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=500,y=50] Composition =  Point = java.awt.Point[x=500,y=50] Composition =  Al2O3 = 0.7623811983231943 Na2O = 0.10135170749741268 FeO = 0.03940228181218064 MgO = 0.25301829901126943
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=500,y=75] Composition =  Point = java.awt.Point[x=500,y=75] Composition =  Al2O3 = 0.11219228068991649 Na2O = 0.376082001366888 FeO = 0.5910618740835617 MgO = 0.3959483099548873
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=525,y=25] Composition =  Point = java.awt.Point[x=525,y=25] Composition =  Al2O3 = 0.7306041787439271 Na2O = 0.1460012564248193 FeO = 0.6094881315408928 MgO = 0.7851111403212107
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=525,y=50] Composition =  Point = java.awt.Point[x=525,y=50] Composition =  Al2O3 = 0.6645078092601989 Na2O = 0.2562541361891277 FeO = 0.1467074662267753 MgO = 0.007823900228665793
+375771 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=525,y=75] Composition =  Point = java.awt.Point[x=525,y=75] Composition =  Al2O3 = 0.07499026414541525 Na2O = 0.037878942604668536 FeO = 0.38127862129425216 MgO = 0.004582651485905487
+4617193 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 3595876ms for sessionid 0x15bc1ca48ea009e, closing socket connection and attempting reconnect
+4617302 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+4617835 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
+4617835 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/0:0:0:0:0:0:0:1:2181, initiating session
+4617837 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Expired)
+4617837 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Unable to reconnect to ZooKeeper service, session 0x15bc1ca48ea009e has expired, closing socket connection
+4617837 [main-EventThread] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@75c072cb
+4617838 [main-EventThread] INFO  org.apache.zookeeper.ClientCnxn  - EventThread shut down
+4617838 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], ZK expired; release old broker parition ownership; re-register consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2
+4617838 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], begin registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 in ZK
+4617839 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
+4617839 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 (is it secure? false)
+4617839 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/0:0:0:0:0:0:0:1:2181, initiating session
+4618033 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, sessionid = 0x15bc1ca48ea009f, negotiated timeout = 6000
+4618034 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+4618037 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+4618037 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], end registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 in ZK
+4618037 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+4618060 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping leader finder thread
+4618061 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutting down
+4618063 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Stopped 
+4618063 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutdown completed
+4618063 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping all fetchers
+4618063 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutting down
+4618067 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Stopped 
+4618067 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutdown completed
+4618067 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] All connections stopped
+4618067 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared all relevant queues for this fetcher
+4618067 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared the data chunks in all the consumer message iterators
+4618067 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Committing all offsets after clearing the fetcher queues
+4618067 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Releasing partition ownership
+4618088 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_2 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0)
+4618089 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 attempting to claim partition 0
+4618091 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 successfully owned partition 0 for topic secure_com_from_earth_channel_2
+4618092 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 selected partitions : secure_com_from_earth_channel_2:0: fetched offset = 54: consumed offset = 54
+4618093 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+4618093 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Starting 
+4618096 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+4618099 [ZkClient-EventThread-15-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Topic info for path /brokers/topics/secure_com_from_earth_channel_2 changed to {"version":1,"partitions":{"0":[0]}}, triggering rebalance
+4618101 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+4618101 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+4618101 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+4618101 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+4618101 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 1 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+4618103 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+4618104 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+4618108 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_2,0], initOffset 54 to broker BrokerEndPoint(0,10.36.201.112,9092)] )
+4618108 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Starting 
+4618123 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping leader finder thread
+4618123 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutting down
+4618124 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Stopped 
+4618124 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutdown completed
+4618124 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping all fetchers
+4618124 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutting down
+4618127 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Stopped 
+4618127 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutdown completed
+4618127 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] All connections stopped
+4618127 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared all relevant queues for this fetcher
+4618127 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared the data chunks in all the consumer message iterators
+4618127 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Committing all offsets after clearing the fetcher queues
+4618127 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Releasing partition ownership
+4618157 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_2 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0)
+4618157 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 attempting to claim partition 0
+4618159 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 successfully owned partition 0 for topic secure_com_from_earth_channel_2
+4618161 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 selected partitions : secure_com_from_earth_channel_2:0: fetched offset = 54: consumed offset = 54
+4618161 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+4618161 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Starting 
+4618161 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+4618166 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+4618166 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+4618166 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+4618167 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+4618167 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 2 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+4618167 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+4618168 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+4618170 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Starting 
+4618170 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_2,0], initOffset 54 to broker BrokerEndPoint(0,10.36.201.112,9092)] )
+4618176 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping leader finder thread
+4618176 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutting down
+4618176 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Stopped 
+4618176 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutdown completed
+4618176 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping all fetchers
+4618176 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutting down
+4618176 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Stopped 
+4618177 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutdown completed
+4618177 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] All connections stopped
+4618177 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared all relevant queues for this fetcher
+4618177 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared the data chunks in all the consumer message iterators
+4618177 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Committing all offsets after clearing the fetcher queues
+4618177 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Releasing partition ownership
+4618186 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_2 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0)
+4618186 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 attempting to claim partition 0
+4618189 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 successfully owned partition 0 for topic secure_com_from_earth_channel_2
+4618190 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 selected partitions : secure_com_from_earth_channel_2:0: fetched offset = 54: consumed offset = 54
+4618190 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+4618190 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Starting 
+4618194 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+4618194 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+4618194 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+4618194 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+4618194 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 3 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+4618194 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+4618195 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+4618196 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_2,0], initOffset 54 to broker BrokerEndPoint(0,10.36.201.112,9092)] )
+4618196 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Starting 
+7852887 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 3184531ms for sessionid 0x15bc1ca48ea009f, closing socket connection and attempting reconnect
+7852995 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+7853323 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+7853323 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+7853324 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15bc1ca48ea009f, negotiated timeout = 6000
+7853324 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+8031231 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+8031243 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping leader finder thread
+8031243 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutting down
+8031244 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Stopped 
+8031244 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutdown completed
+8031244 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping all fetchers
+8031244 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutting down
+8031247 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Stopped 
+8031247 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutdown completed
+8031247 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] All connections stopped
+8031247 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared all relevant queues for this fetcher
+8031247 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared the data chunks in all the consumer message iterators
+8031247 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Committing all offsets after clearing the fetcher queues
+8031247 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Releasing partition ownership
+8031259 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_2 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0, space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493839215077-3ac1adf0-0)
+8031259 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 attempting to claim partition 0
+8031260 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493839215077-3ac1adf0-0 for topic secure_com_from_earth_channel_2
+8031262 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 successfully owned partition 0 for topic secure_com_from_earth_channel_2
+8031263 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 selected partitions : secure_com_from_earth_channel_2:0: fetched offset = 54: consumed offset = 54
+8031263 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+8031263 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Starting 
+8031269 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+8031269 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+8031269 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+8031269 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+8031270 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 4 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+8031270 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+8031272 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+8031274 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Starting 
+8031274 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_2,0], initOffset 54 to broker BrokerEndPoint(0,10.36.201.112,9092)] )
+8049890 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+8049896 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping leader finder thread
+8049896 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutting down
+8049896 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Stopped 
+8049896 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Shutdown completed
+8049896 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Stopping all fetchers
+8049896 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutting down
+8049897 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Stopped 
+8049897 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Shutdown completed
+8049897 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] All connections stopped
+8049897 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared all relevant queues for this fetcher
+8049897 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Cleared the data chunks in all the consumer message iterators
+8049897 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Committing all offsets after clearing the fetcher queues
+8049897 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Releasing partition ownership
+8049903 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_2 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0)
+8049903 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 attempting to claim partition 0
+8049906 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0 successfully owned partition 0 for topic secure_com_from_earth_channel_2
+8049907 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 selected partitions : secure_com_from_earth_channel_2:0: fetched offset = 54: consumed offset = 54
+8049907 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2 try #0
+8049907 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread], Starting 
+8049909 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+8049909 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+8049909 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+8049909 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+8049909 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 5 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+8049910 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+8049910 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+8049912 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-0-0], Starting 
+8049912 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493831194226-d0aff0d2-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493831199358] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_2,0], initOffset 54 to broker BrokerEndPoint(0,10.36.201.112,9092)] )

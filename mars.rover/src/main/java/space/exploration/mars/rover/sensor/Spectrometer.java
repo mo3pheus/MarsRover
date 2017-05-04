@@ -10,8 +10,12 @@ import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.Spec
 
 import java.awt.Point;
 import java.util.Map;
+import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 
 /**
  * Created by sanketkorgaonkar on 5/2/17.
@@ -76,8 +80,9 @@ public class Spectrometer {
 			return;
 		}
 
-		for (int i = ((int)origin.getX() - cellWidth); i <= ((int)origin.getX() + cellWidth); i = (i + cellWidth)) {
-			for (int j = ((int)origin.getY() - cellWidth); j <= ((int)origin.getY() + cellWidth); j = (j + cellWidth)) {
+		for (int i = ((int) origin.getX() - cellWidth); i <= ((int) origin.getX() + cellWidth); i = (i + cellWidth)) {
+			for (int j = ((int) origin.getY() - cellWidth); j <= ((int) origin.getY() + cellWidth); j = (j
+					+ cellWidth)) {
 				if (i < 0 || j < 0) {
 					continue;
 				}
@@ -90,6 +95,14 @@ public class Spectrometer {
 				logger.info(" Processing point = " + temp.toString() + " Composition = " + comp.toString());
 			}
 		}
+	}
+
+	public List<Point> getExplorationPoints() {
+		List<Point> scanPoints = new ArrayList<Point>();
+		for (SoilComp sc : scanAreaComp) {
+			scanPoints.add(sc.getPoint());
+		}
+		return scanPoints;
 	}
 
 	public SpectrometerScan getSpectrometerReading() {

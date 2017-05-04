@@ -57,6 +57,7 @@ public class MovingState implements State {
 					AnimationUtil.generateRobotPositions(robotPosition, tmpPoint, architect.getRobotStepSize()));
 			robotPosition = tmpPoint;
 		}
+		architect.returnSurfaceToNormal();
 		sendUpdateToEarth();
 	}
 

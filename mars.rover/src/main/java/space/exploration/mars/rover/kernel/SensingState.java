@@ -3,8 +3,6 @@
  */
 package space.exploration.mars.rover.kernel;
 
-import com.google.protobuf.ByteString;
-
 import space.exploration.mars.rover.communication.RoverPingOuterClass.RoverPing;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
@@ -68,8 +66,8 @@ public class SensingState implements State {
 		lidar.scanArea();
 		marsArchitect.setLidarAnimationEngine(lidar);
 		marsArchitect.getLidarAnimationEngine().activateLidar();
-		rover.state = rover.transmittingState;
-
+		marsArchitect.returnSurfaceToNormal();
+		
 		RoverPing.Builder lidarFeedback = RoverPing.newBuilder();
 		lidarFeedback.setTimeStamp(System.currentTimeMillis());
 		lidarFeedback.setMsg(lidar.getStatus());
@@ -83,6 +81,7 @@ public class SensingState implements State {
 				.setModuleMessage(lidarFeedback.build().toByteString()).setScet(System.currentTimeMillis())
 				.setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
 
+		rover.state = rover.transmittingState;
 		rover.transmitMessage(status.toByteArray());
 	}
 

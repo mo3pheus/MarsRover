@@ -23,13 +23,9 @@ public class ExploringState implements State {
 	}
 
 	public void receiveMessage(byte[] message) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void transmitMessage(byte[] message) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void exploreArea() {
@@ -39,6 +35,10 @@ public class ExploringState implements State {
 		spectrometer.setCellWidth(marsArchitect.getCellWidth());
 		spectrometer.setSurfaceComp(marsArchitect.getSoilCompositionMap());
 		spectrometer.processSurroundingArea();
+
+		marsArchitect.setSpectrometerAnimationEngine(spectrometer);
+		marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
+		marsArchitect.returnSurfaceToNormal();
 
 		Location.Builder lBuilder = Location.newBuilder().setX(robot.getLocation().x).setY(robot.getLocation().y);
 
@@ -54,33 +54,21 @@ public class ExploringState implements State {
 	}
 
 	public void performExperiments() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void move(RobotPositions positions) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void hibernate() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void rechargeBattery() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void scanSurroundings() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void performDiagnostics() {
-		// TODO Auto-generated method stub
-
 	}
 
 }
