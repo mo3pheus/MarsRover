@@ -1,5 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
@@ -31,6 +33,7 @@ public class Rover {
     /* Status messages */
     RoverStatus status       = null;
     long        creationTime = 0l;
+    Logger      logger       = null;
 
     /* Configuration */
     private Properties    marsConfig    = null;
@@ -39,13 +42,14 @@ public class Rover {
     private Point         location      = null;
 
     /* Equipment Stack */
-    private Battery      battery      = new Battery();
+    private Battery      battery      = null;
     private Radio        radio        = null;
     private Lidar        lidar        = null;
     private Spectrometer spectrometer = null;
 
     /* Contingency Stack */
-    private Queue<byte[]> instructionQueue = null;
+    private Queue<byte[]> instructionQueue     = null;
+    private long          inRechargingModeTime = 0l;
 
     /* Sets up the rover and the boot-up sequence */
     public Rover(Properties marsConfig, Properties comsConfig) {
@@ -59,9 +63,12 @@ public class Rover {
         this.rechargingState = new RechargingState(this);
         this.sensingState = new SensingState(this);
         this.transmittingState = new TransmittingState(this);
-        this.radio = new Radio(comsConfig, this);
         this.marsArchitect = new MarsArchitect(marsConfig);
         this.instructionQueue = new java.util.PriorityQueue<byte[]>();
+        this.logger = LoggerFactory.getLogger(Rover.class);
+
+        configureBattery();
+        configureRadio();
 
         String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
         this.location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
@@ -110,7 +117,7 @@ public class Rover {
         return marsConfig;
     }
 
-    public long getOneSolDuration() {
+    public static long getOneSolDuration() {
         /* Time scaled by a factor of 60. */
         long time = TimeUnit.MINUTES.toMillis(24);
         time += TimeUnit.SECONDS.toMillis(39);
@@ -123,7 +130,7 @@ public class Rover {
         return this.instructionQueue;
     }
 
-    public Battery getBatter() {
+    public Battery getBattery() {
         return battery;
     }
 
@@ -149,6 +156,26 @@ public class Rover {
         this.spectrometer = new Spectrometer(origin);
     }
 
+    public void powerCheck(int powerConsumed) {
+        if (state == hibernatingState) {
+            long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;
+            if (timeInRecharge > battery.getRechargeTime()) {
+                configureBattery();
+                radio.sendMessage(getBootupMessage());
+                state = listeningState;
+            }
+        } else {
+            battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - powerConsumed);
+            if (battery.getPrimaryPowerUnits() <= battery.getAlertThreshold()) {
+                radio.sendMessage(getHibernatingAlertMessage());
+                state = hibernatingState;
+                inRechargingModeTime = System.currentTimeMillis();
+                logger.info("Rover reporting powerConsumed, remaining power = " + battery.getPrimaryPowerUnits() + " " +
+                        "at time = " + System.currentTimeMillis());
+            }
+        }
+    }
+
     public byte[] getLaggingAlertMsg() {
         Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
                 .setY(marsArchitect.getRobot().getLocation().y).build();
@@ -156,10 +183,24 @@ public class Rover {
         rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
         rBuilder.setScet(System.currentTimeMillis());
         rBuilder.setLocation(location);
-        rBuilder.setBatteryLevel(this.getBatter().getPrimaryPowerUnits());
+        rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently lagging for message processing by a count of " +
                 this.getInstructionQueue().size());
+        return rBuilder.build().toByteArray();
+    }
+
+    private byte[] getHibernatingAlertMessage() {
+        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
+                .setY(marsArchitect.getRobot().getLocation().y).build();
+        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
+        rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
+        rBuilder.setScet(System.currentTimeMillis());
+        rBuilder.setLocation(location);
+        rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
+        rBuilder.setSolNumber(getSol());
+        rBuilder.setNotes("Rover " + ROVER_NAME + " is currently shutting down for recharging, expect the next " +
+                "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
         return rBuilder.build().toByteArray();
     }
 
@@ -170,9 +211,21 @@ public class Rover {
         rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
         rBuilder.setScet(System.currentTimeMillis());
         rBuilder.setLocation(location);
-        rBuilder.setBatteryLevel(this.getBatter().getPrimaryPowerUnits());
+        rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " reporting to earth after a restart - How are you earth?");
         return rBuilder.build().toByteArray();
+    }
+
+    private void configureBattery() {
+        int batteryAlertThreshold = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.alertThreshold"));
+        int rechargeTime          = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.rechargeTime"));
+        this.battery = new Battery(batteryAlertThreshold, rechargeTime);
+    }
+
+    private void configureRadio() {
+        this.radio = new Radio(comsConfig, this);
+        long radioCheckPulse = Long.parseLong(marsConfig.getProperty("mars.rover.radio.check.pulse"));
+        radio.getReceiver().setRadioCheckPulse(radioCheckPulse);
     }
 }

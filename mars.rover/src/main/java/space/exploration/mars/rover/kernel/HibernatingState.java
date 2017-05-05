@@ -18,7 +18,7 @@ public class HibernatingState implements State {
 
 	public void receiveMessage(byte[] message) {
 		// TODO Auto-generated method stub
-
+        rover.getInstructionQueue().add(message);
 	}
 
 	public void transmitMessage(byte[] message) {

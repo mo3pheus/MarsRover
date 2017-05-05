@@ -70,7 +70,7 @@ public class MovingState implements State {
 		updateMsg.setLocation(robotLocation);
 		updateMsg.setNotes(
 				"Rover has moved from its previous location. Check subsequent lidarMsg for an environment update.");
-		updateMsg.setBatteryLevel(rover.getBatter().getPrimaryPowerUnits());
+		updateMsg.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
 		updateMsg.setModuleReporting(Module.PROPULSION.getValue());
 		updateMsg.setSolNumber(rover.getSol());
 

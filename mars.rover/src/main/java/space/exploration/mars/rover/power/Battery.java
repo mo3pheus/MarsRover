@@ -1,30 +1,58 @@
 package space.exploration.mars.rover.power;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Battery {
-	private int	primaryPowerUnits;
-	private int	auxillaryPowerUnits;
+    private int primaryPowerUnits;
+    private int auxiliaryPowerUnits;
+    private int alertThreshold;
+    private int rechargeTime;
 
-	public int getPrimaryPowerUnits() {
-		return primaryPowerUnits;
-	}
+    private Logger logger = LoggerFactory.getLogger(Battery.class);
 
-	public void setPrimaryPowerUnits(int primaryPowerUnits) {
-		this.primaryPowerUnits = primaryPowerUnits;
-	}
+    public int getPrimaryPowerUnits() {
+        return primaryPowerUnits;
+    }
 
-	public int getAuxillaryPowerUnits() {
-		return auxillaryPowerUnits;
-	}
+    public void setPrimaryPowerUnits(int primaryPowerUnits) {
+        this.primaryPowerUnits = primaryPowerUnits;
+    }
 
-	public void setAuxillaryPowerUnits(int auxillaryPowerUnits) {
-		this.auxillaryPowerUnits = auxillaryPowerUnits;
-	}
+    public int getAuxiliaryPowerUnits() {
+        return auxiliaryPowerUnits;
+    }
 
-	public boolean requestPower(int powerUnitsRequested, boolean critical) {
-		if (!critical) {
-			return (primaryPowerUnits - auxillaryPowerUnits) > powerUnitsRequested;
-		} else {
-			return (primaryPowerUnits > powerUnitsRequested);
-		}
-	}
+    public void setAuxiliaryPowerUnits(int auxiliaryPowerUnits) {
+        this.auxiliaryPowerUnits = auxiliaryPowerUnits;
+    }
+
+    public boolean requestPower(int powerUnitsRequested, boolean critical) {
+        boolean powerAvailable = false;
+        if (!critical) {
+            powerAvailable = (primaryPowerUnits - auxiliaryPowerUnits) > powerUnitsRequested;
+        } else {
+            powerAvailable = (primaryPowerUnits > powerUnitsRequested);
+        }
+
+        if (!powerAvailable) {
+            logger.error("Battery insufficient at time = " + System.currentTimeMillis() + " Power requested = " +
+                    powerUnitsRequested + " Critical = " + critical);
+        }
+
+        return powerAvailable;
+    }
+
+    public Battery(int alertThreshold, int rechargeTime) {
+        this.alertThreshold = alertThreshold;
+        this.rechargeTime = rechargeTime;
+        this.primaryPowerUnits = 10000;
+        this.auxiliaryPowerUnits = 1000;
+    }
+
+    public int getRechargeTime(){return rechargeTime;}
+
+    public int getAlertThreshold() {
+        return alertThreshold;
+    }
 }

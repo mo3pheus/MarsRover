@@ -1,10 +1,8 @@
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.protobuf.InvalidProtocolBufferException;
-
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
@@ -23,8 +21,8 @@ public class ListeningState implements State {
         byte[] currentInstruction;
 
         /* Process instructions in FIFO */
-        if(!rover.getInstructionQueue().isEmpty()){
-            currentInstruction = rover.getInstructionQueue().poll();
+        if (!rover.getInstructionQueue().isEmpty()) {
+            currentInstruction = rover.getInstructionQueue().remove();
             rover.getInstructionQueue().add(message);
             rover.state = rover.transmittingState;
             rover.transmitMessage(rover.getLaggingAlertMsg());
@@ -40,6 +38,9 @@ public class ListeningState implements State {
             logger.info(payload.toString());
 
             for (TargetPackage tp : payload.getTargetsList()) {
+                rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - tp
+                        .getEstimatedPowerUsage());
+
                 if (tp.getRoverModule() == Module.SENSOR_LIDAR.getValue()) {
                     System.out.println("Got lidar message");
                     rover.state = rover.sensingState;

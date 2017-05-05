@@ -43,7 +43,7 @@ public class ExploringState implements State {
 		Location.Builder lBuilder = Location.newBuilder().setX(robot.getLocation().x).setY(robot.getLocation().y);
 
 		RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-		RoverStatus status = rBuilder.setBatteryLevel(rover.getBatter().getPrimaryPowerUnits())
+		RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
 				.setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
 				.setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
 				.setScet(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE.getValue())
