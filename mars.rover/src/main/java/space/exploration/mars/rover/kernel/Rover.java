@@ -167,6 +167,7 @@ public class Rover {
         } else {
             battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - powerConsumed);
             if (battery.getPrimaryPowerUnits() <= battery.getAlertThreshold()) {
+                System.out.println("Going into hibernating mode!");
                 radio.sendMessage(getHibernatingAlertMessage());
                 state = hibernatingState;
                 inRechargingModeTime = System.currentTimeMillis();

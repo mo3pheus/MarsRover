@@ -70,14 +70,15 @@ public class Receiver extends Thread {
                 .createMessageStreams(topicCountMap);
         KafkaStream<byte[], byte[]>      stream = consumerMap.get(TUNED_CHANNEL).get(0);
         ConsumerIterator<byte[], byte[]> it     = stream.iterator();
+
+        long timeElapsed = System.currentTimeMillis() - this.lastReportTime;
+        if (timeElapsed > this.radioCheckPulse) {
+            radio.reportPowerUsage((int) (timeElapsed / radioCheckPulse) * RECEIVER_POWER_USAGE);
+            this.lastReportTime = System.currentTimeMillis();
+        }
+
         while (it.hasNext()) {
             try {
-                long timeElapsed = System.currentTimeMillis() - this.lastReportTime;
-                if (timeElapsed > this.radioCheckPulse) {
-                    radio.reportPowerUsage((int)(timeElapsed/radioCheckPulse) * RECEIVER_POWER_USAGE);
-                    this.lastReportTime = System.currentTimeMillis();
-                }
-
                 InstructionPayload received = (InstructionPayload.parseFrom(it.next().message()));
                 radio.receiveMessage(received);
             } catch (InvalidProtocolBufferException e) {
