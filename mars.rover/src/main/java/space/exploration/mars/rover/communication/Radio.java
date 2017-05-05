@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
+import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.kernel.Rover;
 
 import java.util.Properties;
@@ -13,10 +14,11 @@ import java.util.Properties;
  * Created by sanketkorgaonkar on 4/27/17.
  */
 public class Radio {
-    private Rover       rover       = null;
-    private Transmitter transmitter = null;
-    private Receiver    receiver    = null;
-    private Logger      logger      = LoggerFactory.getLogger(Radio.class);
+    private RadioAnimationEngine radioAnimEngine = null;
+    private Rover                rover           = null;
+    private Transmitter          transmitter     = null;
+    private Receiver             receiver        = null;
+    private Logger               logger          = LoggerFactory.getLogger(Radio.class);
 
     public Radio(Properties comsConfig, Rover rover) {
         this.transmitter = new Transmitter(comsConfig);
@@ -27,6 +29,9 @@ public class Radio {
 
     public void receiveMessage(InstructionPayload instructionPayload) {
         try {
+            this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
+                    .getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
+            radioAnimEngine.activateRadio();
             Thread.sleep(getComsDelaySecs());
             rover.receiveMessage(instructionPayload.toByteArray());
         } catch (Exception e) {
@@ -36,6 +41,9 @@ public class Radio {
 
     public void sendMessage(byte[] message) {
         try {
+            this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
+                    .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
+            radioAnimEngine.activateRadio();
             Thread.sleep(getComsDelaySecs());
             transmitter.transmitMessage(message);
         } catch (InvalidProtocolBufferException e) {
