@@ -116,7 +116,7 @@ public class AnimationUtil {
 
     public static void getRobot(Properties marsRoverConfig, Point position, Cell robot) {
         robot.setLocation(position);
-        robot.setCellWidth(18);
+        robot.setCellWidth(15);
         robot.setColor(EnvironmentUtils.findColor(marsRoverConfig.getProperty(EnvironmentUtils.ROBOT_COLOR)));
     }
 }

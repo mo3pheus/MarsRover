@@ -29,10 +29,10 @@ public class Radio {
 
     public void receiveMessage(InstructionPayload instructionPayload) {
         try {
+            Thread.sleep(getComsDelaySecs());
             this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
                     .getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
             radioAnimEngine.activateRadio();
-            Thread.sleep(getComsDelaySecs());
             rover.receiveMessage(instructionPayload.toByteArray());
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -41,10 +41,10 @@ public class Radio {
 
     public void sendMessage(byte[] message) {
         try {
+            Thread.sleep(getComsDelaySecs());
             this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
                     .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
             radioAnimEngine.activateRadio();
-            Thread.sleep(getComsDelaySecs());
             transmitter.transmitMessage(message);
         } catch (InvalidProtocolBufferException e) {
             logger.error("InvalidProtocolBufferException error - common guys send me a good message!");
