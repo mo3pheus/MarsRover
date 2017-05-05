@@ -1,39 +1,23 @@
 package space.exploration.mars.rover.kernel;
 
 import space.exploration.mars.rover.communication.Radio;
+import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
+import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
-
-import java.awt.*;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-import java.util.Queue;
-
-import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.Spectrometer;
 
+import java.awt.*;
+import java.util.Properties;
+import java.util.Queue;
+import java.util.concurrent.TimeUnit;
+
 public class Rover {
     public static final String ROVER_NAME = "Curiosity";
-
-    /* Configuration */
-    Properties    marsConfig    = null;
-    Properties    comsConfig    = null;
-    MarsArchitect marsArchitect = null;
-    State         state         = null;
-    Point         location      = null;
-
-    /* Equipment Stack */
-    Battery      battery      = new Battery();
-    Radio        radio        = null;
-    Lidar        lidar        = null;
-    Spectrometer spectrometer = null;
-
-    /* Contingency Stack */
-    Queue<byte[]> instructionQueue = null;
+    State state = null;
 
     /* States supported */
     State listeningState;
@@ -47,6 +31,21 @@ public class Rover {
     /* Status messages */
     RoverStatus status       = null;
     long        creationTime = 0l;
+
+    /* Configuration */
+    private Properties    marsConfig    = null;
+    private Properties    comsConfig    = null;
+    private MarsArchitect marsArchitect = null;
+    private Point         location      = null;
+
+    /* Equipment Stack */
+    private Battery      battery      = new Battery();
+    private Radio        radio        = null;
+    private Lidar        lidar        = null;
+    private Spectrometer spectrometer = null;
+
+    /* Contingency Stack */
+    private Queue<byte[]> instructionQueue = null;
 
     /* Sets up the rover and the boot-up sequence */
     public Rover(Properties marsConfig, Properties comsConfig) {
