@@ -29,9 +29,8 @@ public class Radio {
 
 	public void receiveMessage(InstructionPayload instructionPayload) {
 		try {
-			//Thread.sleep(getComsDelaySecs());
-            Thread.sleep(0l);
-			rover.receiveMessage(instructionPayload.toByteArray());
+            Thread.sleep(getComsDelaySecs());
+            rover.receiveMessage(instructionPayload.toByteArray());
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
