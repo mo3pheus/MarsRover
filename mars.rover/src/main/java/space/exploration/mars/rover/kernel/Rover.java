@@ -159,6 +159,8 @@ public class Rover {
     public void powerCheck(int powerConsumed) {
         if (state == hibernatingState) {
             long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;
+            System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " required = " +
+                    battery.getRechargeTime());
             if (timeInRecharge > battery.getRechargeTime()) {
                 configureBattery();
                 radio.sendMessage(getBootupMessage());

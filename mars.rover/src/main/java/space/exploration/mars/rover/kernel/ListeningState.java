@@ -38,6 +38,12 @@ public class ListeningState implements State {
             logger.info(payload.toString());
 
             for (TargetPackage tp : payload.getTargetsList()) {
+                if(!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)){
+                    rover.state = rover.hibernatingState;
+                    rover.getInstructionQueue().add(payload.toByteArray());
+                    return;
+                }
+
                 rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - tp
                         .getEstimatedPowerUsage());
 

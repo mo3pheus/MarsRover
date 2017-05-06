@@ -24,17 +24,18 @@ import java.util.Properties;
 public class Receiver extends Thread {
     public final static int    RECEIVER_POWER_USAGE = 20;
     public final static String clientId             = "Curiosity";
-    public final static String TUNED_CHANNEL        = "secure_com_from_earth_channel_2";
+    public final static String TUNED_CHANNEL        = "secure_com_from_earth_channel_3";
 
     private ConsumerConnector consumerConnector = null;
     private Radio             radio             = null;
     private long              lastReportTime    = 0l;
     private long              radioCheckPulse   = 0l;
 
+    @Deprecated
     public Receiver() throws Exception {
         Properties properties = new Properties();
         properties.put("zookeeper.connect", "localhost:2181");
-        properties.put("group.id", "test-coms-zion-controlRoom");
+        properties.put("group.id", "nasa.command.earth.center");
         ConsumerConfig consumerConfig = new ConsumerConfig(properties);
         consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
         MatrixCreation.configureLogging();
@@ -63,7 +64,7 @@ public class Receiver extends Thread {
 
     @Override
     public void run() {
-        System.out.println("Listening ...");
+        System.out.println("Rover Listening ...");
         Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
         topicCountMap.put(TUNED_CHANNEL, new Integer(1));
         Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumerConnector
@@ -72,6 +73,7 @@ public class Receiver extends Thread {
         ConsumerIterator<byte[], byte[]> it     = stream.iterator();
 
         long timeElapsed = System.currentTimeMillis() - this.lastReportTime;
+        System.out.println("Time Elapsed since last message = " + timeElapsed);
         if (timeElapsed > this.radioCheckPulse) {
             radio.reportPowerUsage((int) (timeElapsed / radioCheckPulse) * RECEIVER_POWER_USAGE);
             this.lastReportTime = System.currentTimeMillis();

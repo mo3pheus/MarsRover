@@ -51,17 +51,15 @@ public class RadioAnimationEngine {
         radioCell.setLocation(location);
         radioCell.setCellWidth(5);
 
-        for (int i = 0; i < 10; i++) {
-            contentPane.add(radioCell, new Integer(RADIO_DEPTH));
-            marsSurface.setContentPane(contentPane);
-            marsSurface.setVisible(true);
-            try {
-                Thread.sleep(radioAnimationDelay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            contentPane.remove(radioCell);
+        contentPane.add(radioCell, new Integer(RADIO_DEPTH));
+        marsSurface.setContentPane(contentPane);
+        marsSurface.setVisible(true);
+        try {
+            Thread.sleep(radioAnimationDelay);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        contentPane.remove(radioCell);
         AnimationUtil.getStaticEnvironment(marsConfig, robot, marsSurface);
     }
 }
