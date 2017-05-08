@@ -13,8 +13,9 @@ import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.Spectrometer;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
-import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
 public class Rover {
@@ -48,8 +49,8 @@ public class Rover {
     private Spectrometer spectrometer = null;
 
     /* Contingency Stack */
-    private Queue<byte[]> instructionQueue     = null;
-    private long          inRechargingModeTime = 0l;
+    private List<byte[]> instructionQueue     = null;
+    private long         inRechargingModeTime = 0l;
 
     /* Sets up the rover and the boot-up sequence */
     public Rover(Properties marsConfig, Properties comsConfig) {
@@ -64,7 +65,7 @@ public class Rover {
         this.sensingState = new SensingState(this);
         this.transmittingState = new TransmittingState(this);
         this.marsArchitect = new MarsArchitect(marsConfig);
-        this.instructionQueue = new java.util.PriorityQueue<byte[]>();
+        this.instructionQueue = new ArrayList<byte[]>();
         this.logger = LoggerFactory.getLogger(Rover.class);
 
         configureBattery();
@@ -117,16 +118,7 @@ public class Rover {
         return marsConfig;
     }
 
-    public static long getOneSolDuration() {
-        /* Time scaled by a factor of 60. */
-        long time = TimeUnit.MINUTES.toMillis(24);
-        time += TimeUnit.SECONDS.toMillis(39);
-        time += 35;
-        time += 244;
-        return time;
-    }
-
-    public Queue<byte[]> getInstructionQueue() {
+    public List<byte[]> getInstructionQueue() {
         return this.instructionQueue;
     }
 
@@ -134,18 +126,8 @@ public class Rover {
         return battery;
     }
 
-    public int getSol() {
-        long diff  = System.currentTimeMillis() - creationTime;
-        long solMs = getOneSolDuration();
-        return Math.round(diff / solMs);
-    }
-
     public Lidar getLidar() {
         return lidar;
-    }
-
-    public void configureLidar(Point origin, int cellWidth, int range) {
-        this.lidar = new Lidar(origin, cellWidth, range);
     }
 
     public Spectrometer getSpectrometer() {
@@ -156,6 +138,25 @@ public class Rover {
         this.spectrometer = new Spectrometer(origin);
     }
 
+    public static long getOneSolDuration() {
+        /* Time scaled by a factor of 60. */
+        long time = TimeUnit.MINUTES.toMillis(24);
+        time += TimeUnit.SECONDS.toMillis(39);
+        time += 35;
+        time += 244;
+        return time;
+    }
+
+    public int getSol() {
+        long diff  = System.currentTimeMillis() - creationTime;
+        long solMs = getOneSolDuration();
+        return Math.round(diff / solMs);
+    }
+
+    public void configureLidar(Point origin, int cellWidth, int range) {
+        this.lidar = new Lidar(origin, cellWidth, range);
+    }
+
     public void powerCheck(int powerConsumed) {
         if (state == hibernatingState) {
             long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;
@@ -163,6 +164,8 @@ public class Rover {
                     battery.getRechargeTime());
             if (timeInRecharge > battery.getRechargeTime()) {
                 configureBattery();
+                marsArchitect.getRobot().setColor(EnvironmentUtils.findColor(marsConfig.getProperty
+                        (EnvironmentUtils.ROBOT_COLOR)));
                 radio.sendMessage(getBootupMessage());
                 state = listeningState;
             }
@@ -171,12 +174,14 @@ public class Rover {
             if (battery.getPrimaryPowerUnits() <= battery.getAlertThreshold()) {
                 System.out.println("Going into hibernating mode!");
                 radio.sendMessage(getHibernatingAlertMessage());
+                marsArchitect.getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
                 state = hibernatingState;
                 inRechargingModeTime = System.currentTimeMillis();
                 logger.info("Rover reporting powerConsumed, remaining power = " + battery.getPrimaryPowerUnits() + " " +
                         "at time = " + System.currentTimeMillis());
             }
         }
+        marsArchitect.getMarsSurface().repaint();
     }
 
     public byte[] getLaggingAlertMsg() {

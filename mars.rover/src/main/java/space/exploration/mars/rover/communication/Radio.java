@@ -35,6 +35,7 @@ public class Radio {
             radioAnimEngine.activateRadio();
             rover.receiveMessage(instructionPayload.toByteArray());
         } catch (Exception e) {
+            System.out.println("Radio receive operation has an exception");
             logger.error(e.getMessage());
         }
     }
@@ -47,9 +48,11 @@ public class Radio {
             Thread.sleep(getComsDelaySecs());
             transmitter.transmitMessage(message);
         } catch (InvalidProtocolBufferException e) {
+            System.out.println("Transmit module is in exception - invalidProtocolBuffer ");
             logger.error("InvalidProtocolBufferException error - common guys send me a good message!");
             logger.error(e.getMessage());
         } catch (InterruptedException e) {
+            System.out.println("Transmit module is in exception - interruptedException ");
             logger.error("InterruptedException");
             logger.error(e.getMessage());
         }
