@@ -60,9 +60,10 @@ public class Camera {
     }
 
     private final void collectImages() {
-        for (int i = 0; i < numImages; i++) {
+        for (int i = 1; i <= numImages; i++) {
             String fileName = EnvironmentUtils.CAMERA_IMAGE_HEADER + Integer.toString(i) + ".jpg";
             try {
+                System.out.println(fileName);
                 marsImages[i] = ImageIO.read(new File(Camera.class.getClassLoader().getResource(fileName).getPath()));
             } catch (IOException e) {
                 e.printStackTrace();
