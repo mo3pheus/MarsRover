@@ -35,6 +35,7 @@ public class MatrixCreation {
 
 	public static Properties getMatrixConfig() throws IOException {
 		URL url = MatrixCreation.class.getResource("/mazeDefinition.properties");
+		System.out.println("URL = " + url.toString());
 		FileInputStream propFile = new FileInputStream(url.getPath());
 		matrixConfig = new Properties();
 		matrixConfig.load(propFile);

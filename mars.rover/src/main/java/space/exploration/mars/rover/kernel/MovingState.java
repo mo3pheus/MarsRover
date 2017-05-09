@@ -33,7 +33,7 @@ public class MovingState implements State {
 	public void exploreArea() {
 	}
 
-	public void performExperiments() {
+	public void activateCamera() {
 	}
 
 	public void hibernate() {
@@ -64,7 +64,7 @@ public class MovingState implements State {
 
 	private void sendUpdateToEarth() {
 		RoverStatus.Builder updateMsg = RoverStatus.newBuilder();
-		updateMsg.setScet(System.currentTimeMillis());
+		updateMsg.setSCET(System.currentTimeMillis());
 		Location robotLocation = Location.newBuilder().setX(rover.getMarsArchitect().getRobot().getLocation().x)
 				.setY(rover.getMarsArchitect().getRobot().getLocation().y).build();
 		updateMsg.setLocation(robotLocation);

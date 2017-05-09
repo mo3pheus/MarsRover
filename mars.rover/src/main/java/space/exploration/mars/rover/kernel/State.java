@@ -9,7 +9,7 @@ public interface State {
 
 	public void exploreArea();
 
-	public void performExperiments();
+	public void activateCamera();
 
 	public void move(RobotPositions positions);
 

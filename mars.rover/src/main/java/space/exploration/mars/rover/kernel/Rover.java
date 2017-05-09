@@ -9,6 +9,7 @@ import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
+import space.exploration.mars.rover.sensor.Camera;
 import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.Spectrometer;
 
@@ -30,6 +31,7 @@ public class Rover {
     State transmittingState;
     State hibernatingState;
     State rechargingState;
+    State photoGraphingState;
 
     /* Status messages */
     RoverStatus status       = null;
@@ -47,6 +49,7 @@ public class Rover {
     private Radio        radio        = null;
     private Lidar        lidar        = null;
     private Spectrometer spectrometer = null;
+    private Camera       camera       = null;
 
     /* Contingency Stack */
     private List<byte[]> instructionQueue     = null;
@@ -62,6 +65,7 @@ public class Rover {
         this.exploringState = new ExploringState(this);
         this.movingState = new MovingState(this);
         this.rechargingState = new RechargingState(this);
+        this.photoGraphingState = new PhotographingState(this);
         this.sensingState = new SensingState(this);
         this.transmittingState = new TransmittingState(this);
         this.marsArchitect = new MarsArchitect(marsConfig);
@@ -78,12 +82,21 @@ public class Rover {
 
         this.lidar = new Lidar(location, cellWidth, cellWidth);
         this.spectrometer = new Spectrometer(location);
+        this.camera = new Camera(this.marsConfig);
         state = transmittingState;
         transmitMessage(getBootupMessage());
     }
 
+    public Camera getCamera() {
+        return camera;
+    }
+
     public void receiveMessage(byte[] message) {
         state.receiveMessage(message);
+    }
+
+    public void activateCamera() {
+        state.activateCamera();
     }
 
     public void scanSurroundings() {
@@ -189,7 +202,7 @@ public class Rover {
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
         rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
-        rBuilder.setScet(System.currentTimeMillis());
+        rBuilder.setSCET(System.currentTimeMillis());
         rBuilder.setLocation(location);
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
@@ -203,7 +216,7 @@ public class Rover {
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
         rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
-        rBuilder.setScet(System.currentTimeMillis());
+        rBuilder.setSCET(System.currentTimeMillis());
         rBuilder.setLocation(location);
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
@@ -217,7 +230,7 @@ public class Rover {
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
         rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
-        rBuilder.setScet(System.currentTimeMillis());
+        rBuilder.setSCET(System.currentTimeMillis());
         rBuilder.setLocation(location);
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());

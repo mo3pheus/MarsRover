@@ -40,7 +40,7 @@ public class HibernatingState implements State {
 
 	}
 
-	public void performExperiments() {
+	public void activateCamera() {
 		// TODO Auto-generated method stub
 
 	}
