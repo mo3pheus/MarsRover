@@ -30,6 +30,11 @@ public class EnvironmentUtils {
     public static final String SPECTROMETER_ANIMATION_DELAY = "mars.rover.spectrometer.scan.delay";
     public static final String MARS_SURFACE_COLOR           = "mars.surface.color";
     public static final String SPECTROMETER_SCAN_COLOR      = "mars.rover.spectrometer.scan.color";
+    public static final String CAMERA_NUM_IMAGE_CAHCES      = "mars.rover.camera.number.image.caches";
+    public static final String CAMERA_SHUTTER_SPEED         = "mars.rover.camera.shutterSpeed";
+    public static final String CAMERA_LOCATION_HEADER       = "mars.rover.camera.number.image.caches";
+    public static final String CAMERA_IMAGE_HEADER          = "/marsImages/mars00";
+    public static final String CAMERA_NUM_IMAGES            = "mars.rover.camera.number.images";
 
     public static Color findColor(String color) {
         if (color.equals("red")) {

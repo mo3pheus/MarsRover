@@ -46,14 +46,14 @@ public class ExploringState implements State {
 		RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
 				.setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
 				.setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
-				.setScet(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE.getValue())
+				.setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE.getValue())
 				.build();
 
 		rover.state = rover.transmittingState;
 		rover.transmitMessage(status.toByteArray());
 	}
 
-	public void performExperiments() {
+	public void activateCamera() {
 	}
 
 	public void move(RobotPositions positions) {

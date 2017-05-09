@@ -1,9 +1,6 @@
 package space.exploration.mars.rover.environment;
 
-import space.exploration.mars.rover.animation.AnimationUtil;
-import space.exploration.mars.rover.animation.LidarAnimationEngine;
-import space.exploration.mars.rover.animation.SpectrometerAnimationEngine;
-import space.exploration.mars.rover.animation.TrackingAnimationEngine;
+import space.exploration.mars.rover.animation.*;
 import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.Spectrometer;
 
@@ -14,15 +11,16 @@ import java.util.Map;
 import java.util.Properties;
 
 public class MarsArchitect {
-    private Map<Point, SoilComposition> soilCompositionMap = null;
-    private JFrame                      marsSurface        = null;
-    private Properties                  marsConfig         = null;
-    private TrackingAnimationEngine     propulsionEngine   = null;
-    private LidarAnimationEngine        lidarEngine        = null;
-    private SpectrometerAnimationEngine spectrometerEngine = null;
-    private Cell                        robot              = null;
-    private int                         cellWidth          = 0;
-    private int                         robotStepSize      = 0;
+    private Map<Point, SoilComposition> soilCompositionMap    = null;
+    private JFrame                      marsSurface           = null;
+    private Properties                  marsConfig            = null;
+    private TrackingAnimationEngine     propulsionEngine      = null;
+    private LidarAnimationEngine        lidarEngine           = null;
+    private CameraAnimationEngine       cameraAnimationEngine = null;
+    private SpectrometerAnimationEngine spectrometerEngine    = null;
+    private Cell                        robot                 = null;
+    private int                         cellWidth             = 0;
+    private int                         robotStepSize         = 0;
 
     @Deprecated
     public MarsArchitect(Properties matrixDefinition, List<Point> robotPath) {
@@ -59,6 +57,12 @@ public class MarsArchitect {
         this.lidarEngine = new LidarAnimationEngine(marsConfig, robot);
         lidarEngine.setMarsSurface(marsSurface);
         lidarEngine.setLidar(lidar);
+    }
+
+    public CameraAnimationEngine getCameraAnimationEngine(Point location) {
+        long shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
+        this.cameraAnimationEngine = new CameraAnimationEngine(marsConfig, location, shutterSpeed, cellWidth);
+        return cameraAnimationEngine;
     }
 
     public void setSpectrometerAnimationEngine(Spectrometer spectrometer) {

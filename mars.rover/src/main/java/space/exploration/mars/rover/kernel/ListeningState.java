@@ -64,6 +64,10 @@ public class ListeningState implements State {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is on a scientific mission!");
                     rover.state = rover.exploringState;
                     rover.exploreArea();
+                } else if (tp.getRoverModule() == Module.CAMERA_SENSOR.getValue()) {
+                    System.out.println("Rover " + Rover.ROVER_NAME + " is going to try to take pictures!");
+                    rover.state = rover.photoGraphingState;
+                    rover.activateCamera();
                 }
             }
         } catch (InvalidProtocolBufferException e) {
@@ -80,7 +84,7 @@ public class ListeningState implements State {
         logger.error("Can not explore area while in the listening state");
     }
 
-    public void performExperiments() {
+    public void activateCamera() {
         logger.error("Can not perform experiments while in the listening state");
     }
 

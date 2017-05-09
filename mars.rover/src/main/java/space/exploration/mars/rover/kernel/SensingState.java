@@ -37,7 +37,7 @@ public class SensingState implements State {
 
 	}
 
-	public void performExperiments() {
+	public void activateCamera() {
 		// TODO Auto-generated method stub
 
 	}
@@ -78,7 +78,7 @@ public class SensingState implements State {
 		RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
 		RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
 				.setSolNumber(rover.getSol()).setLocation(location).setNotes("Lidar exercised here.")
-				.setModuleMessage(lidarFeedback.build().toByteString()).setScet(System.currentTimeMillis())
+				.setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
 				.setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
 
 		rover.state = rover.transmittingState;
