@@ -1,0 +1,294 @@
+0    [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+28   [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+29   [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+29   [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+29   [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+29   [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+29   [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+79   [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+79   [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+79   [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+79   [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover
+80   [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+80   [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+80   [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+5118 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], Connecting to zookeeper instance at localhost:2181
+5132 [ZkClient-EventThread-15-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+16176 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+16178 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=10.0.0.229
+16178 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_121
+16178 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+16178 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+16178 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/Users/sanketkorgaonkar/Documents/workspace/mars.rover.project/mars.rover/target/classes:/Users/sanketkorgaonkar/.m2/repository/com/google/protobuf/protobuf-java/3.0.0/protobuf-java-3.0.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/Users/sanketkorgaonkar/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/Users/sanketkorgaonkar/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/Users/sanketkorgaonkar/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/Users/sanketkorgaonkar/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/Users/sanketkorgaonkar/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/Users/sanketkorgaonkar/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/sanketkorgaonkar/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar
+16178 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/Users/sanketkorgaonkar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+16179 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/var/folders/5h/gwr26fh90zs2zgrhjqr0pm1r0000gn/T/
+16179 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+16179 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Mac OS X
+16179 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=x86_64
+16179 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=10.12.4
+16179 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanketkorgaonkar
+16179 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/Users/sanketkorgaonkar
+16179 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/Users/sanketkorgaonkar/Documents/workspace/mars.rover.project/mars.rover
+16180 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@75c072cb
+16203 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+16206 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
+16283 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/0:0:0:0:0:0:0:1:2181, initiating session
+16294 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, sessionid = 0x15bc1ca48ea00ad, negotiated timeout = 6000
+16296 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+16307 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], starting auto committer every 60000 ms
+16332 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], begin registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7 in ZK
+16381 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7 (is it secure? false)
+16640 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+16640 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], end registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7 in ZK
+16645 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], starting watcher executor thread for consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7
+16671 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7 try #0
+16820 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493857201666] Stopping leader finder thread
+16821 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493857201666] Stopping all fetchers
+16822 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493857201666] All connections stopped
+16822 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], Cleared all relevant queues for this fetcher
+16823 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], Cleared the data chunks in all the consumer message iterators
+16823 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], Committing all offsets after clearing the fetcher queues
+16825 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], Releasing partition ownership
+16860 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_2 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-0)
+16867 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-0 attempting to claim partition 0
+16914 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-0 successfully owned partition 0 for topic secure_com_from_earth_channel_2
+16933 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7 selected partitions : secure_com_from_earth_channel_2:0: fetched offset = 56: consumed offset = 56
+16935 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread], Starting 
+16961 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7 try #0
+16975 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+16975 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+16975 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+16975 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+16991 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 0 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+31026 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(secure_com_to_earth_channel_2)
+31031 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+31043 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+41087 [main] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+41087 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+41089 [main] WARN  kafka.producer.async.DefaultEventHandler  - Failed to send producer request with correlation id 2 to broker 0 with data for partitions [secure_com_to_earth_channel_2,0]
+java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:75)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:74)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SyncProducer.scala:105)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply(SyncProducer.scala:105)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply(SyncProducer.scala:105)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply$mcV$sp(SyncProducer.scala:104)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply(SyncProducer.scala:104)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply(SyncProducer.scala:104)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:103)
+	at kafka.producer.async.DefaultEventHandler.kafka$producer$async$DefaultEventHandler$$send(DefaultEventHandler.scala:257)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:108)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:100)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+	at kafka.producer.async.DefaultEventHandler.dispatchSerializedData(DefaultEventHandler.scala:100)
+	at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:73)
+	at kafka.producer.Producer.send(Producer.scala:77)
+	at kafka.javaapi.producer.Producer.send(Producer.scala:33)
+	at space.exploration.mars.rover.communication.Transmitter.transmitMessage(Transmitter.java:106)
+	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:42)
+	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:25)
+	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:77)
+	at space.exploration.mars.rover.kernel.Rover.<init>(Rover.java:57)
+	at space.exploration.mars.rover.bootstrap.MarsMissionLaunch.main(MarsMissionLaunch.java:17)
+41094 [main] INFO  kafka.producer.async.DefaultEventHandler  - Back off for 100 ms before retrying send. Remaining retries = 3
+41197 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 3 for 1 topic(s) Set(secure_com_to_earth_channel_2)
+41198 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+41199 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+41199 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+46996 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+46997 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+46998 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] WARN  kafka.client.ClientUtils$  - Fetching topic metadata with correlation id 0 for topics [Set(secure_com_from_earth_channel_2)] from broker [BrokerEndPoint(0,10.36.201.112,9092)] failed
+java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:75)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:74)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:119)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:59)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:94)
+	at kafka.consumer.ConsumerFetcherManager$LeaderFinderThread.doWork(ConsumerFetcherManager.scala:66)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+46999 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+47000 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] WARN  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread], Failed to find leader for Set([secure_com_from_earth_channel_2,0])
+kafka.common.KafkaException: fetching topic metadata for topics [Set(secure_com_from_earth_channel_2)] from broker [ArrayBuffer(BrokerEndPoint(0,10.36.201.112,9092))] failed
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:73)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:94)
+	at kafka.consumer.ConsumerFetcherManager$LeaderFinderThread.doWork(ConsumerFetcherManager.scala:66)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+Caused by: java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:75)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:74)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:119)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:59)
+	... 3 more
+47002 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493857201666] Added fetcher for partitions ArrayBuffer()
+47214 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+47214 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+47214 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+47215 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+47215 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 1 for 1 topic(s) Set(secure_com_from_earth_channel_2)
+51202 [main] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+51203 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+51203 [main] WARN  kafka.producer.async.DefaultEventHandler  - Failed to send producer request with correlation id 5 to broker 0 with data for partitions [secure_com_to_earth_channel_2,0]
+java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:75)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:74)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SyncProducer.scala:105)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply(SyncProducer.scala:105)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply(SyncProducer.scala:105)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply$mcV$sp(SyncProducer.scala:104)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply(SyncProducer.scala:104)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply(SyncProducer.scala:104)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:103)
+	at kafka.producer.async.DefaultEventHandler.kafka$producer$async$DefaultEventHandler$$send(DefaultEventHandler.scala:257)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:108)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:100)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+	at kafka.producer.async.DefaultEventHandler.dispatchSerializedData(DefaultEventHandler.scala:100)
+	at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:73)
+	at kafka.producer.Producer.send(Producer.scala:77)
+	at kafka.javaapi.producer.Producer.send(Producer.scala:33)
+	at space.exploration.mars.rover.communication.Transmitter.transmitMessage(Transmitter.java:106)
+	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:42)
+	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:25)
+	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:77)
+	at space.exploration.mars.rover.kernel.Rover.<init>(Rover.java:57)
+	at space.exploration.mars.rover.bootstrap.MarsMissionLaunch.main(MarsMissionLaunch.java:17)
+51204 [main] INFO  kafka.producer.async.DefaultEventHandler  - Back off for 100 ms before retrying send. Remaining retries = 2
+51309 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 6 for 1 topic(s) Set(secure_com_to_earth_channel_2)
+51311 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+51312 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+51313 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+61316 [main] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+61316 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+61317 [main] WARN  kafka.producer.async.DefaultEventHandler  - Failed to send producer request with correlation id 8 to broker 0 with data for partitions [secure_com_to_earth_channel_2,0]
+java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:75)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:74)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SyncProducer.scala:105)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply(SyncProducer.scala:105)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply(SyncProducer.scala:105)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply$mcV$sp(SyncProducer.scala:104)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply(SyncProducer.scala:104)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply(SyncProducer.scala:104)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:103)
+	at kafka.producer.async.DefaultEventHandler.kafka$producer$async$DefaultEventHandler$$send(DefaultEventHandler.scala:257)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:108)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:100)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+	at kafka.producer.async.DefaultEventHandler.dispatchSerializedData(DefaultEventHandler.scala:100)
+	at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:73)
+	at kafka.producer.Producer.send(Producer.scala:77)
+	at kafka.javaapi.producer.Producer.send(Producer.scala:33)
+	at space.exploration.mars.rover.communication.Transmitter.transmitMessage(Transmitter.java:106)
+	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:42)
+	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:25)
+	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:77)
+	at space.exploration.mars.rover.kernel.Rover.<init>(Rover.java:57)
+	at space.exploration.mars.rover.bootstrap.MarsMissionLaunch.main(MarsMissionLaunch.java:17)
+61318 [main] INFO  kafka.producer.async.DefaultEventHandler  - Back off for 100 ms before retrying send. Remaining retries = 1
+61421 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 9 for 1 topic(s) Set(secure_com_to_earth_channel_2)
+61422 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+61423 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+61423 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+71428 [main] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+71428 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+71428 [main] WARN  kafka.producer.async.DefaultEventHandler  - Failed to send producer request with correlation id 11 to broker 0 with data for partitions [secure_com_to_earth_channel_2,0]
+java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:75)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:74)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SyncProducer.scala:105)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply(SyncProducer.scala:105)
+	at kafka.producer.SyncProducer$$anonfun$send$1$$anonfun$apply$mcV$sp$1.apply(SyncProducer.scala:105)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply$mcV$sp(SyncProducer.scala:104)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply(SyncProducer.scala:104)
+	at kafka.producer.SyncProducer$$anonfun$send$1.apply(SyncProducer.scala:104)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:103)
+	at kafka.producer.async.DefaultEventHandler.kafka$producer$async$DefaultEventHandler$$send(DefaultEventHandler.scala:257)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:108)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:100)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+	at kafka.producer.async.DefaultEventHandler.dispatchSerializedData(DefaultEventHandler.scala:100)
+	at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:73)
+	at kafka.producer.Producer.send(Producer.scala:77)
+	at kafka.javaapi.producer.Producer.send(Producer.scala:33)
+	at space.exploration.mars.rover.communication.Transmitter.transmitMessage(Transmitter.java:106)
+	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:42)
+	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:25)
+	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:77)
+	at space.exploration.mars.rover.kernel.Rover.<init>(Rover.java:57)
+	at space.exploration.mars.rover.bootstrap.MarsMissionLaunch.main(MarsMissionLaunch.java:17)
+71430 [main] INFO  kafka.producer.async.DefaultEventHandler  - Back off for 100 ms before retrying send. Remaining retries = 0
+71532 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 12 for 1 topic(s) Set(secure_com_to_earth_channel_2)
+71533 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+71534 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+71534 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+71536 [main] ERROR kafka.producer.async.DefaultEventHandler  - Failed to send requests for topics secure_com_to_earth_channel_2 with correlation ids in [0,12]
+77217 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.112:9092 for producing
+77217 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+77217 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] WARN  kafka.client.ClientUtils$  - Fetching topic metadata with correlation id 1 for topics [Set(secure_com_from_earth_channel_2)] from broker [BrokerEndPoint(0,10.36.201.112,9092)] failed
+java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:75)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:74)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:119)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:59)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:94)
+	at kafka.consumer.ConsumerFetcherManager$LeaderFinderThread.doWork(ConsumerFetcherManager.scala:66)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+77217 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.112:9092
+77218 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] WARN  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread], Failed to find leader for Set([secure_com_from_earth_channel_2,0])
+kafka.common.KafkaException: fetching topic metadata for topics [Set(secure_com_from_earth_channel_2)] from broker [ArrayBuffer(BrokerEndPoint(0,10.36.201.112,9092))] failed
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:73)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:94)
+	at kafka.consumer.ConsumerFetcherManager$LeaderFinderThread.doWork(ConsumerFetcherManager.scala:66)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+Caused by: java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:75)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:74)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:119)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:59)
+	... 3 more
+77219 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1493857201666] Added fetcher for partitions ArrayBuffer()
+77430 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+77431 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+77431 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.112:9092
+77431 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+77431 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1493857190478-6f689ea7-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.112,9092) with correlation id 2 for 1 topic(s) Set(secure_com_from_earth_channel_2)
