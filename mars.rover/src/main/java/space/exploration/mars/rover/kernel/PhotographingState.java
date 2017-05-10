@@ -37,8 +37,10 @@ public class PhotographingState implements State {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect.getRobot()
                 .getLocation());
+        cameraAnimationEngine.setRobot(marsArchitect.getRobot());
+        cameraAnimationEngine.setMarsSurface(marsArchitect.getMarsSurface());
         cameraAnimationEngine.clickCamera();
-        Camera.Photo cameraShot = rover.getCamera().takePhoto(marsArchitect.getRobot().getLocation());
+        byte[] cameraShot = rover.getCamera().takePhoto(marsArchitect.getRobot().getLocation());
 
         RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location.newBuilder()
                 .setX(marsArchitect.getRobot().getLocation().x)
@@ -48,22 +50,23 @@ public class PhotographingState implements State {
 
         RoverStatusOuterClass.RoverStatus status = null;
         if (cameraShot != null) {
+            System.out.println("Camera shot was not null");
             status = rBuilder.setBatteryLevel(rover.getBattery()
                     .getPrimaryPowerUnits())
                     .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera used here")
-                    .setModuleMessage(ByteString.copyFrom(SerializationUtil.serialize(cameraShot))).setSCET(System
+                    .setModuleMessage(ByteString.copyFrom(cameraShot)).setSCET(System
                             .currentTimeMillis())
                     .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
         } else {
+            System.out.println("Camera shot was null");
             status = rBuilder.setBatteryLevel(rover.getBattery()
                     .getPrimaryPowerUnits())
                     .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera wasn't able to take a shot. " +
-                            "Sorry earth!")
+                                                                                 "Sorry earth!")
                     .setSCET(System
                             .currentTimeMillis())
                     .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
         }
-
 
         logger.info(status.toString());
 
