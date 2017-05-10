@@ -1,7 +1,10 @@
 package space.exploration.mars.rover.sensor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
+import space.exploration.mars.rover.utils.CameraUtil;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -23,33 +26,29 @@ public class Camera {
     private Properties      marsConfig       = null;
     private BufferedImage[] marsImages       = null;
     private List<Point>     imageCachePoints = null;
-
-    public class Photo implements Serializable {
-        BufferedImage image;
-
-        public Photo(BufferedImage image) {
-            this.image = image;
-        }
-
-        public BufferedImage getImaage() {
-            return image;
-        }
-    }
+    private Logger          logger           = LoggerFactory.getLogger(Camera.class);
 
     public Camera(Properties marsConfig) {
         this.marsConfig = marsConfig;
         numImages = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGES));
         numImageCaches = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGE_CAHCES));
         shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
-        marsImages = new BufferedImage[numImageCaches];
+        marsImages = new BufferedImage[numImages];
         imageCachePoints = new ArrayList<Point>();
         collectImages();
+        loadImageCachePoints();
     }
 
-    public Photo takePhoto(Point location) {
+    public byte[] takePhoto(Point location) {
         if (imageCachePoints.contains(location)) {
-            int index = ThreadLocalRandom.current().nextInt(0, numImages);
-            return new Photo(marsImages[index]);
+            int    index      = ThreadLocalRandom.current().nextInt(0, numImages);
+            byte[] imageBytes = null;
+            try {
+                imageBytes = CameraUtil.convertImageToByteArray(marsImages[index]);
+            } catch (IOException io) {
+                logger.error(io.getMessage());
+            }
+            return imageBytes;
         } else {
             return null;
         }
@@ -60,11 +59,11 @@ public class Camera {
     }
 
     private final void collectImages() {
-        for (int i = 1; i <= numImages; i++) {
-            String fileName = EnvironmentUtils.CAMERA_IMAGE_HEADER + Integer.toString(i) + ".jpg";
+        for (int i = 0; i < numImages; i++) {
+            String fileName = EnvironmentUtils.CAMERA_IMAGE_HEADER + Integer.toString(i + 1) + ".jpg";
             try {
                 System.out.println(fileName);
-                marsImages[i] = ImageIO.read(new File(Camera.class.getClassLoader().getResource(fileName).getPath()));
+                marsImages[i] = ImageIO.read(new File(Camera.class.getResource(fileName).getPath()));
             } catch (IOException e) {
                 e.printStackTrace();
             }
