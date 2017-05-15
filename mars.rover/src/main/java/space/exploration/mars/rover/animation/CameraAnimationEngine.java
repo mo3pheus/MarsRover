@@ -53,6 +53,8 @@ public class CameraAnimationEngine {
                 e.printStackTrace();
             }
             contentPane.remove(flash);
+            marsSurface.setContentPane(contentPane);
+            marsSurface.setVisible(true);
         }
 
     }
