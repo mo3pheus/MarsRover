@@ -1,18 +1,16 @@
 package space.exploration.mars.rover.animation;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-
-import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
-
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.Grid;
 import space.exploration.mars.rover.environment.WallBuilder;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 public class AnimationUtil {
     public static List<Point> generateRobotPositions(Point start, Point end, int stepSize) {
@@ -54,8 +52,14 @@ public class AnimationUtil {
         contentPane.add(robot, Cell.ROBOT_DEPTH);
         marsSurface.setContentPane(contentPane);
         marsSurface.setVisible(true);
+        try {
+            Thread.sleep(3000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    @Deprecated
     public static Cell getStartLocation(Properties matrixConfig) {
         Cell start   = new Cell(matrixConfig);
         int  sourceX = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
@@ -88,6 +92,7 @@ public class AnimationUtil {
         return marsSurface;
     }
 
+    @Deprecated
     public static List<Component> generateSurfaceCells(Properties marsConfig) {
         int frameHeight = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
         int frameWidth  = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));

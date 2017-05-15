@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
+import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.power.Battery;
@@ -54,6 +55,7 @@ public class Rover {
     /* Contingency Stack */
     private List<byte[]> instructionQueue     = null;
     private long         inRechargingModeTime = 0l;
+    private Pacemaker    pacemaker            = null;
 
     /* Sets up the rover and the boot-up sequence */
     public Rover(Properties marsConfig, Properties comsConfig) {
@@ -71,6 +73,9 @@ public class Rover {
         this.marsArchitect = new MarsArchitect(marsConfig);
         this.instructionQueue = new ArrayList<byte[]>();
         this.logger = LoggerFactory.getLogger(Rover.class);
+
+        this.pacemaker = new Pacemaker(1,this);
+        pacemaker.heartBeat();
 
         configureBattery();
         configureRadio();
