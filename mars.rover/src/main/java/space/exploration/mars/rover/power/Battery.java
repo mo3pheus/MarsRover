@@ -2,6 +2,7 @@ package space.exploration.mars.rover.power;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 public class Battery {
     private int primaryPowerUnits;
@@ -37,7 +38,7 @@ public class Battery {
 
         if (!powerAvailable) {
             logger.error("Battery insufficient at time = " + System.currentTimeMillis() + " Power requested = " +
-                    powerUnitsRequested + " Critical = " + critical);
+                         powerUnitsRequested + " Critical = " + critical);
         }
 
         return powerAvailable;
@@ -48,9 +49,15 @@ public class Battery {
         this.rechargeTime = rechargeTime;
         this.primaryPowerUnits = 10000;
         this.auxiliaryPowerUnits = 1000;
+        RoverUtil.roverSystemLog(logger, "Battery configured, batteryLife:primaryPowerUnits = " + primaryPowerUnits
+                                         + " auxiliaryPowerUnits = " + auxiliaryPowerUnits + " alertThreshold: " +
+                                         alertThreshold + " rechargeTime = " + rechargeTime, "INFO"
+        );
     }
 
-    public int getRechargeTime(){return rechargeTime;}
+    public int getRechargeTime() {
+        return rechargeTime;
+    }
 
     public int getAlertThreshold() {
         return alertThreshold;

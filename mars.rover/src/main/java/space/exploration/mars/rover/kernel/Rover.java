@@ -13,6 +13,7 @@ import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPosition
 import space.exploration.mars.rover.sensor.Camera;
 import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.Spectrometer;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -73,15 +74,18 @@ public class Rover {
         this.marsArchitect = new MarsArchitect(marsConfig);
         this.instructionQueue = new ArrayList<byte[]>();
         this.logger = LoggerFactory.getLogger(Rover.class);
+        RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
 
-        this.pacemaker = new Pacemaker(1,this);
+        this.pacemaker = new Pacemaker(1, this);
         pacemaker.heartBeat();
+        RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
 
         configureBattery();
         configureRadio();
 
         String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
         this.location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
+        RoverUtil.roverSystemLog(logger, "Rover current position is = " + location.toString(), "INFO");
 
         int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 
@@ -152,6 +156,10 @@ public class Rover {
         return spectrometer;
     }
 
+    public State getState() {
+        return state;
+    }
+
     public void configureSpectrometer(Point origin) {
         this.spectrometer = new Spectrometer(origin);
     }
@@ -179,7 +187,11 @@ public class Rover {
         if (state == hibernatingState) {
             long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;
             System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " required = " +
-                    battery.getRechargeTime());
+                               battery.getRechargeTime());
+            RoverUtil.roverSystemLog(logger, "Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
+                                             "required = " +
+                                             battery.getRechargeTime(), "INFO");
+
             if (timeInRecharge > battery.getRechargeTime()) {
                 configureBattery();
                 marsArchitect.getRobot().setColor(EnvironmentUtils.findColor(marsConfig.getProperty
@@ -195,8 +207,9 @@ public class Rover {
                 marsArchitect.getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
                 state = hibernatingState;
                 inRechargingModeTime = System.currentTimeMillis();
-                logger.info("Rover reporting powerConsumed, remaining power = " + battery.getPrimaryPowerUnits() + " " +
-                        "at time = " + System.currentTimeMillis());
+                RoverUtil.roverSystemLog(logger, ("Rover reporting powerConsumed, remaining power = " + battery
+                        .getPrimaryPowerUnits() + " " +
+                                                  "at time = " + System.currentTimeMillis()), "INFO");
             }
         }
         marsArchitect.getMarsSurface().repaint();
@@ -212,7 +225,7 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently lagging for message processing by a count of " +
-                this.getInstructionQueue().size());
+                          this.getInstructionQueue().size());
         return rBuilder.build().toByteArray();
     }
 
@@ -226,7 +239,7 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently shutting down for recharging, expect the next " +
-                "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
+                          "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
         return rBuilder.build().toByteArray();
     }
 

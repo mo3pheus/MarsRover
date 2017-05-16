@@ -7,6 +7,7 @@ import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.Properties;
 
@@ -25,6 +26,8 @@ public class Radio {
         this.rover = rover;
         this.receiver = new Receiver(comsConfig, this);
         receiver.start();
+
+        RoverUtil.roverSystemLog(logger, "Radio configured:: " + RoverUtil.getPropertiesAsString(comsConfig), "INFO");
     }
 
     public void receiveMessage(InstructionPayload instructionPayload) {
