@@ -1,154 +1,150 @@
 package space.exploration.mars.rover.navigation;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class NavCell implements Comparator<NavCell> {
-	public enum Direction {
-		NORTH(0), SOUTH(1), WEST(2), EAST(3);
-		private final int value;
+    private NavCell[] adjacentNodes = new NavCell[Direction.values().length];
+    private NavCell   parent        = null;
+    private Point     center        = null;
+    private int       id            = -1;
+    private double    gCost         = 0.0d;
+    private double    hCost         = 0.0d;
+    private double    fCost         = 0.0d;
+    public NavCell(Point center, int id) {
+        this.center = center;
+        this.id = id;
+    }
 
-		private Direction(int value) {
-			this.value = value;
-		}
+    /**
+     * @return the parent
+     */
+    public NavCell getParent() {
+        return parent;
+    }
 
-		public int getValue() {
-			return value;
-		}
-	}
+    /**
+     * @param parent the parent to set
+     */
+    public void setParent(NavCell parent) {
+        this.parent = parent;
+    }
 
-	private NavCell[]	adjacentNodes	= new NavCell[Direction.values().length];
-	private NavCell		parent			= null;
-	private Point		center			= null;
-	private int			id				= -1;
-	private double		gCost			= 0.0d;
-	private double		hCost			= 0.0d;
-	private double		fCost			= 0.0d;
+    /**
+     * @return the gCost
+     */
+    public double getgCost() {
+        return gCost;
+    }
 
-	/**
-	 * @return the parent
-	 */
-	public NavCell getParent() {
-		return parent;
-	}
+    /**
+     * @param gCost the gCost to set
+     */
+    public void setgCost(double gCost) {
+        this.gCost = gCost;
+    }
 
-	/**
-	 * @param parent
-	 *            the parent to set
-	 */
-	public void setParent(NavCell parent) {
-		this.parent = parent;
-	}
+    /**
+     * @return the fCost
+     */
+    public double getfCost() {
+        return fCost;
+    }
 
-	/**
-	 * @return the gCost
-	 */
-	public double getgCost() {
-		return gCost;
-	}
+    public void setfCost(double fCost) {
+        this.fCost = fCost;
+    }
 
-	/**
-	 * @param gCost
-	 *            the gCost to set
-	 */
-	public void setgCost(double gCost) {
-		this.gCost = gCost;
-	}
+    public void sethCost(double hCost) {
+        this.hCost = hCost;
+    }
 
-	/**
-	 * @return the fCost
-	 */
-	public double getfCost() {
-		return fCost;
-	}
+    /**
+     * @return the hCost
+     */
+    public double gethCost() {
+        return hCost;
+    }
 
-	public void sethCost(double hCost) {
-		this.hCost = hCost;
-	}
+    /**
+     * @param hCost the hCost to set
+     */
+    public void sethCost(Point destination) {
+        this.hCost = center.distance(destination);
+    }
 
-	public void setfCost(double fCost) {
-		this.fCost = fCost;
-	}
+    public NavCell[] getAdjacentNodes() {
+        List<NavCell> validNodes = new ArrayList<NavCell>();
+        for (NavCell nCell : adjacentNodes) {
+            if (nCell != null && nCell.getCenter() != null) {
+                validNodes.add(nCell);
+            }
+        }
+        NavCell[] vNodes = new NavCell[validNodes.size()];
 
-	/**
-	 * @return the hCost
-	 */
-	public double gethCost() {
-		return hCost;
-	}
+        for (int i = 0; i < validNodes.size(); i++) {
+            vNodes[i] = validNodes.get(i);
+        }
 
-	/**
-	 * @param hCost
-	 *            the hCost to set
-	 */
-	public void sethCost(Point destination) {
-		this.hCost = center.distance(destination);
-	}
+        return vNodes;
+    }
 
-	public NavCell(Point center, int id) {
-		this.center = center;
-		this.id = id;
-	}
+    public void setAdjacentNodes(NavCell[] adjacentNodes) {
+        this.adjacentNodes = adjacentNodes;
+    }
 
-	public NavCell[] getAdjacentNodes() {
-		List<NavCell> validNodes = new ArrayList<NavCell>();
-		for (NavCell nCell : adjacentNodes) {
-			if (nCell != null && nCell.getCenter() != null) {
-				validNodes.add(nCell);
-			}
-		}
-		NavCell[] vNodes = new NavCell[validNodes.size()];
+    public Point getCenter() {
+        return center;
+    }
 
-		for (int i = 0; i < validNodes.size(); i++) {
-			vNodes[i] = validNodes.get(i);
-		}
+    public void setCenter(Point center) {
+        this.center = center;
+    }
 
-		return vNodes;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setAdjacentNodes(NavCell[] adjacentNodes) {
-		this.adjacentNodes = adjacentNodes;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public Point getCenter() {
-		return center;
-	}
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(" Id = " + id + " Center = " + center.toString());
+        for (int i = 0; i < adjacentNodes.length; i++) {
+            NavCell nCell = adjacentNodes[i];
+            if (nCell != null && nCell.getCenter() != null) {
+                sb.append("\n adId = " + nCell.getId() + " Location => " + nCell.getCenter().toString());
+            }
+        }
 
-	public void setCenter(Point center) {
-		this.center = center;
-	}
+        if (parent != null) {
+            sb.append(" \n Parent = " + parent.toString());
+        }
+        return sb.toString();
+    }
 
-	public int getId() {
-		return id;
-	}
+    public int compare(NavCell o1, NavCell o2) {
+        if (o1.getCenter().equals(o2.getCenter())) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public enum Direction {
+        NORTH(0), SOUTH(1), WEST(2), EAST(3);
+        private final int value;
 
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(" Id = " + id + " Center = " + center.toString());
-		for (int i = 0; i < adjacentNodes.length; i++) {
-			NavCell nCell = adjacentNodes[i];
-			if (nCell != null && nCell.getCenter() != null) {
-				sb.append("\n adId = " + nCell.getId() + " Location => " + nCell.getCenter().toString());
-			}
-		}
+        private Direction(int value) {
+            this.value = value;
+        }
 
-		if (parent != null) {
-			sb.append(" \n Parent = " + parent.toString());
-		}
-		return sb.toString();
-	}
-
-	public int compare(NavCell o1, NavCell o2) {
-		if (o1.getCenter().equals(o2.getCenter())) {
-			return 0;
-		} else {
-			return 1;
-		}
-	}
+        public int getValue() {
+            return value;
+        }
+    }
 }

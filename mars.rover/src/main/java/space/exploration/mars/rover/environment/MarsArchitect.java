@@ -53,20 +53,10 @@ public class MarsArchitect {
         soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
     }
 
-    public void setLidarAnimationEngine(Lidar lidar) {
-        this.lidarEngine = new LidarAnimationEngine(marsConfig, robot);
-        lidarEngine.setMarsSurface(marsSurface);
-        lidarEngine.setLidar(lidar);
-    }
-
     public CameraAnimationEngine getCameraAnimationEngine(Point location) {
         long shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
         this.cameraAnimationEngine = new CameraAnimationEngine(marsConfig, location, shutterSpeed, cellWidth);
         return cameraAnimationEngine;
-    }
-
-    public void setSpectrometerAnimationEngine(Spectrometer spectrometer) {
-        this.spectrometerEngine = new SpectrometerAnimationEngine(marsConfig, robot, spectrometer, marsSurface);
     }
 
     public Map<Point, SoilComposition> getSoilCompositionMap() {
@@ -75,6 +65,10 @@ public class MarsArchitect {
 
     public SpectrometerAnimationEngine getSpectrometerAnimationEngine() {
         return this.spectrometerEngine;
+    }
+
+    public void setSpectrometerAnimationEngine(Spectrometer spectrometer) {
+        this.spectrometerEngine = new SpectrometerAnimationEngine(marsConfig, robot, spectrometer, marsSurface);
     }
 
     public SoilComposition getSoilComposition(Point p) {
@@ -87,6 +81,12 @@ public class MarsArchitect {
 
     public LidarAnimationEngine getLidarAnimationEngine() {
         return lidarEngine;
+    }
+
+    public void setLidarAnimationEngine(Lidar lidar) {
+        this.lidarEngine = new LidarAnimationEngine(marsConfig, robot);
+        lidarEngine.setMarsSurface(marsSurface);
+        lidarEngine.setLidar(lidar);
     }
 
     public int getCellWidth() {

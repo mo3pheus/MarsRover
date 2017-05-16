@@ -5,10 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
-import space.exploration.mars.rover.communication.SerializationUtil;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
-import space.exploration.mars.rover.sensor.Camera;
 
 /**
  * Created by sanketkorgaonkar on 5/9/17.
@@ -62,7 +60,7 @@ public class PhotographingState implements State {
             status = rBuilder.setBatteryLevel(rover.getBattery()
                     .getPrimaryPowerUnits())
                     .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera wasn't able to take a shot. " +
-                                                                                 "Sorry earth!")
+                            "Sorry earth!")
                     .setSCET(System
                             .currentTimeMillis())
                     .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();

@@ -5,7 +5,7 @@ package space.exploration.mars.rover.Concurrent;
  */
 public class BeeperTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Beeper beeper = new Beeper();
         beeper.beepForAnHour();
     }

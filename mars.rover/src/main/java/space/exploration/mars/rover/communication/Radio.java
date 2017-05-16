@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
+import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
 
@@ -14,12 +15,15 @@ import java.util.Properties;
 /**
  * Created by sanketkorgaonkar on 4/27/17.
  */
-public class Radio {
-    private RadioAnimationEngine radioAnimEngine = null;
-    private Rover                rover           = null;
-    private Transmitter          transmitter     = null;
-    private Receiver             receiver        = null;
-    private Logger               logger          = LoggerFactory.getLogger(Radio.class);
+public class Radio implements IsEquipment {
+    public static final String               LIFESPAN        = "mars.rover.radio.lifeSpan";
+    private             RadioAnimationEngine radioAnimEngine = null;
+    private             Rover                rover           = null;
+    private             Transmitter          transmitter     = null;
+    private             Receiver             receiver        = null;
+    private             Logger               logger          = LoggerFactory.getLogger(Radio.class);
+
+    private int lifeSpan = 0;
 
     public Radio(Properties comsConfig, Rover rover) {
         this.transmitter = new Transmitter(comsConfig);
@@ -37,6 +41,7 @@ public class Radio {
                     .getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
             radioAnimEngine.activateRadio();
             rover.receiveMessage(instructionPayload.toByteArray());
+            lifeSpan--;
         } catch (Exception e) {
             System.out.println("Radio receive operation has an exception");
             logger.error(e.getMessage());
@@ -50,6 +55,7 @@ public class Radio {
             radioAnimEngine.activateRadio();
             Thread.sleep(getComsDelaySecs());
             transmitter.transmitMessage(message);
+            lifeSpan--;
         } catch (InvalidProtocolBufferException e) {
             System.out.println("Transmit module is in exception - invalidProtocolBuffer ");
             logger.error("InvalidProtocolBufferException error - common guys send me a good message!");
@@ -63,6 +69,19 @@ public class Radio {
 
     public void reportPowerUsage(int powerUnits) {
         rover.powerCheck(powerUnits);
+    }
+
+    public int getLifeSpan() {
+        return lifeSpan;
+    }
+
+    @Override
+    public String getEquipmentName() {
+        return "Radio";
+    }
+
+    public void setLifeSpan(int lifeSpan) {
+        this.lifeSpan = lifeSpan;
     }
 
     public Receiver getReceiver() {

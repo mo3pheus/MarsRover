@@ -1,14 +1,23 @@
 package space.exploration.mars.rover;
 
-import java.util.Queue;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
-    public static class QueueHolder{
+public class AppTest {
+    public static void main(String[] args) {
+        System.out.println("Priority Queue test");
+
+        QueueHolder queueHolder = new QueueHolder();
+        queueHolder.getQ().add("Sanket");
+
+        System.out.println(" Queue contents = " + queueHolder.getQ().poll());
+        System.out.println(" Queue contents = " + queueHolder.getQ().poll());
+    }
+
+    public static class QueueHolder {
         Queue<String> q = new PriorityQueue<String>();
 
         public Queue<String> getQ() {
@@ -18,15 +27,5 @@ public class AppTest
         public void setQ(Queue<String> q) {
             this.q = q;
         }
-    }
-
-    public static void main(String[] args){
-        System.out.println("Priority Queue test");
-
-        QueueHolder queueHolder = new QueueHolder();
-        queueHolder.getQ().add("Sanket");
-
-        System.out.println(" Queue contents = " + queueHolder.getQ().poll());
-        System.out.println(" Queue contents = " + queueHolder.getQ().poll());
     }
 }

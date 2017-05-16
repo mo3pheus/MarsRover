@@ -1,63 +1,37 @@
 package space.exploration.mars.rover.sensor;
 
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.environment.SoilComposition;
-import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.SpectrometerScan;
 import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.SpectrometerScan.Composition;
 import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.SpectrometerScan.Location;
 import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.SpectrometerScan.PointComp;
 import space.exploration.mars.rover.utils.RoverUtil;
 
-import java.awt.Point;
-import java.util.Map;
-import java.util.Set;
-import java.util.List;
+import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sanketkorgaonkar on 5/2/17.
  */
-public class Spectrometer {
-    public class SoilComp {
-        private Point           point;
-        private SoilComposition composition;
+public class Spectrometer implements IsEquipment {
+    public static final String                      LIFESPAN     = "mars.rover.spectrometer.lifeSpan";
+    private             Logger                      logger       = LoggerFactory.getLogger(Spectrometer.class);
+    private             Point                       origin       = null;
+    private             Map<Point, SoilComposition> surfaceComp  = null;
+    private             List<SoilComp>              scanAreaComp = null;
+    private             int                         cellWidth    = 0;
+    private             int                         lifeSpan     = 0;
 
-        public Point getPoint() {
-            return point;
-        }
-
-        public void setPoint(Point point) {
-            this.point = point;
-        }
-
-        public SoilComposition getComposition() {
-            return composition;
-        }
-
-        public void setComposition(SoilComposition composition) {
-            this.composition = composition;
-        }
-
-        public SoilComp(Point point, SoilComposition soilComposition) {
-            this.point = point;
-            this.composition = soilComposition;
-        }
-
-        public String toString() {
-            return " Point = " + point.toString() + " Composition = " + composition.toString();
-        }
+    public Spectrometer(Point origin) {
+        this.origin = origin;
+        scanAreaComp = new ArrayList<SoilComp>();
+        RoverUtil.roverSystemLog(logger, "Spectrometer initialized and ready!", "INFO");
     }
-
-    private Logger                      logger       = LoggerFactory.getLogger(Spectrometer.class);
-    private Point                       origin       = null;
-    private Map<Point, SoilComposition> surfaceComp  = null;
-    private List<SoilComp>              scanAreaComp = null;
-    private int                         cellWidth    = 0;
 
     public void setSurfaceComp(Map<Point, SoilComposition> surfaceComp) {
         this.surfaceComp = surfaceComp;
@@ -71,10 +45,16 @@ public class Spectrometer {
         return this.scanAreaComp;
     }
 
-    public Spectrometer(Point origin) {
-        this.origin = origin;
-        scanAreaComp = new ArrayList<SoilComp>();
-        RoverUtil.roverSystemLog(logger, "Spectrometer initialized and ready!", "INFO");
+    public int getLifeSpan() {
+        return lifeSpan;
+    }
+
+    public void setLifeSpan(int lifeSpan) {
+        this.lifeSpan = lifeSpan;
+    }
+
+    public String getEquipmentName() {
+        return "Spectrometer";
     }
 
     public void processSurroundingArea() {
@@ -82,10 +62,11 @@ public class Spectrometer {
             logger.error("SurfaceComp or cellWidth not set for spectrometer");
             return;
         }
+        lifeSpan--;
 
         for (int i = ((int) origin.getX() - cellWidth); i <= ((int) origin.getX() + cellWidth); i = (i + cellWidth)) {
             for (int j = ((int) origin.getY() - cellWidth); j <= ((int) origin.getY() + cellWidth); j = (j
-                                                                                                         + cellWidth)) {
+                    + cellWidth)) {
                 if (i < 0 || j < 0) {
                     continue;
                 }
@@ -125,5 +106,35 @@ public class Spectrometer {
         }
         sBuilder.addAllScanAreaComp(sampleReadings);
         return sBuilder.build();
+    }
+
+    public class SoilComp {
+        private Point           point;
+        private SoilComposition composition;
+
+        public SoilComp(Point point, SoilComposition soilComposition) {
+            this.point = point;
+            this.composition = soilComposition;
+        }
+
+        public Point getPoint() {
+            return point;
+        }
+
+        public void setPoint(Point point) {
+            this.point = point;
+        }
+
+        public SoilComposition getComposition() {
+            return composition;
+        }
+
+        public void setComposition(SoilComposition composition) {
+            this.composition = composition;
+        }
+
+        public String toString() {
+            return " Point = " + point.toString() + " Composition = " + composition.toString();
+        }
     }
 }
