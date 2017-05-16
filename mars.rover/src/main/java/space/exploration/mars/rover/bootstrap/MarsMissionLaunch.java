@@ -23,7 +23,7 @@ public class MarsMissionLaunch {
 	
 	public static void configureLogging() {
 		FileAppender fa = new FileAppender();
-		fa.setFile("roverStatusReports/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".txt");
+		fa.setFile("roverStatusReports/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
 		fa.setLayout(new PatternLayout("%-4r [%t] %-5p %c %x - %m%n"));
 		fa.setThreshold(Level.toLevel(Priority.INFO_INT));
 		fa.activateOptions();

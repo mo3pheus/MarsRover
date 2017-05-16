@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.utils.CameraUtil;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -37,6 +38,8 @@ public class Camera {
         imageCachePoints = new ArrayList<Point>();
         collectImages();
         loadImageCachePoints();
+
+        RoverUtil.roverSystemLog(logger, "Camera initialized and ready!", "INFO");
     }
 
     public byte[] takePhoto(Point location) {
@@ -62,7 +65,6 @@ public class Camera {
         for (int i = 0; i < numImages; i++) {
             String fileName = EnvironmentUtils.CAMERA_IMAGE_HEADER + Integer.toString(i + 1) + ".jpg";
             try {
-                System.out.println(fileName);
                 marsImages[i] = ImageIO.read(new File(Camera.class.getResource(fileName).getPath()));
             } catch (IOException e) {
                 e.printStackTrace();

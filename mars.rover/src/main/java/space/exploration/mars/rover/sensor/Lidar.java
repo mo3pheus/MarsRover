@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 public class Lidar {
 	private static final int DELTA_THETA = 5;
@@ -29,7 +30,7 @@ public class Lidar {
 		this.origin = origin;
 		this.range = Math.sqrt((2.0d * range * range));
 
-		logger.info("Lidar instantiated");
+		RoverUtil.roverSystemLog(logger, "Lidar initialized and ready!", "INFO");
 		status = "Instantiated";
 		this.cellWidth = cellWidth;
 		fillGridCells();
