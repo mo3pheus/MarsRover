@@ -85,6 +85,7 @@ public class Lidar implements IsEquipment {
     public void scanArea() {
         if (wallBuilder != null) {
             computeScanRadius();
+            System.out.println("Debug ::" + " Lifespan value = " + lifeSpan);
             lifeSpan--;
         }
     }
@@ -104,6 +105,7 @@ public class Lidar implements IsEquipment {
 
     public void setLifeSpan(int lifeSpan) {
         this.lifeSpan = lifeSpan;
+        System.out.println("LifeSpan set = " + lifeSpan);
     }
 
     private void scanGridCells() {

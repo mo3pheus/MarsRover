@@ -67,7 +67,6 @@ public class LidarAnimationEngine {
             logger.error("LidarAnimationEngine error - either lidar or marsSurface is null");
         }
 
-        lidar.scanArea();
         renderLidarAnimation();
     }
 

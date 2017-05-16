@@ -175,7 +175,9 @@ public class Rover {
     }
 
     public void configureSpectrometer(Point origin) {
+        int spectrometerLifeSpan = spectrometer.getLifeSpan();
         this.spectrometer = new Spectrometer(origin);
+        spectrometer.setLifeSpan(spectrometerLifeSpan);
     }
 
     public int getSol() {
@@ -189,7 +191,9 @@ public class Rover {
     }
 
     public void configureLidar(Point origin, int cellWidth, int range) {
+        int lidarLifespan = lidar.getLifeSpan();
         this.lidar = new Lidar(origin, cellWidth, range);
+        lidar.setLifeSpan(lidarLifespan);
     }
 
     public void powerCheck(int powerConsumed) {
