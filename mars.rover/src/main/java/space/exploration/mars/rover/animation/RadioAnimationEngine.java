@@ -3,7 +3,6 @@ package space.exploration.mars.rover.animation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.environment.Cell;
-import space.exploration.mars.rover.environment.EnvironmentUtils;
 
 import javax.swing.*;
 import java.awt.*;

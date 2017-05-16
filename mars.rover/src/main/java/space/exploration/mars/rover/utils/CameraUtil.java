@@ -14,7 +14,7 @@ public class CameraUtil {
 
     public static byte[] convertImageToByteArray(BufferedImage image) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(10000);
-        ImageIO.write(image,"jpg", byteArrayOutputStream);
+        ImageIO.write(image, "jpg", byteArrayOutputStream);
         byteArrayOutputStream.flush();
 
         String base64String = Base64.encode(byteArrayOutputStream.toByteArray());

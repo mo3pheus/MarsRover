@@ -77,7 +77,7 @@ public class Rover {
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
 
         this.pacemaker = new Pacemaker(1, this);
-        pacemaker.heartBeat();
+        pacemaker.pulse();
         RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
 
         configureBattery();
@@ -90,10 +90,24 @@ public class Rover {
         int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 
         this.lidar = new Lidar(location, cellWidth, cellWidth);
+        lidar.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Lidar.LIFESPAN)));
+
         this.spectrometer = new Spectrometer(location);
+        spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
+
         this.camera = new Camera(this.marsConfig);
+
         state = transmittingState;
         transmitMessage(getBootupMessage());
+    }
+
+    public static long getOneSolDuration() {
+        /* Time scaled by a factor of 60. */
+        long time = TimeUnit.MINUTES.toMillis(24);
+        time += TimeUnit.SECONDS.toMillis(39);
+        time += 35;
+        time += 244;
+        return time;
     }
 
     public Camera getCamera() {
@@ -164,19 +178,14 @@ public class Rover {
         this.spectrometer = new Spectrometer(origin);
     }
 
-    public static long getOneSolDuration() {
-        /* Time scaled by a factor of 60. */
-        long time = TimeUnit.MINUTES.toMillis(24);
-        time += TimeUnit.SECONDS.toMillis(39);
-        time += 35;
-        time += 244;
-        return time;
-    }
-
     public int getSol() {
         long diff  = System.currentTimeMillis() - creationTime;
         long solMs = getOneSolDuration();
         return Math.round(diff / solMs);
+    }
+
+    public boolean isDiagnosticFriendly(){
+        return (this.state == this.listeningState);
     }
 
     public void configureLidar(Point origin, int cellWidth, int range) {
@@ -187,10 +196,10 @@ public class Rover {
         if (state == hibernatingState) {
             long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;
             System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " required = " +
-                               battery.getRechargeTime());
+                    battery.getRechargeTime());
             RoverUtil.roverSystemLog(logger, "Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
-                                             "required = " +
-                                             battery.getRechargeTime(), "INFO");
+                    "required = " +
+                    battery.getRechargeTime(), "INFO");
 
             if (timeInRecharge > battery.getRechargeTime()) {
                 configureBattery();
@@ -209,7 +218,7 @@ public class Rover {
                 inRechargingModeTime = System.currentTimeMillis();
                 RoverUtil.roverSystemLog(logger, ("Rover reporting powerConsumed, remaining power = " + battery
                         .getPrimaryPowerUnits() + " " +
-                                                  "at time = " + System.currentTimeMillis()), "INFO");
+                        "at time = " + System.currentTimeMillis()), "INFO");
             }
         }
         marsArchitect.getMarsSurface().repaint();
@@ -225,8 +234,19 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently lagging for message processing by a count of " +
-                          this.getInstructionQueue().size());
+                this.getInstructionQueue().size());
         return rBuilder.build().toByteArray();
+    }
+
+    public List<IsEquipment> getEquipmentLlist() {
+        List<IsEquipment> equipmentList = new ArrayList<IsEquipment>();
+        equipmentList.add(this.battery);
+        equipmentList.add(this.radio);
+        equipmentList.add(this.lidar);
+        equipmentList.add(this.camera);
+        equipmentList.add(this.spectrometer);
+
+        return equipmentList;
     }
 
     private byte[] getHibernatingAlertMessage() {
@@ -239,7 +259,7 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently shutting down for recharging, expect the next " +
-                          "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
+                "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
         return rBuilder.build().toByteArray();
     }
 
@@ -259,12 +279,17 @@ public class Rover {
     private void configureBattery() {
         int batteryAlertThreshold = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.alertThreshold"));
         int rechargeTime          = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.rechargeTime"));
+        int lifeSpan              = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
+
         this.battery = new Battery(batteryAlertThreshold, rechargeTime);
+        battery.setLifeSpan(lifeSpan);
     }
 
     private void configureRadio() {
         this.radio = new Radio(comsConfig, this);
         long radioCheckPulse = Long.parseLong(marsConfig.getProperty("mars.rover.radio.check.pulse"));
+        int  lifeSpan        = Integer.parseInt(marsConfig.getProperty(Radio.LIFESPAN));
         radio.getReceiver().setRadioCheckPulse(radioCheckPulse);
+        radio.setLifeSpan(lifeSpan);
     }
 }

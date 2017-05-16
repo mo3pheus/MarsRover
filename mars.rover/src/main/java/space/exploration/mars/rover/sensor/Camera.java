@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
+import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.utils.CameraUtil;
 import space.exploration.mars.rover.utils.RoverUtil;
 
@@ -12,7 +13,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -20,20 +20,23 @@ import java.util.Properties;
 /**
  * Created by sanketkorgaonkar on 5/9/17.
  */
-public class Camera {
-    private int             numImages        = 0;
-    private int             numImageCaches   = 0;
-    private long            shutterSpeed     = 0;
-    private Properties      marsConfig       = null;
-    private BufferedImage[] marsImages       = null;
-    private List<Point>     imageCachePoints = null;
-    private Logger          logger           = LoggerFactory.getLogger(Camera.class);
+public class Camera implements IsEquipment {
+    private static final String          LIFESPAN         = "mars.rover.camera.lifeSpan";
+    private              int             numImages        = 0;
+    private              int             numImageCaches   = 0;
+    private              int             lifeSpan         = 0;
+    private              long            shutterSpeed     = 0;
+    private              Properties      marsConfig       = null;
+    private              BufferedImage[] marsImages       = null;
+    private              List<Point>     imageCachePoints = null;
+    private              Logger          logger           = LoggerFactory.getLogger(Camera.class);
 
     public Camera(Properties marsConfig) {
         this.marsConfig = marsConfig;
         numImages = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGES));
         numImageCaches = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGE_CAHCES));
         shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
+        lifeSpan = Integer.parseInt(marsConfig.getProperty(LIFESPAN));
         marsImages = new BufferedImage[numImages];
         imageCachePoints = new ArrayList<Point>();
         collectImages();
@@ -43,6 +46,7 @@ public class Camera {
     }
 
     public byte[] takePhoto(Point location) {
+        lifeSpan--;
         if (imageCachePoints.contains(location)) {
             int    index      = ThreadLocalRandom.current().nextInt(0, numImages);
             byte[] imageBytes = null;
@@ -59,6 +63,15 @@ public class Camera {
 
     public long getShutterSpeed() {
         return shutterSpeed;
+    }
+
+    public int getLifeSpan() {
+        return lifeSpan;
+    }
+
+    @Override
+    public String getEquipmentName() {
+        return "Camera";
     }
 
     private final void collectImages() {

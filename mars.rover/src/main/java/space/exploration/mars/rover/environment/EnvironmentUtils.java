@@ -13,8 +13,6 @@ import java.util.Map;
 import java.util.Properties;
 
 public class EnvironmentUtils {
-    public static Logger logger = LoggerFactory.getLogger(EnvironmentUtils.class);
-
     public static final String FRAME_HEIGHT_PROPERTY        = "maze.environment.frame.height";
     public static final String FRAME_WIDTH_PROPERTY         = "maze.environment.frame.width";
     public static final String CELL_WIDTH_PROPERTY          = "maze.environment.cell.width";
@@ -35,6 +33,7 @@ public class EnvironmentUtils {
     public static final String CAMERA_LOCATION_HEADER       = "mars.rover.camera.image.";
     public static final String CAMERA_IMAGE_HEADER          = "/marsImages/mars00";
     public static final String CAMERA_NUM_IMAGES            = "mars.rover.camera.number.images";
+    public static Logger logger = LoggerFactory.getLogger(EnvironmentUtils.class);
 
     public static Color findColor(String color) {
         if (color.equals("red")) {
