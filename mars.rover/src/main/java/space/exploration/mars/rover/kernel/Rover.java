@@ -76,7 +76,7 @@ public class Rover {
         this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
 
-        this.pacemaker = new Pacemaker(1, this);
+        this.pacemaker = new Pacemaker(10, this);
         pacemaker.pulse();
         RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
 

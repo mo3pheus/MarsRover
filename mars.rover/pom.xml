@@ -12,6 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <build>
@@ -59,8 +61,8 @@
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>0.5.0</version>
                 <configuration>
-                    <!-- <protocExecutable>/usr/bin/protoc</protocExecutable> -->
-                    <protocExecutable>/Users/sanketkorgaonkar/Documents/protoc-3/bin/protoc</protocExecutable>
+                    <protocExecutable>/usr/bin/protoc</protocExecutable>
+                    <!-- <protocExecutable>/Users/sanketkorgaonkar/Documents/protoc-3/bin/protoc</protocExecutable> -->
                 </configuration>
                 <executions>
                     <execution>
@@ -78,7 +80,7 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.0.0</version>
+            <version>3.2.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -90,6 +92,11 @@
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka_2.10</artifactId>
             <version>0.9.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tensorflow</groupId>
+            <artifactId>tensorflow</artifactId>
+            <version>1.1.0</version>
         </dependency>
     </dependencies>
 </project>
