@@ -2,7 +2,14 @@
 
 You can use the [editor on GitHub](https://github.com/mo3pheus/MarsRover/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The MarsRover project is essentially an educational tool to help software developers try out new algorithms and technologies in a fun and safe environment. The project has 3 essential parts viz. 1) The Rover, 2) Mission Control and 3) Command Center
+
+1) The Rover is a softbot that you launch to the Mars surface and that you hope to control.
+2) Mission Control displays the messages received from the rover, such as any findings or status reports or diagnostic heartbeats.
+3) Command Center composes and forms properly formatted messages for the rover to act upon.
+
+Part 1 is this repository, parts 2 and 3 are in a separate repository to help facilitate independent development.
+
 
 ### Markdown
 
