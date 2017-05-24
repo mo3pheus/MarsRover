@@ -71,12 +71,12 @@ public class Battery implements IsEquipment {
         return lifeSpan;
     }
 
+    public void setLifeSpan(int lifeSpan) {
+        this.lifeSpan = lifeSpan;
+    }
+
     @Override
     public String getEquipmentName() {
         return "Battery";
-    }
-
-    public void setLifeSpan(int lifeSpan) {
-        this.lifeSpan = lifeSpan;
     }
 }

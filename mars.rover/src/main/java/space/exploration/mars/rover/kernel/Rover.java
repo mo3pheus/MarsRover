@@ -186,7 +186,7 @@ public class Rover {
         return Math.round(diff / solMs);
     }
 
-    public boolean isDiagnosticFriendly(){
+    public boolean isDiagnosticFriendly() {
         return (this.state == this.listeningState);
     }
 

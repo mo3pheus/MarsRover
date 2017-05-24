@@ -32,7 +32,7 @@ public class Transmitter {
 
     public Transmitter(KafkaShipmentBuilder kafkaShipmentBuilder) {
         /*
-		 * Set up Kafka producer
+         * Set up Kafka producer
 		 */
         try {
             System.out.println(kafkaShipmentBuilder.getPropertyFileLocation());

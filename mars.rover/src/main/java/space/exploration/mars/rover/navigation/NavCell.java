@@ -13,6 +13,7 @@ public class NavCell implements Comparator<NavCell> {
     private double    gCost         = 0.0d;
     private double    hCost         = 0.0d;
     private double    fCost         = 0.0d;
+
     public NavCell(Point center, int id) {
         this.center = center;
         this.id = id;
@@ -97,10 +98,6 @@ public class NavCell implements Comparator<NavCell> {
 
     public Point getCenter() {
         return center;
-    }
-
-    public void setCenter(Point center) {
-        this.center = center;
     }
 
     public int getId() {

@@ -75,13 +75,13 @@ public class Radio implements IsEquipment {
         return lifeSpan;
     }
 
+    public void setLifeSpan(int lifeSpan) {
+        this.lifeSpan = lifeSpan;
+    }
+
     @Override
     public String getEquipmentName() {
         return "Radio";
-    }
-
-    public void setLifeSpan(int lifeSpan) {
-        this.lifeSpan = lifeSpan;
     }
 
     public Receiver getReceiver() {

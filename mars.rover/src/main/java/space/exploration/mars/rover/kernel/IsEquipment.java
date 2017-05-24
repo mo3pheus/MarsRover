@@ -5,5 +5,6 @@ package space.exploration.mars.rover.kernel;
  */
 public interface IsEquipment {
     int getLifeSpan();
+
     String getEquipmentName();
 }

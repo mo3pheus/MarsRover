@@ -33,7 +33,7 @@ public class EnvironmentUtils {
     public static final String CAMERA_LOCATION_HEADER       = "mars.rover.camera.image.";
     public static final String CAMERA_IMAGE_HEADER          = "/marsImages/mars00";
     public static final String CAMERA_NUM_IMAGES            = "mars.rover.camera.number.images";
-    public static Logger logger = LoggerFactory.getLogger(EnvironmentUtils.class);
+    public static       Logger logger                       = LoggerFactory.getLogger(EnvironmentUtils.class);
 
     public static Color findColor(String color) {
         if (color.equals("red")) {

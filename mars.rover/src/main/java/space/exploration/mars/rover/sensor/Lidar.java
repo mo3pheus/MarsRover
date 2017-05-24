@@ -98,14 +98,14 @@ public class Lidar implements IsEquipment {
         return lifeSpan;
     }
 
-    @Override
-    public String getEquipmentName() {
-        return "Lidar";
-    }
-
     public void setLifeSpan(int lifeSpan) {
         this.lifeSpan = lifeSpan;
         System.out.println("LifeSpan set = " + lifeSpan);
+    }
+
+    @Override
+    public String getEquipmentName() {
+        return "Lidar";
     }
 
     private void scanGridCells() {
