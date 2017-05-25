@@ -8,6 +8,7 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverSta
 import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
+import space.exploration.mars.rover.learning.ReinforcementLearner;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.sensor.Camera;
@@ -41,10 +42,11 @@ public class Rover {
     Logger      logger       = null;
 
     /* Configuration */
-    private Properties    marsConfig    = null;
-    private Properties    comsConfig    = null;
-    private MarsArchitect marsArchitect = null;
-    private Point         location      = null;
+    private Properties           marsConfig    = null;
+    private Properties           comsConfig    = null;
+    private MarsArchitect        marsArchitect = null;
+    private Point                location      = null;
+    private ReinforcementLearner rlNavEngine   = null;
 
     /* Equipment Stack */
     private Battery      battery      = null;
@@ -101,6 +103,10 @@ public class Rover {
         transmitMessage(getBootupMessage());
     }
 
+    public void configureRLEngine(){
+        this.rlNavEngine = new ReinforcementLearner(marsConfig);
+    }
+
     public static long getOneSolDuration() {
         /* Time scaled by a factor of 60. */
         long time = TimeUnit.MINUTES.toMillis(24);
@@ -108,6 +114,10 @@ public class Rover {
         time += 35;
         time += 244;
         return time;
+    }
+
+    public ReinforcementLearner getRlNavEngine() {
+        return rlNavEngine;
     }
 
     public Camera getCamera() {
@@ -200,10 +210,10 @@ public class Rover {
         if (state == hibernatingState) {
             long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;
             System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " required = " +
-                    battery.getRechargeTime());
+                               battery.getRechargeTime());
             RoverUtil.roverSystemLog(logger, "Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
-                    "required = " +
-                    battery.getRechargeTime(), "INFO");
+                                             "required = " +
+                                             battery.getRechargeTime(), "INFO");
 
             if (timeInRecharge > battery.getRechargeTime()) {
                 configureBattery();
@@ -222,7 +232,7 @@ public class Rover {
                 inRechargingModeTime = System.currentTimeMillis();
                 RoverUtil.roverSystemLog(logger, ("Rover reporting powerConsumed, remaining power = " + battery
                         .getPrimaryPowerUnits() + " " +
-                        "at time = " + System.currentTimeMillis()), "INFO");
+                                                  "at time = " + System.currentTimeMillis()), "INFO");
             }
         }
         marsArchitect.getMarsSurface().repaint();
@@ -238,7 +248,7 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently lagging for message processing by a count of " +
-                this.getInstructionQueue().size());
+                          this.getInstructionQueue().size());
         return rBuilder.build().toByteArray();
     }
 
@@ -263,7 +273,7 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently shutting down for recharging, expect the next " +
-                "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
+                          "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
         return rBuilder.build().toByteArray();
     }
 

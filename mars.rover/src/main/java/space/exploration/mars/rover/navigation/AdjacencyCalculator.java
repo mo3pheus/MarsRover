@@ -25,18 +25,24 @@ public class AdjacencyCalculator {
     private              WallBuilder           wallBuilder    = null;
     private              int                   lidarCost      = 0;
 
-    public AdjacencyCalculator(Point center, Properties matrixConfig) {
-        this.gridMap = NavUtil.populateGridMap(matrixConfig);
-        this.wallBuilder = new WallBuilder(matrixConfig);
+    private double rlMinReward = 0.0d;
+    private double rlMaxReward = 0.0d;
 
-        cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
-        frameHeight = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
-        frameWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+    public AdjacencyCalculator(Point center, Properties marsConfig) {
+        this.gridMap = NavUtil.populateGridMap(marsConfig);
+        this.wallBuilder = new WallBuilder(marsConfig);
+
+        cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+        frameHeight = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+        frameWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
 
         adjNodes[Direction.NORTH.getValue()] = new Point(center.x, center.y - cellWidth);
         adjNodes[Direction.SOUTH.getValue()] = new Point(center.x, center.y + cellWidth);
         adjNodes[Direction.EAST.getValue()] = new Point(center.x + cellWidth, center.y);
         adjNodes[Direction.WEST.getValue()] = new Point(center.x - cellWidth, center.y);
+
+        rlMaxReward = Double.parseDouble(marsConfig.getProperty(ReinforcementLearner.RL_ENGINE_PREFIX + ".maxReward"));
+        rlMinReward = Double.parseDouble(marsConfig.getProperty(ReinforcementLearner.RL_ENGINE_PREFIX + ".minReward"));
     }
 
     public void setrGridMap(RCell[][] rGridMap) {
@@ -84,9 +90,9 @@ public class AdjacencyCalculator {
                 adjacentRNodes[i] = new RCell(temp, id, cellWidth);
 
                 if (intersectsWall(temp)) {
-                    adjacentRNodes[i].setReward(ReinforcementLearner.MIN_REWARD);
+                    adjacentRNodes[i].setReward(rlMinReward);
                 } else {
-                    adjacentRNodes[i].setReward(ReinforcementLearner.NORMAL_REWARD);
+                    adjacentRNodes[i].setReward(rlMaxReward);
                 }
             }
         }

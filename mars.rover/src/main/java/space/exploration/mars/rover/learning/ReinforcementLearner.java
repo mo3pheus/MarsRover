@@ -17,26 +17,28 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by sanket on 5/23/17.
  */
 public class ReinforcementLearner {
-    public static final  double MIN_REWARD     = -1.0d;
-    public static final  double NORMAL_REWARD  = 1.0D;
-    public static final  double MAX_REWARD     = 10.0d;
-    private static final int    MAX_ITERATIONS = 1000;
+    public static final String RL_ENGINE_PREFIX = "mars.rover.rlEngine";
 
     private Logger logger = LoggerFactory.getLogger(ReinforcementLearner.class);
 
     private Properties marsConfig = null;
     private RCell[][]  navGrid    = null;
 
-    private int lidarUsage = 0;
-    private int frameWidth = 0;
-    private int cellWidth  = 0;
+    private int lidarUsage       = 0;
+    private int frameWidth       = 0;
+    private int cellWidth        = 0;
+    private int explorationSteps = 0;
 
     private WallBuilder wallBuilder = null;
     private RCell       source      = null;
     private RCell       destination = null;
 
-    private double gamma = 0.0d;
-    private double alpha = 0.0d;
+    private double gamma         = 0.0d;
+    private double alpha         = 0.0d;
+    private int    minReward     = 0;
+    private int    maxReward     = 0;
+    private int    normalReward  = 0;
+    private int    maxIterations = 0;
 
     public ReinforcementLearner(Properties marsConfig) {
         this.marsConfig = marsConfig;
@@ -44,6 +46,14 @@ public class ReinforcementLearner {
         this.frameWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
         this.wallBuilder = new WallBuilder(marsConfig);
+
+        this.alpha = Double.parseDouble(marsConfig.getProperty(RL_ENGINE_PREFIX + ".discountRate"));
+        this.gamma = Double.parseDouble(marsConfig.getProperty(RL_ENGINE_PREFIX + ".stepSize"));
+        this.minReward = Integer.parseInt(marsConfig.getProperty(RL_ENGINE_PREFIX + ".minReward"));
+        this.maxIterations = Integer.parseInt(marsConfig.getProperty(RL_ENGINE_PREFIX + ".maxIterations"));
+        this.maxReward = Integer.parseInt(marsConfig.getProperty(RL_ENGINE_PREFIX + ".maxReward"));
+        this.normalReward = Integer.parseInt(marsConfig.getProperty(RL_ENGINE_PREFIX + ".normalReward"));
+
         populateGrid();
         configureAdjacency();
     }
@@ -61,15 +71,17 @@ public class ReinforcementLearner {
     }
 
     public void train(Point source, Point dest) {
+        logger.info(" rlEngine training triggered at SCET = " + System.currentTimeMillis() + " source = " + source
+                .toString() + " destination = " + dest.toString());
         this.destination = ReinforcementLearnerUtil.findPoint(dest, navGrid);
         this.source = ReinforcementLearnerUtil.findPoint(source, navGrid);
 
-        destination.setReward(MAX_REWARD);
-        destination.setqValue(MAX_REWARD);
+        destination.setReward(maxReward);
+        destination.setqValue(minReward);
 
-        ReinforcementLearnerUtil.setDestinationReward(navGrid, destination, MAX_REWARD);
+        ReinforcementLearnerUtil.setDestinationReward(navGrid, destination, maxReward);
 
-        for (int i = 0; i < MAX_ITERATIONS; i++) {
+        for (int i = 0; i < maxIterations; i++) {
             RCell current = ReinforcementLearnerUtil.getRandomSource(navGrid);
             //episode
             while (!current.equals(destination)) {
@@ -77,25 +89,29 @@ public class ReinforcementLearner {
                 RCell  next = ReinforcementLearnerUtil.findPoint(temp.getCenter(), navGrid);
                 double maxQ = next.getBestAction().getqValue();
                 double newQValue = (1.0d - alpha) * current.getqValue() + alpha * (next.getReward() + gamma * maxQ -
-                        current.getqValue());
+                                                                                   current.getqValue());
                 temp.setqValue(newQValue);
-
                 current = next;
+                explorationSteps++;
             }
-            System.out.println(i);
+            System.out.println("Reinforcement Learning progress = " + (i + 1) + "%");
         }
+        logger.info(" rlEngine logging totalExplorationSteps = " + explorationSteps);
     }
 
+    @Deprecated
     public void train(Point source, Point dest, List<Point> captureExploration) {
+        logger.info(" rlEngine training triggered at SCET = " + System.currentTimeMillis() + " source = " + source
+                .toString() + " destination = " + dest.toString());
         this.destination = ReinforcementLearnerUtil.findPoint(dest, navGrid);
         this.source = ReinforcementLearnerUtil.findPoint(source, navGrid);
 
-        destination.setReward(MAX_REWARD);
-        destination.setqValue(MAX_REWARD);
+        destination.setReward(maxReward);
+        destination.setqValue(maxReward);
 
-        ReinforcementLearnerUtil.setDestinationReward(navGrid, destination, MAX_REWARD);
+        ReinforcementLearnerUtil.setDestinationReward(navGrid, destination, maxReward);
 
-        for (int i = 0; i < MAX_ITERATIONS; i++) {
+        for (int i = 0; i < maxIterations; i++) {
             RCell current = ReinforcementLearnerUtil.getRandomSource(navGrid);
             //episode
             while (!current.equals(destination)) {
@@ -103,14 +119,16 @@ public class ReinforcementLearner {
                 RCell  next = ReinforcementLearnerUtil.findPoint(temp.getCenter(), navGrid);
                 double maxQ = next.getBestAction().getqValue();
                 double newQValue = (1.0d - alpha) * current.getqValue() + alpha * (next.getReward() + gamma * maxQ -
-                        current.getqValue());
+                                                                                   current.getqValue());
                 temp.setqValue(newQValue);
 
                 captureExploration.add(next.getCenter());
+                explorationSteps++;
                 current = next;
             }
-            System.out.println(i);
+            System.out.println("Reinforcement Learning progress = " + (i + 1) + "%");
         }
+        logger.info(" rlEngine logging totalExplorationSteps = " + explorationSteps);
     }
 
     public List<Point> getShortestPath() {
@@ -131,7 +149,7 @@ public class ReinforcementLearner {
             temp = ReinforcementLearnerUtil.findPoint(bestAction.getCenter(), navGrid);
             i++;
 
-            if (i == MAX_ITERATIONS * 10) {
+            if (i == maxIterations * 10) {
                 logger.error(" Could not find path between " + source.toString() + " and " + destination.toString());
                 return shortestPath;
             }
@@ -151,6 +169,30 @@ public class ReinforcementLearner {
         return navGrid;
     }
 
+    public double getGamma() {
+        return gamma;
+    }
+
+    public double getAlpha() {
+        return alpha;
+    }
+
+    public int getMinReward() {
+        return minReward;
+    }
+
+    public int getMaxReward() {
+        return maxReward;
+    }
+
+    public int getNormalReward() {
+        return normalReward;
+    }
+
+    public int getMaxIterations() {
+        return maxIterations;
+    }
+
     private void populateGrid() {
         int numCells = frameWidth / cellWidth;
         navGrid = new RCell[numCells][numCells];
@@ -162,9 +204,9 @@ public class ReinforcementLearner {
                 navGrid[i][j] = new RCell(point, id++, cellWidth);
 
                 if (intersects(navGrid[i][j])) {
-                    navGrid[i][j].setReward(MIN_REWARD);
+                    navGrid[i][j].setReward(minReward);
                 } else {
-                    navGrid[i][j].setReward(NORMAL_REWARD);
+                    navGrid[i][j].setReward(normalReward);
                 }
             }
         }

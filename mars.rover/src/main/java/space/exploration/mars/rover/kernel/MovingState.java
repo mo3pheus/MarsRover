@@ -10,6 +10,7 @@ import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions.Point;
+import space.exploration.mars.rover.utils.TrackingAnimationUtil;
 
 /**
  * @author sanketkorgaonkar
@@ -50,13 +51,16 @@ public class MovingState implements State {
     public void move(RobotPositions positions) {
         MarsArchitect  architect     = rover.getMarsArchitect();
         java.awt.Point robotPosition = rover.getMarsArchitect().getRobot().getLocation();
-        // this will ensure propulsion
-        for (Point p : positions.getPositionsList()) {
-            java.awt.Point tmpPoint = new java.awt.Point(p.getX(), p.getY());
-            architect.updateRobotPositions(
-                    AnimationUtil.generateRobotPositions(robotPosition, tmpPoint, architect.getRobotStepSize()));
-            robotPosition = tmpPoint;
-        }
+
+        Point destination = positions.getPositions(0);
+        rover.configureRLEngine();
+        rover.getRlNavEngine().train(robotPosition,
+                new java.awt.Point(destination.getX(), destination.getY())
+        );
+
+        architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(rover.getRlNavEngine()
+                .getShortestPath(), architect.getRobotStepSize()));
+
         architect.returnSurfaceToNormal();
         sendUpdateToEarth();
     }
