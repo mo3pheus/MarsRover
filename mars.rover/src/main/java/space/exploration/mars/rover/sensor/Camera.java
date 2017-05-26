@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.IsEquipment;
+import space.exploration.mars.rover.kernel.ModuleDirectory;
+import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.CameraUtil;
 import space.exploration.mars.rover.utils.RoverUtil;
 
@@ -21,18 +23,22 @@ import java.util.Properties;
  * Created by sanketkorgaonkar on 5/9/17.
  */
 public class Camera implements IsEquipment {
-    private static final String          LIFESPAN         = "mars.rover.camera.lifeSpan";
-    private              int             numImages        = 0;
-    private              int             numImageCaches   = 0;
-    private              int             lifeSpan         = 0;
-    private              long            shutterSpeed     = 0;
-    private              Properties      marsConfig       = null;
-    private              BufferedImage[] marsImages       = null;
-    private              List<Point>     imageCachePoints = null;
-    private              Logger          logger           = LoggerFactory.getLogger(Camera.class);
+    private static final String          LIFESPAN           = "mars.rover.camera.lifeSpan";
+    private static final int             LAST_SHOTS_RESERVE = 10;
+    private              int             numImages          = 0;
+    private              int             numImageCaches     = 0;
+    private              int             lifeSpan           = 0;
+    private              long            shutterSpeed       = 0;
+    private              Properties      marsConfig         = null;
+    private              BufferedImage[] marsImages         = null;
+    private              List<Point>     imageCachePoints   = null;
+    private              Logger          logger             = LoggerFactory.getLogger(Camera.class);
+    private              Rover           rover              = null;
+    private              boolean         endOfLife          = false;
 
-    public Camera(Properties marsConfig) {
+    public Camera(Properties marsConfig, Rover rover) {
         this.marsConfig = marsConfig;
+        this.rover = rover;
         numImages = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGES));
         numImageCaches = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGE_CAHCES));
         shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
@@ -46,6 +52,14 @@ public class Camera implements IsEquipment {
     }
 
     public byte[] takePhoto(Point location) {
+        if (lifeSpan <= LAST_SHOTS_RESERVE && !endOfLife) {
+            rover.getRadio().sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.CAMERA_SENSOR, "Camera " +
+                    "at end of life. Last " + Integer.toString(LAST_SHOTS_RESERVE) + " remaining. Please confirm the " +
+                    "location for final shots. The next command will be honored!", rover).toByteArray());
+            endOfLife = true;
+            return null;
+        }
+
         lifeSpan--;
         if (imageCachePoints.contains(location)) {
             int    index      = ThreadLocalRandom.current().nextInt(0, numImages);

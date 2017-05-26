@@ -45,6 +45,7 @@ public class Pacemaker {
                     System.out.println(heartBeat);
                     logger.info(heartBeat.toString());
                     rover.getRadio().sendMessage(roverStatus.toByteArray());
+                    rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - 1);
                 }
             }
         };
@@ -68,7 +69,7 @@ public class Pacemaker {
         hBuilder.setLocation(location);
 
         //Equipment check
-        for (IsEquipment equipment : rover.getEquipmentLlist()) {
+        for (IsEquipment equipment : rover.getEquimentList()) {
             hBuilder.putEquipmentHealth(equipment.getEquipmentName(), equipment.getLifeSpan());
         }
 

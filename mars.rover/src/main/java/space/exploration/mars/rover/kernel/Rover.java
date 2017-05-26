@@ -91,13 +91,13 @@ public class Rover {
 
         int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 
-        this.lidar = new Lidar(location, cellWidth, cellWidth);
+        this.lidar = new Lidar(location, cellWidth, cellWidth, this);
         lidar.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Lidar.LIFESPAN)));
 
-        this.spectrometer = new Spectrometer(location);
+        this.spectrometer = new Spectrometer(location, this);
         spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
 
-        this.camera = new Camera(this.marsConfig);
+        this.camera = new Camera(this.marsConfig, this);
 
         state = transmittingState;
         transmitMessage(getBootupMessage());
@@ -186,7 +186,7 @@ public class Rover {
 
     public void configureSpectrometer(Point origin) {
         int spectrometerLifeSpan = spectrometer.getLifeSpan();
-        this.spectrometer = new Spectrometer(origin);
+        this.spectrometer = new Spectrometer(origin, this);
         spectrometer.setLifeSpan(spectrometerLifeSpan);
     }
 
@@ -202,7 +202,7 @@ public class Rover {
 
     public void configureLidar(Point origin, int cellWidth, int range) {
         int lidarLifespan = lidar.getLifeSpan();
-        this.lidar = new Lidar(origin, cellWidth, range);
+        this.lidar = new Lidar(origin, cellWidth, range, this);
         lidar.setLifeSpan(lidarLifespan);
     }
 
@@ -252,7 +252,7 @@ public class Rover {
         return rBuilder.build().toByteArray();
     }
 
-    public List<IsEquipment> getEquipmentLlist() {
+    public List<IsEquipment> getEquimentList() {
         List<IsEquipment> equipmentList = new ArrayList<IsEquipment>();
         equipmentList.add(this.battery);
         equipmentList.add(this.radio);

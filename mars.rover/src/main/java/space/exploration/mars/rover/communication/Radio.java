@@ -7,6 +7,7 @@ import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.kernel.IsEquipment;
+import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
 
@@ -17,6 +18,7 @@ import java.util.Properties;
  */
 public class Radio implements IsEquipment {
     public static final String               LIFESPAN        = "mars.rover.radio.lifeSpan";
+    public static final int                  SOS_RESERVE     = 10;
     private             RadioAnimationEngine radioAnimEngine = null;
     private             Rover                rover           = null;
     private             Transmitter          transmitter     = null;
@@ -36,12 +38,17 @@ public class Radio implements IsEquipment {
 
     public void receiveMessage(InstructionPayload instructionPayload) {
         try {
-            Thread.sleep(getComsDelaySecs());
-            this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
-                    .getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
-            radioAnimEngine.activateRadio();
-            rover.receiveMessage(instructionPayload.toByteArray());
-            lifeSpan--;
+            if (lifeSpan > SOS_RESERVE) {
+                Thread.sleep(getComsDelaySecs());
+                this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
+                        .getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
+                radioAnimEngine.activateRadio();
+                rover.receiveMessage(instructionPayload.toByteArray());
+                lifeSpan--;
+            } else {
+                sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
+                        Rover.ROVER_NAME + " Radio at end of life. Any last wishes Earth?", rover).toByteArray());
+            }
         } catch (Exception e) {
             System.out.println("Radio receive operation has an exception");
             logger.error(e.getMessage());
@@ -50,12 +57,17 @@ public class Radio implements IsEquipment {
 
     public void sendMessage(byte[] message) {
         try {
-            this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
-                    .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
-            radioAnimEngine.activateRadio();
-            Thread.sleep(getComsDelaySecs());
-            transmitter.transmitMessage(message);
-            lifeSpan--;
+            if( lifeSpan > SOS_RESERVE ) {
+                this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
+                        .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
+                radioAnimEngine.activateRadio();
+                Thread.sleep(getComsDelaySecs());
+                transmitter.transmitMessage(message);
+                lifeSpan--;
+            } else {
+                sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
+                        Rover.ROVER_NAME + " Radio at end of life. Any last wishes Earth?", rover).toByteArray());
+            }
         } catch (InvalidProtocolBufferException e) {
             System.out.println("Transmit module is in exception - invalidProtocolBuffer ");
             logger.error("InvalidProtocolBufferException error - common guys send me a good message!");

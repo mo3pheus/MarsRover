@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
 import space.exploration.mars.rover.kernel.IsEquipment;
+import space.exploration.mars.rover.kernel.ModuleDirectory;
+import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
@@ -12,22 +14,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lidar implements IsEquipment {
-    public static final  String LIFESPAN    = "mars.rover.lidar.lifeSpan";
-    private static final int    DELTA_THETA = 5;
+    public static final  String LIFESPAN       = "mars.rover.lidar.lifeSpan";
+    private static final int    DELTA_THETA    = 5;
+    private static final int    NUM_LAST_SCANS = 100;
 
     private Logger      logger      = LoggerFactory.getLogger(Lidar.class);
+    private Rover       rover       = null;
     private WallBuilder wallBuilder = null;
     private List<Point> contacts    = null;
     private List<Point> scanRadius  = null;
     private Point       origin      = null;
     private Point[]     gridCells   = new Point[8];
 
-    private double range     = 0;
-    private String status    = "";
-    private int    cellWidth = 0;
-    private int    lifeSpan  = 0;
+    private double  range     = 0;
+    private String  status    = "";
+    private int     cellWidth = 0;
+    private int     lifeSpan  = 0;
+    private boolean endOfLife = false;
 
-    public Lidar(Point origin, int range, int cellWidth) {
+    public Lidar(Point origin, int range, int cellWidth, Rover rover) {
+        this.rover = rover;
         contacts = new ArrayList<Point>();
         this.origin = origin;
         this.range = Math.sqrt((2.0d * range * range));
@@ -83,10 +89,18 @@ public class Lidar implements IsEquipment {
     }
 
     public void scanArea() {
+        if (lifeSpan < NUM_LAST_SCANS && !endOfLife) {
+            endOfLife = true;
+            rover.getRadio().sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.SENSOR_LIDAR, " Lidar " +
+                    "at end of life. Num of scans remaining = " + NUM_LAST_SCANS + " Please confirm scan command. " +
+                    "Next command will be honored!", rover).toByteArray());
+            return;
+        }
+
         if (wallBuilder != null) {
             computeScanRadius();
             System.out.println("Debug ::" + " Lifespan value = " + lifeSpan);
-            lifeSpan--;
+            lifeSpan -= 100;
         }
     }
 

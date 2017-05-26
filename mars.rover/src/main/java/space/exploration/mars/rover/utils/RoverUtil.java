@@ -1,6 +1,9 @@
 package space.exploration.mars.rover.utils;
 
 import org.slf4j.Logger;
+import space.exploration.mars.rover.communication.RoverStatusOuterClass;
+import space.exploration.mars.rover.kernel.ModuleDirectory;
+import space.exploration.mars.rover.kernel.Rover;
 
 import java.util.Properties;
 
@@ -33,5 +36,22 @@ public class RoverUtil {
             propAsString += "::" + properties.getProperty((String) key);
         }
         return propAsString;
+    }
+
+    public static final RoverStatusOuterClass.RoverStatus getEndOfLifeMessage(ModuleDirectory.Module module, String
+            message, Rover rover) {
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+        rBuilder.setSCET(System.currentTimeMillis());
+        rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits() + rover.getBattery()
+                .getAuxiliaryPowerUnits());
+
+        rBuilder.setLocation(RoverStatusOuterClass.RoverStatus.Location.newBuilder().
+                setX(rover.getMarsArchitect().getRobot().getLocation().x).setY(rover.getMarsArchitect().getRobot()
+                .getLocation().y).build());
+        rBuilder.setSolNumber(rover.getSol());
+        rBuilder.setNotes(message);
+        rBuilder.setModuleReporting(module.getValue());
+        
+        return rBuilder.build();
     }
 }
