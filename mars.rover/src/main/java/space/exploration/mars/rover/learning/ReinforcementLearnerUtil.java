@@ -73,6 +73,7 @@ public class ReinforcementLearnerUtil {
         return (newY > frameWidth) ? null : findPoint(new Point(center.x, newY), grid);
     }
 
+    @Deprecated
     public static RCell getBest(RCell rCell, RCell[][] grid, int cellWidth, int frameWidth) {
         RCell best = null;
 

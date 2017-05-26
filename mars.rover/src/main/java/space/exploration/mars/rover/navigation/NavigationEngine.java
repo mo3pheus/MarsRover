@@ -79,7 +79,7 @@ public class NavigationEngine implements PerformsNavigation {
 
     /**
      * This method provides the navigation functionality to get from point start
-     * to point end. The following code implements the A* algorithm.
+     * to point end. The following code implements the A* algorith m.
      */
     public List<Point> navigate(NavCell start, NavCell end) {
         List<NavCell> open   = new ArrayList<NavCell>();
