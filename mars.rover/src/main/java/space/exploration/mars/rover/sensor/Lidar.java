@@ -92,8 +92,16 @@ public class Lidar implements IsEquipment {
         if (lifeSpan < NUM_LAST_SCANS && !endOfLife) {
             endOfLife = true;
             rover.getRadio().sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.SENSOR_LIDAR, " Lidar " +
-                    "at end of life. Num of scans remaining = " + NUM_LAST_SCANS + " Please confirm scan command. " +
-                    "Next command will be honored!", rover).toByteArray());
+                                                                                                            "at end " +
+                                                                                                            "of life." +
+                                                                                                            " Num of " +
+                                                                                                            "scans " +
+                                                                                                            "remaining = " + NUM_LAST_SCANS + " Please confirm scan command. " +
+                                                                                                            "Next " +
+                                                                                                            "command " +
+                                                                                                            "will be " +
+                                                                                                            "honored!", rover).toByteArray());
+            rover.setEquipmentEOL(true);
             return;
         }
 

@@ -33,43 +33,49 @@ public class PhotographingState implements State {
 
     public void activateCamera() {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
-        CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect.getRobot()
-                .getLocation());
-        cameraAnimationEngine.setRobot(marsArchitect.getRobot());
-        cameraAnimationEngine.setMarsSurface(marsArchitect.getMarsSurface());
-        cameraAnimationEngine.clickCamera();
-        byte[] cameraShot = rover.getCamera().takePhoto(marsArchitect.getRobot().getLocation());
+        byte[]        cameraShot    = rover.getCamera().takePhoto(marsArchitect.getRobot().getLocation());
 
-        RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location.newBuilder()
-                .setX(marsArchitect.getRobot().getLocation().x)
-                .setY(marsArchitect.getRobot().getLocation().y).build();
+        if (!rover.isEquipmentEOL()) {
+            CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect
+                    .getRobot()
+                    .getLocation());
+            cameraAnimationEngine.setRobot(marsArchitect.getRobot());
+            cameraAnimationEngine.setMarsSurface(marsArchitect.getMarsSurface());
+            cameraAnimationEngine.clickCamera();
 
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+            RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
+                    .newBuilder()
+                    .setX(marsArchitect.getRobot().getLocation().x)
+                    .setY(marsArchitect.getRobot().getLocation().y).build();
 
-        RoverStatusOuterClass.RoverStatus status = null;
-        if (cameraShot != null) {
-            System.out.println("Camera shot was not null");
-            status = rBuilder.setBatteryLevel(rover.getBattery()
-                    .getPrimaryPowerUnits())
-                    .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera used here")
-                    .setModuleMessage(ByteString.copyFrom(cameraShot)).setSCET(System
-                            .currentTimeMillis())
-                    .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
-        } else {
-            System.out.println("Camera shot was null");
-            status = rBuilder.setBatteryLevel(rover.getBattery()
-                    .getPrimaryPowerUnits())
-                    .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera wasn't able to take a shot. " +
-                            "Sorry earth!")
-                    .setSCET(System
-                            .currentTimeMillis())
-                    .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
+            RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+
+            RoverStatusOuterClass.RoverStatus status = null;
+            if (cameraShot != null) {
+                System.out.println("Camera shot was not null");
+                status = rBuilder.setBatteryLevel(rover.getBattery()
+                        .getPrimaryPowerUnits())
+                        .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera used here")
+                        .setModuleMessage(ByteString.copyFrom(cameraShot)).setSCET(System
+                                .currentTimeMillis())
+                        .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
+            } else {
+                System.out.println("Camera shot was null");
+                status = rBuilder.setBatteryLevel(rover.getBattery()
+                        .getPrimaryPowerUnits())
+                        .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera wasn't able to take a " +
+                                                                                     "shot. " +
+                                                                                     "Sorry earth!")
+                        .setSCET(System
+                                .currentTimeMillis())
+                        .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
+            }
+
+            logger.info(status.toString());
+
+            rover.state = rover.transmittingState;
+            rover.transmitMessage(status.toByteArray());
         }
-
-        logger.info(status.toString());
-
-        rover.state = rover.transmittingState;
-        rover.transmitMessage(status.toByteArray());
     }
 
     public void move(RobotPositionsOuterClass.RobotPositions positions) {

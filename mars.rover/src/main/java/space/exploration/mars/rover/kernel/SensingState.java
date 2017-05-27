@@ -63,25 +63,28 @@ public class SensingState implements State {
                 marsArchitect.getCellWidth());
         rover.getLidar().setWallBuilder(new WallBuilder(rover.getMarsConfig()));
         rover.getLidar().scanArea();
-        marsArchitect.setLidarAnimationEngine(rover.getLidar());
-        marsArchitect.getLidarAnimationEngine().activateLidar();
-        marsArchitect.returnSurfaceToNormal();
 
-        RoverPing.Builder lidarFeedback = RoverPing.newBuilder();
-        lidarFeedback.setTimeStamp(System.currentTimeMillis());
-        lidarFeedback.setMsg(rover.getLidar().getStatus());
+        if(!rover.isEquipmentEOL()) {
+            marsArchitect.setLidarAnimationEngine(rover.getLidar());
+            marsArchitect.getLidarAnimationEngine().activateLidar();
+            marsArchitect.returnSurfaceToNormal();
 
-        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
-                .setY(marsArchitect.getRobot().getLocation().y).build();
+            RoverPing.Builder lidarFeedback = RoverPing.newBuilder();
+            lidarFeedback.setTimeStamp(System.currentTimeMillis());
+            lidarFeedback.setMsg(rover.getLidar().getStatus());
 
-        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-        RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
-                .setSolNumber(rover.getSol()).setLocation(location).setNotes("Lidar exercised here.")
-                .setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
-                .setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
+            Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
+                    .setY(marsArchitect.getRobot().getLocation().y).build();
 
-        rover.state = rover.transmittingState;
-        rover.transmitMessage(status.toByteArray());
+            RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
+            RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
+                    .setSolNumber(rover.getSol()).setLocation(location).setNotes("Lidar exercised here.")
+                    .setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
+                    .setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
+
+            rover.state = rover.transmittingState;
+            rover.transmitMessage(status.toByteArray());
+        }
     }
 
     public void performDiagnostics() {

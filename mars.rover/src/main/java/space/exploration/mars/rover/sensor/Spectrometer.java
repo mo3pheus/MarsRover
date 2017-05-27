@@ -69,6 +69,7 @@ public class Spectrometer implements IsEquipment {
             rover.getRadio().sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.SENSOR_SPECTROMETER, " " +
                     "Spectrometer at end of life. Num last scans left = " + NUM_LAST_SCANS + " Please confirm command" +
                     ". The next command will be honored!", rover).toByteArray());
+            rover.setEquipmentEOL(endOfLife);
             return;
         } else if (surfaceComp == null || cellWidth == 0) {
             logger.error("SurfaceComp or cellWidth not set for spectrometer");

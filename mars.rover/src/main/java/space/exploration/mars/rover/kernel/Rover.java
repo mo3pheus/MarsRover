@@ -37,9 +37,10 @@ public class Rover {
     State photoGraphingState;
 
     /* Status messages */
-    RoverStatus status       = null;
-    long        creationTime = 0l;
-    Logger      logger       = null;
+    private RoverStatus status       = null;
+    private long        creationTime = 0l;
+    private Logger      logger       = null;
+    private boolean     equipmentEOL = false;
 
     /* Configuration */
     private Properties           marsConfig    = null;
@@ -103,7 +104,7 @@ public class Rover {
         transmitMessage(getBootupMessage());
     }
 
-    public void configureRLEngine(){
+    public void configureRLEngine() {
         this.rlNavEngine = new ReinforcementLearner(marsConfig);
     }
 
@@ -182,6 +183,14 @@ public class Rover {
 
     public State getState() {
         return state;
+    }
+
+    public boolean isEquipmentEOL() {
+        return equipmentEOL;
+    }
+
+    public void setEquipmentEOL(boolean equipmentEOL) {
+        this.equipmentEOL = equipmentEOL;
     }
 
     public void configureSpectrometer(Point origin) {

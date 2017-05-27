@@ -47,34 +47,31 @@ public class Radio implements IsEquipment {
                 lifeSpan--;
             } else {
                 sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
-                        Rover.ROVER_NAME + " Radio at end of life. Any last wishes Earth?", rover).toByteArray());
+                                                                                       Rover.ROVER_NAME + " Radio at " +
+                                                                                       "end of life. Any last wishes " +
+                                                                                       "Earth?", rover).toByteArray());
             }
         } catch (Exception e) {
             System.out.println("Radio receive operation has an exception");
-            logger.error(e.getMessage());
+            logger.error("Radio receive operation encountered an exception", e);
         }
     }
 
     public void sendMessage(byte[] message) {
         try {
-            if( lifeSpan > SOS_RESERVE ) {
-                this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
-                        .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
-                radioAnimEngine.activateRadio();
-                Thread.sleep(getComsDelaySecs());
-                transmitter.transmitMessage(message);
-                lifeSpan--;
-            } else {
-                sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
-                        Rover.ROVER_NAME + " Radio at end of life. Any last wishes Earth?", rover).toByteArray());
-            }
+            this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
+                    .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
+            radioAnimEngine.activateRadio();
+            Thread.sleep(getComsDelaySecs());
+            transmitter.transmitMessage(message);
+            lifeSpan--;
         } catch (InvalidProtocolBufferException e) {
             System.out.println("Transmit module is in exception - invalidProtocolBuffer ");
-            logger.error("InvalidProtocolBufferException error - common guys send me a good message!");
+            logger.error("InvalidProtocolBufferException error - common guys send me a good message!", e);
             logger.error(e.getMessage());
         } catch (InterruptedException e) {
             System.out.println("Transmit module is in exception - interruptedException ");
-            logger.error("InterruptedException");
+            logger.error("InterruptedException", e);
             logger.error(e.getMessage());
         }
     }

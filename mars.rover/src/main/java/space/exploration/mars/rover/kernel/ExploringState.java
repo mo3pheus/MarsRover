@@ -35,21 +35,23 @@ public class ExploringState implements State {
         rover.getSpectrometer().setSurfaceComp(marsArchitect.getSoilCompositionMap());
         rover.getSpectrometer().processSurroundingArea();
 
-        marsArchitect.setSpectrometerAnimationEngine(rover.getSpectrometer());
-        marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
-        marsArchitect.returnSurfaceToNormal();
+        if(!rover.isEquipmentEOL()) {
+            marsArchitect.setSpectrometerAnimationEngine(rover.getSpectrometer());
+            marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
+            marsArchitect.returnSurfaceToNormal();
 
-        Location.Builder lBuilder = Location.newBuilder().setX(robot.getLocation().x).setY(robot.getLocation().y);
+            Location.Builder lBuilder = Location.newBuilder().setX(robot.getLocation().x).setY(robot.getLocation().y);
 
-        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-        RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
-                .setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
-                .setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
-                .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE.getValue())
-                .build();
+            RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
+            RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
+                    .setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
+                    .setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
+                    .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE.getValue())
+                    .build();
 
-        rover.state = rover.transmittingState;
-        rover.transmitMessage(status.toByteArray());
+            rover.state = rover.transmittingState;
+            rover.transmitMessage(status.toByteArray());
+        }
     }
 
     public void activateCamera() {

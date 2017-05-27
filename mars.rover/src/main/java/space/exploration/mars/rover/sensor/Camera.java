@@ -57,6 +57,7 @@ public class Camera implements IsEquipment {
                     "at end of life. Last " + Integer.toString(LAST_SHOTS_RESERVE) + " remaining. Please confirm the " +
                     "location for final shots. The next command will be honored!", rover).toByteArray());
             endOfLife = true;
+            rover.setEquipmentEOL(endOfLife);
             return null;
         }
 
