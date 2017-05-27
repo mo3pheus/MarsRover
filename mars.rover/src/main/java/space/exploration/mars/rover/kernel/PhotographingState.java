@@ -35,6 +35,7 @@ public class PhotographingState implements State {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         byte[]        cameraShot    = rover.getCamera().takePhoto(marsArchitect.getRobot().getLocation());
 
+        /* Do not render animation in case of sensor endOfLife */
         if (!rover.isEquipmentEOL()) {
             CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect
                     .getRobot()
@@ -76,6 +77,9 @@ public class PhotographingState implements State {
             rover.state = rover.transmittingState;
             rover.transmitMessage(status.toByteArray());
         }
+
+        /* Flip the flag so the sensor can perform its last operation */
+        rover.setEquipmentEOL(false);
     }
 
     public void move(RobotPositionsOuterClass.RobotPositions positions) {

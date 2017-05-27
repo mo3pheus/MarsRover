@@ -35,6 +35,7 @@ public class ExploringState implements State {
         rover.getSpectrometer().setSurfaceComp(marsArchitect.getSoilCompositionMap());
         rover.getSpectrometer().processSurroundingArea();
 
+        /* Do not render animation if sensor endOfLife */
         if(!rover.isEquipmentEOL()) {
             marsArchitect.setSpectrometerAnimationEngine(rover.getSpectrometer());
             marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
@@ -52,6 +53,9 @@ public class ExploringState implements State {
             rover.state = rover.transmittingState;
             rover.transmitMessage(status.toByteArray());
         }
+
+        /* Flip the flag so the sensor can perform its last operation */
+        rover.setEquipmentEOL(false);
     }
 
     public void activateCamera() {

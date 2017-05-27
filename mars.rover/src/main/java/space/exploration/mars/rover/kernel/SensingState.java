@@ -64,7 +64,8 @@ public class SensingState implements State {
         rover.getLidar().setWallBuilder(new WallBuilder(rover.getMarsConfig()));
         rover.getLidar().scanArea();
 
-        if(!rover.isEquipmentEOL()) {
+        /* Do not render animation in case of sensor endOfLife */
+        if (!rover.isEquipmentEOL()) {
             marsArchitect.setLidarAnimationEngine(rover.getLidar());
             marsArchitect.getLidarAnimationEngine().activateLidar();
             marsArchitect.returnSurfaceToNormal();
@@ -85,6 +86,9 @@ public class SensingState implements State {
             rover.state = rover.transmittingState;
             rover.transmitMessage(status.toByteArray());
         }
+
+        /* Flip the flag so the sensor can perform its last operation. */
+        rover.setEquipmentEOL(false);
     }
 
     public void performDiagnostics() {
