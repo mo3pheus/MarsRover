@@ -59,6 +59,14 @@ public class Spectrometer implements IsEquipment {
         this.lifeSpan = lifeSpan;
     }
 
+    public boolean isEndOfLife() {
+        return endOfLife;
+    }
+
+    public void setEndOfLife(boolean endOfLife) {
+        this.endOfLife = endOfLife;
+    }
+
     public String getEquipmentName() {
         return "Spectrometer";
     }
@@ -66,10 +74,12 @@ public class Spectrometer implements IsEquipment {
     public void processSurroundingArea() {
         if (lifeSpan < NUM_LAST_SCANS && !endOfLife) {
             endOfLife = true;
-            rover.getRadio().sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.SENSOR_SPECTROMETER, " " +
-                    "Spectrometer at end of life. Num last scans left = " + NUM_LAST_SCANS + " Please confirm command" +
-                    ". The next command will be honored!", rover).toByteArray());
             rover.setEquipmentEOL(endOfLife);
+            rover.authorizeTransmission(ModuleDirectory.Module.SENSOR_SPECTROMETER, RoverUtil.getEndOfLifeMessage
+                    (ModuleDirectory.Module.SENSOR_SPECTROMETER, " Spectrometer at end of life. Num last scans left " +
+                                                                 "=" + NUM_LAST_SCANS + " Please confirm command. The" +
+                                                                 " next command will be honored!", rover).toByteArray
+                    ());
             return;
         } else if (surfaceComp == null || cellWidth == 0) {
             logger.error("SurfaceComp or cellWidth not set for spectrometer");
@@ -79,7 +89,7 @@ public class Spectrometer implements IsEquipment {
 
         for (int i = ((int) origin.getX() - cellWidth); i <= ((int) origin.getX() + cellWidth); i = (i + cellWidth)) {
             for (int j = ((int) origin.getY() - cellWidth); j <= ((int) origin.getY() + cellWidth); j = (j
-                    + cellWidth)) {
+                                                                                                         + cellWidth)) {
                 if (i < 0 || j < 0) {
                     continue;
                 }

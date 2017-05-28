@@ -3,6 +3,8 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.communication.RoverPingOuterClass.RoverPing;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
@@ -14,16 +16,17 @@ import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPosition
  * @author sanketkorgaonkar
  */
 public class SensingState implements State {
-
-    private Rover rover = null;
+    private Logger logger = LoggerFactory.getLogger(SensingState.class);
+    private Rover  rover  = null;
 
     public SensingState(Rover rover) {
         this.rover = rover;
     }
 
     public void receiveMessage(byte[] message) {
-        // TODO Auto-generated method stub
         rover.getInstructionQueue().add(message);
+        logger.error("Rover not in the correct state to receive message. Message added to the instruction queue, " +
+                     "instruction queue length = " + rover.getInstructionQueue().size());
     }
 
     public void transmitMessage(byte[] message) {

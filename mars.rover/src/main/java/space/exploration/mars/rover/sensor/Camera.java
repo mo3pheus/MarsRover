@@ -53,11 +53,13 @@ public class Camera implements IsEquipment {
 
     public byte[] takePhoto(Point location) {
         if (lifeSpan <= LAST_SHOTS_RESERVE && !endOfLife) {
-            rover.getRadio().sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.CAMERA_SENSOR, "Camera " +
-                    "at end of life. Last " + Integer.toString(LAST_SHOTS_RESERVE) + " remaining. Please confirm the " +
-                    "location for final shots. The next command will be honored!", rover).toByteArray());
             endOfLife = true;
             rover.setEquipmentEOL(endOfLife);
+            rover.authorizeTransmission(ModuleDirectory.Module.CAMERA_SENSOR, RoverUtil.getEndOfLifeMessage
+                    (ModuleDirectory.Module.CAMERA_SENSOR, "Camera at end of life. Last " + Integer.toString
+                            (LAST_SHOTS_RESERVE) +
+                                                           " remaining. Please confirm the location for final shots. " +
+                                                           "The next command will be honored!", rover).toByteArray());
             return null;
         }
 
@@ -74,6 +76,14 @@ public class Camera implements IsEquipment {
         } else {
             return null;
         }
+    }
+
+    public boolean isEndOfLife() {
+        return endOfLife;
+    }
+
+    public void setEndOfLife(boolean endOfLife) {
+        this.endOfLife = endOfLife;
     }
 
     public long getShutterSpeed() {

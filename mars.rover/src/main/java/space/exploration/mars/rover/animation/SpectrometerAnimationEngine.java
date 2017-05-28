@@ -21,7 +21,7 @@ public class SpectrometerAnimationEngine {
     private             Logger       logger             = LoggerFactory.getLogger(SpectrometerAnimationEngine.class);
 
     public SpectrometerAnimationEngine(Properties marsConfig, Cell robot, Spectrometer spectrometer,
-                                       JFrame marsSurface) {
+            JFrame marsSurface) {
         this.marsConfig = marsConfig;
         this.robot = robot;
         this.spectrometer = spectrometer;

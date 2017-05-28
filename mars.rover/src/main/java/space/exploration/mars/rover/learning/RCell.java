@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class RCell {
     private static final double REALLY_LOW_VALUE = -99999.0d;
-    private static final int MAX_TRIES = 100;
+    private static final int    MAX_TRIES        = 100;
 
     private Point   center        = null;
     private int     cellWidth     = 0;
@@ -77,10 +77,10 @@ public class RCell {
         return best;
     }
 
-    public RCell getRandomAction(){
-        int id = ThreadLocalRandom.current().nextInt(0, Direction.values().length);
+    public RCell getRandomAction() {
+        int id    = ThreadLocalRandom.current().nextInt(0, Direction.values().length);
         int tries = 0;
-        while(adjacentNodes[id] == null && tries < MAX_TRIES){
+        while (adjacentNodes[id] == null && tries < MAX_TRIES) {
             id = ThreadLocalRandom.current().nextInt(0, Direction.values().length);
             tries++;
         }

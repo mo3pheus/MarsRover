@@ -149,6 +149,14 @@ public class Rover {
         state.transmitMessage(message);
     }
 
+    public void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
+        /* Choose to filter upon modules here */
+        logger.info("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife set" +
+                    " to " + Boolean.toString(equipmentEOL));
+        state = transmittingState;
+        transmitMessage(message);
+    }
+
     public Radio getRadio() {
         return radio;
     }
@@ -195,8 +203,10 @@ public class Rover {
 
     public void configureSpectrometer(Point origin) {
         int spectrometerLifeSpan = spectrometer.getLifeSpan();
+        boolean spectrometerEOL = spectrometer.isEndOfLife();
         this.spectrometer = new Spectrometer(origin, this);
         spectrometer.setLifeSpan(spectrometerLifeSpan);
+        spectrometer.setEndOfLife(spectrometerEOL);
     }
 
     public int getSol() {
@@ -211,8 +221,10 @@ public class Rover {
 
     public void configureLidar(Point origin, int cellWidth, int range) {
         int lidarLifespan = lidar.getLifeSpan();
+        boolean lidarEOL = lidar.isEndOfLife();
         this.lidar = new Lidar(origin, cellWidth, range, this);
         lidar.setLifeSpan(lidarLifespan);
+        lidar.setEndOfLife(lidarEOL);
     }
 
     public void powerCheck(int powerConsumed) {

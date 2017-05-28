@@ -42,7 +42,7 @@ public class Receiver extends Thread {
         Properties matrixConfig = new Properties();
         FileInputStream propFile = new FileInputStream(
                 "/Users/sanketkorgaonkar/Documents/CodeRepos/AdvancedMatrix/advanced" +
-                        ".matrix/src/main/resources/mazeDefinition.properties");
+                ".matrix/src/main/resources/mazeDefinition.properties");
         matrixConfig.load(propFile);
         this.lastReportTime = System.currentTimeMillis();
     }

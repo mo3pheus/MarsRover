@@ -51,7 +51,7 @@ public class RoverUtil {
         rBuilder.setSolNumber(rover.getSol());
         rBuilder.setNotes(message);
         rBuilder.setModuleReporting(module.getValue());
-        
+
         return rBuilder.build();
     }
 }

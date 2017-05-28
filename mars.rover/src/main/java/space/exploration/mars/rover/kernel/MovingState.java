@@ -3,7 +3,6 @@
  */
 package space.exploration.mars.rover.kernel;
 
-import space.exploration.mars.rover.animation.AnimationUtil;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.MarsArchitect;

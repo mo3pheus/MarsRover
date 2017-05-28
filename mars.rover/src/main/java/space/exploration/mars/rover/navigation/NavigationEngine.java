@@ -110,7 +110,7 @@ public class NavigationEngine implements PerformsNavigation {
                     double gCost = NavUtil.getGCost(cAdjNode, start, cellWidth);
                     cAdjNode.setgCost(gCost);
                     int hCost = Math.abs(cAdjNode.getCenter().x - end.getCenter().x)
-                            + Math.abs(cAdjNode.getCenter().y - end.getCenter().y);
+                                + Math.abs(cAdjNode.getCenter().y - end.getCenter().y);
                     cAdjNode.sethCost(hCost);
                     cAdjNode.setfCost(hCost + cAdjNode.getgCost());
                     open.add(cAdjNode);

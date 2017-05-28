@@ -91,17 +91,11 @@ public class Lidar implements IsEquipment {
     public void scanArea() {
         if (lifeSpan < NUM_LAST_SCANS && !endOfLife) {
             endOfLife = true;
-            rover.getRadio().sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.SENSOR_LIDAR, " Lidar " +
-                                                                                                            "at end " +
-                                                                                                            "of life." +
-                                                                                                            " Num of " +
-                                                                                                            "scans " +
-                                                                                                            "remaining = " + NUM_LAST_SCANS + " Please confirm scan command. " +
-                                                                                                            "Next " +
-                                                                                                            "command " +
-                                                                                                            "will be " +
-                                                                                                            "honored!", rover).toByteArray());
-            rover.setEquipmentEOL(true);
+            rover.setEquipmentEOL(endOfLife);
+            rover.authorizeTransmission(ModuleDirectory.Module.SENSOR_LIDAR, RoverUtil.getEndOfLifeMessage
+                    (ModuleDirectory.Module.SENSOR_LIDAR, " Lidar at end of life. Num of scans remaining = " +
+                                                          NUM_LAST_SCANS + " Please confirm scan command. Next " +
+                                                          "command will be honored!", rover).toByteArray());
             return;
         }
 
@@ -109,6 +103,14 @@ public class Lidar implements IsEquipment {
             computeScanRadius();
             lifeSpan -= 100;
         }
+    }
+
+    public boolean isEndOfLife() {
+        return endOfLife;
+    }
+
+    public void setEndOfLife(boolean endOfLife) {
+        this.endOfLife = endOfLife;
     }
 
     public String getStatus() {

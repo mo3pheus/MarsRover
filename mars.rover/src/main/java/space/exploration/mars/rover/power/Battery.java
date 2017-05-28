@@ -21,8 +21,8 @@ public class Battery implements IsEquipment {
         this.primaryPowerUnits = 10000;
         this.auxiliaryPowerUnits = 1000;
         RoverUtil.roverSystemLog(logger, "Battery configured, batteryLife:primaryPowerUnits = " + primaryPowerUnits
-                + " auxiliaryPowerUnits = " + auxiliaryPowerUnits + " alertThreshold: " +
-                alertThreshold + " rechargeTime = " + rechargeTime, "INFO"
+                                         + " auxiliaryPowerUnits = " + auxiliaryPowerUnits + " alertThreshold: " +
+                                         alertThreshold + " rechargeTime = " + rechargeTime, "INFO"
         );
     }
 
@@ -52,7 +52,7 @@ public class Battery implements IsEquipment {
 
         if (!powerAvailable) {
             logger.error("Battery insufficient at time = " + System.currentTimeMillis() + " Power requested = " +
-                    powerUnitsRequested + " Critical = " + critical);
+                         powerUnitsRequested + " Critical = " + critical);
             lifeSpan--;
         }
 

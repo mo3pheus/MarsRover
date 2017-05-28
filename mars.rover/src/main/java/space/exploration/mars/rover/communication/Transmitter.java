@@ -104,7 +104,7 @@ public class Transmitter {
             earthChannel.send(
                     new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("destination.topic"), message));
             System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("destination" +
-                    ".topic"));
+                                                                                                      ".topic"));
         }
     }
 

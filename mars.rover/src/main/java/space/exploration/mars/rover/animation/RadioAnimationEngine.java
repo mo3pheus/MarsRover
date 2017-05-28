@@ -30,7 +30,7 @@ public class RadioAnimationEngine {
         this.transmit = transmit;
         this.logger = LoggerFactory.getLogger(RadioAnimationEngine.class);
         this.radioAnimationDelay = Integer.parseInt(marsConfig.getProperty("mars.rover.communication.radio.animation" +
-                ".delay"));
+                                                                           ".delay"));
     }
 
     public void activateRadio() {

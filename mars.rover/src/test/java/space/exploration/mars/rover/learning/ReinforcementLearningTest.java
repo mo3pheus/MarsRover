@@ -84,7 +84,7 @@ public class ReinforcementLearningTest {
                 cell.setCellWidth(marsArchitect1.getCellWidth());
                 contentPane.add(cell, 200);
                 System.out.println(" Current = " + current.toString() + " Count = " + heatMap.get(current) + " Color " +
-                        "returned = " + heatColorMap.get(current).toString());
+                                   "returned = " + heatColorMap.get(current).toString());
             }
             marsArchitect1.getMarsSurface().setContentPane(contentPane);
             marsArchitect1.getMarsSurface().repaint();
