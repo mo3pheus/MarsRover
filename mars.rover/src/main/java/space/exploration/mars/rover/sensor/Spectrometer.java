@@ -72,6 +72,10 @@ public class Spectrometer implements IsEquipment {
     }
 
     public void processSurroundingArea() {
+        if (lifeSpan <= 0) {
+            return;
+        }
+
         if (lifeSpan < NUM_LAST_SCANS && !endOfLife) {
             endOfLife = true;
             rover.setEquipmentEOL(endOfLife);

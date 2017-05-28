@@ -52,6 +52,10 @@ public class Camera implements IsEquipment {
     }
 
     public byte[] takePhoto(Point location) {
+        if(lifeSpan <= 0 ){
+            return null;
+        }
+
         if (lifeSpan <= LAST_SHOTS_RESERVE && !endOfLife) {
             endOfLife = true;
             rover.setEquipmentEOL(endOfLife);

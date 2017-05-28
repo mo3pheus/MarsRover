@@ -89,6 +89,10 @@ public class Lidar implements IsEquipment {
     }
 
     public void scanArea() {
+        if (lifeSpan <= 0) {
+            return;
+        }
+
         if (lifeSpan < NUM_LAST_SCANS && !endOfLife) {
             endOfLife = true;
             rover.setEquipmentEOL(endOfLife);
