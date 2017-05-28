@@ -101,7 +101,7 @@ public class Lidar implements IsEquipment {
 
         if (wallBuilder != null) {
             computeScanRadius();
-            lifeSpan -= 100;
+            lifeSpan--;
         }
     }
 
