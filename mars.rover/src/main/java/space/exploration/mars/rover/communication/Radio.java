@@ -76,10 +76,6 @@ public class Radio implements IsEquipment {
         }
     }
 
-    public void reportPowerUsage(int powerUnits) {
-        rover.powerCheck(powerUnits);
-    }
-
     public int getLifeSpan() {
         return lifeSpan;
     }

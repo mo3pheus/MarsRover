@@ -2,6 +2,7 @@ package space.exploration.mars.rover.sensor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.SoilComposition;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
@@ -21,20 +22,23 @@ import java.util.Map;
  * Created by sanketkorgaonkar on 5/2/17.
  */
 public class Spectrometer implements IsEquipment {
-    public static final  String                      LIFESPAN       = "mars.rover.spectrometer.lifeSpan";
-    private static final int                         NUM_LAST_SCANS = 10;
-    private              Logger                      logger         = LoggerFactory.getLogger(Spectrometer.class);
-    private              Point                       origin         = null;
-    private              Map<Point, SoilComposition> surfaceComp    = null;
-    private              List<SoilComp>              scanAreaComp   = null;
-    private              Rover                       rover          = null;
-    private              int                         cellWidth      = 0;
-    private              int                         lifeSpan       = 0;
-    private              boolean                     endOfLife      = false;
+    public static final  String                      LIFESPAN         = "mars.rover.spectrometer.lifeSpan";
+    private static final int                         NUM_LAST_SCANS   = 10;
+    private              Logger                      logger           = LoggerFactory.getLogger(Spectrometer.class);
+    private              Point                       origin           = null;
+    private              Map<Point, SoilComposition> surfaceComp      = null;
+    private              List<SoilComp>              scanAreaComp     = null;
+    private              Rover                       rover            = null;
+    private              int                         cellWidth        = 0;
+    private              int                         lifeSpan         = 0;
+    private              int                         powerConsumption = 0;
+    private              boolean                     endOfLife        = false;
 
     public Spectrometer(Point origin, Rover rover) {
         this.origin = origin;
         this.rover = rover;
+        this.powerConsumption = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
+                .SPECTROMETER_POWER_CONSUMPTION));
         scanAreaComp = new ArrayList<SoilComp>();
         RoverUtil.roverSystemLog(logger, "Spectrometer initialized and ready!", "INFO");
     }
@@ -89,8 +93,9 @@ public class Spectrometer implements IsEquipment {
             logger.error("SurfaceComp or cellWidth not set for spectrometer");
             return;
         }
-        lifeSpan--;
 
+        lifeSpan--;
+        rover.powerCheck(powerConsumption);
         for (int i = ((int) origin.getX() - cellWidth); i <= ((int) origin.getX() + cellWidth); i = (i + cellWidth)) {
             for (int j = ((int) origin.getY() - cellWidth); j <= ((int) origin.getY() + cellWidth); j = (j
                                                                                                          + cellWidth)) {

@@ -45,7 +45,7 @@ public class Pacemaker {
                     System.out.println(heartBeat);
                     logger.info(heartBeat.toString());
                     rover.getRadio().sendMessage(roverStatus.toByteArray());
-                    rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - 1);
+                    rover.powerCheck(1);
                 }
             }
         };

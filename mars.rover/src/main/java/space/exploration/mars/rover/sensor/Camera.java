@@ -26,6 +26,7 @@ public class Camera implements IsEquipment {
     private static final String          LIFESPAN           = "mars.rover.camera.lifeSpan";
     private static final int             LAST_SHOTS_RESERVE = 10;
     private              int             numImages          = 0;
+    private              int             powerConsumption   = 0;
     private              int             numImageCaches     = 0;
     private              int             lifeSpan           = 0;
     private              long            shutterSpeed       = 0;
@@ -40,11 +41,12 @@ public class Camera implements IsEquipment {
         this.marsConfig = marsConfig;
         this.rover = rover;
         numImages = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGES));
-        numImageCaches = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGE_CAHCES));
+        numImageCaches = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGE_CACHES));
         shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
         lifeSpan = Integer.parseInt(marsConfig.getProperty(LIFESPAN));
         marsImages = new BufferedImage[numImages];
         imageCachePoints = new ArrayList<Point>();
+        powerConsumption = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_POWER_CONSUMPTION));
         collectImages();
         loadImageCachePoints();
 
@@ -52,7 +54,7 @@ public class Camera implements IsEquipment {
     }
 
     public byte[] takePhoto(Point location) {
-        if(lifeSpan <= 0 ){
+        if (lifeSpan <= 0) {
             return null;
         }
 
@@ -67,7 +69,9 @@ public class Camera implements IsEquipment {
             return null;
         }
 
+        /* Reduce lifeSpan and report powerConsumption */
         lifeSpan--;
+        rover.powerCheck(powerConsumption);
         if (imageCachePoints.contains(location)) {
             int    index      = ThreadLocalRandom.current().nextInt(0, numImages);
             byte[] imageBytes = null;

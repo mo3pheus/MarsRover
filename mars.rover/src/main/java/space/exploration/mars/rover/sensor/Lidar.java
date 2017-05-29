@@ -2,6 +2,7 @@ package space.exploration.mars.rover.sensor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
 import space.exploration.mars.rover.kernel.IsEquipment;
@@ -26,11 +27,12 @@ public class Lidar implements IsEquipment {
     private Point       origin      = null;
     private Point[]     gridCells   = new Point[8];
 
-    private double  range     = 0;
-    private String  status    = "";
-    private int     cellWidth = 0;
-    private int     lifeSpan  = 0;
-    private boolean endOfLife = false;
+    private double  range            = 0;
+    private String  status           = "";
+    private int     cellWidth        = 0;
+    private int     lifeSpan         = 0;
+    private int     powerConsumption = 0;
+    private boolean endOfLife        = false;
 
     public Lidar(Point origin, int range, int cellWidth, Rover rover) {
         this.rover = rover;
@@ -41,6 +43,8 @@ public class Lidar implements IsEquipment {
         RoverUtil.roverSystemLog(logger, "Lidar initialized and ready!", "INFO");
         status = "Instantiated";
         this.cellWidth = cellWidth;
+        this.powerConsumption = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
+                .LIDAR_POWER_CONSUMPTION));
         fillGridCells();
     }
 
@@ -104,6 +108,7 @@ public class Lidar implements IsEquipment {
         }
 
         if (wallBuilder != null) {
+            rover.powerCheck(powerConsumption);
             computeScanRadius();
             lifeSpan--;
         }

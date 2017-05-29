@@ -76,7 +76,6 @@ public class Receiver extends Thread {
             long timeElapsed = System.currentTimeMillis() - this.lastReportTime;
             System.out.println("Time Elapsed since last message = " + timeElapsed);
             if (timeElapsed > this.radioCheckPulse) {
-                radio.reportPowerUsage(RECEIVER_POWER_USAGE);
                 this.lastReportTime = System.currentTimeMillis();
             }
 

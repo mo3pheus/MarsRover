@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.utils.RoverUtil;
 
+import java.util.concurrent.Semaphore;
+
 public class Battery implements IsEquipment {
     public static final String LIFESPAN = "mars.rover.battery.lifeSpan";
     private int primaryPowerUnits;
@@ -12,6 +14,7 @@ public class Battery implements IsEquipment {
     private int alertThreshold;
     private int rechargeTime;
     private int lifeSpan;
+    private final Semaphore accessLock = new Semaphore(1, true);
 
     private Logger logger = LoggerFactory.getLogger(Battery.class);
 
@@ -31,7 +34,13 @@ public class Battery implements IsEquipment {
     }
 
     public void setPrimaryPowerUnits(int primaryPowerUnits) {
+        try {
+            accessLock.acquire();
+        } catch (InterruptedException e) {
+            logger.error(" Battery had trouble in acquiring accessLock.", e);
+        }
         this.primaryPowerUnits = primaryPowerUnits;
+        accessLock.release();
     }
 
     public int getAuxiliaryPowerUnits() {

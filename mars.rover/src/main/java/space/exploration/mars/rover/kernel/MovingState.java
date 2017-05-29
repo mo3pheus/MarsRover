@@ -7,6 +7,7 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverSta
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
+import space.exploration.mars.rover.propulsion.PropulsionUnit;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions.Point;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
@@ -52,13 +53,11 @@ public class MovingState implements State {
         java.awt.Point robotPosition = rover.getMarsArchitect().getRobot().getLocation();
 
         Point destination = positions.getPositions(0);
-        rover.configureRLEngine();
-        rover.getRlNavEngine().train(robotPosition,
-                new java.awt.Point(destination.getX(), destination.getY())
-        );
+        PropulsionUnit powerTran = new PropulsionUnit(rover, robotPosition, new java.awt.Point(destination.getX(),
+                destination.getY()));
 
-        architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(rover.getRlNavEngine()
-                .getShortestPath(), architect.getRobotStepSize()));
+        architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(powerTran.getTrajectory
+                (), architect.getRobotStepSize()));
 
         architect.returnSurfaceToNormal();
         sendUpdateToEarth();
