@@ -17,6 +17,8 @@ import java.util.List;
 public class ReinforcementLearningTest {
 
     public static void main(String[] args) {
+        long stTime = System.currentTimeMillis();
+        System.out.println("Start time = " + stTime);
         Properties marsConfig = null;
         try {
             marsConfig = MatrixCreation.getMatrixConfig();
@@ -35,9 +37,9 @@ public class ReinforcementLearningTest {
         }
 
         try {
-//            MarsArchitect marsArchitect = new MarsArchitect(MatrixCreation.getMatrixConfig(), captureExploration);
-//            marsArchitect.getMarsSurface().dispose();
-//            System.out.println("Number of points explored = " + captureExploration.size());
+            MarsArchitect marsArchitect = new MarsArchitect(MatrixCreation.getMatrixConfig(), captureExploration);
+            marsArchitect.getMarsSurface().dispose();
+            System.out.println("Number of points explored = " + captureExploration.size());
             System.out.println("Lidar cost = " + learner.getLidarUsage());
             MarsArchitect marsArchitect1 = new MarsArchitect(MatrixCreation.getMatrixConfig(), TrackingAnimationUtil
                     .getAnimationCalibratedRobotPath(learner.getShortestPath(),
@@ -90,6 +92,7 @@ public class ReinforcementLearningTest {
             marsArchitect1.getMarsSurface().repaint();
 
             System.out.println(" Red looks like follows:: " + Color.red.toString());
+            System.out.println("Time elapsed = " + (System.currentTimeMillis() - stTime));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

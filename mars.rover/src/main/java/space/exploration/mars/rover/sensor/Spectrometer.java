@@ -30,6 +30,7 @@ public class Spectrometer implements IsEquipment {
     private              List<SoilComp>              scanAreaComp     = null;
     private              Rover                       rover            = null;
     private              int                         cellWidth        = 0;
+    private              int                         frameWidth       = 0;
     private              int                         lifeSpan         = 0;
     private              int                         powerConsumption = 0;
     private              boolean                     endOfLife        = false;
@@ -37,6 +38,7 @@ public class Spectrometer implements IsEquipment {
     public Spectrometer(Point origin, Rover rover) {
         this.origin = origin;
         this.rover = rover;
+        this.frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.powerConsumption = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
                 .SPECTROMETER_POWER_CONSUMPTION));
         scanAreaComp = new ArrayList<SoilComp>();
@@ -99,7 +101,9 @@ public class Spectrometer implements IsEquipment {
         for (int i = ((int) origin.getX() - cellWidth); i <= ((int) origin.getX() + cellWidth); i = (i + cellWidth)) {
             for (int j = ((int) origin.getY() - cellWidth); j <= ((int) origin.getY() + cellWidth); j = (j
                                                                                                          + cellWidth)) {
-                if (i < 0 || j < 0) {
+                if (i < 0 || j < 0 || i >= frameWidth || j > frameWidth) {
+                    // If the point is outside the defined grid,
+                    // soil composition will be invalid
                     continue;
                 }
 

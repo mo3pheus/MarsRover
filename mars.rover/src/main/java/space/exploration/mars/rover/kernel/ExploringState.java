@@ -36,6 +36,8 @@ public class ExploringState implements State {
         rover.getSpectrometer().processSurroundingArea();
 
         /* Do not render animation if sensor endOfLife */
+        // This flag is not unique to the spectrometer. It could be any sensor at EOL
+        // This is bad code!
         if (!rover.isEquipmentEOL()) {
             marsArchitect.setSpectrometerAnimationEngine(rover.getSpectrometer());
             marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
