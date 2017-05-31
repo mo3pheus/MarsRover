@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
-import space.exploration.mars.rover.diagnostics.Pacemaker;
+import space.exploration.mars.rover.kernel.diagnostics.Pacemaker;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.learning.ReinforcementLearner;
@@ -121,6 +121,82 @@ public class Rover {
         time += 35;
         time += 244;
         return time;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public State getListeningState() {
+        return listeningState;
+    }
+
+    public void setListeningState(State listeningState) {
+        this.listeningState = listeningState;
+    }
+
+    public State getSensingState() {
+        return sensingState;
+    }
+
+    public void setSensingState(State sensingState) {
+        this.sensingState = sensingState;
+    }
+
+    public State getMovingState() {
+        return movingState;
+    }
+
+    public void setMovingState(State movingState) {
+        this.movingState = movingState;
+    }
+
+    public State getExploringState() {
+        return exploringState;
+    }
+
+    public void setExploringState(State exploringState) {
+        this.exploringState = exploringState;
+    }
+
+    public State getTransmittingState() {
+        return transmittingState;
+    }
+
+    public void setTransmittingState(State transmittingState) {
+        this.transmittingState = transmittingState;
+    }
+
+    public State getHibernatingState() {
+        return hibernatingState;
+    }
+
+    public void setHibernatingState(State hibernatingState) {
+        this.hibernatingState = hibernatingState;
+    }
+
+    public State getRechargingState() {
+        return rechargingState;
+    }
+
+    public void setRechargingState(State rechargingState) {
+        this.rechargingState = rechargingState;
+    }
+
+    public State getPhotoGraphingState() {
+        return photoGraphingState;
+    }
+
+    public void setPhotoGraphingState(State photoGraphingState) {
+        this.photoGraphingState = photoGraphingState;
+    }
+
+    public State getRadarScanningState() {
+        return radarScanningState;
+    }
+
+    public void setRadarScanningState(State radarScanningState) {
+        this.radarScanningState = radarScanningState;
     }
 
     public ReinforcementLearner getRlNavEngine() {

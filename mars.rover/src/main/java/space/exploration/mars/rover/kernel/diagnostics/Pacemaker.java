@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.diagnostics;
+package space.exploration.mars.rover.kernel.diagnostics;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
@@ -44,7 +44,8 @@ public class Pacemaker {
 
                     System.out.println(heartBeat);
                     logger.info(heartBeat.toString());
-                    rover.getRadio().sendMessage(roverStatus.toByteArray());
+                    rover.setState(rover.getTransmittingState());
+                    rover.transmitMessage(roverStatus.toByteArray());
                     rover.powerCheck(1);
                 }
             }
