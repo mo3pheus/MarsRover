@@ -12,6 +12,12 @@ import java.util.Properties;
  */
 public class RoverUtil {
 
+    /**
+     *
+     * @param logger - logger of the unit in which error occurs.
+     * @param message - message from the unit.
+     * @param severity - INFO/ ERROR.
+     */
     public static void roverSystemLog(Logger logger, String message, String severity) {
         try {
             Thread.sleep(1000);

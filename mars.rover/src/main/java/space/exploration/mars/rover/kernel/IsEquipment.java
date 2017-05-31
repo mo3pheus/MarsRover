@@ -7,4 +7,6 @@ public interface IsEquipment {
     int getLifeSpan();
 
     String getEquipmentName();
+
+    boolean isEndOfLife();
 }

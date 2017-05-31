@@ -101,4 +101,8 @@ public class PhotographingState implements State {
     public void performDiagnostics() {
 
     }
+
+    public void performRadarScan() {
+
+    }
 }

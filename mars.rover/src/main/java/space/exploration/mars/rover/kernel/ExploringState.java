@@ -78,4 +78,9 @@ public class ExploringState implements State {
     public void performDiagnostics() {
     }
 
+    @Override
+    public void performRadarScan() {
+
+    }
+
 }

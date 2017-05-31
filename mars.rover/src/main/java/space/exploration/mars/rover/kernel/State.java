@@ -20,4 +20,6 @@ public interface State {
     public void scanSurroundings();
 
     public void performDiagnostics();
+
+    public void performRadarScan();
 }

@@ -14,6 +14,17 @@ public class Battery implements IsEquipment {
     private int alertThreshold;
     private int rechargeTime;
     private int lifeSpan;
+    private boolean endOfLife;
+
+    @Override
+    public boolean isEndOfLife() {
+        return endOfLife;
+    }
+
+    public void setEndOfLife(boolean endOfLife) {
+        this.endOfLife = endOfLife;
+    }
+
     private final Semaphore accessLock = new Semaphore(1, true);
 
     private Logger logger = LoggerFactory.getLogger(Battery.class);

@@ -69,4 +69,8 @@ public class HibernatingState implements State {
 
     }
 
+    public void performRadarScan() {
+
+    }
+
 }

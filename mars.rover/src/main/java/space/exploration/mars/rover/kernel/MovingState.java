@@ -48,6 +48,11 @@ public class MovingState implements State {
     public void performDiagnostics() {
     }
 
+    @Override
+    public void performRadarScan() {
+
+    }
+
     public void move(RobotPositions positions) {
         MarsArchitect  architect     = rover.getMarsArchitect();
         java.awt.Point robotPosition = rover.getMarsArchitect().getRobot().getLocation();

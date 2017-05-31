@@ -60,4 +60,9 @@ public class RechargingState implements State {
 
     }
 
+    @Override
+    public void performRadarScan() {
+
+    }
+
 }

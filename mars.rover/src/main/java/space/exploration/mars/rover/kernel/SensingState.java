@@ -99,4 +99,8 @@ public class SensingState implements State {
 
     }
 
+    public void performRadarScan() {
+
+    }
+
 }

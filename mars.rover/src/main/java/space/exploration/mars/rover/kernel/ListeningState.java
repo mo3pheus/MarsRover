@@ -68,6 +68,10 @@ public class ListeningState implements State {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is going to try to take pictures!");
                     rover.state = rover.photoGraphingState;
                     rover.activateCamera();
+                } else if (tp.getRoverModule() == Module.RADAR.getValue()) {
+                    System.out.println("Rover " + Rover.ROVER_NAME + " will do a radarScan!");
+                    rover.state = rover.radarScanningState;
+                    rover.performRadarScan();
                 }
             }
         } catch (InvalidProtocolBufferException e) {
@@ -102,6 +106,10 @@ public class ListeningState implements State {
     }
 
     public void performDiagnostics() {
+    }
+
+    public void performRadarScan() {
+
     }
 
 }

@@ -24,6 +24,16 @@ public class Radio implements IsEquipment {
     private             Transmitter          transmitter     = null;
     private             Receiver             receiver        = null;
     private             Logger               logger          = LoggerFactory.getLogger(Radio.class);
+    private             boolean              endOfLife       = false;
+
+    @Override
+    public boolean isEndOfLife() {
+        return endOfLife;
+    }
+
+    public void setEndOfLife(boolean endOfLife) {
+        this.endOfLife = endOfLife;
+    }
 
     private int lifeSpan = 0;
 

@@ -13,6 +13,7 @@ import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.sensor.Camera;
 import space.exploration.mars.rover.sensor.Lidar;
+import space.exploration.mars.rover.sensor.Radar;
 import space.exploration.mars.rover.sensor.Spectrometer;
 import space.exploration.mars.rover.utils.RoverUtil;
 
@@ -35,6 +36,7 @@ public class Rover {
     State hibernatingState;
     State rechargingState;
     State photoGraphingState;
+    State radarScanningState;
 
     /* Status messages */
     private RoverStatus status       = null;
@@ -55,6 +57,7 @@ public class Rover {
     private Lidar        lidar        = null;
     private Spectrometer spectrometer = null;
     private Camera       camera       = null;
+    private Radar        radar        = null;
 
     /* Contingency Stack */
     private List<byte[]> instructionQueue     = null;
@@ -74,6 +77,7 @@ public class Rover {
         this.photoGraphingState = new PhotographingState(this);
         this.sensingState = new SensingState(this);
         this.transmittingState = new TransmittingState(this);
+        this.radarScanningState = new RadarScanningState(this);
         this.marsArchitect = new MarsArchitect(marsConfig);
         this.instructionQueue = new ArrayList<byte[]>();
         this.logger = LoggerFactory.getLogger(Rover.class);
@@ -82,9 +86,6 @@ public class Rover {
         this.pacemaker = new Pacemaker(10, this);
         pacemaker.pulse();
         RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
-
-        configureBattery();
-        configureRadio();
 
         String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
         this.location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
@@ -99,6 +100,11 @@ public class Rover {
         spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
 
         this.camera = new Camera(this.marsConfig, this);
+        this.radar = new Radar(this);
+
+        configureBattery();
+        configureRadio();
+        configureRadar();
 
         state = transmittingState;
         transmitMessage(getBootupMessage());
@@ -139,6 +145,10 @@ public class Rover {
 
     public void move(RobotPositions positions) {
         state.move(positions);
+    }
+
+    public void performRadarScan() {
+        state.performRadarScan();
     }
 
     public void exploreArea() {
@@ -202,8 +212,8 @@ public class Rover {
     }
 
     public void configureSpectrometer(Point origin) {
-        int spectrometerLifeSpan = spectrometer.getLifeSpan();
-        boolean spectrometerEOL = spectrometer.isEndOfLife();
+        int     spectrometerLifeSpan = spectrometer.getLifeSpan();
+        boolean spectrometerEOL      = spectrometer.isEndOfLife();
         this.spectrometer = new Spectrometer(origin, this);
         spectrometer.setLifeSpan(spectrometerLifeSpan);
         spectrometer.setEndOfLife(spectrometerEOL);
@@ -220,11 +230,19 @@ public class Rover {
     }
 
     public void configureLidar(Point origin, int cellWidth, int range) {
-        int lidarLifespan = lidar.getLifeSpan();
-        boolean lidarEOL = lidar.isEndOfLife();
+        int     lidarLifespan = lidar.getLifeSpan();
+        boolean lidarEOL      = lidar.isEndOfLife();
         this.lidar = new Lidar(origin, cellWidth, range, this);
         lidar.setLifeSpan(lidarLifespan);
         lidar.setEndOfLife(lidarEOL);
+    }
+
+    public void configureRadar() {
+        int     radarLifespan = radar.getLifeSpan();
+        boolean radarEOL      = radar.isEndOfLife();
+        this.radar = new Radar(this);
+        radar.setLifeSpan(radarLifespan);
+        radar.setEndOfLife(radarEOL);
     }
 
     public void powerCheck(int powerConsumed) {
@@ -280,7 +298,7 @@ public class Rover {
         equipmentList.add(this.lidar);
         equipmentList.add(this.camera);
         equipmentList.add(this.spectrometer);
-
+        equipmentList.add(this.radar);
         return equipmentList;
     }
 

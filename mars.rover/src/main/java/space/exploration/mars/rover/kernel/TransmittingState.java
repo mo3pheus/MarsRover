@@ -60,4 +60,8 @@ public class TransmittingState implements State {
 
     }
 
+    public void performRadarScan() {
+
+    }
+
 }
