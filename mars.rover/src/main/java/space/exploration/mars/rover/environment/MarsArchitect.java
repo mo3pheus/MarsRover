@@ -1,119 +1,125 @@
 package space.exploration.mars.rover.environment;
 
-import java.awt.Point;
+import space.exploration.mars.rover.animation.*;
+import space.exploration.mars.rover.sensor.Lidar;
+import space.exploration.mars.rover.sensor.Spectrometer;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
-
-import space.exploration.mars.rover.animation.TrackingAnimationEngine;
-import space.exploration.mars.rover.sensor.Lidar;
-import space.exploration.mars.rover.sensor.Spectrometer;
-import space.exploration.mars.rover.animation.AnimationUtil;
-import space.exploration.mars.rover.animation.LidarAnimationEngine;
-import space.exploration.mars.rover.animation.SpectrometerAnimationEngine;
-
 public class MarsArchitect {
-	private Map<Point, SoilComposition>	soilCompositionMap	= null;
-	private JFrame						marsSurface			= null;
-	private Properties					marsConfig			= null;
-	private TrackingAnimationEngine		propulsionEngine	= null;
-	private LidarAnimationEngine		lidarEngine			= null;
-	private SpectrometerAnimationEngine	spectrometerEngine	= null;
-	private Cell						robot				= null;
-	private int							cellWidth			= 0;
-	private int							robotStepSize		= 0;
+    private Map<Point, SoilComposition> soilCompositionMap    = null;
+    private JFrame                      marsSurface           = null;
+    private Properties                  marsConfig            = null;
+    private TrackingAnimationEngine     propulsionEngine      = null;
+    private LidarAnimationEngine        lidarEngine           = null;
+    private CameraAnimationEngine       cameraAnimationEngine = null;
+    private SpectrometerAnimationEngine spectrometerEngine    = null;
+    private Cell                        robot                 = null;
+    private int                         cellWidth             = 0;
+    private int                         robotStepSize         = 0;
 
-	@Deprecated
-	public MarsArchitect(Properties matrixDefinition, List<Point> robotPath) {
-		this.marsConfig = matrixDefinition;
-		this.marsSurface = new JFrame();
-		int frameHeight = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
-		int frameWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+    @Deprecated
+    public MarsArchitect(Properties matrixDefinition, List<Point> robotPath) {
+        this.marsConfig = matrixDefinition;
+        this.marsSurface = new JFrame();
+        int frameHeight = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+        int frameWidth  = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
 
-		marsSurface.setSize(frameWidth, frameHeight);
-		marsSurface.setTitle("Matrix");
-		this.cellWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
-		setUpSurface();
-		propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robotPath, robot);
-		propulsionEngine.renderRobotAnimation();
-		soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
-	}
+        marsSurface.setSize(frameWidth, frameHeight);
+        marsSurface.setTitle("Matrix");
+        this.cellWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+        setUpSurface();
+        propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robotPath, robot);
+        propulsionEngine.renderRobotAnimation();
+        soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
+    }
 
-	public MarsArchitect(Properties matrixDefinition) {
-		this.marsConfig = matrixDefinition;
-		this.marsSurface = new JFrame();
-		int frameHeight = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
-		int frameWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+    public MarsArchitect(Properties matrixDefinition) {
+        this.marsConfig = matrixDefinition;
+        this.marsSurface = new JFrame();
+        int frameHeight = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_HEIGHT_PROPERTY));
+        int frameWidth  = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
 
-		marsSurface.setSize(frameWidth, frameHeight);
-		marsSurface.setTitle("Mars");
-		this.cellWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
-		this.robotStepSize = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE));
-		setUpSurface();
-		this.propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robot);
-		soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
-	}
+        marsSurface.setSize(frameWidth, frameHeight);
+        marsSurface.setTitle("Mars");
+        this.cellWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+        this.robotStepSize = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE));
+        setUpSurface();
+        this.propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robot);
+        soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
+    }
 
-	public void setLidarAnimationEngine(Lidar lidar) {
-		this.lidarEngine = new LidarAnimationEngine(marsConfig, robot);
-		lidarEngine.setMarsSurface(marsSurface);
-		lidarEngine.setLidar(lidar);
-	}
+    public CameraAnimationEngine getCameraAnimationEngine(Point location) {
+        long shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
+        this.cameraAnimationEngine = new CameraAnimationEngine(marsConfig, location, shutterSpeed, cellWidth);
+        return cameraAnimationEngine;
+    }
 
-	public void setSpectrometerAnimationEngine(Spectrometer spectrometer) {
-		this.spectrometerEngine = new SpectrometerAnimationEngine(marsConfig, robot, spectrometer, marsSurface);
-	}
+    public Map<Point, SoilComposition> getSoilCompositionMap() {
+        return this.soilCompositionMap;
+    }
 
-	public Map<Point, SoilComposition> getSoilCompositionMap() {
-		return this.soilCompositionMap;
-	}
+    public SpectrometerAnimationEngine getSpectrometerAnimationEngine() {
+        return this.spectrometerEngine;
+    }
 
-	public SpectrometerAnimationEngine getSpectrometerAnimationEngine() {
-		return this.spectrometerEngine;
-	}
+    public void setSpectrometerAnimationEngine(Spectrometer spectrometer) {
+        this.spectrometerEngine = new SpectrometerAnimationEngine(marsConfig, robot, spectrometer, marsSurface);
+    }
 
-	public SoilComposition getSoilComposition(Point p) {
-		return this.soilCompositionMap.get(p);
-	}
+    public SoilComposition getSoilComposition(Point p) {
+        return this.soilCompositionMap.get(p);
+    }
 
-	public void updateRobotPositions(List<Point> robotPath) {
-		propulsionEngine.updateRobotPosition(robotPath);
-	}
+    public void updateRobotPositions(List<Point> robotPath) {
+        propulsionEngine.updateRobotPosition(robotPath);
+    }
 
-	public LidarAnimationEngine getLidarAnimationEngine() {
-		return lidarEngine;
-	}
+    public LidarAnimationEngine getLidarAnimationEngine() {
+        return lidarEngine;
+    }
 
-	public int getCellWidth() {
-		return cellWidth;
-	}
+    public void setLidarAnimationEngine(Lidar lidar) {
+        this.lidarEngine = new LidarAnimationEngine(marsConfig, robot);
+        lidarEngine.setMarsSurface(marsSurface);
+        lidarEngine.setLidar(lidar);
+    }
 
-	public int getRobotStepSize() {
-		return robotStepSize;
-	}
+    public int getCellWidth() {
+        return cellWidth;
+    }
 
-	private void setUpSurface() {
-		JLayeredPane content = AnimationUtil.getContent(marsConfig);
+    public int getRobotStepSize() {
+        return robotStepSize;
+    }
 
-		int roboX = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
-		int roboY = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]);
-		this.robot = new Cell(marsConfig);
-		AnimationUtil.getRobot(marsConfig, new Point(roboX, roboY), robot);
-		content.add(robot, Cell.ROBOT_DEPTH);
+    private void setUpSurface() {
+        JLayeredPane content = AnimationUtil.getContent(marsConfig);
 
-		marsSurface.setContentPane(content);
-		marsSurface.setVisible(true);
-		marsSurface.setName("Mars Surface");
-	}
-	
-	public void returnSurfaceToNormal(){
-		AnimationUtil.getStaticEnvironment(this.marsConfig, robot, marsSurface);
-	}
+        int roboX = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
+        int roboY = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]);
+        this.robot = new Cell(marsConfig);
+        AnimationUtil.getRobot(marsConfig, new Point(roboX, roboY), robot);
+        content.add(robot, Cell.ROBOT_DEPTH);
 
-	public Cell getRobot() {
-		return robot;
-	}
+        marsSurface.setContentPane(content);
+        marsSurface.setVisible(true);
+        marsSurface.setName("Mars Surface");
+    }
+
+    public void returnSurfaceToNormal() {
+        AnimationUtil.getStaticEnvironment(this.marsConfig, robot, marsSurface);
+    }
+
+    public Cell getRobot() {
+        return robot;
+    }
+
+    public JFrame getMarsSurface() {
+        return marsSurface;
+    }
 }

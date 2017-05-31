@@ -1,12 +1,11 @@
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.protobuf.InvalidProtocolBufferException;
-
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
+import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
@@ -20,14 +19,39 @@ public class ListeningState implements State {
     }
 
     public void receiveMessage(byte[] message) {
+        byte[] currentInstruction;
+
+        /* Process instructions in FIFO */
+        if (!rover.getInstructionQueue().isEmpty()) {
+            currentInstruction = rover.getInstructionQueue().remove(0);
+            rover.state = rover.transmittingState;
+            rover.transmitMessage(rover.getLaggingAlertMsg());
+        } else {
+            currentInstruction = message;
+        }
+
         InstructionPayload payload = null;
         try {
             System.out.println("This is the listening module");
-            payload = InstructionPayload.parseFrom(message);
+            payload = InstructionPayload.parseFrom(currentInstruction);
             System.out.println(payload);
             logger.info(payload.toString());
 
             for (TargetPackage tp : payload.getTargetsList()) {
+                if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
+                    rover.state = rover.hibernatingState;
+                    rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
+                    rover.getMarsArchitect().getMarsSurface().repaint();
+                    rover.getInstructionQueue().add(payload.toByteArray());
+                    return;
+                }
+
+                rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
+                        .getProperty(EnvironmentUtils.ROBOT_COLOR)));
+                rover.getMarsArchitect().getMarsSurface().repaint();
+                rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - tp
+                        .getEstimatedPowerUsage());
+
                 if (tp.getRoverModule() == Module.SENSOR_LIDAR.getValue()) {
                     System.out.println("Got lidar message");
                     rover.state = rover.sensingState;
@@ -40,6 +64,10 @@ public class ListeningState implements State {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is on a scientific mission!");
                     rover.state = rover.exploringState;
                     rover.exploreArea();
+                } else if (tp.getRoverModule() == Module.CAMERA_SENSOR.getValue()) {
+                    System.out.println("Rover " + Rover.ROVER_NAME + " is going to try to take pictures!");
+                    rover.state = rover.photoGraphingState;
+                    rover.activateCamera();
                 }
             }
         } catch (InvalidProtocolBufferException e) {
@@ -56,7 +84,7 @@ public class ListeningState implements State {
         logger.error("Can not explore area while in the listening state");
     }
 
-    public void performExperiments() {
+    public void activateCamera() {
         logger.error("Can not perform experiments while in the listening state");
     }
 

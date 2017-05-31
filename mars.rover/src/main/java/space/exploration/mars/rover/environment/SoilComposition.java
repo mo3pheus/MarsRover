@@ -5,52 +5,52 @@ package space.exploration.mars.rover.environment;
  */
 public class SoilComposition {
 
-	private double	Na2O;
-	private double	FeO;
-	private double	MgO;
-	private double	Al2O3;
+    private double Na2O;
+    private double FeO;
+    private double MgO;
+    private double Al2O3;
 
-	public void setNa2O(double na2O) {
-		Na2O = na2O;
-	}
+    public SoilComposition(double Na2O, double FeO, double MgO, double Al2O3) {
+        this.Al2O3 = Al2O3;
+        this.Na2O = Na2O;
+        this.FeO = FeO;
+        this.MgO = MgO;
+    }
 
-	public void setFeO(double feO) {
-		FeO = feO;
-	}
+    public double getNa2O() {
 
-	public void setMgO(double mgO) {
-		MgO = mgO;
-	}
+        return Na2O;
+    }
 
-	public void setAl2O3(double al2O3) {
-		Al2O3 = al2O3;
-	}
+    public void setNa2O(double na2O) {
+        Na2O = na2O;
+    }
 
-	public double getNa2O() {
+    public double getFeO() {
+        return FeO;
+    }
 
-		return Na2O;
-	}
+    public void setFeO(double feO) {
+        FeO = feO;
+    }
 
-	public double getFeO() {
-		return FeO;
-	}
+    public double getMgO() {
+        return MgO;
+    }
 
-	public double getMgO() {
-		return MgO;
-	}
+    public void setMgO(double mgO) {
+        MgO = mgO;
+    }
 
-	public double getAl2O3() {
-		return Al2O3;
-	}
+    public double getAl2O3() {
+        return Al2O3;
+    }
 
-	public SoilComposition(double Na2O, double FeO, double MgO, double Al2O3) {
-		this.Al2O3 = Al2O3;
-		this.Na2O = Na2O;
-		this.FeO = FeO;
-		this.MgO = MgO;
-	}
+    public void setAl2O3(double al2O3) {
+        Al2O3 = al2O3;
+    }
 
-	public String toString() {
-		return " Al2O3 = " + Al2O3 + " Na2O = " + Na2O + " FeO = " + FeO + " MgO = " + MgO;
-	}
+    public String toString() {
+        return " Al2O3 = " + Al2O3 + " Na2O = " + Na2O + " FeO = " + FeO + " MgO = " + MgO;
+    }
 }
