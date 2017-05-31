@@ -59,12 +59,14 @@ public class Radio implements IsEquipment {
 
     public void sendMessage(byte[] message) {
         try {
-            this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
-                    .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
-            radioAnimEngine.activateRadio();
-            Thread.sleep(getComsDelaySecs());
-            transmitter.transmitMessage(message);
-            lifeSpan--;
+            if (lifeSpan > 0) {
+                this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
+                        .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
+                radioAnimEngine.activateRadio();
+                Thread.sleep(getComsDelaySecs());
+                transmitter.transmitMessage(message);
+                lifeSpan--;
+            }
         } catch (InvalidProtocolBufferException e) {
             System.out.println("Transmit module is in exception - invalidProtocolBuffer ");
             logger.error("InvalidProtocolBufferException error - common guys send me a good message!", e);
