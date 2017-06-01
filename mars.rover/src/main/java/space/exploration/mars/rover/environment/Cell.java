@@ -27,7 +27,7 @@ public class Cell extends VirtualElement {
         build();
     }
 
-    private Rectangle2D getCell() {
+    protected Rectangle2D getCell() {
         return new Rectangle2D.Double(location.getX(), location.getY(), (double) cellWidth, (double) cellWidth);
     }
 

@@ -3,6 +3,9 @@
  */
 package space.exploration.mars.rover.environment;
 
+import space.exploration.mars.rover.kernel.ModuleDirectory;
+import space.exploration.mars.rover.sensor.Radar;
+
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.util.Properties;
@@ -22,11 +25,16 @@ public class Laser extends VirtualElement {
 
     private Line2D laserBeam;
 
-    public Laser(Point a, Point b, Properties marsConfig) {
+    public Laser(Point a, Point b, Properties marsConfig, ModuleDirectory.Module module) {
         startPoint = a;
         endPoint = b;
         laserBeam = new Line2D.Double(a, b);
-        color = EnvironmentUtils.findColor(marsConfig.getProperty("mars.rover.lidar.color", "Black"));
+
+        if (module == ModuleDirectory.Module.SENSOR_LIDAR) {
+            color = EnvironmentUtils.findColor(marsConfig.getProperty("mars.rover.lidar.color", "Black"));
+        } else if (module == ModuleDirectory.Module.RADAR) {
+            color = EnvironmentUtils.findColor(marsConfig.getProperty(Radar.RADAR_PREFIX + ".color"));
+        }
 
         super.setMatrixConfig(marsConfig);
         super.setLayout();

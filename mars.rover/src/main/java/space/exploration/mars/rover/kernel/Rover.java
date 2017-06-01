@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
-import space.exploration.mars.rover.kernel.diagnostics.Pacemaker;
+import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.learning.ReinforcementLearner;

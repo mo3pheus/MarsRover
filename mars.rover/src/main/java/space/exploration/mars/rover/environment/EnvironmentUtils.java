@@ -3,6 +3,7 @@ package space.exploration.mars.rover.environment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
+import space.exploration.mars.rover.sensor.Radar;
 
 import java.awt.*;
 import java.io.FileInputStream;
@@ -116,5 +117,22 @@ public class EnvironmentUtils {
 		 * surfaceComp.get(p).toString()); }
 		 */
         return surfaceComp;
+    }
+
+    public static Map<Point, RoverCell> setUpOldRovers(Properties marsConfig) {
+        Map<Point, RoverCell> stationMap     = new HashMap<>();
+        String                oldRoverPrefix = Radar.RADAR_PREFIX + ".prev.rover.";
+        int numStations = Integer.parseInt(marsConfig.getProperty(Radar.RADAR_PREFIX + "" +
+                                                                  ".numPrevUnits"));
+        for (int i = 0; i < numStations; i++) {
+            int       x     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split(",")[0]);
+            int       y     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split(",")[1]);
+            RoverCell rCell = new RoverCell(marsConfig);
+            rCell.setCellWidth(8);
+            rCell.setColor(Color.BLUE);
+            stationMap.put(new Point(x + 3, y + 3), rCell);
+        }
+
+        return stationMap;
     }
 }

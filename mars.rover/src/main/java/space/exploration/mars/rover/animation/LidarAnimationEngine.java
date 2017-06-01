@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.Laser;
+import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.sensor.Lidar;
 
 import javax.swing.*;
@@ -53,7 +54,7 @@ public class LidarAnimationEngine {
 
     private void generateLaserBeams() {
         for (Point p : lidarRadius) {
-            Laser laser = new Laser(origin, p, marsConfig);
+            Laser laser = new Laser(origin, p, marsConfig, ModuleDirectory.Module.SENSOR_LIDAR);
             laserBeams.add(laser);
         }
     }

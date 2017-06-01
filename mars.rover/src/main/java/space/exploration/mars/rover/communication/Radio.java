@@ -76,6 +76,8 @@ public class Radio implements IsEquipment {
                 Thread.sleep(getComsDelaySecs());
                 transmitter.transmitMessage(message);
                 lifeSpan--;
+            } else {
+                logger.error("Radio lifeSpan has ended.");
             }
         } catch (InvalidProtocolBufferException e) {
             System.out.println("Transmit module is in exception - invalidProtocolBuffer ");

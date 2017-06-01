@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.kernel.diagnostics;
+package space.exploration.mars.rover.diagnostics;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
