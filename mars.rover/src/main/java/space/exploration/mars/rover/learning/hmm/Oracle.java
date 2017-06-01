@@ -11,41 +11,46 @@ public class Oracle {
     private int    numStates                 = 0;
     private int    lengthObservationSequence = 0;
     private int    maxIterations             = 0;
+    private double numerator                 = 0.0d;
+    private double denominator               = 0.0d;
     private double prevLogProb               = -100000.0d;
 
     private double[]   initialStateDist = null;
     private double[][] observationProb  = null;
     private double[][] stateTransitions = null;
 
-    private double[][] alpha       = null;
-    private double[][] beta        = null;
-    private double[][] gammaT      = null;
-    private double[]   gammat      = null;
-    private double[]   scaleFactor = null;
+    private double[][]   alpha        = null;
+    private double[][]   beta         = null;
+    private double[][][] gammaT       = null;
+    private double[][]   gammat       = null;
+    private double[]     scaleFactor  = null;
+    private int[]        observations = null;
 
     /**
      * @param numObservations
      * @param numStates
-     * @param lengthObservationSequence
      * @param maxIterations
+     * @param observations
      */
-    public Oracle(int numObservations, int numStates, int lengthObservationSequence, int maxIterations) {
-        this.lengthObservationSequence = lengthObservationSequence;
+    public Oracle(int numObservations, int numStates, int maxIterations, int[] observations) {
+        this.lengthObservationSequence = observations.length;
         this.numObservations = numObservations;
         this.numStates = numStates;
         this.maxIterations = maxIterations;
 
         initialStateDist = new double[numStates];
         observationProb = new double[numStates][numObservations];
+        this.observations = observations;
         stateTransitions = new double[numStates][numStates];
 
         alpha = new double[lengthObservationSequence][numStates];
         beta = new double[lengthObservationSequence][numStates];
-        gammaT = new double[numStates][numStates];
-        gammat = new double[numStates];
+        gammaT = new double[lengthObservationSequence][numStates][numStates];
+        gammat = new double[lengthObservationSequence][numStates];
         scaleFactor = new double[lengthObservationSequence];
 
         // initialize matrices
+        fillArrays();
         seedInitialStateDist();
         initializeObservationMatrix();
         initializeStateTransitions();
@@ -62,13 +67,125 @@ public class Oracle {
         trainHMM();
     }
 
+    public double[] getInitialStateDist() {
+        return initialStateDist;
+    }
+
+    public double[][] getObservationProb() {
+        return observationProb;
+    }
+
+    public double[][] getStateTransitions() {
+        return stateTransitions;
+    }
+
+    public void setObservations(int[] observations) {
+        if (observations.length == lengthObservationSequence) {
+            this.observations = observations;
+        }
+    }
+
+    private void fillArrays() {
+        Arrays.fill(this.scaleFactor, 0.0d);
+        Arrays.fill(this.gammat, 0.0d);
+        Arrays.fill(this.initialStateDist, 0.0d);
+        Arrays.fill(this.alpha, 0.0d);
+        Arrays.fill(this.gammaT, 0.0d);
+        Arrays.fill(this.beta, 0.0d);
+    }
+
     private void trainHMM() {
-        /* 1. alpha pass */
-        /* 2. beta pass */
-        /* 3. gammaT[i][j] and gammaT[i] */
-        /* 4. reEstimate A, B and PI */
-        /* 5. compute log(P[O|lambda]) */
-        /* 6. evaluate termination criteria */
+        double currentProb = 0.0d;
+        int    i           = 0;
+        while ((currentProb > prevLogProb) && (i < maxIterations)) {
+            prevLogProb = currentProb;
+            alphaPass();
+            betaPass();
+            updateGammas();
+            reEstimateABPI();
+            currentProb = computeLogProb();
+            i++;
+        }
+    }
+
+    private void betaPass() {
+        for (int i = 0; i < numStates; i++) {
+            this.beta[lengthObservationSequence - 1][i] = scaleFactor[lengthObservationSequence - 1];
+        }
+
+        for (int t = lengthObservationSequence - 2; t < 0; t--) {
+            for (int i = 0; i < numStates; i++) {
+                for (int j = 0; j < numStates; j++) {
+                    beta[t][j] += stateTransitions[i][j] * observationProb[j][t + 1] * beta[t + 1][j];
+                }
+                beta[t][i] *= scaleFactor[t];
+            }
+        }
+    }
+
+    private void updateGammas() {
+        for (int t = 0; t < (lengthObservationSequence - 1); t++) {
+            for (int i = 0; i < numStates; i++) {
+                for (int j = 0; j < numStates; j++) {
+                    denominator += (alpha[t][i] * stateTransitions[i][j] * observationProb[j][t + 1] * beta[t + 1][j]);
+                }
+            }
+            for (int i = 0; i < numStates; i++) {
+                for (int j = 0; j < numStates; j++) {
+                    gammaT[t][i][j] = ((alpha[t][i] * stateTransitions[i][j] * observationProb[j][t + 1] * beta[t +
+                            1][j]) / denominator);
+                    gammat[t][i] += gammaT[t][i][j];
+                }
+            }
+        }
+
+        denominator = 0.0d;
+        for (int i = 0; i < numStates; i++) {
+            denominator += alpha[lengthObservationSequence - 1][i];
+        }
+
+        for (int i = 0; i < numStates; i++) {
+            gammat[lengthObservationSequence - 1][i] = alpha[lengthObservationSequence - 1][i] / denominator;
+        }
+    }
+
+    private void reEstimateABPI() {
+        for (int i = 0; i < numStates; i++) {
+            initialStateDist[i] = gammat[0][i];
+        }
+
+        for (int i = 0; i < numStates; i++) {
+            for (int j = 0; j < numStates; j++) {
+                for (int t = 0; t < (lengthObservationSequence - 1); t++) {
+                    numerator += gammaT[t][i][j];
+                    denominator += gammat[t][i];
+                }
+                stateTransitions[i][j] = numerator / denominator;
+            }
+        }
+
+        for (int i = 0; i < numStates; i++) {
+            for (int j = 0; j < lengthObservationSequence; j++) {
+                numerator = 0.0d;
+                denominator = 0.0d;
+                for (int t = 0; t < lengthObservationSequence; t++) {
+                    if (observations[t] == j) {
+                        numerator += gammat[t][i];
+                        denominator += gammat[t][i];
+                    }
+                }
+                observationProb[i][j] = numerator / denominator;
+            }
+        }
+    }
+
+    private double computeLogProb() {
+        double logProb = 0.0d;
+        for (int i = 0; i < lengthObservationSequence; i++) {
+            logProb += Math.log(scaleFactor[i]);
+        }
+        logProb *= -1.0d;
+        return logProb;
     }
 
     private void seedInitialStateDist() {
@@ -127,19 +244,28 @@ public class Oracle {
     }
 
     private void alphaPass() {
-        double   c0     = 0.0d;
-        double[] alpha0 = new double[numStates];
-
-        /* compute alpha0(i) */
         for (int i = 0; i < numStates; i++) {
-            alpha0[i] = initialStateDist[i] * observationProb[i][0];
-            c0 += alpha0[i];
+            alpha[0][i] = this.initialStateDist[i] * this.observationProb[i][0];
+            scaleFactor[0] += alpha[0][i];
+        }
+        scaleFactor[0] = 1.0d / scaleFactor[0];
+
+        for (int i = 0; i < numStates; i++) {
+            alpha[0][i] *= scaleFactor[0];
         }
 
-        /* scale the alpha0[i] */
-        c0 = 1.0d / c0;
-        for (int i = 0; i < numStates; i++) {
-            alpha0[i] *= c0;
+        for (int t = 1; t < lengthObservationSequence; t++) {
+            for (int i = 0; i < numStates; i++) {
+                for (int j = 0; j < numStates; j++) {
+                    alpha[t][i] += (alpha[t - 1][j] * stateTransitions[j][i]);
+                }
+                alpha[t][i] *= this.observationProb[i][t];
+                scaleFactor[t] += alpha[t][i];
+            }
+            scaleFactor[t] = 1.0d / scaleFactor[t];
+            for (int i = 0; i < numStates; i++) {
+                alpha[t][i] *= scaleFactor[t];
+            }
         }
     }
 }
