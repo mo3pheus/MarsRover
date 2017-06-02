@@ -12,7 +12,6 @@ import java.util.Properties;
 
 public class MarsArchitect {
     private Map<Point, SoilComposition> soilCompositionMap    = null;
-    private Map<Point, RoverCell>       oldRovers             = null;
     private JFrame                      marsSurface           = null;
     private Properties                  marsConfig            = null;
     private TrackingAnimationEngine     propulsionEngine      = null;
@@ -38,7 +37,6 @@ public class MarsArchitect {
         propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robotPath, robot);
         propulsionEngine.renderRobotAnimation();
         soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
-        oldRovers = EnvironmentUtils.setUpOldRovers(marsConfig);
     }
 
     public MarsArchitect(Properties matrixDefinition) {
@@ -52,7 +50,6 @@ public class MarsArchitect {
         this.cellWidth = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
         this.robotStepSize = Integer.parseInt(this.marsConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE));
 
-        oldRovers = EnvironmentUtils.setUpOldRovers(marsConfig);
         setUpSurface();
         this.propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robot);
         soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
@@ -102,15 +99,8 @@ public class MarsArchitect {
         return robotStepSize;
     }
 
-    private void addPastRoverStations(JLayeredPane content) {
-        for (Point p : oldRovers.keySet()) {
-            content.add(oldRovers.get(p), RoverCell.ROVER_CELL_DEPTH);
-        }
-    }
-
     private void setUpSurface() {
         JLayeredPane content = AnimationUtil.getContent(marsConfig);
-        addPastRoverStations(content);
 
         int roboX = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
         int roboY = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]);

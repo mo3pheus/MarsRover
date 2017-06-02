@@ -1,15 +1,13 @@
 package space.exploration.mars.rover.animation;
 
 import scala.concurrent.forkjoin.ThreadLocalRandom;
-import space.exploration.mars.rover.environment.Cell;
-import space.exploration.mars.rover.environment.EnvironmentUtils;
-import space.exploration.mars.rover.environment.Grid;
-import space.exploration.mars.rover.environment.WallBuilder;
+import space.exploration.mars.rover.environment.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 public class AnimationUtil {
@@ -84,6 +82,11 @@ public class AnimationUtil {
         content.add(grid);
         content.add(wallBuilder);
         content.add(destinationCell);
+
+        Map<Point,RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(marsRoverConfig);
+        for(Point p:oldRovers.keySet()){
+            content.add(oldRovers.get(p));
+        }
 
         for (int i = 0; i < content.size(); i++) {
             marsSurface.add(content.get(i), new Integer(i));

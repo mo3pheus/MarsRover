@@ -38,6 +38,7 @@ public class EnvironmentUtils {
     public static final String LIDAR_POWER_CONSUMPTION        = "mars.rover.lidar.powerConsumption";
     public static final String SPECTROMETER_POWER_CONSUMPTION = "mars.rover.spectrometer.powerConsumption";
     public static final String PROPULSION_POWER_CONSUMPTION   = "mars.rover.propulsion.powerConsumption";
+    public static final String OLD_ROVERS_COLOR               = "mars.rover.radar.oldRovers.color";
     public static       Logger logger                         = LoggerFactory.getLogger(EnvironmentUtils.class);
 
     public static Color findColor(String color) {
@@ -67,6 +68,8 @@ public class EnvironmentUtils {
             return new Color(0, 102, 255);
         } else if (color.equals("lavendar")) {
             return new Color(123, 104, 238);
+        } else if (color.equals("purple")) {
+            return new Color(128, 0, 128);
         } else if (color.equals("marsSurfaceRed")) {
             // return new Color(205, 133, 0);
             return new Color(238, 118, 0);
@@ -128,9 +131,10 @@ public class EnvironmentUtils {
             int       x     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split(",")[0]);
             int       y     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split(",")[1]);
             RoverCell rCell = new RoverCell(marsConfig);
+            rCell.setLocation(new Point(x + 3, y + 3));
             rCell.setCellWidth(8);
             rCell.setColor(Color.BLUE);
-            stationMap.put(new Point(x + 3, y + 3), rCell);
+            stationMap.put(new Point(x, y), rCell);
         }
 
         return stationMap;
