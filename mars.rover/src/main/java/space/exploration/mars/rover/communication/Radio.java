@@ -25,16 +25,6 @@ public class Radio implements IsEquipment {
     private             Receiver             receiver        = null;
     private             Logger               logger          = LoggerFactory.getLogger(Radio.class);
     private             boolean              endOfLife       = false;
-
-    @Override
-    public boolean isEndOfLife() {
-        return endOfLife;
-    }
-
-    public void setEndOfLife(boolean endOfLife) {
-        this.endOfLife = endOfLife;
-    }
-
     private int lifeSpan = 0;
 
     public Radio(Properties comsConfig, Rover rover) {
@@ -44,6 +34,15 @@ public class Radio implements IsEquipment {
         receiver.start();
 
         RoverUtil.roverSystemLog(logger, "Radio configured:: " + RoverUtil.getPropertiesAsString(comsConfig), "INFO");
+    }
+
+    @Override
+    public boolean isEndOfLife() {
+        return endOfLife;
+    }
+
+    public void setEndOfLife(boolean endOfLife) {
+        this.endOfLife = endOfLife;
     }
 
     public void receiveMessage(InstructionPayload instructionPayload) {

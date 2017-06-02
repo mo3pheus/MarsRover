@@ -110,10 +110,6 @@ public class Rover {
         transmitMessage(getBootupMessage());
     }
 
-    public void configureRLEngine() {
-        this.rlNavEngine = new ReinforcementLearner(marsConfig);
-    }
-
     public static long getOneSolDuration() {
         /* Time scaled by a factor of 60. */
         long time = TimeUnit.MINUTES.toMillis(24);
@@ -123,8 +119,8 @@ public class Rover {
         return time;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public void configureRLEngine() {
+        this.rlNavEngine = new ReinforcementLearner(marsConfig);
     }
 
     public State getListeningState() {
@@ -277,6 +273,10 @@ public class Rover {
 
     public State getState() {
         return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 
     public boolean isEquipmentEOL() {

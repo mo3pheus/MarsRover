@@ -83,8 +83,8 @@ public class AnimationUtil {
         content.add(wallBuilder);
         content.add(destinationCell);
 
-        Map<Point,RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(marsRoverConfig);
-        for(Point p:oldRovers.keySet()){
+        Map<Point, RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(marsRoverConfig);
+        for (Point p : oldRovers.keySet()) {
             content.add(oldRovers.get(p));
         }
 

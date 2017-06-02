@@ -34,4 +34,8 @@ public abstract class MatrixElement extends Component {
             this.setBounds(0, 0, frameWidth, frameHeight);
         }
     }
+
+    public void setLayout(int frameWidth) {
+        this.setBounds(0, 0, frameWidth, frameWidth);
+    }
 }

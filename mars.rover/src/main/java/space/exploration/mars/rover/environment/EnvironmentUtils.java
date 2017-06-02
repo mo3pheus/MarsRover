@@ -39,6 +39,7 @@ public class EnvironmentUtils {
     public static final String SPECTROMETER_POWER_CONSUMPTION = "mars.rover.spectrometer.powerConsumption";
     public static final String PROPULSION_POWER_CONSUMPTION   = "mars.rover.propulsion.powerConsumption";
     public static final String OLD_ROVERS_COLOR               = "mars.rover.radar.oldRovers.color";
+    public static final String RADAR_SCAN_CIRCLE_COLOR        = "mars.rover.radar.scan.circle.color";
     public static       Logger logger                         = LoggerFactory.getLogger(EnvironmentUtils.class);
 
     public static Color findColor(String color) {
@@ -59,10 +60,8 @@ public class EnvironmentUtils {
         } else if (color.equals("darkGreen")) {
             return new Color(0, 153, 51);
         } else if (color.equals("brown")) {
-            // return new Color(102, 51, 0);
             return new Color(139, 37, 0);
         } else if (color.equals("darkBrown")) {
-            // return new Color(139, 90, 43);
             return new Color(205, 55, 0);
         } else if (color.equals("royalBlue")) {
             return new Color(0, 102, 255);
@@ -71,7 +70,6 @@ public class EnvironmentUtils {
         } else if (color.equals("purple")) {
             return new Color(128, 0, 128);
         } else if (color.equals("marsSurfaceRed")) {
-            // return new Color(205, 133, 0);
             return new Color(238, 118, 0);
         } else if (color.equals("spectrometerScanColor")) {
             return new Color(227, 168, 105);

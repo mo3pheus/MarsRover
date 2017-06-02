@@ -9,24 +9,13 @@ import java.util.concurrent.Semaphore;
 
 public class Battery implements IsEquipment {
     public static final String LIFESPAN = "mars.rover.battery.lifeSpan";
-    private int primaryPowerUnits;
-    private int auxiliaryPowerUnits;
-    private int alertThreshold;
-    private int rechargeTime;
-    private int lifeSpan;
-    private boolean endOfLife;
-
-    @Override
-    public boolean isEndOfLife() {
-        return endOfLife;
-    }
-
-    public void setEndOfLife(boolean endOfLife) {
-        this.endOfLife = endOfLife;
-    }
-
     private final Semaphore accessLock = new Semaphore(1, true);
-
+    private int     primaryPowerUnits;
+    private int     auxiliaryPowerUnits;
+    private int     alertThreshold;
+    private int     rechargeTime;
+    private int     lifeSpan;
+    private boolean endOfLife;
     private Logger logger = LoggerFactory.getLogger(Battery.class);
 
     public Battery(int alertThreshold, int rechargeTime) {
@@ -38,6 +27,15 @@ public class Battery implements IsEquipment {
                                          + " auxiliaryPowerUnits = " + auxiliaryPowerUnits + " alertThreshold: " +
                                          alertThreshold + " rechargeTime = " + rechargeTime, "INFO"
         );
+    }
+
+    @Override
+    public boolean isEndOfLife() {
+        return endOfLife;
+    }
+
+    public void setEndOfLife(boolean endOfLife) {
+        this.endOfLife = endOfLife;
     }
 
     public int getPrimaryPowerUnits() {

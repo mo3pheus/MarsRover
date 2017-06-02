@@ -3,6 +3,7 @@ package space.exploration.mars.rover.sensor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
+import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
@@ -10,6 +11,7 @@ import space.exploration.mars.rover.utils.RoverUtil;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sanket on 5/30/17.
@@ -32,11 +34,16 @@ public class Radar implements IsEquipment {
 
         int frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.radarRadius = (int) (Math.sqrt(Math.pow(frameWidth, 2.0d)));
+        populateRoverPositions();
         RoverUtil.roverSystemLog(logger, "Radio configured:: ", "INFO");
     }
 
     public int getLifeSpan() {
         return lifeSpan;
+    }
+
+    public void setLifeSpan(int lifeSpan) {
+        this.lifeSpan = lifeSpan;
     }
 
     public String getEquipmentName() {
@@ -46,10 +53,6 @@ public class Radar implements IsEquipment {
     @Override
     public boolean isEndOfLife() {
         return endOfLife;
-    }
-
-    public void setLifeSpan(int lifeSpan) {
-        this.lifeSpan = lifeSpan;
     }
 
     public void setEndOfLife(boolean endOfLife) {
@@ -70,5 +73,10 @@ public class Radar implements IsEquipment {
 
     public Point getOrigin() {
         return origin;
+    }
+
+    private void populateRoverPositions() {
+        Map<Point, RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(rover.getMarsConfig());
+        previousRovers.addAll(oldRovers.keySet());
     }
 }
