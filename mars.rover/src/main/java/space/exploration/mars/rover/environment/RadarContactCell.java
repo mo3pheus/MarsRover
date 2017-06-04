@@ -10,11 +10,12 @@ import java.util.Properties;
  * Created by sanket on 6/1/17.
  */
 public class RadarContactCell extends VirtualElement {
-    private static final int        CONTACT_DIAMETER = 10;
+    public static        Color      BLIP_COLOR       = Color.green;
+    private static final int        CONTACT_DIAMETER = 7;
+    private static       Logger     logger           = LoggerFactory.getLogger(RadarContactCell.class);
     private              Color      color            = null;
     private              Properties contactConfig    = null;
     private              Point      location         = null;
-    private static       Logger     logger           = LoggerFactory.getLogger(RadarContactCell.class);
 
     public RadarContactCell(Properties config, Point location, Color color) {
         this.color = color;
@@ -25,7 +26,6 @@ public class RadarContactCell extends VirtualElement {
 
     @Override
     public void draw(Graphics2D g2) {
-        System.out.println("Ping drawn! Color = " + color.toString());
         g2.setColor(color);
         g2.fillOval(location.x, location.y, CONTACT_DIAMETER, CONTACT_DIAMETER);
     }

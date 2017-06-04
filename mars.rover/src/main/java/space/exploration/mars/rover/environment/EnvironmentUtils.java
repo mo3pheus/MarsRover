@@ -42,13 +42,12 @@ public class EnvironmentUtils {
     public static final String RADAR_SCAN_CIRCLE_COLOR        = "mars.rover.radar.scan.circle.color";
     public static final String RADAR_CONTACT_COLOR            = "mars.rover.radar.scan.contact.color";
     public static final String RADAR_CONTACT_PING_DELAY       = "mars.rover.radar.contact.ping.delay";
-    public static       Logger logger                         = LoggerFactory.getLogger(EnvironmentUtils.class);
-
     public static final Color[] RADAR_CONTACT_COLORS = {
             new Color(0, 250, 154),
             new Color(152, 251, 152),
             new Color(144, 238, 144),
             new Color(0, 102, 255)};
+    public static       Logger logger                         = LoggerFactory.getLogger(EnvironmentUtils.class);
     //new Color(34, 139, 34)};
 
     public static Color findColor(String color) {
@@ -67,7 +66,8 @@ public class EnvironmentUtils {
         } else if (color.equals("robotHibernate")) {
             return new Color(56, 142, 142);
         } else if (color.equals("darkGreen")) {
-            return new Color(34, 139, 34);
+            //return new Color(34, 139, 34);
+            return new Color(0, 100, 0);
         } else if (color.equals("brown")) {
             return new Color(139, 37, 0);
         } else if (color.equals("darkBrown")) {

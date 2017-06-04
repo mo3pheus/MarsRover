@@ -31,7 +31,7 @@ public class Laser extends VirtualElement {
         laserBeam = new Line2D.Double(a, b);
 
         if (module == ModuleDirectory.Module.SENSOR_LIDAR) {
-            color = EnvironmentUtils.findColor(marsConfig.getProperty("mars.rover.lidar.color", "Black"));
+            color = EnvironmentUtils.findColor(marsConfig.getProperty("mars.rover.lidar.color", "green"));
         } else if (module == ModuleDirectory.Module.RADAR) {
             color = EnvironmentUtils.findColor(marsConfig.getProperty(Radar.RADAR_PREFIX + ".laser.color"));
         }

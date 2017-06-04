@@ -69,7 +69,7 @@ public class RadarScanningState implements State {
     public void performRadarScan() {
         logger.info("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
-        MarsArchitect marsArchitect = rover.getMarsArchitect();
+        MarsArchitect        marsArchitect        = rover.getMarsArchitect();
         RadarAnimationEngine radarAnimationEngine = new RadarAnimationEngine(rover.getMarsConfig());
         try {
             Thread.sleep(1000000);
