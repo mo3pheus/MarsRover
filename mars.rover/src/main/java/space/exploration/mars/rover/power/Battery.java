@@ -8,8 +8,8 @@ import space.exploration.mars.rover.utils.RoverUtil;
 import java.util.concurrent.Semaphore;
 
 public class Battery implements IsEquipment {
-    public static final String LIFESPAN = "mars.rover.battery.lifeSpan";
-    private final Semaphore accessLock = new Semaphore(1, true);
+    public static final String    LIFESPAN   = "mars.rover.battery.lifeSpan";
+    private final       Semaphore accessLock = new Semaphore(1, true);
     private int     primaryPowerUnits;
     private int     auxiliaryPowerUnits;
     private int     alertThreshold;

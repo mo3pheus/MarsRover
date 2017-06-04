@@ -2,6 +2,7 @@ package space.exploration.mars.rover.kernel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.animation.RadarAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
@@ -69,6 +70,14 @@ public class RadarScanningState implements State {
         logger.info("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
         MarsArchitect marsArchitect = rover.getMarsArchitect();
+        RadarAnimationEngine radarAnimationEngine = new RadarAnimationEngine(rover.getMarsConfig());
+        try {
+            Thread.sleep(1000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        radarAnimationEngine.destroy();
+
         RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder()
                 .setX(marsArchitect.getRobot().getLocation().x)

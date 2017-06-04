@@ -33,7 +33,7 @@ public class Laser extends VirtualElement {
         if (module == ModuleDirectory.Module.SENSOR_LIDAR) {
             color = EnvironmentUtils.findColor(marsConfig.getProperty("mars.rover.lidar.color", "Black"));
         } else if (module == ModuleDirectory.Module.RADAR) {
-            color = EnvironmentUtils.findColor(marsConfig.getProperty(Radar.RADAR_PREFIX + ".color"));
+            color = EnvironmentUtils.findColor(marsConfig.getProperty(Radar.RADAR_PREFIX + ".laser.color"));
         }
 
         super.setMatrixConfig(marsConfig);

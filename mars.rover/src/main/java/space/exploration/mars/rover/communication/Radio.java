@@ -25,7 +25,7 @@ public class Radio implements IsEquipment {
     private             Receiver             receiver        = null;
     private             Logger               logger          = LoggerFactory.getLogger(Radio.class);
     private             boolean              endOfLife       = false;
-    private int lifeSpan = 0;
+    private             int                  lifeSpan        = 0;
 
     public Radio(Properties comsConfig, Rover rover) {
         this.transmitter = new Transmitter(comsConfig);
@@ -48,6 +48,7 @@ public class Radio implements IsEquipment {
     public void receiveMessage(InstructionPayload instructionPayload) {
         try {
             if (lifeSpan > SOS_RESERVE) {
+                System.out.println("BreadCrumb!");
                 Thread.sleep(getComsDelaySecs());
                 this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
                         .getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
