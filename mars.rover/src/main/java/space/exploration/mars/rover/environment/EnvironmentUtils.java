@@ -65,6 +65,8 @@ public class EnvironmentUtils {
             return Color.orange;
         } else if (color.equals("darkOliveGreen")) {
             return new Color(85, 107, 47);
+        } else if (color.equals("lawnGreen")) {
+            return new Color(124, 252, 0);
         } else if (color.equals("robotHibernate")) {
             return new Color(56, 142, 142);
         } else if (color.equals("darkGreen")) {

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.animation.RadarAnimationEngine;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by sanket on 6/3/17.
@@ -27,13 +28,14 @@ public class RadarContactBlip extends Thread {
         int i = 0;
         logger.info(contact.getLocation().toString());
         System.out.println("Contact at " + contact.getLocation().toString());
-        contact.setColor(RadarContactCell.BLIP_COLOR.brighter());
+        //contact.setColor(RadarContactCell.BLIP_COLOR.brighter());
+        contact.setColor(EnvironmentUtils.findColor("lawnGreen"));
         contentPane.add(contact, new Integer(contactDepth + i));
         try {
             if (blipSound) {
                 (new BlipSound()).start();
             }
-            Thread.sleep(250);
+            Thread.sleep(300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -43,9 +45,6 @@ public class RadarContactBlip extends Thread {
         contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth + i));
         try {
-            if (blipSound) {
-                (new BlipSound()).start();
-            }
             Thread.sleep(150);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -56,9 +55,6 @@ public class RadarContactBlip extends Thread {
         contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth + i));
         try {
-            if (blipSound) {
-                (new BlipSound()).start();
-            }
             Thread.sleep(50);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -69,9 +65,6 @@ public class RadarContactBlip extends Thread {
         contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth + i));
         try {
-            if (blipSound) {
-                (new BlipSound()).start();
-            }
             Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -83,10 +76,16 @@ public class RadarContactBlip extends Thread {
         contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth + i));
         try {
-            if (blipSound) {
-                (new BlipSound()).start();
-            }
             Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        contentPane.remove(contact);
+
+        contact.setColor(Color.darkGray);
+        contentPane.add(contact, new Integer(contactDepth + i));
+        try {
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
