@@ -122,7 +122,6 @@ public class RadarAnimationEngine {
             if (contact.getContactRect().intersectsLine(laser.getBeam())) {
                 RadarContactBlip blip = new RadarContactBlip(contentPane, contact, blipSound);
                 blip.start();
-                //blip.
             }
         }
     }

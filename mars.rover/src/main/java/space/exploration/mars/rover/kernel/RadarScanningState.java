@@ -117,7 +117,7 @@ public class RadarScanningState implements State {
 //            System.out.println("Original point = " + p.toString());
 //            System.out.println("Scaled point = " + scaledPoint.toString());
 //            System.out.println("Adjusted point = " + adjustedPoint.toString());
-            contacts.add(new RadarContactCell(marsConfig, p, Color.green));
+            contacts.add(new RadarContactCell(marsConfig, p, Color.green, 8));
         }
         radarAnimationEngine.setContacts(contacts);
         radarAnimationEngine.renderLaserAnimation();

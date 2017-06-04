@@ -33,25 +33,54 @@ public class RadarContactBlip extends Thread {
             if (blipSound) {
                 (new BlipSound()).start();
             }
-            Thread.sleep(300);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         contentPane.remove(contact);
 
         contact.setColor(RadarContactCell.BLIP_COLOR);
+        contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth + i));
         try {
             if (blipSound) {
                 (new BlipSound()).start();
             }
-            Thread.sleep(200);
+            Thread.sleep(150);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         contentPane.remove(contact);
 
         contact.setColor(RadarContactCell.BLIP_COLOR.darker());
+        contact.reduceContactDiameter();
+        contentPane.add(contact, new Integer(contactDepth + i));
+        try {
+            if (blipSound) {
+                (new BlipSound()).start();
+            }
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        contentPane.remove(contact);
+
+        contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
+        contact.reduceContactDiameter();
+        contentPane.add(contact, new Integer(contactDepth + i));
+        try {
+            if (blipSound) {
+                (new BlipSound()).start();
+            }
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        contentPane.remove(contact);
+
+        contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
+        contact.reduceContactDiameter();
+        contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth + i));
         try {
             if (blipSound) {
@@ -62,5 +91,6 @@ public class RadarContactBlip extends Thread {
             e.printStackTrace();
         }
         contentPane.remove(contact);
+        contact.setContactDiameter(8);
     }
 }

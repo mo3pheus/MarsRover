@@ -11,24 +11,25 @@ import java.util.Properties;
  * Created by sanket on 6/1/17.
  */
 public class RadarContactCell extends VirtualElement {
-    public static        Color      BLIP_COLOR       = Color.green;
-    private static final int        CONTACT_DIAMETER = 7;
-    private static       Logger     logger           = LoggerFactory.getLogger(RadarContactCell.class);
-    private              Color      color            = null;
-    private              Properties contactConfig    = null;
-    private              Point      location         = null;
+    public static  Color      BLIP_COLOR      = Color.green;
+    private static Logger     logger          = LoggerFactory.getLogger(RadarContactCell.class);
+    private        Color      color           = null;
+    private        Properties contactConfig   = null;
+    private        Point      location        = null;
+    private        int        contactDiameter = 0;
 
-    public RadarContactCell(Properties config, Point location, Color color) {
+    public RadarContactCell(Properties config, Point location, Color color, int contactDiameter) {
         this.color = color;
         this.contactConfig = config;
         this.location = location;
+        this.contactDiameter = contactDiameter;
         build();
     }
 
     @Override
     public void draw(Graphics2D g2) {
         g2.setColor(color);
-        g2.fillOval(location.x, location.y, CONTACT_DIAMETER, CONTACT_DIAMETER);
+        g2.fillOval(location.x, location.y, contactDiameter, contactDiameter);
     }
 
     @Override
@@ -61,7 +62,21 @@ public class RadarContactCell extends VirtualElement {
         this.location = location;
     }
 
-    public Rectangle2D getContactRect(){
+    public Rectangle2D getContactRect() {
         return new Rectangle2D.Double(getLocation().x, getLocation().y, 1, 1);
+    }
+
+    public int getContactDiameter() {
+        return contactDiameter;
+    }
+
+    public void setContactDiameter(int contactDiameter) {
+        this.contactDiameter = contactDiameter;
+    }
+
+    public void reduceContactDiameter() {
+        if (contactDiameter > 1) {
+            contactDiameter--;
+        }
     }
 }

@@ -14,18 +14,18 @@ import java.util.Properties;
 public class RadarAnimationTest {
 
     public static void main(String[] args) throws Exception {
-        Properties marsConfig = MatrixCreation.getMatrixConfig();
+        Properties                       marsConfig           = MatrixCreation.getMatrixConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();
-        contacts.add(new RadarContactCell(marsConfig, new Point(175, 175), Color.green));
-        contacts.add(new RadarContactCell(marsConfig, new Point(200, 100), Color.green));
-        contacts.add(new RadarContactCell(marsConfig, new Point(225, 150), Color.green));
-        contacts.add(new RadarContactCell(marsConfig, new Point(100, 150), Color.green));
-        contacts.add(new RadarContactCell(marsConfig, new Point(350, 250), Color.green));
-        contacts.add(new RadarContactCell(marsConfig, new Point(250, 250), Color.green));
-        contacts.add(new RadarContactCell(marsConfig, new Point(450, 250), Color.green));
-        contacts.add(new RadarContactCell(marsConfig, new Point(550, 550), Color.green));
-        contacts.add(new RadarContactCell(marsConfig, new Point(175, 400), Color.green));
+        contacts.add(new RadarContactCell(marsConfig, new Point(175, 175), Color.black, 8));
+        contacts.add(new RadarContactCell(marsConfig, new Point(200, 100), Color.black, 8));
+        contacts.add(new RadarContactCell(marsConfig, new Point(225, 150), Color.green, 8));
+        contacts.add(new RadarContactCell(marsConfig, new Point(100, 150), Color.green, 8));
+        contacts.add(new RadarContactCell(marsConfig, new Point(350, 250), Color.green, 8));
+        contacts.add(new RadarContactCell(marsConfig, new Point(250, 250), Color.green, 8));
+        contacts.add(new RadarContactCell(marsConfig, new Point(450, 250), Color.green, 8));
+        contacts.add(new RadarContactCell(marsConfig, new Point(550, 550), Color.green, 10));
+        contacts.add(new RadarContactCell(marsConfig, new Point(175, 400), Color.green, 10));
         radarAnimationEngine.setContacts(contacts);
         radarAnimationEngine.renderLaserAnimation();
     }
