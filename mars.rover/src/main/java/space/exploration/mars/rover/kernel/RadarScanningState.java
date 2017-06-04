@@ -105,13 +105,19 @@ public class RadarScanningState implements State {
         Map<Point, RoverCell>            oldRovers            = rover.getPreviousRovers();
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();
         for (Point p : oldRovers.keySet()) {
-
-            double dist = scaleFactor * Math.sqrt(Math.pow((origin.x - p.x), 2.0d) + Math.pow((origin.y - p.y),
-                    2.0d));
-            double slope       = (origin.y - p.y) / (double) (origin.x - p.x);
-            double theta       = Math.atan(slope);
-            Point  scaledPoint = new Point((int) (dist * Math.cos(theta)), (int) (dist * Math.sin(theta)));
-            contacts.add(new RadarContactCell(marsConfig, scaledPoint, Color.green));
+//            double dist  = scaleFactor * Math.sqrt(Math.pow((p.x), 2.0d) + Math.pow((p.y), 2.0d));
+//            double slope = (origin.y - p.y) / (double) (origin.x - p.x);
+//            double theta = Math.atan(slope);
+//            Point scaledPoint = new Point((int) (dist * Math.cos(theta)) + origin.x, (int) (dist * Math.sin(theta))
+//                                                                                     + origin.y);
+//            int cellWidth = rover.getMarsArchitect().getCellWidth();
+//            Point adjustedPoint = new Point(scaledPoint.x - (scaledPoint.x % cellWidth), scaledPoint.y -
+//                                                                                         (scaledPoint.y % cellWidth));
+//            contacts.add(new RadarContactCell(marsConfig, adjustedPoint, Color.green));
+//            System.out.println("Original point = " + p.toString());
+//            System.out.println("Scaled point = " + scaledPoint.toString());
+//            System.out.println("Adjusted point = " + adjustedPoint.toString());
+            contacts.add(new RadarContactCell(marsConfig, p, Color.green));
         }
         radarAnimationEngine.setContacts(contacts);
         radarAnimationEngine.renderLaserAnimation();

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.util.Properties;
 
 /**
@@ -58,5 +59,9 @@ public class RadarContactCell extends VirtualElement {
     @Override
     public void setLocation(Point location) {
         this.location = location;
+    }
+
+    public Rectangle2D getContactRect(){
+        return new Rectangle2D.Double(getLocation().x, getLocation().y, 1, 1);
     }
 }

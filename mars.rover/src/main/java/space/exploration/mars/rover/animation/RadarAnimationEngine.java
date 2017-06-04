@@ -8,7 +8,6 @@ import space.exploration.mars.rover.sensor.Radar;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -18,7 +17,7 @@ import java.util.Properties;
  */
 public class RadarAnimationEngine {
     public static final  Integer                RADAR_DEPTH = new Integer(0);
-    private static final int                    LASER_DELAY = 85;
+    private static final int                    LASER_DELAY = 60;
     private              JFrame                 radarWindow = null;
     private              int                    numRevs     = 0;
     private              int                    numRings    = 0;
@@ -120,10 +119,10 @@ public class RadarAnimationEngine {
         }
 
         for (RadarContactCell contact : contacts) {
-            Rectangle2D contactRect = new Rectangle2D.Double(contact.getLocation().x, contact.getLocation().y, 4, 4);
-            if (contactRect.intersectsLine(laser.getBeam())) {
+            if (contact.getContactRect().intersectsLine(laser.getBeam())) {
                 RadarContactBlip blip = new RadarContactBlip(contentPane, contact, blipSound);
                 blip.start();
+                //blip.
             }
         }
     }
