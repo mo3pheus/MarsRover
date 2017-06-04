@@ -8,6 +8,7 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverSta
 import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
+import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.learning.ReinforcementLearner;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
@@ -18,9 +19,8 @@ import space.exploration.mars.rover.sensor.Spectrometer;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class Rover {
@@ -60,15 +60,17 @@ public class Rover {
     private Radar        radar        = null;
 
     /* Contingency Stack */
-    private List<byte[]> instructionQueue     = null;
-    private long         inRechargingModeTime = 0l;
-    private Pacemaker    pacemaker            = null;
+    private Map<Point, RoverCell> previousRovers       = null;
+    private List<byte[]>          instructionQueue     = null;
+    private long                  inRechargingModeTime = 0l;
+    private Pacemaker             pacemaker            = null;
 
     /* Sets up the rover and the boot-up sequence */
     public Rover(Properties marsConfig, Properties comsConfig) {
         this.creationTime = System.currentTimeMillis();
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
+        this.previousRovers = new HashMap<>();
         this.listeningState = new ListeningState(this);
         this.hibernatingState = new HibernatingState(this);
         this.exploringState = new ExploringState(this);
@@ -197,6 +199,14 @@ public class Rover {
 
     public ReinforcementLearner getRlNavEngine() {
         return rlNavEngine;
+    }
+
+    public Map<Point, RoverCell> getPreviousRovers() {
+        return previousRovers;
+    }
+
+    public void setPreviousRovers(Map<Point, RoverCell> previousRovers) {
+        this.previousRovers = previousRovers;
     }
 
     public Camera getCamera() {

@@ -1,0 +1,127 @@
+0    [main] INFO  space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=350,y=250]
+1009 [main] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2013 [main] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+3283 [main] INFO  space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+4285 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+5286 [main] INFO  space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 10000 auxiliaryPowerUnits = 1000 alertThreshold: 100 rechargeTime = 60000
+5584 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+5605 [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+5605 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+5605 [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+5605 [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+5605 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+5605 [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+5635 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+5635 [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+5635 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+5635 [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover
+5635 [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+5636 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+5636 [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+5656 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], Connecting to zookeeper instance at localhost:2181
+5662 [ZkClient-EventThread-21-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zionmainframe
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/space.exploration/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/home/sanket/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/home/sanket/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4073.35/lib/idea_rt.jar
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4073.35/bin::/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.4.0-77-generic
+5666 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+5667 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+5667 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/Code/MyProjects/Java/MavenProjects/space.exploration/MarsRover/mars.rover
+5667 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@6f96c77
+5675 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+5677 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+5680 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+5686 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15c129a84bd009a, negotiated timeout = 6000
+5687 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+5694 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], starting auto committer every 60000 ms
+5711 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], begin registering consumer space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f in ZK
+5729 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f (is it secure? false)
+5737 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+5738 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], end registering consumer space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f in ZK
+5741 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], starting watcher executor thread for consumer space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f
+5756 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], begin rebalancing consumer space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f try #0
+5842 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496553809276] Stopping leader finder thread
+5843 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496553809276] Stopping all fetchers
+5843 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496553809276] All connections stopped
+5844 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], Cleared all relevant queues for this fetcher
+5845 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], Cleared the data chunks in all the consumer message iterators
+5845 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], Committing all offsets after clearing the fetcher queues
+5845 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], Releasing partition ownership
+5869 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_3 with consumers: List(space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-0)
+5871 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-0 attempting to claim partition 0
+5890 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-0 successfully owned partition 0 for topic secure_com_from_earth_channel_3
+5912 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], Consumer space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f selected partitions : secure_com_from_earth_channel_3:0: fetched offset = 155: consumed offset = 155
+5914 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f], end rebalancing consumer space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f try #0
+5916 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread], Starting 
+5925 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+5925 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+5925 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zionmainframe:9092
+5926 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+5968 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zionmainframe,9092) with correlation id 0 for 1 topic(s) Set(secure_com_from_earth_channel_3)
+5974 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zionmainframe:9092 for producing
+5987 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zionmainframe:9092
+6007 [ConsumerFetcherThread-space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-0-0], Starting 
+6015 [space.exploration.mars.rover_zionmainframe-1496553809240-1e39cd6f-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496553809276] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_3,0], initOffset 155 to broker BrokerEndPoint(0,zionmainframe,9092)] )
+6695 [main] INFO  space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+metadata.broker.list::localhost:9092
+source.topic::secure_com_from_earth_channel_3
+auto.offset.reset::largest
+group.id::space.exploration.mars.rover
+destination.topic::secure_com_to_earth_channel_3
+zookeeper.connect::localhost:2181
+7697 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+19269 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+19271 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+19275 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+19335 [main] INFO  kafka.producer.SyncProducer  - Connected to zionmainframe:9092 for producing
+58103 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1496553861587
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 999
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 10000
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+89262 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1496553868132
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+89263 [Thread-2] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=350,y=250]
+109872 [Thread-4] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=249,y=200]
+109962 [Thread-6] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=249,y=200]

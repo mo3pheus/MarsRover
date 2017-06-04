@@ -5,8 +5,16 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.animation.RadarAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
+import space.exploration.mars.rover.environment.RadarContactCell;
+import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
+import space.exploration.mars.rover.sensor.Radar;
 import space.exploration.mars.rover.utils.RoverUtil;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * Created by sanket on 5/30/17.
@@ -69,14 +77,8 @@ public class RadarScanningState implements State {
     public void performRadarScan() {
         logger.info("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
-        MarsArchitect        marsArchitect        = rover.getMarsArchitect();
-        RadarAnimationEngine radarAnimationEngine = new RadarAnimationEngine(rover.getMarsConfig());
-        try {
-            Thread.sleep(1000000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        radarAnimationEngine.destroy();
+        MarsArchitect marsArchitect = rover.getMarsArchitect();
+        renderRadarAnimation();
 
         RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder()
@@ -92,5 +94,27 @@ public class RadarScanningState implements State {
                 .setModuleReporting(ModuleDirectory.Module.RADAR.getValue()).build();
         rover.state = rover.transmittingState;
         rover.transmitMessage(status.toByteArray());
+    }
+
+    private void renderRadarAnimation() {
+        Properties marsConfig = rover.getMarsConfig();
+        double scaleFactor = Double.parseDouble(marsConfig.getProperty(Radar.RADAR_PREFIX + "" +
+                                                                       ".scaleFactor"));
+        RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
+        Point                            origin               = radarAnimationEngine.getOrigin();
+        Map<Point, RoverCell>            oldRovers            = rover.getPreviousRovers();
+        java.util.List<RadarContactCell> contacts             = new ArrayList<>();
+        for (Point p : oldRovers.keySet()) {
+
+            double dist = scaleFactor * Math.sqrt(Math.pow((origin.x - p.x), 2.0d) + Math.pow((origin.y - p.y),
+                    2.0d));
+            double slope       = (origin.y - p.y) / (double) (origin.x - p.x);
+            double theta       = Math.atan(slope);
+            Point  scaledPoint = new Point((int) (dist * Math.cos(theta)), (int) (dist * Math.sin(theta)));
+            contacts.add(new RadarContactCell(marsConfig, scaledPoint, Color.green));
+        }
+        radarAnimationEngine.setContacts(contacts);
+        radarAnimationEngine.renderLaserAnimation();
+        radarAnimationEngine.destroy();
     }
 }

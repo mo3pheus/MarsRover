@@ -18,13 +18,14 @@ import java.util.Properties;
  */
 public class RadarAnimationEngine {
     public static final  Integer                RADAR_DEPTH = new Integer(0);
-    private static final int                    LASER_DELAY = 45;
+    private static final int                    LASER_DELAY = 85;
     private              JFrame                 radarWindow = null;
     private              int                    numRevs     = 0;
     private              int                    numRings    = 0;
     private              int                    laserRadius = 0;
     private              double                 scaleFactor = 0.0d;
     private              double                 windowWidth = 0.0d;
+    private              boolean                blipSound   = false;
     private              Properties             radarConfig = null;
     private              Point                  origin      = null;
     private              List<Laser>            laserBeams  = null;
@@ -34,10 +35,12 @@ public class RadarAnimationEngine {
     public RadarAnimationEngine(Properties radarConfig) {
         this.radarConfig = radarConfig;
         laserBeams = new ArrayList<>();
+        setUpRadarWindow();
     }
 
     public void setUpRadarWindow() {
         int fWidth = Integer.parseInt(radarConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+        blipSound = Boolean.parseBoolean(radarConfig.getProperty(Radar.RADAR_PREFIX + ".blip.sound"));
         scaleFactor = Double.parseDouble(radarConfig.getProperty(Radar.RADAR_PREFIX + ".scaleFactor"));
         windowWidth = scaleFactor * fWidth;
         numRevs = Integer.parseInt(radarConfig.getProperty(Radar.RADAR_PREFIX + ".numberOfRevelutions"));
@@ -94,6 +97,10 @@ public class RadarAnimationEngine {
         }
     }
 
+    public Point getOrigin() {
+        return origin;
+    }
+
     public void destroy() {
         radarWindow.dispose();
     }
@@ -113,9 +120,9 @@ public class RadarAnimationEngine {
         }
 
         for (RadarContactCell contact : contacts) {
-            Rectangle2D contactRect = new Rectangle2D.Double(contact.getLocation().x, contact.getLocation().y, 1, 1);
+            Rectangle2D contactRect = new Rectangle2D.Double(contact.getLocation().x, contact.getLocation().y, 4, 4);
             if (contactRect.intersectsLine(laser.getBeam())) {
-                RadarContactBlip blip = new RadarContactBlip(contentPane, contact);
+                RadarContactBlip blip = new RadarContactBlip(contentPane, contact, blipSound);
                 blip.start();
             }
         }

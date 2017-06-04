@@ -35,7 +35,7 @@ public class Radar implements IsEquipment {
         int frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.radarRadius = (int) (Math.sqrt(Math.pow(frameWidth, 2.0d)));
         populateRoverPositions();
-        RoverUtil.roverSystemLog(logger, "Radio configured:: ", "INFO");
+        RoverUtil.roverSystemLog(logger, "Radar configured:: ", "INFO");
     }
 
     public int getLifeSpan() {
@@ -78,5 +78,6 @@ public class Radar implements IsEquipment {
     private void populateRoverPositions() {
         Map<Point, RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(rover.getMarsConfig());
         previousRovers.addAll(oldRovers.keySet());
+        rover.setPreviousRovers(oldRovers);
     }
 }

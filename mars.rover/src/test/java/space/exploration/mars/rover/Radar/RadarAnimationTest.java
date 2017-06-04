@@ -22,7 +22,6 @@ public class RadarAnimationTest {
         contacts.add(new RadarContactCell(marsConfig, new Point(225, 150), Color.green));
         contacts.add(new RadarContactCell(marsConfig, new Point(100, 150), Color.green));
         radarAnimationEngine.setContacts(contacts);
-        radarAnimationEngine.setUpRadarWindow();
         radarAnimationEngine.renderLaserAnimation();
     }
 }
