@@ -9,6 +9,7 @@ import space.exploration.mars.rover.sensor.Radar;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -16,11 +17,10 @@ import java.util.Properties;
  * Created by sanket on 5/30/17.
  */
 public class RadarAnimationEngine {
-    public static final  Integer                RADAR_DEPTH = new Integer(0);
-    private static final int                    LASER_DELAY = 60;
+    public static final  Integer                RADAR_DEPTH = JLayeredPane.DEFAULT_LAYER;
+    private static final int                    LASER_DELAY = 30;
     private              JFrame                 radarWindow = null;
     private              int                    numRevs     = 0;
-    private              int                    numRings    = 0;
     private              int                    laserRadius = 0;
     private              double                 scaleFactor = 0.0d;
     private              double                 windowWidth = 0.0d;
@@ -62,10 +62,18 @@ public class RadarAnimationEngine {
         return contentPane;
     }
 
+    private void scaleContacts() {
+        for (RadarContactCell contactCell : contacts) {
+            int   x     = (int) (scaleFactor * contactCell.getX());// + RadarScanArea.RING_OFFSET;
+            int   y     = (int) (scaleFactor * contactCell.getY());// + RadarScanArea.RING_OFFSET;
+            Point point = new Point(x, y);
+            contactCell.setLocation(point);
+        }
+    }
+
     public void renderLaserAnimation() {
-        /* build circumference */
         java.util.List<Point> circumference = new ArrayList<>();
-        double                angleStep     = 1.0d;
+        double                angleStep     = 0.5d;
         for (double a = 0.0d; a < (numRevs * 360.0d); a += angleStep) {
             double thetaR = Math.PI / 180.0d * a;
             int    x      = (int) (0.5d * laserRadius * Math.cos(thetaR));
@@ -74,13 +82,18 @@ public class RadarAnimationEngine {
             circumference.add(temp);
         }
 
-        /* build list of lasers */
         for (Point p : circumference) {
             Laser laser = new Laser(origin, p, radarConfig, ModuleDirectory.Module.RADAR);
             laserBeams.add(laser);
         }
 
-        /* draw lasers */
+//        for (int i = 0; i < contacts.size(); i++) {
+//            RadarContactCell contactCell = contacts.get(i);
+//            Laser laser = new Laser(origin, contactCell.getLocation(), radarConfig, ModuleDirectory
+//                    .Module.RADAR);
+//            laserBeams.add(laser);
+//        }
+
         JLayeredPane contentPane = getRadarSurface();
         for (Laser laser : laserBeams) {
             contentPane.add(laser, new Integer(RADAR_DEPTH.intValue() + 1));
@@ -110,6 +123,7 @@ public class RadarAnimationEngine {
 
     public void setContacts(List<RadarContactCell> contacts) {
         this.contacts = contacts;
+        //scaleContacts();
     }
 
     private void reflectContacts(Laser laser, JLayeredPane contentPane) {

@@ -25,17 +25,16 @@ public class RadarContactBlip extends Thread {
 
     @Override
     public void run() {
-        int i = 0;
         logger.info(contact.getLocation().toString());
         System.out.println("Contact at " + contact.getLocation().toString());
         //contact.setColor(RadarContactCell.BLIP_COLOR.brighter());
         contact.setColor(EnvironmentUtils.findColor("lawnGreen"));
-        contentPane.add(contact, new Integer(contactDepth + i));
+        contentPane.add(contact, new Integer(contactDepth));
         try {
             if (blipSound) {
                 (new BlipSound()).start();
             }
-            Thread.sleep(300);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -43,7 +42,7 @@ public class RadarContactBlip extends Thread {
 
         contact.setColor(RadarContactCell.BLIP_COLOR);
         contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth + i));
+        contentPane.add(contact, new Integer(contactDepth));
         try {
             Thread.sleep(150);
         } catch (InterruptedException e) {
@@ -53,7 +52,7 @@ public class RadarContactBlip extends Thread {
 
         contact.setColor(RadarContactCell.BLIP_COLOR.darker());
         contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth + i));
+        contentPane.add(contact, new Integer(contactDepth));
         try {
             Thread.sleep(50);
         } catch (InterruptedException e) {
@@ -63,7 +62,7 @@ public class RadarContactBlip extends Thread {
 
         contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
         contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth + i));
+        contentPane.add(contact, new Integer(contactDepth));
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
@@ -74,7 +73,7 @@ public class RadarContactBlip extends Thread {
         contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
         contact.reduceContactDiameter();
         contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth + i));
+        contentPane.add(contact, new Integer(contactDepth));
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
@@ -83,7 +82,7 @@ public class RadarContactBlip extends Thread {
         contentPane.remove(contact);
 
         contact.setColor(Color.darkGray);
-        contentPane.add(contact, new Integer(contactDepth + i));
+        contentPane.add(contact, new Integer(contactDepth));
         try {
             Thread.sleep(250);
         } catch (InterruptedException e) {
