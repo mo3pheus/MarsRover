@@ -33,12 +33,7 @@ public class Pacemaker {
         Runnable heart = new Runnable() {
             @Override
             public void run() {
-                while (!rover.getInstructionQueue().isEmpty()) {
-                    RoverUtil.roverSystemLog(logger, "Pacemaker waiting until messageQueue is empty.", "INFO");
-                    byte[] message = rover.getInstructionQueue().remove(0);
-                    rover.setState(rover.getListeningState());
-                    rover.receiveMessage(message);
-                }
+                rover.processPendingMessageQueue();
 
                 if (rover.isDiagnosticFriendly()) {
                     RoverStatusOuterClass.RoverStatus roverStatus = generateDiagnosticStatus();

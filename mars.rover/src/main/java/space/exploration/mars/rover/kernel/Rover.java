@@ -112,6 +112,13 @@ public class Rover {
         transmitMessage(getBootupMessage());
     }
 
+    public void processPendingMessageQueue() {
+        if (!instructionQueue.isEmpty()) {
+            state = listeningState;
+            receiveMessage(instructionQueue.remove(0));
+        }
+    }
+
     public static long getOneSolDuration() {
         /* Time scaled by a factor of 60. */
         long time = TimeUnit.MINUTES.toMillis(24);
@@ -244,7 +251,7 @@ public class Rover {
     public void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
         /* Choose to filter upon modules here */
         logger.info("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife set" +
-                    " to " + Boolean.toString(equipmentEOL));
+                " to " + Boolean.toString(equipmentEOL));
         state = transmittingState;
         transmitMessage(message);
     }
@@ -312,7 +319,8 @@ public class Rover {
     }
 
     public boolean isDiagnosticFriendly() {
-        return (this.state == this.listeningState);
+        return ((this.state == this.listeningState)
+                && (instructionQueue.isEmpty()));
     }
 
     public void configureLidar(Point origin, int cellWidth, int range) {
@@ -335,10 +343,10 @@ public class Rover {
         if (state == hibernatingState) {
             long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;
             System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " required = " +
-                               battery.getRechargeTime());
+                    battery.getRechargeTime());
             RoverUtil.roverSystemLog(logger, "Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
-                                             "required = " +
-                                             battery.getRechargeTime(), "INFO");
+                    "required = " +
+                    battery.getRechargeTime(), "INFO");
 
             if (timeInRecharge > battery.getRechargeTime()) {
                 configureBattery();
@@ -357,7 +365,7 @@ public class Rover {
                 inRechargingModeTime = System.currentTimeMillis();
                 RoverUtil.roverSystemLog(logger, ("Rover reporting powerConsumed, remaining power = " + battery
                         .getPrimaryPowerUnits() + " " +
-                                                  "at time = " + System.currentTimeMillis()), "INFO");
+                        "at time = " + System.currentTimeMillis()), "INFO");
             }
         }
         marsArchitect.getMarsSurface().repaint();
@@ -373,7 +381,7 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently lagging for message processing by a count of " +
-                          this.getInstructionQueue().size());
+                this.getInstructionQueue().size());
         return rBuilder.build().toByteArray();
     }
 
@@ -398,7 +406,7 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently shutting down for recharging, expect the next " +
-                          "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
+                "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
         return rBuilder.build().toByteArray();
     }
 
