@@ -37,8 +37,8 @@ public class ReinforcementLearningTest {
         }
 
         try {
-            MarsArchitect marsArchitect = new MarsArchitect(MatrixCreation.getMatrixConfig(), captureExploration);
-            marsArchitect.getMarsSurface().dispose();
+//            MarsArchitect marsArchitect = new MarsArchitect(MatrixCreation.getMatrixConfig(), captureExploration);
+//            marsArchitect.getMarsSurface().dispose();
             System.out.println("Number of points explored = " + captureExploration.size());
             System.out.println("Lidar cost = " + learner.getLidarUsage());
             MarsArchitect marsArchitect1 = new MarsArchitect(MatrixCreation.getMatrixConfig(), TrackingAnimationUtil

@@ -133,7 +133,7 @@ public class Oracle {
             for (int i = 0; i < numStates; i++) {
                 for (int j = 0; j < numStates; j++) {
                     gammaT[t][i][j] = ((alpha[t][i] * stateTransitions[i][j] * observationProb[j][t + 1] * beta[t +
-                                                                                                                1][j]) / denominator);
+                            1][j]) / denominator);
                     gammat[t][i] += gammaT[t][i][j];
                 }
             }

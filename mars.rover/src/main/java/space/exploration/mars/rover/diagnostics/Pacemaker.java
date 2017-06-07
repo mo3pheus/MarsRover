@@ -7,6 +7,7 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -32,6 +33,13 @@ public class Pacemaker {
         Runnable heart = new Runnable() {
             @Override
             public void run() {
+                while (!rover.getInstructionQueue().isEmpty()) {
+                    RoverUtil.roverSystemLog(logger, "Pacemaker waiting until messageQueue is empty.", "INFO");
+                    byte[] message = rover.getInstructionQueue().remove(0);
+                    rover.setState(rover.getListeningState());
+                    rover.receiveMessage(message);
+                }
+
                 if (rover.isDiagnosticFriendly()) {
                     RoverStatusOuterClass.RoverStatus roverStatus = generateDiagnosticStatus();
                     try {
