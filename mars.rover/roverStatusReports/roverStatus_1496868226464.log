@@ -1,0 +1,370 @@
+0    [main] INFO  space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=350,y=250]
+1007 [main] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2011 [main] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+3340 [main] INFO  space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+4345 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+5349 [main] INFO  space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 10000 auxiliaryPowerUnits = 1000 alertThreshold: 100 rechargeTime = 60000
+5678 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+5710 [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+5710 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+5710 [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+5710 [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+5710 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+5710 [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+5760 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+5760 [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+5760 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+5760 [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover
+5761 [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+5761 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+5761 [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+10795 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Connecting to zookeeper instance at localhost:2181
+10805 [ZkClient-EventThread-22-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+15832 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+15832 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=10.36.201.55
+15832 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_121
+15832 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+15832 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+15832 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/tools.jar:/Users/sanketkorgaonkar/Documents/workspace/space.exploration/mars.rover/target/classes:/Users/sanketkorgaonkar/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/Users/sanketkorgaonkar/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/Users/sanketkorgaonkar/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/Users/sanketkorgaonkar/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/Users/sanketkorgaonkar/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/Users/sanketkorgaonkar/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/Users/sanketkorgaonkar/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/sanketkorgaonkar/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/Users/sanketkorgaonkar/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar
+15833 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/Users/sanketkorgaonkar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+15833 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/var/folders/5h/gwr26fh90zs2zgrhjqr0pm1r0000gn/T/
+15833 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+15833 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Mac OS X
+15833 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=x86_64
+15833 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=10.12.4
+15833 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanketkorgaonkar
+15834 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/Users/sanketkorgaonkar
+15834 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/Users/sanketkorgaonkar/Documents/workspace/space.exploration/mars.rover
+15835 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@1d119efb
+15863 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+15867 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+15916 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+15930 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15c833c58bf000f, negotiated timeout = 6000
+15931 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+15945 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], starting auto committer every 60000 ms
+15977 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], begin registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f in ZK
+16015 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f (is it secure? false)
+16031 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+16031 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], end registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f in ZK
+16036 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], starting watcher executor thread for consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f
+16057 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f try #0
+16150 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], exception during rebalance 
+kafka.common.KafkaException: Failed to parse the broker info from zookeeper: {"jmx_port":-1,"timestamp":"1496866218305","endpoints":["PLAINTEXT://[fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092"],"host":"10.36.201.55","version":3,"port":9092}
+	at kafka.cluster.Broker$.createBroker(Broker.scala:85)
+	at kafka.utils.ZkUtils$$anonfun$getCluster$1.apply(ZkUtils.scala:563)
+	at kafka.utils.ZkUtils$$anonfun$getCluster$1.apply(ZkUtils.scala:561)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at kafka.utils.ZkUtils.getCluster(ZkUtils.scala:561)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1$$anonfun$apply$mcV$sp$1.apply$mcVI$sp(ZookeeperConsumerConnector.scala:635)
+	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:141)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply$mcV$sp(ZookeeperConsumerConnector.scala:627)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply(ZookeeperConsumerConnector.scala:627)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply(ZookeeperConsumerConnector.scala:627)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener.syncedRebalance(ZookeeperConsumerConnector.scala:626)
+	at kafka.consumer.ZookeeperConsumerConnector.kafka$consumer$ZookeeperConsumerConnector$$reinitializeConsumer(ZookeeperConsumerConnector.scala:967)
+	at kafka.consumer.ZookeeperConsumerConnector.consume(ZookeeperConsumerConnector.scala:254)
+	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreams(ZookeeperConsumerConnector.scala:85)
+	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreams(ZookeeperConsumerConnector.scala:97)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:71)
+Caused by: kafka.common.KafkaException: Unable to parse PLAINTEXT://[fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092 to a broker endpoint
+	at kafka.cluster.EndPoint$.createEndPoint(EndPoint.scala:49)
+	at kafka.cluster.Broker$$anonfun$1.apply(Broker.scala:73)
+	at kafka.cluster.Broker$$anonfun$1.apply(Broker.scala:72)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+	at kafka.cluster.Broker$.createBroker(Broker.scala:72)
+	... 19 more
+16152 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f try #0
+16153 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Rebalancing attempt failed. Clearing the cache before the next rebalancing operation is triggered
+16156 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] Stopping leader finder thread
+16157 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] Stopping all fetchers
+16158 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] All connections stopped
+16159 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Cleared all relevant queues for this fetcher
+16160 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Cleared the data chunks in all the consumer message iterators
+16160 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Committing all offsets after clearing the fetcher queues
+16953 [main] INFO  space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+metadata.broker.list::localhost:9092
+source.topic::secure_com_from_earth_channel_3
+auto.offset.reset::largest
+group.id::space.exploration.mars.rover
+destination.topic::secure_com_to_earth_channel_3
+zookeeper.connect::localhost:2181
+17957 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+18166 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f try #1
+18175 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], exception during rebalance 
+kafka.common.KafkaException: Failed to parse the broker info from zookeeper: {"jmx_port":-1,"timestamp":"1496866218305","endpoints":["PLAINTEXT://[fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092"],"host":"10.36.201.55","version":3,"port":9092}
+	at kafka.cluster.Broker$.createBroker(Broker.scala:85)
+	at kafka.utils.ZkUtils$$anonfun$getCluster$1.apply(ZkUtils.scala:563)
+	at kafka.utils.ZkUtils$$anonfun$getCluster$1.apply(ZkUtils.scala:561)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at kafka.utils.ZkUtils.getCluster(ZkUtils.scala:561)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1$$anonfun$apply$mcV$sp$1.apply$mcVI$sp(ZookeeperConsumerConnector.scala:635)
+	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:141)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply$mcV$sp(ZookeeperConsumerConnector.scala:627)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply(ZookeeperConsumerConnector.scala:627)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply(ZookeeperConsumerConnector.scala:627)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener.syncedRebalance(ZookeeperConsumerConnector.scala:626)
+	at kafka.consumer.ZookeeperConsumerConnector.kafka$consumer$ZookeeperConsumerConnector$$reinitializeConsumer(ZookeeperConsumerConnector.scala:967)
+	at kafka.consumer.ZookeeperConsumerConnector.consume(ZookeeperConsumerConnector.scala:254)
+	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreams(ZookeeperConsumerConnector.scala:85)
+	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreams(ZookeeperConsumerConnector.scala:97)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:71)
+Caused by: kafka.common.KafkaException: Unable to parse PLAINTEXT://[fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092 to a broker endpoint
+	at kafka.cluster.EndPoint$.createEndPoint(EndPoint.scala:49)
+	at kafka.cluster.Broker$$anonfun$1.apply(Broker.scala:73)
+	at kafka.cluster.Broker$$anonfun$1.apply(Broker.scala:72)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+	at kafka.cluster.Broker$.createBroker(Broker.scala:72)
+	... 19 more
+18175 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f try #1
+18175 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Rebalancing attempt failed. Clearing the cache before the next rebalancing operation is triggered
+18176 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] Stopping leader finder thread
+18176 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] Stopping all fetchers
+18176 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] All connections stopped
+18176 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Cleared all relevant queues for this fetcher
+18176 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Cleared the data chunks in all the consumer message iterators
+18176 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Committing all offsets after clearing the fetcher queues
+20180 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f try #2
+20188 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], exception during rebalance 
+kafka.common.KafkaException: Failed to parse the broker info from zookeeper: {"jmx_port":-1,"timestamp":"1496866218305","endpoints":["PLAINTEXT://[fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092"],"host":"10.36.201.55","version":3,"port":9092}
+	at kafka.cluster.Broker$.createBroker(Broker.scala:85)
+	at kafka.utils.ZkUtils$$anonfun$getCluster$1.apply(ZkUtils.scala:563)
+	at kafka.utils.ZkUtils$$anonfun$getCluster$1.apply(ZkUtils.scala:561)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at kafka.utils.ZkUtils.getCluster(ZkUtils.scala:561)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1$$anonfun$apply$mcV$sp$1.apply$mcVI$sp(ZookeeperConsumerConnector.scala:635)
+	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:141)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply$mcV$sp(ZookeeperConsumerConnector.scala:627)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply(ZookeeperConsumerConnector.scala:627)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply(ZookeeperConsumerConnector.scala:627)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener.syncedRebalance(ZookeeperConsumerConnector.scala:626)
+	at kafka.consumer.ZookeeperConsumerConnector.kafka$consumer$ZookeeperConsumerConnector$$reinitializeConsumer(ZookeeperConsumerConnector.scala:967)
+	at kafka.consumer.ZookeeperConsumerConnector.consume(ZookeeperConsumerConnector.scala:254)
+	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreams(ZookeeperConsumerConnector.scala:85)
+	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreams(ZookeeperConsumerConnector.scala:97)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:71)
+Caused by: kafka.common.KafkaException: Unable to parse PLAINTEXT://[fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092 to a broker endpoint
+	at kafka.cluster.EndPoint$.createEndPoint(EndPoint.scala:49)
+	at kafka.cluster.Broker$$anonfun$1.apply(Broker.scala:73)
+	at kafka.cluster.Broker$$anonfun$1.apply(Broker.scala:72)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+	at kafka.cluster.Broker$.createBroker(Broker.scala:72)
+	... 19 more
+20188 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f try #2
+20188 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Rebalancing attempt failed. Clearing the cache before the next rebalancing operation is triggered
+20188 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] Stopping leader finder thread
+20188 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] Stopping all fetchers
+20188 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] All connections stopped
+20188 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Cleared all relevant queues for this fetcher
+20188 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Cleared the data chunks in all the consumer message iterators
+20188 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Committing all offsets after clearing the fetcher queues
+22192 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f try #3
+22198 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], exception during rebalance 
+kafka.common.KafkaException: Failed to parse the broker info from zookeeper: {"jmx_port":-1,"timestamp":"1496866218305","endpoints":["PLAINTEXT://[fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092"],"host":"10.36.201.55","version":3,"port":9092}
+	at kafka.cluster.Broker$.createBroker(Broker.scala:85)
+	at kafka.utils.ZkUtils$$anonfun$getCluster$1.apply(ZkUtils.scala:563)
+	at kafka.utils.ZkUtils$$anonfun$getCluster$1.apply(ZkUtils.scala:561)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at kafka.utils.ZkUtils.getCluster(ZkUtils.scala:561)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1$$anonfun$apply$mcV$sp$1.apply$mcVI$sp(ZookeeperConsumerConnector.scala:635)
+	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:141)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply$mcV$sp(ZookeeperConsumerConnector.scala:627)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply(ZookeeperConsumerConnector.scala:627)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anonfun$syncedRebalance$1.apply(ZookeeperConsumerConnector.scala:627)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener.syncedRebalance(ZookeeperConsumerConnector.scala:626)
+	at kafka.consumer.ZookeeperConsumerConnector.kafka$consumer$ZookeeperConsumerConnector$$reinitializeConsumer(ZookeeperConsumerConnector.scala:967)
+	at kafka.consumer.ZookeeperConsumerConnector.consume(ZookeeperConsumerConnector.scala:254)
+	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreams(ZookeeperConsumerConnector.scala:85)
+	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreams(ZookeeperConsumerConnector.scala:97)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:71)
+Caused by: kafka.common.KafkaException: Unable to parse PLAINTEXT://[fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092 to a broker endpoint
+	at kafka.cluster.EndPoint$.createEndPoint(EndPoint.scala:49)
+	at kafka.cluster.Broker$$anonfun$1.apply(Broker.scala:73)
+	at kafka.cluster.Broker$$anonfun$1.apply(Broker.scala:72)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+	at kafka.cluster.Broker$.createBroker(Broker.scala:72)
+	... 19 more
+22199 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f try #3
+22199 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Rebalancing attempt failed. Clearing the cache before the next rebalancing operation is triggered
+22199 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] Stopping leader finder thread
+22199 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] Stopping all fetchers
+22199 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1496868245977] All connections stopped
+22199 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Cleared all relevant queues for this fetcher
+22199 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Cleared the data chunks in all the consumer message iterators
+22199 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1496868240825-2b4ae22f], Committing all offsets after clearing the fetcher queues
+42668 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+42677 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+42694 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+42729 [main] WARN  com.yammer.metrics.reporting.JmxReporter  - Error processing kafka.producer:type=ProducerRequestMetrics,name=ProducerRequestRateAndTimeMs,brokerHost=fe80:0:0:0:c31:a68a:fd5b:f659%4,brokerPort=9092
+javax.management.MalformedObjectNameException: Invalid character ':' in value part of property
+	at javax.management.ObjectName.construct(ObjectName.java:618)
+	at javax.management.ObjectName.<init>(ObjectName.java:1382)
+	at com.yammer.metrics.reporting.JmxReporter.onMetricAdded(JmxReporter.java:395)
+	at com.yammer.metrics.core.MetricsRegistry.notifyMetricAdded(MetricsRegistry.java:516)
+	at com.yammer.metrics.core.MetricsRegistry.getOrAdd(MetricsRegistry.java:491)
+	at com.yammer.metrics.core.MetricsRegistry.newTimer(MetricsRegistry.java:320)
+	at kafka.metrics.KafkaMetricsGroup$class.newTimer(KafkaMetricsGroup.scala:85)
+	at kafka.producer.ProducerRequestMetrics.newTimer(ProducerRequestStats.scala:24)
+	at kafka.producer.ProducerRequestMetrics.<init>(ProducerRequestStats.scala:30)
+	at kafka.producer.ProducerRequestStats$$anonfun$1.apply(ProducerRequestStats.scala:40)
+	at kafka.producer.ProducerRequestStats$$anonfun$1.apply(ProducerRequestStats.scala:40)
+	at kafka.utils.Pool.getAndMaybePut(Pool.scala:59)
+	at kafka.producer.ProducerRequestStats.getProducerRequestStats(ProducerRequestStats.scala:47)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:97)
+	at kafka.producer.async.DefaultEventHandler.kafka$producer$async$DefaultEventHandler$$send(DefaultEventHandler.scala:257)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:108)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:100)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+	at kafka.producer.async.DefaultEventHandler.dispatchSerializedData(DefaultEventHandler.scala:100)
+	at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:73)
+	at kafka.producer.Producer.send(Producer.scala:77)
+	at kafka.javaapi.producer.Producer.send(Producer.scala:33)
+	at space.exploration.mars.rover.communication.Transmitter.transmitMessage(Transmitter.java:104)
+	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:77)
+	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:24)
+	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:241)
+	at space.exploration.mars.rover.kernel.Rover.<init>(Rover.java:112)
+	at space.exploration.mars.rover.bootstrap.MarsMissionLaunch.main(MarsMissionLaunch.java:16)
+42730 [main] WARN  com.yammer.metrics.reporting.JmxReporter  - Error processing kafka.producer:type=ProducerRequestMetrics,name=ProducerRequestSize,brokerHost=fe80:0:0:0:c31:a68a:fd5b:f659%4,brokerPort=9092
+javax.management.MalformedObjectNameException: Invalid character ':' in value part of property
+	at javax.management.ObjectName.construct(ObjectName.java:618)
+	at javax.management.ObjectName.<init>(ObjectName.java:1382)
+	at com.yammer.metrics.reporting.JmxReporter.onMetricAdded(JmxReporter.java:395)
+	at com.yammer.metrics.core.MetricsRegistry.notifyMetricAdded(MetricsRegistry.java:516)
+	at com.yammer.metrics.core.MetricsRegistry.getOrAdd(MetricsRegistry.java:491)
+	at com.yammer.metrics.core.MetricsRegistry.newHistogram(MetricsRegistry.java:184)
+	at kafka.metrics.KafkaMetricsGroup$class.newHistogram(KafkaMetricsGroup.scala:82)
+	at kafka.producer.ProducerRequestMetrics.newHistogram(ProducerRequestStats.scala:24)
+	at kafka.producer.ProducerRequestMetrics.<init>(ProducerRequestStats.scala:31)
+	at kafka.producer.ProducerRequestStats$$anonfun$1.apply(ProducerRequestStats.scala:40)
+	at kafka.producer.ProducerRequestStats$$anonfun$1.apply(ProducerRequestStats.scala:40)
+	at kafka.utils.Pool.getAndMaybePut(Pool.scala:59)
+	at kafka.producer.ProducerRequestStats.getProducerRequestStats(ProducerRequestStats.scala:47)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:97)
+	at kafka.producer.async.DefaultEventHandler.kafka$producer$async$DefaultEventHandler$$send(DefaultEventHandler.scala:257)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:108)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:100)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+	at kafka.producer.async.DefaultEventHandler.dispatchSerializedData(DefaultEventHandler.scala:100)
+	at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:73)
+	at kafka.producer.Producer.send(Producer.scala:77)
+	at kafka.javaapi.producer.Producer.send(Producer.scala:33)
+	at space.exploration.mars.rover.communication.Transmitter.transmitMessage(Transmitter.java:104)
+	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:77)
+	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:24)
+	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:241)
+	at space.exploration.mars.rover.kernel.Rover.<init>(Rover.java:112)
+	at space.exploration.mars.rover.bootstrap.MarsMissionLaunch.main(MarsMissionLaunch.java:16)
+42731 [main] WARN  com.yammer.metrics.reporting.JmxReporter  - Error processing kafka.producer:type=ProducerRequestMetrics,name=ProducerRequestThrottleRateAndTimeMs,brokerHost=fe80:0:0:0:c31:a68a:fd5b:f659%4,brokerPort=9092
+javax.management.MalformedObjectNameException: Invalid character ':' in value part of property
+	at javax.management.ObjectName.construct(ObjectName.java:618)
+	at javax.management.ObjectName.<init>(ObjectName.java:1382)
+	at com.yammer.metrics.reporting.JmxReporter.onMetricAdded(JmxReporter.java:395)
+	at com.yammer.metrics.core.MetricsRegistry.notifyMetricAdded(MetricsRegistry.java:516)
+	at com.yammer.metrics.core.MetricsRegistry.getOrAdd(MetricsRegistry.java:491)
+	at com.yammer.metrics.core.MetricsRegistry.newTimer(MetricsRegistry.java:320)
+	at kafka.metrics.KafkaMetricsGroup$class.newTimer(KafkaMetricsGroup.scala:85)
+	at kafka.producer.ProducerRequestMetrics.newTimer(ProducerRequestStats.scala:24)
+	at kafka.producer.ProducerRequestMetrics.<init>(ProducerRequestStats.scala:32)
+	at kafka.producer.ProducerRequestStats$$anonfun$1.apply(ProducerRequestStats.scala:40)
+	at kafka.producer.ProducerRequestStats$$anonfun$1.apply(ProducerRequestStats.scala:40)
+	at kafka.utils.Pool.getAndMaybePut(Pool.scala:59)
+	at kafka.producer.ProducerRequestStats.getProducerRequestStats(ProducerRequestStats.scala:47)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:97)
+	at kafka.producer.async.DefaultEventHandler.kafka$producer$async$DefaultEventHandler$$send(DefaultEventHandler.scala:257)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:108)
+	at kafka.producer.async.DefaultEventHandler$$anonfun$dispatchSerializedData$2.apply(DefaultEventHandler.scala:100)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+	at kafka.producer.async.DefaultEventHandler.dispatchSerializedData(DefaultEventHandler.scala:100)
+	at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:73)
+	at kafka.producer.Producer.send(Producer.scala:77)
+	at kafka.javaapi.producer.Producer.send(Producer.scala:33)
+	at space.exploration.mars.rover.communication.Transmitter.transmitMessage(Transmitter.java:104)
+	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:77)
+	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:24)
+	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:241)
+	at space.exploration.mars.rover.kernel.Rover.<init>(Rover.java:112)
+	at space.exploration.mars.rover.bootstrap.MarsMissionLaunch.main(MarsMissionLaunch.java:16)
+42735 [main] INFO  kafka.producer.SyncProducer  - Connected to [fe80:0:0:0:c31:a68a:fd5b:f659%4]:9092 for producing
+58055 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1496868288032
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 999
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 10000
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+

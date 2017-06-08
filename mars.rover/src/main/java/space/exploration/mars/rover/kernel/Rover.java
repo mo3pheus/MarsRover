@@ -65,6 +65,9 @@ public class Rover {
     private long                  inRechargingModeTime = 0l;
     private Pacemaker             pacemaker            = null;
 
+    /* Thread safety */
+    private boolean stopHeartBeat = false;
+
     /* Sets up the rover and the boot-up sequence */
     public Rover(Properties marsConfig, Properties comsConfig) {
         this.creationTime = System.currentTimeMillis();
@@ -246,6 +249,14 @@ public class Rover {
 
     public void transmitMessage(byte[] message) {
         state.transmitMessage(message);
+    }
+
+    public boolean isStopHeartBeat() {
+        return stopHeartBeat;
+    }
+
+    public void setStopHeartBeat(boolean stopHeartBeat) {
+        this.stopHeartBeat = stopHeartBeat;
     }
 
     public void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {

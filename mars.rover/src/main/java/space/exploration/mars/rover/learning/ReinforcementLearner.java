@@ -137,7 +137,7 @@ public class ReinforcementLearner {
         RCell temp = source;
         int   i    = 0;
         while (true) {
-            if (!shortestPath.contains(temp)) {
+            if (!shortestPath.contains(temp.getCenter())) {
                 shortestPath.add(temp.getCenter());
             }
 

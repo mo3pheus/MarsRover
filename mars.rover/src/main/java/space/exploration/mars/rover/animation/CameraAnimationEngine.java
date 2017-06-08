@@ -10,7 +10,7 @@ import java.util.Properties;
  * Created by sanketkorgaonkar on 5/9/17.
  */
 public class CameraAnimationEngine {
-    private static final int        CAMERA_DEPTH = 99;
+    private static final Integer    CAMERA_DEPTH = new Integer(99);
     private final        int        NUM_FLASHES  = 10;
     private              Point      location     = null;
     private              long       shutterSpeed = 0l;
@@ -28,6 +28,7 @@ public class CameraAnimationEngine {
 
     public void setRobot(Cell robot) {
         this.robot = robot;
+        System.out.println("Robot color is = " + robot.getColor().toString());
     }
 
     public void setMarsSurface(JFrame marsSurface) {
@@ -35,16 +36,14 @@ public class CameraAnimationEngine {
     }
 
     public void clickCamera() {
-        Cell flash = new Cell(marsConfig);
-        flash.setCellWidth(cellWidth);
-        flash.setColor(Color.white);
-        flash.setLocation(location);
-
-
         JLayeredPane contentPane = AnimationUtil.getContent(marsConfig);
         contentPane.add(robot, Cell.ROBOT_DEPTH);
         for (int i = 0; i < NUM_FLASHES; i++) {
-            contentPane.add(flash);
+            Cell flash = new Cell(marsConfig);
+            flash.setCellWidth(robot.getCellWidth());
+            flash.setColor(Color.white);
+            flash.setLocation(location);
+            contentPane.add(flash, new Integer(Cell.ROBOT_DEPTH + 1));
             marsSurface.setContentPane(contentPane);
             marsSurface.setVisible(true);
             try {
@@ -53,8 +52,17 @@ public class CameraAnimationEngine {
                 e.printStackTrace();
             }
             contentPane.remove(flash);
+
+            flash.setColor(Color.black);
+            contentPane.add(flash, new Integer(Cell.ROBOT_DEPTH + 1));
             marsSurface.setContentPane(contentPane);
             marsSurface.setVisible(true);
+            try {
+                Thread.sleep(this.shutterSpeed);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            contentPane.remove(flash);
         }
 
     }

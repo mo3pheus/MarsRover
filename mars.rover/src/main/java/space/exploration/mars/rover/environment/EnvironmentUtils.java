@@ -87,7 +87,7 @@ public class EnvironmentUtils {
         } else if (color.equals("spectrometerScanColor")) {
             return new Color(227, 168, 105);
         } else if (color.equals("black")) {
-            return Color.BLACK;
+            return Color.black;
         } else {
             System.out.println(" Color is unknown - known choices are red, lightGray, darkGray, blue, green " + color);
             return null;
@@ -124,12 +124,6 @@ public class EnvironmentUtils {
             }
         }
 
-		/*
-         * System.out.println("Keyset for spectroscope = " +
-		 * surfaceComp.keySet().size()); for (Point p : surfaceComp.keySet()) {
-		 * System.out.println(" Point = " + p.toString() + " SoilComp = " +
-		 * surfaceComp.get(p).toString()); }
-		 */
         return surfaceComp;
     }
 
@@ -137,10 +131,12 @@ public class EnvironmentUtils {
         Map<Point, RoverCell> stationMap     = new HashMap<>();
         String                oldRoverPrefix = Radar.RADAR_PREFIX + ".prev.rover.";
         int numStations = Integer.parseInt(marsConfig.getProperty(Radar.RADAR_PREFIX + "" +
-                                                                  ".numPrevUnits"));
+                ".numPrevUnits"));
         for (int i = 0; i < numStations; i++) {
-            int       x     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split(",")[0]);
-            int       y     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split(",")[1]);
+            int       x     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split("," +
+                    "")[0]);
+            int       y     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split("," +
+                    "")[1]);
             RoverCell rCell = new RoverCell(marsConfig);
             rCell.setLocation(new Point(x + 3, y + 3));
             rCell.setCellWidth(8);

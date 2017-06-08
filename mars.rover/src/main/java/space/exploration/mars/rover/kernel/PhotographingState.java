@@ -40,8 +40,8 @@ public class PhotographingState implements State {
             CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect
                     .getRobot()
                     .getLocation());
-            cameraAnimationEngine.setRobot(marsArchitect.getRobot());
             cameraAnimationEngine.setMarsSurface(marsArchitect.getMarsSurface());
+            cameraAnimationEngine.setRobot(marsArchitect.getRobot());
             cameraAnimationEngine.clickCamera();
 
             RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
