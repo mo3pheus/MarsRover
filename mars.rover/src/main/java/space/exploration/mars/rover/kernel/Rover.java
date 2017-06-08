@@ -350,6 +350,10 @@ public class Rover {
         radar.setEndOfLife(radarEOL);
     }
 
+    public Radar getRadar() {
+        return radar;
+    }
+
     public void powerCheck(int powerConsumed) {
         if (state == hibernatingState) {
             long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;

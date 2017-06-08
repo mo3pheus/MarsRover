@@ -80,4 +80,9 @@ public class Radar implements IsEquipment {
         previousRovers.addAll(oldRovers.keySet());
         rover.setPreviousRovers(oldRovers);
     }
+
+    public List<Point> getContacts() {
+        lifeSpan--;
+        return new ArrayList<Point>();
+    }
 }

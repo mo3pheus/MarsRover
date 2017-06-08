@@ -99,7 +99,10 @@ public class RadarScanningState implements State {
     private void renderRadarAnimation() {
         Properties marsConfig = rover.getMarsConfig();
         double scaleFactor = Double.parseDouble(marsConfig.getProperty(Radar.RADAR_PREFIX + "" +
-                                                                       ".scaleFactor"));
+                ".scaleFactor"));
+
+        rover.getRadar().getContacts();
+
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
         Point                            origin               = radarAnimationEngine.getOrigin();
         Map<Point, RoverCell>            oldRovers            = rover.getPreviousRovers();
