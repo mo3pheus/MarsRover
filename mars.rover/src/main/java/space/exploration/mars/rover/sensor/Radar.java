@@ -6,6 +6,7 @@ import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.utils.RadialContact;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
@@ -25,6 +26,7 @@ public class Radar implements IsEquipment {
     private             boolean     endOfLife      = false;
     private             Logger      logger         = LoggerFactory.getLogger(Radar.class);
     private             List<Point> previousRovers = null;
+    private             Point       center         = null;
 
     public Radar(Rover rover) {
         this.rover = rover;
@@ -34,6 +36,7 @@ public class Radar implements IsEquipment {
 
         int frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.radarRadius = (int) (Math.sqrt(Math.pow(frameWidth, 2.0d)));
+        this.center = new Point(frameWidth / 2, frameWidth / 2);
         populateRoverPositions();
         RoverUtil.roverSystemLog(logger, "Radar configured:: ", "INFO");
     }
@@ -84,5 +87,10 @@ public class Radar implements IsEquipment {
     public List<Point> getContacts() {
         lifeSpan--;
         return new ArrayList<Point>();
+    }
+
+    public List<RadialContact> getRadialContacts(){
+        List<RadialContact> contacts = new ArrayList<>();
+        
     }
 }

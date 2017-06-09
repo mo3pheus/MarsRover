@@ -78,6 +78,8 @@ public class RadarScanningState implements State {
         logger.info("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
         MarsArchitect marsArchitect = rover.getMarsArchitect();
+        rover.getRadar().getContacts();
+
         renderRadarAnimation();
 
         RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
@@ -100,8 +102,6 @@ public class RadarScanningState implements State {
         Properties marsConfig = rover.getMarsConfig();
         double scaleFactor = Double.parseDouble(marsConfig.getProperty(Radar.RADAR_PREFIX + "" +
                 ".scaleFactor"));
-
-        rover.getRadar().getContacts();
 
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
         Point                            origin               = radarAnimationEngine.getOrigin();

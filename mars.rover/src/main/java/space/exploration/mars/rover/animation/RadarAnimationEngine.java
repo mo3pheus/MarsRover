@@ -9,7 +9,6 @@ import space.exploration.mars.rover.sensor.Radar;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -17,19 +16,20 @@ import java.util.Properties;
  * Created by sanket on 5/30/17.
  */
 public class RadarAnimationEngine {
-    public static final  Integer                RADAR_DEPTH = JLayeredPane.DEFAULT_LAYER;
-    private static final int                    LASER_DELAY = 30;
-    private              JFrame                 radarWindow = null;
-    private              int                    numRevs     = 0;
-    private              int                    laserRadius = 0;
-    private              double                 scaleFactor = 0.0d;
-    private              double                 windowWidth = 0.0d;
-    private              boolean                blipSound   = false;
-    private              Properties             radarConfig = null;
-    private              Point                  origin      = null;
-    private              List<Laser>            laserBeams  = null;
-    private              List<RadarContactCell> contacts    = null;
-    private              Logger                 logger      = LoggerFactory.getLogger(RadarAnimationEngine.class);
+    public static final  Integer RADAR_DEPTH = JLayeredPane.DEFAULT_LAYER;
+    private static final int     LASER_DELAY = 30;
+
+    private JFrame                 radarWindow = null;
+    private int                    numRevs     = 0;
+    private int                    laserRadius = 0;
+    private double                 scaleFactor = 0.0d;
+    private double                 windowWidth = 0.0d;
+    private boolean                blipSound   = false;
+    private Properties             radarConfig = null;
+    private Point                  origin      = null;
+    private List<Laser>            laserBeams  = null;
+    private List<RadarContactCell> contacts    = null;
+    private Logger                 logger      = LoggerFactory.getLogger(RadarAnimationEngine.class);
 
     public RadarAnimationEngine(Properties radarConfig) {
         this.radarConfig = radarConfig;
@@ -123,7 +123,6 @@ public class RadarAnimationEngine {
 
     public void setContacts(List<RadarContactCell> contacts) {
         this.contacts = contacts;
-        //scaleContacts();
     }
 
     private void reflectContacts(Laser laser, JLayeredPane contentPane) {
