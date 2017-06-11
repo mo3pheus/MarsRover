@@ -5,6 +5,7 @@ package space.exploration.mars.rover.environment;
 
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.sensor.Radar;
+import space.exploration.mars.rover.utils.RadialContact;
 
 import java.awt.*;
 import java.awt.geom.Line2D;
@@ -67,5 +68,9 @@ public class Laser extends VirtualElement {
     @Override
     public Color getColor() {
         return color;
+    }
+
+    public RadialContact getPolarCoordinate() {
+        return new RadialContact(startPoint, endPoint);
     }
 }

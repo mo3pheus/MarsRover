@@ -38,8 +38,9 @@ public class PhotographingState implements State {
         /* Do not render animation in case of sensor endOfLife */
         if (!rover.isEquipmentEOL()) {
             CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect
-                    .getRobot()
-                    .getLocation());
+                                                                                                         .getRobot()
+                                                                                                         .getLocation
+                                                                                                                 ());
             cameraAnimationEngine.setMarsSurface(marsArchitect.getMarsSurface());
             cameraAnimationEngine.setRobot(marsArchitect.getRobot());
             cameraAnimationEngine.clickCamera();
@@ -55,20 +56,20 @@ public class PhotographingState implements State {
             if (cameraShot != null) {
                 System.out.println("Camera shot was not null");
                 status = rBuilder.setBatteryLevel(rover.getBattery()
-                        .getPrimaryPowerUnits())
+                                                          .getPrimaryPowerUnits())
                         .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera used here")
                         .setModuleMessage(ByteString.copyFrom(cameraShot)).setSCET(System
-                                .currentTimeMillis())
+                                                                                           .currentTimeMillis())
                         .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
             } else {
                 System.out.println("Camera shot was null");
                 status = rBuilder.setBatteryLevel(rover.getBattery()
-                        .getPrimaryPowerUnits())
+                                                          .getPrimaryPowerUnits())
                         .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera wasn't able to take a " +
-                                                                                     "shot. " +
-                                                                                     "Sorry earth!")
+                                                                                             "shot. " +
+                                                                                             "Sorry earth!")
                         .setSCET(System
-                                .currentTimeMillis())
+                                         .currentTimeMillis())
                         .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
             }
 

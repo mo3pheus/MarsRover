@@ -15,6 +15,7 @@ public class RadialContact implements Comparable<RadialContact> {
     public RadialContact(Point center, Point contactPoint) {
         this.center = center;
         this.contactPoint = contactPoint;
+        this.polarPoint = computePolarPoint();
     }
 
     public Point getContactPoint() {
@@ -73,18 +74,30 @@ public class RadialContact implements Comparable<RadialContact> {
      */
     @Override
     public int compareTo(RadialContact o) {
-        return (int) (this.getCenter().distance(this.getContactPoint()) - o.getCenter().distance(o.getContactPoint()));
+        if (polarPoint.getR() > o.getPolarPoint().getR()) {
+            return 1;
+        } else if (polarPoint.getR() < o.getPolarPoint().getR()) {
+            return -1;
+        } else {
+            int ownTheta     = (int) Math.toDegrees(this.getPolarPoint().getTheta());
+            int contactTheta = (int) Math.toDegrees(o.getPolarPoint().getTheta());
+
+            return ownTheta - contactTheta;
+        }
     }
 
-    public PolarCoord.PolarPoint getPolarPoint() {
+    private PolarCoord.PolarPoint computePolarPoint() {
         if (this.center == null || this.contactPoint == null) {
             return null;
         }
 
         double r     = contactPoint.distance(center);
-        double theta = Math.acos(contactPoint.y - center.y);
+        double theta = Math.acos((contactPoint.getX() - center.getX()) / r);
 
         return PolarCoord.PolarPoint.newBuilder().setR(r).setTheta(theta).build();
     }
 
+    public PolarCoord.PolarPoint getPolarPoint() {
+        return polarPoint;
+    }
 }

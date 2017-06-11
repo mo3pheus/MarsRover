@@ -11,6 +11,7 @@ import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.learning.ReinforcementLearner;
 import space.exploration.mars.rover.power.Battery;
+import space.exploration.mars.rover.power.BatteryMonitor;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.sensor.Camera;
 import space.exploration.mars.rover.sensor.Lidar;
@@ -52,12 +53,13 @@ public class Rover {
     private ReinforcementLearner rlNavEngine   = null;
 
     /* Equipment Stack */
-    private Battery      battery      = null;
-    private Radio        radio        = null;
-    private Lidar        lidar        = null;
-    private Spectrometer spectrometer = null;
-    private Camera       camera       = null;
-    private Radar        radar        = null;
+    private Battery        battery        = null;
+    private BatteryMonitor batteryMonitor = null;
+    private Radio          radio          = null;
+    private Lidar          lidar          = null;
+    private Spectrometer   spectrometer   = null;
+    private Camera         camera         = null;
+    private Radar          radar          = null;
 
     /* Contingency Stack */
     private Map<Point, RoverCell> previousRovers       = null;
@@ -129,6 +131,14 @@ public class Rover {
         time += 35;
         time += 244;
         return time;
+    }
+
+    public long getInRechargingModeTime() {
+        return inRechargingModeTime;
+    }
+
+    public void setInRechargingModeTime(long inRechargingModeTime) {
+        this.inRechargingModeTime = inRechargingModeTime;
     }
 
     public void configureRLEngine() {
@@ -262,7 +272,7 @@ public class Rover {
     public void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
         /* Choose to filter upon modules here */
         logger.info("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife set" +
-                " to " + Boolean.toString(equipmentEOL));
+                            " to " + Boolean.toString(equipmentEOL));
         state = transmittingState;
         transmitMessage(message);
     }
@@ -355,35 +365,7 @@ public class Rover {
     }
 
     public void powerCheck(int powerConsumed) {
-        if (state == hibernatingState) {
-            long timeInRecharge = System.currentTimeMillis() - this.inRechargingModeTime;
-            System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " required = " +
-                    battery.getRechargeTime());
-            RoverUtil.roverSystemLog(logger, "Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
-                    "required = " +
-                    battery.getRechargeTime(), "INFO");
-
-            if (timeInRecharge > battery.getRechargeTime()) {
-                configureBattery();
-                marsArchitect.getRobot().setColor(EnvironmentUtils.findColor(marsConfig.getProperty
-                        (EnvironmentUtils.ROBOT_COLOR)));
-                radio.sendMessage(getBootupMessage());
-                state = listeningState;
-            }
-        } else {
-            battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - powerConsumed);
-            if (battery.getPrimaryPowerUnits() <= battery.getAlertThreshold()) {
-                System.out.println("Going into hibernating mode!");
-                radio.sendMessage(getHibernatingAlertMessage());
-                marsArchitect.getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
-                state = hibernatingState;
-                inRechargingModeTime = System.currentTimeMillis();
-                RoverUtil.roverSystemLog(logger, ("Rover reporting powerConsumed, remaining power = " + battery
-                        .getPrimaryPowerUnits() + " " +
-                        "at time = " + System.currentTimeMillis()), "INFO");
-            }
-        }
-        marsArchitect.getMarsSurface().repaint();
+        battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - powerConsumed);
     }
 
     public byte[] getLaggingAlertMsg() {
@@ -396,7 +378,7 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently lagging for message processing by a count of " +
-                this.getInstructionQueue().size());
+                                  this.getInstructionQueue().size());
         return rBuilder.build().toByteArray();
     }
 
@@ -411,7 +393,7 @@ public class Rover {
         return equipmentList;
     }
 
-    private byte[] getHibernatingAlertMessage() {
+    public byte[] getHibernatingAlertMessage() {
         Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
@@ -421,11 +403,11 @@ public class Rover {
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " is currently shutting down for recharging, expect the next " +
-                "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
+                                  "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
         return rBuilder.build().toByteArray();
     }
 
-    private byte[] getBootupMessage() {
+    public byte[] getBootupMessage() {
         Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
@@ -438,13 +420,17 @@ public class Rover {
         return rBuilder.build().toByteArray();
     }
 
-    private void configureBattery() {
+    public void configureBattery() {
         int batteryAlertThreshold = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.alertThreshold"));
         int rechargeTime          = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.rechargeTime"));
         int lifeSpan              = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
 
         this.battery = new Battery(batteryAlertThreshold, rechargeTime);
         battery.setLifeSpan(lifeSpan);
+
+        this.batteryMonitor = new BatteryMonitor(4, this);
+        batteryMonitor.monitor();
+        RoverUtil.roverSystemLog(logger, "Battery Monitor configured!", "INFO");
     }
 
     private void configureRadio() {

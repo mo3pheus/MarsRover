@@ -19,7 +19,6 @@ import java.util.Map;
  */
 public class Radar implements IsEquipment {
     public static final String      RADAR_PREFIX   = "mars.rover.radar";
-    private             int         radarRadius    = 0;
     private             int         lifeSpan       = 0;
     private             Point       origin         = null;
     private             Rover       rover          = null;
@@ -35,7 +34,6 @@ public class Radar implements IsEquipment {
         this.origin = rover.getMarsArchitect().getRobot().getLocation();
 
         int frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
-        this.radarRadius = (int) (Math.sqrt(Math.pow(frameWidth, 2.0d)));
         this.center = new Point(frameWidth / 2, frameWidth / 2);
         populateRoverPositions();
         RoverUtil.roverSystemLog(logger, "Radar configured:: ", "INFO");
@@ -70,10 +68,6 @@ public class Radar implements IsEquipment {
         this.previousRovers = previousRovers;
     }
 
-    public int getRadarRadius() {
-        return radarRadius;
-    }
-
     public Point getOrigin() {
         return origin;
     }
@@ -89,8 +83,16 @@ public class Radar implements IsEquipment {
         return new ArrayList<Point>();
     }
 
-    public List<RadialContact> getRadialContacts(){
+    public List<RadialContact> getRadialContacts() {
+        if (previousRovers.isEmpty()) {
+            return null;
+        }
+
         List<RadialContact> contacts = new ArrayList<>();
-        
+        for (Point contact : previousRovers) {
+            RadialContact rContact = new RadialContact(origin, contact);
+        }
+
+        return contacts;
     }
 }

@@ -5,12 +5,12 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.environment.*;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.sensor.Radar;
+import space.exploration.mars.rover.utils.RadialContact;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Created by sanket on 5/30/17.
@@ -19,17 +19,18 @@ public class RadarAnimationEngine {
     public static final  Integer RADAR_DEPTH = JLayeredPane.DEFAULT_LAYER;
     private static final int     LASER_DELAY = 30;
 
-    private JFrame                 radarWindow = null;
-    private int                    numRevs     = 0;
-    private int                    laserRadius = 0;
-    private double                 scaleFactor = 0.0d;
-    private double                 windowWidth = 0.0d;
-    private boolean                blipSound   = false;
-    private Properties             radarConfig = null;
-    private Point                  origin      = null;
-    private List<Laser>            laserBeams  = null;
-    private List<RadarContactCell> contacts    = null;
-    private Logger                 logger      = LoggerFactory.getLogger(RadarAnimationEngine.class);
+    private JFrame                 radarWindow   = null;
+    private int                    numRevs       = 0;
+    private int                    laserRadius   = 0;
+    private double                 scaleFactor   = 0.0d;
+    private double                 windowWidth   = 0.0d;
+    private boolean                blipSound     = false;
+    private Properties             radarConfig   = null;
+    private Point                  origin        = null;
+    private List<Laser>            laserBeams    = null;
+    private List<RadialContact>    radarContacts = null;
+    private List<RadarContactCell> contacts      = null;
+    private Logger                 logger        = LoggerFactory.getLogger(RadarAnimationEngine.class);
 
     public RadarAnimationEngine(Properties radarConfig) {
         this.radarConfig = radarConfig;
@@ -50,28 +51,7 @@ public class RadarAnimationEngine {
         radarWindow.setTitle("Radar Scan Window");
         int originCo = (int) ((windowWidth) / 2.0d);
         origin = new Point(originCo, originCo);
-    }
 
-    public JFrame getRadarWindow() {
-        return radarWindow;
-    }
-
-    private JLayeredPane getRadarSurface() {
-        JLayeredPane contentPane = new JLayeredPane();
-        contentPane.add(new RadarScanArea(radarConfig, (int) windowWidth, origin), RADAR_DEPTH);
-        return contentPane;
-    }
-
-    private void scaleContacts() {
-        for (RadarContactCell contactCell : contacts) {
-            int   x     = (int) (scaleFactor * contactCell.getX());// + RadarScanArea.RING_OFFSET;
-            int   y     = (int) (scaleFactor * contactCell.getY());// + RadarScanArea.RING_OFFSET;
-            Point point = new Point(x, y);
-            contactCell.setLocation(point);
-        }
-    }
-
-    public void renderLaserAnimation() {
         java.util.List<Point> circumference = new ArrayList<>();
         double                angleStep     = 0.5d;
         for (double a = 0.0d; a < (numRevs * 360.0d); a += angleStep) {
@@ -86,14 +66,50 @@ public class RadarAnimationEngine {
             Laser laser = new Laser(origin, p, radarConfig, ModuleDirectory.Module.RADAR);
             laserBeams.add(laser);
         }
+    }
 
-//        for (int i = 0; i < contacts.size(); i++) {
-//            RadarContactCell contactCell = contacts.get(i);
-//            Laser laser = new Laser(origin, contactCell.getLocation(), radarConfig, ModuleDirectory
-//                    .Module.RADAR);
-//            laserBeams.add(laser);
-//        }
+    private void augmentLaserBeams() {
+        List<Laser> augmentedBeams = new ArrayList<>();
+        List<Laser> contactLasers = new ArrayList<>();
+        for (RadialContact r : radarContacts) {
+            contactLasers.add(new Laser(r.getCenter(), r.getContactPoint(), radarConfig, ModuleDirectory.Module.RADAR));
+        }
 
+        int j = 0;
+        for (int i = 0; i < laserBeams.size(); i++) {
+            Laser laser = laserBeams.get(i);
+
+            if (laser.getPolarCoordinate().getPolarPoint().getTheta() > contactLasers.get(j).getPolarCoordinate()
+                    .getPolarPoint().getTheta()) {
+                augmentedBeams.add(contactLasers.get(j));
+                j++;
+                if (j == contactLasers.size()) {
+                    j = 0;
+                }
+            }
+            augmentedBeams.add(laser);
+        }
+
+        laserBeams.clear();
+        laserBeams.addAll(augmentedBeams);
+    }
+
+    public JFrame getRadarWindow() {
+        return radarWindow;
+    }
+
+    private JLayeredPane getRadarSurface() {
+        JLayeredPane contentPane = new JLayeredPane();
+        contentPane.add(new RadarScanArea(radarConfig, (int) windowWidth, origin), RADAR_DEPTH);
+        return contentPane;
+    }
+
+    public void setRadarContacts(List<RadialContact> radarContacts) {
+        this.radarContacts = radarContacts;
+    }
+
+    public void renderLaserAnimation() {
+        //augmentLaserBeams();
         JLayeredPane contentPane = getRadarSurface();
         for (Laser laser : laserBeams) {
             contentPane.add(laser, new Integer(RADAR_DEPTH.intValue() + 1));

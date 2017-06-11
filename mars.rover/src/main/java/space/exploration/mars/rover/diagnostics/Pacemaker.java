@@ -33,13 +33,18 @@ public class Pacemaker {
         Runnable heart = new Runnable() {
             @Override
             public void run() {
+                rover.powerCheck(1);
+                if (rover.getState() == rover.getHibernatingState()) {
+                    return;
+                }
+
                 rover.processPendingMessageQueue();
 
                 if (rover.isDiagnosticFriendly()) {
                     RoverStatusOuterClass.RoverStatus roverStatus = generateDiagnosticStatus();
                     try {
                         heartBeat = HeartBeatOuterClass.HeartBeat.parseFrom(roverStatus.getModuleMessage()
-                                .toByteArray());
+                                                                                    .toByteArray());
 
                     } catch (InvalidProtocolBufferException ipe) {
                         logger.error(ipe.getMessage());
@@ -49,7 +54,6 @@ public class Pacemaker {
                     logger.info(heartBeat.toString());
                     rover.setState(rover.getTransmittingState());
                     rover.transmitMessage(roverStatus.toByteArray());
-                    rover.powerCheck(1);
                 }
             }
         };

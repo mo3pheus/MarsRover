@@ -70,7 +70,7 @@ public class RadarScanningState implements State {
     @Override
     public void performDiagnostics() {
         RoverUtil.roverSystemLog(logger, " Invalid action error. Can not performDiagnostics in current state.",
-                "ERROR");
+                                 "ERROR");
     }
 
     @Override
@@ -78,8 +78,6 @@ public class RadarScanningState implements State {
         logger.info("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
         MarsArchitect marsArchitect = rover.getMarsArchitect();
-        rover.getRadar().getContacts();
-
         renderRadarAnimation();
 
         RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
@@ -89,10 +87,10 @@ public class RadarScanningState implements State {
         RoverStatusOuterClass.RoverStatus         status   = null;
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         status = rBuilder.setBatteryLevel(rover.getBattery()
-                .getPrimaryPowerUnits())
+                                                  .getPrimaryPowerUnits())
                 .setSolNumber(rover.getSol()).setLocation(location).setNotes("Radar scan performed!")
                 .setSCET(System
-                        .currentTimeMillis())
+                                 .currentTimeMillis())
                 .setModuleReporting(ModuleDirectory.Module.RADAR.getValue()).build();
         rover.state = rover.transmittingState;
         rover.transmitMessage(status.toByteArray());
@@ -101,28 +99,17 @@ public class RadarScanningState implements State {
     private void renderRadarAnimation() {
         Properties marsConfig = rover.getMarsConfig();
         double scaleFactor = Double.parseDouble(marsConfig.getProperty(Radar.RADAR_PREFIX + "" +
-                ".scaleFactor"));
+                                                                               ".scaleFactor"));
 
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
         Point                            origin               = radarAnimationEngine.getOrigin();
         Map<Point, RoverCell>            oldRovers            = rover.getPreviousRovers();
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();
         for (Point p : oldRovers.keySet()) {
-//            double dist  = scaleFactor * Math.sqrt(Math.pow((p.x), 2.0d) + Math.pow((p.y), 2.0d));
-//            double slope = (origin.y - p.y) / (double) (origin.x - p.x);
-//            double theta = Math.atan(slope);
-//            Point scaledPoint = new Point((int) (dist * Math.cos(theta)) + origin.x, (int) (dist * Math.sin(theta))
-//                                                                                     + origin.y);
-//            int cellWidth = rover.getMarsArchitect().getCellWidth();
-//            Point adjustedPoint = new Point(scaledPoint.x - (scaledPoint.x % cellWidth), scaledPoint.y -
-//                                                                                         (scaledPoint.y % cellWidth));
-//            contacts.add(new RadarContactCell(marsConfig, adjustedPoint, Color.green));
-//            System.out.println("Original point = " + p.toString());
-//            System.out.println("Scaled point = " + scaledPoint.toString());
-//            System.out.println("Adjusted point = " + adjustedPoint.toString());
             contacts.add(new RadarContactCell(marsConfig, p, Color.green, 8));
         }
         radarAnimationEngine.setContacts(contacts);
+        radarAnimationEngine.setRadarContacts(rover.getRadar().getRadialContacts());
         radarAnimationEngine.renderLaserAnimation();
         radarAnimationEngine.destroy();
     }

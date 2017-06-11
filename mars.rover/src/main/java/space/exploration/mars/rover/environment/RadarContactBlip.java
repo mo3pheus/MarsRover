@@ -27,7 +27,6 @@ public class RadarContactBlip extends Thread {
     public void run() {
         logger.info(contact.getLocation().toString());
         System.out.println("Contact at " + contact.getLocation().toString());
-        //contact.setColor(RadarContactCell.BLIP_COLOR.brighter());
         contact.setColor(EnvironmentUtils.findColor("lawnGreen"));
         contentPane.add(contact, new Integer(contactDepth));
         try {
