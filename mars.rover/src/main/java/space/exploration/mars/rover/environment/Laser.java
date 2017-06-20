@@ -14,7 +14,7 @@ import java.util.Properties;
 /**
  * @author sanketkorgaonkar
  */
-public class Laser extends VirtualElement {
+public class Laser extends VirtualElement implements Comparable<Laser> {
 
     /**
      *
@@ -72,5 +72,11 @@ public class Laser extends VirtualElement {
 
     public RadialContact getPolarCoordinate() {
         return new RadialContact(startPoint, endPoint);
+    }
+
+    @Override
+    public int compareTo(Laser laser) {
+        return (int) (this.getPolarCoordinate().getPolarPoint().getTheta() - laser.getPolarCoordinate().getPolarPoint
+                ().getTheta());
     }
 }

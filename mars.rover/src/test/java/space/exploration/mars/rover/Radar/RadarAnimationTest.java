@@ -32,7 +32,7 @@ public class RadarAnimationTest {
         radialContacts.add(new RadialContact(new Point(350,350), new Point(200,100)));
         radialContacts.add(new RadialContact(new Point(350,350), new Point(225,150)));
         radialContacts.add(new RadialContact(new Point(350,350), new Point(100,150)));
-        radarAnimationEngine.setRadarContacts(radialContacts);
+        radarAnimationEngine.setRadialContacts(radialContacts);
         radarAnimationEngine.setContacts(contacts);
         radarAnimationEngine.renderLaserAnimation();
     }

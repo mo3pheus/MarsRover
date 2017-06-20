@@ -88,9 +88,11 @@ public class Radar implements IsEquipment {
             return null;
         }
 
+        lifeSpan--;
         List<RadialContact> contacts = new ArrayList<>();
         for (Point contact : previousRovers) {
             RadialContact rContact = new RadialContact(origin, contact);
+            contacts.add(rContact);
         }
 
         return contacts;

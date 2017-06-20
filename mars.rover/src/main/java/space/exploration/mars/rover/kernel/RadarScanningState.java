@@ -8,7 +8,6 @@ import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RadarContactCell;
 import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
-import space.exploration.mars.rover.sensor.Radar;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
@@ -20,6 +19,8 @@ import java.util.Properties;
  * Created by sanket on 5/30/17.
  */
 public class RadarScanningState implements State {
+    public static final int CONTACT_DIAMETER = 8;
+
     private Rover  rover  = null;
     private Logger logger = LoggerFactory.getLogger(RadarScanningState.class);
 
@@ -97,19 +98,16 @@ public class RadarScanningState implements State {
     }
 
     private void renderRadarAnimation() {
-        Properties marsConfig = rover.getMarsConfig();
-        double scaleFactor = Double.parseDouble(marsConfig.getProperty(Radar.RADAR_PREFIX + "" +
-                                                                               ".scaleFactor"));
-
+        Properties                       marsConfig           = rover.getMarsConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
         Point                            origin               = radarAnimationEngine.getOrigin();
         Map<Point, RoverCell>            oldRovers            = rover.getPreviousRovers();
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();
         for (Point p : oldRovers.keySet()) {
-            contacts.add(new RadarContactCell(marsConfig, p, Color.green, 8));
+            contacts.add(new RadarContactCell(marsConfig, p, Color.green, CONTACT_DIAMETER));
         }
         radarAnimationEngine.setContacts(contacts);
-        radarAnimationEngine.setRadarContacts(rover.getRadar().getRadialContacts());
+        radarAnimationEngine.setRadialContacts(rover.getRadar().getRadialContacts());
         radarAnimationEngine.renderLaserAnimation();
         radarAnimationEngine.destroy();
     }
