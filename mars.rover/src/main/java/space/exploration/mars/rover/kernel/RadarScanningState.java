@@ -87,6 +87,8 @@ public class RadarScanningState implements State {
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatusOuterClass.RoverStatus         status   = null;
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+
+        // Module message should include list of all unique Radar contacts, range and bearing.
         status = rBuilder.setBatteryLevel(rover.getBattery()
                                                   .getPrimaryPowerUnits())
                 .setSolNumber(rover.getSol()).setLocation(location).setNotes("Radar scan performed!")

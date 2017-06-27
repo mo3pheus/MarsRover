@@ -48,7 +48,7 @@ public class Radio implements IsEquipment {
     public void receiveMessage(InstructionPayload instructionPayload) {
         try {
             if (lifeSpan > SOS_RESERVE) {
-                System.out.println("BreadCrumb!");
+                System.out.println("Alert! Alert! Incoming message...");
                 Thread.sleep(getComsDelaySecs());
                 this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
                         .getMarsSurface(), rover.getMarsArchitect().getRobot(), false);

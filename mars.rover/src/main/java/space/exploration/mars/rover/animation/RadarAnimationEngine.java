@@ -52,31 +52,38 @@ public class RadarAnimationEngine {
         int originCo = (int) ((windowWidth) / 2.0d);
         origin = new Point(originCo, originCo);
 
-        java.util.List<Point> circumference = new ArrayList<>();
-        double                angleStep     = 0.5d;
+        double angleStep = 0.5d;
         for (double a = 0.0d; a < (numRevs * 360.0d); a += angleStep) {
             double thetaR = Math.toRadians(a);
             int    x      = (int) (0.5d * laserDiameter * Math.cos(thetaR));
             int    y      = (int) (0.5d * laserDiameter * Math.sin(thetaR));
             Point  temp   = new Point(origin.x + x, origin.y + y);
-            circumference.add(temp);
-        }
 
+            Laser laser = new Laser(origin, temp, radarConfig, ModuleDirectory.Module.RADAR);
+            laser.setAngle(a);
+            laserBeams.add(laser);
+        }
+    /*
         for (Point p : circumference) {
             Laser laser = new Laser(origin, p, radarConfig, ModuleDirectory.Module.RADAR);
             laserBeams.add(laser);
-        }
+        }*/
     }
 
     private void augmentLaserBeams() {
-        List<Laser> contactLasers  = new ArrayList<>();
+        List<Laser> contactLasers = new ArrayList<>();
         for (int i = 0; i < numRevs; i++) {
             for (RadialContact r : radialContacts) {
-                contactLasers.add(new Laser(r.getCenter(), r.getContactPoint(), radarConfig, ModuleDirectory.Module
-                        .RADAR));
-                System.out.println("DEBUG:: Radial Contact at " + r.getPolarPoint().getTheta());
+                Laser laser = new Laser(r.getCenter(), r.getContactPoint(), radarConfig, ModuleDirectory.Module
+                        .RADAR);
+                double angleAdditionFactor = (i * 360.0d);
+                laser.setAngle(angleAdditionFactor + laser.getPolarCoordinate().getPolarPoint().getTheta());
+                contactLasers.add(laser);
+                System.out.println("DEBUG:: Laser angle = " + laser.getAngle());
+                System.out.println("DEBUG: Laser Expected angle = " + (angleAdditionFactor + laser.getPolarCoordinate
+                        ().getPolarPoint().getTheta()));
             }
-            System.out.println("-------------------------");
+            //System.out.println("-------------------------");
         }
 
         if (contactLasers.isEmpty()) {
@@ -88,7 +95,11 @@ public class RadarAnimationEngine {
         augmentedBeams.addAll(contactLasers);
 
         Collections.sort(augmentedBeams);
-        System.out.println("DEBUG:: Augmented lasers length should be 2172 and actually is = " + augmentedBeams.size());
+        System.out.println("DEBUG:: Augmented lasers length should be 2160 and actually is = " + augmentedBeams.size());
+
+        for (int i = 0; i < augmentedBeams.size(); i++) {
+            System.out.println(" i = " + i + " angle = " + augmentedBeams.get(i).getAngle());
+        }
 
         laserBeams.clear();
         laserBeams.addAll(augmentedBeams);

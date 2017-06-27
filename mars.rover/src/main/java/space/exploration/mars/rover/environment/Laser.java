@@ -19,10 +19,11 @@ public class Laser extends VirtualElement implements Comparable<Laser> {
     /**
      *
      */
-    private static final long  serialVersionUID = -8465625316296649774L;
-    private              Point startPoint       = null;
-    private              Point endPoint         = null;
-    private              Color color            = Color.ORANGE;
+    private static final long   serialVersionUID = -8465625316296649774L;
+    private              Point  startPoint       = null;
+    private              Point  endPoint         = null;
+    private              double angle            = 0.0d;
+    private              Color  color            = Color.ORANGE;
 
     private Line2D laserBeam;
 
@@ -76,7 +77,20 @@ public class Laser extends VirtualElement implements Comparable<Laser> {
 
     @Override
     public int compareTo(Laser laser) {
-        return (int) (this.getPolarCoordinate().getPolarPoint().getTheta() - laser.getPolarCoordinate().getPolarPoint
-                ().getTheta());
+        if( this.getAngle() > laser.getAngle() ){
+            return 1;
+        } else if(this.getAngle() < laser.getAngle() ){
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
     }
 }

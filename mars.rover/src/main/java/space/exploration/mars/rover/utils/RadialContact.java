@@ -8,9 +8,10 @@ import java.awt.*;
  * Created by sanketkorgaonkar on 6/8/17.
  */
 public class RadialContact implements Comparable<RadialContact> {
-    private Point                 contactPoint = null;
-    private Point                 center       = null;
-    private PolarCoord.PolarPoint polarPoint   = null;
+    private Point                 contactPoint         = null;
+    private Point                 center               = null;
+    private PolarCoord.PolarPoint polarPoint           = null;
+    private boolean               compareOnRadiusFirst = false;
 
     public RadialContact(Point center, Point contactPoint) {
         this.center = center;
@@ -32,6 +33,14 @@ public class RadialContact implements Comparable<RadialContact> {
 
     public void setCenter(Point center) {
         this.center = center;
+    }
+
+    public boolean isCompareOnRadiusFirst() {
+        return compareOnRadiusFirst;
+    }
+
+    public void setCompareOnRadiusFirst(boolean compareOnRadiusFirst) {
+        this.compareOnRadiusFirst = compareOnRadiusFirst;
     }
 
     /**
@@ -74,16 +83,10 @@ public class RadialContact implements Comparable<RadialContact> {
      */
     @Override
     public int compareTo(RadialContact o) {
-        if (polarPoint.getR() > o.getPolarPoint().getR()) {
-            return 1;
-        } else if (polarPoint.getR() < o.getPolarPoint().getR()) {
-            return -1;
-        } else {
-            int ownTheta     = (int) Math.toDegrees(this.getPolarPoint().getTheta());
-            int contactTheta = (int) Math.toDegrees(o.getPolarPoint().getTheta());
+        int ownTheta     = (int) Math.toDegrees(this.getPolarPoint().getTheta());
+        int contactTheta = (int) Math.toDegrees(o.getPolarPoint().getTheta());
 
-            return ownTheta - contactTheta;
-        }
+        return ownTheta - contactTheta;
     }
 
     private PolarCoord.PolarPoint computePolarPoint() {
