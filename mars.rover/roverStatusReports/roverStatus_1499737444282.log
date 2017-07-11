@@ -1,0 +1,458 @@
+0    [main] INFO  space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=350,y=250]
+1002 [main] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2004 [main] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+3232 [main] INFO  space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+4233 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+5236 [main] INFO  space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 10000 auxiliaryPowerUnits = 1000 alertThreshold: 100 rechargeTime = 60000
+6239 [main] INFO  space.exploration.mars.rover.kernel.Rover  - Battery Monitor configured!
+6469 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6488 [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+6488 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6488 [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+6489 [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+6489 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6489 [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+6516 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6516 [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+6516 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6517 [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover
+6517 [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+6517 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6517 [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+6536 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], Connecting to zookeeper instance at localhost:2181
+6541 [ZkClient-EventThread-22-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/sanket/Documents/workspace/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/home/sanket/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/home/sanket/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/lib/idea_rt.jar
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin::/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.8.0-54-generic
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+6544 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+6545 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@be64738
+6552 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+6554 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+6557 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+6562 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15c8a5136e10051, negotiated timeout = 6000
+6563 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+6570 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], starting auto committer every 60000 ms
+6586 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], begin registering consumer space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae in ZK
+6603 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae (is it secure? false)
+6610 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+6611 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], end registering consumer space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae in ZK
+6614 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], starting watcher executor thread for consumer space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae
+6627 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], begin rebalancing consumer space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae try #0
+6700 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1499737454300] Stopping leader finder thread
+6700 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1499737454300] Stopping all fetchers
+6701 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1499737454300] All connections stopped
+6701 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], Cleared all relevant queues for this fetcher
+6702 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], Cleared the data chunks in all the consumer message iterators
+6702 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], Committing all offsets after clearing the fetcher queues
+6703 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], Releasing partition ownership
+6726 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_3 with consumers: List(space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-0)
+6728 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-0 attempting to claim partition 0
+6755 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-0 successfully owned partition 0 for topic secure_com_from_earth_channel_3
+6810 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], Consumer space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae selected partitions : secure_com_from_earth_channel_3:0: fetched offset = 4009: consumed offset = 4009
+6812 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread], Starting 
+6816 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae], end rebalancing consumer space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae try #0
+6822 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6823 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+6823 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+6823 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+6835 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(secure_com_from_earth_channel_3)
+6839 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+6848 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+6860 [ConsumerFetcherThread-space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-0-0], Starting 
+6863 [space.exploration.mars.rover_zion-mainframe-1499737454267-fae805ae-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1499737454300] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_3,0], initOffset 4009 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+6915 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6915 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6915 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6915 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6915 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6915 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6916 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6917 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6917 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6917 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6917 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6917 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6918 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6919 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6919 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6919 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6919 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6919 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6919 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6920 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6920 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6920 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6920 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6920 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6920 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6921 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6921 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6921 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6921 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6921 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6921 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6921 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6922 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6923 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6923 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6923 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6923 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6923 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6923 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6924 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6924 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6924 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6924 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6924 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6924 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6924 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6925 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6926 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6927 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6928 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6928 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6928 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6928 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6928 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6928 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6928 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6928 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6929 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6930 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6931 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6931 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6931 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6931 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6931 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6931 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6932 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6933 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6934 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6935 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6936 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6937 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6938 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6939 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6940 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6941 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6942 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6943 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6943 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6943 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6943 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6943 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6943 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6943 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6944 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6945 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6946 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+6947 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+7572 [main] INFO  space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+metadata.broker.list::localhost:9092
+source.topic::secure_com_from_earth_channel_3
+auto.offset.reset::largest
+group.id::space.exploration.mars.rover
+destination.topic::secure_com_to_earth_channel_3
+zookeeper.connect::localhost:2181
+8573 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+31377 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+31378 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+31379 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+31397 [main] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+35239 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1499737482971
+58042 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1499737505732
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9999
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9999
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+65239 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1499737512971
+95239 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1499737542971
+111144 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1499737534549
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+111145 [Thread-2] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=350,y=250]
+123445 [Thread-4] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=200,y=300]
+123480 [Thread-5] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=200,y=300]
+123664 [Thread-6] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=225,y=300]
+123699 [Thread-7] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=225,y=300]
+123730 [Thread-8] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=100,y=150]
+125206 [Thread-9] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=150,y=450]
+125239 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1499737572971
+145502 [Thread-10] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=200,y=300]
+145533 [Thread-11] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=200,y=300]
+145722 [Thread-12] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=225,y=300]
+145757 [Thread-13] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=225,y=300]
+145788 [Thread-14] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=100,y=150]
+147259 [Thread-15] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=150,y=450]
+155239 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1499737602971
+167504 [Thread-16] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=200,y=300]
+167541 [Thread-17] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=200,y=300]
+167725 [Thread-18] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=225,y=300]
+167756 [Thread-19] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=225,y=300]
+167787 [Thread-20] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=100,y=150]
+169254 [Thread-21] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=150,y=450]

@@ -94,8 +94,8 @@ public class RadialContact implements Comparable<RadialContact> {
             return null;
         }
 
-        double r     = contactPoint.distance(center);
-        double theta = Math.acos((contactPoint.getX() - center.getX()) / r);
+        double r = contactPoint.distance(center);
+        double theta = Math.acos((center.getX() - contactPoint.getX()) / r);
         theta = Math.toDegrees(theta);
 
         return PolarCoord.PolarPoint.newBuilder().setR(r).setTheta(theta).build();

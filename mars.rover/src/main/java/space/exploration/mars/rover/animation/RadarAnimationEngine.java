@@ -79,11 +79,7 @@ public class RadarAnimationEngine {
                 double angleAdditionFactor = (i * 360.0d);
                 laser.setAngle(angleAdditionFactor + laser.getPolarCoordinate().getPolarPoint().getTheta());
                 contactLasers.add(laser);
-                System.out.println("DEBUG:: Laser angle = " + laser.getAngle());
-                System.out.println("DEBUG: Laser Expected angle = " + (angleAdditionFactor + laser.getPolarCoordinate
-                        ().getPolarPoint().getTheta()));
             }
-            //System.out.println("-------------------------");
         }
 
         if (contactLasers.isEmpty()) {
@@ -103,6 +99,11 @@ public class RadarAnimationEngine {
 
         laserBeams.clear();
         laserBeams.addAll(augmentedBeams);
+
+        for (int i = 0; i < laserBeams.size(); i++) {
+            System.out.println(" DEBUG:: Laser i = " + i + " angle = " + laserBeams.get(i).getAngle());
+        }
+
     }
 
     public JFrame getRadarWindow() {
@@ -120,9 +121,10 @@ public class RadarAnimationEngine {
     }
 
     public void renderLaserAnimation() {
-        augmentLaserBeams();
+        //augmentLaserBeams();
         JLayeredPane contentPane = getRadarSurface();
         for (Laser laser : laserBeams) {
+            System.out.println(" DEBUG:: Laser i =  angle = " + laser.getAngle());
             contentPane.add(laser, new Integer(RADAR_DEPTH.intValue() + 1));
             reflectContacts(laser, contentPane);
             radarWindow.setContentPane(contentPane);

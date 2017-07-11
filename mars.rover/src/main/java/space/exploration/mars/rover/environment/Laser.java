@@ -20,9 +20,9 @@ public class Laser extends VirtualElement implements Comparable<Laser> {
      *
      */
     private static final long   serialVersionUID = -8465625316296649774L;
+    private              double angle            = 0.0d;
     private              Point  startPoint       = null;
     private              Point  endPoint         = null;
-    private              double angle            = 0.0d;
     private              Color  color            = Color.ORANGE;
 
     private Line2D laserBeam;
@@ -59,7 +59,7 @@ public class Laser extends VirtualElement implements Comparable<Laser> {
     @Override
     public void draw(Graphics2D g2) {
         g2.setColor(color);
-        g2.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+        g2.draw(laserBeam);
     }
 
     @Override
