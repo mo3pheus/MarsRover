@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "PolarCoord.proto";
+
+package space.exploration.mars.rover.radar;
+
+message RadarContactList{
+    repeated PolarPoint contacts = 1;
+}

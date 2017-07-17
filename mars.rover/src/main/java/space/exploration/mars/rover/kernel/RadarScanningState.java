@@ -7,7 +7,9 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RadarContactCell;
 import space.exploration.mars.rover.environment.RoverCell;
+import space.exploration.mars.rover.radar.RadarContactListOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
+import space.exploration.mars.rover.utils.RadialContact;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
@@ -88,12 +90,18 @@ public class RadarScanningState implements State {
         RoverStatusOuterClass.RoverStatus         status   = null;
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
 
-        // Module message should include list of all unique Radar contacts, range and bearing.
+        RadarContactListOuterClass.RadarContactList.Builder rContactListBuilder = RadarContactListOuterClass
+                .RadarContactList.newBuilder();
+        for (RadialContact r : rover.getRadar().getRadialContacts()) {
+            rContactListBuilder.addContacts(r.getPolarPoint());
+        }
+
         status = rBuilder.setBatteryLevel(rover.getBattery()
                                                   .getPrimaryPowerUnits())
                 .setSolNumber(rover.getSol()).setLocation(location).setNotes("Radar scan performed!")
                 .setSCET(System
                                  .currentTimeMillis())
+                .setModuleMessage(rContactListBuilder.build().toByteString())
                 .setModuleReporting(ModuleDirectory.Module.RADAR.getValue()).build();
         rover.state = rover.transmittingState;
         rover.transmitMessage(status.toByteArray());
@@ -102,7 +110,6 @@ public class RadarScanningState implements State {
     private void renderRadarAnimation() {
         Properties                       marsConfig           = rover.getMarsConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
-        Point                            origin               = radarAnimationEngine.getOrigin();
         Map<Point, RoverCell>            oldRovers            = rover.getPreviousRovers();
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();
         for (Point p : oldRovers.keySet()) {

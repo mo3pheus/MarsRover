@@ -32,10 +32,10 @@ public class Radar implements IsEquipment {
         this.rover = rover;
         this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(RADAR_PREFIX + ".lifeSpan"));
         this.previousRovers = new ArrayList<>();
-        this.origin = rover.getMarsArchitect().getRobot().getLocation();
 
         int frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.center = new Point(frameWidth / 2, frameWidth / 2);
+        this.origin = center;
         populateRoverPositions();
         RoverUtil.roverSystemLog(logger, "Radar configured:: ", "INFO");
     }
@@ -99,13 +99,7 @@ public class Radar implements IsEquipment {
             pBuilder.setR(origin.distance(contact));
             pBuilder.setTheta(getTheta(origin, contact));
             rContact.setPolarPoint(pBuilder.build());
-
-            System.out.println(" Origin = " + origin.toString() + " Contact = " + contact.toString() + " PolarPoint =" +
-                    " " + pBuilder.build().toString());
-
             contacts.add(rContact);
-            System.out.println(" Origin = " + origin.toString() + " Contact = " + contact.toString() + " PolarPoint =" +
-                    " " + rContact.getPolarPoint().toString());
         }
 
         return contacts;

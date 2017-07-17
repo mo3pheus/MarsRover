@@ -33,8 +33,7 @@ public class RadarContactBlip extends Thread {
             if (blipSound) {
                 (new BlipSound()).start();
             }
-            Thread.sleep(500
-            );
+            Thread.sleep(700);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -44,23 +43,13 @@ public class RadarContactBlip extends Thread {
         contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth));
         try {
-            Thread.sleep(150);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         contentPane.remove(contact);
 
         contact.setColor(RadarContactCell.BLIP_COLOR.darker());
-        contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth));
-        try {
-            Thread.sleep(50);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        contentPane.remove(contact);
-
-        contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
         contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth));
         try {
@@ -72,7 +61,6 @@ public class RadarContactBlip extends Thread {
 
         contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
         contact.reduceContactDiameter();
-        contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth));
         try {
             Thread.sleep(200);
@@ -81,10 +69,21 @@ public class RadarContactBlip extends Thread {
         }
         contentPane.remove(contact);
 
+        contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
+        contact.reduceContactDiameter();
+        contact.reduceContactDiameter();
+        contentPane.add(contact, new Integer(contactDepth));
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        contentPane.remove(contact);
+
         contact.setColor(Color.darkGray);
         contentPane.add(contact, new Integer(contactDepth));
         try {
-            Thread.sleep(250);
+            Thread.sleep(450);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

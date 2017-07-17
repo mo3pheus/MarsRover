@@ -65,11 +65,6 @@ public class RadarAnimationEngine {
             laser.setAngle(a);
             laserBeams.add(laser);
         }
-    /*
-        for (Point p : circumference) {
-            Laser laser = new Laser(origin, p, radarConfig, ModuleDirectory.Module.RADAR);
-            laserBeams.add(laser);
-        }*/
     }
 
     private void augmentLaserBeams() {
@@ -80,7 +75,6 @@ public class RadarAnimationEngine {
                         .RADAR);
                 double angleAdditionFactor = (i * 360.0d);
                 laser.setAngle(angleAdditionFactor + r.getPolarPoint().getTheta());
-                System.out.println(" In AugLasers - laser angle = " + i + " = " + laser.getAngle());
                 contactLasers.add(laser);
             }
         }
@@ -94,20 +88,8 @@ public class RadarAnimationEngine {
         augmentedBeams.addAll(contactLasers);
 
         Collections.sort(augmentedBeams);
-        /*System.out.println("DEBUG:: Augmented lasers length should be 2160 and actually is = " + augmentedBeams
-        .size());
-
-        for (int i = 0; i < augmentedBeams.size(); i++) {
-            System.out.println(" i = " + i + " angle = " + augmentedBeams.get(i).getAngle());
-        }*/
-
         laserBeams.clear();
         laserBeams.addAll(augmentedBeams);
-
-        /*for (int i = 0; i < laserBeams.size(); i++) {
-            System.out.println(" DEBUG:: Laser i = " + i + " angle = " + laserBeams.get(i).getAngle());
-        }*/
-
     }
 
     public JFrame getRadarWindow() {
@@ -129,7 +111,6 @@ public class RadarAnimationEngine {
         augmentLaserBeams();
         JLayeredPane contentPane = getRadarSurface();
         for (Laser laser : laserBeams) {
-            //System.out.println(" DEBUG:: Laser i =  angle = " + laser.getAngle());
             contentPane.add(laser, new Integer(RADAR_DEPTH.intValue() + 1));
             reflectContacts(laser, contentPane);
             radarWindow.setContentPane(contentPane);
@@ -137,7 +118,7 @@ public class RadarAnimationEngine {
             try {
 
                 if (Math.abs((laserDiameter * 0.5d) - laser.getLaserLength()) > 5.0d) {
-                    Thread.sleep(LASER_DELAY * 100);
+                    Thread.sleep(LASER_DELAY);
                 }
 
                 Thread.sleep(LASER_DELAY);
