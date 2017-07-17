@@ -46,6 +46,10 @@ public class Laser extends VirtualElement implements Comparable<Laser> {
         return laserBeam;
     }
 
+    public double getLaserLength(){
+        return startPoint.distance(endPoint);
+    }
+
     @Override
     public void paint(Graphics g) {
         draw((Graphics2D) g);

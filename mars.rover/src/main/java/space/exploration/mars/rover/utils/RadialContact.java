@@ -19,6 +19,10 @@ public class RadialContact implements Comparable<RadialContact> {
         this.polarPoint = computePolarPoint();
     }
 
+    public void setPolarPoint(PolarCoord.PolarPoint polarPoint) {
+        this.polarPoint = polarPoint;
+    }
+
     public Point getContactPoint() {
         return contactPoint;
     }

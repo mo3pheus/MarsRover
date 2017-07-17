@@ -46,5 +46,16 @@ public class PolarCoordTest {
             System.out.println(r.getPolarPoint().getR() + " " + r.getPolarPoint().getTheta());
         }
 
+        System.out.println("========================================");
+
+        Point center = new Point(350,350);
+        Point contactPoint = new Point(343,343);
+
+        double r = contactPoint.distance(center);
+        //double theta = Math.acos((center.getX() - contactPoint.getX()) / r);
+        double theta = Math.acos((contactPoint.getX() - center.getX() ) / r);
+        theta = Math.toDegrees(theta);
+        System.out.println(theta);
+
     }
 }

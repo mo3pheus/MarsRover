@@ -33,7 +33,8 @@ public class RadarContactBlip extends Thread {
             if (blipSound) {
                 (new BlipSound()).start();
             }
-            Thread.sleep(500);
+            Thread.sleep(500
+            );
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

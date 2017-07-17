@@ -9,8 +9,10 @@ import space.exploration.mars.rover.utils.RadialContact;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Created by sanket on 5/30/17.
@@ -77,7 +79,8 @@ public class RadarAnimationEngine {
                 Laser laser = new Laser(r.getCenter(), r.getContactPoint(), radarConfig, ModuleDirectory.Module
                         .RADAR);
                 double angleAdditionFactor = (i * 360.0d);
-                laser.setAngle(angleAdditionFactor + laser.getPolarCoordinate().getPolarPoint().getTheta());
+                laser.setAngle(angleAdditionFactor + r.getPolarPoint().getTheta());
+                System.out.println(" In AugLasers - laser angle = " + i + " = " + laser.getAngle());
                 contactLasers.add(laser);
             }
         }
@@ -91,18 +94,19 @@ public class RadarAnimationEngine {
         augmentedBeams.addAll(contactLasers);
 
         Collections.sort(augmentedBeams);
-        System.out.println("DEBUG:: Augmented lasers length should be 2160 and actually is = " + augmentedBeams.size());
+        /*System.out.println("DEBUG:: Augmented lasers length should be 2160 and actually is = " + augmentedBeams
+        .size());
 
         for (int i = 0; i < augmentedBeams.size(); i++) {
             System.out.println(" i = " + i + " angle = " + augmentedBeams.get(i).getAngle());
-        }
+        }*/
 
         laserBeams.clear();
         laserBeams.addAll(augmentedBeams);
 
-        for (int i = 0; i < laserBeams.size(); i++) {
+        /*for (int i = 0; i < laserBeams.size(); i++) {
             System.out.println(" DEBUG:: Laser i = " + i + " angle = " + laserBeams.get(i).getAngle());
-        }
+        }*/
 
     }
 
@@ -117,19 +121,25 @@ public class RadarAnimationEngine {
     }
 
     public void setRadialContacts(List<RadialContact> radialContacts) {
-        this.radialContacts = radialContacts;
+        this.radialContacts = new ArrayList<>();
+        this.radialContacts.addAll(radialContacts);
     }
 
     public void renderLaserAnimation() {
-        //augmentLaserBeams();
+        augmentLaserBeams();
         JLayeredPane contentPane = getRadarSurface();
         for (Laser laser : laserBeams) {
-            System.out.println(" DEBUG:: Laser i =  angle = " + laser.getAngle());
+            //System.out.println(" DEBUG:: Laser i =  angle = " + laser.getAngle());
             contentPane.add(laser, new Integer(RADAR_DEPTH.intValue() + 1));
             reflectContacts(laser, contentPane);
             radarWindow.setContentPane(contentPane);
             radarWindow.setVisible(true);
             try {
+
+                if (Math.abs((laserDiameter * 0.5d) - laser.getLaserLength()) > 5.0d) {
+                    Thread.sleep(LASER_DELAY * 100);
+                }
+
                 Thread.sleep(LASER_DELAY);
             } catch (Exception e) {
                 e.printStackTrace(System.out);
