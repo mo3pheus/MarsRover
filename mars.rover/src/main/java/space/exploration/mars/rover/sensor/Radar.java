@@ -19,19 +19,22 @@ import java.util.Map;
  * Created by sanket on 5/30/17.
  */
 public class Radar implements IsEquipment {
-    public static final String      RADAR_PREFIX   = "mars.rover.radar";
-    private             int         lifeSpan       = 0;
-    private             Point       origin         = null;
-    private             Rover       rover          = null;
-    private             boolean     endOfLife      = false;
-    private             Logger      logger         = LoggerFactory.getLogger(Radar.class);
-    private             List<Point> previousRovers = null;
-    private             Point       center         = null;
+    public static final  String      RADAR_PREFIX   = "mars.rover.radar";
+    private static final float       SCALE_FACTOR   = 0.3f;
+    private              int         lifeSpan       = 0;
+    private              Point       origin         = null;
+    private              Rover       rover          = null;
+    private              boolean     endOfLife      = false;
+    private              Logger      logger         = LoggerFactory.getLogger(Radar.class);
+    private              List<Point> previousRovers = null;
+    private              List<Point> relativeRovers = null;
+    private              Point       center         = null;
 
     public Radar(Rover rover) {
         this.rover = rover;
         this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(RADAR_PREFIX + ".lifeSpan"));
         this.previousRovers = new ArrayList<>();
+        this.relativeRovers = new ArrayList<>();
 
         int frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.center = new Point(frameWidth / 2, frameWidth / 2);
@@ -95,6 +98,9 @@ public class Radar implements IsEquipment {
         for (Point contact : previousRovers) {
             RadialContact rContact = new RadialContact(origin, contact);
 
+            contact = transformPoint(rover.getMarsArchitect().getRobot().getLocation(), center, contact);
+            contact = scalePoint(center, contact, SCALE_FACTOR);
+
             PolarCoord.PolarPoint.Builder pBuilder = PolarCoord.PolarPoint.newBuilder();
             pBuilder.setR(origin.distance(contact));
             pBuilder.setTheta(getTheta(origin, contact));
@@ -118,6 +124,11 @@ public class Radar implements IsEquipment {
         }
     }
 
+    /**
+     * @param a
+     * @param b
+     * @return returns angle between a,b in degrees
+     */
     private double getTheta(Point a, Point b) {
         double r     = a.distance(b);
         double theta = 0.0d;
@@ -143,4 +154,20 @@ public class Radar implements IsEquipment {
         }
         return Math.toDegrees(theta);
     }
+
+    private Point transformPoint(Point origin, Point center, Point contact) {
+        int xDiff = origin.x - center.x;
+        int yDiff = origin.y - center.y;
+
+        return new Point(contact.x + xDiff, contact.y + yDiff);
+    }
+
+    private Point scalePoint(Point start, Point end, double scaleFactor) {
+        double r = start.distance(end);
+        r *= scaleFactor;
+
+        double theta = getTheta(start, end);
+        return new Point((int) (start.x + (r * Math.cos(theta))), (int) (start.y + r * Math.sin(theta)));
+    }
+
 }
