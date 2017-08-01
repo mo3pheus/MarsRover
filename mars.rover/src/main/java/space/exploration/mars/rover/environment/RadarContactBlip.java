@@ -43,7 +43,7 @@ public class RadarContactBlip extends Thread {
         contact.reduceContactDiameter();
         contentPane.add(contact, new Integer(contactDepth));
         try {
-            Thread.sleep(250);
+            Thread.sleep(300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

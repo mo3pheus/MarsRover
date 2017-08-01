@@ -20,8 +20,9 @@ import java.util.Map;
  */
 public class Radar implements IsEquipment {
     public static final  String      RADAR_PREFIX   = "mars.rover.radar";
-    private static final float       SCALE_FACTOR   = 0.3f;
+    private static final String      SCALE_FACTOR   = "mars.rover.radarContact.scaleFactor";
     private              int         lifeSpan       = 0;
+    private              double      scaleFactor    = 0.0d;
     private              Point       origin         = null;
     private              Rover       rover          = null;
     private              boolean     endOfLife      = false;
@@ -32,6 +33,7 @@ public class Radar implements IsEquipment {
 
     public Radar(Rover rover) {
         this.rover = rover;
+        this.scaleFactor = Double.parseDouble(rover.getMarsConfig().getProperty(SCALE_FACTOR));
         this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(RADAR_PREFIX + ".lifeSpan"));
         this.previousRovers = new ArrayList<>();
         this.relativeRovers = new ArrayList<>();
@@ -82,9 +84,8 @@ public class Radar implements IsEquipment {
         rover.setPreviousRovers(oldRovers);
     }
 
-    public List<Point> getContacts() {
-        lifeSpan--;
-        return new ArrayList<Point>();
+    public List<Point> getRelativeRovers() {
+        return relativeRovers;
     }
 
     public List<RadialContact> getRadialContacts() {
@@ -95,15 +96,18 @@ public class Radar implements IsEquipment {
 
         lifeSpan--;
         List<RadialContact> contacts = new ArrayList<>();
+        relativeRovers.clear();
         for (Point contact : previousRovers) {
-            RadialContact rContact = new RadialContact(origin, contact);
-
-            contact = transformPoint(rover.getMarsArchitect().getRobot().getLocation(), center, contact);
-            contact = scalePoint(center, contact, SCALE_FACTOR);
-
+            logger.info("Rover position at RadarScan =>" + rover.getMarsArchitect().getRobot().getLocation
+                    ().toString());
+            contact = transformPoint(rover.getMarsArchitect().getRobot().getLocation(), origin, contact);
+            contact = scalePoint(origin, contact, scaleFactor);
+            relativeRovers.add(contact);
             PolarCoord.PolarPoint.Builder pBuilder = PolarCoord.PolarPoint.newBuilder();
             pBuilder.setR(origin.distance(contact));
             pBuilder.setTheta(getTheta(origin, contact));
+
+            RadialContact rContact = new RadialContact(origin, contact);
             rContact.setPolarPoint(pBuilder.build());
             contacts.add(rContact);
         }
@@ -156,8 +160,8 @@ public class Radar implements IsEquipment {
     }
 
     private Point transformPoint(Point origin, Point center, Point contact) {
-        int xDiff = origin.x - center.x;
-        int yDiff = origin.y - center.y;
+        int xDiff = center.x - origin.x;
+        int yDiff = center.y - origin.y;
 
         return new Point(contact.x + xDiff, contact.y + yDiff);
     }
@@ -167,7 +171,33 @@ public class Radar implements IsEquipment {
         r *= scaleFactor;
 
         double theta = getTheta(start, end);
-        return new Point((int) (start.x + (r * Math.cos(theta))), (int) (start.y + r * Math.sin(theta)));
+        theta = Math.toRadians(theta);
+        int quadrant = getQuadrant(start, end);
+
+        int x = 0;
+        int y = 0;
+        switch (quadrant) {
+            case 1: {
+                x = (int) (start.x + r * Math.cos(theta));
+                y = (int) (start.y + r * Math.sin(theta));
+            }
+            break;
+            case 2: {
+                x = (int) (start.x - r * Math.cos(Math.PI - theta));
+                y = (int) (start.y + r * Math.sin(Math.PI - theta));
+            }
+            break;
+            case 3: {
+                x = (int) (start.x - r * Math.cos(theta - Math.PI));
+                y = (int) (start.y - r * Math.sin(theta - Math.PI));
+            }
+            break;
+            default: {
+                x = (int) (start.x + r * Math.cos(2.0d * Math.PI - theta));
+                y = (int) (start.y - r * Math.sin(2.0d * Math.PI - theta));
+            }
+        }
+        return new Point(x, y);
     }
 
 }

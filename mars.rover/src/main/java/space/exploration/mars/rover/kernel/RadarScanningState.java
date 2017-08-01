@@ -14,6 +14,7 @@ import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -111,12 +112,13 @@ public class RadarScanningState implements State {
         Properties                       marsConfig           = rover.getMarsConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
         Map<Point, RoverCell>            oldRovers            = rover.getPreviousRovers();
+        List<RadialContact>              temp                 = rover.getRadar().getRadialContacts();
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();
-        for (Point p : oldRovers.keySet()) {
+        for (Point p : rover.getRadar().getRelativeRovers()) {
             contacts.add(new RadarContactCell(marsConfig, p, Color.green, CONTACT_DIAMETER));
         }
         radarAnimationEngine.setContacts(contacts);
-        radarAnimationEngine.setRadialContacts(rover.getRadar().getRadialContacts());
+        radarAnimationEngine.setRadialContacts(temp);
         radarAnimationEngine.renderLaserAnimation();
         radarAnimationEngine.destroy();
     }

@@ -75,6 +75,9 @@ public class RadarAnimationEngine {
                         .RADAR);
                 double angleAdditionFactor = (i * 360.0d);
                 laser.setAngle(angleAdditionFactor + r.getPolarPoint().getTheta());
+                System.out.println("Creating lasers now - " + r.getContactPoint().toString() + " Angle = " + laser
+                        .getAngle() + " r = " + laser.getLaserLength());
+
                 contactLasers.add(laser);
             }
         }
