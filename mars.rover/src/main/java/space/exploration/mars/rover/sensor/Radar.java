@@ -78,12 +78,6 @@ public class Radar implements IsEquipment {
         return origin;
     }
 
-    private void populateRoverPositions() {
-        Map<Point, RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(rover.getMarsConfig());
-        previousRovers.addAll(oldRovers.keySet());
-        rover.setPreviousRovers(oldRovers);
-    }
-
     public List<Point> getRelativeRovers() {
         return relativeRovers;
     }
@@ -95,12 +89,18 @@ public class Radar implements IsEquipment {
         }
 
         lifeSpan--;
-        List<RadialContact> contacts = new ArrayList<>();
-        relativeRovers.clear();
+        List<Point> temp = new ArrayList<>();
         for (Point contact : previousRovers) {
             logger.info("Rover position at RadarScan =>" + rover.getMarsArchitect().getRobot().getLocation
                     ().toString());
             contact = transformPoint(rover.getMarsArchitect().getRobot().getLocation(), origin, contact);
+            temp.add(contact);
+        }
+
+        scaleFactor = computeScaleFactor(temp);
+        List<RadialContact> contacts = new ArrayList<>();
+        relativeRovers.clear();
+        for (Point contact : temp) {
             contact = scalePoint(origin, contact, scaleFactor);
             relativeRovers.add(contact);
             PolarCoord.PolarPoint.Builder pBuilder = PolarCoord.PolarPoint.newBuilder();
@@ -115,6 +115,26 @@ public class Radar implements IsEquipment {
         return contacts;
     }
 
+    public double getScaleFactor() {
+        return scaleFactor;
+    }
+
+    private void populateRoverPositions() {
+        Map<Point, RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(rover.getMarsConfig());
+        previousRovers.addAll(oldRovers.keySet());
+        rover.setPreviousRovers(oldRovers);
+    }
+
+    private double computeScaleFactor(List<Point> contacts) {
+        double maxDistance = 0.0d;
+
+        for (Point point : contacts) {
+            double dist = point.distance(center);
+            maxDistance = (dist > maxDistance) ? dist : maxDistance;
+        }
+
+        return ((double) (center.x - 10) / maxDistance);
+    }
 
     private int getQuadrant(Point a, Point b) {
         if (b.getY() >= a.getY() && b.getX() >= a.getX()) {

@@ -24,8 +24,9 @@ import java.util.Properties;
 public class RadarScanningState implements State {
     public static final int CONTACT_DIAMETER = 8;
 
-    private Rover  rover  = null;
-    private Logger logger = LoggerFactory.getLogger(RadarScanningState.class);
+    private Rover  rover       = null;
+    private Logger logger      = LoggerFactory.getLogger(RadarScanningState.class);
+    private double scaleFactor = 0.0d;
 
     public RadarScanningState(Rover rover) {
         this.rover = rover;
@@ -96,6 +97,7 @@ public class RadarScanningState implements State {
         for (RadialContact r : rover.getRadar().getRadialContacts()) {
             rContactListBuilder.addContacts(r.getPolarPoint());
         }
+        rContactListBuilder.setScaleFactor(rover.getRadar().getScaleFactor());
 
         status = rBuilder.setBatteryLevel(rover.getBattery()
                                                   .getPrimaryPowerUnits())
@@ -111,7 +113,6 @@ public class RadarScanningState implements State {
     private void renderRadarAnimation() {
         Properties                       marsConfig           = rover.getMarsConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
-        Map<Point, RoverCell>            oldRovers            = rover.getPreviousRovers();
         List<RadialContact>              temp                 = rover.getRadar().getRadialContacts();
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();
         for (Point p : rover.getRadar().getRelativeRovers()) {

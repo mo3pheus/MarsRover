@@ -93,8 +93,8 @@ public class Transmitter {
             byte[] outputKafkaBytes = makeCall();
             earthChannel.send(
                     new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
-            System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("sourceTopic"));
-            System.out.println(" Sent message = " + MatrixCall.parseFrom(outputKafkaBytes));
+            System.out.println("Sending information packet to " + kafkaProperties.getProperty("sourceTopic"));
+            System.out.println("Sent message = " + MatrixCall.parseFrom(outputKafkaBytes));
             Thread.sleep(1500l);
         }
     }
@@ -103,7 +103,7 @@ public class Transmitter {
         for (int i = 0; i < 1; i++) {
             earthChannel.send(
                     new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("destination.topic"), message));
-            System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("destination" +
+            System.out.println("Sending information packet to " + kafkaProperties.getProperty("destination" +
                                                                                                       ".topic"));
         }
     }
@@ -114,9 +114,6 @@ public class Transmitter {
             byte[] outputKafkaBytes = messages.get(i);
             earthChannel.send(
                     new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
-            System.out.println(" Sending canned interrupt messages to " + kafkaProperties.getProperty("sourceTopic"));
-            System.out.println(" Sent message = " + MatrixCall.parseFrom(outputKafkaBytes));
-            // Thread.sleep(20l);
         }
     }
 
