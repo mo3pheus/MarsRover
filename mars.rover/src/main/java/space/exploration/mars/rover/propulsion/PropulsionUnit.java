@@ -14,6 +14,7 @@ public class PropulsionUnit {
     private Point                 source                  = null;
     private Point                 destination             = null;
     private java.util.List<Point> trajectory              = null;
+    private boolean               trajectoryValid         = false;
 
     public PropulsionUnit(Rover rover, Point source, Point destination) {
         this.rover = rover;
@@ -28,11 +29,21 @@ public class PropulsionUnit {
         return trajectory;
     }
 
+    public boolean isTrajectoryValid() {
+        return trajectoryValid;
+    }
+
     private void requestPropulsion() {
         rover.configureRLEngine();
         rover.getRlNavEngine().train(source, destination);
         trajectory = rover.getRlNavEngine().getShortestPath();
         int trajectoryLength = trajectory.size();
-        rover.powerCheck(trajectoryLength * powerConsumptionPerUnit);
+
+        trajectoryValid = (trajectoryLength > 1) ? (trajectory.get(trajectoryLength - 1).equals(destination)) :
+                trajectory.get(0).equals(destination);
+
+        if (trajectoryValid) {
+            rover.powerCheck(trajectoryLength * powerConsumptionPerUnit);
+        }
     }
 }

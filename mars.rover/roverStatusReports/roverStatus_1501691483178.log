@@ -1,0 +1,4587 @@
+0    [main] INFO  space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=350,y=250]
+1007 [main] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2010 [main] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+3336 [main] INFO  space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+4344 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+5348 [main] INFO  space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 10000 auxiliaryPowerUnits = 1000 alertThreshold: 100 rechargeTime = 60000
+6354 [main] INFO  space.exploration.mars.rover.kernel.Rover  - Battery Monitor configured!
+6623 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6646 [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+6646 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6647 [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+6647 [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+6647 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6647 [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+6684 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6684 [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+6684 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6684 [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover
+6684 [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+6684 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6684 [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+11715 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Connecting to zookeeper instance at localhost:2181
+11726 [ZkClient-EventThread-23-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+16750 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+16750 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=10.36.201.7
+16750 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_121
+16750 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+16750 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+16750 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/lib/tools.jar:/Users/sanketkorgaonkar/Documents/workspace/space.exploration/mars.rover/target/classes:/Users/sanketkorgaonkar/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/Users/sanketkorgaonkar/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/Users/sanketkorgaonkar/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/Users/sanketkorgaonkar/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/Users/sanketkorgaonkar/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/Users/sanketkorgaonkar/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/Users/sanketkorgaonkar/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/Users/sanketkorgaonkar/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/Users/sanketkorgaonkar/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/Users/sanketkorgaonkar/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/sanketkorgaonkar/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/Users/sanketkorgaonkar/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/Users/sanketkorgaonkar/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/Users/sanketkorgaonkar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/var/folders/5h/gwr26fh90zs2zgrhjqr0pm1r0000gn/T/
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Mac OS X
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=x86_64
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=10.12.5
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanketkorgaonkar
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/Users/sanketkorgaonkar
+16752 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/Users/sanketkorgaonkar/Documents/workspace/space.exploration/mars.rover
+16753 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@2473d930
+16775 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+16779 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
+16822 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/0:0:0:0:0:0:0:1:2181, initiating session
+16837 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, sessionid = 0x15d5bd1e653022c, negotiated timeout = 6000
+16839 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+16847 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], starting auto committer every 60000 ms
+16867 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], begin registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 in ZK
+16889 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 (is it secure? false)
+16902 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+16902 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], end registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 in ZK
+16906 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], starting watcher executor thread for consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900
+16921 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+17005 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1501691503533] Stopping leader finder thread
+17005 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1501691503533] Stopping all fetchers
+17006 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1501691503533] All connections stopped
+17006 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Cleared all relevant queues for this fetcher
+17007 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Cleared the data chunks in all the consumer message iterators
+17009 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Committing all offsets after clearing the fetcher queues
+17011 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Releasing partition ownership
+17032 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_3 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0)
+17033 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0 attempting to claim partition 0
+17057 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0 successfully owned partition 0 for topic secure_com_from_earth_channel_3
+17071 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 selected partitions : secure_com_from_earth_channel_3:0: fetched offset = 407: consumed offset = 407
+17073 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread], Starting 
+17074 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+17081 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+17081 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+17082 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.7:9092
+17082 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+17094 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.7,9092) with correlation id 0 for 1 topic(s) Set(secure_com_from_earth_channel_3)
+17102 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+17128 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+17164 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0-0], Starting 
+17166 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1501691503533] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_3,0], initOffset 407 to broker BrokerEndPoint(0,10.36.201.7,9092)] )
+17853 [main] INFO  space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+metadata.broker.list::localhost:9092
+source.topic::secure_com_from_earth_channel_3
+auto.offset.reset::largest
+group.id::space.exploration.mars.rover
+destination.topic::secure_com_to_earth_channel_3
+zookeeper.connect::localhost:2181
+18857 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+35352 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691522040
+45923 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+45923 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+45924 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+45937 [main] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+58044 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501691544688
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9999
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9999
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+65349 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691552037
+95350 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691582038
+117994 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501691604680
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9998
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9998
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+125350 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691612038
+155346 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691642034
+177988 [pool-1-thread-2] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501691664675
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9997
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9997
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+185345 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691672033
+215345 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691702033
+237993 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501691724675
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9996
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9996
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+245345 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691732033
+275341 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691762029
+297984 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501691784671
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9995
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9995
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+305343 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691792031
+335339 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691822027
+356275 [pool-1-thread-2] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501691842962
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9994
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9994
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+363628 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691850316
+393629 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691880317
+416269 [pool-1-thread-4] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501691902956
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9993
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9993
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+423627 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691910315
+453624 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691940312
+476270 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501691962954
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9992
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9992
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+483624 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501691970312
+513619 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692000307
+536264 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692022950
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9991
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9991
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+543623 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692030311
+573622 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692060310
+596264 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692082951
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9990
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9990
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+603621 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692090309
+633618 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692120306
+656264 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692142950
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9989
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9989
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+663615 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692150303
+673616 [pool-1-thread-3] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 23 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+673618 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+673619 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+673620 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+673621 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+693617 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692180305
+716259 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692202946
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9988
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9988
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+723614 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692210302
+753615 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692240303
+776258 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692262945
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9987
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9987
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+783612 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692270300
+813608 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692300296
+836255 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692322942
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9986
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9986
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+843611 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692330299
+873615 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692360303
+896257 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692382944
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9985
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9985
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+903611 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692390299
+933613 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692420301
+956257 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692442944
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9984
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9984
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+963606 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692450294
+993609 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692480297
+1016255 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692502942
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9983
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9983
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+1023602 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692510290
+1053605 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692540292
+1076248 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692562934
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9982
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9982
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+1083603 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692570291
+1113599 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692600287
+1136250 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692622937
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9981
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9981
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+1143604 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692630292
+1173603 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692660291
+1196247 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501692682934
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9980
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9980
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+1203599 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501692690287
+4798676 [pool-1-thread-3] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 42 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+4798678 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+4798678 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+4798678 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+4798679 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+4798739 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 3595146ms for sessionid 0x15d5bd1e653022c, closing socket connection and attempting reconnect
+4798852 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+4799193 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+4799194 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+4799196 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15d5bd1e653022c, negotiated timeout = 6000
+4799196 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+4826736 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501696313424
+4849376 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501696336063
+solNumber: 3
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9979
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9979
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6393312 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 1543974ms for sessionid 0x15d5bd1e653022c, closing socket connection and attempting reconnect
+6393416 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+6393886 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
+6393886 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/0:0:0:0:0:0:0:1:2181, initiating session
+6393887 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Expired)
+6393887 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Unable to reconnect to ZooKeeper service, session 0x15d5bd1e653022c has expired, closing socket connection
+6394468 [main-EventThread] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@2473d930
+6394471 [main-EventThread] INFO  org.apache.zookeeper.ClientCnxn  - EventThread shut down
+6394471 [ZkClient-EventThread-23-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], ZK expired; release old broker parition ownership; re-register consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900
+6394471 [ZkClient-EventThread-23-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], begin registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 in ZK
+6394471 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
+6394472 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/0:0:0:0:0:0:0:1:2181, initiating session
+6394472 [ZkClient-EventThread-23-localhost:2181] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover/ids/space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 (is it secure? false)
+6394482 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, sessionid = 0x15d5bd1e653022e, negotiated timeout = 6000
+6394482 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+6394492 [ZkClient-EventThread-23-localhost:2181] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+6394492 [ZkClient-EventThread-23-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], end registering consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 in ZK
+6394492 [ZkClient-EventThread-23-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+6394508 [ZkClient-EventThread-23-localhost:2181] WARN  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], no brokers found when trying to rebalance.
+6394511 [ZkClient-EventThread-23-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+6394514 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+6394516 [ZkClient-EventThread-23-localhost:2181] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Topic info for path /brokers/topics/secure_com_from_earth_channel_3 changed to {"version":1,"partitions":{"0":[0]}}, triggering rebalance
+6394522 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] WARN  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], no brokers found when trying to rebalance.
+6394534 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+6394535 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+6394541 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] WARN  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], no brokers found when trying to rebalance.
+6394542 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+6398227 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501697884915
+6403002 [pool-1-thread-3] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 45 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+6403002 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+6403003 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+6403004 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+6403005 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+6404592 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], begin rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+6404608 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1501691503533] Stopping leader finder thread
+6404608 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread], Shutting down
+6404609 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread], Stopped 
+6404609 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread], Shutdown completed
+6404609 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1501691503533] Stopping all fetchers
+6404609 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0-0], Shutting down
+6404612 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0-0], Stopped 
+6404612 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0-0], Shutdown completed
+6404612 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1501691503533] All connections stopped
+6404612 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Cleared all relevant queues for this fetcher
+6404612 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Cleared the data chunks in all the consumer message iterators
+6404612 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Committing all offsets after clearing the fetcher queues
+6404613 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Releasing partition ownership
+6404621 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 rebalancing the following partitions: ArrayBuffer(0) for topic secure_com_from_earth_channel_3 with consumers: List(space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0)
+6404621 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0 attempting to claim partition 0
+6404622 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0 successfully owned partition 0 for topic secure_com_from_earth_channel_3
+6404623 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], Consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 selected partitions : secure_com_from_earth_channel_3:0: fetched offset = 407: consumed offset = 407
+6404623 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900], end rebalancing consumer space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900 try #0
+6404623 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread], Starting 
+6404627 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6404628 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover
+6404628 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to 10.36.201.7:9092
+6404628 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+6404628 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,10.36.201.7,9092) with correlation id 1 for 1 topic(s) Set(secure_com_from_earth_channel_3)
+6404628 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+6404629 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+6404630 [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-0-0], Starting 
+6404630 [space.exploration.mars.rover_Sankets-MacBook-Pro.local-1501691498401-82774900-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1501691503533] Added fetcher for partitions ArrayBuffer([[secure_com_from_earth_channel_3,0], initOffset 407 to broker BrokerEndPoint(0,10.36.201.7,9092)] )
+6428224 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501697914912
+6450864 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501697937551
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9978
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9978
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6458224 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501697944912
+6488225 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501697974913
+6510863 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501697997550
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9977
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9977
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6518221 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698004909
+6548214 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698034902
+6570860 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698057548
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9976
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9976
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6578216 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698064904
+6608216 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698094904
+6630859 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698117546
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9975
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9975
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6638214 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698124902
+6668215 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698154903
+6690857 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698177544
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9974
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9974
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6698209 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698184897
+6728208 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698214896
+6750856 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698237543
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9973
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9973
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6758207 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698244895
+6788210 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698274898
+6810852 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698297540
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9972
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9972
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6818206 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698304894
+6848203 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698334891
+6870851 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698357539
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9971
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9971
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6878206 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698364894
+6908201 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698394889
+6930849 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698417536
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9970
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9970
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6938200 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698424888
+6968201 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698454889
+6990846 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698477533
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9969
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9969
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+6998197 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698484885
+7010464 [pool-1-thread-3] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 66 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+7010468 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+7010469 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+7010469 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+7010470 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+7028201 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698514889
+7050843 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698537531
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9968
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9968
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7058196 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698544884
+7088198 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698574886
+7110841 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698597528
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9967
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9967
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7118200 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698604888
+7148199 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698634887
+7170839 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698657526
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9966
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9966
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7178197 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698664885
+7208198 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698694886
+7230841 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698717528
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9965
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9965
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7238195 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698724883
+7268196 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698754884
+7290839 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698777526
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9964
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9964
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7298193 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698784881
+7328192 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698814880
+7350836 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698837523
+solNumber: 4
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9963
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9963
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7358192 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698844880
+7388190 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698874878
+7410832 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698897519
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9962
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9962
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7418188 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698904876
+7448188 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698934876
+7470824 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501698957511
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9961
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9961
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7478182 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698964870
+7508183 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501698994871
+7530825 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699017512
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9960
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9960
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7538177 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699024865
+7568177 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699054865
+7590820 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699077507
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9959
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9959
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7598179 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699084867
+7618661 [pool-1-thread-3] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 87 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+7618662 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+7618663 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+7618663 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+7618664 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+7628179 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699114867
+7650820 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699137508
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9958
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9958
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7658177 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699144865
+7688176 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699174864
+7710820 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699197507
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9957
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9957
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7718173 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699204861
+7748169 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699234857
+7770818 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699257505
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9956
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9956
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7778173 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699264861
+7808167 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699294855
+7830813 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699317501
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9955
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9955
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7838170 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699324858
+7868166 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699354854
+7890813 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699377500
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9954
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9954
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7898165 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699384853
+7928163 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699414851
+7950810 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699437498
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9953
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9953
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+7958162 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699444850
+7988165 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699474853
+8010807 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699497495
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9952
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9952
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8018161 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699504849
+8048159 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699534846
+8070806 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699557493
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9951
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9951
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8078157 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699564845
+8108156 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699594844
+8130802 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699617489
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9950
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9950
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8138154 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699624842
+8168155 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699654843
+8190800 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699677487
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9949
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9949
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8198159 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699684847
+8228154 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699714842
+8250799 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699737486
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9948
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9948
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8258149 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699744837
+8266322 [pool-1-thread-5] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 110 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+8266324 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+8266325 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+8266325 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+8266326 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+8288148 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699774836
+8310794 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699797481
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9947
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9947
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8318148 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699804836
+8348149 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699834837
+8370793 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699857480
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9946
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9946
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8378148 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699864836
+8408147 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699894835
+8430790 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501699917478
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9945
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9945
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8438146 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699924834
+8468142 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699954830
+8490797 [pool-1-thread-5] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1501699899890
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+8490798 [pool-1-thread-5] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=350,y=250]
+8490838 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8490838 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8490838 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8490838 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8490838 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8490838 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8498145 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501699984833
+8500334 [Thread-4] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=137,y=562]
+8500370 [Thread-5] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=137,y=562]
+8502015 [Thread-6] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=217,y=403]
+8502049 [Thread-7] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=217,y=403]
+8502333 [Thread-8] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=190,y=403]
+8502369 [Thread-9] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=190,y=403]
+8503668 [Thread-10] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=243,y=350]
+8503704 [Thread-11] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=243,y=350]
+8503741 [Thread-12] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=243,y=350]
+8513710 [Thread-13] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=615,y=137]
+8515187 [Thread-14] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=509,y=296]
+8515258 [Thread-15] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=509,y=296]
+8526048 [Thread-16] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=137,y=562]
+8526084 [Thread-17] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=137,y=562]
+8527726 [Thread-18] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=217,y=403]
+8527762 [Thread-19] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=217,y=403]
+8528040 [Thread-20] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=190,y=403]
+8528076 [Thread-21] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=190,y=403]
+8528140 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700014828
+8529370 [Thread-22] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=243,y=350]
+8529403 [Thread-23] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=243,y=350]
+8529438 [Thread-24] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=243,y=350]
+8539443 [Thread-25] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=615,y=137]
+8540918 [Thread-26] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=509,y=296]
+8540989 [Thread-27] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=509,y=296]
+8542310 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8542310 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8542310 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8542310 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8542310 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8542310 [pool-1-thread-5] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+8558139 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700044827
+8562571 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700049258
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9942
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9924
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8580930 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700067617
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9941
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9923
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8588137 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700074825
+8610785 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700097472
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9940
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9922
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8618136 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700104824
+8648139 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700134827
+8670782 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700157470
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9939
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9921
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8678138 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700164825
+8708137 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700194825
+8730781 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700217468
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9938
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9920
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8738133 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700224821
+8768134 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700254822
+8790777 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700277464
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9937
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9919
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8798133 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700284821
+8828129 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700314817
+8850776 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700337463
+solNumber: 5
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9936
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9918
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8858128 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700344816
+8888957 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700375645
+8911600 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700398288
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9935
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9917
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8918959 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700405647
+8927590 [pool-1-thread-5] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 135 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+8927591 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+8927592 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+8927592 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+8927593 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+8948955 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700435643
+8971599 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700458286
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9934
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9916
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+8978954 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700465642
+9008957 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700495645
+9031600 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700518288
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9933
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9915
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9038954 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700525642
+9068953 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700555641
+9091598 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700578285
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9932
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9914
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9098949 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700585637
+9128951 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700615639
+9151596 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700638283
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9931
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9913
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9158951 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700645639
+9188947 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700675635
+9211593 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700698280
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9930
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9912
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9218947 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700705635
+9248943 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700735631
+9271590 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700758277
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9929
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9911
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9278944 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700765632
+9308941 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700795629
+9331587 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700818275
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9928
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9910
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9338941 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700825629
+9368941 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700855629
+9391586 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700878273
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9927
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9909
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9398938 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700885626
+9428943 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700915631
+9451585 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700938273
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9926
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9908
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9458940 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700945628
+9488941 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501700975629
+9511582 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501700998270
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9925
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9907
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9518936 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701005624
+9548933 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701035621
+9571579 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701058266
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9924
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9906
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9578935 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701065623
+9598802 [pool-1-thread-5] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 158 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+9598804 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+9598805 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+9598806 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+9598807 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+9608934 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701095621
+9631577 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701118264
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9923
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9905
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9638928 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701125616
+9668928 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701155616
+9691575 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701178262
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9922
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9904
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9698926 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701185614
+9728925 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701215613
+9751573 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701238260
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9921
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9903
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9758926 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701245614
+9788923 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701275611
+9811570 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701298258
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9920
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9902
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9818921 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701305609
+9848924 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701335612
+9871567 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701358254
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9919
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9901
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9878920 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701365608
+9908922 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701395610
+9931565 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701418252
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9918
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9900
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9938921 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701425609
+9968919 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701455607
+9991563 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701478251
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9917
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9899
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+9998914 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701485602
+10028915 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701515603
+10051560 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701538247
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9916
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9898
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10058916 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701545604
+10088914 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701575602
+10111555 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701598242
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9915
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9897
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10118911 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701605599
+10148910 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701635598
+10171555 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701658243
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9914
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9896
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10178910 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701665598
+10208906 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701695594
+10231553 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701718240
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9913
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9895
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10238909 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701725597
+10244291 [pool-1-thread-5] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 181 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+10244292 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+10244293 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+10244293 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+10244294 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+10268908 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701755596
+10291551 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701778238
+solNumber: 6
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9912
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9894
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10298905 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701785593
+10328904 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701815592
+10351550 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701838237
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9911
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9893
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10358900 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701845588
+10388903 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701875591
+10411544 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701898231
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9910
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9892
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10418901 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701905589
+10448901 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701935589
+10471540 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501701958227
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9909
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9891
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10478898 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701965586
+10508896 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501701995584
+10531538 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702018225
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9908
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9890
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10538894 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702025582
+10568896 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702055584
+10591538 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702078225
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9907
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9889
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10598896 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702085584
+10628890 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702115578
+10651538 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702138225
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9906
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9888
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10658891 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702145579
+10688888 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702175576
+10711536 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702198223
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9905
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9887
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10718889 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702205577
+10748886 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702235574
+10771532 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702258220
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9904
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9886
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10778885 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702265573
+10808886 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702295574
+10831527 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702318215
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9903
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9885
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10838887 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702325575
+10846364 [pool-1-thread-5] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 202 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+10846366 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+10846366 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+10846367 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+10846368 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+10868881 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702355569
+10891526 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702378213
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9902
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9884
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10898880 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702385568
+10928880 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702415568
+10951525 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702438213
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9901
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9883
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+10958881 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702445569
+10988878 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702475566
+11011520 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702498208
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9900
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9882
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11018877 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702505565
+11048875 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702535563
+11071521 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702558209
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9899
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9881
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11078875 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702565563
+11108875 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702595563
+11131517 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702618204
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9898
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9880
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11138872 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702625560
+11168874 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702655562
+11191515 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702678202
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9897
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9879
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11198868 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702685556
+11228869 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702715557
+11251515 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702738202
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9896
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9878
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11258869 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702745557
+11288867 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702775555
+11311512 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702798199
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9895
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9877
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11318867 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702805555
+11348865 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702835553
+11371509 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702858196
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9894
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9876
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11378864 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702865552
+11408863 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702895551
+11431505 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702918192
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9893
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9875
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11438859 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702925547
+11448760 [pool-1-thread-5] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 223 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+11448761 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+11448762 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+11448762 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+11448763 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+11468860 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702955548
+11491504 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501702978191
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9892
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9874
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11498856 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501702985544
+11528857 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703015545
+11551502 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703038190
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9891
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9873
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11558854 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703045542
+11588854 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703075542
+11611497 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703098185
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9890
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9872
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11618856 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703105544
+11648855 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703135543
+11671497 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703158184
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9889
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9871
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11678853 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703165541
+11708848 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703195536
+11731497 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703218184
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9888
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9870
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11738848 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703225536
+11768849 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703255537
+11791494 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703278182
+solNumber: 7
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9887
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9869
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11798850 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703285538
+11828848 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703315536
+11851492 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703338179
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9886
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9868
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11858847 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703345535
+11888842 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703375530
+11911488 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703398176
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9885
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9867
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11918847 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703405535
+11948845 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703435533
+11971488 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703458176
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9884
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9866
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+11978847 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703465535
+12008847 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703495535
+12031490 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703518177
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9883
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9865
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+12038839 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703525527
+12068836 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703555524
+12091483 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703578171
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9882
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9864
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+12098837 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703585525
+12117893 [pool-1-thread-5] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 246 for 1 topic(s) Set(secure_com_to_earth_channel_3)
+12117896 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+12117896 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+12117896 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Disconnecting from 10.36.201.7:9092
+12117897 [pool-1-thread-5] INFO  kafka.producer.SyncProducer  - Connected to 10.36.201.7:9092 for producing
+12128837 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703615525
+12151480 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703638167
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9881
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9863
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+12158832 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703645520
+12188834 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703675522
+12211477 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703698164
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9880
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9862
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+12218834 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703705522
+12248831 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703735519
+12271474 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703758162
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9879
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9861
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+12278830 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703765518
+12308827 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703795515
+12331471 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703818158
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9878
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9860
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+12338827 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703825515
+12368824 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703855512
+12391472 [pool-1-thread-5] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1501703878159
+solNumber: 8
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9877
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9859
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+12398827 [pool-2-thread-3] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1501703885515

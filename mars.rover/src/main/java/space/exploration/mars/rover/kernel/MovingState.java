@@ -70,7 +70,13 @@ public class MovingState implements State {
         }
 
         PropulsionUnit powerTran = new PropulsionUnit(rover, robotPosition, new java.awt.Point(destination.getX(),
-                                                                                               destination.getY()));
+                destination.getY()));
+
+        if (!powerTran.isTrajectoryValid()) {
+            logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
+                    .getLocation().toString() + " and " + destination.toString());
+            return;
+        }
 
         architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(powerTran.getTrajectory
                 (), architect.getRobotStepSize()));
