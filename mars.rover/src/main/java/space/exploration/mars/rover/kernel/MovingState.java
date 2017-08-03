@@ -79,13 +79,13 @@ public class MovingState implements State {
     }
 
     private boolean isDestinationValid(java.awt.Point destination) {
-        boolean     valid       = false;
+        boolean     invalid     = false;
         WallBuilder wallBuilder = new WallBuilder(rover.getMarsConfig());
         for (Wall wall : wallBuilder.getWalls()) {
-            valid = (valid || wall.intersects(destination));
+            invalid = (invalid || wall.intersects(destination));
         }
 
-        return valid;
+        return !invalid;
     }
 
     private void sendUpdateToEarth() {

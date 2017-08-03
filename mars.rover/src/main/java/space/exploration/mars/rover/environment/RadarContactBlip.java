@@ -33,38 +33,38 @@ public class RadarContactBlip extends Thread {
             if (blipSound) {
                 (new BlipSound()).start();
             }
-            Thread.sleep(700);
+            Thread.sleep(900);
             contentPane.remove(contact);
 
             contact.setColor(RadarContactCell.BLIP_COLOR);
             contact.reduceContactDiameter();
             contentPane.add(contact, new Integer(contactDepth));
-            Thread.sleep(300);
+            Thread.sleep(500);
 
             contentPane.remove(contact);
 
             contact.setColor(RadarContactCell.BLIP_COLOR.darker());
             contact.reduceContactDiameter();
             contentPane.add(contact, new Integer(contactDepth));
-            Thread.sleep(100);
-            contentPane.remove(contact);
-
-            contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
-            contact.reduceContactDiameter();
-            contentPane.add(contact, new Integer(contactDepth));
-            Thread.sleep(200);
-            contentPane.remove(contact);
-
-            contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
-            contact.reduceContactDiameter();
-            contact.reduceContactDiameter();
-            contentPane.add(contact, new Integer(contactDepth));
             Thread.sleep(300);
+            contentPane.remove(contact);
+
+            contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
+            contact.reduceContactDiameter();
+            contentPane.add(contact, new Integer(contactDepth));
+            Thread.sleep(400);
+            contentPane.remove(contact);
+
+            contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
+            contact.reduceContactDiameter();
+            contact.reduceContactDiameter();
+            contentPane.add(contact, new Integer(contactDepth));
+            Thread.sleep(500);
             contentPane.remove(contact);
 
             contact.setColor(Color.darkGray);
             contentPane.add(contact, new Integer(contactDepth));
-            Thread.sleep(450);
+            Thread.sleep(650);
 
             contentPane.remove(contact);
             contact.setContactDiameter(8);
