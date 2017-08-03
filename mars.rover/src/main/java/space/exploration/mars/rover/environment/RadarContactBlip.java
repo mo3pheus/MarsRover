@@ -34,60 +34,42 @@ public class RadarContactBlip extends Thread {
                 (new BlipSound()).start();
             }
             Thread.sleep(700);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        contentPane.remove(contact);
+            contentPane.remove(contact);
 
-        contact.setColor(RadarContactCell.BLIP_COLOR);
-        contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth));
-        try {
+            contact.setColor(RadarContactCell.BLIP_COLOR);
+            contact.reduceContactDiameter();
+            contentPane.add(contact, new Integer(contactDepth));
             Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        contentPane.remove(contact);
 
-        contact.setColor(RadarContactCell.BLIP_COLOR.darker());
-        contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth));
-        try {
+            contentPane.remove(contact);
+
+            contact.setColor(RadarContactCell.BLIP_COLOR.darker());
+            contact.reduceContactDiameter();
+            contentPane.add(contact, new Integer(contactDepth));
             Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        contentPane.remove(contact);
+            contentPane.remove(contact);
 
-        contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
-        contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth));
-        try {
+            contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
+            contact.reduceContactDiameter();
+            contentPane.add(contact, new Integer(contactDepth));
             Thread.sleep(200);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        contentPane.remove(contact);
+            contentPane.remove(contact);
 
-        contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
-        contact.reduceContactDiameter();
-        contact.reduceContactDiameter();
-        contentPane.add(contact, new Integer(contactDepth));
-        try {
+            contact.setColor(EnvironmentUtils.findColor("darkOliveGreen"));
+            contact.reduceContactDiameter();
+            contact.reduceContactDiameter();
+            contentPane.add(contact, new Integer(contactDepth));
             Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        contentPane.remove(contact);
+            contentPane.remove(contact);
 
-        contact.setColor(Color.darkGray);
-        contentPane.add(contact, new Integer(contactDepth));
-        try {
+            contact.setColor(Color.darkGray);
+            contentPane.add(contact, new Integer(contactDepth));
             Thread.sleep(450);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+            contentPane.remove(contact);
+            contact.setContactDiameter(8);
+        } catch (Exception e) {
+            logger.error("Radar Contact Blip animation error", e);
         }
-        contentPane.remove(contact);
-        contact.setContactDiameter(8);
     }
 }
