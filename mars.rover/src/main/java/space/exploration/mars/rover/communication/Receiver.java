@@ -24,7 +24,7 @@ import java.util.Properties;
 public class Receiver extends Thread {
     public final static int    RECEIVER_POWER_USAGE = 20;
     public final static String clientId             = "Curiosity";
-    public final static String TUNED_CHANNEL        = "secure_com_from_earth_channel_3";
+    public final static String TUNED_CHANNEL        = "earth_to_curiosity_0";
 
     private ConsumerConnector consumerConnector = null;
     private Radio             radio             = null;

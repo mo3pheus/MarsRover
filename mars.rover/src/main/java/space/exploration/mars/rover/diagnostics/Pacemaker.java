@@ -18,9 +18,10 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 5/15/17.
  */
 public class Pacemaker {
-    private ScheduledExecutorService      scheduler = null;
-    private Rover                         rover     = null;
-    private HeartBeatOuterClass.HeartBeat heartBeat = null;
+    private static final int                           MAX_PENDING_MSGS = 15;
+    private              ScheduledExecutorService      scheduler        = null;
+    private              Rover                         rover            = null;
+    private              HeartBeatOuterClass.HeartBeat heartBeat        = null;
 
     private Logger logger = LoggerFactory.getLogger(Pacemaker.class);
 
@@ -33,6 +34,11 @@ public class Pacemaker {
         Runnable heart = new Runnable() {
             @Override
             public void run() {
+                if (rover.getInstructionQueue().size() >= MAX_PENDING_MSGS) {
+                    rover.bootUp(true);
+                    return;
+                }
+
                 rover.powerCheck(1);
                 if (rover.getState() == rover.getHibernatingState()) {
                     return;

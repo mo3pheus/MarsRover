@@ -1,0 +1,2346 @@
+0    [main] INFO  space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=350,y=250]
+1006 [main] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2009 [main] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+3483 [main] INFO  space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+4487 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+5490 [main] INFO  space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 10000 auxiliaryPowerUnits = 1000 alertThreshold: 100 rechargeTime = 60000
+6493 [main] INFO  space.exploration.mars.rover.kernel.Rover  - Battery Monitor configured!
+6713 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6732 [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+6732 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6732 [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+6733 [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+6733 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6733 [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+6761 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6761 [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+6762 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6762 [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+6762 [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+6762 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6762 [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+6781 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], Connecting to zookeeper instance at localhost:2181
+6789 [ZkClient-EventThread-22-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+6794 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+6794 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+6794 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+6794 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+6794 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+6794 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/sanket/Documents/workspace/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/home/sanket/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/home/sanket/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/lib/idea_rt.jar
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin::/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-28-generic
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+6795 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@6f96c77
+6804 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+6807 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+6810 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+6816 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15dce0f34340025, negotiated timeout = 6000
+6817 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+6824 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], starting auto committer every 60000 ms
+6840 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792 in ZK
+6857 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792 (is it secure? false)
+6865 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+6865 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], end registering consumer space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792 in ZK
+6869 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792
+6885 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792 try #0
+6970 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1502529501072] Stopping leader finder thread
+6970 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1502529501072] Stopping all fetchers
+6971 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1502529501072] All connections stopped
+6971 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], Cleared all relevant queues for this fetcher
+6972 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], Cleared the data chunks in all the consumer message iterators
+6972 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], Committing all offsets after clearing the fetcher queues
+6973 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], Releasing partition ownership
+7012 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_0 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-0)
+7016 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-0 attempting to claim partition 0
+7061 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-0 successfully owned partition 0 for topic earth_to_curiosity_0
+7091 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], Consumer space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792 selected partitions : earth_to_curiosity_0:0: fetched offset = 521: consumed offset = 521
+7093 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792 try #0
+7096 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread], Starting 
+7104 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+7105 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+7105 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+7105 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+7144 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_0)
+7147 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+7155 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+7170 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-0-0], Starting 
+7172 [space.exploration.mars.newRover_zion-mainframe-1502529501030-8becb792-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1502529501072] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_0,0], initOffset 521 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+7233 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio lifeSpan has ended.
+7825 [main] INFO  space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+metadata.broker.list::localhost:9092
+source.topic::earth_to_curiosity_0
+auto.offset.reset::largest
+group.id::space.exploration.mars.newRover
+destination.topic::curiosity_to_earth_0
+zookeeper.connect::localhost:2181
+8827 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+35493 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529529743
+35681 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(curiosity_to_earth_0)
+35682 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+35685 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+35713 [main] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+58057 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502529552253
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9999
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9999
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+65493 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529559743
+95493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529589743
+117017 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502529588881
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+118018 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+118020 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=325,y=225] Composition =  Point = java.awt.Point[x=325,y=225] Composition =  Al2O3 = 0.6132867314240896 Na2O = 0.5902809804085732 FeO = 0.32005801219997365 MgO = 0.316733938424426
+118020 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=325,y=250] Composition =  Point = java.awt.Point[x=325,y=250] Composition =  Al2O3 = 0.02007047363173662 Na2O = 0.2767297213834592 FeO = 0.727971044000042 MgO = 0.5753124678521878
+118020 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=325,y=275] Composition =  Point = java.awt.Point[x=325,y=275] Composition =  Al2O3 = 0.29601050984844557 Na2O = 0.48791335112894174 FeO = 0.1850702262028655 MgO = 0.5770422488772169
+118021 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=350,y=225] Composition =  Point = java.awt.Point[x=350,y=225] Composition =  Al2O3 = 0.033343226798452544 Na2O = 0.05568640666311913 FeO = 0.4893000315604962 MgO = 0.06658299580062436
+118021 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=350,y=250] Composition =  Point = java.awt.Point[x=350,y=250] Composition =  Al2O3 = 0.05441515418843377 Na2O = 0.3251192221189972 FeO = 0.28164391517073367 MgO = 0.057461834081339896
+118021 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=350,y=275] Composition =  Point = java.awt.Point[x=350,y=275] Composition =  Al2O3 = 0.7155389885561517 Na2O = 0.40373151322297435 FeO = 0.2799079528188724 MgO = 0.7386282948513718
+118021 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=375,y=225] Composition =  Point = java.awt.Point[x=375,y=225] Composition =  Al2O3 = 0.19945266908083498 Na2O = 0.19905267709737837 FeO = 0.794905559160955 MgO = 0.34422250524725073
+118021 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=375,y=250] Composition =  Point = java.awt.Point[x=375,y=250] Composition =  Al2O3 = 0.06652727702619403 Na2O = 0.5591560953691534 FeO = 0.7023577657599044 MgO = 0.4627293009061149
+118022 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=375,y=275] Composition =  Point = java.awt.Point[x=375,y=275] Composition =  Al2O3 = 0.022472146893498482 Na2O = 0.6017133806220921 FeO = 0.07892215338371918 MgO = 0.6042521486382624
+125493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529619743
+155493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529649743
+178000 [pool-1-thread-2] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502529672244
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9996
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 999
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9952
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+185493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529679743
+201759 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502529670632
+targets {
+  estimatedPowerUsage: 20
+  action: "ScanArea"
+}
+
+202760 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+202762 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Wallbuilder set for lidar
+202763 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  -  Scanning at location = java.awt.Point[x=350,y=250] Length of contacts  = 0
+215493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529709743
+237999 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502529732244
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9993
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 999
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 999
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9926
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+245493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529739743
+275493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529769743
+279991 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502529752139
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\333\003\020\302\003"
+}
+
+280005 [Thread-2] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 475
+y: 450
+
+280006 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 475
+y: 450
+
+305493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529799743
+335493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529829743
+365493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529859743
+395493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529889743
+418005 [pool-1-thread-4] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502529833659
+targets {
+  estimatedPowerUsage: 20
+  action: "ScanArea"
+}
+
+419007 [pool-1-thread-4] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+419008 [pool-1-thread-4] INFO  space.exploration.mars.rover.sensor.Lidar  - Wallbuilder set for lidar
+419008 [pool-1-thread-4] INFO  space.exploration.mars.rover.sensor.Lidar  -  Scanning at location = java.awt.Point[x=350,y=250] Length of contacts  = 0
+425493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529919743
+440491 [pool-1-thread-4] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502529934729
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9989
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 998
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 999
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9858
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+455493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529949743
+477995 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502529915164
+targets {
+  estimatedPowerUsage: 20
+  action: "ScanArea"
+}
+
+478997 [pool-1-thread-1] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+478998 [pool-1-thread-1] INFO  space.exploration.mars.rover.sensor.Lidar  - Wallbuilder set for lidar
+478998 [pool-1-thread-1] INFO  space.exploration.mars.rover.sensor.Lidar  -  Scanning at location = java.awt.Point[x=350,y=250] Length of contacts  = 0
+485493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502529979743
+504247 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502529998493
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9986
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 999
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9832
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+515493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530009743
+519022 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502529996673
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\b\305\002\020K"
+}
+
+519023 [Thread-2] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 325
+y: 75
+
+519164 [Thread-2] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502530013414 source = java.awt.Point[x=350,y=250] destination = java.awt.Point[x=325,y=75]
+519316 [Thread-2] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 188123
+545493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530039743
+575493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530069743
+597997 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530092244
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9983
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 999
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9700
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 325
+  y: 75
+}
+
+605493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530099743
+635493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530129743
+657995 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530078179
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+658996 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+658996 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=300,y=50] Composition =  Point = java.awt.Point[x=300,y=50] Composition =  Al2O3 = 0.20959574441075848 Na2O = 0.7318120429337833 FeO = 0.728776027910147 MgO = 0.2633015717893957
+658997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=300,y=75] Composition =  Point = java.awt.Point[x=300,y=75] Composition =  Al2O3 = 2.946525483937812E-4 Na2O = 0.240642260464894 FeO = 0.2622256976496013 MgO = 0.7255486572863923
+658997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=300,y=100] Composition =  Point = java.awt.Point[x=300,y=100] Composition =  Al2O3 = 0.11245649170005817 Na2O = 0.3428536325148084 FeO = 0.6527267753113446 MgO = 0.4524198130274184
+658997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=325,y=50] Composition =  Point = java.awt.Point[x=325,y=50] Composition =  Al2O3 = 0.6847609867494919 Na2O = 0.40083964579659787 FeO = 0.6291366839206236 MgO = 0.40345272832587215
+658998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=325,y=75] Composition =  Point = java.awt.Point[x=325,y=75] Composition =  Al2O3 = 0.03383211642734523 Na2O = 0.27006940442763566 FeO = 0.7297116851198918 MgO = 0.28216353271430256
+658998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=325,y=100] Composition =  Point = java.awt.Point[x=325,y=100] Composition =  Al2O3 = 0.30137194129606426 Na2O = 0.43016994939773445 FeO = 0.6154007865719167 MgO = 0.21973413444506928
+658998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=350,y=50] Composition =  Point = java.awt.Point[x=350,y=50] Composition =  Al2O3 = 0.6473690305623497 Na2O = 0.07027837488983933 FeO = 0.132644818300148 MgO = 0.6061099853816084
+658998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=350,y=75] Composition =  Point = java.awt.Point[x=350,y=75] Composition =  Al2O3 = 0.772496330034365 Na2O = 0.7321466908999564 FeO = 0.43843580405093246 MgO = 0.12768566624801841
+658998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=350,y=100] Composition =  Point = java.awt.Point[x=350,y=100] Composition =  Al2O3 = 0.5230325818424192 Na2O = 0.030136589195218912 FeO = 0.6159111897682757 MgO = 0.6002311604090493
+665493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530159743
+692961 [pool-1-thread-3] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 25 for 1 topic(s) Set(curiosity_to_earth_0)
+692963 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+692965 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+692966 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+692969 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+695493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530189743
+717997 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530159684
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 10
+  action: "ClickCamera"
+}
+
+721019 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.PhotographingState  - SCET: 1502530215268
+location {
+  x: 325
+  y: 75
+}
+batteryLevel: 9623
+moduleReporting: 8
+notes: "Camera wasn\'t able to take a shot. Sorry earth!"
+
+725493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530219743
+742057 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530236304
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9978
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 999
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 998
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9623
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 325
+  y: 75
+}
+
+755493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530249743
+777995 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530241191
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\bK\020\361\004"
+}
+
+777996 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 75
+y: 625
+
+778098 [pool-1-thread-3] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502530272348 source = java.awt.Point[x=325,y=75] destination = java.awt.Point[x=75,y=625]
+778291 [pool-1-thread-3] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 347986
+785493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530279743
+815493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530309743
+826725 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530320968
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9975
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 999
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 998
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9252
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 75
+  y: 625
+}
+
+845493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530339743
+845594 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530339840
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9974
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 999
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 998
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9251
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 75
+  y: 625
+}
+
+875493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530369743
+897995 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530322707
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+898996 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+898996 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=50,y=600] Composition =  Point = java.awt.Point[x=50,y=600] Composition =  Al2O3 = 0.44014169344232895 Na2O = 0.7693932278724751 FeO = 0.7303039527179526 MgO = 0.5851121886698919
+898997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=50,y=625] Composition =  Point = java.awt.Point[x=50,y=625] Composition =  Al2O3 = 0.6386998952825091 Na2O = 0.6354902603404008 FeO = 0.26421296166838854 MgO = 0.6366305536551877
+898997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=50,y=650] Composition =  Point = java.awt.Point[x=50,y=650] Composition =  Al2O3 = 0.4085428934951916 Na2O = 0.7980936349721643 FeO = 0.3999546164636063 MgO = 0.03660072516216335
+898997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=75,y=600] Composition =  Point = java.awt.Point[x=75,y=600] Composition =  Al2O3 = 0.3886507746107804 Na2O = 0.7850483568301935 FeO = 0.6349628187147167 MgO = 0.12653722034193998
+898997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=75,y=625] Composition =  Point = java.awt.Point[x=75,y=625] Composition =  Al2O3 = 0.24133580775513652 Na2O = 0.4077606367499222 FeO = 0.5583026984827465 MgO = 0.3180351016613446
+898998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=75,y=650] Composition =  Point = java.awt.Point[x=75,y=650] Composition =  Al2O3 = 0.3854833759509522 Na2O = 0.6622806230190693 FeO = 0.5172567894151266 MgO = 0.2306016217896404
+898998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=100,y=600] Composition =  Point = java.awt.Point[x=100,y=600] Composition =  Al2O3 = 0.02860558953913426 Na2O = 0.08042275025705728 FeO = 0.4817576346422029 MgO = 0.730054171237986
+898998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=100,y=625] Composition =  Point = java.awt.Point[x=100,y=625] Composition =  Al2O3 = 0.027364915534476886 Na2O = 0.6007649796392607 FeO = 0.3698254534311931 MgO = 0.5930825367003211
+898998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=100,y=650] Composition =  Point = java.awt.Point[x=100,y=650] Composition =  Al2O3 = 0.5773125697165018 Na2O = 0.5895594555703354 FeO = 0.28182865461464884 MgO = 0.6728224972116301
+905493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530399743
+935493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530429743
+957995 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530404213
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 10
+  action: "ClickCamera"
+}
+
+961014 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.PhotographingState  - SCET: 1502530455264
+location {
+  x: 75
+  y: 625
+}
+batteryLevel: 9174
+moduleReporting: 8
+notes: "Camera wasn\'t able to take a shot. Sorry earth!"
+
+965493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530459743
+972329 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530466577
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9969
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 997
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9174
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 75
+  y: 625
+}
+
+995493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530489743
+1003143 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530485719
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\b\302\003\020d"
+}
+
+1003144 [Thread-2] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 450
+y: 100
+
+1003231 [Thread-2] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502530497481 source = java.awt.Point[x=75,y=625] destination = java.awt.Point[x=450,y=100]
+1003351 [Thread-2] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 268766
+1025493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530519743
+1055493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530549743
+1077997 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530572244
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9966
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 997
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 8762
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 450
+  y: 100
+}
+
+1085493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530579743
+1115493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530609743
+1137995 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530567225
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+1138997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+1138997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=425,y=75] Composition =  Point = java.awt.Point[x=425,y=75] Composition =  Al2O3 = 0.5926773481493428 Na2O = 0.7345994202062136 FeO = 0.7710107045403374 MgO = 0.5193719372470308
+1138997 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=425,y=100] Composition =  Point = java.awt.Point[x=425,y=100] Composition =  Al2O3 = 0.14890136538485263 Na2O = 0.4476074062976855 FeO = 0.19814095708050303 MgO = 0.2346488746186456
+1138998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=425,y=125] Composition =  Point = java.awt.Point[x=425,y=125] Composition =  Al2O3 = 0.6348824038255757 Na2O = 0.014155552699454699 FeO = 0.520878726987274 MgO = 0.29494174423066427
+1138998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=450,y=75] Composition =  Point = java.awt.Point[x=450,y=75] Composition =  Al2O3 = 0.16046569758097348 Na2O = 0.13682246983713542 FeO = 0.0888107446608336 MgO = 0.7658148374125457
+1138998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=450,y=100] Composition =  Point = java.awt.Point[x=450,y=100] Composition =  Al2O3 = 0.18281881346868253 Na2O = 0.21918784713699102 FeO = 0.254384546355221 MgO = 0.31702304075967275
+1138998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=450,y=125] Composition =  Point = java.awt.Point[x=450,y=125] Composition =  Al2O3 = 0.6947400770013772 Na2O = 0.5252157029686048 FeO = 0.3159689667061903 MgO = 0.3510313359615853
+1138998 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=75] Composition =  Point = java.awt.Point[x=475,y=75] Composition =  Al2O3 = 0.5045314756132493 Na2O = 0.4076001965142701 FeO = 0.7365177216716959 MgO = 0.33171584622555905
+1138999 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=100] Composition =  Point = java.awt.Point[x=475,y=100] Composition =  Al2O3 = 0.2483982951968714 Na2O = 0.6980658099380828 FeO = 0.586338910341936 MgO = 0.5758991498906376
+1138999 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=125] Composition =  Point = java.awt.Point[x=475,y=125] Composition =  Al2O3 = 0.4223419741657106 Na2O = 0.4709728653864736 FeO = 0.07748780065920471 MgO = 0.11140053018949186
+1145493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530639743
+1175459 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530669706
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9963
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 996
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 8716
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 450
+  y: 100
+}
+
+1175493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530669743
+1200149 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530648738
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+1200150 [pool-1-thread-3] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=450,y=100]
+1200247 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1200247 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1200247 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1200247 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1200247 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1204226 [Thread-4] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=386,y=423]
+1204260 [Thread-5] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=386,y=423]
+1204323 [Thread-6] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=386,y=423]
+1205493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530699743
+1208463 [Thread-7] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=128,y=608]
+1208495 [Thread-8] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=128,y=608]
+1208995 [Thread-9] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=184,y=497]
+1209249 [Thread-10] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=165,y=497]
+1209288 [Thread-11] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=165,y=497]
+1209413 [Thread-12] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=202,y=460]
+1209446 [Thread-13] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=202,y=460]
+1226864 [Thread-14] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=386,y=423]
+1226898 [Thread-15] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=386,y=423]
+1226959 [Thread-16] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=386,y=423]
+1231096 [Thread-17] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=128,y=608]
+1231128 [Thread-18] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=128,y=608]
+1231625 [Thread-19] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=184,y=497]
+1231881 [Thread-20] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=165,y=497]
+1231913 [Thread-21] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=165,y=497]
+1232036 [Thread-22] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=202,y=460]
+1232069 [Thread-23] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=202,y=460]
+1235493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530729743
+1245660 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1245662 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1245662 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1245662 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1245662 [pool-1-thread-3] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=450,y=100]
+1245830 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio receive operation encountered an exception
+java.lang.IllegalArgumentException: illegal component position
+	at java.awt.Container.addImpl(Container.java:1100)
+	at javax.swing.JLayeredPane.addImpl(JLayeredPane.java:231)
+	at java.awt.Container.add(Container.java:973)
+	at javax.swing.JRootPane.setContentPane(JRootPane.java:626)
+	at javax.swing.JFrame.setContentPane(JFrame.java:698)
+	at space.exploration.mars.rover.animation.RadioAnimationEngine.activateRadio(RadioAnimationEngine.java:59)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:55)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:84)
+1265493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530759743
+1266978 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530761226
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9960
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 996
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 8695
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 450
+  y: 100
+}
+
+1289841 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530784089
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9959
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 996
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 8694
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 450
+  y: 100
+}
+
+1295493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530789743
+1312514 [pool-1-thread-3] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 56 for 1 topic(s) Set(curiosity_to_earth_0)
+1312518 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+1312519 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+1312519 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+1312522 [pool-1-thread-3] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+1317997 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530812245
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9958
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 996
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 8693
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 450
+  y: 100
+}
+
+1325493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530819743
+1339696 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530811751
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+1340696 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+1340697 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=425,y=75] Composition =  Point = java.awt.Point[x=425,y=75] Composition =  Al2O3 = 0.5926773481493428 Na2O = 0.7345994202062136 FeO = 0.7710107045403374 MgO = 0.5193719372470308
+1340697 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=425,y=100] Composition =  Point = java.awt.Point[x=425,y=100] Composition =  Al2O3 = 0.14890136538485263 Na2O = 0.4476074062976855 FeO = 0.19814095708050303 MgO = 0.2346488746186456
+1340697 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=425,y=125] Composition =  Point = java.awt.Point[x=425,y=125] Composition =  Al2O3 = 0.6348824038255757 Na2O = 0.014155552699454699 FeO = 0.520878726987274 MgO = 0.29494174423066427
+1340697 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=450,y=75] Composition =  Point = java.awt.Point[x=450,y=75] Composition =  Al2O3 = 0.16046569758097348 Na2O = 0.13682246983713542 FeO = 0.0888107446608336 MgO = 0.7658148374125457
+1340697 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=450,y=100] Composition =  Point = java.awt.Point[x=450,y=100] Composition =  Al2O3 = 0.18281881346868253 Na2O = 0.21918784713699102 FeO = 0.254384546355221 MgO = 0.31702304075967275
+1340697 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=450,y=125] Composition =  Point = java.awt.Point[x=450,y=125] Composition =  Al2O3 = 0.6947400770013772 Na2O = 0.5252157029686048 FeO = 0.3159689667061903 MgO = 0.3510313359615853
+1340698 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=75] Composition =  Point = java.awt.Point[x=475,y=75] Composition =  Al2O3 = 0.5045314756132493 Na2O = 0.4076001965142701 FeO = 0.7365177216716959 MgO = 0.33171584622555905
+1340698 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=100] Composition =  Point = java.awt.Point[x=475,y=100] Composition =  Al2O3 = 0.2483982951968714 Na2O = 0.6980658099380828 FeO = 0.586338910341936 MgO = 0.5758991498906376
+1340698 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=475,y=125] Composition =  Point = java.awt.Point[x=475,y=125] Composition =  Al2O3 = 0.4223419741657106 Na2O = 0.4709728653864736 FeO = 0.07748780065920471 MgO = 0.11140053018949186
+1355493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530849743
+1377996 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530872244
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9955
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 8647
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 450
+  y: 100
+}
+
+1385493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530879743
+1411147 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530893256
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\215\004\020\226\001"
+}
+
+1411148 [Thread-2] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 525
+y: 150
+
+1411239 [Thread-2] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502530905489 source = java.awt.Point[x=450,y=100] destination = java.awt.Point[x=525,y=150]
+1411357 [Thread-2] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 249820
+1415493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530909743
+1437996 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530932244
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9952
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 8546
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 525
+  y: 150
+}
+
+1445493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530939743
+1475493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530969743
+1497996 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502530992244
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9951
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 8545
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 525
+  y: 150
+}
+
+1505493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502530999743
+1535493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531029743
+1557995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502530974767
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\367\002\020\251\003"
+}
+
+1557996 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 375
+y: 425
+
+1558086 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502531052336 source = java.awt.Point[x=525,y=150] destination = java.awt.Point[x=375,y=425]
+1558177 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 178948
+1565493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531059743
+1595493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531089743
+1617995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531056274
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 10
+  action: "ClickCamera"
+}
+
+1621018 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.PhotographingState  - SCET: 1502531115268
+solNumber: 1
+location {
+  x: 375
+  y: 425
+}
+batteryLevel: 8293
+moduleReporting: 8
+notes: "Camera wasn\'t able to take a shot. Sorry earth!"
+
+1625493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531119743
+1635506 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531129754
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9946
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 997
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 8293
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 375
+  y: 425
+}
+
+1655493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531149743
+1664091 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531137779
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+1664092 [Thread-2] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=375,y=425]
+1664112 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1664113 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1664113 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1664113 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1664113 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1674739 [Thread-24] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=52,y=383]
+1674776 [Thread-25] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=52,y=383]
+1677392 [Thread-26] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=118,y=184]
+1677428 [Thread-27] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=118,y=184]
+1677738 [Thread-28] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=151,y=184]
+1677801 [Thread-29] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=151,y=184]
+1678688 [Thread-30] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=184,y=118]
+1678752 [Thread-31] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=184,y=118]
+1682703 [Thread-32] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=515,y=52]
+1682735 [Thread-33] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=515,y=52]
+1685493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531179743
+1697054 [Thread-34] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=52,y=383]
+1697086 [Thread-35] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=52,y=383]
+1699682 [Thread-36] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=118,y=184]
+1699715 [Thread-37] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=118,y=184]
+1700022 [Thread-38] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=151,y=184]
+1700084 [Thread-39] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=151,y=184]
+1700966 [Thread-40] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=184,y=118]
+1701030 [Thread-41] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=184,y=118]
+1704971 [Thread-42] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=515,y=52]
+1705002 [Thread-43] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=515,y=52]
+1708736 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1708736 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1708736 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1708736 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1708736 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=375,y=425]
+1715493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531209743
+1737996 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531232244
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9943
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 997
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 996
+}
+batteryLevel: 8271
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 375
+  y: 425
+}
+
+1745493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531239743
+1775493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531269743
+1797995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531219285
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\223\002\020\246\004"
+}
+
+1797998 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 275
+y: 550
+
+1798088 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502531292338 source = java.awt.Point[x=375,y=425] destination = java.awt.Point[x=275,y=550]
+1798196 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 200475
+1805493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531299743
+1825327 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531319576
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9940
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 997
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 996
+}
+batteryLevel: 8130
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 275
+  y: 550
+}
+
+1835493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531329743
+1857995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531300790
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\223\002\020\215\004"
+}
+
+1857996 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 275
+y: 525
+
+1858082 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502531352332 source = java.awt.Point[x=275,y=550] destination = java.awt.Point[x=275,y=525]
+1858204 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 211656
+1865493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531359743
+1881763 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531376011
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9937
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 997
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 996
+}
+batteryLevel: 8069
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 275
+  y: 525
+}
+
+1895493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531389743
+1903190 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531382296
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+1903191 [Thread-2] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=275,y=525]
+1903211 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1903211 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1903211 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1903211 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1903211 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1916128 [Thread-44] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+1916161 [Thread-45] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+1918679 [Thread-46] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+1918740 [Thread-47] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+1919106 [Thread-48] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=306,y=156]
+1919631 [Thread-49] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=328,y=113]
+1922148 [Thread-50] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=543,y=70]
+1925493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531419743
+1938386 [Thread-51] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+1938417 [Thread-52] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+1940927 [Thread-53] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+1940990 [Thread-54] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+1941363 [Thread-55] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=306,y=156]
+1941890 [Thread-56] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=328,y=113]
+1944408 [Thread-57] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=543,y=70]
+1947817 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1947817 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1947817 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1947817 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1947817 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+1955493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531449743
+1966431 [Thread-2] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 89 for 1 topic(s) Set(curiosity_to_earth_0)
+1966432 [Thread-2] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+1966434 [Thread-2] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+1966434 [Thread-2] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+1966436 [Thread-2] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+1977997 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531472244
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9934
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 997
+}
+equipmentHealth {
+  key: "Camera"
+  value: 997
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 994
+}
+batteryLevel: 8047
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 275
+  y: 525
+}
+
+1985493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531479743
+2015493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531509743
+2037995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531463802
+targets {
+  estimatedPowerUsage: 20
+  action: "ScanArea"
+}
+
+2038996 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2038996 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Lidar  - Wallbuilder set for lidar
+2038996 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Lidar  -  Scanning at location = java.awt.Point[x=275,y=525] Length of contacts  = 0
+2045493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531539743
+2064335 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531558583
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9931
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 996
+}
+equipmentHealth {
+  key: "Camera"
+  value: 997
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 994
+}
+batteryLevel: 8021
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 275
+  y: 525
+}
+
+2075493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531569743
+2097995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531545307
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+2097996 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=275,y=525]
+2098019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2098019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2098019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2098019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2098019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2105493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531599743
+2110974 [Thread-58] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+2111005 [Thread-59] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+2113522 [Thread-60] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+2113585 [Thread-61] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+2113954 [Thread-62] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=306,y=156]
+2114484 [Thread-63] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=328,y=113]
+2117003 [Thread-64] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=543,y=70]
+2133299 [Thread-65] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+2133331 [Thread-66] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+2135493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531629743
+2135849 [Thread-67] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+2135911 [Thread-68] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+2136284 [Thread-69] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=306,y=156]
+2136803 [Thread-70] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=328,y=113]
+2139324 [Thread-71] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=543,y=70]
+2142741 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2142741 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2142741 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2142741 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2142741 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2157995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531626821
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+2157995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=275,y=525]
+2158019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2158019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2158019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2158019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2158019 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2165493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531659743
+2170951 [Thread-72] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+2170982 [Thread-73] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+2173501 [Thread-74] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+2173562 [Thread-75] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+2173933 [Thread-76] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=306,y=156]
+2174452 [Thread-77] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=328,y=113]
+2176970 [Thread-78] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=543,y=70]
+2193264 [Thread-79] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+2193296 [Thread-80] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=242,y=285]
+2195493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531689743
+2195804 [Thread-81] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+2195864 [Thread-82] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=285,y=156]
+2196232 [Thread-83] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=306,y=156]
+2196753 [Thread-84] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=328,y=113]
+2199269 [Thread-85] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=543,y=70]
+2202686 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2202691 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2202691 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2202691 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2202691 [pool-1-thread-7] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=275,y=525]
+2220223 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531714472
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9926
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 996
+}
+equipmentHealth {
+  key: "Camera"
+  value: 997
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 990
+}
+batteryLevel: 7979
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 275
+  y: 525
+}
+
+2225493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531719743
+2241101 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531708327
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 10
+  action: "ClickCamera"
+}
+
+2244120 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.PhotographingState  - SCET: 1502531738370
+solNumber: 1
+location {
+  x: 275
+  y: 525
+}
+batteryLevel: 7948
+moduleReporting: 8
+notes: "Camera wasn\'t able to take a shot. Sorry earth!"
+
+2255493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531749743
+2267344 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531761592
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9923
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 996
+}
+equipmentHealth {
+  key: "Camera"
+  value: 996
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 990
+}
+batteryLevel: 7948
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 275
+  y: 525
+}
+
+2277995 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531772244
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9922
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 996
+}
+equipmentHealth {
+  key: "Camera"
+  value: 996
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 995
+}
+equipmentHealth {
+  key: "Radar"
+  value: 990
+}
+batteryLevel: 7947
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 275
+  y: 525
+}
+
+2285493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531779743
+2309912 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531789832
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2310913 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2310914 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=250,y=500] Composition =  Point = java.awt.Point[x=250,y=500] Composition =  Al2O3 = 0.30043245638198357 Na2O = 0.06770598303386084 FeO = 0.1392188758083477 MgO = 0.7534111190047039
+2310914 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=250,y=525] Composition =  Point = java.awt.Point[x=250,y=525] Composition =  Al2O3 = 0.5899753440033024 Na2O = 0.28544690392105565 FeO = 0.4819460470369749 MgO = 0.2090383588093733
+2310914 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=250,y=550] Composition =  Point = java.awt.Point[x=250,y=550] Composition =  Al2O3 = 0.004568612572772768 Na2O = 0.6896659857728562 FeO = 0.41021356369886103 MgO = 0.6169651786232895
+2310914 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=275,y=500] Composition =  Point = java.awt.Point[x=275,y=500] Composition =  Al2O3 = 0.35124533910363365 Na2O = 0.10725812136090901 FeO = 0.6068286304718657 MgO = 0.47525077599345766
+2310914 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=275,y=525] Composition =  Point = java.awt.Point[x=275,y=525] Composition =  Al2O3 = 0.22015035883060233 Na2O = 0.10540323771879274 FeO = 0.7951327637085476 MgO = 0.4525194900572864
+2310914 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=275,y=550] Composition =  Point = java.awt.Point[x=275,y=550] Composition =  Al2O3 = 0.4095914709173969 Na2O = 0.14349329912906567 FeO = 0.3885752825282963 MgO = 0.6306522208403241
+2310914 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=300,y=500] Composition =  Point = java.awt.Point[x=300,y=500] Composition =  Al2O3 = 0.2388303297886747 Na2O = 0.3197940610273533 FeO = 0.357173383795955 MgO = 0.171266654697203
+2310914 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=300,y=525] Composition =  Point = java.awt.Point[x=300,y=525] Composition =  Al2O3 = 0.09188899040839296 Na2O = 0.10653829200716568 FeO = 0.7015962417795302 MgO = 0.12886211437308318
+2310915 [Thread-2] INFO  space.exploration.mars.rover.sensor.Spectrometer  -  Processing point = java.awt.Point[x=300,y=550] Composition =  Point = java.awt.Point[x=300,y=550] Composition =  Al2O3 = 0.04962484914630601 Na2O = 0.4502184911432995 FeO = 0.6379035038745071 MgO = 0.2601312708314855
+2315493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531809743
+2345493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531839743
+2375493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531869743
+2392679 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531871338
+targets {
+  estimatedPowerUsage: 20
+  action: "ScanArea"
+}
+
+2393680 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2393680 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  - Wallbuilder set for lidar
+2393680 [Thread-2] INFO  space.exploration.mars.rover.sensor.Lidar  -  Scanning at location = java.awt.Point[x=275,y=525] Length of contacts  = 0
+2405493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531899743
+2435493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531929743
+2457996 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502531952244
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9917
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 995
+}
+equipmentHealth {
+  key: "Camera"
+  value: 996
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 994
+}
+equipmentHealth {
+  key: "Radar"
+  value: 990
+}
+batteryLevel: 7874
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 275
+  y: 525
+}
+
+2465493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531959743
+2495493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502531989743
+2517995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502531952844
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\226\001\020\364\003"
+}
+
+2517996 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 150
+y: 500
+
+2518086 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502532012336 source = java.awt.Point[x=275,y=525] destination = java.awt.Point[x=150,y=500]
+2518185 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 180964
+2525493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532019743
+2543657 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502532037906
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9914
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 995
+}
+equipmentHealth {
+  key: "Camera"
+  value: 996
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 994
+}
+equipmentHealth {
+  key: "Radar"
+  value: 990
+}
+batteryLevel: 7763
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 150
+  y: 500
+}
+
+2555493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532049743
+2568298 [pool-1-thread-7] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 118 for 1 topic(s) Set(curiosity_to_earth_0)
+2568299 [pool-1-thread-7] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+2568300 [pool-1-thread-7] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+2568300 [pool-1-thread-7] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+2568302 [pool-1-thread-7] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+2577995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502532034348
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 10
+  action: "ClickCamera"
+}
+
+2581013 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.PhotographingState  - SCET: 1502532075263
+solNumber: 1
+location {
+  x: 150
+  y: 500
+}
+batteryLevel: 7732
+moduleReporting: 8
+notes: "Camera wasn\'t able to take a shot. Sorry earth!"
+
+2585493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532079743
+2606284 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502532100533
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9911
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 995
+}
+equipmentHealth {
+  key: "Camera"
+  value: 995
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 994
+}
+equipmentHealth {
+  key: "Radar"
+  value: 990
+}
+batteryLevel: 7732
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 150
+  y: 500
+}
+
+2615493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532109743
+2637996 [pool-1-thread-7] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502532132244
+solNumber: 1
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9910
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 995
+}
+equipmentHealth {
+  key: "Camera"
+  value: 995
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 994
+}
+equipmentHealth {
+  key: "Radar"
+  value: 990
+}
+batteryLevel: 7731
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 150
+  y: 500
+}
+
+2645493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532139743
+2675493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532169743
+2697995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502532115852
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\004\b\031\020K"
+}
+
+2697995 [pool-1-thread-7] INFO  space.exploration.mars.rover.kernel.MovingState  - In moving state, destination demanded = x: 25
+y: 75
+
+2698086 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine training triggered at SCET = 1502532192336 source = java.awt.Point[x=150,y=500] destination = java.awt.Point[x=25,y=75]
+2698348 [pool-1-thread-7] INFO  space.exploration.mars.rover.learning.ReinforcementLearner  -  rlEngine logging totalExplorationSteps = 398004
+2705493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532199743
+2735493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532229743
+2765493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532259743
+2795493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532289743
+2825493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532319743
+2855493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532349743
+2885493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532379743
+2915493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532409743
+2945493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532439743
+2975493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532469743
+3005493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532499743
+3035493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532529743
+3065493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532559743
+3095493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532589743
+3125493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532619743
+3155493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532649743
+3185493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532679743
+3215493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532709743
+3245493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532739743
+3275493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532769743
+3305493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532799743
+3335493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532829743
+3365493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532859743
+3395493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532889743
+3425493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532919743
+3455493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532949743
+3485493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502532979743
+3515493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533009743
+3545493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533039743
+3575493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533069743
+3605493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533099743
+3635493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533129743
+3665493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533159743
+3695493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533189743
+3725493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533219743
+3755493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533249743
+3785493 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533279743
+3815493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533309743
+3845493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533339743
+3875493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533369743
+3905493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533399743
+3935493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533429743
+3965493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533459743
+3995493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533489743
+4025493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533519743
+4055493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533549743
+4085493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533579743
+4115493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533609743
+4145493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533639743
+4175493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533669743
+4205493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533699743
+4235493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533729743
+4265493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533759743
+4295493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533789743
+4325493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533819743
+4355493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533849743
+4385493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533879743
+4415493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533909743
+4445493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533939743
+4475493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533969743
+4505493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502533999743
+4535493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534029743
+4565493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534059743
+4595493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534089743
+4625493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534119743
+4655493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534149743
+4685493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534179743
+4715493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534209743
+4745493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534239743
+4775493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534269743
+4805493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534299743
+4835493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534329743
+4865493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534359743
+4895493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534389743
+4925493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534419743
+4955493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534449743
+4985493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534479743
+5015493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534509743
+5045493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534539743
+5075493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534569743
+5105493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534599743
+5135493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534629743
+5165493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534659743
+5195493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534689743
+5225493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534719743
+5255493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534749743
+5285493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534779743
+5315493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534809743
+5345493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534839743
+5375493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534869743
+5405493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534899743
+5435493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534929743
+5465493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534959743
+5495493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502534989743
+5525493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535019743
+5555493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535049743
+5585493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535079743
+5615493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535109743
+5645493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535139743
+5675493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535169743
+5705493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535199743
+5735493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535229743
+5765493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535259743
+5795493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535289743
+5825493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535319743
+5855493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535349743
+5885493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535379743
+5915493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535409743
+5945493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535439743
+5975493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535469743
+6005493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535499743
+6035493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535529743
+6065493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535559743
+6095493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535589743
+6125493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535619743
+6155493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535649743
+6185493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535679743
+6215493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535709743
+6245493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535739743
+6275493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535769743
+6305493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535799743
+6335493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535829743
+6365493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535859743
+6395493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535889743
+6425493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535919743
+6455493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535949743
+6485493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502535979743
+6515493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536009743
+6545493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536039743
+6575493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536069743
+6605493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536099743
+6635493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536129743
+6665493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536159743
+6695493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536189743
+6725493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536219743
+6755493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536249743
+6785493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536279743
+6815493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536309743
+6845493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536339743
+6875493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536369743
+6905493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536399743
+6935493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536429743
+6965493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536459743
+6995493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536489743
+7025493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536519743
+7055493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536549743
+7085493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536579743
+7115493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536609743
+7145493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536639743
+7175493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536669743
+7205493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536699743
+7235493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536729743
+7265493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536759743
+7295493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536789743
+7325493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536819743
+7355493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536849743
+7385493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536879743
+7415493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536909743
+7445493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536939743
+7475493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536969743
+7505493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502536999743
+7535493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537029743
+7565493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537059743
+7595493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537089743
+7625493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537119743
+7655493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537149743
+7685493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537179743
+7715493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537209743
+7745493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537239743
+7775493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537269743
+7805493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537299743
+7835493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537329743
+7865493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537359743
+7895493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537389743
+7925493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537419743
+7955493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537449743
+7985493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537479743
+8015493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537509743
+8045493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537539743
+8075493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537569743
+8105493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537599743
+8135493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537629743
+8165493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537659743
+8195493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537689743
+8225493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537719743
+8255493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537749743
+8285493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537779743
+8315493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537809743
+8345493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537839743
+8375493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537869743
+8405493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537899743
+8435493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537929743
+8465493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537959743
+8495493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502537989743
+8525493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538019743
+8555493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538049743
+8585493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538079743
+8615493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538109743
+8645493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538139743
+8675493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538169743
+8705493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538199743
+8735493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538229743
+8765493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538259743
+8795493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538289743
+8825493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538319743
+8855493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538349743
+8885493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538379743
+8915493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538409743
+8945493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538439743
+8975493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538469743
+9005493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538499743
+9035493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538529743
+9065493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538559743
+9095493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538589743
+9125493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538619743
+9155493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538649743
+9185493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538679743
+9215493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538709743
+9245493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538739743
+9275493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538769743
+9305493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538799743
+9335493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538829743
+9365493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538859743
+9395493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538889743
+9425493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538919743
+9455493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538949743
+9485493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502538979743
+9515493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539009743
+9545493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539039743
+9575493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539069743
+9605493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539099743
+9635493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539129743
+9665493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539159743
+9695493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539189743
+9725493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539219743
+9755493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539249743
+9785493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539279743
+9815493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539309743
+9845493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539339743
+9875493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539369743
+9905493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539399743
+9935493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539429743
+9965493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539459743
+9995493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539489743
+10025493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539519743
+10055493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539549743
+10085493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539579743
+10115493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539609743
+10145493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539639743
+10175493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539669743
+10205493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539699743
+10235493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539729743
+10265493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539759743
+10295493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539789743
+10325493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539819743
+10355493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539849743
+10385493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539879743
+10415493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539909743
+10445493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539939743
+10475493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539969743
+10505493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502539999743
+10535493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540029743
+10565493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540059743
+10595493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540089743
+10625493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540119743
+10655493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540149743
+10685493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540179743
+10715493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540209743
+10745493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540239743
+10775493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540269743
+10805493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540299743
+10835493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540329743
+10865493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540359743
+10895493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540389743
+10925493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540419743
+10955493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540449743
+10985493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540479743
+11015493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540509743
+11045493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540539743
+11075493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540569743
+11105493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540599743
+11135493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540629743
+11165493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540659743
+11195493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540689743
+11225493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540719743
+11255493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540749743
+11285493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540779743
+11315493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540809743
+11345493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540839743
+11375493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540869743
+11405493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540899743
+11435493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540929743
+11465493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540959743
+11495493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502540989743
+11525493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541019743
+11555493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541049743
+11585493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541079743
+11615493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541109743
+11645493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541139743
+11675493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541169743
+11705493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541199743
+11735493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541229743
+11765493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541259743
+11795493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541289743
+11825493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541319743
+11855493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541349743
+11885493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541379743
+11915493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541409743
+11945493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541439743
+11975493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541469743
+12005493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541499743
+12035493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541529743
+12065493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541559743
+12095493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541589743
+12125493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541619743
+12155493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541649743
+12185493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541679743
+12215493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541709743
+12245493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541739743
+12275493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541769743
+12305493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541799743
+12335493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541829743
+12365493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541859743
+12395493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541889743
+12425493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541919743
+12455493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541949743
+12485493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502541979743
+12515493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542009743
+12545493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542039743
+12575493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542069743
+12605493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542099743
+12635493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542129743
+12665493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542159743
+12695493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542189743
+12725493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542219743
+12755493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542249743
+12785493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542279743
+12815493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542309743
+12845493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542339743
+12875493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542369743
+12905493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542399743
+12935493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542429743
+12965493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542459743
+12995493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542489743
+13025493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542519743
+13055493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542549743
+13085493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542579743
+13115493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542609743
+13145493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542639743
+13175493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542669743
+13205493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542699743
+13235493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542729743
+13265493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542759743
+13295493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542789743
+13325493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542819743
+13355493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542849743
+13385493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542879743
+13415493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542909743
+13445493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542939743
+13475493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542969743
+13505493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502542999743
+13535493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543029743
+13565493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543059743
+13595493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543089743
+13625493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543119743
+13655493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543149743
+13685493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543179743
+13715493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543209743
+13745493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543239743
+13775493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543269743
+13805493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543299743
+13835493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543329743
+13865493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543359743
+13895493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543389743
+13925493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543419743
+13955493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543449743
+13985493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543479743
+14015493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543509743
+14045493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543539743
+14075493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543569743
+14105493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543599743
+14135493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543629743
+14165493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543659743
+14195493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543689743
+14225493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543719743
+14255493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543749743
+14285493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543779743
+14315493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543809743
+14345493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543839743
+14375493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543869743
+14405493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543899743
+14435493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543929743
+14465493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543959743
+14495493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502543989743
+14525493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544019743
+14555493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544049743
+14585493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544079743
+14615493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544109743
+14645493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544139743
+14675493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544169743
+14705493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544199743
+14735493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544229743
+14765493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544259743
+14795493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544289743
+14825493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544319743
+14855493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544349743
+14885493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544379743
+14915493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544409743
+14945493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544439743
+14975493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544469743
+15005493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544499743
+15035493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544529743
+15065493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544559743
+15095493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544589743
+15125493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544619743
+15155493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544649743
+15185493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544679743
+15215493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544709743
+15245493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544739743
+15275493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544769743
+15305493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544799743
+15335493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544829743
+15365493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544859743
+15395493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544889743
+15425493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544919743
+15455493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544949743
+15485493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502544979743
+15515493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545009743
+15545493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545039743
+15575493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545069743
+15605493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545099743
+15635493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545129743
+15665493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545159743
+15695493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545189743
+15725493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545219743
+15755493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545249743
+15785493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545279743
+15815493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545309743
+15845493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545339743
+15875493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545369743
+15905493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545399743
+15935493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545429743
+15965493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545459743
+15995493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545489743
+16025493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545519743
+16055493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545549743
+16085493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545579743
+16115493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545609743
+16145493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545639743
+16175493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545669743
+16205493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545699743
+16235493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545729743
+16265493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545759743
+16295493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545789743
+16325493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545819743
+16355493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545849743
+16385493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545879743
+16415493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545909743
+16445493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545939743
+16475493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545969743
+16505493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502545999743
+16535493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546029743
+16565493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546059743
+16595493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546089743
+16625493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546119743
+16655493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546149743
+16685493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546179743
+16715493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546209743
+16745493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546239743
+16775493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546269743
+16805493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546299743
+16835493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546329743
+16865493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546359743
+16895493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546389743
+16925493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546419743
+16955493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546449743
+16985493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546479743
+17015493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546509743
+17045493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546539743
+17075493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546569743
+17105493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546599743
+17135493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546629743
+17165493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546659743
+17195493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546689743
+17225493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546719743
+17255493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546749743
+17285493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546779743
+17315493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546809743
+17345493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546839743
+17375493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546869743
+17405493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546899743
+17435493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546929743
+17465493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546959743
+17495493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502546989743
+17525493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547019743
+17555493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547049743
+17585493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547079743
+17615493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547109743
+17645493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547139743
+17675493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547169743
+17705493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547199743
+17735493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547229743
+17765493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547259743
+17795493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547289743
+17825493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547319743
+17855493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547349743
+17885493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547379743
+17915493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547409743
+17945493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547439743
+17975493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547469743
+18005493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547499743
+18035493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547529743
+18065493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547559743
+18095493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547589743
+18125493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547619743
+18155493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547649743
+18185493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547679743
+18215493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547709743
+18245493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547739743
+18275493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547769743
+18305493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547799743
+18335493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547829743
+18365493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547859743
+18395493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547889743
+18425493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547919743
+18455493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547949743
+18485493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502547979743
+18515493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548009743
+18545493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548039743
+18575493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548069743
+18605493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548099743
+18635493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548129743
+18665493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548159743
+18695493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548189743
+18725493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548219743
+18755493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548249743
+18785493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548279743
+18815493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548309743
+18845493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548339743
+18875493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548369743
+18905493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548399743
+18935493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548429743
+18965493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548459743
+18995493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548489743
+19025493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548519743
+19055493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548549743
+19085493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548579743
+19115493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548609743
+19145493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548639743
+19175493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548669743
+19205493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548699743
+19235493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548729743
+19265493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548759743
+19295493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548789743
+19325493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548819743
+19355493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548849743
+19385493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548879743
+19415493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548909743
+19445493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548939743
+19475493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548969743
+19505493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502548999743
+19535493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549029743
+19565493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549059743
+19595493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549089743
+19625493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549119743
+19655493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549149743
+19685493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549179743
+19715493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549209743
+19745493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549239743
+19775493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549269743
+19805493 [pool-2-thread-4] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502549299743

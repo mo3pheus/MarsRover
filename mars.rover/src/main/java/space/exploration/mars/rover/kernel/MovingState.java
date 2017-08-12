@@ -70,11 +70,12 @@ public class MovingState implements State {
         }
 
         PropulsionUnit powerTran = new PropulsionUnit(rover, robotPosition, new java.awt.Point(destination.getX(),
-                destination.getY()));
+                                                                                               destination.getY()));
 
         if (!powerTran.isTrajectoryValid()) {
             logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
                     .getLocation().toString() + " and " + destination.toString());
+            sendFailureToEarth(robotPosition, destination);
             return;
         }
 
@@ -103,6 +104,23 @@ public class MovingState implements State {
         updateMsg.setLocation(robotLocation);
         updateMsg.setNotes(
                 "Rover has moved from its previous location. Check subsequent lidarMsg for an environment update.");
+        updateMsg.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
+        updateMsg.setModuleReporting(Module.PROPULSION.getValue());
+        updateMsg.setSolNumber(rover.getSol());
+
+        rover.state = rover.transmittingState;
+        rover.transmitMessage(updateMsg.build().toByteArray());
+    }
+
+    private void sendFailureToEarth(java.awt.Point source, Point destination) {
+        RoverStatus.Builder updateMsg = RoverStatus.newBuilder();
+        updateMsg.setSCET(System.currentTimeMillis());
+        Location robotLocation = Location.newBuilder().setX(rover.getMarsArchitect().getRobot().getLocation().x)
+                .setY(rover.getMarsArchitect().getRobot().getLocation().y).build();
+        updateMsg.setLocation(robotLocation);
+        updateMsg.setNotes(
+                "Rover was unable to find a path between source = " + source.toString() + " and destination " +
+                        destination.toString());
         updateMsg.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         updateMsg.setModuleReporting(Module.PROPULSION.getValue());
         updateMsg.setSolNumber(rover.getSol());

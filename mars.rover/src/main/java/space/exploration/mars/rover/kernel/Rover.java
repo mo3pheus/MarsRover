@@ -72,49 +72,9 @@ public class Rover {
 
     /* Sets up the rover and the boot-up sequence */
     public Rover(Properties marsConfig, Properties comsConfig) {
-        this.creationTime = System.currentTimeMillis();
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
-        this.previousRovers = new HashMap<>();
-        this.listeningState = new ListeningState(this);
-        this.hibernatingState = new HibernatingState(this);
-        this.exploringState = new ExploringState(this);
-        this.movingState = new MovingState(this);
-        this.rechargingState = new RechargingState(this);
-        this.photoGraphingState = new PhotographingState(this);
-        this.sensingState = new SensingState(this);
-        this.transmittingState = new TransmittingState(this);
-        this.radarScanningState = new RadarScanningState(this);
-        this.marsArchitect = new MarsArchitect(marsConfig);
-        this.instructionQueue = new ArrayList<byte[]>();
-        this.logger = LoggerFactory.getLogger(Rover.class);
-        RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
-
-        this.pacemaker = new Pacemaker(10, this);
-        pacemaker.pulse();
-        RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
-
-        String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
-        this.location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
-        RoverUtil.roverSystemLog(logger, "Rover current position is = " + location.toString(), "INFO");
-
-        int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
-
-        this.lidar = new Lidar(location, cellWidth, cellWidth, this);
-        lidar.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Lidar.LIFESPAN)));
-
-        this.spectrometer = new Spectrometer(location, this);
-        spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
-
-        this.camera = new Camera(this.marsConfig, this);
-        this.radar = new Radar(this);
-
-        configureBattery();
-        configureRadio();
-        configureRadar();
-
-        state = transmittingState;
-        transmitMessage(getBootupMessage());
+        bootUp(false);
     }
 
     public void processPendingMessageQueue() {
@@ -439,5 +399,75 @@ public class Rover {
         int  lifeSpan        = Integer.parseInt(marsConfig.getProperty(Radio.LIFESPAN));
         radio.getReceiver().setRadioCheckPulse(radioCheckPulse);
         radio.setLifeSpan(lifeSpan);
+    }
+
+    private byte[] getErrorRecoveryMessage(int instructionLength) {
+        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
+                .setY(marsArchitect.getRobot().getLocation().y).build();
+        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
+        rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
+        rBuilder.setSCET(System.currentTimeMillis());
+        rBuilder.setLocation(location);
+        rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
+        rBuilder.setSolNumber(getSol());
+        rBuilder.setNotes("Rover " + ROVER_NAME + " reporting to earth after a restart following failure. " +
+                                  "Potential messages lost = " + instructionLength + " Check logs and diagnostics for" +
+                                  " further information.");
+        return rBuilder.build().toByteArray();
+    }
+
+    public void bootUp(boolean fatalError) {
+        int instructionQueueLength = 0;
+
+        this.creationTime = System.currentTimeMillis();
+        this.previousRovers = new HashMap<>();
+        this.listeningState = new ListeningState(this);
+        this.hibernatingState = new HibernatingState(this);
+        this.exploringState = new ExploringState(this);
+        this.movingState = new MovingState(this);
+        this.rechargingState = new RechargingState(this);
+        this.photoGraphingState = new PhotographingState(this);
+        this.sensingState = new SensingState(this);
+        this.transmittingState = new TransmittingState(this);
+        this.radarScanningState = new RadarScanningState(this);
+        this.marsArchitect = new MarsArchitect(marsConfig);
+
+        if (this.instructionQueue != null) {
+            instructionQueueLength = instructionQueue.size();
+        }
+
+        this.instructionQueue = new ArrayList<byte[]>();
+        this.logger = LoggerFactory.getLogger(Rover.class);
+        RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
+
+        this.pacemaker = new Pacemaker(10, this);
+        pacemaker.pulse();
+        RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
+
+        String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
+        this.location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
+        RoverUtil.roverSystemLog(logger, "Rover current position is = " + location.toString(), "INFO");
+
+        int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+
+        this.lidar = new Lidar(location, cellWidth, cellWidth, this);
+        lidar.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Lidar.LIFESPAN)));
+
+        this.spectrometer = new Spectrometer(location, this);
+        spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
+
+        this.camera = new Camera(this.marsConfig, this);
+        this.radar = new Radar(this);
+
+        configureBattery();
+        configureRadio();
+        configureRadar();
+
+        state = transmittingState;
+        if (!fatalError) {
+            transmitMessage(getBootupMessage());
+        } else {
+            getErrorRecoveryMessage(instructionQueueLength);
+        }
     }
 }

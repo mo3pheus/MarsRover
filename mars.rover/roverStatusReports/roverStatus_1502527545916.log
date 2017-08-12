@@ -1,0 +1,336 @@
+0    [main] INFO  space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=350,y=250]
+1006 [main] INFO  space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2009 [main] INFO  space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+3227 [main] INFO  space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+4231 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+5234 [main] INFO  space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 10000 auxiliaryPowerUnits = 1000 alertThreshold: 100 rechargeTime = 60000
+6236 [main] INFO  space.exploration.mars.rover.kernel.Rover  - Battery Monitor configured!
+6459 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6478 [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+6478 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6478 [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+6478 [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+6478 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6478 [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+6507 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6507 [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+6507 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6507 [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+6507 [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+6507 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6507 [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+6526 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], Connecting to zookeeper instance at localhost:2181
+6531 [ZkClient-EventThread-22-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/sanket/Documents/workspace/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/home/sanket/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/home/sanket/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/lib/idea_rt.jar
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin::/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-28-generic
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+6535 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@6f96c77
+6543 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+6545 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+6548 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+6554 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15dce0f34340021, negotiated timeout = 6000
+6555 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+6562 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], starting auto committer every 60000 ms
+6578 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555 in ZK
+6596 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555 (is it secure? false)
+6605 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+6605 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], end registering consumer space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555 in ZK
+6609 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555
+6623 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555 try #0
+6700 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1502527555803] Stopping leader finder thread
+6700 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1502527555803] Stopping all fetchers
+6701 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1502527555803] All connections stopped
+6702 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], Cleared all relevant queues for this fetcher
+6702 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], Cleared the data chunks in all the consumer message iterators
+6703 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], Committing all offsets after clearing the fetcher queues
+6703 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], Releasing partition ownership
+6731 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_0 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-0)
+6733 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-0 attempting to claim partition 0
+6759 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-0 successfully owned partition 0 for topic earth_to_curiosity_0
+6791 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], Consumer space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555 selected partitions : earth_to_curiosity_0:0: fetched offset = 509: consumed offset = 509
+6794 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread], Starting 
+6795 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555 try #0
+6808 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6809 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+6809 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+6809 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+6853 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_0)
+6856 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+6864 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+6874 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-0-0], Starting 
+6876 [space.exploration.mars.newRover_zion-mainframe-1502527555768-aff72555-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1502527555803] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_0,0], initOffset 509 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+7564 [main] INFO  space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+metadata.broker.list::localhost:9092
+source.topic::earth_to_curiosity_0
+auto.offset.reset::largest
+group.id::space.exploration.mars.newRover
+destination.topic::curiosity_to_earth_0
+zookeeper.connect::localhost:2181
+8566 [main] INFO  space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+23726 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(curiosity_to_earth_0)
+23727 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+23729 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+23749 [main] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+35236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527584478
+58063 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502527607244
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9999
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9999
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+65236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527614478
+95236 [pool-2-thread-2] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527644478
+117999 [pool-1-thread-1] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502527667237
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9998
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9998
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+125236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527674478
+155236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527704478
+177999 [pool-1-thread-2] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502527727237
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9997
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+batteryLevel: 9997
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+185236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527734478
+215236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527764478
+223138 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1502527759877
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+223139 [Thread-2] INFO  space.exploration.mars.rover.kernel.RadarScanningState  - Performing Radar Scan, current position = java.awt.Point[x=350,y=250]
+223231 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+223231 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+223231 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+223231 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+223231 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+231657 [Thread-4] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=109,y=590]
+231691 [Thread-5] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=109,y=590]
+233115 [Thread-6] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=199,y=410]
+233148 [Thread-7] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=199,y=410]
+233401 [Thread-8] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=169,y=410]
+233435 [Thread-9] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=169,y=410]
+234624 [Thread-10] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=229,y=350]
+234659 [Thread-11] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=229,y=350]
+244679 [Thread-12] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=530,y=289]
+244741 [Thread-13] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=530,y=289]
+245236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527794478
+254191 [Thread-14] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=109,y=590]
+254223 [Thread-15] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=109,y=590]
+255639 [Thread-16] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=199,y=410]
+255674 [Thread-17] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=199,y=410]
+255920 [Thread-18] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=169,y=410]
+255951 [Thread-19] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=169,y=410]
+257135 [Thread-20] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=229,y=350]
+257167 [Thread-21] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=229,y=350]
+267118 [Thread-22] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=530,y=289]
+267183 [Thread-23] INFO  space.exploration.mars.rover.environment.RadarContactBlip  - java.awt.Point[x=530,y=289]
+268358 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+268358 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+268358 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+268359 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+268359 [Thread-2] INFO  space.exploration.mars.rover.sensor.Radar  - Rover position at RadarScan =>java.awt.Point[x=350,y=250]
+275236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527824478
+298006 [pool-1-thread-3] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502527847236
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9994
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9975
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+305236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527854478
+335236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527884478
+357999 [pool-1-thread-2] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502527907237
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9993
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9974
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+365236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527914478
+395236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527944478
+417999 [pool-1-thread-4] INFO  space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1502527967237
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9992
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 998
+}
+batteryLevel: 9973
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 350
+  y: 250
+}
+
+425236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502527974478
+455236 [pool-2-thread-1] INFO  space.exploration.mars.rover.power.Battery  - BatteryMonitor performing due diligence. SCET = 1502528004478
