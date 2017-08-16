@@ -21,8 +21,8 @@ public class Battery implements IsEquipment {
     public Battery(int alertThreshold, int rechargeTime) {
         this.alertThreshold = alertThreshold;
         this.rechargeTime = rechargeTime;
-        this.primaryPowerUnits = 10000;
-        this.auxiliaryPowerUnits = 1000;
+        this.primaryPowerUnits = 1000;
+        this.auxiliaryPowerUnits = 100;
         RoverUtil.roverSystemLog(logger, "Battery configured, batteryLife:primaryPowerUnits = " + primaryPowerUnits
                 + " auxiliaryPowerUnits = " + auxiliaryPowerUnits + " alertThreshold: " +
                 alertThreshold + " rechargeTime = " + rechargeTime, "INFO"

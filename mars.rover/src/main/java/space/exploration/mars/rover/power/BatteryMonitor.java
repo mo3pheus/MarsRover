@@ -27,7 +27,7 @@ public class BatteryMonitor {
         Runnable bMonitor = new Runnable() {
             @Override
             public void run() {
-                logger.info("BatteryMonitor performing due diligence. SCET = " + System.currentTimeMillis());
+                logger.debug("BatteryMonitor performing due diligence. SCET = " + System.currentTimeMillis());
                 if (rover.getState() == rover.getHibernatingState()) {
                     long timeInRecharge = System.currentTimeMillis() - rover.getInRechargingModeTime();
                     System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
@@ -39,7 +39,7 @@ public class BatteryMonitor {
                             rover.getBattery().getRechargeTime(), "INFO");
 
                     if (timeInRecharge > rover.getBattery().getRechargeTime()) {
-                        rover.configureBattery();
+                        rover.configureBattery(true);
                         rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
                                                                                                         .getProperty
                                                                                                                 (EnvironmentUtils.ROBOT_COLOR)));
@@ -51,7 +51,6 @@ public class BatteryMonitor {
                     if (rover.getBattery().getPrimaryPowerUnits() <= rover.getBattery().getAlertThreshold()) {
                         System.out.println("Going into hibernating mode!");
                         rover.setState(rover.getHibernatingState());
-                        rover.transmitMessage(rover.getHibernatingAlertMessage());
                         rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
                         rover.setInRechargingModeTime(System.currentTimeMillis());
                         RoverUtil.roverSystemLog(logger, ("Rover reporting powerConsumed, remaining power = " + rover
@@ -63,6 +62,6 @@ public class BatteryMonitor {
                 rover.getMarsArchitect().getMarsSurface().repaint();
             }
         };
-        scheduler.scheduleAtFixedRate(bMonitor, 30, 30, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(bMonitor, 10, 5, TimeUnit.SECONDS);
     }
 }

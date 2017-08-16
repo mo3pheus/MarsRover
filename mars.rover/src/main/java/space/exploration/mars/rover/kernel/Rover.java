@@ -380,13 +380,21 @@ public class Rover {
         return rBuilder.build().toByteArray();
     }
 
-    public void configureBattery() {
+    public void configureBattery(boolean recharged) {
         int batteryAlertThreshold = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.alertThreshold"));
         int rechargeTime          = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.rechargeTime"));
-        int lifeSpan              = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
+        int lifeSpan = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
+
+        if(this.battery != null){
+            lifeSpan = battery.getLifeSpan();
+        }
 
         this.battery = new Battery(batteryAlertThreshold, rechargeTime);
-        battery.setLifeSpan(lifeSpan);
+        if (recharged) {
+            battery.setLifeSpan(lifeSpan - 1);
+        } else {
+            battery.setLifeSpan(lifeSpan);
+        }
 
         this.batteryMonitor = new BatteryMonitor(4, this);
         batteryMonitor.monitor();
@@ -459,7 +467,7 @@ public class Rover {
         this.camera = new Camera(this.marsConfig, this);
         this.radar = new Radar(this);
 
-        configureBattery();
+        configureBattery(false);
         configureRadio();
         configureRadar();
 

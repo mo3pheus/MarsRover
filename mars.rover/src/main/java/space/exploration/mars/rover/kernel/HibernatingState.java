@@ -30,47 +30,38 @@ public class HibernatingState implements State {
     }
 
     public void transmitMessage(byte[] message) {
-        // TODO Auto-generated method stub
-
+        logger.error("Can not transmit message in hibernating state.");
     }
 
     public void exploreArea() {
-        // TODO Auto-generated method stub
-
+        logger.error("Can not explore area in hibernating state.");
     }
 
     public void activateCamera() {
-        // TODO Auto-generated method stub
-
+        logger.error("Can not activate camera in hibernating state.");
     }
 
     public void move(RobotPositions positions) {
-        // TODO Auto-generated method stub
-
+        logger.error("Can not move in hibernating state.");
     }
 
     public void hibernate() {
-        // TODO Auto-generated method stub
-
+        logger.error("Already in hibernating state.");
     }
 
     public void rechargeBattery() {
-        // TODO Auto-generated method stub
-
+        logger.error("Should already be recharging the battery");
     }
 
     public void scanSurroundings() {
-        // TODO Auto-generated method stub
-
+        logger.error("Can not scan surroundings in hibernating state.");
     }
 
     public void performDiagnostics() {
-        // TODO Auto-generated method stub
-
+        logger.error("Diagnostics disabled in hibernating state.");
     }
 
     public void performRadarScan() {
-
+        logger.error("Can not perform radar scan in hibernating state.");
     }
-
 }

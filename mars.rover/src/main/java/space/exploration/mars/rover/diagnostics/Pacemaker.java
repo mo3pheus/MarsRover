@@ -39,7 +39,6 @@ public class Pacemaker {
                     return;
                 }
 
-                rover.powerCheck(1);
                 if (rover.getState() == rover.getHibernatingState()) {
                     return;
                 }
@@ -47,6 +46,7 @@ public class Pacemaker {
                 rover.processPendingMessageQueue();
 
                 if (rover.isDiagnosticFriendly()) {
+                    rover.powerCheck(1);
                     RoverStatusOuterClass.RoverStatus roverStatus = generateDiagnosticStatus();
                     try {
                         heartBeat = HeartBeatOuterClass.HeartBeat.parseFrom(roverStatus.getModuleMessage()
