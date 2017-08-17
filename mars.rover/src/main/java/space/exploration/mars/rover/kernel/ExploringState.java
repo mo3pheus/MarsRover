@@ -3,6 +3,7 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.Cell;
@@ -63,7 +64,7 @@ public class ExploringState implements State {
     public void activateCamera() {
     }
 
-    public void move(RobotPositions positions) {
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
 
     public void hibernate() {
@@ -81,6 +82,11 @@ public class ExploringState implements State {
     @Override
     public void performRadarScan() {
 
+    }
+
+    @Override
+    public String getStateName() {
+        return "Exploring State";
     }
 
 }

@@ -3,6 +3,7 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
 /**
@@ -20,9 +21,13 @@ public class TransmittingState implements State {
     }
 
     public void transmitMessage(byte[] message) {
-        // TODO Auto-generated method stub
         rover.getRadio().sendMessage(message);
         rover.state = rover.listeningState;
+    }
+
+    @Override
+    public String getStateName() {
+        return "Transmitting State";
     }
 
     public void exploreArea() {
@@ -35,9 +40,7 @@ public class TransmittingState implements State {
 
     }
 
-    public void move(RobotPositions positions) {
-        // TODO Auto-generated method stub
-
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
 
     public void hibernate() {

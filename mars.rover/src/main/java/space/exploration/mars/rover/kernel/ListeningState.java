@@ -3,6 +3,7 @@ package space.exploration.mars.rover.kernel;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
@@ -18,6 +19,11 @@ public class ListeningState implements State {
         this.rover = rover;
     }
 
+    @Override
+    public String getStateName() {
+        return "Listening State";
+    }
+
     public void receiveMessage(byte[] message) {
         InstructionPayload payload = null;
         try {
@@ -28,7 +34,10 @@ public class ListeningState implements State {
 
             for (TargetPackage tp : payload.getTargetsList()) {
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
+                    logger.error("Going into hibernation from Listening state.");
+                    logger.error("Not enough power to support propulsion at the time. Going into hibernating mode.");
                     rover.state = rover.hibernatingState;
+                    rover.setInRechargingModeTime(System.currentTimeMillis());
                     rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
                     rover.getMarsArchitect().getMarsSurface().repaint();
                     rover.getInstructionQueue().add(payload.toByteArray());
@@ -36,7 +45,8 @@ public class ListeningState implements State {
                 }
 
                 rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
-                        .getProperty(EnvironmentUtils.ROBOT_COLOR)));
+                                                                                                .getProperty
+                                                                                                        (EnvironmentUtils.ROBOT_COLOR)));
                 rover.getMarsArchitect().getMarsSurface().repaint();
                 rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - tp
                         .getEstimatedPowerUsage());
@@ -48,7 +58,7 @@ public class ListeningState implements State {
                 } else if (tp.getRoverModule() == Module.PROPULSION.getValue()) {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is on the move!");
                     rover.state = rover.movingState;
-                    rover.move(RobotPositions.parseFrom(tp.getAuxiliaryData().toByteArray()));
+                    rover.move(payload);
                 } else if (tp.getRoverModule() == Module.SCIENCE.getValue()) {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is on a scientific mission!");
                     rover.state = rover.exploringState;
@@ -81,7 +91,7 @@ public class ListeningState implements State {
         logger.error("Can not perform experiments while in the listening state");
     }
 
-    public void move(RobotPositions positions) {
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         logger.error("Can not move while in the listening state");
     }
 

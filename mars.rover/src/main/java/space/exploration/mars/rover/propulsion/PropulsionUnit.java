@@ -21,8 +21,12 @@ public class PropulsionUnit {
         this.source = source;
         this.destination = destination;
         powerConsumptionPerUnit = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
-                .PROPULSION_POWER_CONSUMPTION));
+                                                                                             .PROPULSION_POWER_CONSUMPTION));
         requestPropulsion();
+    }
+
+    public int getPowerConsumptionPerUnit() {
+        return powerConsumptionPerUnit;
     }
 
     public java.util.List<Point> getTrajectory() {
@@ -41,9 +45,5 @@ public class PropulsionUnit {
 
         trajectoryValid = (trajectoryLength > 1) ? (trajectory.get(trajectoryLength - 1).equals(destination)) :
                 trajectory.get(0).equals(destination);
-
-        if (trajectoryValid) {
-            rover.powerCheck(trajectoryLength * powerConsumptionPerUnit);
-        }
     }
 }

@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
 public interface State {
@@ -11,7 +12,7 @@ public interface State {
 
     public void activateCamera();
 
-    public void move(RobotPositions positions);
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload);
 
     public void hibernate();
 
@@ -22,4 +23,6 @@ public interface State {
     public void performDiagnostics();
 
     public void performRadarScan();
+
+    public String getStateName();
 }

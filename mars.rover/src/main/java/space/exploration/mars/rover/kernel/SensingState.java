@@ -5,6 +5,7 @@ package space.exploration.mars.rover.kernel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverPingOuterClass.RoverPing;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
@@ -26,7 +27,12 @@ public class SensingState implements State {
     public void receiveMessage(byte[] message) {
         rover.getInstructionQueue().add(message);
         logger.error("Rover not in the correct state to receive message. Message added to the instruction queue, " +
-                     "instruction queue length = " + rover.getInstructionQueue().size());
+                             "instruction queue length = " + rover.getInstructionQueue().size());
+    }
+
+    @Override
+    public String getStateName() {
+        return "Sensing State";
     }
 
     public void transmitMessage(byte[] message) {
@@ -44,10 +50,9 @@ public class SensingState implements State {
 
     }
 
-    public void move(RobotPositions positions) {
-        // TODO Auto-generated method stub
-
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
+
 
     public void hibernate() {
         // TODO Auto-generated method stub
@@ -63,7 +68,7 @@ public class SensingState implements State {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 
         rover.configureLidar(marsArchitect.getRobot().getLocation(), marsArchitect.getCellWidth(),
-                marsArchitect.getCellWidth());
+                             marsArchitect.getCellWidth());
         rover.getLidar().setWallBuilder(new WallBuilder(rover.getMarsConfig()));
         rover.getLidar().scanArea();
 

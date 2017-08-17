@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * Created by sanket on 6/11/17.
  */
 public class BatteryMonitor {
-    private Logger                   logger    = LoggerFactory.getLogger(Battery.class);
+    private Logger                   logger    = LoggerFactory.getLogger(BatteryMonitor.class);
     private ScheduledExecutorService scheduler = null;
     private Rover                    rover     = null;
 
@@ -27,7 +27,9 @@ public class BatteryMonitor {
         Runnable bMonitor = new Runnable() {
             @Override
             public void run() {
-                logger.debug("BatteryMonitor performing due diligence. SCET = " + System.currentTimeMillis());
+                logger.debug("BatteryMonitor performing due diligence. SCET = " + System.currentTimeMillis() + " " +
+                                     "Rover" +
+                                     " state = " + rover.getState().getStateName());
                 if (rover.getState() == rover.getHibernatingState()) {
                     long timeInRecharge = System.currentTimeMillis() - rover.getInRechargingModeTime();
                     System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
@@ -48,20 +50,17 @@ public class BatteryMonitor {
                         rover.transmitMessage(rover.getBootupMessage());
                     }
                 } else {
-                    if (rover.getBattery().getPrimaryPowerUnits() <= rover.getBattery().getAlertThreshold()) {
-                        System.out.println("Going into hibernating mode!");
+                    if ((rover.getState() == rover.getListeningState()) && (rover.getBattery().getPrimaryPowerUnits()
+                            <= rover.getBattery().getAlertThreshold())) {
+                        logger.info("Battery Monitor has put the rover into hibernating mode.");
                         rover.setState(rover.getHibernatingState());
                         rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
                         rover.setInRechargingModeTime(System.currentTimeMillis());
-                        RoverUtil.roverSystemLog(logger, ("Rover reporting powerConsumed, remaining power = " + rover
-                                .getBattery()
-                                .getPrimaryPowerUnits() + " " +
-                                "at time = " + System.currentTimeMillis()), "INFO");
                     }
                 }
                 rover.getMarsArchitect().getMarsSurface().repaint();
             }
         };
-        scheduler.scheduleAtFixedRate(bMonitor, 10, 5, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(bMonitor, 10, 1, TimeUnit.SECONDS);
     }
 }

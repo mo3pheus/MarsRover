@@ -2,6 +2,7 @@ package space.exploration.mars.rover.kernel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.RadarAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
@@ -33,6 +34,11 @@ public class RadarScanningState implements State {
     }
 
     @Override
+    public String getStateName() {
+        return "Radar Scanning State";
+    }
+
+    @Override
     public void receiveMessage(byte[] message) {
         rover.getInstructionQueue().add(message);
     }
@@ -53,7 +59,7 @@ public class RadarScanningState implements State {
     }
 
     @Override
-    public void move(RobotPositionsOuterClass.RobotPositions positions) {
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         RoverUtil.roverSystemLog(logger, " Invalid action error. Can not move in current state.", "ERROR");
     }
 

@@ -5,6 +5,7 @@ package space.exploration.mars.rover.kernel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
 /**
@@ -29,6 +30,11 @@ public class HibernatingState implements State {
         }
     }
 
+    @Override
+    public String getStateName() {
+        return "Hibernating State";
+    }
+
     public void transmitMessage(byte[] message) {
         logger.error("Can not transmit message in hibernating state.");
     }
@@ -41,7 +47,7 @@ public class HibernatingState implements State {
         logger.error("Can not activate camera in hibernating state.");
     }
 
-    public void move(RobotPositions positions) {
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         logger.error("Can not move in hibernating state.");
     }
 

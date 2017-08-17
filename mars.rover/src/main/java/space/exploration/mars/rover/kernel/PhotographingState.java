@@ -3,6 +3,7 @@ package space.exploration.mars.rover.kernel;
 import com.google.protobuf.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
@@ -21,6 +22,11 @@ public class PhotographingState implements State {
 
     public void receiveMessage(byte[] message) {
 
+    }
+
+    @Override
+    public String getStateName() {
+        return "Photographing State";
     }
 
     public void transmitMessage(byte[] message) {
@@ -83,9 +89,9 @@ public class PhotographingState implements State {
         rover.setEquipmentEOL(false);
     }
 
-    public void move(RobotPositionsOuterClass.RobotPositions positions) {
-
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
+
 
     public void hibernate() {
 

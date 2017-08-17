@@ -2,6 +2,7 @@ package space.exploration.mars.rover.kernel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
@@ -78,7 +79,7 @@ public class Rover {
     }
 
     public void processPendingMessageQueue() {
-        if (!instructionQueue.isEmpty()) {
+        if (!instructionQueue.isEmpty() && state != hibernatingState) {
             state = listeningState;
             receiveMessage(instructionQueue.remove(0));
         }
@@ -205,8 +206,8 @@ public class Rover {
         state.scanSurroundings();
     }
 
-    public void move(RobotPositions positions) {
-        state.move(positions);
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
+        state.move(payload);
     }
 
     public void performRadarScan() {
@@ -383,9 +384,9 @@ public class Rover {
     public void configureBattery(boolean recharged) {
         int batteryAlertThreshold = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.alertThreshold"));
         int rechargeTime          = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.rechargeTime"));
-        int lifeSpan = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
+        int lifeSpan              = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
 
-        if(this.battery != null){
+        if (this.battery != null) {
             lifeSpan = battery.getLifeSpan();
         }
 
@@ -396,7 +397,7 @@ public class Rover {
             battery.setLifeSpan(lifeSpan);
         }
 
-        this.batteryMonitor = new BatteryMonitor(4, this);
+        this.batteryMonitor = new BatteryMonitor(1, this);
         batteryMonitor.monitor();
         RoverUtil.roverSystemLog(logger, "Battery Monitor configured!", "INFO");
     }

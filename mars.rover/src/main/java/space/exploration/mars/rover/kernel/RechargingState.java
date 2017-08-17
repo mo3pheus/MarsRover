@@ -3,6 +3,7 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
 /**
@@ -20,6 +21,11 @@ public class RechargingState implements State {
 
     }
 
+    @Override
+    public String getStateName() {
+        return "Recharging State";
+    }
+
     public void transmitMessage(byte[] message) {
         // TODO Auto-generated method stub
 
@@ -35,10 +41,9 @@ public class RechargingState implements State {
 
     }
 
-    public void move(RobotPositions positions) {
-        // TODO Auto-generated method stub
-
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
+
 
     public void hibernate() {
         // TODO Auto-generated method stub

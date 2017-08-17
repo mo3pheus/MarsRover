@@ -3,15 +3,19 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
+import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
+import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions.Point;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
@@ -58,9 +62,20 @@ public class MovingState implements State {
 
     }
 
-    public void move(RobotPositions positions) {
+    @Override
+    public String getStateName() {
+        return "Moving State";
+    }
+
+    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         MarsArchitect  architect     = rover.getMarsArchitect();
         java.awt.Point robotPosition = rover.getMarsArchitect().getRobot().getLocation();
+        RobotPositions positions     = null;
+        try {
+            positions = RobotPositions.parseFrom(payload.getTargetsList().get(0).getAuxiliaryData().toByteArray());
+        } catch (InvalidProtocolBufferException e) {
+            logger.error("Invalid / corrupted move command.", e);
+        }
 
         Point destination = positions.getPositions(0);
         logger.info("In moving state, destination demanded = " + destination.toString());
@@ -77,11 +92,23 @@ public class MovingState implements State {
                     .getLocation().toString() + " and " + destination.toString());
             sendFailureToEarth(robotPosition, destination);
             return;
+        } else if (!rover.getBattery().requestPower(powerTran.getPowerConsumptionPerUnit() * powerTran.getTrajectory
+                ().size(), false)) {
+            logger.error("Propulsion unavailable due to insufficient battery. Sending the rover into hibernating " +
+                                 "state. Will attempt to restore propulsion upon battery recharge.");
+
+            rover.getInstructionQueue().add(payload.toByteArray());
+            rover.setState(rover.getHibernatingState());
+            rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
+            rover.setInRechargingModeTime(System.currentTimeMillis());
+            return;
         }
 
-        architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(powerTran.getTrajectory
-                (), architect.getRobotStepSize()));
-
+        architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(powerTran
+                                                                                                     .getTrajectory
+                                                                                                             (),
+                                                                                             architect
+                                                                                                     .getRobotStepSize()));
         architect.returnSurfaceToNormal();
         sendUpdateToEarth();
     }
