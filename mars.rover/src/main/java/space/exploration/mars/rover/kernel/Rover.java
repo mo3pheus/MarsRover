@@ -37,7 +37,6 @@ public class Rover {
     State exploringState;
     State transmittingState;
     State hibernatingState;
-    State rechargingState;
     State photoGraphingState;
     State radarScanningState;
 
@@ -149,14 +148,6 @@ public class Rover {
 
     public void setHibernatingState(State hibernatingState) {
         this.hibernatingState = hibernatingState;
-    }
-
-    public State getRechargingState() {
-        return rechargingState;
-    }
-
-    public void setRechargingState(State rechargingState) {
-        this.rechargingState = rechargingState;
     }
 
     public State getPhotoGraphingState() {
@@ -440,7 +431,6 @@ public class Rover {
         this.hibernatingState = new HibernatingState(this);
         this.exploringState = new ExploringState(this);
         this.movingState = new MovingState(this);
-        this.rechargingState = new RechargingState(this);
         this.photoGraphingState = new PhotographingState(this);
         this.sensingState = new SensingState(this);
         this.transmittingState = new TransmittingState(this);

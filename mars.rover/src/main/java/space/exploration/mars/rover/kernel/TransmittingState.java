@@ -3,27 +3,45 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
+
+import java.util.concurrent.Semaphore;
 
 /**
  * @author sanketkorgaonkar
  */
 public class TransmittingState implements State {
-    private Rover rover = null;
+    private final Semaphore accessLock = new Semaphore(1, true);
+    private       Rover     rover      = null;
+    private       Logger    logger     = LoggerFactory.getLogger(TransmittingState.class);
 
     public TransmittingState(Rover rover) {
         this.rover = rover;
     }
 
     public void receiveMessage(byte[] message) {
-        rover.getInstructionQueue().add(message);
+        try {
+            accessLock.acquire();
+            rover.getInstructionQueue().add(message);
+            accessLock.release();
+        } catch (InterruptedException ie) {
+            logger.error("Transmitting Module's accessLock interrupted.", ie);
+        }
     }
 
     public void transmitMessage(byte[] message) {
-        rover.getRadio().sendMessage(message);
-        rover.getMarsArchitect().returnSurfaceToNormal();
-        rover.state = rover.listeningState;
+        try {
+            accessLock.acquire();
+            rover.getRadio().sendMessage(message);
+            rover.getMarsArchitect().returnSurfaceToNormal();
+            rover.state = rover.listeningState;
+            accessLock.release();
+        } catch (InterruptedException ie) {
+            logger.error("Transmitting Module's accessLock interrupted.", ie);
+        }
     }
 
     @Override

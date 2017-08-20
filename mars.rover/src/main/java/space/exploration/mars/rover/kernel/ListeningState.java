@@ -10,10 +10,13 @@ import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
+import java.util.concurrent.Semaphore;
+
 public class ListeningState implements State {
 
-    private Logger logger = LoggerFactory.getLogger(ListeningState.class);
-    private Rover  rover  = null;
+    private       Logger    logger     = LoggerFactory.getLogger(ListeningState.class);
+    private       Rover     rover      = null;
+    private final Semaphore accessLock = new Semaphore(1, true);
 
     public ListeningState(Rover rover) {
         this.rover = rover;
@@ -32,6 +35,7 @@ public class ListeningState implements State {
             System.out.println(payload);
             logger.info(payload.toString());
 
+            accessLock.acquire();
             for (TargetPackage tp : payload.getTargetsList()) {
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
                     logger.error("Going into hibernation from Listening state.");
@@ -71,10 +75,12 @@ public class ListeningState implements State {
                     rover.state = rover.radarScanningState;
                     rover.performRadarScan();
                 }
+                accessLock.release();
             }
         } catch (InvalidProtocolBufferException e) {
-            logger.error("InvalidProtocolBufferException");
-            logger.error(e.getMessage());
+            logger.error("InvalidProtocolBufferException", e);
+        } catch (InterruptedException e) {
+            logger.error("Semaphore exception. Someone interrupted the listening module's accessLock on the rover.", e);
         }
     }
 

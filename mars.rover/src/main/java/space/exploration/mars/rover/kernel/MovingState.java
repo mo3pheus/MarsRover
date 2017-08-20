@@ -20,20 +20,28 @@ import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPosition
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions.Point;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
 
+import java.util.concurrent.Semaphore;
+
 /**
  * @author sanketkorgaonkar
  */
 public class MovingState implements State {
-
-    private Rover  rover  = null;
-    private Logger logger = LoggerFactory.getLogger(MovingState.class);
+    private final Semaphore accessLock = new Semaphore(1, true);
+    private       Rover     rover      = null;
+    private       Logger    logger     = LoggerFactory.getLogger(MovingState.class);
 
     public MovingState(Rover rover) {
         this.rover = rover;
     }
 
     public void receiveMessage(byte[] message) {
-        rover.getInstructionQueue().add(message);
+        try {
+            accessLock.acquire();
+            rover.getInstructionQueue().add(message);
+            accessLock.release();
+        } catch (InterruptedException ie) {
+            logger.error("MovingState Module's accessLock interrupted.", ie);
+        }
     }
 
     public void transmitMessage(byte[] message) {
@@ -84,33 +92,39 @@ public class MovingState implements State {
             return;
         }
 
-        PropulsionUnit powerTran = new PropulsionUnit(rover, robotPosition, new java.awt.Point(destination.getX(),
-                                                                                               destination.getY()));
+        try {
+            accessLock.acquire();
+            PropulsionUnit powerTran = new PropulsionUnit(rover, robotPosition, new java.awt.Point(destination.getX(),
+                                                                                                   destination.getY()));
 
-        if (!powerTran.isTrajectoryValid()) {
-            logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
-                    .getLocation().toString() + " and " + destination.toString());
-            sendFailureToEarth(robotPosition, destination);
-            return;
-        } else if (!rover.getBattery().requestPower(powerTran.getPowerConsumptionPerUnit() * powerTran.getTrajectory
-                ().size(), false)) {
-            logger.error("Propulsion unavailable due to insufficient battery. Sending the rover into hibernating " +
-                                 "state. Will attempt to restore propulsion upon battery recharge.");
+            if (!powerTran.isTrajectoryValid()) {
+                logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
+                        .getLocation().toString() + " and " + destination.toString());
+                sendFailureToEarth(robotPosition, destination);
+                return;
+            } else if (!rover.getBattery().requestPower(powerTran.getPowerConsumptionPerUnit() * powerTran.getTrajectory
+                    ().size(), false)) {
+                logger.error("Propulsion unavailable due to insufficient battery. Sending the rover into hibernating " +
+                                     "state. Will attempt to restore propulsion upon battery recharge.");
 
-            rover.getInstructionQueue().add(payload.toByteArray());
-            rover.setState(rover.getHibernatingState());
-            rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
-            rover.setInRechargingModeTime(System.currentTimeMillis());
-            return;
+                rover.getInstructionQueue().add(payload.toByteArray());
+                rover.setState(rover.getHibernatingState());
+                rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
+                rover.setInRechargingModeTime(System.currentTimeMillis());
+                return;
+            }
+
+            architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(powerTran
+                                                                                                         .getTrajectory
+                                                                                                                 (),
+                                                                                                 architect
+                                                                                                         .getRobotStepSize()));
+            architect.returnSurfaceToNormal();
+            sendUpdateToEarth();
+            accessLock.release();
+        } catch (InterruptedException ie) {
+            logger.error("Moving state accessLock interrupted.", ie);
         }
-
-        architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(powerTran
-                                                                                                     .getTrajectory
-                                                                                                             (),
-                                                                                             architect
-                                                                                                     .getRobotStepSize()));
-        architect.returnSurfaceToNormal();
-        sendUpdateToEarth();
     }
 
     private boolean isDestinationValid(java.awt.Point destination) {

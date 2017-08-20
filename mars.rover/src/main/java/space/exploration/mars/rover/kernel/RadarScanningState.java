@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.Semaphore;
 
 /**
  * Created by sanket on 5/30/17.
@@ -25,9 +26,9 @@ import java.util.Properties;
 public class RadarScanningState implements State {
     public static final int CONTACT_DIAMETER = 8;
 
-    private Rover  rover       = null;
-    private Logger logger      = LoggerFactory.getLogger(RadarScanningState.class);
-    private double scaleFactor = 0.0d;
+    private       Rover     rover      = null;
+    private       Logger    logger     = LoggerFactory.getLogger(RadarScanningState.class);
+    private final Semaphore accessLock = new Semaphore(1, true);
 
     public RadarScanningState(Rover rover) {
         this.rover = rover;
@@ -40,7 +41,14 @@ public class RadarScanningState implements State {
 
     @Override
     public void receiveMessage(byte[] message) {
-        rover.getInstructionQueue().add(message);
+        try {
+            accessLock.acquire();
+            logger.error("Radar Module received message, adding to rover's instruction queue");
+            rover.getInstructionQueue().add(message);
+            accessLock.release();
+        } catch (InterruptedException ie) {
+            logger.error("RadarScanning Module's accessLock interrupted.", ie);
+        }
     }
 
     @Override
@@ -88,33 +96,39 @@ public class RadarScanningState implements State {
     public void performRadarScan() {
         logger.info("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
-        MarsArchitect marsArchitect = rover.getMarsArchitect();
-        renderRadarAnimation();
+        try {
+            accessLock.acquire();
+            MarsArchitect marsArchitect = rover.getMarsArchitect();
+            renderRadarAnimation();
 
-        RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
-                .newBuilder()
-                .setX(marsArchitect.getRobot().getLocation().x)
-                .setY(marsArchitect.getRobot().getLocation().y).build();
-        RoverStatusOuterClass.RoverStatus         status   = null;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+            RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
+                    .newBuilder()
+                    .setX(marsArchitect.getRobot().getLocation().x)
+                    .setY(marsArchitect.getRobot().getLocation().y).build();
+            RoverStatusOuterClass.RoverStatus         status   = null;
+            RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
 
-        RadarContactListOuterClass.RadarContactList.Builder rContactListBuilder = RadarContactListOuterClass
-                .RadarContactList.newBuilder();
-        for (RadialContact r : rover.getRadar().getRadialContacts()) {
-            rContactListBuilder.addContacts(r.getPolarPoint());
+            RadarContactListOuterClass.RadarContactList.Builder rContactListBuilder = RadarContactListOuterClass
+                    .RadarContactList.newBuilder();
+            for (RadialContact r : rover.getRadar().getRadialContacts()) {
+                rContactListBuilder.addContacts(r.getPolarPoint());
+            }
+            rContactListBuilder.setScaleFactor(rover.getRadar().getScaleFactor());
+
+            status = rBuilder.setBatteryLevel(rover.getBattery()
+                                                      .getPrimaryPowerUnits())
+                    .setSolNumber(rover.getSol()).setLocation(location).setNotes("Radar scan performed!")
+                    .setSCET(System
+                                     .currentTimeMillis())
+                    .setModuleMessage(rContactListBuilder.build().toByteString())
+                    .setModuleReporting(ModuleDirectory.Module.RADAR.getValue()).build();
+            rover.getMarsArchitect().returnSurfaceToNormal();
+            rover.state = rover.transmittingState;
+            rover.transmitMessage(status.toByteArray());
+            accessLock.release();
+        } catch (InterruptedException ie) {
+            logger.error("RadarScanningState's accessLock interrupted.", ie);
         }
-        rContactListBuilder.setScaleFactor(rover.getRadar().getScaleFactor());
-
-        status = rBuilder.setBatteryLevel(rover.getBattery()
-                                                  .getPrimaryPowerUnits())
-                .setSolNumber(rover.getSol()).setLocation(location).setNotes("Radar scan performed!")
-                .setSCET(System
-                                 .currentTimeMillis())
-                .setModuleMessage(rContactListBuilder.build().toByteString())
-                .setModuleReporting(ModuleDirectory.Module.RADAR.getValue()).build();
-        rover.getMarsArchitect().returnSurfaceToNormal();
-        rover.state = rover.transmittingState;
-        rover.transmitMessage(status.toByteArray());
     }
 
     private void renderRadarAnimation() {

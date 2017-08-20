@@ -8,25 +8,28 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
+import java.util.concurrent.Semaphore;
+
 /**
  * @author sanketkorgaonkar
  */
 public class HibernatingState implements State {
-    private Rover  rover  = null;
-    private Logger logger = LoggerFactory.getLogger(HibernatingState.class);
+    private Rover     rover      = null;
+    private Logger    logger     = LoggerFactory.getLogger(HibernatingState.class);
+    private Semaphore accessLock = new Semaphore(1, true);
 
     public HibernatingState(Rover rover) {
         this.rover = rover;
     }
 
     public void receiveMessage(byte[] message) {
-        // TODO Auto-generated method stub
-        System.out.println("In hibernating state's receiveMessage() ");
+        logger.error("In hibernating state's receiveMessage(), adding message to instruction queue");
         try {
+            accessLock.acquire();
             rover.getInstructionQueue().add(message);
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-            e.printStackTrace();
+            accessLock.release();
+        } catch (InterruptedException ie) {
+            logger.error("Hibernating state's accessLock interrupted.", ie);
         }
     }
 
