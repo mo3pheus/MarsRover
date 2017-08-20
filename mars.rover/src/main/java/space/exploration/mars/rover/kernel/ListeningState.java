@@ -29,27 +29,34 @@ public class ListeningState implements State {
 
     public void receiveMessage(byte[] message) {
         InstructionPayload payload = null;
+        System.out.println("This is the listening module");
         try {
-            System.out.println("This is the listening module");
             payload = InstructionPayload.parseFrom(message);
             System.out.println(payload);
             logger.info(payload.toString());
 
-            accessLock.acquire();
             for (TargetPackage tp : payload.getTargetsList()) {
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
-                    logger.error("Going into hibernation from Listening state.");
-                    rover.state = rover.hibernatingState;
-                    rover.setInRechargingModeTime(System.currentTimeMillis());
-                    rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
-                    rover.getMarsArchitect().getMarsSurface().repaint();
-                    rover.getInstructionQueue().add(payload.toByteArray());
+                    try {
+                        accessLock.acquire();
+                        logger.error("Going into hibernation from Listening state.");
+                        rover.state = rover.hibernatingState;
+                        rover.setInRechargingModeTime(System.currentTimeMillis());
+                        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
+
+                        rover.getMarsArchitect().getMarsSurface().repaint();
+                        rover.getInstructionQueue().add(payload.toByteArray());
+                        accessLock.release();
+                    } catch (InterruptedException ie) {
+                        logger.error("Listening module interrupted.", ie);
+                    }
                     return;
                 }
 
                 rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
                                                                                                 .getProperty
-                                                                                                        (EnvironmentUtils.ROBOT_COLOR)));
+                                                                                                        (EnvironmentUtils
+                                                                                                                 .ROBOT_COLOR)));
                 rover.getMarsArchitect().getMarsSurface().repaint();
                 rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - tp
                         .getEstimatedPowerUsage());
@@ -79,8 +86,6 @@ public class ListeningState implements State {
             }
         } catch (InvalidProtocolBufferException e) {
             logger.error("InvalidProtocolBufferException", e);
-        } catch (InterruptedException e) {
-            logger.error("Semaphore exception. Someone interrupted the listening module's accessLock on the rover.", e);
         }
     }
 
