@@ -81,6 +81,7 @@ public class PhotographingState implements State {
 
             logger.info(status.toString());
 
+            rover.getMarsArchitect().returnSurfaceToNormal();
             rover.state = rover.transmittingState;
             rover.transmitMessage(status.toByteArray());
         }

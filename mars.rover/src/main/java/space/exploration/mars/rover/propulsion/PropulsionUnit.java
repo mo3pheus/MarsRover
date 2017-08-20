@@ -2,6 +2,9 @@ package space.exploration.mars.rover.propulsion;
 
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.navigation.NavCell;
+import space.exploration.mars.rover.navigation.NavUtil;
+import space.exploration.mars.rover.navigation.NavigationEngine;
 
 import java.awt.*;
 
@@ -38,9 +41,15 @@ public class PropulsionUnit {
     }
 
     private void requestPropulsion() {
-        rover.configureRLEngine();
-        rover.getRlNavEngine().train(source, destination);
-        trajectory = rover.getRlNavEngine().getShortestPath();
+
+        NavigationEngine navigationEngine = rover.getNavigationEngine();
+        NavCell start = navigationEngine.getGridMap().get(NavUtil.findNavId(navigationEngine
+                                                                                    .getGridMap()
+                , source));
+        NavCell dest = navigationEngine.getGridMap().get(NavUtil.findNavId(navigationEngine
+                                                                                   .getGridMap()
+                , destination));
+        trajectory = navigationEngine.navigate(start, dest);
         int trajectoryLength = trajectory.size();
 
         trajectoryValid = (trajectoryLength > 1) ? (trajectory.get(trajectoryLength - 1).equals(destination)) :

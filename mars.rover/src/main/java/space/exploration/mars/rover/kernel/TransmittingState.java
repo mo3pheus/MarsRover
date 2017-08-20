@@ -22,6 +22,7 @@ public class TransmittingState implements State {
 
     public void transmitMessage(byte[] message) {
         rover.getRadio().sendMessage(message);
+        rover.getMarsArchitect().returnSurfaceToNormal();
         rover.state = rover.listeningState;
     }
 

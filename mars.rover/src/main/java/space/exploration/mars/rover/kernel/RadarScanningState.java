@@ -112,6 +112,7 @@ public class RadarScanningState implements State {
                                  .currentTimeMillis())
                 .setModuleMessage(rContactListBuilder.build().toByteString())
                 .setModuleReporting(ModuleDirectory.Module.RADAR.getValue()).build();
+        rover.getMarsArchitect().returnSurfaceToNormal();
         rover.state = rover.transmittingState;
         rover.transmitMessage(status.toByteArray());
     }

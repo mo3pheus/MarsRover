@@ -5,11 +5,11 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.utils.RoverUtil;
 
+import java.util.Properties;
 import java.util.concurrent.Semaphore;
 
 public class Battery implements IsEquipment {
-    public static final String    LIFESPAN   = "mars.rover.battery.lifeSpan";
-    private final       Semaphore accessLock = new Semaphore(1, true);
+    private final Semaphore accessLock = new Semaphore(1, true);
     private int     primaryPowerUnits;
     private int     auxiliaryPowerUnits;
     private int     alertThreshold;
@@ -18,15 +18,22 @@ public class Battery implements IsEquipment {
     private boolean endOfLife;
     private Logger logger = LoggerFactory.getLogger(Battery.class);
 
-    public Battery(int alertThreshold, int rechargeTime) {
-        this.alertThreshold = alertThreshold;
-        this.rechargeTime = rechargeTime;
-        this.primaryPowerUnits = 1000;
-        this.auxiliaryPowerUnits = 100;
-        RoverUtil.roverSystemLog(logger, "Battery configured, batteryLife:primaryPowerUnits = " + primaryPowerUnits
-                + " auxiliaryPowerUnits = " + auxiliaryPowerUnits + " alertThreshold: " +
-                alertThreshold + " rechargeTime = " + rechargeTime, "INFO"
-        );
+    public Battery(Properties batteryConfig) {
+        try {
+            this.alertThreshold = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery.alertThreshold"));
+            this.rechargeTime = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery.rechargeTime"));
+            this.primaryPowerUnits = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery" +
+                                                                                        ".primaryPowerUnits"));
+            this.lifeSpan = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery.lifeSpan"));
+            this.auxiliaryPowerUnits = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery" +
+                                                                                          ".auxiliaryPowerUnits"));
+            RoverUtil.roverSystemLog(logger, "Battery configured, batteryLife:primaryPowerUnits = " + primaryPowerUnits
+                    + " auxiliaryPowerUnits = " + auxiliaryPowerUnits + " alertThreshold: " +
+                    alertThreshold + " rechargeTime = " + rechargeTime, "INFO"
+            );
+        } catch (NumberFormatException nfe) {
+            logger.error("Battery config is corrupt - please recheck marsConfig.properties", nfe);
+        }
     }
 
     @Override

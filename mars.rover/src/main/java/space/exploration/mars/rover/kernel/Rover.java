@@ -11,6 +11,7 @@ import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.learning.ReinforcementLearner;
+import space.exploration.mars.rover.navigation.NavigationEngine;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.power.BatteryMonitor;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
@@ -47,11 +48,11 @@ public class Rover {
     private boolean     equipmentEOL = false;
 
     /* Configuration */
-    private Properties           marsConfig    = null;
-    private Properties           comsConfig    = null;
-    private MarsArchitect        marsArchitect = null;
-    private Point                location      = null;
-    private ReinforcementLearner rlNavEngine   = null;
+    private Properties       marsConfig       = null;
+    private Properties       comsConfig       = null;
+    private MarsArchitect    marsArchitect    = null;
+    private Point            location         = null;
+    private NavigationEngine navigationEngine = null;
 
     /* Equipment Stack */
     private Battery        battery        = null;
@@ -100,10 +101,6 @@ public class Rover {
 
     public void setInRechargingModeTime(long inRechargingModeTime) {
         this.inRechargingModeTime = inRechargingModeTime;
-    }
-
-    public void configureRLEngine() {
-        this.rlNavEngine = new ReinforcementLearner(marsConfig);
     }
 
     public State getListeningState() {
@@ -178,8 +175,8 @@ public class Rover {
         this.radarScanningState = radarScanningState;
     }
 
-    public ReinforcementLearner getRlNavEngine() {
-        return rlNavEngine;
+    public NavigationEngine getNavigationEngine() {
+        return navigationEngine;
     }
 
     public Map<Point, RoverCell> getPreviousRovers() {
@@ -382,22 +379,18 @@ public class Rover {
     }
 
     public void configureBattery(boolean recharged) {
-        int batteryAlertThreshold = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.alertThreshold"));
-        int rechargeTime          = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.rechargeTime"));
-        int lifeSpan              = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
+        int lifeSpan = 0;
 
         if (this.battery != null) {
             lifeSpan = battery.getLifeSpan();
         }
 
-        this.battery = new Battery(batteryAlertThreshold, rechargeTime);
+        this.battery = new Battery(marsConfig);
         if (recharged) {
             battery.setLifeSpan(lifeSpan - 1);
-        } else {
-            battery.setLifeSpan(lifeSpan);
         }
 
-        this.batteryMonitor = new BatteryMonitor(1, this);
+        this.batteryMonitor = new BatteryMonitor(this);
         batteryMonitor.monitor();
         RoverUtil.roverSystemLog(logger, "Battery Monitor configured!", "INFO");
     }
@@ -426,6 +419,19 @@ public class Rover {
     }
 
     public void bootUp(boolean fatalError) {
+        if (fatalError) {
+            try {
+                logger.error("Rover rebooting after a fatal error. Number of messages lost = " + instructionQueue
+                        .size());
+
+                batteryMonitor.interrupt();
+                pacemaker.interrupt();
+                marsArchitect.getMarsSurface().dispose();
+            } catch (NullPointerException npe) {
+                logger.error("Null pointer exception in booting upon fatalError - Houston please fix this!", npe);
+            }
+        }
+
         int instructionQueueLength = 0;
 
         this.creationTime = System.currentTimeMillis();
@@ -449,12 +455,13 @@ public class Rover {
         this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
 
-        this.pacemaker = new Pacemaker(10, this);
+        this.pacemaker = new Pacemaker(this);
         pacemaker.pulse();
         RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
 
         String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
-        this.location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
+        location = (fatalError) ? location : new Point(Integer.parseInt(stPosition[0]), Integer.parseInt
+                (stPosition[1]));
         RoverUtil.roverSystemLog(logger, "Rover current position is = " + location.toString(), "INFO");
 
         int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
@@ -467,6 +474,8 @@ public class Rover {
 
         this.camera = new Camera(this.marsConfig, this);
         this.radar = new Radar(this);
+
+        this.navigationEngine = new NavigationEngine(this.getMarsConfig());
 
         configureBattery(false);
         configureRadio();

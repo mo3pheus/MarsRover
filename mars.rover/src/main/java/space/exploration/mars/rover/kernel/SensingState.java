@@ -91,6 +91,7 @@ public class SensingState implements State {
                     .setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
                     .setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
 
+            rover.getMarsArchitect().returnSurfaceToNormal();
             rover.state = rover.transmittingState;
             rover.transmitMessage(status.toByteArray());
         }

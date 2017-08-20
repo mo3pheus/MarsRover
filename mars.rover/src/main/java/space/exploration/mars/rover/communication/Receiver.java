@@ -24,7 +24,7 @@ import java.util.Properties;
 public class Receiver extends Thread {
     public final static int    RECEIVER_POWER_USAGE = 20;
     public final static String clientId             = "Curiosity";
-    public final static String TUNED_CHANNEL        = "earth_to_curiosity_0";
+    public final static String TUNED_CHANNEL        = "earth_to_curiosity_1";
 
     private ConsumerConnector consumerConnector = null;
     private Radio             radio             = null;
@@ -42,7 +42,7 @@ public class Receiver extends Thread {
         Properties matrixConfig = new Properties();
         FileInputStream propFile = new FileInputStream(
                 "/Users/sanketkorgaonkar/Documents/CodeRepos/AdvancedMatrix/advanced" +
-                ".matrix/src/main/resources/mazeDefinition.properties");
+                        ".matrix/src/main/resources/marsConfig.properties");
         matrixConfig.load(propFile);
         this.lastReportTime = System.currentTimeMillis();
     }

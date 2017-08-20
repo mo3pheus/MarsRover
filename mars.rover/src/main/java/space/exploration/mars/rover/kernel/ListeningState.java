@@ -35,7 +35,6 @@ public class ListeningState implements State {
             for (TargetPackage tp : payload.getTargetsList()) {
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
                     logger.error("Going into hibernation from Listening state.");
-                    logger.error("Not enough power to support propulsion at the time. Going into hibernating mode.");
                     rover.state = rover.hibernatingState;
                     rover.setInRechargingModeTime(System.currentTimeMillis());
                     rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));

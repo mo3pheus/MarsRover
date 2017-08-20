@@ -18,28 +18,31 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 5/15/17.
  */
 public class Pacemaker {
-    private static final int                           MAX_PENDING_MSGS = 15;
-    private              ScheduledExecutorService      scheduler        = null;
-    private              Rover                         rover            = null;
-    private              HeartBeatOuterClass.HeartBeat heartBeat        = null;
+    public static final int                           MAX_PENDING_MSGS = 15;
+    private             ScheduledExecutorService      scheduler        = null;
+    private             Rover                         rover            = null;
+    private             HeartBeatOuterClass.HeartBeat heartBeat        = null;
 
     private Logger logger = LoggerFactory.getLogger(Pacemaker.class);
 
-    public Pacemaker(int threadPoolCount, Rover rover) {
+    public Pacemaker(Rover rover) {
         this.rover = rover;
-        this.scheduler = Executors.newScheduledThreadPool(threadPoolCount);
+        this.scheduler = Executors.newSingleThreadScheduledExecutor();
     }
 
     public void pulse() {
         Runnable heart = new Runnable() {
             @Override
             public void run() {
+                logger.info("Pacemaker performing its due diligence.");
                 if (rover.getInstructionQueue().size() >= MAX_PENDING_MSGS) {
+                    logger.error("Diagnostics module rebooting rover because max pending messages exceeded.");
                     rover.bootUp(true);
                     return;
                 }
 
                 if (rover.getState() == rover.getHibernatingState()) {
+                    logger.error("Diagnostics inhibited because rover is in hibernating state.");
                     return;
                 }
 
@@ -66,6 +69,11 @@ public class Pacemaker {
 
         int                pulse   = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.heartbeat.pulse"));
         ScheduledFuture<?> trigger = scheduler.scheduleAtFixedRate(heart, pulse, 60, TimeUnit.SECONDS);
+    }
+
+    public void interrupt() {
+        logger.error("Pacemaker diagnostic module interrupted.");
+        scheduler.shutdown();
     }
 
     private HeartBeatOuterClass.HeartBeat generateHeartBeat() {
