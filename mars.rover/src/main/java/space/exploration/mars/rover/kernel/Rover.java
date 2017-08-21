@@ -388,10 +388,6 @@ public class Rover {
 
     private void configureRadio() {
         this.radio = new Radio(comsConfig, this);
-        long radioCheckPulse = Long.parseLong(marsConfig.getProperty("mars.rover.radio.check.pulse"));
-        int  lifeSpan        = Integer.parseInt(marsConfig.getProperty(Radio.LIFESPAN));
-        radio.getReceiver().setRadioCheckPulse(radioCheckPulse);
-        radio.setLifeSpan(lifeSpan);
     }
 
     private byte[] getErrorRecoveryMessage(int instructionLength) {

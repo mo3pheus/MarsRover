@@ -16,7 +16,6 @@ public class ListeningState implements State {
 
     private       Logger    logger     = LoggerFactory.getLogger(ListeningState.class);
     private       Rover     rover      = null;
-    private final Semaphore accessLock = new Semaphore(1, true);
 
     public ListeningState(Rover rover) {
         this.rover = rover;
@@ -37,19 +36,13 @@ public class ListeningState implements State {
 
             for (TargetPackage tp : payload.getTargetsList()) {
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
-                    try {
-                        accessLock.acquire();
-                        logger.error("Going into hibernation from Listening state.");
-                        rover.state = rover.hibernatingState;
-                        rover.setInRechargingModeTime(System.currentTimeMillis());
-                        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
+                    logger.error("Going into hibernation from Listening state.");
+                    rover.state = rover.hibernatingState;
+                    rover.setInRechargingModeTime(System.currentTimeMillis());
+                    rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
 
-                        rover.getMarsArchitect().getMarsSurface().repaint();
-                        rover.getInstructionQueue().add(payload.toByteArray());
-                        accessLock.release();
-                    } catch (InterruptedException ie) {
-                        logger.error("Listening module interrupted.", ie);
-                    }
+                    rover.getMarsArchitect().getMarsSurface().repaint();
+                    rover.getInstructionQueue().add(payload.toByteArray());
                     return;
                 }
 
@@ -82,7 +75,6 @@ public class ListeningState implements State {
                     rover.state = rover.radarScanningState;
                     rover.performRadarScan();
                 }
-                accessLock.release();
             }
         } catch (InvalidProtocolBufferException e) {
             logger.error("InvalidProtocolBufferException", e);

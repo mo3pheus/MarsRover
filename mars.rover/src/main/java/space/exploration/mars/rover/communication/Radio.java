@@ -28,10 +28,16 @@ public class Radio implements IsEquipment {
     private             int                  lifeSpan        = 0;
 
     public Radio(Properties comsConfig, Rover rover) {
-        this.transmitter = new Transmitter(comsConfig);
         this.rover = rover;
+        long radioCheckPulse = Long.parseLong(rover.getMarsConfig().getProperty("mars.rover.radio.check.pulse"));
+
+        this.transmitter = new Transmitter(comsConfig);
         this.receiver = new Receiver(comsConfig, this);
+        receiver.setRadioCheckPulse(radioCheckPulse);
         receiver.start();
+
+        int lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(Radio.LIFESPAN));
+        this.lifeSpan = lifeSpan;
 
         RoverUtil.roverSystemLog(logger, "Radio configured:: " + RoverUtil.getPropertiesAsString(comsConfig), "INFO");
     }
@@ -57,9 +63,9 @@ public class Radio implements IsEquipment {
                 lifeSpan--;
             } else {
                 sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
-                                                                                       Rover.ROVER_NAME + " Radio at " +
-                                                                                       "end of life. Any last wishes " +
-                                                                                       "Earth?", rover).toByteArray());
+                        Rover.ROVER_NAME + " Radio at " +
+                        "end of life. Any last wishes " +
+                        "Earth?", rover).toByteArray());
             }
         } catch (Exception e) {
             System.out.println("Radio receive operation has an exception");

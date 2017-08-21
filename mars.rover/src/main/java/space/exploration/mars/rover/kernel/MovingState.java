@@ -93,17 +93,19 @@ public class MovingState implements State {
         }
 
         try {
-            accessLock.acquire();
             PropulsionUnit powerTran = new PropulsionUnit(rover, robotPosition, new java.awt.Point(destination.getX(),
                                                                                                    destination.getY()));
 
             if (!powerTran.isTrajectoryValid()) {
+                accessLock.acquire();
                 logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
                         .getLocation().toString() + " and " + destination.toString());
+                accessLock.release();
                 sendFailureToEarth(robotPosition, destination);
                 return;
             } else if (!rover.getBattery().requestPower(powerTran.getPowerConsumptionPerUnit() * powerTran.getTrajectory
                     ().size(), false)) {
+                accessLock.acquire();
                 logger.error("Propulsion unavailable due to insufficient battery. Sending the rover into hibernating " +
                                      "state. Will attempt to restore propulsion upon battery recharge.");
 
@@ -111,9 +113,11 @@ public class MovingState implements State {
                 rover.setState(rover.getHibernatingState());
                 rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
                 rover.setInRechargingModeTime(System.currentTimeMillis());
+                accessLock.release();
                 return;
             }
 
+            accessLock.acquire();
             architect.updateRobotPositions(TrackingAnimationUtil.getAnimationCalibratedRobotPath(powerTran
                                                                                                          .getTrajectory
                                                                                                                  (),
