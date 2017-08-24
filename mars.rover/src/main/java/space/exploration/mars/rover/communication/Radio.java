@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
-import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
@@ -19,7 +18,6 @@ import java.util.Properties;
 public class Radio implements IsEquipment {
     public static final String               LIFESPAN        = "mars.rover.radio.lifeSpan";
     public static final int                  SOS_RESERVE     = 10;
-    private             RadioAnimationEngine radioAnimEngine = null;
     private             Rover                rover           = null;
     private             Transmitter          transmitter     = null;
     private             Receiver             receiver        = null;
@@ -56,9 +54,6 @@ public class Radio implements IsEquipment {
             if (lifeSpan > SOS_RESERVE) {
                 System.out.println("Alert! Alert! Incoming message...");
                 Thread.sleep(getComsDelaySecs());
-                this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
-                        .getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
-                radioAnimEngine.activateRadio();
                 rover.receiveMessage(instructionPayload.toByteArray());
                 lifeSpan--;
             } else {
@@ -76,9 +71,6 @@ public class Radio implements IsEquipment {
     public void sendMessage(byte[] message) {
         try {
             if (lifeSpan > 0) {
-                this.radioAnimEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover.getMarsArchitect()
-                        .getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
-                radioAnimEngine.activateRadio();
                 Thread.sleep(getComsDelaySecs());
                 transmitter.transmitMessage(message);
                 lifeSpan--;

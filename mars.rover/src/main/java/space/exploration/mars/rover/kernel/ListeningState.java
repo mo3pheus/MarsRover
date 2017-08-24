@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
+import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
@@ -14,8 +15,8 @@ import java.util.concurrent.Semaphore;
 
 public class ListeningState implements State {
 
-    private       Logger    logger     = LoggerFactory.getLogger(ListeningState.class);
-    private       Rover     rover      = null;
+    private Logger logger = LoggerFactory.getLogger(ListeningState.class);
+    private Rover  rover  = null;
 
     public ListeningState(Rover rover) {
         this.rover = rover;
@@ -33,6 +34,10 @@ public class ListeningState implements State {
             payload = InstructionPayload.parseFrom(message);
             System.out.println(payload);
             logger.info(payload.toString());
+
+            RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
+                    .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
+            radioAnimationEngine.activateRadio();
 
             for (TargetPackage tp : payload.getTargetsList()) {
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {

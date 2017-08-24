@@ -6,6 +6,7 @@ package space.exploration.mars.rover.kernel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
+import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
 import java.util.concurrent.Semaphore;
@@ -35,6 +36,9 @@ public class TransmittingState implements State {
     public void transmitMessage(byte[] message) {
         try {
             accessLock.acquire();
+            RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
+                    .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
+            radioAnimationEngine.activateRadio();
             rover.getRadio().sendMessage(message);
             rover.getMarsArchitect().returnSurfaceToNormal();
             rover.state = rover.listeningState;
