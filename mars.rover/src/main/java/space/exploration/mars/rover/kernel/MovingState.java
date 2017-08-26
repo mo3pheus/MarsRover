@@ -83,12 +83,16 @@ public class MovingState implements State {
             positions = RobotPositions.parseFrom(payload.getTargetsList().get(0).getAuxiliaryData().toByteArray());
         } catch (InvalidProtocolBufferException e) {
             logger.error("Invalid / corrupted move command.", e);
+            rover.setState(rover.getListeningState());
+            return;
         }
 
         Point destination = positions.getPositions(0);
         logger.info("In moving state, destination demanded = " + destination.toString());
         if (!isDestinationValid(new java.awt.Point(destination.getX(), destination.getY()))) {
             logger.error("Destination passed in is invalid - intersects with a wall! " + destination.toString());
+            sendFailureToEarth(rover.getMarsArchitect().getRobot().getLocation(), destination, "Destination passed in" +
+                    " is invalid.");
             return;
         }
 
@@ -101,7 +105,8 @@ public class MovingState implements State {
                 logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
                         .getLocation().toString() + " and " + destination.toString());
                 accessLock.release();
-                sendFailureToEarth(robotPosition, destination);
+                sendFailureToEarth(robotPosition, destination, "Rover was unable to find path between supplied source" +
+                        " and destination.");
                 return;
             } else if (!rover.getBattery().requestPower(powerTran.getPowerConsumptionPerUnit() * powerTran.getTrajectory
                     ().size(), false)) {
@@ -157,15 +162,13 @@ public class MovingState implements State {
         rover.transmitMessage(updateMsg.build().toByteArray());
     }
 
-    private void sendFailureToEarth(java.awt.Point source, Point destination) {
+    private void sendFailureToEarth(java.awt.Point source, Point destination, String message) {
         RoverStatus.Builder updateMsg = RoverStatus.newBuilder();
         updateMsg.setSCET(System.currentTimeMillis());
         Location robotLocation = Location.newBuilder().setX(rover.getMarsArchitect().getRobot().getLocation().x)
                 .setY(rover.getMarsArchitect().getRobot().getLocation().y).build();
         updateMsg.setLocation(robotLocation);
-        updateMsg.setNotes(
-                "Rover was unable to find a path between source = " + source.toString() + " and destination " +
-                        destination.toString());
+        updateMsg.setNotes(message);
         updateMsg.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         updateMsg.setModuleReporting(Module.PROPULSION.getValue());
         updateMsg.setSolNumber(rover.getSol());
