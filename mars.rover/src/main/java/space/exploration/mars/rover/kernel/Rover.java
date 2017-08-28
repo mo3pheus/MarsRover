@@ -78,7 +78,7 @@ public class Rover {
         bootUp(false);
     }
 
-    public void processPendingMessageQueue() {
+    public synchronized void processPendingMessageQueue() {
         if (!instructionQueue.isEmpty() && state != hibernatingState) {
             state = listeningState;
             receiveMessage(instructionQueue.remove(0));
@@ -94,131 +94,67 @@ public class Rover {
         return time;
     }
 
-    public long getInRechargingModeTime() {
+    public synchronized long getInRechargingModeTime() {
         return inRechargingModeTime;
     }
 
-    public void setInRechargingModeTime(long inRechargingModeTime) {
+    public synchronized void setInRechargingModeTime(long inRechargingModeTime) {
         this.inRechargingModeTime = inRechargingModeTime;
     }
 
-    public State getListeningState() {
+    public synchronized State getListeningState() {
         return listeningState;
     }
 
-    public void setListeningState(State listeningState) {
-        this.listeningState = listeningState;
-    }
-
-    public State getSensingState() {
-        return sensingState;
-    }
-
-    public void setSensingState(State sensingState) {
-        this.sensingState = sensingState;
-    }
-
-    public State getMovingState() {
-        return movingState;
-    }
-
-    public void setMovingState(State movingState) {
-        this.movingState = movingState;
-    }
-
-    public State getExploringState() {
-        return exploringState;
-    }
-
-    public void setExploringState(State exploringState) {
-        this.exploringState = exploringState;
-    }
-
-    public State getTransmittingState() {
+    public synchronized State getTransmittingState() {
         return transmittingState;
-    }
-
-    public void setTransmittingState(State transmittingState) {
-        this.transmittingState = transmittingState;
     }
 
     public State getHibernatingState() {
         return hibernatingState;
     }
 
-    public void setHibernatingState(State hibernatingState) {
-        this.hibernatingState = hibernatingState;
-    }
-
-    public State getPhotoGraphingState() {
-        return photoGraphingState;
-    }
-
-    public void setPhotoGraphingState(State photoGraphingState) {
-        this.photoGraphingState = photoGraphingState;
-    }
-
-    public State getRadarScanningState() {
-        return radarScanningState;
-    }
-
-    public void setRadarScanningState(State radarScanningState) {
-        this.radarScanningState = radarScanningState;
-    }
-
-    public NavigationEngine getNavigationEngine() {
+    public synchronized NavigationEngine getNavigationEngine() {
         return navigationEngine;
     }
 
-    public Map<Point, RoverCell> getPreviousRovers() {
-        return previousRovers;
-    }
-
-    public void setPreviousRovers(Map<Point, RoverCell> previousRovers) {
+    public synchronized void setPreviousRovers(Map<Point, RoverCell> previousRovers) {
         this.previousRovers = previousRovers;
     }
 
-    public Camera getCamera() {
+    public synchronized Camera getCamera() {
         return camera;
     }
 
-    public void receiveMessage(byte[] message) {
+    public synchronized void receiveMessage(byte[] message) {
         state.receiveMessage(message);
     }
 
-    public void activateCamera() {
+    public synchronized void activateCamera() {
         state.activateCamera();
     }
 
-    public void scanSurroundings() {
+    public synchronized void scanSurroundings() {
         state.scanSurroundings();
     }
 
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
+    public synchronized void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         state.move(payload);
     }
 
-    public void performRadarScan() {
+    public synchronized void performRadarScan() {
         state.performRadarScan();
     }
 
-    public void exploreArea() {
+    public synchronized void exploreArea() {
         state.exploreArea();
     }
 
-    public void transmitMessage(byte[] message) {
+    public synchronized void transmitMessage(byte[] message) {
         state.transmitMessage(message);
     }
 
-    public boolean isStopHeartBeat() {
-        return stopHeartBeat;
-    }
-
-    public void setStopHeartBeat(boolean stopHeartBeat) {
-        this.stopHeartBeat = stopHeartBeat;
-    }
-
-    public void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
+    public synchronized void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
         /* Choose to filter upon modules here */
         logger.info("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife set" +
                             " to " + Boolean.toString(equipmentEOL));
@@ -226,55 +162,51 @@ public class Rover {
         transmitMessage(message);
     }
 
-    public Radio getRadio() {
+    public synchronized Radio getRadio() {
         return radio;
     }
 
-    public MarsArchitect getMarsArchitect() {
+    public synchronized MarsArchitect getMarsArchitect() {
         return marsArchitect;
     }
 
-    public void setStatus(RoverStatus status) {
-        this.status = status;
-    }
-
-    public Properties getMarsConfig() {
+    public synchronized Properties getMarsConfig() {
         return marsConfig;
     }
 
-    public List<byte[]> getInstructionQueue() {
+    public synchronized List<byte[]> getInstructionQueue() {
         return this.instructionQueue;
     }
 
-    public Battery getBattery() {
+    public synchronized Battery getBattery() {
         return battery;
     }
 
-    public Lidar getLidar() {
+    public synchronized Lidar getLidar() {
         return lidar;
     }
 
-    public Spectrometer getSpectrometer() {
+    public synchronized Spectrometer getSpectrometer() {
         return spectrometer;
     }
 
-    public State getState() {
+    public synchronized State getState() {
         return state;
     }
 
-    public void setState(State state) {
+    public synchronized void setState(State state) {
         this.state = state;
     }
 
-    public boolean isEquipmentEOL() {
+    public synchronized boolean isEquipmentEOL() {
         return equipmentEOL;
     }
 
-    public void setEquipmentEOL(boolean equipmentEOL) {
+    public synchronized void setEquipmentEOL(boolean equipmentEOL) {
         this.equipmentEOL = equipmentEOL;
     }
 
-    public void configureSpectrometer(Point origin) {
+    public synchronized void configureSpectrometer(Point origin) {
         int     spectrometerLifeSpan = spectrometer.getLifeSpan();
         boolean spectrometerEOL      = spectrometer.isEndOfLife();
         this.spectrometer = new Spectrometer(origin, this);
@@ -282,18 +214,18 @@ public class Rover {
         spectrometer.setEndOfLife(spectrometerEOL);
     }
 
-    public int getSol() {
+    public synchronized int getSol() {
         long diff  = System.currentTimeMillis() - creationTime;
         long solMs = getOneSolDuration();
         return Math.round(diff / solMs);
     }
 
-    public boolean isDiagnosticFriendly() {
+    public synchronized boolean isDiagnosticFriendly() {
         return ((this.state == this.listeningState)
                 && (instructionQueue.isEmpty()));
     }
 
-    public void configureLidar(Point origin, int cellWidth, int range) {
+    public synchronized void configureLidar(Point origin, int cellWidth, int range) {
         int     lidarLifespan = lidar.getLifeSpan();
         boolean lidarEOL      = lidar.isEndOfLife();
         this.lidar = new Lidar(origin, cellWidth, range, this);
@@ -301,7 +233,7 @@ public class Rover {
         lidar.setEndOfLife(lidarEOL);
     }
 
-    public void configureRadar() {
+    public synchronized void configureRadar() {
         int     radarLifespan = radar.getLifeSpan();
         boolean radarEOL      = radar.isEndOfLife();
         this.radar = new Radar(this);
@@ -309,29 +241,15 @@ public class Rover {
         radar.setEndOfLife(radarEOL);
     }
 
-    public Radar getRadar() {
+    public synchronized Radar getRadar() {
         return radar;
     }
 
-    public void powerCheck(int powerConsumed) {
+    public synchronized void powerCheck(int powerConsumed) {
         battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - powerConsumed);
     }
 
-    public byte[] getLaggingAlertMsg() {
-        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
-                .setY(marsArchitect.getRobot().getLocation().y).build();
-        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-        rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
-        rBuilder.setSCET(System.currentTimeMillis());
-        rBuilder.setLocation(location);
-        rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
-        rBuilder.setSolNumber(getSol());
-        rBuilder.setNotes("Rover " + ROVER_NAME + " is currently lagging for message processing by a count of " +
-                                  this.getInstructionQueue().size());
-        return rBuilder.build().toByteArray();
-    }
-
-    public List<IsEquipment> getEquimentList() {
+    public synchronized List<IsEquipment> getEquimentList() {
         List<IsEquipment> equipmentList = new ArrayList<IsEquipment>();
         equipmentList.add(this.battery);
         equipmentList.add(this.radio);
@@ -342,21 +260,7 @@ public class Rover {
         return equipmentList;
     }
 
-    public byte[] getHibernatingAlertMessage() {
-        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
-                .setY(marsArchitect.getRobot().getLocation().y).build();
-        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-        rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
-        rBuilder.setSCET(System.currentTimeMillis());
-        rBuilder.setLocation(location);
-        rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
-        rBuilder.setSolNumber(getSol());
-        rBuilder.setNotes("Rover " + ROVER_NAME + " is currently shutting down for recharging, expect the next " +
-                                  "communication at " + System.currentTimeMillis() + battery.getRechargeTime());
-        return rBuilder.build().toByteArray();
-    }
-
-    public byte[] getBootupMessage() {
+    public synchronized byte[] getBootupMessage() {
         Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
@@ -369,7 +273,7 @@ public class Rover {
         return rBuilder.build().toByteArray();
     }
 
-    public void configureBattery(boolean recharged) {
+    public synchronized void configureBattery(boolean recharged) {
         int lifeSpan = 0;
 
         if (this.battery != null) {
@@ -386,11 +290,11 @@ public class Rover {
         RoverUtil.roverSystemLog(logger, "Battery Monitor configured!", "INFO");
     }
 
-    private void configureRadio() {
+    private synchronized void configureRadio() {
         this.radio = new Radio(comsConfig, this);
     }
 
-    private byte[] getErrorRecoveryMessage(int instructionLength) {
+    private synchronized byte[] getErrorRecoveryMessage(int instructionLength) {
         Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
@@ -405,7 +309,7 @@ public class Rover {
         return rBuilder.build().toByteArray();
     }
 
-    public void bootUp(boolean fatalError) {
+    public synchronized void bootUp(boolean fatalError) {
         if (fatalError) {
             try {
                 logger.error("Rover rebooting after a fatal error. Number of messages lost = " + instructionQueue

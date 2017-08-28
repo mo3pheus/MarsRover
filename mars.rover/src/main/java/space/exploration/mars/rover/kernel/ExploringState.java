@@ -29,59 +29,46 @@ public class ExploringState implements State {
     }
 
     public void receiveMessage(byte[] message) {
-        try {
-            accessLock.acquire();
             rover.getInstructionQueue().add(message);
-            accessLock.release();
-        } catch (InterruptedException ie) {
-            logger.error("ExploringState Module's accessLock interrupted.", ie);
-        }
-    }
+     }
 
     public void transmitMessage(byte[] message) {
     }
 
     public void exploreArea() {
-        try {
-            accessLock.acquire();
-            MarsArchitect marsArchitect = rover.getMarsArchitect();
-            Cell          robot         = marsArchitect.getRobot();
-            rover.configureSpectrometer(robot.getLocation());
-            rover.getSpectrometer().setCellWidth(marsArchitect.getCellWidth());
-            rover.getSpectrometer().setSurfaceComp(marsArchitect.getSoilCompositionMap());
-            rover.getSpectrometer().processSurroundingArea();
+        MarsArchitect marsArchitect = rover.getMarsArchitect();
+        Cell          robot         = marsArchitect.getRobot();
+        rover.configureSpectrometer(robot.getLocation());
+        rover.getSpectrometer().setCellWidth(marsArchitect.getCellWidth());
+        rover.getSpectrometer().setSurfaceComp(marsArchitect.getSoilCompositionMap());
+        rover.getSpectrometer().processSurroundingArea();
 
         /* Do not render animation if sensor endOfLife */
-            // This flag is not unique to the spectrometer. It could be any sensor at EOL
-            // This is bad code!
-            if (!rover.isEquipmentEOL()) {
-                marsArchitect.setSpectrometerAnimationEngine(rover.getSpectrometer());
-                marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
-                marsArchitect.returnSurfaceToNormal();
+        // This flag is not unique to the spectrometer. It could be any sensor at EOL
+        // This is bad code!
+        if (!rover.isEquipmentEOL()) {
+            marsArchitect.setSpectrometerAnimationEngine(rover.getSpectrometer());
+            marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
+            marsArchitect.returnSurfaceToNormal();
 
-                Location.Builder lBuilder = Location.newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
-                        ().y);
+            Location.Builder lBuilder = Location.newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
+                    ().y);
 
 
-                RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-                RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
-                        .setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
-                        .setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
-                        .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE
-                                                                                        .getValue())
-                        .build();
+            RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
+            RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
+                    .setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
+                    .setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
+                    .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE
+                                                                                    .getValue())
+                    .build();
 
-                rover.state = rover.transmittingState;
-                rover.transmitMessage(status.toByteArray());
-            }
+            rover.state = rover.transmittingState;
+            rover.transmitMessage(status.toByteArray());
+        }
 
         /* Flip the flag so the sensor can perform its last operation */
-            rover.setEquipmentEOL(false);
-
-            accessLock.release();
-        } catch (Exception e) {
-            logger.error("Error in exploring state.", e);
-        }
+        rover.setEquipmentEOL(false);
     }
 
     public void activateCamera() {

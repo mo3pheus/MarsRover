@@ -24,13 +24,7 @@ public class HibernatingState implements State {
 
     public void receiveMessage(byte[] message) {
         logger.error("In hibernating state's receiveMessage(), adding message to instruction queue");
-        try {
-            accessLock.acquire();
-            rover.getInstructionQueue().add(message);
-            accessLock.release();
-        } catch (InterruptedException ie) {
-            logger.error("Hibernating state's accessLock interrupted.", ie);
-        }
+        rover.getInstructionQueue().add(message);
     }
 
     @Override

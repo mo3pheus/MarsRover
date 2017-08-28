@@ -15,7 +15,6 @@ import java.util.concurrent.Semaphore;
  * Created by sanketkorgaonkar on 5/9/17.
  */
 public class PhotographingState implements State {
-    private final Semaphore accessLock = new Semaphore(1, true);
     private       Logger    logger     = LoggerFactory.getLogger(PhotographingState.class);
     private       Rover     rover      = null;
 
@@ -24,14 +23,8 @@ public class PhotographingState implements State {
     }
 
     public void receiveMessage(byte[] message) {
-        try {
-            accessLock.acquire();
             logger.error("Photographing state received message. Saving to instruction queue");
             rover.getInstructionQueue().add(message);
-            accessLock.release();
-        } catch (InterruptedException ie) {
-            logger.error("Photographing State's accessLock interrupted.", ie);
-        }
     }
 
     @Override
@@ -48,8 +41,6 @@ public class PhotographingState implements State {
     }
 
     public void activateCamera() {
-        try {
-            accessLock.acquire();
             MarsArchitect marsArchitect = rover.getMarsArchitect();
             byte[]        cameraShot    = rover.getCamera().takePhoto(marsArchitect.getRobot().getLocation());
 
@@ -102,10 +93,6 @@ public class PhotographingState implements State {
 
             /* Flip the flag so the sensor can perform its last operation */
             rover.setEquipmentEOL(false);
-            accessLock.release();
-        } catch (InterruptedException ie) {
-            logger.error("Photographing State's accessLock interrupted", ie);
-        }
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {

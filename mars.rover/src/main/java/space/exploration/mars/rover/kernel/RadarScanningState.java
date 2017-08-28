@@ -28,7 +28,6 @@ public class RadarScanningState implements State {
 
     private       Rover     rover      = null;
     private       Logger    logger     = LoggerFactory.getLogger(RadarScanningState.class);
-    private final Semaphore accessLock = new Semaphore(1, true);
 
     public RadarScanningState(Rover rover) {
         this.rover = rover;
@@ -41,14 +40,8 @@ public class RadarScanningState implements State {
 
     @Override
     public void receiveMessage(byte[] message) {
-        try {
-            accessLock.acquire();
             logger.error("Radar Module received message, adding to rover's instruction queue");
             rover.getInstructionQueue().add(message);
-            accessLock.release();
-        } catch (InterruptedException ie) {
-            logger.error("RadarScanning Module's accessLock interrupted.", ie);
-        }
     }
 
     @Override
@@ -96,8 +89,6 @@ public class RadarScanningState implements State {
     public void performRadarScan() {
         logger.info("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
-        try {
-            accessLock.acquire();
             MarsArchitect marsArchitect = rover.getMarsArchitect();
             renderRadarAnimation();
 
@@ -125,10 +116,6 @@ public class RadarScanningState implements State {
             rover.getMarsArchitect().returnSurfaceToNormal();
             rover.state = rover.transmittingState;
             rover.transmitMessage(status.toByteArray());
-            accessLock.release();
-        } catch (InterruptedException ie) {
-            logger.error("RadarScanningState's accessLock interrupted.", ie);
-        }
     }
 
     private void renderRadarAnimation() {

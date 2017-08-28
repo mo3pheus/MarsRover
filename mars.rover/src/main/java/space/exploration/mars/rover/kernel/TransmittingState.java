@@ -15,7 +15,6 @@ import java.util.concurrent.Semaphore;
  * @author sanketkorgaonkar
  */
 public class TransmittingState implements State {
-    private final Semaphore accessLock = new Semaphore(1, true);
     private       Rover     rover      = null;
     private       Logger    logger     = LoggerFactory.getLogger(TransmittingState.class);
 
@@ -24,28 +23,16 @@ public class TransmittingState implements State {
     }
 
     public void receiveMessage(byte[] message) {
-        try {
-            accessLock.acquire();
             rover.getInstructionQueue().add(message);
-            accessLock.release();
-        } catch (InterruptedException ie) {
-            logger.error("Transmitting Module's accessLock interrupted.", ie);
-        }
     }
 
     public void transmitMessage(byte[] message) {
-        try {
-            accessLock.acquire();
             RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
                     .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
             radioAnimationEngine.activateRadio();
             rover.getRadio().sendMessage(message);
             rover.getMarsArchitect().returnSurfaceToNormal();
             rover.state = rover.listeningState;
-            accessLock.release();
-        } catch (InterruptedException ie) {
-            logger.error("Transmitting Module's accessLock interrupted.", ie);
-        }
     }
 
     @Override
