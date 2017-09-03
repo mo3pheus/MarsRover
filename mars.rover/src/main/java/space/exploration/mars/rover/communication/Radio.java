@@ -16,14 +16,14 @@ import java.util.Properties;
  * Created by sanketkorgaonkar on 4/27/17.
  */
 public class Radio implements IsEquipment {
-    public static final String               LIFESPAN        = "mars.rover.radio.lifeSpan";
-    public static final int                  SOS_RESERVE     = 10;
-    private             Rover                rover           = null;
-    private             Transmitter          transmitter     = null;
-    private             Receiver             receiver        = null;
-    private             Logger               logger          = LoggerFactory.getLogger(Radio.class);
-    private             boolean              endOfLife       = false;
-    private             int                  lifeSpan        = 0;
+    public static final String      LIFESPAN    = "mars.rover.radio.lifeSpan";
+    public static final int         SOS_RESERVE = 10;
+    private             Rover       rover       = null;
+    private             Transmitter transmitter = null;
+    private             Receiver    receiver    = null;
+    private             Logger      logger      = LoggerFactory.getLogger(Radio.class);
+    private             boolean     endOfLife   = false;
+    private             int         lifeSpan    = 0;
 
     public Radio(Properties comsConfig, Rover rover) {
         this.rover = rover;
@@ -65,6 +65,7 @@ public class Radio implements IsEquipment {
         } catch (Exception e) {
             System.out.println("Radio receive operation has an exception");
             logger.error("Radio receive operation encountered an exception", e);
+            rover.writeErrorLog("Radio receive operation encountered an exception", e);
         }
     }
 

@@ -15,12 +15,9 @@ import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions.Point;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
-
-import java.util.concurrent.Semaphore;
 
 /**
  * @author sanketkorgaonkar
@@ -35,6 +32,11 @@ public class MovingState implements State {
 
     public void receiveMessage(byte[] message) {
         rover.getInstructionQueue().add(message);
+        try {
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage.parseFrom(message));
+        } catch (InvalidProtocolBufferException e) {
+            rover.writeErrorLog("Invalid protocol", e);
+        }
     }
 
     public void transmitMessage(byte[] message) {
@@ -76,6 +78,7 @@ public class MovingState implements State {
             positions = RobotPositions.parseFrom(payload.getTargetsList().get(0).getAuxiliaryData().toByteArray());
         } catch (InvalidProtocolBufferException e) {
             logger.error("Invalid / corrupted move command.", e);
+            rover.writeErrorLog("Invalid / corrupted move command.", e);
             rover.setState(rover.getListeningState());
             return;
         }
@@ -84,6 +87,8 @@ public class MovingState implements State {
         logger.debug("In moving state, destination demanded = " + destination.toString());
         if (!isDestinationValid(new java.awt.Point(destination.getX(), destination.getY()))) {
             logger.error("Destination passed in is invalid - intersects with a wall! " + destination.toString());
+            rover.writeErrorLog("Destination passed in is invalid - intersects with a wall! " + destination
+                    .toString(), null);
             sendFailureToEarth(rover.getMarsArchitect().getRobot().getLocation(), destination, "Destination passed in" +
                     " is invalid.");
             return;
@@ -95,6 +100,9 @@ public class MovingState implements State {
         if (!powerTran.isTrajectoryValid()) {
             logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
                     .getLocation().toString() + " and " + destination.toString());
+            rover.writeErrorLog("No route found between robot current position at " + rover.getMarsArchitect()
+                    .getRobot()
+                    .getLocation().toString() + " and " + destination.toString(), null);
             sendFailureToEarth(robotPosition, destination, "Rover was unable to find path between supplied source" +
                     " and destination.");
             return;
@@ -102,7 +110,9 @@ public class MovingState implements State {
                 ().size(), false)) {
             logger.error("Propulsion unavailable due to insufficient battery. Sending the rover into hibernating " +
                                  "state. Will attempt to restore propulsion upon battery recharge.");
-
+            rover.writeErrorLog("Propulsion unavailable due to insufficient battery. Sending the rover into " +
+                                        "hibernating " +
+                                        "state. Will attempt to restore propulsion upon battery recharge.", null);
             rover.getInstructionQueue().add(payload.toByteArray());
             rover.setState(rover.getHibernatingState());
             rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));

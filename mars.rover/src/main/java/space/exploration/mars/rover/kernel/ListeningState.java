@@ -9,9 +9,6 @@ import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayl
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
-
-import java.util.concurrent.Semaphore;
 
 public class ListeningState implements State {
 
@@ -40,7 +37,7 @@ public class ListeningState implements State {
             radioAnimationEngine.activateRadio();
 
             for (TargetPackage tp : payload.getTargetsList()) {
-                rover.writeRoverSystemLog(tp);
+                rover.writeSystemLog(tp);
                 logger.info(Long.toString(System.currentTimeMillis()) + ","
                                     + Integer.toString(tp.getRoverModule()) + "," + tp.getAction());
 

@@ -49,6 +49,8 @@ public class Rover {
     private Connection logDBConnection = null;
     private Statement  statement       = null;
     private ResultSet  resultSet       = null;
+    private Statement  errorStatement  = null;
+    private ResultSet  errorSet        = null;
     private Logger     logger          = null;
 
     /* Configuration */
@@ -97,7 +99,7 @@ public class Rover {
         return time;
     }
 
-    public void writeRoverSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+    public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
         try {
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -108,6 +110,36 @@ public class Rover {
             resultSet.insertRow();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void writeSystemLog(String message) {
+        try {
+            resultSet.moveToInsertRow();
+            resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            resultSet.updateString("MESSAGE", message);
+            resultSet.insertRow();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeErrorLog(String message, Exception e) {
+        try {
+            errorSet.moveToInsertRow();
+            errorSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            errorSet.updateString("MESSAGE", message);
+
+            if (e != null) {
+                String stackTrace = "";
+                for (StackTraceElement stackTraceElement : e.getStackTrace()) {
+                    stackTrace += stackTraceElement.toString() + "|";
+                }
+                errorSet.updateString("MESSAGE_DETAILS", stackTrace);
+            }
+            errorSet.insertRow();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -246,17 +278,10 @@ public class Rover {
             statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
                                                                                                   ".logTableName"));
-            resultSet.moveToInsertRow();
-            resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
-            resultSet.updateString("MESSAGE", "Database new config message");
-            resultSet.updateBlob("MESSAGE_DETAILS", (Blob) null);
-            resultSet.insertRow();
-            resultSet.moveToCurrentRow();
-            while (resultSet.next()) {
-                System.out.println("Time = " + resultSet.getTimestamp("EVENT_TIME") + " Message = " + resultSet
-                        .getString("MESSAGE"));
-            }
-
+            errorStatement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
+                    .CONCUR_UPDATABLE);
+            errorSet = errorStatement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
+                                                                                                      ".errorTableName"));
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
