@@ -84,6 +84,7 @@ public class ListeningState implements State {
             }
         } catch (InvalidProtocolBufferException e) {
             logger.error("InvalidProtocolBufferException", e);
+            rover.writeErrorLog("InvalidProtocolBufferException", e);
         }
     }
 

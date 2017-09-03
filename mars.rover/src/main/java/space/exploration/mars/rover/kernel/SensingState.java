@@ -3,6 +3,7 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
@@ -28,8 +29,16 @@ public class SensingState implements State {
 
     public void receiveMessage(byte[] message) {
         rover.getInstructionQueue().add(message);
-        logger.error("Rover not in the correct state to receive message. Message added to the instruction queue, " +
+        logger.debug("Rover not in the correct state to receive message. Message added to the instruction queue, " +
                              "instruction queue length = " + rover.getInstructionQueue().size());
+        try {
+            rover.writeSystemLog("Rover not in the correct state to receive message. Message added to the instruction" +
+                                         " queue, " +
+                                         "instruction queue length = " + rover.getInstructionQueue().size());
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage.parseFrom(message));
+        } catch (InvalidProtocolBufferException ipe) {
+            rover.writeErrorLog("InvalidProtocolBuffer", ipe);
+        }
     }
 
     @Override

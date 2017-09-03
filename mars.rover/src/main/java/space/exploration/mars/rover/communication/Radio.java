@@ -77,15 +77,16 @@ public class Radio implements IsEquipment {
                 lifeSpan--;
             } else {
                 logger.error("Radio lifeSpan has ended.");
+                rover.writeErrorLog("Radio lifeSpan has ended", null);
             }
         } catch (InvalidProtocolBufferException e) {
             System.out.println("Transmit module is in exception - invalidProtocolBuffer ");
             logger.error("InvalidProtocolBufferException error - common guys send me a good message!", e);
-            logger.error(e.getMessage());
+            rover.writeErrorLog("InvalidProtocolBufferException error - common guys send me a good message!", e);
         } catch (InterruptedException e) {
             System.out.println("Transmit module is in exception - interruptedException ");
             logger.error("InterruptedException", e);
-            logger.error(e.getMessage());
+            rover.writeErrorLog("InterruptedException", e);
         }
     }
 

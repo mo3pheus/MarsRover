@@ -78,7 +78,8 @@ public class Camera implements IsEquipment {
             try {
                 imageBytes = CameraUtil.convertImageToByteArray(marsImages[index]);
             } catch (IOException io) {
-                logger.error(io.getMessage());
+                logger.error(io.getMessage(),io);
+                rover.writeErrorLog("Image translation Error", io);
             }
             return imageBytes;
         } else {

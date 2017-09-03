@@ -3,6 +3,7 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
@@ -24,6 +25,11 @@ public class TransmittingState implements State {
 
     public void receiveMessage(byte[] message) {
             rover.getInstructionQueue().add(message);
+            try{
+                rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage.parseFrom(message));
+            } catch(InvalidProtocolBufferException ipe){
+                rover.writeErrorLog("InvalidProtocolBufferException", ipe);
+            }
     }
 
     public void transmitMessage(byte[] message) {

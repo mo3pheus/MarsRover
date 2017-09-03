@@ -40,7 +40,7 @@ public class Spectrometer implements IsEquipment {
         this.rover = rover;
         this.frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.powerConsumption = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
-                .SPECTROMETER_POWER_CONSUMPTION));
+                                                                                           .SPECTROMETER_POWER_CONSUMPTION));
         scanAreaComp = new ArrayList<SoilComp>();
         RoverUtil.roverSystemLog(logger, "Spectrometer initialized and ready!", "INFO");
     }
@@ -87,12 +87,13 @@ public class Spectrometer implements IsEquipment {
             rover.setEquipmentEOL(endOfLife);
             rover.authorizeTransmission(ModuleDirectory.Module.SENSOR_SPECTROMETER, RoverUtil.getEndOfLifeMessage
                     (ModuleDirectory.Module.SENSOR_SPECTROMETER, " Spectrometer at end of life. Num last scans left " +
-                                                                 "=" + NUM_LAST_SCANS + " Please confirm command. The" +
-                                                                 " next command will be honored!", rover).toByteArray
+                            "=" + NUM_LAST_SCANS + " Please confirm command. The" +
+                            " next command will be honored!", rover).toByteArray
                     ());
             return;
         } else if (surfaceComp == null || cellWidth == 0) {
             logger.error("SurfaceComp or cellWidth not set for spectrometer");
+            rover.writeErrorLog("SurfaceComp or cellWidth not set for spectrometer!", null);
             return;
         }
 
@@ -100,7 +101,7 @@ public class Spectrometer implements IsEquipment {
         rover.powerCheck(powerConsumption);
         for (int i = ((int) origin.getX() - cellWidth); i <= ((int) origin.getX() + cellWidth); i = (i + cellWidth)) {
             for (int j = ((int) origin.getY() - cellWidth); j <= ((int) origin.getY() + cellWidth); j = (j
-                                                                                                         + cellWidth)) {
+                    + cellWidth)) {
                 if (i < 0 || j < 0 || i >= frameWidth || j > frameWidth) {
                     // If the point is outside the defined grid,
                     // soil composition will be invalid
@@ -137,7 +138,7 @@ public class Spectrometer implements IsEquipment {
 
             SoilComposition composition = sample.getComposition();
             pBuilder.setSoilComp(Composition.newBuilder().setAl2O3(composition.getAl2O3()).setFeO(composition.getFeO())
-                    .setMgO(composition.getMgO()).setNa2O(composition.getNa2O()).build());
+                                         .setMgO(composition.getMgO()).setNa2O(composition.getNa2O()).build());
             sampleReadings.add(pBuilder.build());
         }
         sBuilder.addAllScanAreaComp(sampleReadings);

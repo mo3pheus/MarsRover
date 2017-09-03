@@ -85,6 +85,7 @@ public class Radar implements IsEquipment {
     public List<RadialContact> getRadialContacts() {
         if (previousRovers.isEmpty()) {
             logger.error("List of previous rovers is null!");
+            rover.writeErrorLog("List of previous rovers is null", null);
             return null;
         }
 

@@ -3,6 +3,7 @@
  */
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
@@ -23,8 +24,13 @@ public class HibernatingState implements State {
     }
 
     public void receiveMessage(byte[] message) {
-        logger.error("In hibernating state's receiveMessage(), adding message to instruction queue");
+        logger.info("In hibernating state's receiveMessage(), adding message to instruction queue");
         rover.getInstructionQueue().add(message);
+        try {
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage.parseFrom(message));
+        } catch (InvalidProtocolBufferException ipe) {
+            rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
+        }
     }
 
     @Override
@@ -33,38 +39,38 @@ public class HibernatingState implements State {
     }
 
     public void transmitMessage(byte[] message) {
-        logger.error("Can not transmit message in hibernating state.");
+        logger.debug("Can not transmit message in hibernating state.");
     }
 
     public void exploreArea() {
-        logger.error("Can not explore area in hibernating state.");
+        logger.debug("Can not explore area in hibernating state.");
     }
 
     public void activateCamera() {
-        logger.error("Can not activate camera in hibernating state.");
+        logger.debug("Can not activate camera in hibernating state.");
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
-        logger.error("Can not move in hibernating state.");
+        logger.debug("Can not move in hibernating state.");
     }
 
     public void hibernate() {
-        logger.error("Already in hibernating state.");
+        logger.debug("Already in hibernating state.");
     }
 
     public void rechargeBattery() {
-        logger.error("Should already be recharging the battery");
+        logger.debug("Should already be recharging the battery");
     }
 
     public void scanSurroundings() {
-        logger.error("Can not scan surroundings in hibernating state.");
+        logger.debug("Can not scan surroundings in hibernating state.");
     }
 
     public void performDiagnostics() {
-        logger.error("Diagnostics disabled in hibernating state.");
+        logger.debug("Diagnostics disabled in hibernating state.");
     }
 
     public void performRadarScan() {
-        logger.error("Can not perform radar scan in hibernating state.");
+        logger.debug("Can not perform radar scan in hibernating state.");
     }
 }

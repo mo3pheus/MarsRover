@@ -37,12 +37,15 @@ public class Pacemaker {
                 logger.debug("Pacemaker performing its due diligence.");
                 if (rover.getInstructionQueue().size() >= MAX_PENDING_MSGS) {
                     logger.error("Diagnostics module rebooting rover because max pending messages exceeded.");
+                    rover.writeErrorLog("Diagnostics module rebooting rover because max pending messages exceeded.",
+                                        null);
                     rover.bootUp(true);
                     return;
                 }
 
                 if (rover.getState() == rover.getHibernatingState()) {
                     logger.error("Diagnostics inhibited because rover is in hibernating state.");
+                    rover.writeErrorLog("Diagnostics inhibited because rover is in hibernating state.", null);
                     return;
                 }
 
@@ -73,6 +76,7 @@ public class Pacemaker {
 
     public void interrupt() {
         logger.error("Pacemaker diagnostic module interrupted.");
+        rover.writeErrorLog("Pacemaker diagnostic module interrupted.", null);
         scheduler.shutdown();
     }
 
