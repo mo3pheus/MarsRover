@@ -91,7 +91,7 @@ public class Radar implements IsEquipment {
         lifeSpan--;
         List<Point> temp = new ArrayList<>();
         for (Point contact : previousRovers) {
-            logger.info("Rover position at RadarScan =>" + rover.getMarsArchitect().getRobot().getLocation
+            logger.debug("Rover position at RadarScan =>" + rover.getMarsArchitect().getRobot().getLocation
                     ().toString());
             contact = transformPoint(rover.getMarsArchitect().getRobot().getLocation(), origin, contact);
             temp.add(contact);

@@ -84,7 +84,7 @@ public class PhotographingState implements State {
                             .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
                 }
 
-                logger.info(status.toString());
+                logger.debug(status.toString());
 
                 rover.getMarsArchitect().returnSurfaceToNormal();
                 rover.state = rover.transmittingState;

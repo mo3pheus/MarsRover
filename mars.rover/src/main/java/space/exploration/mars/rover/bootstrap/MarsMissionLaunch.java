@@ -13,7 +13,8 @@ public class MarsMissionLaunch {
     public static void main(String[] args) {
         configureLogging();
         try {
-            new Rover(MatrixCreation.getMatrixConfig(), MatrixCreation.getComsConfig());
+            new Rover(MatrixCreation.getMatrixConfig(), MatrixCreation.getComsConfig(), MatrixCreation
+                    .getRoverDBConfig());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

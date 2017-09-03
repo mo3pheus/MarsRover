@@ -49,7 +49,7 @@ public class Lidar implements IsEquipment {
     }
 
     public void setWallBuilder(WallBuilder wallBuilder) {
-        logger.info("Wallbuilder set for lidar");
+        logger.debug("Wallbuilder set for lidar");
         status += "\nWallBuilder set for lidar";
         this.wallBuilder = wallBuilder;
 
@@ -147,7 +147,7 @@ public class Lidar implements IsEquipment {
                 status += " Contact " + i++ + "::" + p.toString();
             }
         }
-        logger.info(" Scanning at location = " + this.origin + " Length of contacts  = " + contacts.size());
+        logger.debug(" Scanning at location = " + this.origin + " Length of contacts  = " + contacts.size());
     }
 
     private void fillGridCells() {
@@ -181,7 +181,7 @@ public class Lidar implements IsEquipment {
             int    y      = (int) (range * Math.sin(thetaR));
             Point  temp   = new Point(origin.x + x, origin.y + y);
             if (isPointOfContact(temp)) {
-                logger.info(
+                logger.debug(
                         "Lidar reporting contact designate Id:: " + i++ + " bearing:: " + theta + " range:: " + range);
             }
 

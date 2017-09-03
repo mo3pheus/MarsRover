@@ -10,11 +10,9 @@ import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RoverCell;
-import space.exploration.mars.rover.learning.ReinforcementLearner;
 import space.exploration.mars.rover.navigation.NavigationEngine;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.power.BatteryMonitor;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.sensor.Camera;
 import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.Radar;
@@ -22,6 +20,8 @@ import space.exploration.mars.rover.sensor.Spectrometer;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
+import java.lang.annotation.Target;
+import java.sql.*;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +30,7 @@ public class Rover {
     public static final String ROVER_NAME = "Curiosity";
     State state = null;
 
-    /* States supported */
+    /* Kernel definition */
     State listeningState;
     State sensingState;
     State movingState;
@@ -43,12 +43,18 @@ public class Rover {
     /* Status messages */
     private RoverStatus status       = null;
     private long        creationTime = 0l;
-    private Logger      logger       = null;
     private boolean     equipmentEOL = false;
+
+    /* Logging Details */
+    private Connection logDBConnection = null;
+    private Statement  statement       = null;
+    private ResultSet  resultSet       = null;
+    private Logger     logger          = null;
 
     /* Configuration */
     private Properties       marsConfig       = null;
     private Properties       comsConfig       = null;
+    private Properties       logDBConfig      = null;
     private MarsArchitect    marsArchitect    = null;
     private Point            location         = null;
     private NavigationEngine navigationEngine = null;
@@ -68,13 +74,10 @@ public class Rover {
     private long                  inRechargingModeTime = 0l;
     private Pacemaker             pacemaker            = null;
 
-    /* Thread safety */
-    private boolean stopHeartBeat = false;
-
-    /* Sets up the rover and the boot-up sequence */
-    public Rover(Properties marsConfig, Properties comsConfig) {
+    public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig) {
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
+        this.logDBConfig = logsDBConfig;
         bootUp(false);
     }
 
@@ -92,6 +95,20 @@ public class Rover {
         time += 35;
         time += 244;
         return time;
+    }
+
+    public void writeRoverSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        try {
+            resultSet.moveToInsertRow();
+            resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            Blob blob = logDBConnection.createBlob();
+            blob.setBytes(1, targetPackage.toByteArray());
+            resultSet.updateBlob("MESSAGE_DETAILS", blob);
+            resultSet.updateString("MESSAGE", targetPackage.getAction());
+            resultSet.insertRow();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public synchronized long getInRechargingModeTime() {
@@ -156,8 +173,9 @@ public class Rover {
 
     public synchronized void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
         /* Choose to filter upon modules here */
-        logger.info("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife set" +
-                            " to " + Boolean.toString(equipmentEOL));
+        logger.debug("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife " +
+                             "set" +
+                             " to " + Boolean.toString(equipmentEOL));
         state = transmittingState;
         transmitMessage(message);
     }
@@ -206,14 +224,6 @@ public class Rover {
         this.equipmentEOL = equipmentEOL;
     }
 
-    public synchronized void configureSpectrometer(Point origin) {
-        int     spectrometerLifeSpan = spectrometer.getLifeSpan();
-        boolean spectrometerEOL      = spectrometer.isEndOfLife();
-        this.spectrometer = new Spectrometer(origin, this);
-        spectrometer.setLifeSpan(spectrometerLifeSpan);
-        spectrometer.setEndOfLife(spectrometerEOL);
-    }
-
     public synchronized int getSol() {
         long diff  = System.currentTimeMillis() - creationTime;
         long solMs = getOneSolDuration();
@@ -223,6 +233,41 @@ public class Rover {
     public synchronized boolean isDiagnosticFriendly() {
         return ((this.state == this.listeningState)
                 && (instructionQueue.isEmpty()));
+    }
+
+    public synchronized void configureDB() {
+        try {
+            System.out.println("Configuring database");
+            logDBConnection = DriverManager
+                    .getConnection("jdbc:mysql://" + logDBConfig.getProperty("mars.rover.database.host")
+                                           + "/" + logDBConfig.getProperty("mars.rover.database.dbName")
+                                           + "?user=" + logDBConfig.getProperty("mars.rover.database.userName") +
+                                           "&password=" + logDBConfig.getProperty("mars.rover.database.password"));
+            statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
+                                                                                                  ".logTableName"));
+            resultSet.moveToInsertRow();
+            resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            resultSet.updateString("MESSAGE", "Database new config message");
+            resultSet.updateBlob("MESSAGE_DETAILS", (Blob) null);
+            resultSet.insertRow();
+            resultSet.moveToCurrentRow();
+            while (resultSet.next()) {
+                System.out.println("Time = " + resultSet.getTimestamp("EVENT_TIME") + " Message = " + resultSet
+                        .getString("MESSAGE"));
+            }
+
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+    }
+
+    public synchronized void configureSpectrometer(Point origin) {
+        int     spectrometerLifeSpan = spectrometer.getLifeSpan();
+        boolean spectrometerEOL      = spectrometer.isEndOfLife();
+        this.spectrometer = new Spectrometer(origin, this);
+        spectrometer.setLifeSpan(spectrometerLifeSpan);
+        spectrometer.setEndOfLife(spectrometerEOL);
     }
 
     public synchronized void configureLidar(Point origin, int cellWidth, int range) {
@@ -239,6 +284,27 @@ public class Rover {
         this.radar = new Radar(this);
         radar.setLifeSpan(radarLifespan);
         radar.setEndOfLife(radarEOL);
+    }
+
+    public synchronized void configureBattery(boolean recharged) {
+        int lifeSpan = 0;
+
+        if (this.battery != null) {
+            lifeSpan = battery.getLifeSpan();
+        }
+
+        this.battery = new Battery(marsConfig);
+        if (recharged) {
+            battery.setLifeSpan(lifeSpan - 1);
+        }
+
+        this.batteryMonitor = new BatteryMonitor(this);
+        batteryMonitor.monitor();
+        RoverUtil.roverSystemLog(logger, "Battery Monitor configured!", "INFO");
+    }
+
+    private synchronized void configureRadio() {
+        this.radio = new Radio(comsConfig, this);
     }
 
     public synchronized Radar getRadar() {
@@ -271,27 +337,6 @@ public class Rover {
         rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " reporting to earth after a restart - How are you earth?");
         return rBuilder.build().toByteArray();
-    }
-
-    public synchronized void configureBattery(boolean recharged) {
-        int lifeSpan = 0;
-
-        if (this.battery != null) {
-            lifeSpan = battery.getLifeSpan();
-        }
-
-        this.battery = new Battery(marsConfig);
-        if (recharged) {
-            battery.setLifeSpan(lifeSpan - 1);
-        }
-
-        this.batteryMonitor = new BatteryMonitor(this);
-        batteryMonitor.monitor();
-        RoverUtil.roverSystemLog(logger, "Battery Monitor configured!", "INFO");
-    }
-
-    private synchronized void configureRadio() {
-        this.radio = new Radio(comsConfig, this);
     }
 
     private synchronized byte[] getErrorRecoveryMessage(int instructionLength) {
@@ -367,6 +412,7 @@ public class Rover {
 
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());
 
+        configureDB();
         configureBattery(false);
         configureRadio();
         configureRadar();

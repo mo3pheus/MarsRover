@@ -150,7 +150,7 @@ public class NavigationEngine implements PerformsNavigation {
 
     private void logPath() {
         for (Point p : this.robotPath) {
-            logger.info("navEnginePosn :: " + p.toString());
+            logger.debug("navEnginePosn :: " + p.toString());
         }
     }
 

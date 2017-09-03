@@ -68,7 +68,7 @@ public class Cell extends VirtualElement {
 
     public void setColor(Color cellColor) {
         if (cellColor == EnvironmentUtils.findColor("lavendar")) {
-            logger.info("Location = " + location.toString());
+            logger.debug("Location = " + location.toString());
         }
         this.cellColor = cellColor;
     }

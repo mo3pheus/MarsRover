@@ -87,7 +87,7 @@ public class RadarScanningState implements State {
 
     @Override
     public void performRadarScan() {
-        logger.info("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
+        logger.debug("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
             MarsArchitect marsArchitect = rover.getMarsArchitect();
             renderRadarAnimation();

@@ -33,13 +33,17 @@ public class ListeningState implements State {
         try {
             payload = InstructionPayload.parseFrom(message);
             System.out.println(payload);
-            logger.info(payload.toString());
+            logger.debug(payload.toString());
 
             RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
                     .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
             radioAnimationEngine.activateRadio();
 
             for (TargetPackage tp : payload.getTargetsList()) {
+                rover.writeRoverSystemLog(tp);
+                logger.info(Long.toString(System.currentTimeMillis()) + ","
+                                    + Integer.toString(tp.getRoverModule()) + "," + tp.getAction());
+
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
                     logger.error("Going into hibernation from Listening state.");
                     rover.state = rover.hibernatingState;

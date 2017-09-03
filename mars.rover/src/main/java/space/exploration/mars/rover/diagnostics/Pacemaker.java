@@ -34,7 +34,7 @@ public class Pacemaker {
         Runnable heart = new Runnable() {
             @Override
             public void run() {
-                logger.info("Pacemaker performing its due diligence.");
+                logger.debug("Pacemaker performing its due diligence.");
                 if (rover.getInstructionQueue().size() >= MAX_PENDING_MSGS) {
                     logger.error("Diagnostics module rebooting rover because max pending messages exceeded.");
                     rover.bootUp(true);
@@ -60,7 +60,7 @@ public class Pacemaker {
                     }
 
                     System.out.println(heartBeat);
-                    logger.info(heartBeat.toString());
+                    logger.debug(heartBeat.toString());
                     rover.setState(rover.getTransmittingState());
                     rover.transmitMessage(roverStatus.toByteArray());
                 }

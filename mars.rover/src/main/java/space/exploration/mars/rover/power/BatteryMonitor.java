@@ -28,7 +28,7 @@ public class BatteryMonitor {
         Runnable bMonitor = new Runnable() {
             @Override
             public void run() {
-                logger.info("BatteryMonitor performing due diligence. SCET = " + System.currentTimeMillis() + " " +
+                logger.debug("BatteryMonitor performing due diligence. SCET = " + System.currentTimeMillis() + " " +
                                      "Rover" +
                                      " state = " + rover.getState().getStateName());
                 if (rover.getState() == rover.getHibernatingState()) {

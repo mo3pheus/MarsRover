@@ -1,6 +1,7 @@
 package space.exploration.mars.rover.utils;
 
 import org.slf4j.Logger;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
@@ -26,7 +27,7 @@ public class RoverUtil {
 
         if (severity.equals("INFO")) {
             System.out.println(logger.getName() + " INFO ::" + message);
-            logger.info(message);
+            logger.debug(message);
         } else if (severity.equals("ERROR")) {
             System.out.println(logger.getName() + " ERROR ::" + message);
             logger.error(message);

@@ -112,7 +112,7 @@ public class Spectrometer implements IsEquipment {
                 SoilComposition composition = surfaceComp.get(temp);
                 SoilComp        comp        = new SoilComp(temp, composition);
                 scanAreaComp.add(comp);
-                logger.info(" Processing point = " + temp.toString() + " Composition = " + comp.toString());
+                logger.debug(" Processing point = " + temp.toString() + " Composition = " + comp.toString());
             }
         }
     }

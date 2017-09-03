@@ -53,8 +53,16 @@ public class MatrixCreation {
         return matrixConfig;
     }
 
+    public static Properties getRoverDBConfig() throws IOException {
+        URL             url      = MatrixCreation.class.getResource("/roverDB.properties");
+        FileInputStream propFile = new FileInputStream(url.getPath());
+        matrixConfig = new Properties();
+        matrixConfig.load(propFile);
+        return matrixConfig;
+    }
+
     public static AudioStream getBlipAudioPath() throws Exception {
-        URL url = MatrixCreation.class.getResource("/sonarBlip.wav");
+        URL         url         = MatrixCreation.class.getResource("/sonarBlip.wav");
         AudioStream inputStream = new AudioStream(new FileInputStream(url.getPath()));
         return inputStream;
     }

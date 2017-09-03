@@ -25,7 +25,7 @@ public class RadarContactBlip extends Thread {
 
     @Override
     public void run() {
-        logger.info(contact.getLocation().toString());
+        logger.debug(contact.getLocation().toString());
         System.out.println("Contact at " + contact.getLocation().toString());
         contact.setColor(EnvironmentUtils.findColor("lawnGreen"));
         contentPane.add(contact, new Integer(contactDepth));

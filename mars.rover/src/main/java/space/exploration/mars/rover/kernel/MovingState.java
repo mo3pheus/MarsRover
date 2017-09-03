@@ -81,7 +81,7 @@ public class MovingState implements State {
         }
 
         Point destination = positions.getPositions(0);
-        logger.info("In moving state, destination demanded = " + destination.toString());
+        logger.debug("In moving state, destination demanded = " + destination.toString());
         if (!isDestinationValid(new java.awt.Point(destination.getX(), destination.getY()))) {
             logger.error("Destination passed in is invalid - intersects with a wall! " + destination.toString());
             sendFailureToEarth(rover.getMarsArchitect().getRobot().getLocation(), destination, "Destination passed in" +

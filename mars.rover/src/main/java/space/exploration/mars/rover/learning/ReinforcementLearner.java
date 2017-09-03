@@ -71,7 +71,7 @@ public class ReinforcementLearner {
     }
 
     public void train(Point source, Point dest) {
-        logger.info(" rlEngine training triggered at SCET = " + System.currentTimeMillis() + " source = " + source
+        logger.debug(" rlEngine training triggered at SCET = " + System.currentTimeMillis() + " source = " + source
                 .toString() + " destination = " + dest.toString());
         this.destination = ReinforcementLearnerUtil.findPoint(dest, navGrid);
         this.source = ReinforcementLearnerUtil.findPoint(source, navGrid);
@@ -96,12 +96,12 @@ public class ReinforcementLearner {
             }
             System.out.println("Reinforcement Learning progress = " + (i + 1) + "%");
         }
-        logger.info(" rlEngine logging totalExplorationSteps = " + explorationSteps);
+        logger.debug(" rlEngine logging totalExplorationSteps = " + explorationSteps);
     }
 
     @Deprecated
     public void train(Point source, Point dest, List<Point> captureExploration) {
-        logger.info(" rlEngine training triggered at SCET = " + System.currentTimeMillis() + " source = " + source
+        logger.debug(" rlEngine training triggered at SCET = " + System.currentTimeMillis() + " source = " + source
                 .toString() + " destination = " + dest.toString());
         this.destination = ReinforcementLearnerUtil.findPoint(dest, navGrid);
         this.source = ReinforcementLearnerUtil.findPoint(source, navGrid);
@@ -128,7 +128,7 @@ public class ReinforcementLearner {
             }
             System.out.println("Reinforcement Learning progress = " + (i + 1) + "%");
         }
-        logger.info(" rlEngine logging totalExplorationSteps = " + explorationSteps);
+        logger.debug(" rlEngine logging totalExplorationSteps = " + explorationSteps);
     }
 
     public List<Point> getShortestPath() {

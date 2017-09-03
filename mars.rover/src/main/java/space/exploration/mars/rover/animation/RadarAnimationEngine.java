@@ -150,7 +150,7 @@ public class RadarAnimationEngine {
 
     private void reflectContacts(Laser laser, JLayeredPane contentPane) {
         if (contacts == null) {
-            logger.info("Radar had no contacts for " + laser.getBeam().toString());
+            logger.debug("Radar had no contacts for " + laser.getBeam().toString());
             return;
         }
 
