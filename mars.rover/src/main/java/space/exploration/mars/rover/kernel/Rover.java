@@ -52,6 +52,8 @@ public class Rover {
     private Statement  errorStatement  = null;
     private ResultSet  errorSet        = null;
     private Logger     logger          = null;
+    private String     dbUserName      = null;
+    private String     dbPassword      = null;
 
     /* Configuration */
     private Properties       marsConfig       = null;
@@ -284,12 +286,14 @@ public class Rover {
     public synchronized void configureDB() {
         try {
             System.out.println("Configuring database");
-            String userName = RoverUtil.getDatabaseCredentials(false);
-            String password = RoverUtil.getDatabaseCredentials(true);
+            if (dbUserName == null || dbPassword == null) {
+                dbUserName = RoverUtil.getDatabaseCredentials(false);
+                dbPassword = RoverUtil.getDatabaseCredentials(true);
+            }
             logDBConnection = DriverManager
                     .getConnection("jdbc:mysql://" + logDBConfig.getProperty("mars.rover.database.host")
                                            + "/" + logDBConfig.getProperty("mars.rover.database.dbName")
-                                           + "?user=" + userName + "&password=" + password);
+                                           + "?user=" + dbUserName + "&password=" + dbPassword);
             statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
                                                                                                   ".logTableName"));
