@@ -22,8 +22,6 @@ import java.util.concurrent.Semaphore;
 public class ExploringState implements State {
 
     private       Rover     rover      = null;
-    private final Semaphore accessLock = new Semaphore(1, true);
-    private       Logger    logger     = LoggerFactory.getLogger(ExploringState.class);
 
     public ExploringState(Rover rover) {
         this.rover = rover;
@@ -32,7 +30,7 @@ public class ExploringState implements State {
     public void receiveMessage(byte[] message) {
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage.parseFrom(message));
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message));
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
         }

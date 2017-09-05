@@ -1,0 +1,616 @@
+6865 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6883 [main] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+6883 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6883 [main] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+6883 [main] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+6883 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6883 [main] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+6913 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+6914 [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+6914 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+6914 [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+6914 [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+6914 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+6914 [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+6931 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Connecting to zookeeper instance at localhost:2181
+6936 [ZkClient-EventThread-23-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+6939 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+6939 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+6939 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+6939 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+6939 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+6939 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/sanket/Documents/workspace/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.9.0.1/kafka_2.10-0.9.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.7/zkclient-0.7.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/home/sanket/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/home/sanket/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.9.0.1/kafka-clients-0.9.0.1.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.1.7/snappy-java-1.1.1.7.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.2.0/lz4-1.2.0.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/3.2/jopt-simple-3.2.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.6/slf4j-log4j12-1.7.6.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/lib/idea_rt.jar
+6939 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin::/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-32-generic
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+6940 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@4fb61f4a
+6949 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+6952 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+6955 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+6960 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15e11d1f1f20082, negotiated timeout = 6000
+6961 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+6968 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], starting auto committer every 60000 ms
+6983 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 in ZK
+7028 [Thread-3] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 (is it secure? false)
+7036 [Thread-3] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+7036 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], end registering consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 in ZK
+7040 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4
+7054 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 try #0
+7146 [Thread-3] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Stopping leader finder thread
+7146 [Thread-3] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Stopping all fetchers
+7148 [Thread-3] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] All connections stopped
+7148 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Cleared all relevant queues for this fetcher
+7149 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Cleared the data chunks in all the consumer message iterators
+7149 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Committing all offsets after clearing the fetcher queues
+7150 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Releasing partition ownership
+7184 [Thread-3] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_1 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0)
+7187 [Thread-3] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 attempting to claim partition 0
+7214 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 successfully owned partition 0 for topic earth_to_curiosity_1
+7227 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 selected partitions : earth_to_curiosity_1:0: fetched offset = 8856: consumed offset = 8856
+7229 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Starting 
+7230 [Thread-3] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 try #0
+7239 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+7240 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+7240 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+7240 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+7255 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_1)
+7259 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+7268 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+7281 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Starting 
+7283 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_1,0], initOffset 8856 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+22050 [main] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(curiosity_to_earth_1)
+22052 [main] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+22055 [main] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+22080 [main] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+31197 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504490961884,8,ClickCamera
+85329 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491016016,0,ScanArea
+148037 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491078724,9,PerformRadarScan
+243724 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491174411,5,Explore
+339795 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491270482,9,PerformRadarScan
+428925 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491359612,5,Explore
+505185 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491435872,0,ScanArea
+571797 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491502484,0,ScanArea
+625254 [pool-1-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 37 for 1 topic(s) Set(curiosity_to_earth_1)
+625255 [pool-1-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+625255 [pool-1-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+625255 [pool-1-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+625256 [pool-1-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+634269 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491564956,5,Explore
+684437 [pool-2-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+706295 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491636982,1,Move
+706295 [Thread-3] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504491636982 Power requested = 40 Critical = false
+706295 [Thread-3] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+717373 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+717998 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+724537 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+737824 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+747254 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+750754 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+767235 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+777998 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+778181 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+798636 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+828331 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491759018,8,ClickCamera
+865351 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491796038,1,Move
+865368 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 200
+y: 125
+
+899807 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491830494,8,ClickCamera
+938934 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491869621,1,Move
+938935 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 525
+y: 375
+
+975762 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491906449,0,ScanArea
+1014458 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491945145,8,ClickCamera
+1053009 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504491983696,5,Explore
+1112557 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492043244,0,ScanArea
+1146368 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492077055,8,ClickCamera
+1146369 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504492077056 Power requested = 20 Critical = false
+1146369 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+1146369 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1151822 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1155471 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1166409 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1186414 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1196289 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1197998 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1208179 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1212365 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1225752 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1249232 [pool-4-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 62 for 1 topic(s) Set(curiosity_to_earth_1)
+1249233 [pool-4-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+1249235 [pool-4-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+1249235 [pool-4-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+1249237 [pool-4-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+1258257 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492188944,5,Explore
+1304157 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0] INFO  kafka.consumer.SimpleConsumer  - Reconnect due to error:
+java.io.EOFException
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:83)
+	at kafka.network.BlockingChannel.readCompletely(BlockingChannel.scala:129)
+	at kafka.network.BlockingChannel.receive(BlockingChannel.scala:120)
+	at kafka.consumer.SimpleConsumer.liftedTree1$1(SimpleConsumer.scala:86)
+	at kafka.consumer.SimpleConsumer.kafka$consumer$SimpleConsumer$$sendRequest(SimpleConsumer.scala:83)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply$mcV$sp(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer.fetch(SimpleConsumer.scala:130)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:108)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:29)
+	at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:102)
+	at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:93)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+1310170 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492240857,8,ClickCamera
+1348126 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492278813,5,Explore
+1403941 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492334628,8,ClickCamera
+1438784 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492369471,9,PerformRadarScan
+1507914 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492438601,9,PerformRadarScan
+1575611 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492506298,1,Move
+1575616 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504492506303 Power requested = 160 Critical = false
+1575616 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+1575620 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1575624 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1589490 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1596963 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1600508 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1617998 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1620750 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1628650 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1638002 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1658198 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1692631 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics module rebooting rover because max pending messages exceeded.
+1698650 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492629337,0,ScanArea
+1733669 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.Rover  - Rover rebooting after a fatal error. Number of messages lost = 17
+1733670 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Pacemaker diagnostic module interrupted.
+1743016 [pool-1-thread-1] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+1743017 [pool-1-thread-1] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+1743017 [pool-1-thread-1] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+1743017 [pool-1-thread-1] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+1743017 [pool-1-thread-1] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+1743017 [pool-1-thread-1] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+1743018 [pool-1-thread-1] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+1743020 [pool-1-thread-1] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+1743020 [pool-1-thread-1] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+1743021 [pool-1-thread-1] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+1743021 [pool-1-thread-1] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+1743021 [pool-1-thread-1] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+1743021 [pool-1-thread-1] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+1743022 [pool-1-thread-1] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+1743027 [pool-1-thread-1] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Connecting to zookeeper instance at localhost:2181
+1743028 [pool-1-thread-1] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@984b5a4
+1743028 [ZkClient-EventThread-141-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+1743035 [pool-1-thread-1] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+1743038 [pool-1-thread-1-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+1743039 [pool-1-thread-1-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+1743042 [pool-1-thread-1-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15e11d1f1f20083, negotiated timeout = 6000
+1743042 [pool-1-thread-1-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+1743044 [pool-1-thread-1] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], starting auto committer every 60000 ms
+1743052 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e in ZK
+1743052 [Thread-109] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e (is it secure? false)
+1743058 [Thread-109] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+1743059 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], end registering consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e in ZK
+1743061 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 try #0
+1743063 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e try #0
+1743063 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e
+1743091 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Stopping leader finder thread
+1743092 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Shutting down
+1743095 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Shutdown completed
+1743095 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Stopped 
+1743096 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Stopping all fetchers
+1743096 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Shutting down
+1743096 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Stopped 
+1743100 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Shutdown completed
+1743100 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] All connections stopped
+1743100 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Cleared all relevant queues for this fetcher
+1743100 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Cleared the data chunks in all the consumer message iterators
+1743100 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Committing all offsets after clearing the fetcher queues
+1743101 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Releasing partition ownership
+1743103 [Thread-109] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504492673730] Stopping leader finder thread
+1743103 [Thread-109] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504492673730] Stopping all fetchers
+1743103 [Thread-109] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504492673730] All connections stopped
+1743103 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Cleared all relevant queues for this fetcher
+1743104 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Cleared the data chunks in all the consumer message iterators
+1743104 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Committing all offsets after clearing the fetcher queues
+1743104 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Releasing partition ownership
+1743127 [Thread-109] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_1 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0, space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0)
+1743127 [Thread-109] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 attempting to claim partition 0
+1743128 [Thread-109] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0 for topic earth_to_curiosity_1
+1743128 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e selected partitions : 
+1743128 [Thread-109] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e try #0
+1743127 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_1 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0, space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0)
+1743129 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-leader-finder-thread], Starting 
+1743129 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 attempting to claim partition 0
+1743129 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0 for topic earth_to_curiosity_1
+1743131 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 successfully owned partition 0 for topic earth_to_curiosity_1
+1743132 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 selected partitions : earth_to_curiosity_1:0: fetched offset = 8898: consumed offset = 8898
+1743137 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 try #0
+1743137 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Starting 
+1743142 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+1743143 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+1743143 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+1743143 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+1743143 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 1 for 1 topic(s) Set(earth_to_curiosity_1)
+1743143 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+1743144 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+1743149 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Starting 
+1743149 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_1,0], initOffset 8898 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+1800715 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492731402,8,ClickCamera
+1819896 [pool-7-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(curiosity_to_earth_1)
+1819897 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+1819898 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+1819901 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+1828926 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492759613,0,ScanArea
+1865586 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492796273,5,Explore
+1923194 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492853881,5,Explore
+1977858 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492908545,8,ClickCamera
+2005905 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504492936592,1,Move
+2005907 [pool-7-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504492936594 Power requested = 80 Critical = false
+2005908 [pool-7-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+2018391 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2026174 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2034695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+2043418 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2060000 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2079496 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2109148 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493039835,1,Move
+2152043 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493082730,1,Move
+2196153 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493126840,0,ScanArea
+2230132 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493160819,0,ScanArea
+2264265 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493194952,0,ScanArea
+2302528 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493233215,9,PerformRadarScan
+2386329 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493317016,5,Explore
+2439328 [pool-7-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 25 for 1 topic(s) Set(curiosity_to_earth_1)
+2439330 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+2439331 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+2439331 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+2439334 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+2448352 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493379039,1,Move
+2501934 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493432621,5,Explore
+2562128 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493492815,9,PerformRadarScan
+2648268 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493578955,5,Explore
+2695633 [pool-10-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+2720271 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493650958,8,ClickCamera
+2720271 [Thread-3] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504493650958 Power requested = 20 Critical = false
+2720272 [Thread-3] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2720272 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+2720276 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+2720279 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+2720283 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+2741383 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2741388 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0] INFO  kafka.consumer.SimpleConsumer  - Reconnect due to error:
+java.io.EOFException
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:83)
+	at kafka.network.BlockingChannel.readCompletely(BlockingChannel.scala:129)
+	at kafka.network.BlockingChannel.receive(BlockingChannel.scala:120)
+	at kafka.consumer.SimpleConsumer.liftedTree1$1(SimpleConsumer.scala:86)
+	at kafka.consumer.SimpleConsumer.kafka$consumer$SimpleConsumer$$sendRequest(SimpleConsumer.scala:83)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply$mcV$sp(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer.fetch(SimpleConsumer.scala:130)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:108)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:29)
+	at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:102)
+	at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:93)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+2750607 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2754695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+2756877 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2765106 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2782100 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2817912 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493748599,8,ClickCamera
+2845654 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493776341,8,ClickCamera
+2875765 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493806452,0,ScanArea
+2917405 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493848092,5,Explore
+2977002 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493907689,9,PerformRadarScan
+3045341 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504493976028,1,Move
+3086386 [pool-7-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 52 for 1 topic(s) Set(curiosity_to_earth_1)
+3086387 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+3086388 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+3086388 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+3086390 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+3095409 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494026096,5,Explore
+3148985 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494079672,9,PerformRadarScan
+3221047 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494151733,1,Move
+3221047 [pool-7-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504494151734 Power requested = 40 Critical = false
+3221047 [pool-7-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+3221047 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+3221048 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3221054 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+3227961 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3234695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+3246082 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3262126 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3271116 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3291755 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3294695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+3330766 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494261452,9,PerformRadarScan
+3409531 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494340218,8,ClickCamera
+3436518 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494367205,1,Move
+3471666 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494402353,0,ScanArea
+3519698 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494450385,8,ClickCamera
+3560153 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494490840,5,Explore
+3610512 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494541199,0,ScanArea
+3661427 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494592114,9,PerformRadarScan
+3722528 [Thread-3] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 75 for 1 topic(s) Set(curiosity_to_earth_1)
+3722528 [Thread-3] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+3722529 [Thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+3722529 [Thread-3] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+3722530 [Thread-3] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+3725531 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0] INFO  kafka.consumer.SimpleConsumer  - Reconnect due to error:
+java.io.EOFException
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:83)
+	at kafka.network.BlockingChannel.readCompletely(BlockingChannel.scala:129)
+	at kafka.network.BlockingChannel.receive(BlockingChannel.scala:120)
+	at kafka.consumer.SimpleConsumer.liftedTree1$1(SimpleConsumer.scala:86)
+	at kafka.consumer.SimpleConsumer.kafka$consumer$SimpleConsumer$$sendRequest(SimpleConsumer.scala:83)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply$mcV$sp(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer.fetch(SimpleConsumer.scala:130)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:108)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:29)
+	at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:102)
+	at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:93)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+3731544 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494662231,9,PerformRadarScan
+3808047 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494738734,5,Explore
+3869600 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494800287,9,PerformRadarScan
+3869600 [pool-7-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504494800287 Power requested = 20 Critical = false
+3869600 [pool-7-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+3869600 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3869603 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+3881485 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3894046 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3894695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+3898769 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3904706 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3914086 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3917811 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3923662 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3944554 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+3973031 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494903718,8,ClickCamera
+3997265 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504494927952,9,PerformRadarScan
+4076323 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495007010,0,ScanArea
+4115341 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495046028,9,PerformRadarScan
+4195140 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495125827,5,Explore
+4250479 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495181166,8,ClickCamera
+4283408 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495214095,8,ClickCamera
+4313602 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495244289,1,Move
+4313629 [pool-7-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504495244316 Power requested = 320 Critical = false
+4313629 [pool-7-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+4313632 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4314695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+4321665 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4332857 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4345006 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4360134 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4374695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+4403601 [pool-13-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 98 for 1 topic(s) Set(curiosity_to_earth_1)
+4403602 [pool-13-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+4403603 [pool-13-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+4403604 [pool-13-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+4403606 [pool-13-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+4412623 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495343310,0,ScanArea
+4449326 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495380013,8,ClickCamera
+4475844 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495406531,0,ScanArea
+4520256 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495450943,0,ScanArea
+4554985 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495485672,1,Move
+4608993 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495539680,9,PerformRadarScan
+4678156 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495608843,0,ScanArea
+4710751 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495641438,0,ScanArea
+4749495 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495680182,1,Move
+4749499 [pool-7-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504495680186 Power requested = 330 Critical = false
+4749499 [pool-7-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+4749501 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+4764246 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4768286 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4776724 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4785947 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4793989 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4794695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+4809675 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4843749 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495774436,5,Explore
+4887854 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495818541,9,PerformRadarScan
+4963712 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495894399,1,Move
+5029702 [pool-7-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 123 for 1 topic(s) Set(curiosity_to_earth_1)
+5029703 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+5029704 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+5029705 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+5029708 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+5038726 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504495969413,5,Explore
+5090139 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496020826,9,PerformRadarScan
+5169498 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496100185,0,ScanArea
+5205834 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496136521,1,Move
+5250776 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496181463,0,ScanArea
+5291961 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496222648,1,Move
+5331999 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496262686,0,ScanArea
+5372340 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496303027,1,Move
+5372364 [pool-7-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504496303051 Power requested = 320 Critical = false
+5372364 [pool-7-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+5372367 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+5372368 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5372374 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+5381431 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5393055 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5394695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+5415028 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5436147 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5445629 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5454695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+5486933 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496417620,0,ScanArea
+5521619 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496452306,5,Explore
+5575864 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496506551,8,ClickCamera
+5611474 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496542161,1,Move
+5658565 [pool-7-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 148 for 1 topic(s) Set(curiosity_to_earth_1)
+5658565 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+5658566 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+5658566 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+5658566 [pool-7-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+5667581 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496598268,8,ClickCamera
+5696400 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496627087,5,Explore
+5741066 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496671753,0,ScanArea
+5779897 [pool-7-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496710584,5,Explore
+5779897 [pool-7-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504496710584 Power requested = 30 Critical = false
+5779897 [pool-7-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+5779897 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5790540 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5806271 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5814695 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+5815979 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5831064 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5849355 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5877752 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496808439,5,Explore
+5925886 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics module rebooting rover because max pending messages exceeded.
+5925890 [pool-7-thread-1] ERROR space.exploration.mars.rover.kernel.Rover  - Rover rebooting after a fatal error. Number of messages lost = 16
+5925890 [pool-7-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Pacemaker diagnostic module interrupted.
+5935195 [pool-7-thread-1] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+5935196 [pool-7-thread-1] WARN  kafka.utils.VerifiableProperties  - Property auto.offset.reset is not valid
+5935196 [pool-7-thread-1] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+5935196 [pool-7-thread-1] WARN  kafka.utils.VerifiableProperties  - Property group.id is not valid
+5935196 [pool-7-thread-1] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to localhost:9092
+5935196 [pool-7-thread-1] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+5935196 [pool-7-thread-1] WARN  kafka.utils.VerifiableProperties  - Property zookeeper.connect is not valid
+5935198 [pool-7-thread-1] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+5935198 [pool-7-thread-1] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+5935198 [pool-7-thread-1] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+5935198 [pool-7-thread-1] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+5935198 [pool-7-thread-1] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+5935198 [pool-7-thread-1] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+5935198 [pool-7-thread-1] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+5935200 [pool-7-thread-1] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], Connecting to zookeeper instance at localhost:2181
+5935200 [pool-7-thread-1] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@78248b41
+5935201 [ZkClient-EventThread-426-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+5935202 [pool-7-thread-1] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+5935203 [pool-7-thread-1-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+5935203 [pool-7-thread-1-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+5935206 [pool-7-thread-1-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15e11d1f1f20084, negotiated timeout = 6000
+5935206 [pool-7-thread-1-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+5935208 [pool-7-thread-1] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], starting auto committer every 60000 ms
+5935209 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4 in ZK
+5935210 [Thread-377] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4 (is it secure? false)
+5935219 [Thread-377] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+5935219 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], end registering consumer space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4 in ZK
+5935220 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e try #0
+5935230 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 try #0
+5935232 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4 try #0
+5935235 [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4
+5935250 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504492673730] Stopping leader finder thread
+5935250 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-leader-finder-thread], Shutting down
+5935250 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-leader-finder-thread], Stopped 
+5935250 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-leader-finder-thread], Shutdown completed
+5935251 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504492673730] Stopping all fetchers
+5935251 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504492673730] All connections stopped
+5935251 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Cleared all relevant queues for this fetcher
+5935251 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Cleared the data chunks in all the consumer message iterators
+5935251 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Committing all offsets after clearing the fetcher queues
+5935251 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Releasing partition ownership
+5935257 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Stopping leader finder thread
+5935257 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Shutting down
+5935257 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Stopped 
+5935257 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Shutdown completed
+5935258 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Stopping all fetchers
+5935258 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Shutting down
+5935261 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Stopped 
+5935263 [Thread-377] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504496865894] Stopping leader finder thread
+5935263 [Thread-377] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504496865894] Stopping all fetchers
+5935263 [Thread-377] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504496865894] All connections stopped
+5935263 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], Cleared all relevant queues for this fetcher
+5935263 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], Cleared the data chunks in all the consumer message iterators
+5935263 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], Committing all offsets after clearing the fetcher queues
+5935263 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], Releasing partition ownership
+5935264 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Shutdown completed
+5935265 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] All connections stopped
+5935265 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Cleared all relevant queues for this fetcher
+5935265 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Cleared the data chunks in all the consumer message iterators
+5935265 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Committing all offsets after clearing the fetcher queues
+5935266 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Releasing partition ownership
+5935280 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_1 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0, space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0, space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4-0)
+5935280 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 attempting to claim partition 0
+5935280 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0 for topic earth_to_curiosity_1
+5935280 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4-0 for topic earth_to_curiosity_1
+5935280 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], Consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e selected partitions : 
+5935284 [Thread-377] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_1 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0, space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0, space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4-0)
+5935286 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e try #0
+5935287 [Thread-377] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 attempting to claim partition 0
+5935287 [Thread-377] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0 for topic earth_to_curiosity_1
+5935287 [Thread-377] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4-0 for topic earth_to_curiosity_1
+5935287 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], Consumer space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4 selected partitions : 
+5935287 [Thread-377] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4 try #0
+5935287 [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-leader-finder-thread], Starting 
+5935288 [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4-leader-finder-thread], Starting 
+5935292 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_1 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0, space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0, space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4-0)
+5935292 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 attempting to claim partition 0
+5935292 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-mainframe-1504492673713-4538448e-0 for topic earth_to_curiosity_1
+5935292 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] WARN  kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-mainframe-1504496865887-c82069e4-0 for topic earth_to_curiosity_1
+5935293 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0 successfully owned partition 0 for topic earth_to_curiosity_1
+5935293 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], Consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 selected partitions : earth_to_curiosity_1:0: fetched offset = 8981: consumed offset = 8981
+5935294 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4 try #0
+5935294 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread], Starting 
+5935298 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+5935298 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+5935298 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+5935298 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+5935298 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 2 for 1 topic(s) Set(earth_to_curiosity_1)
+5935298 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+5935299 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+5935301 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-0-0], Starting 
+5935301 [space.exploration.mars.newRover_zion-mainframe-1504490937617-1e8c53b4-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1504490937653] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_1,0], initOffset 8981 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+5992949 [pool-18-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496923636,0,ScanArea
+6022997 [pool-18-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 0 for 1 topic(s) Set(curiosity_to_earth_1)
+6022999 [pool-18-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+6023002 [pool-18-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+6023004 [pool-18-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+6032028 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504496962715,5,Explore
+6091796 [pool-18-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497022483,9,PerformRadarScan
+6160809 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497091496,1,Move
+6160810 [Thread-3] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 400
+y: 425
+
+6189072 [pool-18-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497119759,1,Move
+6259695 [pool-18-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497190382,9,PerformRadarScan
+6335023 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497265710,8,ClickCamera
+6397362 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497328049,9,PerformRadarScan
+6491718 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497422405,0,ScanArea
+6565298 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497495985,1,Move
+6565314 [Thread-3] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504497496001 Power requested = 370 Critical = false
+6565314 [Thread-3] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+6585781 [pool-18-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497516468,1,Move
+6585803 [pool-18-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1504497516490 Power requested = 370 Critical = false
+6585804 [pool-18-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+6585809 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+6586930 [pool-18-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+6594348 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+6599944 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+6607157 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+6635216 [Thread-3] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+6646930 [pool-18-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+6692185 [pool-19-thread-1] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,localhost,9092) with correlation id 31 for 1 topic(s) Set(curiosity_to_earth_1)
+6692187 [pool-19-thread-1] INFO  kafka.producer.SyncProducer  - Connected to localhost:9092 for producing
+6692188 [pool-19-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from localhost:9092
+6692189 [pool-19-thread-1] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+6692190 [pool-19-thread-1] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+6701214 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497631901,0,ScanArea
+6741457 [pool-18-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497672144,1,Move
+6819318 [pool-18-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497750005,8,ClickCamera
+6858997 [Thread-3] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1504497789683,9,PerformRadarScan

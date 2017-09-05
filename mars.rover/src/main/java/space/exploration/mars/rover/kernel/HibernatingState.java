@@ -27,7 +27,7 @@ public class HibernatingState implements State {
         logger.info("In hibernating state's receiveMessage(), adding message to instruction queue");
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage.parseFrom(message));
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message));
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
         }

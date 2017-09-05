@@ -113,6 +113,20 @@ public class Rover {
         }
     }
 
+    public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload instructionPayload) {
+        try {
+            resultSet.moveToInsertRow();
+            resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            Blob blob = logDBConnection.createBlob();
+            blob.setBytes(1, instructionPayload.toByteArray());
+            resultSet.updateBlob("MESSAGE_DETAILS", blob);
+            resultSet.updateString("MESSAGE", "message added to instruction queue");
+            resultSet.insertRow();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void writeSystemLog(String message) {
         try {
             resultSet.moveToInsertRow();
@@ -270,11 +284,12 @@ public class Rover {
     public synchronized void configureDB() {
         try {
             System.out.println("Configuring database");
+            String userName = RoverUtil.getDatabaseCredentials(false);
+            String password = RoverUtil.getDatabaseCredentials(true);
             logDBConnection = DriverManager
                     .getConnection("jdbc:mysql://" + logDBConfig.getProperty("mars.rover.database.host")
                                            + "/" + logDBConfig.getProperty("mars.rover.database.dbName")
-                                           + "?user=" + logDBConfig.getProperty("mars.rover.database.userName") +
-                                           "&password=" + logDBConfig.getProperty("mars.rover.database.password"));
+                                           + "?user=" + userName + "&password=" + password);
             statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
                                                                                                   ".logTableName"));

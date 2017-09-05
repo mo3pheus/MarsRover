@@ -6,7 +6,9 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
 
+import java.io.IOException;
 import java.util.Properties;
+import java.util.Scanner;
 
 /**
  * Created by sanket on 5/15/17.
@@ -53,11 +55,21 @@ public class RoverUtil {
 
         rBuilder.setLocation(RoverStatusOuterClass.RoverStatus.Location.newBuilder().
                 setX(rover.getMarsArchitect().getRobot().getLocation().x).setY(rover.getMarsArchitect().getRobot()
-                .getLocation().y).build());
+                                                                                       .getLocation().y).build());
         rBuilder.setSolNumber(rover.getSol());
         rBuilder.setNotes(message);
         rBuilder.setModuleReporting(module.getValue());
 
         return rBuilder.build();
+    }
+
+    public static String getDatabaseCredentials(boolean password) {
+        Scanner scanner   = new Scanner(System.in);
+        if (password) {
+            System.out.println("Please enter the password:");
+        } else {
+            System.out.println("Please enter the database username:");
+        }
+        return scanner.nextLine();
     }
 }
