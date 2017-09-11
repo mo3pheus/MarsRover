@@ -5,9 +5,9 @@ package space.exploration.mars.rover.communication;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
-import kafka.javaapi.producer.Producer;
-import kafka.producer.KeyedMessage;
-import kafka.producer.ProducerConfig;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import space.exploration.mars.rover.communication.MatrixCommunication.MatrixCall;
 import space.exploration.mars.rover.environment.PortableMatrixConfig;
 import space.exploration.mars.rover.navigation.NavigationEngine;
@@ -40,7 +40,8 @@ public class Transmitter {
             kafkaProperties = new Properties();
             kafkaProperties.load(inputStream);
             kafkaProperties.put("sourceTopic", kafkaShipmentBuilder.sourceTopic);
-            earthChannel = new Producer<String, byte[]>(new ProducerConfig(kafkaProperties));
+            kafkaProperties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+            earthChannel = new KafkaProducer<>(kafkaProperties);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -50,7 +51,8 @@ public class Transmitter {
 
     public Transmitter(Properties comsConfig) {
         kafkaProperties = comsConfig;
-        earthChannel = new Producer<String, byte[]>(new ProducerConfig(kafkaProperties));
+        kafkaProperties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        earthChannel = new KafkaProducer<>(kafkaProperties);
     }
 
     private static byte[] makeCall() {
@@ -92,7 +94,7 @@ public class Transmitter {
         for (int i = 0; i < 1; i++) {
             byte[] outputKafkaBytes = makeCall();
             earthChannel.send(
-                    new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
+                    new ProducerRecord<>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
             System.out.println("Sending information packet to " + kafkaProperties.getProperty("sourceTopic"));
             System.out.println("Sent message = " + MatrixCall.parseFrom(outputKafkaBytes));
             Thread.sleep(1500l);
@@ -102,7 +104,7 @@ public class Transmitter {
     public void transmitMessage(byte[] message) throws InterruptedException, InvalidProtocolBufferException {
         for (int i = 0; i < 1; i++) {
             earthChannel.send(
-                    new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("destination.topic"), message));
+                    new ProducerRecord<>(kafkaProperties.getProperty("destination.topic"), message));
             System.out.println("Sending information packet to " + kafkaProperties.getProperty("destination" +
                                                                                                       ".topic"));
         }
@@ -113,7 +115,7 @@ public class Transmitter {
         for (int i = 0; i < messages.size(); i++) {
             byte[] outputKafkaBytes = messages.get(i);
             earthChannel.send(
-                    new KeyedMessage<String, byte[]>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
+                    new ProducerRecord<>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
         }
     }
 
