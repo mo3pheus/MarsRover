@@ -25,22 +25,18 @@ public class CommandControl {
                 case 0: {
                     zionComs.sendMessage();
                 }
-                ;
                 break;
                 case 1: {
                     zionComs.sendMessages();
                 }
-                ;
                 break;
                 case 2: {
                     scanner.close();
                     System.out.println("This is Zion coms signing off.");
                 }
-                ;
                 break;
                 default: {
                 }
-                ;
             }
         }
     }

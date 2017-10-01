@@ -47,7 +47,7 @@ public class NavUtil {
         }
     }
 
-    public static final double getGCost(NavCell current, NavCell start, int cellWidth) {
+    public static double getGCost(NavCell current, NavCell start, int cellWidth) {
         if (current == null || current.equals(start)) {
             return 0.0d;
         } else {
@@ -55,7 +55,7 @@ public class NavUtil {
         }
     }
 
-    public static final List<NavCell> getAdjNodesFromGrid(Map<Integer, NavCell> gridMap, NavCell[] adjNodes) {
+    public static List<NavCell> getAdjNodesFromGrid(Map<Integer, NavCell> gridMap, NavCell[] adjNodes) {
         List<NavCell> adjacentNodes = new ArrayList<NavCell>();
 
         for (NavCell nCell : adjNodes) {
@@ -74,7 +74,7 @@ public class NavUtil {
      * @param cellWidth
      * @return
      */
-    public static final int getMinFCell(List<NavCell> listCells, NavCell start, NavCell end, int cellWidth) {
+    public static int getMinFCell(List<NavCell> listCells, NavCell start, NavCell end, int cellWidth) {
         double minFScore = Double.MAX_VALUE;
         int    minFId    = 0;
 

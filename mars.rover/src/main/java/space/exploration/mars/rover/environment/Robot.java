@@ -41,7 +41,7 @@ public class Robot extends VirtualElement {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        robotImage = (BufferedImage) img;
+        robotImage = img;
 
         location = new Point(
                 Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]),

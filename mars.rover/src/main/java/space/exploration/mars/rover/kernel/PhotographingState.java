@@ -8,9 +8,6 @@ import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
-
-import java.util.concurrent.Semaphore;
 
 /**
  * Created by sanketkorgaonkar on 5/9/17.

@@ -8,18 +8,14 @@ import space.exploration.mars.rover.animation.RadarAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RadarContactCell;
-import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.radar.RadarContactListOuterClass;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass;
 import space.exploration.mars.rover.utils.RadialContact;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.Semaphore;
 
 /**
  * Created by sanket on 5/30/17.
@@ -43,9 +39,9 @@ public class RadarScanningState implements State {
     public void receiveMessage(byte[] message) {
         logger.debug("Radar Module received message, adding to rover's instruction queue");
         rover.getInstructionQueue().add(message);
-        try{
+        try {
             rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message));
-        } catch(InvalidProtocolBufferException ipe){
+        } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("InvalidProtocolBuffer", ipe);
         }
     }

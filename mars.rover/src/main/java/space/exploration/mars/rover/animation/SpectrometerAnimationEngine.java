@@ -21,7 +21,7 @@ public class SpectrometerAnimationEngine {
     private             Logger       logger             = LoggerFactory.getLogger(SpectrometerAnimationEngine.class);
 
     public SpectrometerAnimationEngine(Properties marsConfig, Cell robot, Spectrometer spectrometer,
-            JFrame marsSurface) {
+                                       JFrame marsSurface) {
         this.marsConfig = marsConfig;
         this.robot = robot;
         this.spectrometer = spectrometer;
@@ -36,7 +36,7 @@ public class SpectrometerAnimationEngine {
         }
 
         int delayMs = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils
-                .SPECTROMETER_ANIMATION_DELAY));
+                                                                      .SPECTROMETER_ANIMATION_DELAY));
         JLayeredPane contentPane = AnimationUtil.getContent(marsConfig);
         contentPane.add(robot, Cell.ROBOT_DEPTH);
         for (Cell explorationCell : getExplorationCells()) {

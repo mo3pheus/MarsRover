@@ -43,7 +43,8 @@ public class ReinforcementLearningTest {
             System.out.println("Lidar cost = " + learner.getLidarUsage());
             MarsArchitect marsArchitect1 = new MarsArchitect(MatrixCreation.getMatrixConfig(), TrackingAnimationUtil
                     .getAnimationCalibratedRobotPath(learner.getShortestPath(),
-                            Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE))
+                                                     Integer.parseInt(marsConfig.getProperty(EnvironmentUtils
+                                                                                                     .ANIMATION_STEP_SIZE))
                     ));
             Thread.sleep(5000);
             //marsArchitect1.getMarsSurface().dispose();
@@ -86,7 +87,7 @@ public class ReinforcementLearningTest {
                 cell.setCellWidth(marsArchitect1.getCellWidth());
                 contentPane.add(cell, 200);
                 System.out.println(" Current = " + current.toString() + " Count = " + heatMap.get(current) + " Color " +
-                                   "returned = " + heatColorMap.get(current).toString());
+                                           "returned = " + heatColorMap.get(current).toString());
             }
             marsArchitect1.getMarsSurface().setContentPane(contentPane);
             marsArchitect1.getMarsSurface().repaint();

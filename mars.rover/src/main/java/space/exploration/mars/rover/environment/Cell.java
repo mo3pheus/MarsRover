@@ -36,7 +36,7 @@ public class Cell extends VirtualElement {
         super.setLayout();
         cellWidth = Integer.parseInt(matrixConfig.getProperty(CELL_WIDTH));
         location = new Point(Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[0]),
-                Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[1]));
+                             Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[1]));
     }
 
     public Point getLocation() {

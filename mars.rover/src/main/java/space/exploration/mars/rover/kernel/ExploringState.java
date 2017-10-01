@@ -4,24 +4,18 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
-import sun.rmi.runtime.Log;
-
-import java.util.concurrent.Semaphore;
 
 /**
  * @author sanketkorgaonkar
  */
 public class ExploringState implements State {
 
-    private       Rover     rover      = null;
+    private Rover rover = null;
 
     public ExploringState(Rover rover) {
         this.rover = rover;

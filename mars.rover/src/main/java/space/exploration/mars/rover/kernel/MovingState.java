@@ -126,7 +126,7 @@ public class MovingState implements State {
                                                                                              architect
                                                                                                      .getRobotStepSize()));
         architect.returnSurfaceToNormal();
-        sendUpdateToEarth();
+        sendTelemetry(architect);
     }
 
     private boolean isDestinationValid(java.awt.Point destination) {
@@ -139,17 +139,19 @@ public class MovingState implements State {
         return !invalid;
     }
 
-    private void sendUpdateToEarth() {
+    private void sendTelemetry(MarsArchitect architect) {
         RoverStatus.Builder updateMsg = RoverStatus.newBuilder();
         updateMsg.setSCET(System.currentTimeMillis());
         Location robotLocation = Location.newBuilder().setX(rover.getMarsArchitect().getRobot().getLocation().x)
                 .setY(rover.getMarsArchitect().getRobot().getLocation().y).build();
         updateMsg.setLocation(robotLocation);
         updateMsg.setNotes(
-                "Rover has moved from its previous location. Check subsequent lidarMsg for an environment update.");
+                "Telemetry Data relayed.");
         updateMsg.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         updateMsg.setModuleReporting(Module.PROPULSION.getValue());
         updateMsg.setSolNumber(rover.getSol());
+
+        updateMsg.setModuleMessage(architect.getTelemetryPayload().toByteString());
 
         rover.state = rover.transmittingState;
         rover.transmitMessage(updateMsg.build().toByteArray());

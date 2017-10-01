@@ -13,7 +13,6 @@ public class RCell {
     private static final int    MAX_TRIES        = 100;
 
     private Point   center        = null;
-    private int     cellWidth     = 0;
     private int     id            = -1;
     private double  qValue        = 0.0d;
     private double  reward        = 0.0d;
@@ -22,7 +21,7 @@ public class RCell {
     public RCell(Point center, int id, int cellWidth) {
         this.center = center;
         this.id = id;
-        this.cellWidth = cellWidth;
+        int cellWidth1 = cellWidth;
     }
 
     public double getqValue() {

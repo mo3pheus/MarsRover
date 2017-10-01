@@ -8,7 +8,7 @@ import sun.audio.AudioStream;
  * Created by sanket on 6/3/17.
  */
 public class BlipSound extends Thread {
-    private static AudioStream inputStream =null;
+    private static AudioStream inputStream = null;
 
     @Override
     public void run() {
@@ -20,7 +20,7 @@ public class BlipSound extends Thread {
         }
     }
 
-    public void mute(){
+    public void mute() {
         AudioPlayer.player.stop(inputStream);
     }
 }

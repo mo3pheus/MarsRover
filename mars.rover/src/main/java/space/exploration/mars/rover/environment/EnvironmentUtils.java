@@ -117,9 +117,9 @@ public class EnvironmentUtils {
             for (int j = 0; j <= (frameHeight - cellWidth); j += cellWidth) {
                 Point temp = new Point(i, j);
                 SoilComposition soilComp = new SoilComposition(ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
-                        ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
-                        ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
-                        ThreadLocalRandom.current().nextDouble(0.0d, 0.8d));
+                                                               ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
+                                                               ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
+                                                               ThreadLocalRandom.current().nextDouble(0.0d, 0.8d));
                 surfaceComp.put(temp, soilComp);
             }
         }
@@ -131,12 +131,12 @@ public class EnvironmentUtils {
         Map<Point, RoverCell> stationMap     = new HashMap<>();
         String                oldRoverPrefix = Radar.RADAR_PREFIX + ".prev.rover.";
         int numStations = Integer.parseInt(marsConfig.getProperty(Radar.RADAR_PREFIX + "" +
-                ".numPrevUnits"));
+                                                                          ".numPrevUnits"));
         for (int i = 0; i < numStations; i++) {
-            int       x     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split("," +
-                    "")[0]);
-            int       y     = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split("," +
-                    "")[1]);
+            int x = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split("," +
+                                                                                                                "")[0]);
+            int y = Integer.parseInt(marsConfig.getProperty(oldRoverPrefix + Integer.toString(i)).split("," +
+                                                                                                                "")[1]);
             RoverCell rCell = new RoverCell(marsConfig);
             rCell.setLocation(new Point(x + 3, y + 3));
             rCell.setCellWidth(8);

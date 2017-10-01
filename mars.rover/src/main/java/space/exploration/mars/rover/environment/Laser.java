@@ -46,7 +46,7 @@ public class Laser extends VirtualElement implements Comparable<Laser> {
         return laserBeam;
     }
 
-    public double getLaserLength(){
+    public double getLaserLength() {
         return startPoint.distance(endPoint);
     }
 
@@ -81,9 +81,9 @@ public class Laser extends VirtualElement implements Comparable<Laser> {
 
     @Override
     public int compareTo(Laser laser) {
-        if( this.getAngle() > laser.getAngle() ){
+        if (this.getAngle() > laser.getAngle()) {
             return 1;
-        } else if(this.getAngle() < laser.getAngle() ){
+        } else if (this.getAngle() < laser.getAngle()) {
             return -1;
         } else {
             return 0;

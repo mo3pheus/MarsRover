@@ -1,12 +1,11 @@
 package space.exploration.mars.rover.utils;
 
 import org.slf4j.Logger;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
 
-import java.io.IOException;
+import java.awt.*;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -46,7 +45,7 @@ public class RoverUtil {
         return propAsString;
     }
 
-    public static final RoverStatusOuterClass.RoverStatus getEndOfLifeMessage(ModuleDirectory.Module module, String
+    public static RoverStatusOuterClass.RoverStatus getEndOfLifeMessage(ModuleDirectory.Module module, String
             message, Rover rover) {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         rBuilder.setSCET(System.currentTimeMillis());
@@ -64,12 +63,42 @@ public class RoverUtil {
     }
 
     public static String getDatabaseCredentials(boolean password) {
-        Scanner scanner   = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         if (password) {
             System.out.println("Please enter the password:");
         } else {
             System.out.println("Please enter the database username:");
         }
         return scanner.nextLine();
+    }
+
+    public static RoverStatusOuterClass.RoverStatus.Location getLocation(Point point) {
+        RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
+                .newBuilder();
+        lBuilder.setX((int) point.getX());
+        lBuilder.setY((int) point.getY());
+        return lBuilder.build();
+    }
+
+
+    /**
+     * @param start
+     * @param end
+     * @return start and end are in awt.Point, so +x,+y mean accordingly
+     */
+    public static double getHeading(Point start, Point end) {
+        if (start.getX() == end.getX()) {
+            if (start.getY() > end.getY()) {
+                return 180.0d;
+            } else {
+                return 0.0d;
+            }
+        }
+
+        if (start.getX() < end.getX()) {
+            return 90 / 0d;
+        } else {
+            return 270.0d;
+        }
     }
 }

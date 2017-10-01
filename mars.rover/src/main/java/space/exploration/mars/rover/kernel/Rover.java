@@ -20,7 +20,6 @@ import space.exploration.mars.rover.sensor.Spectrometer;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
-import java.lang.annotation.Target;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
@@ -47,9 +46,7 @@ public class Rover {
 
     /* Logging Details */
     private Connection logDBConnection = null;
-    private Statement  statement       = null;
     private ResultSet  resultSet       = null;
-    private Statement  errorStatement  = null;
     private ResultSet  errorSet        = null;
     private Logger     logger          = null;
     private String     dbUserName      = null;
@@ -85,13 +82,6 @@ public class Rover {
         bootUp(false);
     }
 
-    public synchronized void processPendingMessageQueue() {
-        if (!instructionQueue.isEmpty() && state != hibernatingState) {
-            state = listeningState;
-            receiveMessage(instructionQueue.remove(0));
-        }
-    }
-
     public static long getOneSolDuration() {
         /* Time scaled by a factor of 60. */
         long time = TimeUnit.MINUTES.toMillis(24);
@@ -99,6 +89,13 @@ public class Rover {
         time += 35;
         time += 244;
         return time;
+    }
+
+    public synchronized void processPendingMessageQueue() {
+        if (!instructionQueue.isEmpty() && state != hibernatingState) {
+            state = listeningState;
+            receiveMessage(instructionQueue.remove(0));
+        }
     }
 
     public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
@@ -294,10 +291,11 @@ public class Rover {
                     .getConnection("jdbc:mysql://" + logDBConfig.getProperty("mars.rover.database.host")
                                            + "/" + logDBConfig.getProperty("mars.rover.database.dbName")
                                            + "?user=" + dbUserName + "&password=" + dbPassword);
-            statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            Statement statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
+                    .CONCUR_UPDATABLE);
             resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
                                                                                                   ".logTableName"));
-            errorStatement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
+            Statement errorStatement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
             errorSet = errorStatement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
                                                                                                       ".errorTableName"));

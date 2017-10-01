@@ -7,7 +7,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
 import java.util.concurrent.Semaphore;
 

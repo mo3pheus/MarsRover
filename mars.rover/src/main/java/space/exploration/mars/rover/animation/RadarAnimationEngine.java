@@ -24,7 +24,6 @@ public class RadarAnimationEngine {
     private JFrame                 radarWindow    = null;
     private int                    numRevs        = 0;
     private int                    laserDiameter  = 0;
-    private double                 scaleFactor    = 0.0d;
     private double                 windowWidth    = 0.0d;
     private boolean                blipSound      = false;
     private Properties             radarConfig    = null;
@@ -43,7 +42,7 @@ public class RadarAnimationEngine {
     public void setUpRadarWindow() {
         int fWidth = Integer.parseInt(radarConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         blipSound = Boolean.parseBoolean(radarConfig.getProperty(Radar.RADAR_PREFIX + ".blip.sound"));
-        scaleFactor = Double.parseDouble(radarConfig.getProperty(Radar.RADAR_PREFIX + ".scaleFactor"));
+        double scaleFactor = Double.parseDouble(radarConfig.getProperty(Radar.RADAR_PREFIX + ".scaleFactor"));
         windowWidth = scaleFactor * fWidth;
         numRevs = Integer.parseInt(radarConfig.getProperty(Radar.RADAR_PREFIX + ".numberOfRevelutions"));
         laserDiameter = (int) (windowWidth - (2 * RadarScanArea.RING_OFFSET));

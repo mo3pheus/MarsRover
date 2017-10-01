@@ -12,9 +12,6 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverSta
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.WallBuilder;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
-
-import java.util.concurrent.Semaphore;
 
 /**
  * @author sanketkorgaonkar

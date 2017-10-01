@@ -44,7 +44,7 @@ public class Lidar implements IsEquipment {
         status = "Instantiated";
         this.cellWidth = cellWidth;
         this.powerConsumption = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
-                .LIDAR_POWER_CONSUMPTION));
+                                                                                           .LIDAR_POWER_CONSUMPTION));
         fillGridCells();
     }
 
@@ -103,8 +103,8 @@ public class Lidar implements IsEquipment {
             rover.setEquipmentEOL(endOfLife);
             rover.authorizeTransmission(ModuleDirectory.Module.SENSOR_LIDAR, RoverUtil.getEndOfLifeMessage
                     (ModuleDirectory.Module.SENSOR_LIDAR, " Lidar at end of life. Num of scans remaining = " +
-                                                          NUM_LAST_SCANS + " Please confirm scan command. Next " +
-                                                          "command will be honored!", rover).toByteArray());
+                            NUM_LAST_SCANS + " Please confirm scan command. Next " +
+                            "command will be honored!", rover).toByteArray());
             return;
         }
 

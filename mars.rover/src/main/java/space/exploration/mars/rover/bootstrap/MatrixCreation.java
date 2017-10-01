@@ -6,11 +6,8 @@ import org.apache.log4j.PatternLayout;
 import org.apache.log4j.Priority;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.navigation.NavigationEngine;
-import sun.applet.Main;
 import sun.audio.AudioStream;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;

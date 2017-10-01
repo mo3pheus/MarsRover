@@ -1,6 +1,8 @@
 package space.exploration.mars.rover.environment;
 
 import space.exploration.mars.rover.animation.*;
+import space.exploration.mars.rover.propulsion.Telemetry;
+import space.exploration.mars.rover.propulsion.TelemetryPacketOuterClass;
 import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.Spectrometer;
 
@@ -11,16 +13,17 @@ import java.util.Map;
 import java.util.Properties;
 
 public class MarsArchitect {
-    private Map<Point, SoilComposition> soilCompositionMap    = null;
-    private JFrame                      marsSurface           = null;
-    private Properties                  marsConfig            = null;
-    private TrackingAnimationEngine     propulsionEngine      = null;
-    private LidarAnimationEngine        lidarEngine           = null;
-    private CameraAnimationEngine       cameraAnimationEngine = null;
-    private SpectrometerAnimationEngine spectrometerEngine    = null;
-    private Cell                        robot                 = null;
-    private int                         cellWidth             = 0;
-    private int                         robotStepSize         = 0;
+    private Map<Point, SoilComposition>               soilCompositionMap = null;
+    private JFrame                                    marsSurface        = null;
+    private Properties                                marsConfig         = null;
+    private TrackingAnimationEngine                   propulsionEngine   = null;
+    private LidarAnimationEngine                      lidarEngine        = null;
+    private SpectrometerAnimationEngine               spectrometerEngine = null;
+    private Cell                                      robot              = null;
+    private int                                       cellWidth          = 0;
+    private int                                       robotStepSize      = 0;
+    private Telemetry                                 telemetry          = null;
+    private TelemetryPacketOuterClass.TelemetryPacket telemetryPayload   = null;
 
     @Deprecated
     public MarsArchitect(Properties matrixDefinition, List<Point> robotPath) {
@@ -57,7 +60,8 @@ public class MarsArchitect {
 
     public CameraAnimationEngine getCameraAnimationEngine(Point location) {
         long shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
-        this.cameraAnimationEngine = new CameraAnimationEngine(marsConfig, location, shutterSpeed, cellWidth);
+        CameraAnimationEngine cameraAnimationEngine = new CameraAnimationEngine(marsConfig, location, shutterSpeed,
+                                                                                cellWidth);
         return cameraAnimationEngine;
     }
 
@@ -78,7 +82,19 @@ public class MarsArchitect {
     }
 
     public void updateRobotPositions(List<Point> robotPath) {
+        telemetry = new Telemetry(robot, this.marsConfig);
+        telemetry.record();
         propulsionEngine.updateRobotPosition(robotPath);
+
+        TelemetryPacketOuterClass.TelemetryPacket.Builder tBuilder = TelemetryPacketOuterClass.TelemetryPacket
+                .newBuilder();
+        tBuilder.addAllTelemetryData(telemetry.getTelemetryData());
+        telemetryPayload = tBuilder.build();
+        telemetry.interrupt();
+    }
+
+    public TelemetryPacketOuterClass.TelemetryPacket getTelemetryPayload() {
+        return telemetryPayload;
     }
 
     public LidarAnimationEngine getLidarAnimationEngine() {

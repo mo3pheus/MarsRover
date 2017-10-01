@@ -136,7 +136,7 @@ public class NavCell implements Comparator<NavCell> {
         NORTH(0), SOUTH(1), WEST(2), EAST(3);
         private final int value;
 
-        private Direction(int value) {
+        Direction(int value) {
             this.value = value;
         }
 

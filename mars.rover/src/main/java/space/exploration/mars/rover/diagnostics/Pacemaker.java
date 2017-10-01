@@ -7,7 +7,6 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
-import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -71,7 +70,7 @@ public class Pacemaker {
         };
 
         int                pulse   = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.heartbeat.pulse"));
-        ScheduledFuture<?> trigger = scheduler.scheduleAtFixedRate(heart, pulse, 60, TimeUnit.SECONDS);
+        ScheduledFuture<?> trigger = scheduler.scheduleAtFixedRate(heart, 60, pulse, TimeUnit.SECONDS);
     }
 
     public void interrupt() {

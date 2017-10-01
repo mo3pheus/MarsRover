@@ -15,8 +15,6 @@ public class NavigationEngine implements PerformsNavigation {
     private Properties            matrixConfig      = null;
     private int                   cellWidth         = 0;
     private int                   animationStepSize = 5;
-    private NavCell               source            = null;
-    private NavCell               destination       = null;
     private List<Point>           robotPath         = null;
     private Logger                logger            = LoggerFactory.getLogger(NavigationEngine.class);
 
@@ -35,13 +33,13 @@ public class NavigationEngine implements PerformsNavigation {
             int sourceY = Integer
                     .parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]);
             int destX = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.DESTN_POSN_PROPERTY).split(",")
-                    [0]);
+                                                 [0]);
             int destY = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.DESTN_POSN_PROPERTY).split(",")
-                    [1]);
+                                                 [1]);
             int sourceId = NavUtil.findNavId(gridMap, new Point(sourceX, sourceY));
             int destId   = NavUtil.findNavId(gridMap, new Point(destX, destY));
-            source = gridMap.get(sourceId);
-            destination = gridMap.get(destId);
+            NavCell source = gridMap.get(sourceId);
+            NavCell destination = gridMap.get(destId);
             robotPath = navigate(source, destination);
             logPath();
         } catch (Exception e) {
@@ -110,7 +108,7 @@ public class NavigationEngine implements PerformsNavigation {
                     double gCost = NavUtil.getGCost(cAdjNode, start, cellWidth);
                     cAdjNode.setgCost(gCost);
                     int hCost = Math.abs(cAdjNode.getCenter().x - end.getCenter().x)
-                                + Math.abs(cAdjNode.getCenter().y - end.getCenter().y);
+                            + Math.abs(cAdjNode.getCenter().y - end.getCenter().y);
                     cAdjNode.sethCost(hCost);
                     cAdjNode.setfCost(hCost + cAdjNode.getgCost());
                     open.add(cAdjNode);

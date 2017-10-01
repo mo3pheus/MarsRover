@@ -23,7 +23,7 @@ public class Wall extends VirtualElement {
 
     private Rectangle2D getWall() {
         return new Rectangle2D.Double((double) definition[0], (double) definition[1], (double) definition[2],
-                (double) definition[3]);
+                                      (double) definition[3]);
     }
 
     public int[] getDefinition() {
@@ -32,7 +32,7 @@ public class Wall extends VirtualElement {
 
     public String toString() {
         return " Origin at " + definition[0] + "," + definition[1] + " width = " + definition[2] + " height = "
-               + definition[3];
+                + definition[3];
     }
 
     /**
@@ -64,13 +64,13 @@ public class Wall extends VirtualElement {
 
     public void setDefinition(int[] definition, String color) throws IllegalWallDefinitionException {
         if (definition.length == 4 || definition[0] + definition[3] >= frameWidth
-            || definition[1] + definition[2] >= frameHeight) {
+                || definition[1] + definition[2] >= frameHeight) {
             this.definition = definition;
         } else {
             throw new IllegalWallDefinitionException(
                     " Invalid definition passed in. definition[] should be of length = 4"
-                    + " \n Format is as follows: 0,1 are x0,y0 point of origin, 2,3 are height, width of the " +
-                    "wall");
+                            + " \n Format is as follows: 0,1 are x0,y0 point of origin, 2,3 are height, width of the " +
+                            "wall");
         }
         this.wallColor = EnvironmentUtils.findColor(color);
     }

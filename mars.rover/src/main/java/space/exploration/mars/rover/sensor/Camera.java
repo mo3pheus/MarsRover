@@ -64,8 +64,8 @@ public class Camera implements IsEquipment {
             rover.authorizeTransmission(ModuleDirectory.Module.CAMERA_SENSOR, RoverUtil.getEndOfLifeMessage
                     (ModuleDirectory.Module.CAMERA_SENSOR, "Camera at end of life. Last " + Integer.toString
                             (LAST_SHOTS_RESERVE) +
-                                                           " remaining. Please confirm the location for final shots. " +
-                                                           "The next command will be honored!", rover).toByteArray());
+                            " remaining. Please confirm the location for final shots. " +
+                            "The next command will be honored!", rover).toByteArray());
             return null;
         }
 
@@ -78,7 +78,7 @@ public class Camera implements IsEquipment {
             try {
                 imageBytes = CameraUtil.convertImageToByteArray(marsImages[index]);
             } catch (IOException io) {
-                logger.error(io.getMessage(),io);
+                logger.error(io.getMessage(), io);
                 rover.writeErrorLog("Image translation Error", io);
             }
             return imageBytes;
@@ -108,7 +108,7 @@ public class Camera implements IsEquipment {
         return "Camera";
     }
 
-    private final void collectImages() {
+    private void collectImages() {
         for (int i = 0; i < numImages; i++) {
             String fileName = EnvironmentUtils.CAMERA_IMAGE_HEADER + Integer.toString(i + 1) + ".jpg";
             try {
@@ -119,7 +119,7 @@ public class Camera implements IsEquipment {
         }
     }
 
-    private final void loadImageCachePoints() {
+    private void loadImageCachePoints() {
         for (int i = 0; i < numImageCaches; i++) {
             String[] pointString = marsConfig.getProperty(EnvironmentUtils.CAMERA_LOCATION_HEADER + Integer.toString
                     (i)).split(",");

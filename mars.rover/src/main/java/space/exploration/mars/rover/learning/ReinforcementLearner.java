@@ -89,7 +89,7 @@ public class ReinforcementLearner {
                 RCell  next = ReinforcementLearnerUtil.findPoint(temp.getCenter(), navGrid);
                 double maxQ = next.getBestAction().getqValue();
                 double newQValue = (1.0d - alpha) * current.getqValue() + alpha * (next.getReward() + gamma * maxQ -
-                                                                                   current.getqValue());
+                        current.getqValue());
                 temp.setqValue(newQValue);
                 current = next;
                 explorationSteps++;
@@ -119,7 +119,7 @@ public class ReinforcementLearner {
                 RCell  next = ReinforcementLearnerUtil.findPoint(temp.getCenter(), navGrid);
                 double maxQ = next.getBestAction().getqValue();
                 double newQValue = (1.0d - alpha) * current.getqValue() + alpha * (next.getReward() + gamma * maxQ -
-                                                                                   current.getqValue());
+                        current.getqValue());
                 temp.setqValue(newQValue);
 
                 captureExploration.add(next.getCenter());

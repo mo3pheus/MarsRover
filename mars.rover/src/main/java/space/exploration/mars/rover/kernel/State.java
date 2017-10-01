@@ -1,28 +1,27 @@
 package space.exploration.mars.rover.kernel;
 
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
-import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 
 public interface State {
-    public void receiveMessage(byte[] message);
+    void receiveMessage(byte[] message);
 
-    public void transmitMessage(byte[] message);
+    void transmitMessage(byte[] message);
 
-    public void exploreArea();
+    void exploreArea();
 
-    public void activateCamera();
+    void activateCamera();
 
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload);
+    void move(InstructionPayloadOuterClass.InstructionPayload payload);
 
-    public void hibernate();
+    void hibernate();
 
-    public void rechargeBattery();
+    void rechargeBattery();
 
-    public void scanSurroundings();
+    void scanSurroundings();
 
-    public void performDiagnostics();
+    void performDiagnostics();
 
-    public void performRadarScan();
+    void performRadarScan();
 
-    public String getStateName();
+    String getStateName();
 }

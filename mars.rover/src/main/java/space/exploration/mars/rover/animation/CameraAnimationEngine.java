@@ -11,17 +11,15 @@ import java.util.Properties;
  */
 public class CameraAnimationEngine {
     private static final Integer    CAMERA_DEPTH = new Integer(99);
-    private final        int        NUM_FLASHES  = 10;
     private              Point      location     = null;
     private              long       shutterSpeed = 0l;
-    private              int        cellWidth    = 0;
     private              Cell       robot        = null;
     private              JFrame     marsSurface  = null;
     private              Properties marsConfig   = null;
 
     public CameraAnimationEngine(Properties marsConfig, Point location, long shutterSpeed, int cellWidth) {
         this.location = location;
-        this.cellWidth = cellWidth;
+        int cellWidth1 = cellWidth;
         this.shutterSpeed = shutterSpeed;
         this.marsConfig = marsConfig;
     }
@@ -38,6 +36,7 @@ public class CameraAnimationEngine {
     public void clickCamera() {
         JLayeredPane contentPane = AnimationUtil.getContent(marsConfig);
         contentPane.add(robot, Cell.ROBOT_DEPTH);
+        int NUM_FLASHES = 10;
         for (int i = 0; i < NUM_FLASHES; i++) {
             Cell flash = new Cell(marsConfig);
             flash.setCellWidth(robot.getCellWidth());

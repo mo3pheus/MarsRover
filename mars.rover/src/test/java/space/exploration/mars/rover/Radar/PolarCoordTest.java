@@ -3,7 +3,8 @@ package space.exploration.mars.rover.Radar;
 import space.exploration.mars.rover.utils.RadialContact;
 
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by sanket on 6/10/17.
@@ -48,12 +49,12 @@ public class PolarCoordTest {
 
         System.out.println("========================================");
 
-        Point center = new Point(350,350);
-        Point contactPoint = new Point(343,343);
+        Point center       = new Point(350, 350);
+        Point contactPoint = new Point(343, 343);
 
         double r = contactPoint.distance(center);
         //double theta = Math.acos((center.getX() - contactPoint.getX()) / r);
-        double theta = Math.acos((contactPoint.getX() - center.getX() ) / r);
+        double theta = Math.acos((contactPoint.getX() - center.getX()) / r);
         theta = Math.toDegrees(theta);
         System.out.println(theta);
 

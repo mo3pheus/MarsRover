@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "RoverStatus.proto";
+
+package space.exploration.mars.rover.propulsion;
+
+message TelemetryData {
+    space.exploration.mars.rover.communication.RoverStatus.Location location = 1;
+    double velocity = 2;
+    double heading = 3;
+    double distanceTraveled = 4;
+}

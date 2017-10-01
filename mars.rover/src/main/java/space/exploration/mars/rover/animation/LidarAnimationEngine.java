@@ -73,7 +73,7 @@ public class LidarAnimationEngine {
 
     public void renderLidarAnimation() {
         int delayMs = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils
-                .LIDAR_ANIMATION_SCAN_DELAY));
+                                                                      .LIDAR_ANIMATION_SCAN_DELAY));
         JLayeredPane contentPane = AnimationUtil.getContent(marsConfig);
         contentPane.add(robot, Cell.ROBOT_DEPTH);
         for (Laser laser : getLaserBeams()) {

@@ -12,14 +12,13 @@ public class RadarScanArea extends VirtualElement {
     private             Properties radarConfig = null;
     private             double     diameter    = 0.0d;
     private             int        cellWidth   = 0;
-    private             int        numRings    = 0;
     private             Point      center      = null;
 
     public RadarScanArea(Properties radarConfig, int windowWidth, Point center) {
         this.radarConfig = radarConfig;
         diameter = windowWidth;
         cellWidth = 4 * Integer.parseInt(this.radarConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
-        numRings = (int) (diameter / (double) (cellWidth));
+        int numRings = (int) (diameter / (double) (cellWidth));
         this.center = center;
         build();
     }

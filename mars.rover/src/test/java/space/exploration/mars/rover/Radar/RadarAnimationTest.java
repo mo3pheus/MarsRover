@@ -6,7 +6,8 @@ import space.exploration.mars.rover.environment.RadarContactCell;
 import space.exploration.mars.rover.utils.RadialContact;
 
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  * Created by sanket on 6/3/17.

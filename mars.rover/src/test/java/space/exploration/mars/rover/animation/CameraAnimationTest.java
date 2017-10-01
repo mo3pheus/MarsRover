@@ -10,11 +10,13 @@ import java.awt.*;
  */
 public class CameraAnimationTest {
     public static void main(String[] args) {
-        System.out.println( 10/3 );
+        System.out.println(10 / 3);
         try {
             MarsArchitect architect = new MarsArchitect(MatrixCreation.getMatrixConfig());
             CameraAnimationEngine cameraAnimationEngine = new CameraAnimationEngine(MatrixCreation.getMatrixConfig(),
-                    new Point(50, 50), 150l, architect.getRobot().getCellWidth());
+                                                                                    new Point(50, 50), 150l,
+                                                                                    architect.getRobot().getCellWidth
+                                                                                            ());
             cameraAnimationEngine.setMarsSurface(architect.getMarsSurface());
             cameraAnimationEngine.setRobot(architect.getRobot());
             cameraAnimationEngine.clickCamera();
