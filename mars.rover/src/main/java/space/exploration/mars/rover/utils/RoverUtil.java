@@ -88,7 +88,7 @@ public class RoverUtil {
      */
     public static double getHeading(Point start, Point end) {
         if (start.getX() == end.getX()) {
-            if (start.getY() > end.getY()) {
+            if (end.getY() > start.getY()) {
                 return 180.0d;
             } else {
                 return 0.0d;
@@ -96,9 +96,9 @@ public class RoverUtil {
         }
 
         if (start.getX() < end.getX()) {
-            return 90 / 0d;
-        } else {
             return 270.0d;
+        } else {
+            return 90.0d;
         }
     }
 }
