@@ -21,6 +21,7 @@ public class Telemetry {
     private List<TelemetryDataOuterClass.TelemetryData> telemetryData      = new ArrayList<>();
     private Cell                                        robot              = null;
     private ScheduledExecutorService                    telemetryRelay     = null;
+    private Properties                                  marsConfig         = null;
     private Logger                                      logger             = LoggerFactory.getLogger(Telemetry.class);
     private Runnable                                    teleRelay          = new Runnable() {
         @Override
@@ -32,23 +33,27 @@ public class Telemetry {
                 tBuilder.setLocation(RoverUtil.getLocation(robot.getLocation()));
                 tBuilder.setHeading(0.0d);
                 tBuilder.setVelocity(0.0d);
+                tBuilder.setSCET(System.currentTimeMillis());
                 telemetryData.add(tBuilder.build());
 
                 startLocation = new Point((int) robot.getLocation().getX(), (int) robot.getLocation().getY());
                 startTimeMs = System.currentTimeMillis();
-                logger.info(tBuilder.build().toString());
+                logger.info("Telemetry relay commenced.");
             } else {
                 Point  robotLocation    = new Point((int) robot.getLocation().getX(), (int) robot.getLocation().getY());
                 double distanceTraveled = robotLocation.distance(startLocation);
 
                 TelemetryDataOuterClass.TelemetryData.Builder tBuilder = TelemetryDataOuterClass.TelemetryData
                         .newBuilder();
-                tBuilder.setDistanceTraveled(distanceTraveled);
+                int distanceScale = Integer.parseInt(marsConfig.getProperty("mars.rover.propulsion.telemetry" +
+                                                                                    ".distanceScale"));
+                tBuilder.setDistanceTraveled(distanceScale * distanceTraveled);
                 tBuilder.setVelocity(distanceTraveled / (double) (System.currentTimeMillis() - startTimeMs));
                 tBuilder.setLocation(RoverUtil.getLocation(robot.getLocation()));
                 tBuilder.setHeading(RoverUtil.getHeading(startLocation, robotLocation));
+                tBuilder.setSCET(System.currentTimeMillis());
                 telemetryData.add(tBuilder.build());
-                logger.info(tBuilder.build().toString());
+                logger.debug(tBuilder.build().toString());
             }
         }
     };
@@ -57,6 +62,7 @@ public class Telemetry {
         this.robot = robot;
         this.recordingFrequency = Long.parseLong(marsConfig.getProperty("mars.rover.propulsion.telemetry.frequency"));
         telemetryRelay = Executors.newSingleThreadScheduledExecutor();
+        this.marsConfig = marsConfig;
     }
 
     public void record() {
@@ -64,7 +70,7 @@ public class Telemetry {
     }
 
     public void interrupt() {
-        logger.error("Telemetry is shutdown");
+        logger.info("Telemetry is shutdown, total number of dataPoints = " + Integer.toString(telemetryData.size()));
         telemetryRelay.shutdown();
     }
 
