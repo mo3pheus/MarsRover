@@ -48,7 +48,8 @@ public class Telemetry {
                 int distanceScale = Integer.parseInt(marsConfig.getProperty("mars.rover.propulsion.telemetry" +
                                                                                     ".distanceScale"));
                 tBuilder.setDistanceTraveled(distanceScale * distanceTraveled);
-                tBuilder.setVelocity(distanceTraveled / (double) (System.currentTimeMillis() - startTimeMs));
+                tBuilder.setVelocity(tBuilder.getDistanceTraveled() / (double) (System.currentTimeMillis() -
+                        startTimeMs));
                 tBuilder.setLocation(RoverUtil.getLocation(robot.getLocation()));
                 tBuilder.setHeading(RoverUtil.getHeading(startLocation, robotLocation));
                 tBuilder.setSCET(System.currentTimeMillis());
