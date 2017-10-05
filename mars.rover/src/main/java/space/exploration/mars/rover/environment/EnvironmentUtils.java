@@ -9,9 +9,7 @@ import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class EnvironmentUtils {
     public static final String  FRAME_HEIGHT_PROPERTY          = "maze.environment.frame.height";
@@ -39,9 +37,8 @@ public class EnvironmentUtils {
     public static final String  SPECTROMETER_POWER_CONSUMPTION = "mars.rover.spectrometer.powerConsumption";
     public static final String  PROPULSION_POWER_CONSUMPTION   = "mars.rover.propulsion.powerConsumption";
     public static final String  OLD_ROVERS_COLOR               = "mars.rover.radar.oldRovers.color";
-    public static final String  RADAR_SCAN_CIRCLE_COLOR        = "mars.rover.radar.scan.circle.color";
     public static final String  RADAR_CONTACT_COLOR            = "mars.rover.radar.scan.contact.color";
-    public static final String  RADAR_CONTACT_PING_DELAY       = "mars.rover.radar.contact.ping.delay";
+    public static final String  NUM_WATER_CELLS                = "mars.rover.spectrometer.numWaterCells";
     public static final Color[] RADAR_CONTACT_COLORS           = {
             new Color(0, 250, 154),
             new Color(152, 251, 152),
@@ -113,14 +110,32 @@ public class EnvironmentUtils {
             logger.error("Frame is not a square");
         }
 
+        Set<Integer> pickedCellIds = new HashSet<>();
+        int          numWaterCells = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.NUM_WATER_CELLS));
+        int          maxId         = ((frameHeight / cellWidth) * (frameHeight / cellWidth)) - 1;
+        for (int i = 0; i < numWaterCells; i++) {
+            int randomId = ThreadLocalRandom.current().nextInt(maxId);
+            while (pickedCellIds.contains(randomId)) {
+                randomId = ThreadLocalRandom.current().nextInt(maxId);
+            }
+            pickedCellIds.add(randomId);
+        }
+
+        int cellId = 0;
         for (int i = 0; i <= (frameHeight - cellWidth); i += cellWidth) {
             for (int j = 0; j <= (frameHeight - cellWidth); j += cellWidth) {
-                Point temp = new Point(i, j);
-                SoilComposition soilComp = new SoilComposition(ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
-                                                               ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
-                                                               ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
-                                                               ThreadLocalRandom.current().nextDouble(0.0d, 0.8d));
+                Point           temp     = new Point(i, j);
+                SoilComposition soilComp = null;
+                if (!pickedCellIds.contains(cellId)) {
+                    soilComp = new SoilComposition(ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
+                                                   ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
+                                                   ThreadLocalRandom.current().nextDouble(0.0d, 0.8d),
+                                                   ThreadLocalRandom.current().nextDouble(0.0d, 0.8d));
+                } else {
+                    soilComp = new SoilComposition(ThreadLocalRandom.current().nextDouble(0.0d, 0.8d));
+                }
                 surfaceComp.put(temp, soilComp);
+                cellId++;
             }
         }
 

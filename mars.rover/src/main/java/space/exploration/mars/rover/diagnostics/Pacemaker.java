@@ -3,6 +3,7 @@ package space.exploration.mars.rover.diagnostics;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
@@ -35,10 +36,26 @@ public class Pacemaker {
             public void run() {
                 logger.debug("Pacemaker performing its due diligence.");
                 if (rover.getInstructionQueue().size() >= MAX_PENDING_MSGS) {
-                    logger.error("Diagnostics module rebooting rover because max pending messages exceeded.");
-                    rover.writeErrorLog("Diagnostics module rebooting rover because max pending messages exceeded.",
-                                        null);
-                    rover.bootUp(true);
+                    String errorMessage = "Diagnostics module clearing instructionQueue because maxLength has been " +
+                            "reached.";
+                    logger.error(errorMessage);
+
+                    errorMessage += " Number of messages lost = " + MAX_PENDING_MSGS;
+
+                    for (byte[] message : rover.getInstructionQueue()) {
+                        try {
+                            InstructionPayloadOuterClass.InstructionPayload instructionPayload =
+                                    InstructionPayloadOuterClass.InstructionPayload.parseFrom(message);
+
+                            errorMessage += instructionPayload.toString();
+                        } catch (InvalidProtocolBufferException invalidProtocol) {
+                            logger.error("Invalid protocol buffer for instructionPayload", invalidProtocol);
+                            rover.writeErrorLog("Invalid protocol buffer for instructionPayload", invalidProtocol);
+                        }
+                    }
+
+                    rover.writeErrorLog(errorMessage, null);
+                    rover.getInstructionQueue().clear();
                     return;
                 }
 

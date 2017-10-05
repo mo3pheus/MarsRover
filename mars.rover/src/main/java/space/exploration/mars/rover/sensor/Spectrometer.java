@@ -109,7 +109,6 @@ public class Spectrometer implements IsEquipment {
                 }
 
                 Point temp = new Point(i, j);
-                System.out.println(" Point = >" + temp.toString());
                 SoilComposition composition = surfaceComp.get(temp);
                 SoilComp        comp        = new SoilComp(temp, composition);
                 scanAreaComp.add(comp);

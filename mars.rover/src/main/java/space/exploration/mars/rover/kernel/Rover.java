@@ -79,7 +79,7 @@ public class Rover {
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
-        bootUp(false);
+        bootUp();
     }
 
     public static long getOneSolDuration() {
@@ -381,37 +381,7 @@ public class Rover {
         return rBuilder.build().toByteArray();
     }
 
-    private synchronized byte[] getErrorRecoveryMessage(int instructionLength) {
-        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
-                .setY(marsArchitect.getRobot().getLocation().y).build();
-        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-        rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
-        rBuilder.setSCET(System.currentTimeMillis());
-        rBuilder.setLocation(location);
-        rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
-        rBuilder.setSolNumber(getSol());
-        rBuilder.setNotes("Rover " + ROVER_NAME + " reporting to earth after a restart following failure. " +
-                                  "Potential messages lost = " + instructionLength + " Check logs and diagnostics for" +
-                                  " further information.");
-        return rBuilder.build().toByteArray();
-    }
-
-    public synchronized void bootUp(boolean fatalError) {
-        if (fatalError) {
-            try {
-                logger.error("Rover rebooting after a fatal error. Number of messages lost = " + instructionQueue
-                        .size());
-
-                batteryMonitor.interrupt();
-                pacemaker.interrupt();
-                marsArchitect.getMarsSurface().dispose();
-            } catch (NullPointerException npe) {
-                logger.error("Null pointer exception in booting upon fatalError - Houston please fix this!", npe);
-            }
-        }
-
-        int instructionQueueLength = 0;
-
+    public synchronized void bootUp() {
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
         this.listeningState = new ListeningState(this);
@@ -424,10 +394,6 @@ public class Rover {
         this.radarScanningState = new RadarScanningState(this);
         this.marsArchitect = new MarsArchitect(marsConfig);
 
-        if (this.instructionQueue != null) {
-            instructionQueueLength = instructionQueue.size();
-        }
-
         this.instructionQueue = new ArrayList<byte[]>();
         this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
@@ -437,8 +403,7 @@ public class Rover {
         RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
 
         String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
-        location = (fatalError) ? location : new Point(Integer.parseInt(stPosition[0]), Integer.parseInt
-                (stPosition[1]));
+        location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
         RoverUtil.roverSystemLog(logger, "Rover current position is = " + location.toString(), "INFO");
 
         int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
@@ -460,10 +425,6 @@ public class Rover {
         configureRadar();
 
         state = transmittingState;
-        if (!fatalError) {
-            transmitMessage(getBootupMessage());
-        } else {
-            getErrorRecoveryMessage(instructionQueueLength);
-        }
+        transmitMessage(getBootupMessage());
     }
 }
