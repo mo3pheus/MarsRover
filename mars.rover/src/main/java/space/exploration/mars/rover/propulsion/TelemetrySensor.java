@@ -38,9 +38,9 @@ public class TelemetrySensor implements Observer {
     public void update(Observable observable, Object endOfMovement) {
         if (observable instanceof TrackingAnimationEngine) {
             if ((Boolean) endOfMovement) {
+                buildTelemetryPacket();
                 logger.info("Telemetry relay stopped, number of telemetryDataPoints = " + telemetryPacket
                         .getTelemetryDataCount());
-                buildTelemetryPacket();
                 telemetryData.clear();
                 return;
             }

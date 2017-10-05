@@ -30,7 +30,7 @@ public class TrackingAnimationEngine extends Observable {
     public void updateRobotPosition(List<Point> robotPositions) {
         this.robotPositions = robotPositions;
         renderRobotAnimation();
-        alertTelemetrySensor(true);
+        alertTelemetrySensor(new Boolean(true));
     }
 
     public void renderRobotAnimation() {
@@ -47,7 +47,7 @@ public class TrackingAnimationEngine extends Observable {
                 e.printStackTrace(System.out);
             }
             contentPane.remove(this.robot);
-            alertTelemetrySensor(false);
+            alertTelemetrySensor(new Boolean(false));
         }
     }
 
