@@ -22,8 +22,6 @@ import java.util.Properties;
  * @author sanketkorgaonkar
  */
 public class Receiver extends Thread {
-    public final static int    RECEIVER_POWER_USAGE = 20;
-    public final static String clientId             = "Curiosity";
     public final static String TUNED_CHANNEL        = "earth_to_curiosity_1";
 
     private ConsumerConnector consumerConnector = null;
@@ -31,31 +29,11 @@ public class Receiver extends Thread {
     private long              lastReportTime    = 0l;
     private long              radioCheckPulse   = 0l;
 
-    @Deprecated
-    public Receiver() throws Exception {
-        Properties properties = new Properties();
-        properties.put("zookeeper.connect", "localhost:2181");
-        properties.put("group.id", "nasa.command.earth.center");
-        ConsumerConfig consumerConfig = new ConsumerConfig(properties);
-        consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
-        MatrixCreation.configureLogging();
-        Properties matrixConfig = new Properties();
-        FileInputStream propFile = new FileInputStream(
-                "/Users/sanketkorgaonkar/Documents/CodeRepos/AdvancedMatrix/advanced" +
-                        ".matrix/src/main/resources/marsConfig.properties");
-        matrixConfig.load(propFile);
-        this.lastReportTime = System.currentTimeMillis();
-    }
-
     public Receiver(Properties comsConfig, Radio radio) {
         ConsumerConfig consumerConfig = new ConsumerConfig(comsConfig);
         consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
         this.radio = radio;
         this.lastReportTime = System.currentTimeMillis();
-    }
-
-    public long getRadioCheckPulse() {
-        return radioCheckPulse;
     }
 
     public void setRadioCheckPulse(long radioCheckPulse) {
