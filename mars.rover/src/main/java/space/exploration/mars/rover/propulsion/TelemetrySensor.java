@@ -12,20 +12,25 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class TelemetrySensor implements Observer {
-    public static final String                                      TELEMETRY_DISTANCE_SCALE = "mars.rover.propulsion" +
-            ".telemetry.distanceScale";
-    private             Point                                       startLocation            = null;
-    private             long                                        startTimeMs              = 0l;
-    private             List<TelemetryDataOuterClass.TelemetryData> telemetryData            = new ArrayList<>();
-    private             Logger                                      logger                   = LoggerFactory
+    public static final String                                      TELEMETRY_DISTANCE_SCALE     = "mars.rover" +
+            ".propulsion.telemetry.distanceScale";
+    public static final String                                      TELEMETRY_COMPRESSION_FACTOR = "mars.rover" +
+            ".propulsion.telemetry.compressionFactor";
+    private             Point                                       startLocation                = null;
+    private             long                                        startTimeMs                  = 0l;
+    private             List<TelemetryDataOuterClass.TelemetryData> telemetryData                = new ArrayList<>();
+    private             Logger                                      logger                       = LoggerFactory
             .getLogger(TelemetrySensor.class);
-    private             TelemetryPacketOuterClass.TelemetryPacket   telemetryPacket          = null;
-    private             TrackingAnimationEngine                     propulsionEngine         = null;
+    private             TelemetryPacketOuterClass.TelemetryPacket   telemetryPacket              = null;
+    private             TrackingAnimationEngine                     propulsionEngine             = null;
+    private             int                                         telemetryCompressionFactor   = 1;
 
     public TelemetrySensor(Observable observable) {
         observable.addObserver(this);
         if (observable instanceof TrackingAnimationEngine) {
             propulsionEngine = (TrackingAnimationEngine) observable;
+            telemetryCompressionFactor = Integer.parseInt(propulsionEngine.getMarsRoverConfig().getProperty
+                    (TELEMETRY_COMPRESSION_FACTOR));
         }
     }
 
@@ -33,7 +38,8 @@ public class TelemetrySensor implements Observer {
     public void update(Observable observable, Object endOfMovement) {
         if (observable instanceof TrackingAnimationEngine) {
             if ((Boolean) endOfMovement) {
-                logger.info("Telemetry relay stopped, number of telemetryDataPoints = " + telemetryData.size());
+                logger.info("Telemetry relay stopped, number of telemetryDataPoints = " + telemetryPacket
+                        .getTelemetryDataCount());
                 buildTelemetryPacket();
                 telemetryData.clear();
                 return;
@@ -77,7 +83,12 @@ public class TelemetrySensor implements Observer {
     private void buildTelemetryPacket() {
         TelemetryPacketOuterClass.TelemetryPacket.Builder tPacketBuilder = TelemetryPacketOuterClass.TelemetryPacket
                 .newBuilder();
-        tPacketBuilder.addAllTelemetryData(telemetryData);
+
+        for (int i = 0; i < telemetryData.size(); i++) {
+            if ((i % telemetryCompressionFactor) == 0) {
+                tPacketBuilder.addTelemetryData(telemetryData.get(i));
+            }
+        }
         telemetryPacket = tPacketBuilder.build();
     }
 
