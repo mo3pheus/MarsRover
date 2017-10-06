@@ -79,9 +79,8 @@ public class Pacemaker {
                         rover.setState(rover.getListeningState());
                         rover.setTimeMessageReceived(System.currentTimeMillis());
                     } else {
-                        logger.error("Diagnostics inhibited because rover is sleeping to conserve battery");
-                        rover.writeErrorLog("Diagnostics inhibited because rover is sleeping to conserve battery",
-                                            null);
+                        logger.info("Diagnostics inhibited because rover is sleeping to conserve battery");
+                        rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery");
                         return;
                     }
                 }

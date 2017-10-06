@@ -45,7 +45,6 @@ public class EnvironmentUtils {
             new Color(144, 238, 144),
             new Color(0, 102, 255)};
     public static       Logger  logger                         = LoggerFactory.getLogger(EnvironmentUtils.class);
-    //new Color(34, 139, 34)};
 
     public static Color findColor(String color) {
         if (color.equals("red")) {
@@ -86,8 +85,7 @@ public class EnvironmentUtils {
         } else if (color.equals("black")) {
             return Color.black;
         } else if (color.equals("robotSleepMode")) {
-            //return new Color(224, 224, 235);
-            return new Color(148, 148, 184);
+            return new Color(95, 95, 95);
         } else {
             System.out.println(" Color is unknown - known choices are red, lightGray, darkGray, blue, green " + color);
             return null;
@@ -102,6 +100,12 @@ public class EnvironmentUtils {
         return matrixConfig;
     }
 
+    /**
+     * Consider moving this out.
+     *
+     * @param marsConfig
+     * @return
+     */
     public static Map<Point, SoilComposition> setUpSurfaceComposition(Properties marsConfig) {
         Map<Point, SoilComposition> surfaceComp = new HashMap<Point, SoilComposition>();
 
