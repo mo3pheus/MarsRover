@@ -10,9 +10,7 @@ import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
 import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
-import space.exploration.mars.rover.bootstrap.MatrixCreation;
 
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +20,7 @@ import java.util.Properties;
  * @author sanketkorgaonkar
  */
 public class Receiver extends Thread {
-    public final static String TUNED_CHANNEL        = "earth_to_curiosity_1";
+    public final static String TUNED_CHANNEL = "earth_to_curiosity_1";
 
     private ConsumerConnector consumerConnector = null;
     private Radio             radio             = null;

@@ -93,6 +93,11 @@ public class ExploringState implements State {
     }
 
     @Override
+    public void sleep() {
+
+    }
+
+    @Override
     public String getStateName() {
         return "Exploring State";
     }

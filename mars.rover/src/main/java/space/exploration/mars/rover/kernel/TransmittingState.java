@@ -80,4 +80,9 @@ public class TransmittingState implements State {
 
     }
 
+    @Override
+    public void sleep() {
+
+    }
+
 }

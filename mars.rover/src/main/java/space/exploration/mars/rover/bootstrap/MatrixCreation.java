@@ -6,6 +6,7 @@ package space.exploration.mars.rover.bootstrap;
 //import org.apache.log4j.Priority;
 //import space.exploration.mars.rover.environment.MarsArchitect;
 //import space.exploration.mars.rover.navigation.NavigationEngine;
+
 import sun.audio.AudioStream;
 
 import java.io.FileInputStream;

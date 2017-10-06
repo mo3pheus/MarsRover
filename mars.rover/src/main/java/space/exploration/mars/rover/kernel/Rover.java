@@ -38,6 +38,7 @@ public class Rover {
     State hibernatingState;
     State photoGraphingState;
     State radarScanningState;
+    State sleepingState;
 
     /* Status messages */
     private RoverStatus status       = null;
@@ -73,6 +74,7 @@ public class Rover {
     private Map<Point, RoverCell> previousRovers       = null;
     private List<byte[]>          instructionQueue     = null;
     private long                  inRechargingModeTime = 0l;
+    private long                  timeMessageReceived  = 0l;
     private Pacemaker             pacemaker            = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig) {
@@ -164,12 +166,24 @@ public class Rover {
         this.inRechargingModeTime = inRechargingModeTime;
     }
 
+    public long getTimeMessageReceived() {
+        return timeMessageReceived;
+    }
+
+    public void setTimeMessageReceived(long timeMessageReceived) {
+        this.timeMessageReceived = timeMessageReceived;
+    }
+
     public synchronized State getListeningState() {
         return listeningState;
     }
 
     public synchronized State getTransmittingState() {
         return transmittingState;
+    }
+
+    public synchronized State getSleepingState() {
+        return sleepingState;
     }
 
     public State getHibernatingState() {
@@ -206,6 +220,10 @@ public class Rover {
 
     public synchronized void performRadarScan() {
         state.performRadarScan();
+    }
+
+    public synchronized void sleep() {
+        state.sleep();
     }
 
     public synchronized void exploreArea() {
@@ -392,6 +410,7 @@ public class Rover {
         this.sensingState = new SensingState(this);
         this.transmittingState = new TransmittingState(this);
         this.radarScanningState = new RadarScanningState(this);
+        this.sleepingState = new SleepingState(this);
         this.marsArchitect = new MarsArchitect(marsConfig);
 
         this.instructionQueue = new ArrayList<byte[]>();

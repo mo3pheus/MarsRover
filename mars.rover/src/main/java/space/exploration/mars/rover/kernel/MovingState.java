@@ -66,6 +66,11 @@ public class MovingState implements State {
     }
 
     @Override
+    public void sleep() {
+
+    }
+
+    @Override
     public String getStateName() {
         return "Moving State";
     }

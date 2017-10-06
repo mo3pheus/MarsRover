@@ -85,6 +85,9 @@ public class EnvironmentUtils {
             return new Color(227, 168, 105);
         } else if (color.equals("black")) {
             return Color.black;
+        } else if (color.equals("robotSleepMode")) {
+            //return new Color(224, 224, 235);
+            return new Color(148, 148, 184);
         } else {
             System.out.println(" Color is unknown - known choices are red, lightGray, darkGray, blue, green " + color);
             return null;

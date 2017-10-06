@@ -23,5 +23,7 @@ public interface State {
 
     void performRadarScan();
 
+    void sleep();
+
     String getStateName();
 }

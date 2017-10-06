@@ -121,4 +121,9 @@ public class PhotographingState implements State {
     public void performRadarScan() {
 
     }
+
+    @Override
+    public void sleep() {
+
+    }
 }

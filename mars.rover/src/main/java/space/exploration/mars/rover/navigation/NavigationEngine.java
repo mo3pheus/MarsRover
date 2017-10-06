@@ -36,9 +36,9 @@ public class NavigationEngine implements PerformsNavigation {
                                                  [0]);
             int destY = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.DESTN_POSN_PROPERTY).split(",")
                                                  [1]);
-            int sourceId = NavUtil.findNavId(gridMap, new Point(sourceX, sourceY));
-            int destId   = NavUtil.findNavId(gridMap, new Point(destX, destY));
-            NavCell source = gridMap.get(sourceId);
+            int     sourceId    = NavUtil.findNavId(gridMap, new Point(sourceX, sourceY));
+            int     destId      = NavUtil.findNavId(gridMap, new Point(destX, destY));
+            NavCell source      = gridMap.get(sourceId);
             NavCell destination = gridMap.get(destId);
             robotPath = navigate(source, destination);
             logPath();

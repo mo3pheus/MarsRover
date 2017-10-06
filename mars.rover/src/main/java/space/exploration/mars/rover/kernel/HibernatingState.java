@@ -72,4 +72,9 @@ public class HibernatingState implements State {
     public void performRadarScan() {
         logger.debug("Can not perform radar scan in hibernating state.");
     }
+
+    @Override
+    public void sleep() {
+
+    }
 }

@@ -26,6 +26,7 @@ public class ListeningState implements State {
 
     public void receiveMessage(byte[] message) {
         InstructionPayload payload = null;
+        rover.setTimeMessageReceived(System.currentTimeMillis());
         System.out.println("This is the listening module");
         try {
             payload = InstructionPayload.parseFrom(message);
@@ -117,6 +118,11 @@ public class ListeningState implements State {
     }
 
     public void performRadarScan() {
+
+    }
+
+    @Override
+    public void sleep() {
 
     }
 

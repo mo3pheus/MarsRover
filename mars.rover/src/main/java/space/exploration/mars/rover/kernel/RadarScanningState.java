@@ -120,6 +120,11 @@ public class RadarScanningState implements State {
         rover.transmitMessage(status.toByteArray());
     }
 
+    @Override
+    public void sleep() {
+
+    }
+
     private void renderRadarAnimation() {
         Properties                       marsConfig           = rover.getMarsConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);

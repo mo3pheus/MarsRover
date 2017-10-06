@@ -1,0 +1,1078 @@
+14952 [main] INFO  org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+15084 [main] INFO  org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+15085 [main] WARN  org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+15085 [main] WARN  org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.newRover was supplied but isn't a known config.
+15085 [main] WARN  org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_1 was supplied but isn't a known config.
+15085 [main] WARN  org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+15085 [main] WARN  org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+15085 [main] WARN  org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_1 was supplied but isn't a known config.
+15088 [main] INFO  org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+15088 [main] INFO  org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+15217 [main] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+15238 [main] INFO  kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+15239 [main] WARN  kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+15239 [main] WARN  kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+15239 [main] INFO  kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+15239 [main] WARN  kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+15239 [main] WARN  kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+15239 [main] WARN  kafka.utils.VerifiableProperties  - Property source.topic is not valid
+15239 [main] WARN  kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+15239 [main] INFO  kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+15270 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], Connecting to zookeeper instance at localhost:2181
+15277 [ZkClient-EventThread-24-localhost:2181] INFO  org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+15280 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+15280 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+15280 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+15280 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+15280 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+15280 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/sanket/Documents/workspace/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.10.0.1/kafka_2.10-0.10.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.8/zkclient-0.8.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/home/sanket/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/home/sanket/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.6/scala-library-2.10.6.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.21/slf4j-log4j12-1.7.21.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.10.0.1/kafka-clients-0.10.0.1.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.3.0/lz4-1.3.0.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.2.6/snappy-java-1.1.2.6.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar:/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/lib/idea_rt.jar
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin::/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-35-generic
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+15281 [main] INFO  org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@4135c3b
+15289 [main] INFO  org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+15291 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+15294 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+15299 [main-SendThread(localhost:2181)] INFO  org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15ed3fe37fc00c4, negotiated timeout = 6000
+15301 [main-EventThread] INFO  org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+15310 [main] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], starting auto committer every 60000 ms
+15332 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579 in ZK
+15401 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579 (is it secure? false)
+15409 [Thread-2] INFO  kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+15409 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], end registering consumer space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579 in ZK
+15413 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579_watcher_executor] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579
+15427 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579 try #0
+15519 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1507180365145] Stopping leader finder thread
+15519 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1507180365145] Stopping all fetchers
+15520 [Thread-2] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1507180365145] All connections stopped
+15521 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], Cleared all relevant queues for this fetcher
+15522 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], Cleared the data chunks in all the consumer message iterators
+15522 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], Committing all offsets after clearing the fetcher queues
+15524 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], Releasing partition ownership
+15547 [Thread-2] INFO  kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_1 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-0)
+15549 [Thread-2] INFO  kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-0 attempting to claim partition 0
+15567 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-0 successfully owned partition 0 for topic earth_to_curiosity_1
+15580 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], Consumer space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579 selected partitions : earth_to_curiosity_1:0: fetched offset = 2325: consumed offset = 2325
+15586 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread], Starting 
+15587 [Thread-2] INFO  kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579 try #0
+15611 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Verifying properties
+15611 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+15612 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+15612 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+15626 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_1)
+15631 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+15643 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+15658 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-0-0] INFO  kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-0-0], Starting 
+15660 [space.exploration.mars.newRover_zion-mainframe-1507180365106-1b964579-leader-finder-thread] INFO  kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1507180365145] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_1,0], initOffset 2325 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+50206 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507180400042,1,Move
+50258 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+54539 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 10
+101219 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507180451056,1,Move
+101264 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+133128 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 75
+182316 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507180532153,9,PerformRadarScan
+295776 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507180645613,5,Explore
+373305 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507180723142,1,Move
+373349 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+402967 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 70
+462733 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507180812570,5,Explore
+529440 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507180879277,1,Move
+529485 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+553801 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 58
+601386 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507180951223,0,ScanArea
+673381 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181023218,9,PerformRadarScan
+778522 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181128359,9,PerformRadarScan
+875174 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181225011,9,PerformRadarScan
+984835 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181334672,9,PerformRadarScan
+1103979 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181453816,8,ClickCamera
+1151627 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181501464,1,Move
+1151627 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507181501464 Power requested = 40 Critical = false
+1151627 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+1151628 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1151634 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1151637 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1151641 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1151644 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1159002 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1169508 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1173511 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1178337 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1197996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+1264013 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181613850,1,Move
+1264061 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+1275683 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 28
+1324007 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181673844,1,Move
+1324051 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+1347281 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 55
+1385939 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181735776,9,PerformRadarScan
+1467233 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181817070,9,PerformRadarScan
+1539254 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507181889091,9,PerformRadarScan
+27643239 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507207993076,1,Move
+27643287 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+27655967 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 30
+27749724 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208099561,5,Explore
+27828076 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208177913,9,PerformRadarScan
+27828076 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507208177913 Power requested = 20 Critical = false
+27828076 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+27837996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+27897996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+27935828 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208285665,9,PerformRadarScan
+28006712 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208356549,9,PerformRadarScan
+28080846 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208430683,0,ScanArea
+28147717 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208497554,5,Explore
+28275667 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208625504,0,ScanArea
+28328744 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208678581,5,Explore
+28413286 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208763123,1,Move
+28413330 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+28425977 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 30
+28461846 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208811683,1,Move
+28461889 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+28467131 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 13
+28557318 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208907155,0,ScanArea
+28649658 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507208999495,5,Explore
+28743044 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209092881,9,PerformRadarScan
+28743045 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507209092882 Power requested = 20 Critical = false
+28743045 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+28743045 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+28797996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+28841494 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209191331,9,PerformRadarScan
+28915616 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209265453,9,PerformRadarScan
+28987903 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209337740,0,ScanArea
+29058511 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209408348,0,ScanArea
+29116535 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209466372,8,ClickCamera
+29204799 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209554636,0,ScanArea
+29292458 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209642295,1,Move
+29292504 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+29312576 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 48
+29384706 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209734543,9,PerformRadarScan
+29511328 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209861165,0,ScanArea
+29580461 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507209930297,0,ScanArea
+29668676 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210018513,0,ScanArea
+29748947 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210098784,8,ClickCamera
+29854077 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210203914,9,PerformRadarScan
+29854077 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507210203914 Power requested = 20 Critical = false
+29854077 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+29877996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+29909361 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+29937996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+30004012 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210353849,9,PerformRadarScan
+30070032 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210419869,1,Move
+30070076 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+30095447 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 60
+30138913 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210488750,1,Move
+30138956 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+30151607 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 30
+30229082 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210578919,5,Explore
+30311798 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210661635,0,ScanArea
+30385772 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210735609,1,Move
+30385816 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+30416450 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 73
+30473352 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210823189,9,PerformRadarScan
+30594946 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210944783,1,Move
+30594992 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+30601300 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 15
+30648019 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507210997856,9,PerformRadarScan
+30770630 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211120467,0,ScanArea
+30826481 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211176318,5,Explore
+30893323 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211243160,8,ClickCamera
+30937078 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211286915,0,ScanArea
+30937078 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507211286915 Power requested = 20 Critical = false
+30937078 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+30957996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+31035287 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211385124,0,ScanArea
+31080534 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211430371,0,ScanArea
+31149921 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211499758,9,PerformRadarScan
+31263213 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211613050,5,Explore
+31334443 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211684280,1,Move
+31334444 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 50
+y: 225
+
+31409864 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211759701,0,ScanArea
+31491303 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211841140,1,Move
+31491347 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+31501889 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 25
+31596320 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507211946157,0,ScanArea
+31666446 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212016283,5,Explore
+31756921 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212106758,1,Move
+31756935 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507212106772 Power requested = 250 Critical = false
+31756935 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+31797996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+31856169 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212206006,1,Move
+31856224 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+31887977 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 75
+31920360 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212270197,1,Move
+31920402 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+31926706 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 15
+31959772 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212309609,9,PerformRadarScan
+32086338 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212436175,0,ScanArea
+32145031 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212494868,0,ScanArea
+32222103 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212571940,1,Move
+32222147 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+32247524 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 60
+32298487 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212648324,8,ClickCamera
+32403201 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212753038,1,Move
+32403245 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+32416948 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 33
+32490737 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212840574,8,ClickCamera
+32568792 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507212918629,1,Move
+32568835 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+32570908 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 5
+32661735 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213011572,1,Move
+32661778 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+32670204 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 20
+32754612 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213104449,5,Explore
+32846536 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213196373,9,PerformRadarScan
+32846537 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507213196374 Power requested = 20 Critical = false
+32846537 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+32877996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+32944012 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213293849,9,PerformRadarScan
+33011780 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213361617,1,Move
+33011824 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+33029795 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 43
+33085566 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213435403,1,Move
+33085609 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+33087682 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 5
+33125505 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213475342,5,Explore
+33224878 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213574715,5,Explore
+33322318 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213672155,5,Explore
+33405336 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213755173,8,ClickCamera
+33503232 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213853069,5,Explore
+33503232 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507213853069 Power requested = 30 Critical = false
+33503232 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+33537996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+33577599 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+33618568 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507213968405,5,Explore
+33664006 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214013843,1,Move
+33664050 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+33684118 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 48
+33721856 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214071693,0,ScanArea
+33793613 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214143450,1,Move
+33793660 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+33808419 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 35
+33877669 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214227506,0,ScanArea
+33945701 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214295538,5,Explore
+34052205 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214402042,5,Explore
+34141743 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214491580,9,PerformRadarScan
+34226160 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214575997,5,Explore
+34226160 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507214575997 Power requested = 30 Critical = false
+34226160 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+34226161 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+34257996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+34321073 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214670910,5,Explore
+34380057 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214729894,5,Explore
+34441103 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214790940,5,Explore
+34521371 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214871208,0,ScanArea
+34593298 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507214943135,5,Explore
+34712889 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215062726,5,Explore
+34712889 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507215062726 Power requested = 30 Critical = false
+34712889 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+34745103 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215094940,5,Explore
+34745103 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507215094940 Power requested = 30 Critical = false
+34745103 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+34745103 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+34770052 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+34797996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+34864013 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215213850,5,Explore
+34917928 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215267765,1,Move
+34917928 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 650
+y: 350
+
+34952929 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215302766,5,Explore
+35006025 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215355862,8,ClickCamera
+35061337 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215411174,1,Move
+35061338 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 475
+y: 450
+
+35162037 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215511874,9,PerformRadarScan
+35261345 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215611182,1,Move
+35261396 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+35275121 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 33
+35334560 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215684397,5,Explore
+35432495 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215782332,1,Move
+35432495 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507215782332 Power requested = 40 Critical = false
+35432495 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+35457996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+35499420 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+35541659 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215891496,1,Move
+35541702 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+35552265 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 25
+35587161 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215936998,0,ScanArea
+35634001 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507215983838,0,ScanArea
+35740881 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216090718,9,PerformRadarScan
+35845714 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216195551,1,Move
+35845759 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+35877484 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 75
+35938634 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216288471,9,PerformRadarScan
+36030929 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216380766,8,ClickCamera
+36089231 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216439068,1,Move
+36089275 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+36112491 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 55
+36163624 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216513461,5,Explore
+36273843 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216623680,8,ClickCamera
+36326841 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216676678,5,Explore
+36326842 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507216676679 Power requested = 30 Critical = false
+36326842 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+36326842 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+36357996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+36424122 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216773959,5,Explore
+36484266 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216834103,5,Explore
+36547685 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216897522,1,Move
+36547731 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+36555093 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 18
+36610743 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507216960580,8,ClickCamera
+36705942 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217055779,8,ClickCamera
+36783356 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217133193,8,ClickCamera
+36872463 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217222300,8,ClickCamera
+36872463 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507217222300 Power requested = 20 Critical = false
+36872463 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+36897996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+36982121 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217331958,0,ScanArea
+37020629 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217370466,8,ClickCamera
+37114522 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217464359,0,ScanArea
+37170939 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217520776,5,Explore
+37262473 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217612310,9,PerformRadarScan
+37354629 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217704466,1,Move
+37354681 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+37380042 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 60
+37438641 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217788478,1,Move
+37438684 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+37441813 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 8
+37532410 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217882247,9,PerformRadarScan
+37634073 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507217983910,0,ScanArea
+37711669 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218061506,0,ScanArea
+37801077 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218150914,1,Move
+37801098 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507218150935 Power requested = 400 Critical = false
+37801098 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+37801102 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+37857996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+37879380 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+37924041 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218273878,1,Move
+37924102 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+37965394 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 98
+38003712 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218353549,1,Move
+38003756 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+38021710 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 43
+38058990 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218408827,1,Move
+38059033 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+38072735 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 33
+38113841 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218463678,5,Explore
+38206853 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218556690,0,ScanArea
+38284711 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218634548,0,ScanArea
+38375901 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218725738,8,ClickCamera
+38448438 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218798275,1,Move
+38448481 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+38453726 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 13
+38544157 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218893994,9,PerformRadarScan
+38628757 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507218978594,8,ClickCamera
+38726948 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219076785,8,ClickCamera
+38726948 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507219076785 Power requested = 20 Critical = false
+38726948 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+38757996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+38785068 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+38825169 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219175006,8,ClickCamera
+38884010 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219233847,5,Explore
+38943004 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219292841,5,Explore
+39030099 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219379936,8,ClickCamera
+39076612 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219426449,0,ScanArea
+39169274 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219519111,9,PerformRadarScan
+39272243 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219622080,1,Move
+39272244 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 450
+y: 475
+
+39345591 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219695428,5,Explore
+39345591 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507219695428 Power requested = 30 Critical = false
+39345591 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+39357996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+39450511 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219800348,5,Explore
+39498357 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219848194,5,Explore
+39553287 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507219903124,1,Move
+39553345 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+39578686 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 60
+39688615 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220038452,9,PerformRadarScan
+39789680 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220139517,0,ScanArea
+39874119 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220223956,0,ScanArea
+39936620 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220286457,5,Explore
+40018158 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220367995,8,ClickCamera
+40118722 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220468559,5,Explore
+40118722 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507220468559 Power requested = 30 Critical = false
+40118722 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+40137996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+40157785 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+40197996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+40256089 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220605926,1,Move
+40256135 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+40271980 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 38
+40311942 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220661779,5,Explore
+40367907 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220717744,9,PerformRadarScan
+40451701 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220801538,9,PerformRadarScan
+40521821 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220871658,1,Move
+40521821 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 125
+y: 100
+
+40571585 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220921422,0,ScanArea
+40639650 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507220989487,5,Explore
+40731718 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221081555,9,PerformRadarScan
+40815260 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221165097,8,ClickCamera
+40907047 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221256884,9,PerformRadarScan
+41008468 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221358305,0,ScanArea
+41108140 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221457977,8,ClickCamera
+41108140 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507221457977 Power requested = 20 Critical = false
+41108140 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+41143726 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221493563,8,ClickCamera
+41143727 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507221493564 Power requested = 20 Critical = false
+41143727 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+41143727 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+41157996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+41176275 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+41232017 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221581854,8,ClickCamera
+41267261 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221617098,9,PerformRadarScan
+41337996 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221687833,9,PerformRadarScan
+41410446 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221760283,8,ClickCamera
+41493111 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221842948,8,ClickCamera
+41559409 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221909246,8,ClickCamera
+41631402 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507221981239,0,ScanArea
+41734706 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222084543,5,Explore
+41823841 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222173678,1,Move
+41823841 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507222173678 Power requested = 40 Critical = false
+41823841 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+41823841 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+41877996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+41907417 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+41944015 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222293852,1,Move
+41944074 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+41968439 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 58
+42003802 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222353639,8,ClickCamera
+42030783 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222380620,5,Explore
+42095238 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222445075,5,Explore
+42196608 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222546445,5,Explore
+42275900 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222625737,9,PerformRadarScan
+42387471 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222737308,9,PerformRadarScan
+42477684 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222827521,8,ClickCamera
+42497614 [pool-22-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+42543666 [pool-22-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+42576983 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507222926820,0,ScanArea
+42576983 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507222926820 Power requested = 20 Critical = false
+42576983 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+42597996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+42680786 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223030623,0,ScanArea
+42724012 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223073849,9,PerformRadarScan
+42803086 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223152923,9,PerformRadarScan
+42911465 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223261302,8,ClickCamera
+42976886 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223326723,1,Move
+42976929 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+42988539 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 28
+43046474 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223396311,5,Explore
+43156622 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223506459,9,PerformRadarScan
+43280938 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223630775,8,ClickCamera
+43333277 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223683114,9,PerformRadarScan
+43424038 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223773875,1,Move
+43424040 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507223773877 Power requested = 180 Critical = false
+43424040 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+43424042 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+43424045 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+43437996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+43451645 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+43528108 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223877945,1,Move
+43528156 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+43546119 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 43
+43570720 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223920557,9,PerformRadarScan
+43638702 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507223988539,1,Move
+43638749 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+43685234 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 110
+43725293 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224075130,5,Explore
+43797367 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224147204,1,Move
+43797409 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+43822750 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 60
+43886209 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224236046,0,ScanArea
+43981367 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224331204,9,PerformRadarScan
+44096514 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224446351,9,PerformRadarScan
+44107637 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio receive operation encountered an exception
+java.lang.ArrayIndexOutOfBoundsException: No such child: 5
+	at java.awt.Container.getComponent(Container.java:334)
+	at javax.swing.JLayeredPane.insertIndexForLayer(JLayeredPane.java:670)
+	at javax.swing.JLayeredPane.insertIndexForLayer(JLayeredPane.java:645)
+	at javax.swing.JLayeredPane.addImpl(JLayeredPane.java:230)
+	at java.awt.Container.add(Container.java:973)
+	at space.exploration.mars.rover.animation.RadarAnimationEngine.renderLaserAnimation(RadarAnimationEngine.java:116)
+	at space.exploration.mars.rover.kernel.RadarScanningState.renderRadarAnimation(RadarScanningState.java:133)
+	at space.exploration.mars.rover.kernel.RadarScanningState.performRadarScan(RadarScanningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.performRadarScan(Rover.java:208)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:82)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:192)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:62)
+44150755 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224500591,0,ScanArea
+44212754 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224562591,8,ClickCamera
+44296543 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224646380,8,ClickCamera
+44385792 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224735629,1,Move
+44385792 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507224735629 Power requested = 40 Critical = false
+44385792 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+44397996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+44457996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+44461116 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+44524014 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224873851,1,Move
+44524064 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+44547345 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 55
+44582263 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224932100,5,Explore
+44642016 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507224991853,8,ClickCamera
+44674401 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225024238,8,ClickCamera
+44770640 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225120477,5,Explore
+44841793 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225191630,9,PerformRadarScan
+44963392 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225313229,0,ScanArea
+45043749 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225393586,8,ClickCamera
+45080675 [pool-25-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+45096314 [pool-25-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+45121205 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225471042,1,Move
+45121205 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507225471042 Power requested = 40 Critical = false
+45121205 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+45121205 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+45177996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+45198274 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+45244013 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225593850,1,Move
+45244057 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+45252488 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 20
+45304005 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225653842,9,PerformRadarScan
+45378865 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225728702,9,PerformRadarScan
+45467822 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225817659,0,ScanArea
+45536558 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225886395,1,Move
+45536601 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+45543969 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 18
+45595036 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507225944873,1,Move
+45595079 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+45603495 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 20
+45693543 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226043380,9,PerformRadarScan
+45845363 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226195200,0,ScanArea
+45940363 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226290200,1,Move
+45940406 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+45949891 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 23
+46005705 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226355542,8,ClickCamera
+46061137 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226410974,5,Explore
+46133013 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226482850,5,Explore
+46218130 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226567967,5,Explore
+46218131 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507226567968 Power requested = 30 Critical = false
+46218131 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+46264012 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226613849,5,Explore
+46264012 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507226613849 Power requested = 30 Critical = false
+46264012 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+46304401 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+46317996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+46386147 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226735984,5,Explore
+46441511 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226791348,8,ClickCamera
+46474153 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226823990,9,PerformRadarScan
+46557984 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226907821,8,ClickCamera
+46613982 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507226963819,1,Move
+46614009 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507226963846 Power requested = 300 Critical = false
+46614009 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+46614012 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+46614013 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+46617996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+46671899 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+46677996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+46744010 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227093847,1,Move
+46744057 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+46774754 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 73
+46799899 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227149736,1,Move
+46799943 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+46810478 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 25
+46832419 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227182256,5,Explore
+46891766 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227241603,9,PerformRadarScan
+46989095 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227338932,9,PerformRadarScan
+47086360 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227436197,1,Move
+47086406 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+47124429 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 90
+47180136 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227529973,8,ClickCamera
+47262961 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227612798,8,ClickCamera
+47334868 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227684705,1,Move
+47334911 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+47335926 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 3
+47462212 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227812049,1,Move
+47462212 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507227812049 Power requested = 190 Critical = false
+47462212 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+47462214 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+47486713 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+47517996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+47584022 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227933859,1,Move
+47584068 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+47603118 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 45
+47631732 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507227981569,1,Move
+47631788 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+47675109 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 103
+47705352 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228055189,9,PerformRadarScan
+47775664 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228125501,1,Move
+47775709 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+47788350 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 30
+47848987 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228198824,8,ClickCamera
+47927465 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228277302,1,Move
+47927509 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+47951808 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 58
+48022654 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228372491,8,ClickCamera
+48076752 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228426589,9,PerformRadarScan
+48162452 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228512289,1,Move
+48162495 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+48167737 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 13
+48240182 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228590019,1,Move
+48240226 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+48250754 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 25
+48320573 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228670410,8,ClickCamera
+48412883 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228762720,8,ClickCamera
+48499994 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228849831,5,Explore
+48499994 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507228849831 Power requested = 30 Critical = false
+48499994 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+48537996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+48611889 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507228961726,5,Explore
+48655066 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229004903,5,Explore
+48729628 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229079465,9,PerformRadarScan
+48847365 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229197202,5,Explore
+48924851 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229274688,1,Move
+48924851 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507229274688 Power requested = 200 Critical = false
+48924851 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+48946791 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229296628,1,Move
+48946792 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507229296629 Power requested = 200 Critical = false
+48946792 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+48955533 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+48957996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+49042094 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229391931,1,Move
+49042137 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+49062233 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 48
+49094851 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229444688,1,Move
+49094894 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+49110712 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 38
+49139226 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229489063,0,ScanArea
+49203537 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229553374,1,Move
+49203582 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+49216225 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 30
+49260419 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229610256,9,PerformRadarScan
+49360180 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229710017,8,ClickCamera
+49430922 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229780759,5,Explore
+49512803 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229862640,9,PerformRadarScan
+49628124 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507229977961,1,Move
+49628168 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+49647180 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 45
+49698932 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230048769,5,Explore
+49783356 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230133193,0,ScanArea
+49783356 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507230133193 Power requested = 20 Critical = false
+49783356 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+49797996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+49857996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+49891841 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230241678,9,PerformRadarScan
+49965896 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230315733,0,ScanArea
+50004903 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230354740,5,Explore
+50082988 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230432825,5,Explore
+50148825 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230498662,9,PerformRadarScan
+50269125 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230618962,9,PerformRadarScan
+50373896 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230723733,5,Explore
+50455165 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230805002,1,Move
+50455166 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507230805003 Power requested = 220 Critical = false
+50455166 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+50479121 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230828958,1,Move
+50479123 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507230828960 Power requested = 220 Critical = false
+50479123 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+50479125 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+50479128 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+50498542 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+50517996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+50588080 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230937917,1,Move
+50588125 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+50610329 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 53
+50637438 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507230987275,5,Explore
+50688209 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231038046,9,PerformRadarScan
+50767359 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231117196,5,Explore
+50872029 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231221866,9,PerformRadarScan
+50974046 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231323883,9,PerformRadarScan
+51076619 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231426456,0,ScanArea
+51138501 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231488338,9,PerformRadarScan
+51235739 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231585576,0,ScanArea
+51300396 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231650233,5,Explore
+51358555 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231708392,8,ClickCamera
+51358555 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507231708392 Power requested = 20 Critical = false
+51358555 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+51358555 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+51358557 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+51358559 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+51358561 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+51358563 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+51415345 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+51417996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+51484013 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231833850,8,ClickCamera
+51516829 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231866666,1,Move
+51516888 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+51541200 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 58
+51573792 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231923629,0,ScanArea
+51608453 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507231958290,1,Move
+51608500 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+51622200 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 33
+51725790 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232075627,1,Move
+51725834 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+51741652 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 38
+51787291 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232137128,1,Move
+51787334 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+51793637 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 15
+51888413 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232238250,5,Explore
+51970071 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232319908,8,ClickCamera
+52060097 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232409934,0,ScanArea
+52162201 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232512038,9,PerformRadarScan
+52266402 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232616239,5,Explore
+52266402 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507232616239 Power requested = 30 Critical = false
+52266402 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+52324013 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232673850,5,Explore
+52324013 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507232673850 Power requested = 30 Critical = false
+52324013 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+52329402 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+52377996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+52432962 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232782799,5,Explore
+52480323 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232830160,5,Explore
+52533350 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232883187,9,PerformRadarScan
+52600990 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507232950827,5,Explore
+52679634 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233029471,5,Explore
+52753619 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233103456,0,ScanArea
+52806471 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233156308,5,Explore
+52806471 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507233156308 Power requested = 30 Critical = false
+52806471 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+52806471 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+52806472 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+52806475 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+52857996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+52900865 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233250702,0,ScanArea
+52938030 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233287867,5,Explore
+53010139 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233359976,9,PerformRadarScan
+53118546 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233468383,1,Move
+53118600 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+53138690 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 48
+53181330 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233531167,9,PerformRadarScan
+53306862 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233656699,9,PerformRadarScan
+53394382 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233744219,9,PerformRadarScan
+53500776 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233850613,8,ClickCamera
+53571253 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507233921090,9,PerformRadarScan
+53654028 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234003865,5,Explore
+53732242 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234082079,5,Explore
+53779724 [pool-36-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+53798360 [pool-36-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+53817107 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234166944,8,ClickCamera
+53817107 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507234166944 Power requested = 20 Critical = false
+53817107 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+53817107 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+53817109 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+53817996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+53877996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+53917826 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234267663,0,ScanArea
+53962009 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234311846,8,ClickCamera
+53999951 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234349788,5,Explore
+54089505 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234439342,0,ScanArea
+54175675 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234525512,8,ClickCamera
+54269459 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234619296,8,ClickCamera
+54358395 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234708232,5,Explore
+54397947 [pool-37-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+54426124 [pool-37-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+54458017 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234807854,1,Move
+54458017 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507234807854 Power requested = 40 Critical = false
+54458017 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+54477996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+54561526 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234911363,9,PerformRadarScan
+54634108 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507234983945,1,Move
+54634108 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 525
+y: 425
+
+54662813 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235012650,0,ScanArea
+54721566 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235071403,1,Move
+54721612 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+54745911 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 58
+54824491 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235174328,9,PerformRadarScan
+54935503 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235285340,5,Explore
+55028363 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235378200,9,PerformRadarScan
+55126807 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235476644,0,ScanArea
+55182304 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235532141,8,ClickCamera
+55301013 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235650850,0,ScanArea
+55368669 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235718506,1,Move
+55368671 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507235718508 Power requested = 290 Critical = false
+55368671 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+55377996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+55460678 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235810515,0,ScanArea
+55506633 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235856470,1,Move
+55506692 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+55536318 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 70
+55567753 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507235917590,9,PerformRadarScan
+55687151 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236036988,8,ClickCamera
+55744898 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236094735,5,Explore
+55822619 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236172456,8,ClickCamera
+55915973 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236265810,5,Explore
+56010365 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236360202,8,ClickCamera
+56010365 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507236360202 Power requested = 20 Critical = false
+56010365 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+56044695 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236394532,8,ClickCamera
+56044695 [pool-1-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507236394532 Power requested = 20 Critical = false
+56044695 [pool-1-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+56096526 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+56097996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+56164013 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236513850,8,ClickCamera
+56190813 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236540650,9,PerformRadarScan
+56267981 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236617818,1,Move
+56268025 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+56281733 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 33
+56317638 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236667475,1,Move
+56317681 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+56327157 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 23
+56408487 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236758324,5,Explore
+56494768 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236844605,1,Move
+56494769 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 525
+y: 425
+
+56550206 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236900043,1,Move
+56550206 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 525
+y: 375
+
+56633974 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507236983811,0,ScanArea
+56732657 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237082494,8,ClickCamera
+56840175 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237190012,0,ScanArea
+56923022 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237272859,9,PerformRadarScan
+56923022 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507237272859 Power requested = 20 Critical = false
+56923022 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+56937996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+57016158 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237365995,9,PerformRadarScan
+57092860 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237442697,9,PerformRadarScan
+57171574 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237521411,0,ScanArea
+57230022 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237579859,5,Explore
+57315157 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237664994,0,ScanArea
+57396244 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237746081,5,Explore
+57467028 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237816865,9,PerformRadarScan
+57625843 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507237975680,9,PerformRadarScan
+57727517 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238077354,9,PerformRadarScan
+57825225 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238175062,5,Explore
+57914106 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238263943,9,PerformRadarScan
+57914106 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507238263943 Power requested = 20 Critical = false
+57914106 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+57946722 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238296559,5,Explore
+57946722 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507238296559 Power requested = 30 Critical = false
+57946722 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+57946722 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+57946724 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+57946725 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+57957996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+58001285 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+58017996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+58084012 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238433849,9,PerformRadarScan
+58158716 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238508553,9,PerformRadarScan
+58225289 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238575126,5,Explore
+58274876 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238624713,9,PerformRadarScan
+58343541 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238693378,5,Explore
+58417501 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238767338,0,ScanArea
+58469852 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238819689,1,Move
+58469895 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+58477257 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 18
+58532306 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238882143,9,PerformRadarScan
+58630962 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507238980799,5,Explore
+58708411 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239058248,0,ScanArea
+58780652 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239130489,9,PerformRadarScan
+58780652 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507239130489 Power requested = 20 Critical = false
+58780652 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+58780652 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+58780653 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+58797996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+58824097 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+58871592 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239221429,9,PerformRadarScan
+58940641 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239290478,1,Move
+58940684 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+58959701 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 45
+58991245 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239341082,5,Explore
+59062322 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239412159,0,ScanArea
+59125298 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239475135,0,ScanArea
+59227921 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239577758,9,PerformRadarScan
+59318344 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239668181,9,PerformRadarScan
+59420653 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239770490,8,ClickCamera
+59478055 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239827892,8,ClickCamera
+59576773 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507239926610,9,PerformRadarScan
+59703919 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240053756,5,Explore
+59750665 [pool-43-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+59770371 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240120208,9,PerformRadarScan
+59770371 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507240120208 Power requested = 20 Critical = false
+59770371 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+59770371 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+59817996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+59841007 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+59884013 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240233850,9,PerformRadarScan
+59956902 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240306739,9,PerformRadarScan
+60033884 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240383721,9,PerformRadarScan
+60101132 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240450969,5,Explore
+60203436 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240553273,0,ScanArea
+60268568 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240618405,8,ClickCamera
+60326483 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240676320,1,Move
+60326526 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+60340239 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 33
+60402404 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240752241,8,ClickCamera
+60497168 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240847005,0,ScanArea
+60579004 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507240928841,9,PerformRadarScan
+60682858 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241032695,8,ClickCamera
+60770430 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241120267,1,Move
+60770430 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507241120267 Power requested = 40 Critical = false
+60770430 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+60777996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+60837996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+60841523 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+60904013 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241253850,1,Move
+60904062 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+60919918 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 38
+60950868 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241300705,9,PerformRadarScan
+61021622 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241371459,1,Move
+61021665 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+61025851 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 10
+61055178 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241405015,1,Move
+61055228 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+61071048 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 38
+61198415 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241548252,0,ScanArea
+61260316 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241610153,8,ClickCamera
+61321865 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241671702,0,ScanArea
+61408365 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241758202,5,Explore
+61485386 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241835223,5,Explore
+61600597 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507241950434,8,ClickCamera
+61600597 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507241950434 Power requested = 20 Critical = false
+61600597 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+61617996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+61662507 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+61699852 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242049689,8,ClickCamera
+61744011 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242093848,1,Move
+61744055 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+61747193 [pool-1-thread-1] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 8
+61783244 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242133081,8,ClickCamera
+61884731 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242234568,0,ScanArea
+61955305 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242305142,8,ClickCamera
+62066206 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242416043,8,ClickCamera
+62137915 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242487752,9,PerformRadarScan
+62242408 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242592245,9,PerformRadarScan
+62349482 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242699319,9,PerformRadarScan
+62462686 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242812523,8,ClickCamera
+62518273 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242868110,5,Explore
+62518273 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507242868110 Power requested = 30 Critical = false
+62518273 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+62518273 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+62518276 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+62577996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+62579990 [Thread-2] INFO  space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+62644014 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507242993851,5,Explore
+62687750 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243037587,5,Explore
+62732226 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243082063,9,PerformRadarScan
+62805785 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243155622,0,ScanArea
+62870823 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243220660,1,Move
+62870871 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+62883526 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 30
+62992626 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243342463,5,Explore
+63105364 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243455201,8,ClickCamera
+63160438 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243510275,0,ScanArea
+63160438 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507243510275 Power requested = 20 Critical = false
+63160438 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+63177996 [pool-1-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state.
+63244868 [pool-1-thread-1] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243594705,0,ScanArea
+63281038 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243630875,1,Move
+63281102 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay commenced.
+63313883 [Thread-2] INFO  space.exploration.mars.rover.propulsion.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 78
+63366418 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243716255,9,PerformRadarScan
+63474444 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243824281,1,Move
+63474444 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Destination passed in is invalid - intersects with a wall! x: 75
+y: 225
+
+63521293 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243871130,8,ClickCamera
+63589155 [Thread-2] INFO  space.exploration.mars.rover.kernel.ListeningState  - 1507243938992,0,ScanArea

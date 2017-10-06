@@ -59,7 +59,7 @@ public class TrackingAnimationEngine extends Observable {
         return marsRoverConfig;
     }
 
-    private void alertTelemetrySensor(boolean end){
+    private void alertTelemetrySensor(boolean end) {
         setChanged();
         notifyObservers(end);
     }

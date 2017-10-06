@@ -7,7 +7,7 @@ import java.util.Properties;
  * Created by sanket on 5/31/17.
  */
 public class RoverCell extends Cell {
-    private              Properties marsConfig         = null;
+    private Properties marsConfig = null;
 
     public RoverCell(Properties marsConfig) {
         super(marsConfig);
