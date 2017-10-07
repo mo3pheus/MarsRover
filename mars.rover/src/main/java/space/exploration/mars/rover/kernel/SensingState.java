@@ -122,4 +122,9 @@ public class SensingState implements State {
 
     }
 
+    @Override
+    public void wakeUp() {
+
+    }
+
 }

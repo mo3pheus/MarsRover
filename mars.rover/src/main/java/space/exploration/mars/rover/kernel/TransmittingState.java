@@ -85,4 +85,8 @@ public class TransmittingState implements State {
 
     }
 
+    @Override
+    public void wakeUp() {
+
+    }
 }

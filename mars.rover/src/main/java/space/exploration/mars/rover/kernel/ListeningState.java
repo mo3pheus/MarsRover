@@ -126,4 +126,9 @@ public class ListeningState implements State {
 
     }
 
+    @Override
+    public void wakeUp() {
+
+    }
+
 }

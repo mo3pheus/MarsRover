@@ -126,4 +126,9 @@ public class PhotographingState implements State {
     public void sleep() {
 
     }
+
+    @Override
+    public void wakeUp() {
+
+    }
 }

@@ -25,5 +25,7 @@ public interface State {
 
     void sleep();
 
+    void wakeUp();
+
     String getStateName();
 }

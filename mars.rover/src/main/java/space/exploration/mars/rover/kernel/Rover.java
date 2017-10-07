@@ -222,6 +222,10 @@ public class Rover {
         state.performRadarScan();
     }
 
+    public synchronized void wakeUp() {
+        state.wakeUp();
+    }
+
     public synchronized void sleep() {
         state.sleep();
     }

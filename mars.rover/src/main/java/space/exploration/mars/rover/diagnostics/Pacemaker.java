@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
-import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
@@ -72,12 +71,7 @@ public class Pacemaker {
                 if (rover.getState() == rover.getSleepingState()) {
                     if (awakenRover()) {
                         logger.info("Awakening rover from slumber");
-                        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
-                                                                                                        .getProperty
-                                                                                                                (EnvironmentUtils.ROBOT_COLOR)));
-                        rover.getMarsArchitect().returnSurfaceToNormal();
-                        rover.setState(rover.getListeningState());
-                        rover.setTimeMessageReceived(System.currentTimeMillis());
+                        rover.wakeUp();
                     } else {
                         logger.info("Diagnostics inhibited because rover is sleeping to conserve battery");
                         rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery");

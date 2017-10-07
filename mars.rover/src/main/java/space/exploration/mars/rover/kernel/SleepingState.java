@@ -3,22 +3,27 @@ package space.exploration.mars.rover.kernel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
+import space.exploration.mars.rover.animation.SleepingAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 
 public class SleepingState implements State {
-    private Logger logger = LoggerFactory.getLogger(SleepingState.class);
-    private Rover  rover  = null;
+    private Logger                  logger                  = LoggerFactory.getLogger(SleepingState.class);
+    private Rover                   rover                   = null;
+    private SleepingAnimationEngine sleepingAnimationEngine = null;
 
     public SleepingState(Rover rover) {
         this.rover = rover;
+        sleepingAnimationEngine = new SleepingAnimationEngine(this.rover);
     }
 
     @Override
     public void receiveMessage(byte[] message) {
         logger.info("Awaking from sleeping state");
+        sleepingAnimationEngine.wakeupRover();
         rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
                                                                                         .getProperty
-                                                                                                (EnvironmentUtils.ROBOT_COLOR)));
+                                                                                                (EnvironmentUtils
+                                                                                                         .ROBOT_COLOR)));
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.setState(rover.getListeningState());
         rover.receiveMessage(message);
@@ -71,11 +76,20 @@ public class SleepingState implements State {
 
     @Override
     public void sleep() {
-        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotSleepMode"));
+        sleepingAnimationEngine = new SleepingAnimationEngine(rover);
+        sleepingAnimationEngine.sleep();
     }
 
     @Override
     public String getStateName() {
         return "Sleeping State";
+    }
+
+    @Override
+    public void wakeUp() {
+        sleepingAnimationEngine.wakeupRover();
+        rover.getMarsArchitect().returnSurfaceToNormal();
+        rover.setState(rover.getListeningState());
+        rover.setTimeMessageReceived(System.currentTimeMillis());
     }
 }
