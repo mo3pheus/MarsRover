@@ -95,7 +95,7 @@ public class RoverUtil {
             }
         }
 
-        if (start.getX() < end.getX()) {
+        if (start.getX() > end.getX()) {
             return 270.0d;
         } else {
             return 90.0d;
