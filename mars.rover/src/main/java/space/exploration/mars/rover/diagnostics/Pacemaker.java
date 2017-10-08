@@ -3,7 +3,6 @@ package space.exploration.mars.rover.diagnostics;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
@@ -18,79 +17,32 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 5/15/17.
  */
 public class Pacemaker {
-    public static final int                           MAX_PENDING_MSGS      = 15;
-    private             ScheduledExecutorService      scheduler             = null;
-    private             Rover                         rover                 = null;
-    private             int                           sleepAfterTimeSeconds = 0;
-    private             HeartBeatOuterClass.HeartBeat heartBeat             = null;
+    private             ScheduledExecutorService      scheduler        = null;
+    private             Rover                         rover            = null;
+    private             HeartBeatOuterClass.HeartBeat heartBeat        = null;
 
     private Logger logger = LoggerFactory.getLogger(Pacemaker.class);
 
     public Pacemaker(Rover rover) {
         this.rover = rover;
         this.scheduler = Executors.newSingleThreadScheduledExecutor();
-        sleepAfterTimeSeconds = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
-                                                                                           ".seconds"));
     }
 
     public void pulse() {
         Runnable heart = new Runnable() {
             @Override
             public void run() {
-                logger.debug("Pacemaker performing its due diligence.");
-                if (rover.getInstructionQueue().size() >= MAX_PENDING_MSGS) {
-                    String errorMessage = "Diagnostics module clearing instructionQueue because maxLength has been " +
-                            "reached.";
-                    logger.error(errorMessage);
-
-                    errorMessage += " Number of messages lost = " + MAX_PENDING_MSGS;
-
-                    for (byte[] message : rover.getInstructionQueue()) {
-                        try {
-                            InstructionPayloadOuterClass.InstructionPayload instructionPayload =
-                                    InstructionPayloadOuterClass.InstructionPayload.parseFrom(message);
-
-                            errorMessage += instructionPayload.toString();
-                        } catch (InvalidProtocolBufferException invalidProtocol) {
-                            logger.error("Invalid protocol buffer for instructionPayload", invalidProtocol);
-                            rover.writeErrorLog("Invalid protocol buffer for instructionPayload", invalidProtocol);
-                        }
-                    }
-
-                    rover.writeErrorLog(errorMessage, null);
-                    rover.getInstructionQueue().clear();
-                    return;
-                }
-
                 if (rover.getState() == rover.getHibernatingState()) {
-                    logger.error("Diagnostics inhibited because rover is in hibernating state.");
+                    logger.error("Diagnostics inhibited because rover is in hibernating state."
+                                         + " Current instructionQueue length = " + rover.getInstructionQueue().size());
                     rover.writeErrorLog("Diagnostics inhibited because rover is in hibernating state.", null);
-                    return;
-                }
-
-                if (rover.getState() == rover.getSleepingState()) {
-                    if (awakenRover()) {
-                        logger.info("Awakening rover from slumber");
-                        rover.wakeUp();
-                    } else {
-                        logger.info("Diagnostics inhibited because rover is sleeping to conserve battery");
-                        rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery");
-                        return;
-                    }
-                }
-
-                rover.processPendingMessageQueue();
-
-                if (putRoverToSleep()) {
-                    String sleepWarning = "Putting rover to sleep - since its been a while since an instruction was" +
-                            " received.";
-                    logger.info(sleepWarning);
-                    rover.writeSystemLog(sleepWarning);
-                    rover.setState(rover.getSleepingState());
-                    rover.sleep();
-                }
-
-                if (rover.isDiagnosticFriendly()) {
+                } else if (rover.getState() == rover.getSleepingState()) {
+                    logger.info("Diagnostics inhibited because rover is sleeping to conserve battery"
+                                        + " Current instructionQueue length = " + rover.getInstructionQueue()
+                            .size());
+                    rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery",
+                                         rover.getInstructionQueue().size());
+                } else if (rover.isDiagnosticFriendly()) {
                     rover.powerCheck(1);
                     RoverStatusOuterClass.RoverStatus roverStatus = generateDiagnosticStatus();
                     try {
@@ -101,7 +53,6 @@ public class Pacemaker {
                         logger.error(ipe.getMessage());
                     }
 
-                    System.out.println(heartBeat);
                     logger.debug(heartBeat.toString());
                     rover.setState(rover.getTransmittingState());
                     rover.transmitMessage(roverStatus.toByteArray());
@@ -147,27 +98,5 @@ public class Pacemaker {
         rBuilder.setModuleMessage(generateHeartBeat().toByteString());
 
         return rBuilder.build();
-    }
-
-    private boolean putRoverToSleep() {
-        if ((System.currentTimeMillis() - rover.getTimeMessageReceived()) > TimeUnit.SECONDS.toMillis
-                (sleepAfterTimeSeconds)) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean awakenRover() {
-        int maxSleepForMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepForMax.minutes"));
-        if (rover.getState() == rover.getSleepingState()) {
-            long timeInSleepMins = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - rover
-                    .getTimeMessageReceived() - TimeUnit.SECONDS
-                    .toMillis(sleepAfterTimeSeconds));
-
-            if (timeInSleepMins > maxSleepForMinutes) {
-                return true;
-            }
-        }
-        return false;
     }
 }
