@@ -23,9 +23,20 @@ public class MarsMissionLaunch {
 
     public static void configureLogging() {
         FileAppender fa = new FileAppender();
-        fa.setFile("roverStatusReports/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
-        fa.setLayout(new PatternLayout("%-4r [%t] %-5p %c %x - %m%n"));
-        fa.setThreshold(Level.toLevel(Priority.INFO_INT));
+
+        boolean debug = false;
+
+        if (!debug) {
+            fa.setThreshold(Level.toLevel(Priority.INFO_INT));
+            fa.setFile("roverStatusReports/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
+        } else {
+            fa.setThreshold(Level.toLevel(Priority.DEBUG_INT));
+            fa.setFile("analysisLogs/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
+        }
+
+        //fa.setLayout(new PatternLayout("%-4r [%t] %-5p %c %x - %m%n"));
+        fa.setLayout(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN));
+
         fa.activateOptions();
         org.apache.log4j.Logger.getRootLogger().addAppender(fa);
     }

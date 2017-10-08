@@ -8,15 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 
-import java.util.concurrent.Semaphore;
-
 /**
  * @author sanketkorgaonkar
  */
 public class HibernatingState implements State {
-    private Rover     rover      = null;
-    private Logger    logger     = LoggerFactory.getLogger(HibernatingState.class);
-    private Semaphore accessLock = new Semaphore(1, true);
+    private Rover  rover  = null;
+    private Logger logger = LoggerFactory.getLogger(HibernatingState.class);
 
     public HibernatingState(Rover rover) {
         this.rover = rover;
@@ -26,7 +23,8 @@ public class HibernatingState implements State {
         logger.info("In hibernating state's receiveMessage(), adding message to instruction queue");
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message));
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+                    .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
         }

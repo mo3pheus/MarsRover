@@ -24,7 +24,8 @@ public class PhotographingState implements State {
         logger.debug("Photographing state received message. Saving to instruction queue");
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message));
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+                    .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("Invalid protocolBuffer Exception", ipe);
         }

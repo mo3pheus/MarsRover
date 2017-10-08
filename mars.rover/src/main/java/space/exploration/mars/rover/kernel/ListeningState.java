@@ -38,9 +38,10 @@ public class ListeningState implements State {
             radioAnimationEngine.activateRadio();
 
             for (TargetPackage tp : payload.getTargetsList()) {
-                rover.writeSystemLog(tp);
+                rover.writeSystemLog(tp, rover.getInstructionQueue().size());
                 logger.info(Long.toString(System.currentTimeMillis()) + ","
-                                    + Integer.toString(tp.getRoverModule()) + "," + tp.getAction());
+                                    + Integer.toString(tp.getRoverModule()) + "," + tp.getAction()
+                                    + " Current instructionQueue length = " + rover.getInstructionQueue().size());
 
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
                     logger.error("Going into hibernation from Listening state.");

@@ -2,7 +2,7 @@ package space.exploration.mars.rover.power;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.diagnostics.Pacemaker;
+import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
@@ -37,12 +37,14 @@ public class BatteryMonitor {
                                                "required = " +
                                                rover.getBattery().getRechargeTime());
                     RoverUtil.roverSystemLog(logger, "Rover is in " + rover.getState().getStateName() +
-                            ", timeInRecharge = " +
-                            timeInRecharge + " " +
-                            "required = " +
-                            rover.getBattery().getRechargeTime() + " Rover instructionQueue length = " + rover
-                            .getInstructionQueue().size() + " Max Pending messages allowed = " + Pacemaker
-                            .MAX_PENDING_MSGS, "INFO");
+                                                     ", timeInRecharge = " +
+                                                     timeInRecharge + " " +
+                                                     "required = " +
+                                                     rover.getBattery().getRechargeTime() + " Rover instructionQueue " +
+                                                     "length = " + rover
+                                                     .getInstructionQueue().size() + " Max Pending messages allowed =" +
+                                                     " " + RoverGarbageCollector.MAX_PENDING_MESSAGES
+                            , "INFO");
 
                     if (timeInRecharge > rover.getBattery().getRechargeTime()) {
                         interrupt();

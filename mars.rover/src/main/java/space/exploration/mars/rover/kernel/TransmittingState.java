@@ -23,7 +23,8 @@ public class TransmittingState implements State {
     public void receiveMessage(byte[] message) {
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message));
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+                    .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("InvalidProtocolBufferException", ipe);
         }

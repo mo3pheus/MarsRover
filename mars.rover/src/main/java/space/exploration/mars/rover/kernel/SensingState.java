@@ -31,8 +31,9 @@ public class SensingState implements State {
         try {
             rover.writeSystemLog("Rover not in the correct state to receive message. Message added to the instruction" +
                                          " queue, " +
-                                         "instruction queue length = " + rover.getInstructionQueue().size());
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message));
+                                         "instruction queue length = ", rover.getInstructionQueue().size());
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+                    .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("InvalidProtocolBuffer", ipe);
         }

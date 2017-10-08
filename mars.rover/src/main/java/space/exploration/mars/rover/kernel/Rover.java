@@ -7,6 +7,8 @@ import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.diagnostics.Pacemaker;
+import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
+import space.exploration.mars.rover.diagnostics.SleepMonitor;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RoverCell;
@@ -62,20 +64,24 @@ public class Rover {
     private NavigationEngine navigationEngine = null;
 
     /* Equipment Stack */
-    private Battery        battery        = null;
-    private BatteryMonitor batteryMonitor = null;
-    private Radio          radio          = null;
-    private Lidar          lidar          = null;
-    private Spectrometer   spectrometer   = null;
-    private Camera         camera         = null;
-    private Radar          radar          = null;
+    private Radio        radio        = null;
+    private Lidar        lidar        = null;
+    private Spectrometer spectrometer = null;
+    private Camera       camera       = null;
+    private Radar        radar        = null;
 
     /* Contingency Stack */
     private Map<Point, RoverCell> previousRovers       = null;
     private List<byte[]>          instructionQueue     = null;
     private long                  inRechargingModeTime = 0l;
     private long                  timeMessageReceived  = 0l;
-    private Pacemaker             pacemaker            = null;
+
+    /* Resource Management Stack */
+    private Pacemaker             pacemaker             = null;
+    private Battery               battery               = null;
+    private BatteryMonitor        batteryMonitor        = null;
+    private SleepMonitor          sleepMonitor          = null;
+    private RoverGarbageCollector roverGarbageCollector = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig) {
         this.marsConfig = marsConfig;
@@ -100,39 +106,44 @@ public class Rover {
         }
     }
 
-    public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+    public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage, int
+            instructionQueueLength) {
         try {
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
             Blob blob = logDBConnection.createBlob();
             blob.setBytes(1, targetPackage.toByteArray());
             resultSet.updateBlob("MESSAGE_DETAILS", blob);
-            resultSet.updateString("MESSAGE", targetPackage.getAction());
+            resultSet.updateString("MESSAGE", targetPackage.getAction() + " Instruction Queue length = " +
+                    instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload instructionPayload) {
+    public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload instructionPayload, int
+            instructionQueueLength) {
         try {
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
             Blob blob = logDBConnection.createBlob();
             blob.setBytes(1, instructionPayload.toByteArray());
             resultSet.updateBlob("MESSAGE_DETAILS", blob);
-            resultSet.updateString("MESSAGE", "message added to instruction queue");
+            resultSet.updateString("MESSAGE", "message added to instruction queue" + " Instruction Queue length = " +
+                    instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void writeSystemLog(String message) {
+    public void writeSystemLog(String message, int instructionQueueLength) {
         try {
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
-            resultSet.updateString("MESSAGE", message);
+            resultSet.updateString("MESSAGE", message + " Instruction Queue length = " +
+                    instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -291,7 +302,7 @@ public class Rover {
         this.equipmentEOL = equipmentEOL;
     }
 
-    public synchronized int getSol() {
+    public int getSol() {
         long diff  = System.currentTimeMillis() - creationTime;
         long solMs = getOneSolDuration();
         return Math.round(diff / solMs);
@@ -424,6 +435,12 @@ public class Rover {
         this.pacemaker = new Pacemaker(this);
         pacemaker.pulse();
         RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
+
+        this.sleepMonitor = new SleepMonitor(this);
+        RoverUtil.roverSystemLog(logger, "SleepMonitor initialized. ", "INFO ");
+
+        this.roverGarbageCollector = new RoverGarbageCollector(this);
+        RoverUtil.roverSystemLog(logger, "RoverGC initialized. ", "INFO ");
 
         String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
         location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
