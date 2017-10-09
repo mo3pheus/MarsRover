@@ -25,6 +25,7 @@ import java.awt.*;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class Rover {
@@ -77,6 +78,7 @@ public class Rover {
     private long                  timeMessageReceived  = 0l;
 
     /* Resource Management Stack */
+    private Semaphore             accessLock            = new Semaphore(1);
     private Pacemaker             pacemaker             = null;
     private Battery               battery               = null;
     private BatteryMonitor        batteryMonitor        = null;
@@ -101,8 +103,20 @@ public class Rover {
 
     public synchronized void processPendingMessageQueue() {
         if (!instructionQueue.isEmpty() && state != hibernatingState) {
-            state = listeningState;
-            receiveMessage(instructionQueue.remove(0));
+            try {
+                acquireAceessLock("roverKernel");
+            } catch (InterruptedException e) {
+                logger.error("Error while acquiring accessLock", e);
+            }
+
+            if (state == sleepingState) {
+                releaseAccessLock("roverKernel");
+                wakeUp();
+            } else {
+                state = listeningState;
+                releaseAccessLock("roverKernel");
+                receiveMessage(instructionQueue.remove(0));
+            }
         }
     }
 
@@ -167,6 +181,18 @@ public class Rover {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+    }
+
+    public synchronized void acquireAceessLock(String acquiringParty) throws InterruptedException {
+        accessLock.acquire();
+        logger.debug("Rover accessLock acquired by " + acquiringParty);
+        logger.debug(" Rover's current state = " + getState().getStateName());
+    }
+
+    public synchronized void releaseAccessLock(String releasingParty) {
+        accessLock.release();
+        logger.debug("Rover accessLock released by " + releasingParty);
+        logger.debug(" Rover's current state = " + getState().getStateName());
     }
 
     public synchronized long getInRechargingModeTime() {

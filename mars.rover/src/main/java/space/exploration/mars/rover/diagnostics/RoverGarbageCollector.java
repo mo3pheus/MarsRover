@@ -55,9 +55,11 @@ public class RoverGarbageCollector {
                 rover.setState(rover.getTransmittingState());
                 rover.transmitMessage(getDistressSignal());
                 return;
-            } else {
-                logger.info("RoverGC trimming instructionQueue. Current length = " + rover.getInstructionQueue().size
-                        ());
+            } else if (rover.getState() != rover.getHibernatingState()) {
+                if (!rover.getInstructionQueue().isEmpty()) {
+                    logger.info("RoverGC trimming instructionQueue. Current length = " + rover.getInstructionQueue()
+                            .size());
+                }
                 rover.processPendingMessageQueue();
             }
         }

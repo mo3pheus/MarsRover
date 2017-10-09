@@ -12,14 +12,12 @@ public class SleepMonitor {
     private Logger                   logger                = LoggerFactory.getLogger(SleepMonitor.class);
     private Rover                    rover                 = null;
     private ScheduledExecutorService monitor               = null;
-    private long                     waitForMins           = 0l;
     private int                      sleepAfterTimeMinutes = 0;
 
     public SleepMonitor(Rover rover) {
         this.rover = rover;
         monitor = Executors.newSingleThreadScheduledExecutor();
         monitor.scheduleAtFixedRate(snooze, 0l, 1l, TimeUnit.MINUTES);
-        waitForMins = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepAfterTime.minutes"));
         sleepAfterTimeMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
                                                                                            ".minutes"));
     }
@@ -31,15 +29,21 @@ public class SleepMonitor {
                 logger.info("Awakening rover from slumber");
                 rover.wakeUp();
             } else if (isRoverSleepy()) {
-                rover.setState(rover.getSleepingState());
+                try {
+                    rover.acquireAceessLock("sleepMonitor");
+                    rover.setState(rover.getSleepingState());
+                    rover.releaseAccessLock("sleepMonitor");
+                } catch (InterruptedException ie) {
+                    logger.error("Exception while acquiring rover.accessLock mutex", ie);
+                }
                 rover.sleep();
             }
         }
     };
 
     private boolean isRoverSleepy() {
-        return (((System.currentTimeMillis() - rover.getTimeMessageReceived()) > TimeUnit.MINUTES.toMillis(waitForMins))
-                && (rover.getState() == rover.getListeningState()));
+        return (((System.currentTimeMillis() - rover.getTimeMessageReceived()) > TimeUnit.MINUTES.toMillis
+                (sleepAfterTimeMinutes)) && (rover.getState() == rover.getListeningState()));
     }
 
     private boolean isRoverRested() {
@@ -47,8 +51,7 @@ public class SleepMonitor {
             int maxSleepForMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepForMax" +
                                                                                                 ".minutes"));
             long timeInSleepMins = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - rover
-                    .getTimeMessageReceived() - TimeUnit.MINUTES
-                    .toMillis(sleepAfterTimeMinutes));
+                    .getTimeMessageReceived());
 
             if (timeInSleepMins > maxSleepForMinutes) {
                 return true;

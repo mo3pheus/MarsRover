@@ -47,6 +47,7 @@ public class BatteryMonitor {
                             , "INFO");
 
                     if (timeInRecharge > rover.getBattery().getRechargeTime()) {
+                        logger.info("Battery Monitor restoring the rover to normal after recharge");
                         interrupt();
                         rover.configureBattery(true);
                         rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
@@ -59,10 +60,17 @@ public class BatteryMonitor {
                 } else {
                     if ((rover.getState() == rover.getListeningState()) && (rover.getBattery().getPrimaryPowerUnits()
                             <= rover.getBattery().getAlertThreshold())) {
+                        try {
+                            rover.acquireAceessLock("batteryMonitor");
+                        } catch (InterruptedException ie) {
+                            logger.error("Exception while acquiring rover.accessLock mutex", ie);
+                        }
+
                         logger.error("Battery Monitor has put the rover into hibernating mode.");
                         rover.setState(rover.getHibernatingState());
                         rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
                         rover.setInRechargingModeTime(System.currentTimeMillis());
+                        rover.releaseAccessLock("batteryMonitor");
                     }
                 }
                 rover.getMarsArchitect().getMarsSurface().repaint();
