@@ -45,29 +45,37 @@ public class Battery implements IsEquipment {
         this.endOfLife = endOfLife;
     }
 
-    public int getPrimaryPowerUnits() {
+    public synchronized int getPrimaryPowerUnits() {
         return primaryPowerUnits;
     }
 
-    public void setPrimaryPowerUnits(int primaryPowerUnits) {
+    public synchronized void acquireAccessLock(String requestingParty) {
+        logger.debug("Access Lock acquired by " + requestingParty);
         try {
             accessLock.acquire();
         } catch (InterruptedException e) {
-            logger.error(" Battery had trouble in acquiring accessLock.", e);
+            logger.error("Exception while setting battery level", e);
         }
-        this.primaryPowerUnits = primaryPowerUnits;
+    }
+
+    public synchronized void releaseAccessLock(String releasingParty) {
+        logger.debug("Access Lock release by " + releasingParty);
         accessLock.release();
     }
 
-    public int getAuxiliaryPowerUnits() {
+    public synchronized void setPrimaryPowerUnits(int primaryPowerUnits) {
+        this.primaryPowerUnits = primaryPowerUnits;
+    }
+
+    public synchronized int getAuxiliaryPowerUnits() {
         return auxiliaryPowerUnits;
     }
 
-    public void setAuxiliaryPowerUnits(int auxiliaryPowerUnits) {
+    public synchronized void setAuxiliaryPowerUnits(int auxiliaryPowerUnits) {
         this.auxiliaryPowerUnits = auxiliaryPowerUnits;
     }
 
-    public boolean requestPower(int powerUnitsRequested, boolean critical) {
+    public synchronized boolean requestPower(int powerUnitsRequested, boolean critical) {
         boolean powerAvailable = false;
         if (!critical) {
             powerAvailable = (primaryPowerUnits - auxiliaryPowerUnits) > powerUnitsRequested;

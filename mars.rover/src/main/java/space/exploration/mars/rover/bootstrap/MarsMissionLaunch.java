@@ -7,14 +7,23 @@ import org.apache.log4j.Priority;
 import space.exploration.mars.rover.kernel.Rover;
 
 import java.io.IOException;
+import java.util.Properties;
 
 public class MarsMissionLaunch {
 
     public static void main(String[] args) {
         configureLogging();
         try {
-            new Rover(MatrixCreation.getMatrixConfig(), MatrixCreation.getComsConfig(), MatrixCreation
-                    .getRoverDBConfig());
+            if (args.length == 0) {
+                new Rover(MatrixCreation.getMatrixConfig(), MatrixCreation.getComsConfig(), MatrixCreation
+                        .getRoverDBConfig());
+            } else {
+                Properties marsConfig = MatrixCreation.convertToPropertyFiles(args[0]);
+                Properties comsConfig = MatrixCreation.convertToPropertyFiles(args[1]);
+                Properties dbConfig   = MatrixCreation.convertToPropertyFiles(args[2]);
+
+                new Rover(marsConfig, comsConfig, dbConfig, args[3]);
+            }
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -24,7 +33,8 @@ public class MarsMissionLaunch {
     public static void configureLogging() {
         FileAppender fa = new FileAppender();
 
-        boolean debug = false;
+        boolean debug = true;
+        //boolean debug = false;
 
         if (!debug) {
             fa.setThreshold(Level.toLevel(Priority.INFO_INT));

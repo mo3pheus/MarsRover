@@ -43,6 +43,7 @@ public class Pacemaker {
                     rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery",
                                          rover.getInstructionQueue().size());
                 } else if (rover.isDiagnosticFriendly()) {
+                    rover.getBattery().acquireAccessLock("Pacemaker");
                     rover.powerCheck(1);
                     RoverStatusOuterClass.RoverStatus roverStatus = generateDiagnosticStatus();
                     try {
@@ -52,6 +53,7 @@ public class Pacemaker {
                     } catch (InvalidProtocolBufferException ipe) {
                         logger.error(ipe.getMessage());
                     }
+                    rover.getBattery().releaseAccessLock("Pacemaker");
 
                     logger.debug(heartBeat.toString());
                     rover.setState(rover.getTransmittingState());

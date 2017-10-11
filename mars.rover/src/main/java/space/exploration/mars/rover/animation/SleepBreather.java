@@ -25,7 +25,6 @@ public class SleepBreather implements Runnable {
         robot.repaint();
 
         while (!robotColor.equals(Color.white)) {
-            logger.debug(robotColor.toString());
             int r = ((robotColor.getRed() + 1) <= 255) ? robotColor.getRed() + 1 : robotColor.getRed();
             int g = ((robotColor.getGreen() + 1) <= 255) ? robotColor.getGreen() + 1 : robotColor.getGreen();
             int b = ((robotColor.getBlue() + 1) <= 255) ? robotColor.getBlue() + 1 : robotColor.getBlue();
@@ -40,7 +39,6 @@ public class SleepBreather implements Runnable {
         }
 
         while (!robotColor.equals(EnvironmentUtils.findColor("robotSleepMode"))) {
-            logger.debug(robotColor.toString());
             int r = ((robotColor.getRed() - 1) >= 40) ? robotColor.getRed() - 1 : robotColor.getRed();
             int g = ((robotColor.getGreen() - 1) >= 40) ? robotColor.getGreen() - 1 : robotColor.getGreen();
             int b = ((robotColor.getBlue() - 1) >= 40) ? robotColor.getBlue() - 1 : robotColor.getBlue();

@@ -98,7 +98,6 @@ public class Spectrometer implements IsEquipment {
         }
 
         lifeSpan--;
-        rover.powerCheck(powerConsumption);
         for (int i = ((int) origin.getX() - cellWidth); i <= ((int) origin.getX() + cellWidth); i = (i + cellWidth)) {
             for (int j = ((int) origin.getY() - cellWidth); j <= ((int) origin.getY() + cellWidth); j = (j
                     + cellWidth)) {

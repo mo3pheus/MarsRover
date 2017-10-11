@@ -60,6 +60,7 @@ public class Rover {
     private Properties       marsConfig       = null;
     private Properties       comsConfig       = null;
     private Properties       logDBConfig      = null;
+    private String           cameraImagePath  = null;
     private MarsArchitect    marsArchitect    = null;
     private Point            location         = null;
     private NavigationEngine navigationEngine = null;
@@ -89,6 +90,14 @@ public class Rover {
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
+        bootUp();
+    }
+
+    public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String cameraImagePath) {
+        this.marsConfig = marsConfig;
+        this.comsConfig = comsConfig;
+        this.logDBConfig = logsDBConfig;
+        this.cameraImagePath = cameraImagePath;
         bootUp();
     }
 
@@ -480,7 +489,8 @@ public class Rover {
         this.spectrometer = new Spectrometer(location, this);
         spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
 
-        this.camera = new Camera(this.marsConfig, this);
+        this.camera = (cameraImagePath == null) ? new Camera(this.marsConfig, this) : new Camera(this.marsConfig,
+                                                                                                 this, cameraImagePath);
         this.radar = new Radar(this);
 
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());

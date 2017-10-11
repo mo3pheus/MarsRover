@@ -45,6 +45,7 @@ public class ListeningState implements State {
 
                 if (!rover.getBattery().requestPower(tp.getEstimatedPowerUsage(), false)) {
                     logger.error("Going into hibernation from Listening state.");
+
                     rover.state = rover.hibernatingState;
                     rover.setInRechargingModeTime(System.currentTimeMillis());
                     rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotHibernate"));
@@ -59,8 +60,10 @@ public class ListeningState implements State {
                                                                                                         (EnvironmentUtils
                                                                                                                  .ROBOT_COLOR)));
                 rover.getMarsArchitect().getMarsSurface().repaint();
+                rover.getBattery().acquireAccessLock("Listening State");
                 rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - tp
                         .getEstimatedPowerUsage());
+                rover.getBattery().releaseAccessLock("Listening State");
 
                 if (tp.getRoverModule() == Module.SENSOR_LIDAR.getValue()) {
                     System.out.println("Got lidar message");

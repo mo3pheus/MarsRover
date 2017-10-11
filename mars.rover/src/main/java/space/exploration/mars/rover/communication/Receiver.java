@@ -20,7 +20,7 @@ import java.util.Properties;
  * @author sanketkorgaonkar
  */
 public class Receiver extends Thread {
-    public final static String TUNED_CHANNEL = "earth_to_curiosity_1";
+    public final static String TUNED_CHANNEL = "earth_to_curiosity_2";
 
     private ConsumerConnector consumerConnector = null;
     private Radio             radio             = null;

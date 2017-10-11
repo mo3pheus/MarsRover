@@ -109,7 +109,6 @@ public class Lidar implements IsEquipment {
         }
 
         if (wallBuilder != null) {
-            rover.powerCheck(powerConsumption);
             computeScanRadius();
             lifeSpan--;
         }

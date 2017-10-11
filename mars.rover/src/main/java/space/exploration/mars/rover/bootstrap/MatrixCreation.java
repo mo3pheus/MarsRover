@@ -52,6 +52,13 @@ public class MatrixCreation {
         return matrixConfig;
     }
 
+    public static Properties convertToPropertyFiles(String filePath) throws IOException {
+        FileInputStream propFile = new FileInputStream(filePath);
+        Properties      config   = new Properties();
+        config.load(propFile);
+        return config;
+    }
+
     public static AudioStream getBlipAudioPath() throws Exception {
         URL         url         = MatrixCreation.class.getResource("/sonarBlip.wav");
         AudioStream inputStream = new AudioStream(new FileInputStream(url.getPath()));

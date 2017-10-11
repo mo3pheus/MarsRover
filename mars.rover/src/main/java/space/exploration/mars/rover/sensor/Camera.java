@@ -53,6 +53,22 @@ public class Camera implements IsEquipment {
         RoverUtil.roverSystemLog(logger, "Camera initialized and ready!", "INFO");
     }
 
+    public Camera(Properties marsConfig, Rover rover, String imagePath) {
+        this.marsConfig = marsConfig;
+        this.rover = rover;
+        numImages = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGES));
+        numImageCaches = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_NUM_IMAGE_CACHES));
+        shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
+        lifeSpan = Integer.parseInt(marsConfig.getProperty(LIFESPAN));
+        marsImages = new BufferedImage[numImages];
+        imageCachePoints = new ArrayList<Point>();
+        powerConsumption = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_POWER_CONSUMPTION));
+        collectImages(imagePath);
+        loadImageCachePoints();
+
+        RoverUtil.roverSystemLog(logger, "Camera initialized and ready!", "INFO");
+    }
+
     public byte[] takePhoto(Point location) {
         if (lifeSpan <= 0) {
             return null;
@@ -71,7 +87,6 @@ public class Camera implements IsEquipment {
 
         /* Reduce lifeSpan and report powerConsumption */
         lifeSpan--;
-        rover.powerCheck(powerConsumption);
         if (imageCachePoints.contains(location)) {
             int    index      = ThreadLocalRandom.current().nextInt(0, numImages);
             byte[] imageBytes = null;
@@ -113,6 +128,17 @@ public class Camera implements IsEquipment {
             String fileName = EnvironmentUtils.CAMERA_IMAGE_HEADER + Integer.toString(i + 1) + ".jpg";
             try {
                 marsImages[i] = ImageIO.read(new File(Camera.class.getResource(fileName).getPath()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void collectImages(String imagePath) {
+        for (int i = 0; i < numImages; i++) {
+            String fileName = imagePath + EnvironmentUtils.CAMERA_IMAGE_HEADER + Integer.toString(i + 1) + ".jpg";
+            try {
+                marsImages[i] = ImageIO.read(new File(fileName));
             } catch (IOException e) {
                 e.printStackTrace();
             }
