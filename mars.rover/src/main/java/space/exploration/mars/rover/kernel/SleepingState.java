@@ -55,7 +55,7 @@ public class SleepingState implements State {
     }
 
     @Override
-    public void rechargeBattery() {
+    public void senseWeather() {
         logger.error("Rover conserves battery but does not recharge batteries in sleeping state");
     }
 

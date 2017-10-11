@@ -107,7 +107,7 @@ public class PhotographingState implements State {
 
     }
 
-    public void rechargeBattery() {
+    public void senseWeather() {
 
     }
 

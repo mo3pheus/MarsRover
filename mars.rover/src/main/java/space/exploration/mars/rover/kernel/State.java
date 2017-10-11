@@ -15,7 +15,7 @@ public interface State {
 
     void hibernate();
 
-    void rechargeBattery();
+    void senseWeather();
 
     void scanSurroundings();
 

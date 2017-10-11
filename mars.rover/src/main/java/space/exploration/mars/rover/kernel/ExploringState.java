@@ -78,7 +78,7 @@ public class ExploringState implements State {
     public void hibernate() {
     }
 
-    public void rechargeBattery() {
+    public void senseWeather() {
     }
 
     public void scanSurroundings() {

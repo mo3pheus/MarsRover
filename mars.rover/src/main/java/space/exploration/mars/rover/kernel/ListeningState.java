@@ -85,6 +85,10 @@ public class ListeningState implements State {
                     System.out.println("Rover " + Rover.ROVER_NAME + " will do a radarScan!");
                     rover.state = rover.radarScanningState;
                     rover.performRadarScan();
+                } else if(tp.getRoverModule() == Module.WEATHER_SENSOR.getValue()){
+                    logger.info("Rover will try to get weather measurements - actual Curiosity Data");
+                    rover.state = rover.weatherSensingState;
+                    rover.senseWeather();
                 }
             }
         } catch (InvalidProtocolBufferException e) {
@@ -112,7 +116,7 @@ public class ListeningState implements State {
     public void hibernate() {
     }
 
-    public void rechargeBattery() {
+    public void senseWeather() {
     }
 
     public void scanSurroundings() {

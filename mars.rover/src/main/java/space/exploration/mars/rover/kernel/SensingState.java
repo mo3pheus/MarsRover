@@ -68,7 +68,7 @@ public class SensingState implements State {
 
     }
 
-    public void rechargeBattery() {
+    public void senseWeather() {
         // TODO Auto-generated method stub
 
     }

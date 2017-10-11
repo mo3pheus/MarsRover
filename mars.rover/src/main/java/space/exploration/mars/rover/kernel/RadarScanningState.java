@@ -73,8 +73,8 @@ public class RadarScanningState implements State {
     }
 
     @Override
-    public void rechargeBattery() {
-        RoverUtil.roverSystemLog(logger, " Invalid action error. Can not rechargeBattery in current state.", "ERROR");
+    public void senseWeather() {
+        RoverUtil.roverSystemLog(logger, " Invalid action error. Can not senseWeather in current state.", "ERROR");
     }
 
     @Override

@@ -15,10 +15,7 @@ import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.navigation.NavigationEngine;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.power.BatteryMonitor;
-import space.exploration.mars.rover.sensor.Camera;
-import space.exploration.mars.rover.sensor.Lidar;
-import space.exploration.mars.rover.sensor.Radar;
-import space.exploration.mars.rover.sensor.Spectrometer;
+import space.exploration.mars.rover.sensor.*;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
@@ -42,6 +39,7 @@ public class Rover {
     State photoGraphingState;
     State radarScanningState;
     State sleepingState;
+    State weatherSensingState;
 
     /* Status messages */
     private RoverStatus status       = null;
@@ -66,11 +64,12 @@ public class Rover {
     private NavigationEngine navigationEngine = null;
 
     /* Equipment Stack */
-    private Radio        radio        = null;
-    private Lidar        lidar        = null;
-    private Spectrometer spectrometer = null;
-    private Camera       camera       = null;
-    private Radar        radar        = null;
+    private Radio         radio         = null;
+    private Lidar         lidar         = null;
+    private Spectrometer  spectrometer  = null;
+    private Camera        camera        = null;
+    private Radar         radar         = null;
+    private WeatherSensor weatherSensor = null;
 
     /* Contingency Stack */
     private Map<Point, RoverCell> previousRovers       = null;
@@ -242,6 +241,10 @@ public class Rover {
 
     public synchronized void setPreviousRovers(Map<Point, RoverCell> previousRovers) {
         this.previousRovers = previousRovers;
+    }
+
+    public synchronized void senseWeather() {
+        state.senseWeather();
     }
 
     public synchronized Camera getCamera() {
@@ -433,6 +436,7 @@ public class Rover {
         equipmentList.add(this.camera);
         equipmentList.add(this.spectrometer);
         equipmentList.add(this.radar);
+        equipmentList.add(this.weatherSensor);
         return equipmentList;
     }
 
@@ -449,6 +453,18 @@ public class Rover {
         return rBuilder.build().toByteArray();
     }
 
+    public synchronized WeatherSensor getWeatherSensor() {
+        return weatherSensor;
+    }
+
+    public synchronized State getWeatherSensingState() {
+        return weatherSensingState;
+    }
+
+    public synchronized void setWeatherSensingState(State weatherSensingState) {
+        this.weatherSensingState = weatherSensingState;
+    }
+
     public synchronized void bootUp() {
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
@@ -460,6 +476,8 @@ public class Rover {
         this.sensingState = new SensingState(this);
         this.transmittingState = new TransmittingState(this);
         this.radarScanningState = new RadarScanningState(this);
+        this.weatherSensingState = new WeatherSensingState(this);
+
         this.sleepingState = new SleepingState(this);
         this.marsArchitect = new MarsArchitect(marsConfig);
 
@@ -492,6 +510,8 @@ public class Rover {
         this.camera = (cameraImagePath == null) ? new Camera(this.marsConfig, this) : new Camera(this.marsConfig,
                                                                                                  this, cameraImagePath);
         this.radar = new Radar(this);
+        this.weatherSensor = new WeatherSensor(this);
+
 
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());
 
