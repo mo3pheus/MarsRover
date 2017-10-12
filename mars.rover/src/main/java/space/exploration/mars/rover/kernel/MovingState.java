@@ -30,6 +30,11 @@ public class MovingState implements State {
         this.rover = rover;
     }
 
+    @Override
+    public void activateCameraById(String camId) {
+
+    }
+
     public void receiveMessage(byte[] message) {
         rover.getInstructionQueue().add(message);
         try {
@@ -58,7 +63,7 @@ public class MovingState implements State {
     public void scanSurroundings() {
     }
 
-    public void performDiagnostics() {
+    public void activateCameraById() {
     }
 
     @Override

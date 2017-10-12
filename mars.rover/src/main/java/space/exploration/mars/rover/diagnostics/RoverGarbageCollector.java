@@ -20,14 +20,7 @@ public class RoverGarbageCollector {
     private             String                   errorMessage         = "";
     private             Logger                   logger               = LoggerFactory.getLogger
             (RoverGarbageCollector.class);
-
-    public RoverGarbageCollector(Rover rover) {
-        this.rover = rover;
-        this.roverGC = Executors.newSingleThreadScheduledExecutor();
-        roverGC.scheduleAtFixedRate(queueMonitor, 0l, 30l, TimeUnit.SECONDS);
-    }
-
-    public Runnable queueMonitor = new Runnable() {
+    public              Runnable                 queueMonitor         = new Runnable() {
         @Override
         public void run() {
             if (rover.getInstructionQueue().size() >= MAX_PENDING_MESSAGES
@@ -64,6 +57,12 @@ public class RoverGarbageCollector {
             }
         }
     };
+
+    public RoverGarbageCollector(Rover rover) {
+        this.rover = rover;
+        this.roverGC = Executors.newSingleThreadScheduledExecutor();
+        roverGC.scheduleAtFixedRate(queueMonitor, 0l, 30l, TimeUnit.SECONDS);
+    }
 
     private byte[] getDistressSignal() {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();

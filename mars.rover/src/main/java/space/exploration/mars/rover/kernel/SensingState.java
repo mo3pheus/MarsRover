@@ -73,6 +73,11 @@ public class SensingState implements State {
 
     }
 
+    @Override
+    public void activateCameraById(String camId) {
+
+    }
+
     public void scanSurroundings() {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 
@@ -109,7 +114,7 @@ public class SensingState implements State {
         rover.setEquipmentEOL(false);
     }
 
-    public void performDiagnostics() {
+    public void activateCameraById() {
         // TODO Auto-generated method stub
 
     }

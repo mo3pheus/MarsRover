@@ -31,6 +31,11 @@ public class HibernatingState implements State {
     }
 
     @Override
+    public void activateCameraById(String camId) {
+
+    }
+
+    @Override
     public String getStateName() {
         return "Hibernating State";
     }
@@ -63,7 +68,7 @@ public class HibernatingState implements State {
         logger.debug("Can not scan surroundings in hibernating state.");
     }
 
-    public void performDiagnostics() {
+    public void activateCameraById() {
         logger.debug("Diagnostics disabled in hibernating state.");
     }
 

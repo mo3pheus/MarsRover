@@ -33,8 +33,8 @@ public class MarsMissionLaunch {
     public static void configureLogging() {
         FileAppender fa = new FileAppender();
 
-        boolean debug = true;
-        //boolean debug = false;
+        //boolean debug = true;
+        boolean debug = false;
 
         if (!debug) {
             fa.setThreshold(Level.toLevel(Priority.INFO_INT));

@@ -2,9 +2,9 @@ package space.exploration.mars.rover.environment;
 
 import space.exploration.mars.rover.animation.*;
 import space.exploration.mars.rover.propulsion.TelemetryPacketOuterClass;
-import space.exploration.mars.rover.sensor.TelemetrySensor;
 import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.Spectrometer;
+import space.exploration.mars.rover.sensor.TelemetrySensor;
 
 import javax.swing.*;
 import java.awt.*;

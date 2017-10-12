@@ -24,7 +24,8 @@ public class ExploringState implements State {
     public void receiveMessage(byte[] message) {
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover.getInstructionQueue().size());
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+                    .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
         }
@@ -84,7 +85,12 @@ public class ExploringState implements State {
     public void scanSurroundings() {
     }
 
-    public void performDiagnostics() {
+    @Override
+    public void activateCameraById(String camId) {
+
+    }
+
+    public void activateCameraById() {
     }
 
     @Override

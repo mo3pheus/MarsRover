@@ -29,6 +29,12 @@ public class SleepingState implements State {
         rover.receiveMessage(message);
     }
 
+
+    @Override
+    public void activateCameraById(String camId) {
+
+    }
+
     @Override
     public void transmitMessage(byte[] message) {
         logger.error("Can not transmit from sleeping state");
@@ -62,11 +68,6 @@ public class SleepingState implements State {
     @Override
     public void scanSurroundings() {
         logger.error("Can not run experiments(scan surroundings) from sleeping state");
-    }
-
-    @Override
-    public void performDiagnostics() {
-        logger.error("Can not perform diagnostics while sleeping");
     }
 
     @Override

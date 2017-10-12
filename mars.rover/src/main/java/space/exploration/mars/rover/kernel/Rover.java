@@ -47,12 +47,13 @@ public class Rover {
     private boolean     equipmentEOL = false;
 
     /* Logging Details */
-    private Connection logDBConnection = null;
-    private ResultSet  resultSet       = null;
-    private ResultSet  errorSet        = null;
-    private Logger     logger          = null;
-    private String     dbUserName      = null;
-    private String     dbPassword      = null;
+    private Connection logDBConnection  = null;
+    private ResultSet  resultSet        = null;
+    private ResultSet  errorSet         = null;
+    private Logger     logger           = null;
+    private String     dbUserName       = null;
+    private String     dbPassword       = null;
+    private boolean    dbLoggingEnabled = false;
 
     /* Configuration */
     private Properties       marsConfig       = null;
@@ -130,6 +131,11 @@ public class Rover {
 
     public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage, int
             instructionQueueLength) {
+
+        if (!dbLoggingEnabled) {
+            return;
+        }
+
         try {
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -146,6 +152,11 @@ public class Rover {
 
     public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload instructionPayload, int
             instructionQueueLength) {
+
+        if (!dbLoggingEnabled) {
+            return;
+        }
+
         try {
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -161,6 +172,11 @@ public class Rover {
     }
 
     public void writeSystemLog(String message, int instructionQueueLength) {
+
+        if (!dbLoggingEnabled) {
+            return;
+        }
+
         try {
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -173,6 +189,11 @@ public class Rover {
     }
 
     public void writeErrorLog(String message, Exception e) {
+
+        if (!dbLoggingEnabled) {
+            return;
+        }
+
         try {
             errorSet.moveToInsertRow();
             errorSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -352,6 +373,12 @@ public class Rover {
     }
 
     public synchronized void configureDB() {
+        dbLoggingEnabled = Boolean.parseBoolean(marsConfig.getProperty("mars.rover.database.logging.enable"));
+
+        if (!dbLoggingEnabled) {
+            return;
+        }
+
         try {
             System.out.println("Configuring database");
             if (dbUserName == null || dbPassword == null) {
@@ -426,6 +453,10 @@ public class Rover {
 
     public synchronized void powerCheck(int powerConsumed) {
         battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - powerConsumed);
+    }
+
+    public synchronized void activateCameraById(String camId) {
+        state.activateCameraById(camId);
     }
 
     public synchronized List<IsEquipment> getEquimentList() {

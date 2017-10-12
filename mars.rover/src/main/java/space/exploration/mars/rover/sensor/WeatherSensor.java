@@ -27,6 +27,12 @@ public class WeatherSensor implements IsEquipment {
     private              int    lifeSpan                = 0;
     private              Rover  rover                   = null;
 
+    public WeatherSensor(Rover rover) {
+        this.rover = rover;
+        this.url = rover.getMarsConfig().getProperty(WEATHER_URL_PROPERTY);
+        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(WEATHER_SENSOR_LIFESPAN));
+    }
+
     public byte[] getWeather() {
         BufferedReader                            in       = null;
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
@@ -66,13 +72,6 @@ public class WeatherSensor implements IsEquipment {
             }
         }
         return rBuilder.build().toByteArray();
-    }
-
-
-    public WeatherSensor(Rover rover) {
-        this.rover = rover;
-        this.url = rover.getMarsConfig().getProperty(WEATHER_URL_PROPERTY);
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(WEATHER_SENSOR_LIFESPAN));
     }
 
     @Override

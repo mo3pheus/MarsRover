@@ -8,6 +8,7 @@ import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
+import space.exploration.mars.rover.sensor.CameraQueryEngine;
 
 /**
  * Created by sanketkorgaonkar on 5/9/17.
@@ -42,6 +43,29 @@ public class PhotographingState implements State {
 
     public void exploreArea() {
 
+    }
+
+    @Override
+    public void activateCameraById(String camId) {
+        MarsArchitect marsArchitect = rover.getMarsArchitect();
+        String        response      = CameraQueryEngine.getImages(camId);
+        RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
+                .newBuilder()
+                .setX(marsArchitect.getRobot().getLocation().x)
+                .setY(marsArchitect.getRobot().getLocation().y).build();
+
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+
+        rBuilder.setBatteryLevel(rover.getBattery()
+                                         .getPrimaryPowerUnits())
+                .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera used here")
+                .setSCET(System
+                                 .currentTimeMillis())
+                .setNotes(response)
+                .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
+
+        rover.setState(rover.getTransmittingState());
+        rover.transmitMessage(rBuilder.build().toByteArray());
     }
 
     public void activateCamera() {
@@ -115,7 +139,7 @@ public class PhotographingState implements State {
 
     }
 
-    public void performDiagnostics() {
+    public void activateCameraById() {
 
     }
 

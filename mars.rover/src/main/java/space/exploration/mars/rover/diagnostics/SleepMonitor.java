@@ -13,16 +13,7 @@ public class SleepMonitor {
     private Rover                    rover                 = null;
     private ScheduledExecutorService monitor               = null;
     private int                      sleepAfterTimeMinutes = 0;
-
-    public SleepMonitor(Rover rover) {
-        this.rover = rover;
-        monitor = Executors.newSingleThreadScheduledExecutor();
-        monitor.scheduleAtFixedRate(snooze, 0l, 1l, TimeUnit.MINUTES);
-        sleepAfterTimeMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
-                                                                                           ".minutes"));
-    }
-
-    private Runnable snooze = new Runnable() {
+    private Runnable                 snooze                = new Runnable() {
         @Override
         public void run() {
             if (isRoverRested()) {
@@ -40,6 +31,14 @@ public class SleepMonitor {
             }
         }
     };
+
+    public SleepMonitor(Rover rover) {
+        this.rover = rover;
+        monitor = Executors.newSingleThreadScheduledExecutor();
+        monitor.scheduleAtFixedRate(snooze, 0l, 1l, TimeUnit.MINUTES);
+        sleepAfterTimeMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
+                                                                                           ".minutes"));
+    }
 
     private boolean isRoverSleepy() {
         return (((System.currentTimeMillis() - rover.getTimeMessageReceived()) > TimeUnit.MINUTES.toMillis

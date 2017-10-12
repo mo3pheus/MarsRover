@@ -40,6 +40,11 @@ public class TransmittingState implements State {
     }
 
     @Override
+    public void activateCameraById(String camId) {
+
+    }
+
+    @Override
     public String getStateName() {
         return "Transmitting State";
     }
@@ -72,7 +77,7 @@ public class TransmittingState implements State {
 
     }
 
-    public void performDiagnostics() {
+    public void activateCameraById() {
         // TODO Auto-generated method stub
 
     }

@@ -19,7 +19,7 @@ public interface State {
 
     void scanSurroundings();
 
-    void performDiagnostics();
+    void activateCameraById(String camId);
 
     void performRadarScan();
 

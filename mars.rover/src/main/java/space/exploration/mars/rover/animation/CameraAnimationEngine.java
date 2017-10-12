@@ -11,10 +11,10 @@ import java.util.Properties;
  */
 public class CameraAnimationEngine {
     private static final Integer    CAMERA_DEPTH = new Integer(99);
-    private              Point      location     = null;
-    private              long       shutterSpeed = 0l;
-    private              Cell       robot        = null;
-    private              JFrame     marsSurface  = null;
+    protected            Point      location     = null;
+    protected            long       shutterSpeed = 0l;
+    protected            Cell       robot        = null;
+    protected            JFrame     marsSurface  = null;
     private              Properties marsConfig   = null;
 
     public CameraAnimationEngine(Properties marsConfig, Point location, long shutterSpeed, int cellWidth) {

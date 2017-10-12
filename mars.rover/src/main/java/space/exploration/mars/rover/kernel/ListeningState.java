@@ -20,6 +20,11 @@ public class ListeningState implements State {
     }
 
     @Override
+    public void activateCameraById(String camId) {
+
+    }
+
+    @Override
     public String getStateName() {
         return "Listening State";
     }
@@ -60,10 +65,8 @@ public class ListeningState implements State {
                                                                                                         (EnvironmentUtils
                                                                                                                  .ROBOT_COLOR)));
                 rover.getMarsArchitect().getMarsSurface().repaint();
-                rover.getBattery().acquireAccessLock("Listening State");
                 rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - tp
                         .getEstimatedPowerUsage());
-                rover.getBattery().releaseAccessLock("Listening State");
 
                 if (tp.getRoverModule() == Module.SENSOR_LIDAR.getValue()) {
                     System.out.println("Got lidar message");
@@ -80,12 +83,12 @@ public class ListeningState implements State {
                 } else if (tp.getRoverModule() == Module.CAMERA_SENSOR.getValue()) {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is going to try to take pictures!");
                     rover.state = rover.photoGraphingState;
-                    rover.activateCamera();
+                    rover.activateCameraById(tp.getRoverSubModule());
                 } else if (tp.getRoverModule() == Module.RADAR.getValue()) {
                     System.out.println("Rover " + Rover.ROVER_NAME + " will do a radarScan!");
                     rover.state = rover.radarScanningState;
                     rover.performRadarScan();
-                } else if(tp.getRoverModule() == Module.WEATHER_SENSOR.getValue()){
+                } else if (tp.getRoverModule() == Module.WEATHER_SENSOR.getValue()) {
                     logger.info("Rover will try to get weather measurements - actual Curiosity Data");
                     rover.state = rover.weatherSensingState;
                     rover.senseWeather();
@@ -122,7 +125,7 @@ public class ListeningState implements State {
     public void scanSurroundings() {
     }
 
-    public void performDiagnostics() {
+    public void activateCameraById() {
     }
 
     public void performRadarScan() {

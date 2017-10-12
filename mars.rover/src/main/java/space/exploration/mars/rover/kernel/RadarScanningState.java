@@ -31,6 +31,11 @@ public class RadarScanningState implements State {
     }
 
     @Override
+    public void activateCameraById(String camId) {
+
+    }
+
+    @Override
     public String getStateName() {
         return "Radar Scanning State";
     }
@@ -82,11 +87,6 @@ public class RadarScanningState implements State {
         RoverUtil.roverSystemLog(logger, " Invalid action error. Can not scanSurroundings in current state.", "ERROR");
     }
 
-    @Override
-    public void performDiagnostics() {
-        RoverUtil.roverSystemLog(logger, " Invalid action error. Can not performDiagnostics in current state.",
-                                 "ERROR");
-    }
 
     @Override
     public void performRadarScan() {

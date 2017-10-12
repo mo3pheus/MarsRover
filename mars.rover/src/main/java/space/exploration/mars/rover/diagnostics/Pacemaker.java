@@ -17,9 +17,9 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 5/15/17.
  */
 public class Pacemaker {
-    private             ScheduledExecutorService      scheduler        = null;
-    private             Rover                         rover            = null;
-    private             HeartBeatOuterClass.HeartBeat heartBeat        = null;
+    private ScheduledExecutorService      scheduler = null;
+    private Rover                         rover     = null;
+    private HeartBeatOuterClass.HeartBeat heartBeat = null;
 
     private Logger logger = LoggerFactory.getLogger(Pacemaker.class);
 
@@ -43,7 +43,6 @@ public class Pacemaker {
                     rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery",
                                          rover.getInstructionQueue().size());
                 } else if (rover.isDiagnosticFriendly()) {
-                    rover.getBattery().acquireAccessLock("Pacemaker");
                     rover.powerCheck(1);
                     RoverStatusOuterClass.RoverStatus roverStatus = generateDiagnosticStatus();
                     try {
@@ -53,7 +52,6 @@ public class Pacemaker {
                     } catch (InvalidProtocolBufferException ipe) {
                         logger.error(ipe.getMessage());
                     }
-                    rover.getBattery().releaseAccessLock("Pacemaker");
 
                     logger.debug(heartBeat.toString());
                     rover.setState(rover.getTransmittingState());

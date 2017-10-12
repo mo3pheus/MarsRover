@@ -49,6 +49,10 @@ public class Battery implements IsEquipment {
         return primaryPowerUnits;
     }
 
+    public synchronized void setPrimaryPowerUnits(int primaryPowerUnits) {
+        this.primaryPowerUnits = primaryPowerUnits;
+    }
+
     public synchronized void acquireAccessLock(String requestingParty) {
         logger.debug("Access Lock acquired by " + requestingParty);
         try {
@@ -61,10 +65,6 @@ public class Battery implements IsEquipment {
     public synchronized void releaseAccessLock(String releasingParty) {
         logger.debug("Access Lock release by " + releasingParty);
         accessLock.release();
-    }
-
-    public synchronized void setPrimaryPowerUnits(int primaryPowerUnits) {
-        this.primaryPowerUnits = primaryPowerUnits;
     }
 
     public synchronized int getAuxiliaryPowerUnits() {
