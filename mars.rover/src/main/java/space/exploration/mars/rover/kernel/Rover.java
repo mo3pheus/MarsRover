@@ -42,9 +42,8 @@ public class Rover {
     State weatherSensingState;
 
     /* Status messages */
-    private RoverStatus status       = null;
-    private long        creationTime = 0l;
-    private boolean     equipmentEOL = false;
+    private long    creationTime = 0l;
+    private boolean equipmentEOL = false;
 
     /* Logging Details */
     private Connection logDBConnection  = null;
@@ -56,13 +55,15 @@ public class Rover {
     private boolean    dbLoggingEnabled = false;
 
     /* Configuration */
-    private Properties       marsConfig       = null;
-    private Properties       comsConfig       = null;
-    private Properties       logDBConfig      = null;
-    private String           cameraImagePath  = null;
-    private MarsArchitect    marsArchitect    = null;
-    private Point            location         = null;
-    private NavigationEngine navigationEngine = null;
+    private Properties       marsConfig               = null;
+    private Properties       comsConfig               = null;
+    private Properties       logDBConfig              = null;
+    private String           cameraImageCacheLocation = null;
+    private String           dataArchiveLocation      = null;
+    private MarsArchitect    marsArchitect            = null;
+    private Point            location                 = null;
+    private NavigationEngine navigationEngine         = null;
+    private String           nasaApiAuthKey           = null;
 
     /* Equipment Stack */
     private Radio         radio         = null;
@@ -79,12 +80,10 @@ public class Rover {
     private long                  timeMessageReceived  = 0l;
 
     /* Resource Management Stack */
-    private Semaphore             accessLock            = new Semaphore(1);
-    private Pacemaker             pacemaker             = null;
-    private Battery               battery               = null;
-    private BatteryMonitor        batteryMonitor        = null;
-    private SleepMonitor          sleepMonitor          = null;
-    private RoverGarbageCollector roverGarbageCollector = null;
+    private Semaphore      accessLock     = new Semaphore(1);
+    private Pacemaker      pacemaker      = null;
+    private Battery        battery        = null;
+    private BatteryMonitor batteryMonitor = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig) {
         this.marsConfig = marsConfig;
@@ -93,11 +92,13 @@ public class Rover {
         bootUp();
     }
 
-    public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String cameraImagePath) {
+    public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String
+            cameraImageCacheLocation, String dataArchiveLocation) {
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
-        this.cameraImagePath = cameraImagePath;
+        this.cameraImageCacheLocation = cameraImageCacheLocation;
+        this.dataArchiveLocation = dataArchiveLocation;
         bootUp();
     }
 
@@ -228,12 +229,20 @@ public class Rover {
         return inRechargingModeTime;
     }
 
+    public String getNasaApiAuthKey() {
+        return nasaApiAuthKey;
+    }
+
     public synchronized void setInRechargingModeTime(long inRechargingModeTime) {
         this.inRechargingModeTime = inRechargingModeTime;
     }
 
     public long getTimeMessageReceived() {
         return timeMessageReceived;
+    }
+
+    public String getDataArchiveLocation() {
+        return dataArchiveLocation;
     }
 
     public void setTimeMessageReceived(long timeMessageReceived) {
@@ -372,8 +381,12 @@ public class Rover {
                 && (instructionQueue.isEmpty()));
     }
 
+    public synchronized void getNasaApiCredentials() {
+        this.nasaApiAuthKey = RoverUtil.getNasaCredentials();
+    }
+
     public synchronized void configureDB() {
-        dbLoggingEnabled = Boolean.parseBoolean(marsConfig.getProperty("mars.rover.database.logging.enable"));
+        dbLoggingEnabled = Boolean.parseBoolean(logDBConfig.getProperty("mars.rover.database.logging.enable"));
 
         if (!dbLoggingEnabled) {
             return;
@@ -426,6 +439,11 @@ public class Rover {
         radar.setEndOfLife(radarEOL);
     }
 
+    /**
+     * Note: Battery charging capacity diminishes with usage.
+     *
+     * @param recharged
+     */
     public synchronized void configureBattery(boolean recharged) {
         int lifeSpan = 0;
 
@@ -436,6 +454,9 @@ public class Rover {
         this.battery = new Battery(marsConfig);
         if (recharged) {
             battery.setLifeSpan(lifeSpan - 1);
+            int fullBatteryLifeSpan = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.lifeSpan"));
+            battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - (fullBatteryLifeSpan - battery.getLifeSpan
+                    ()));
         }
 
         this.batteryMonitor = new BatteryMonitor(this);
@@ -520,10 +541,10 @@ public class Rover {
         pacemaker.pulse();
         RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
 
-        this.sleepMonitor = new SleepMonitor(this);
+        new SleepMonitor(this);
         RoverUtil.roverSystemLog(logger, "SleepMonitor initialized. ", "INFO ");
 
-        this.roverGarbageCollector = new RoverGarbageCollector(this);
+        new RoverGarbageCollector(this);
         RoverUtil.roverSystemLog(logger, "RoverGC initialized. ", "INFO ");
 
         String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
@@ -538,8 +559,9 @@ public class Rover {
         this.spectrometer = new Spectrometer(location, this);
         spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
 
-        this.camera = (cameraImagePath == null) ? new Camera(this.marsConfig, this) : new Camera(this.marsConfig,
-                                                                                                 this, cameraImagePath);
+        this.camera = (cameraImageCacheLocation == null) ? new Camera(this.marsConfig, this) : new Camera(this.marsConfig,
+                                                                                                          this,
+                                                                                                          cameraImageCacheLocation);
         this.radar = new Radar(this);
         this.weatherSensor = new WeatherSensor(this);
 
@@ -547,6 +569,7 @@ public class Rover {
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());
 
         configureDB();
+        getNasaApiCredentials();
         configureBattery(false);
         configureRadio();
         configureRadar();

@@ -23,6 +23,7 @@ public class CameraQueryEngine {
         BufferedReader in;
         URL            urlObj = null;
         try {
+            logger.info(query);
             urlObj = new URL(query);
 
             HttpURLConnection dataLink = (HttpURLConnection) urlObj
@@ -30,7 +31,7 @@ public class CameraQueryEngine {
             dataLink.setRequestMethod("GET");
             int responseCode = dataLink.getResponseCode();
 
-            logger.info("Response from weather service = " + Integer.toString(responseCode));
+            logger.info("Response from rover photos service = " + Integer.toString(responseCode));
             logger.info("Content type is = " + dataLink.getContentType());
 
             in = new BufferedReader(new InputStreamReader(dataLink.getInputStream()));

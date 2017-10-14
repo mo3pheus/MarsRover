@@ -7,8 +7,14 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
+import space.exploration.mars.rover.dataUplink.CameraPayload;
+import space.exploration.mars.rover.dataUplink.PhotoQueryService;
 import space.exploration.mars.rover.environment.MarsArchitect;
-import space.exploration.mars.rover.sensor.CameraQueryEngine;
+import space.exploration.mars.rover.utils.CameraUtil;
+
+import java.io.IOException;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sanketkorgaonkar on 5/9/17.
@@ -48,7 +54,34 @@ public class PhotographingState implements State {
     @Override
     public void activateCameraById(String camId) {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
-        String        response      = CameraQueryEngine.getImages(camId);
+
+        CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect
+                                                                                                     .getRobot()
+                                                                                                     .getLocation
+                                                                                                             ());
+        cameraAnimationEngine.setMarsSurface(marsArchitect.getMarsSurface());
+        cameraAnimationEngine.setRobot(marsArchitect.getRobot());
+        cameraAnimationEngine.clickCamera();
+
+        PhotoQueryService photoQueryService = new PhotoQueryService();
+        photoQueryService.setCamId(camId);
+        photoQueryService.setAuthenticationKey(rover.getNasaApiAuthKey());
+
+        int offsetDays = ThreadLocalRandom.current().nextInt(7, 31);
+        photoQueryService.setEarthStartDate(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(offsetDays));
+        photoQueryService.executeQuery();
+
+        String responseString = photoQueryService.getResponseAsString();
+        logger.debug("Query String::" + photoQueryService.getQueryString());
+        logger.debug("Response String::" + responseString);
+
+        CameraPayload.CamPayload camPayload = null;
+        try {
+            camPayload = CameraUtil.convertToCamPayload(responseString, rover.getDataArchiveLocation());
+        } catch (IOException e) {
+            logger.error("IOException here", e);
+        }
+
         RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder()
                 .setX(marsArchitect.getRobot().getLocation().x)
@@ -61,8 +94,13 @@ public class PhotographingState implements State {
                 .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera used here")
                 .setSCET(System
                                  .currentTimeMillis())
-                .setNotes(response)
-                .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
+                .setNotes("Curiosity Actual")
+                .setModuleMessage(camPayload.toByteString())
+                .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue());
+
+        if (camPayload != null) {
+            rBuilder.setModuleMessage(camPayload.toByteString());
+        }
 
         rover.setState(rover.getTransmittingState());
         rover.transmitMessage(rBuilder.build().toByteArray());

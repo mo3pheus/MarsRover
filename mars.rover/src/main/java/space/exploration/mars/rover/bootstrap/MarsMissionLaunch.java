@@ -18,11 +18,12 @@ public class MarsMissionLaunch {
                 new Rover(MatrixCreation.getMatrixConfig(), MatrixCreation.getComsConfig(), MatrixCreation
                         .getRoverDBConfig());
             } else {
-                Properties marsConfig = MatrixCreation.convertToPropertyFiles(args[0]);
-                Properties comsConfig = MatrixCreation.convertToPropertyFiles(args[1]);
-                Properties dbConfig   = MatrixCreation.convertToPropertyFiles(args[2]);
+                Properties marsConfig      = MatrixCreation.convertToPropertyFiles(args[0]);
+                Properties comsConfig      = MatrixCreation.convertToPropertyFiles(args[1]);
+                Properties dbConfig        = MatrixCreation.convertToPropertyFiles(args[2]);
+                String     archiveLocation = args[4];
 
-                new Rover(marsConfig, comsConfig, dbConfig, args[3]);
+                new Rover(marsConfig, comsConfig, dbConfig, args[3], archiveLocation);
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block

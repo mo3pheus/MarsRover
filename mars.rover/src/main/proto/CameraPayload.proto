@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package space.exploration.mars.rover.dataUplink;
+
+message CamPayload {
+    map<string,bytes> imageData = 1;
+}

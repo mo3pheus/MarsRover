@@ -72,6 +72,13 @@ public class RoverUtil {
         return scanner.nextLine();
     }
 
+    public static String getNasaCredentials() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the NASA API Authentication key::");
+        System.out.println("If you don't know what this is enter :: DEMO_KEY");
+        return scanner.nextLine();
+    }
+
     public static RoverStatusOuterClass.RoverStatus.Location getLocation(Point point) {
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder();
