@@ -1,0 +1,575 @@
+26685 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+26798 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+26798 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+26799 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.newRover was supplied but isn't a known config.
+26799 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_3 was supplied but isn't a known config.
+26799 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+26799 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+26799 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_3 was supplied but isn't a known config.
+26799 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+26799 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+26954 [main] INFO kafka.utils.VerifiableProperties  - Verifying properties
+26978 [main] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+26979 [main] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+26979 [main] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+26979 [main] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+26979 [main] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+26979 [main] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+26979 [main] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+26979 [main] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+26979 [main] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+27015 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], Connecting to zookeeper instance at localhost:2181
+27021 [ZkClient-EventThread-25-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=target/mars.rover-0.0.1-SOLSHOT-shaded.jar
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+27029 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+27030 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+27030 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-35-generic
+27030 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+27030 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+27030 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+27030 [main] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@5c6648b0
+27037 [main] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+27039 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+27042 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+27047 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15f193a53600007, negotiated timeout = 6000
+27048 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+27064 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], starting auto committer every 60000 ms
+27086 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901 in ZK
+27156 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901 (is it secure? false)
+27164 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+27165 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], end registering consumer space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901 in ZK
+27168 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901
+27181 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901 try #0
+27282 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1507961782672] Stopping leader finder thread
+27283 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1507961782672] Stopping all fetchers
+27283 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1507961782672] All connections stopped
+27284 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], Cleared all relevant queues for this fetcher
+27285 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], Cleared the data chunks in all the consumer message iterators
+27285 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], Committing all offsets after clearing the fetcher queues
+27286 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], Releasing partition ownership
+27319 [Thread-2] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0)
+27321 [Thread-2] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0 attempting to claim partition 0
+27338 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0 successfully owned partition 0 for topic earth_to_curiosity_3
+27350 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], Consumer space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901 selected partitions : earth_to_curiosity_3:0: fetched offset = 26: consumed offset = 26
+27351 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread], Starting 
+27352 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901 try #0
+27370 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+27370 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+27370 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+27370 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+27383 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_3)
+27387 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+27399 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+27415 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0-0], Starting 
+27418 [space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1507961782672] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 26 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+48568 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507961804178,8,ClickCamera Current instructionQueue length = 0
+113063 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507961868673,8,ClickCamera Current instructionQueue length = 0
+178087 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507961933697,8,ClickCamera Current instructionQueue length = 0
+227889 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507961983499,8,ClickCamera Current instructionQueue length = 0
+294721 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962050331,8,ClickCamera Current instructionQueue length = 0
+349817 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962105427,8,ClickCamera Current instructionQueue length = 0
+403469 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962159079,8,ClickCamera Current instructionQueue length = 0
+549586 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+571228 [Thread-2] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+571228 [Thread-2] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+580240 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962335850,8,ClickCamera Current instructionQueue length = 0
+638586 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962394196,8,ClickCamera Current instructionQueue length = 0
+702267 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962457877,8,ClickCamera Current instructionQueue length = 0
+745576 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962501186,8,ClickCamera Current instructionQueue length = 0
+797579 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962553189,8,ClickCamera Current instructionQueue length = 0
+864385 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962619995,8,ClickCamera Current instructionQueue length = 0
+923085 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962678695,8,ClickCamera Current instructionQueue length = 0
+976140 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962731750,8,ClickCamera Current instructionQueue length = 0
+1014469 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962770079,8,ClickCamera Current instructionQueue length = 0
+1053241 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962808851,8,ClickCamera Current instructionQueue length = 0
+1099994 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962855604,8,ClickCamera Current instructionQueue length = 0
+1165877 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962921487,8,ClickCamera Current instructionQueue length = 0
+1223750 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507962979360,8,ClickCamera Current instructionQueue length = 0
+1287593 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963043203,8,ClickCamera Current instructionQueue length = 0
+1351304 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963106914,8,ClickCamera Current instructionQueue length = 0
+1403056 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963158666,8,ClickCamera Current instructionQueue length = 0
+1471316 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963226926,8,ClickCamera Current instructionQueue length = 0
+1521752 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963277362,8,ClickCamera Current instructionQueue length = 0
+1555188 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963310798,8,ClickCamera Current instructionQueue length = 0
+1608764 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963364373,8,ClickCamera Current instructionQueue length = 0
+1662749 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963418359,8,ClickCamera Current instructionQueue length = 0
+1702582 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963458192,8,ClickCamera Current instructionQueue length = 0
+1738557 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963494167,8,ClickCamera Current instructionQueue length = 0
+1805452 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963561062,8,ClickCamera Current instructionQueue length = 0
+1864363 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963619973,8,ClickCamera Current instructionQueue length = 0
+1914672 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963670282,8,ClickCamera Current instructionQueue length = 0
+1968031 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963723641,8,ClickCamera Current instructionQueue length = 0
+2036973 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963792583,8,ClickCamera Current instructionQueue length = 0
+2090229 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963845839,8,ClickCamera Current instructionQueue length = 0
+2139199 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963894809,8,ClickCamera Current instructionQueue length = 0
+2182516 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963938126,8,ClickCamera Current instructionQueue length = 0
+2238395 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507963994005,8,ClickCamera Current instructionQueue length = 0
+2238395 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507963994005 Power requested = 20 Critical = false
+2238395 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2242590 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2261556 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2275183 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2275992 [pool-2-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 4
+2287758 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2306878 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2316670 [pool-5-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2348673 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 6
+2354689 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964110299,8,ClickCamera Current instructionQueue length = 5
+2391872 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964147482,8,ClickCamera Current instructionQueue length = 5
+2418211 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 5
+2424222 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964179832,8,ClickCamera Current instructionQueue length = 4
+2440096 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 4
+2446109 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964201719,8,ClickCamera Current instructionQueue length = 3
+2479747 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964235357,8,ClickCamera Current instructionQueue length = 3
+2497068 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+2503077 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964258687,8,ClickCamera Current instructionQueue length = 2
+2528671 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+2534683 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964290293,8,ClickCamera Current instructionQueue length = 1
+2567433 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964323043,8,ClickCamera Current instructionQueue length = 1
+2584565 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+2590581 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964346191,8,ClickCamera Current instructionQueue length = 0
+2615852 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964371462,8,ClickCamera Current instructionQueue length = 0
+2659575 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964415185,8,ClickCamera Current instructionQueue length = 0
+2692675 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964448285,8,ClickCamera Current instructionQueue length = 0
+2761996 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964517606,8,ClickCamera Current instructionQueue length = 0
+2805885 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964561495,8,ClickCamera Current instructionQueue length = 0
+2855984 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964611594,8,ClickCamera Current instructionQueue length = 0
+2910366 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964665976,8,ClickCamera Current instructionQueue length = 0
+2965758 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964721368,8,ClickCamera Current instructionQueue length = 0
+2999039 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964754649,8,ClickCamera Current instructionQueue length = 0
+3053055 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964808665,8,ClickCamera Current instructionQueue length = 0
+3113681 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964869291,8,ClickCamera Current instructionQueue length = 0
+3169730 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964925340,8,ClickCamera Current instructionQueue length = 0
+3217833 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507964973443,8,ClickCamera Current instructionQueue length = 0
+3273241 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965028851,8,ClickCamera Current instructionQueue length = 0
+3327566 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965083176,8,ClickCamera Current instructionQueue length = 0
+3379682 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965135292,8,ClickCamera Current instructionQueue length = 0
+3416776 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965172386,8,ClickCamera Current instructionQueue length = 0
+3482251 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965237861,8,ClickCamera Current instructionQueue length = 0
+3526224 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965281834,8,ClickCamera Current instructionQueue length = 0
+3590607 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965346217,8,ClickCamera Current instructionQueue length = 0
+3645911 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965401521,8,ClickCamera Current instructionQueue length = 0
+3700197 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965455807,8,ClickCamera Current instructionQueue length = 0
+3749259 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965504869,8,ClickCamera Current instructionQueue length = 0
+3797519 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965553129,8,ClickCamera Current instructionQueue length = 0
+3838638 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965594248,8,ClickCamera Current instructionQueue length = 0
+3888722 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965644332,8,ClickCamera Current instructionQueue length = 0
+3942099 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965697709,8,ClickCamera Current instructionQueue length = 0
+3992413 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965748023,8,ClickCamera Current instructionQueue length = 0
+4050678 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965806288,8,ClickCamera Current instructionQueue length = 0
+4108814 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965864424,8,ClickCamera Current instructionQueue length = 0
+4108814 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507965864424 Power requested = 20 Critical = false
+4108814 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+4118255 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4124359 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4135992 [pool-2-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 3
+4139539 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4150913 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4154692 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4169080 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4174980 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4188670 [pool-8-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+4190671 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+4213888 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965969498,8,ClickCamera Current instructionQueue length = 9
+4238272 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 9
+4244285 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507965999895,8,ClickCamera Current instructionQueue length = 8
+4270067 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 8
+4276082 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966031692,8,ClickCamera Current instructionQueue length = 8
+4308741 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966064351,8,ClickCamera Current instructionQueue length = 7
+4340986 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966096596,8,ClickCamera Current instructionQueue length = 7
+4356552 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 7
+4362561 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966118171,8,ClickCamera Current instructionQueue length = 6
+4381557 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 6
+4387572 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966143182,8,ClickCamera Current instructionQueue length = 5
+4413311 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966168921,8,ClickCamera Current instructionQueue length = 5
+4434895 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 5
+4440904 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966196514,8,ClickCamera Current instructionQueue length = 4
+4473716 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 4
+4479728 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966235338,8,ClickCamera Current instructionQueue length = 4
+4521537 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966277147,8,ClickCamera Current instructionQueue length = 3
+4537884 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+4543892 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966299502,8,ClickCamera Current instructionQueue length = 3
+4572519 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966328129,8,ClickCamera Current instructionQueue length = 2
+4598203 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+4604211 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966359821,8,ClickCamera Current instructionQueue length = 2
+4634989 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966390599,8,ClickCamera Current instructionQueue length = 1
+4662983 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+4668991 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966424601,8,ClickCamera Current instructionQueue length = 0
+4694927 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966450537,8,ClickCamera Current instructionQueue length = 0
+4737777 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966493387,8,ClickCamera Current instructionQueue length = 0
+4755143 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0-0] INFO kafka.consumer.SimpleConsumer  - Reconnect due to error:
+java.io.EOFException
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:83)
+	at kafka.network.BlockingChannel.readCompletely(BlockingChannel.scala:129)
+	at kafka.network.BlockingChannel.receive(BlockingChannel.scala:120)
+	at kafka.consumer.SimpleConsumer.liftedTree1$1(SimpleConsumer.scala:86)
+	at kafka.consumer.SimpleConsumer.kafka$consumer$SimpleConsumer$$sendRequest(SimpleConsumer.scala:83)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply$mcV$sp(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer.fetch(SimpleConsumer.scala:130)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:108)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:29)
+	at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:107)
+	at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:98)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+4781195 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966536805,8,ClickCamera Current instructionQueue length = 0
+4835806 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966591416,8,ClickCamera Current instructionQueue length = 0
+4887420 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966643030,8,ClickCamera Current instructionQueue length = 0
+4949451 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966705060,8,ClickCamera Current instructionQueue length = 0
+4999608 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966755218,8,ClickCamera Current instructionQueue length = 0
+5032145 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966787755,8,ClickCamera Current instructionQueue length = 0
+5091867 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966847477,8,ClickCamera Current instructionQueue length = 0
+5144424 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966900034,8,ClickCamera Current instructionQueue length = 0
+5192935 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507966948545,8,ClickCamera Current instructionQueue length = 0
+5256467 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967012077,8,ClickCamera Current instructionQueue length = 0
+5316126 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967071736,8,ClickCamera Current instructionQueue length = 0
+5364786 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967120396,8,ClickCamera Current instructionQueue length = 0
+5418573 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967174183,8,ClickCamera Current instructionQueue length = 0
+5457516 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967213126,8,ClickCamera Current instructionQueue length = 0
+5508845 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967264455,8,ClickCamera Current instructionQueue length = 0
+5562126 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967317736,8,ClickCamera Current instructionQueue length = 0
+5580057 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0-0] INFO kafka.consumer.SimpleConsumer  - Reconnect due to error:
+java.io.EOFException
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:83)
+	at kafka.network.BlockingChannel.readCompletely(BlockingChannel.scala:129)
+	at kafka.network.BlockingChannel.receive(BlockingChannel.scala:120)
+	at kafka.consumer.SimpleConsumer.liftedTree1$1(SimpleConsumer.scala:86)
+	at kafka.consumer.SimpleConsumer.kafka$consumer$SimpleConsumer$$sendRequest(SimpleConsumer.scala:83)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply$mcV$sp(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer.fetch(SimpleConsumer.scala:130)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:108)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:29)
+	at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:107)
+	at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:98)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+5602425 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967358035,8,ClickCamera Current instructionQueue length = 0
+5634061 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967389671,8,ClickCamera Current instructionQueue length = 0
+5676969 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967432579,8,ClickCamera Current instructionQueue length = 0
+5739555 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967495165,8,ClickCamera Current instructionQueue length = 0
+5791906 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967547516,8,ClickCamera Current instructionQueue length = 0
+5791907 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507967547517 Power requested = 20 Critical = false
+5791907 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+5801247 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5814861 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5815992 [pool-2-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 3
+5833635 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5853775 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5872128 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5875992 [pool-2-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 6
+5880671 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+5882671 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+5916833 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967672443,8,ClickCamera Current instructionQueue length = 7
+5933295 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 7
+5939305 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967694915,8,ClickCamera Current instructionQueue length = 6
+5962607 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967718217,8,ClickCamera Current instructionQueue length = 6
+5992664 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 6
+5998673 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967754283,8,ClickCamera Current instructionQueue length = 5
+6021443 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 5
+6027456 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967783066,8,ClickCamera Current instructionQueue length = 4
+6059268 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967814878,8,ClickCamera Current instructionQueue length = 4
+6082981 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 4
+6088995 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967844605,8,ClickCamera Current instructionQueue length = 3
+6118931 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967874541,8,ClickCamera Current instructionQueue length = 3
+6146652 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+6152662 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967908272,8,ClickCamera Current instructionQueue length = 2
+6179033 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+6185049 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967940659,8,ClickCamera Current instructionQueue length = 2
+6217070 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507967972680,8,ClickCamera Current instructionQueue length = 1
+6244403 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+6250415 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968006025,8,ClickCamera Current instructionQueue length = 1
+6285279 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968040889,8,ClickCamera Current instructionQueue length = 0
+6315724 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968071334,8,ClickCamera Current instructionQueue length = 0
+6377894 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968133504,8,ClickCamera Current instructionQueue length = 0
+6439380 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968194990,8,ClickCamera Current instructionQueue length = 0
+6488997 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968244607,8,ClickCamera Current instructionQueue length = 0
+6531552 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968287162,8,ClickCamera Current instructionQueue length = 0
+6571426 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968327036,8,ClickCamera Current instructionQueue length = 0
+6621097 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968376707,8,ClickCamera Current instructionQueue length = 0
+6658511 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968414121,8,ClickCamera Current instructionQueue length = 0
+6708408 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968464018,8,ClickCamera Current instructionQueue length = 0
+6762673 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968518283,8,ClickCamera Current instructionQueue length = 0
+6821904 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968577514,8,ClickCamera Current instructionQueue length = 0
+6872359 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968627969,8,ClickCamera Current instructionQueue length = 0
+6922064 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968677674,8,ClickCamera Current instructionQueue length = 0
+6952589 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0-0] INFO kafka.consumer.SimpleConsumer  - Reconnect due to error:
+java.io.EOFException
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:83)
+	at kafka.network.BlockingChannel.readCompletely(BlockingChannel.scala:129)
+	at kafka.network.BlockingChannel.receive(BlockingChannel.scala:120)
+	at kafka.consumer.SimpleConsumer.liftedTree1$1(SimpleConsumer.scala:86)
+	at kafka.consumer.SimpleConsumer.kafka$consumer$SimpleConsumer$$sendRequest(SimpleConsumer.scala:83)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply$mcV$sp(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer.fetch(SimpleConsumer.scala:130)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:108)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:29)
+	at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:107)
+	at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:98)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+6992084 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968747694,8,ClickCamera Current instructionQueue length = 0
+7050265 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968805875,8,ClickCamera Current instructionQueue length = 0
+7108951 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968864561,8,ClickCamera Current instructionQueue length = 0
+7170847 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968926457,8,ClickCamera Current instructionQueue length = 0
+7220591 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507968976201,8,ClickCamera Current instructionQueue length = 0
+7284609 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969040219,8,ClickCamera Current instructionQueue length = 0
+7344044 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969099654,8,ClickCamera Current instructionQueue length = 0
+7401387 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969156997,8,ClickCamera Current instructionQueue length = 0
+7464299 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969219909,8,ClickCamera Current instructionQueue length = 0
+7516084 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969271694,8,ClickCamera Current instructionQueue length = 0
+7587868 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969343478,8,ClickCamera Current instructionQueue length = 0
+7645737 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969401347,8,ClickCamera Current instructionQueue length = 0
+7703156 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969458766,8,ClickCamera Current instructionQueue length = 0
+7703157 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1507969458767 Power requested = 20 Critical = false
+7703157 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+7714749 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+7721616 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+7735992 [pool-2-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 3
+7741798 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+7758258 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+7777109 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+7782671 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+7809065 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 6
+7815078 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969570688,8,ClickCamera Current instructionQueue length = 6
+7845456 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969601066,8,ClickCamera Current instructionQueue length = 5
+7870211 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 5
+7876225 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969631835,8,ClickCamera Current instructionQueue length = 5
+7915896 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969671506,8,ClickCamera Current instructionQueue length = 4
+7940621 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969696231,8,ClickCamera Current instructionQueue length = 4
+7969057 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 4
+7975071 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969730681,8,ClickCamera Current instructionQueue length = 3
+8008262 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969763872,8,ClickCamera Current instructionQueue length = 3
+8030057 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+8036077 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969791687,8,ClickCamera Current instructionQueue length = 2
+8070424 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969826034,8,ClickCamera Current instructionQueue length = 2
+8091050 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+8097063 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969852673,8,ClickCamera Current instructionQueue length = 1
+8128352 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+8134363 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969889973,8,ClickCamera Current instructionQueue length = 1
+8161872 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969917482,8,ClickCamera Current instructionQueue length = 0
+8188501 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969944111,8,ClickCamera Current instructionQueue length = 0
+8233125 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507969988735,8,ClickCamera Current instructionQueue length = 0
+8260496 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1507961782624-4d759901-0-0] INFO kafka.consumer.SimpleConsumer  - Reconnect due to error:
+java.io.EOFException
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:83)
+	at kafka.network.BlockingChannel.readCompletely(BlockingChannel.scala:129)
+	at kafka.network.BlockingChannel.receive(BlockingChannel.scala:120)
+	at kafka.consumer.SimpleConsumer.liftedTree1$1(SimpleConsumer.scala:86)
+	at kafka.consumer.SimpleConsumer.kafka$consumer$SimpleConsumer$$sendRequest(SimpleConsumer.scala:83)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1$$anonfun$apply$mcV$sp$1.apply(SimpleConsumer.scala:132)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply$mcV$sp(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.consumer.SimpleConsumer$$anonfun$fetch$1.apply(SimpleConsumer.scala:131)
+	at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+	at kafka.consumer.SimpleConsumer.fetch(SimpleConsumer.scala:130)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:108)
+	at kafka.consumer.ConsumerFetcherThread.fetch(ConsumerFetcherThread.scala:29)
+	at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:107)
+	at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:98)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+8312007 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507970067617,8,ClickCamera Current instructionQueue length = 0
+8367580 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507970123190,8,ClickCamera Current instructionQueue length = 0
+8423830 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507970179440,8,ClickCamera Current instructionQueue length = 0
+8487739 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507970243349,8,ClickCamera Current instructionQueue length = 0
+8534430 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507970290040,8,ClickCamera Current instructionQueue length = 0
+8537442 [Thread-2] ERROR space.exploration.mars.rover.dataUplink.PhotoQueryService  - IOException
+java.net.UnknownHostException: api.nasa.gov
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:668)
+	at sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1138)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1032)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1546)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at space.exploration.mars.rover.dataUplink.PhotoQueryService.getResponseAsString(PhotoQueryService.java:89)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:74)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:498)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:86)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+8537443 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio receive operation encountered an exception
+java.lang.NullPointerException
+	at space.exploration.mars.rover.dataUplink.PhotoQueryService.getResponseAsString(PhotoQueryService.java:98)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:74)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:498)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:86)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+8547997 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+8554012 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1507970309622,8,ClickCamera Current instructionQueue length = 0
+8557018 [pool-4-thread-1] ERROR space.exploration.mars.rover.dataUplink.PhotoQueryService  - IOException
+java.net.UnknownHostException: api.nasa.gov
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:668)
+	at sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1138)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1032)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1546)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at space.exploration.mars.rover.dataUplink.PhotoQueryService.getResponseAsString(PhotoQueryService.java:89)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:74)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:498)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:86)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.kernel.Rover.processPendingMessageQueue(Rover.java:130)
+	at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$1.run(RoverGarbageCollector.java:56)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+26686071 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Unable to read additional data from server sessionid 0x15f193a53600007, likely server has closed socket, closing socket connection and attempting reconnect
+26686172 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)

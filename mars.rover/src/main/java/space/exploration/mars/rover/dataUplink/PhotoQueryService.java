@@ -16,7 +16,7 @@ import java.net.URL;
 
 
 public class PhotoQueryService extends QueryService {
-    public static final String            DATE_FORMAT       = "YYYY-MM-DD";
+    public static final String            DATE_FORMAT       = "YYYY-MM-dd";
     private             String            camId             = "";
     private             DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(DATE_FORMAT);
     private             Logger            logger            = LoggerFactory.getLogger(PhotoQueryService.class);
@@ -35,7 +35,9 @@ public class PhotoQueryService extends QueryService {
     @Override
     public void setEarthStartDate(long startMs) {
         this.earthStartDate = new DateTime(startMs);
-        this.earthDate = dateTimeFormatter.print(earthStartDate.getMillis());
+        this.earthDate = dateTimeFormatter.print(startMs);
+        logger.info("StartMS suppllied = " + startMs + " jodaInternalEarthDate = " + earthStartDate + " " +
+                            "curiosityEarthDate = " + earthDate);
     }
 
     @Override
