@@ -74,6 +74,7 @@ public class PhotographingState implements State {
         String responseString = photoQueryService.getResponseAsString();
         logger.debug("Query String::" + photoQueryService.getQueryString());
         logger.debug("Response String::" + responseString);
+        rover.writeSystemLog(responseString, rover.getInstructionQueue().size());
 
         CameraPayload.CamPayload camPayload = null;
         try {
