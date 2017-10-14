@@ -36,7 +36,7 @@ public class PhotoQueryService extends QueryService {
     public void setEarthStartDate(long startMs) {
         this.earthStartDate = new DateTime(startMs);
         this.earthDate = dateTimeFormatter.print(startMs);
-        logger.info("StartMS suppllied = " + startMs + " jodaInternalEarthDate = " + earthStartDate + " " +
+        logger.debug("StartMS suppllied = " + startMs + " jodaInternalEarthDate = " + earthStartDate + " " +
                             "curiosityEarthDate = " + earthDate);
     }
 
