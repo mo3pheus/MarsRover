@@ -57,16 +57,19 @@ public class CameraUtil {
 
         String sol       = "";
         String earthDate = "";
+        String msgId     = "";
         for (JsonElement jsonElement : jsonElements) {
             sol = jsonElement.getAsJsonObject().get("sol").getAsString();
             earthDate = jsonElement.getAsJsonObject().get("earth_date").getAsString();
+            msgId = jsonElement.getAsJsonObject().get("id").getAsString();
         }
 
         for (JsonElement jsonElement : jsonElements) {
             BufferedImage image = getImage(jsonElement);
             if (image != null) {
-                writeImageToFile(image, dataArchiveLocation + "/" + sol + "_" + earthDate);
-                cBuilder.putImageData(jsonElement.toString(), ByteString.copyFrom(convertImageToByteArray(image)));
+                writeImageToFile(image, dataArchiveLocation + "/" + msgId + "_" + sol + "_" + earthDate);
+                cBuilder.putImageData(jsonElement.toString(), ByteString.copyFrom
+                        (convertImageToByteArray(image)));
             }
         }
 
