@@ -30,7 +30,7 @@ public class CameraUtil {
             throw new RuntimeException("BufferedImage was null");
         }
 
-        String fileName = dataArchivePath + "/curiosityImage" + Long.toString(System.currentTimeMillis()) + ".jpg";
+        String fileName = dataArchivePath + ".jpg";
         System.out.println(fileName);
         File outputFile = new File(fileName);
         ImageIO.write(bufferedImage, "jpg", outputFile);
@@ -54,13 +54,22 @@ public class CameraUtil {
         JsonParser jsonParser   = new JsonParser();
         JsonObject jsonObject   = (jsonParser.parse(payloadString)).getAsJsonObject();
         JsonArray  jsonElements = jsonObject.getAsJsonArray("photos");
+
+        String sol       = "";
+        String earthDate = "";
+        for (JsonElement jsonElement : jsonElements) {
+            sol = jsonElement.getAsJsonObject().get("sol").getAsString();
+            earthDate = jsonElement.getAsJsonObject().get("earth_date").getAsString();
+        }
+
         for (JsonElement jsonElement : jsonElements) {
             BufferedImage image = getImage(jsonElement);
             if (image != null) {
-                writeImageToFile(image, dataArchiveLocation);
+                writeImageToFile(image, dataArchiveLocation + "/" + sol + "_" + earthDate);
                 cBuilder.putImageData(jsonElement.toString(), ByteString.copyFrom(convertImageToByteArray(image)));
             }
         }
+
         return cBuilder.build();
     }
 

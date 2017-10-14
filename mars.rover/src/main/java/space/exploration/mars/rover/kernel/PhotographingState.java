@@ -77,7 +77,9 @@ public class PhotographingState implements State {
 
         CameraPayload.CamPayload camPayload = null;
         try {
-            camPayload = CameraUtil.convertToCamPayload(responseString, rover.getDataArchiveLocation());
+            camPayload =
+                    CameraUtil.convertToCamPayload(responseString, rover.getDataArchiveLocation()
+                            + "/" + camId);
         } catch (IOException e) {
             logger.error("IOException here", e);
         }
