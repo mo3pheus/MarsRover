@@ -103,12 +103,15 @@ public class PhotographingState implements State {
 
         if (camPayload != null) {
             rBuilder.setModuleMessage(camPayload.toByteString());
+            int lifeSpan = rover.getCamera().getLifeSpan();
+            rover.getCamera().setLifeSpan(--lifeSpan);
         }
 
         rover.setState(rover.getTransmittingState());
         rover.transmitMessage(rBuilder.build().toByteArray());
     }
 
+    @Deprecated
     public void activateCamera() {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         byte[]        cameraShot    = rover.getCamera().takePhoto(marsArchitect.getRobot().getLocation());

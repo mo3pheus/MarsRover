@@ -118,6 +118,10 @@ public class Camera implements IsEquipment {
         return lifeSpan;
     }
 
+    public void setLifeSpan(int lifeSpan) {
+        this.lifeSpan = lifeSpan;
+    }
+
     @Override
     public String getEquipmentName() {
         return "Camera";

@@ -52,6 +52,8 @@ public class Rover {
     private Logger     logger           = null;
     private String     dbUserName       = null;
     private String     dbPassword       = null;
+    private Statement  statement        = null;
+    private Statement  errorStatement   = null;
     private boolean    dbLoggingEnabled = false;
 
     /* Configuration */
@@ -138,6 +140,10 @@ public class Rover {
         }
 
         try {
+            if (resultSet.isClosed()) {
+                resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
+                                                                                                      ".logTableName"));
+            }
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
             Blob blob = logDBConnection.createBlob();
@@ -147,7 +153,7 @@ public class Rover {
                     instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("SQLException", e);
         }
     }
 
@@ -159,6 +165,10 @@ public class Rover {
         }
 
         try {
+            if (resultSet.isClosed()) {
+                resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
+                                                                                                      ".logTableName"));
+            }
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
             Blob blob = logDBConnection.createBlob();
@@ -168,7 +178,7 @@ public class Rover {
                     instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("SQLException", e);
         }
     }
 
@@ -179,13 +189,17 @@ public class Rover {
         }
 
         try {
+            if (resultSet.isClosed()) {
+                resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
+                                                                                                      ".logTableName"));
+            }
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
             resultSet.updateString("MESSAGE", message + " Instruction Queue length = " +
                     instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("SQLException", e);
         }
     }
 
@@ -196,6 +210,10 @@ public class Rover {
         }
 
         try {
+            if (errorSet.isClosed()) {
+                errorSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
+                                                                                                     ".errorTableName"));
+            }
             errorSet.moveToInsertRow();
             errorSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
             errorSet.updateString("MESSAGE", message);
@@ -209,7 +227,7 @@ public class Rover {
             }
             errorSet.insertRow();
         } catch (Exception exception) {
-            exception.printStackTrace();
+            logger.error("Exception while writing errorLog", e);
         }
     }
 
@@ -402,11 +420,11 @@ public class Rover {
                     .getConnection("jdbc:mysql://" + logDBConfig.getProperty("mars.rover.database.host")
                                            + "/" + logDBConfig.getProperty("mars.rover.database.dbName")
                                            + "?user=" + dbUserName + "&password=" + dbPassword);
-            Statement statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
+            statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
             resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
                                                                                                   ".logTableName"));
-            Statement errorStatement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
+            errorStatement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
             errorSet = errorStatement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
                                                                                                       ".errorTableName"));
