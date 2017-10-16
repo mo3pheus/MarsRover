@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package space.exploration.mars.rover.dataUplink;
+
+message WeatherPayload {
+    string terrestrialDate = 1;
+    int32 sol = 2;
+    int32 ls = 3;
+    double minTemp = 4;
+    double minTemFahrenheit = 5;
+    double maxTemp = 6;
+    double maxTempFahrenheit = 7;
+    double pressure = 8;
+    string pressureDescription = 9;
+    string absoluteHumidity = 10;
+    string atmosphericOpacity = 11;
+    string season = 12;
+    string sunrise = 13;
+    string sunset = 14;
+}

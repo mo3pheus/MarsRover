@@ -1,11 +1,109 @@
 package space.exploration.mars.rover.dataUplink;
 
+import com.google.gson.JsonObject;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public abstract class QueryService implements isSpaceQuery {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
+public class QueryService implements isSpaceQuery {
+
+    protected HttpURLConnection dataLink = null;
     protected String   authenticationKey;
     protected DateTime earthStartDate;
     protected DateTime earthEndDate;
     protected String   earthDate;
+
+    public static final String            DATE_FORMAT       = "YYYY-MM-dd";
+    protected           DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(DATE_FORMAT);
+    protected           Logger            logger            = LoggerFactory.getLogger(QueryService.class);
+
+    @Override
+    public void setAuthenticationKey(String authenticationKey) {
+        this.authenticationKey = authenticationKey;
+    }
+
+    @Override
+    public void setEarthStartDate(long startMs) {
+        this.earthStartDate = new DateTime(startMs);
+        this.earthDate = dateTimeFormatter.print(startMs);
+        logger.debug("StartMS suppllied = " + startMs + " jodaInternalEarthDate = " + earthStartDate + " " +
+                             "curiosityEarthDate = " + earthDate);
+    }
+
+    @Override
+    public void setEarthEndDate(long endMs) {
+        this.earthEndDate = new DateTime(endMs);
+    }
+
+    @Override
+    public Object getQueryResponseType() {
+        return dataLink.getContentType();
+    }
+
+    @Override
+    public String getQueryString() {
+        return "";
+    }
+
+    @Override
+    public void executeQuery() {
+        try {
+            dataLink = (HttpURLConnection) getTargetUrl().openConnection();
+            dataLink.setRequestMethod("GET");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Object getResponse() {
+        try {
+            return (JsonObject) dataLink.getContent();
+        } catch (IOException e) {
+            logger.error("IOException when getting queryResponse ", e);
+            return null;
+        }
+    }
+
+    @Override
+    public String getResponseAsString() {
+        BufferedReader reader          = null;
+        StringBuilder  responseBuilder = new StringBuilder();
+        try {
+            reader = new BufferedReader(new InputStreamReader(dataLink.getInputStream()));
+            String dataLine = null;
+            while ((dataLine = reader.readLine()) != null) {
+                responseBuilder.append(dataLine);
+            }
+        } catch (IOException io) {
+            logger.error("IOException", io);
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                logger.error("IOException", e);
+            }
+        }
+        return responseBuilder.toString();
+    }
+
+    private URL getTargetUrl() {
+        URL url = null;
+        try {
+            url = new URL(getQueryString());
+        } catch (MalformedURLException malFormedURL) {
+            logger.error("URL was malformed.", malFormedURL);
+        }
+        return url;
+    }
+
 }
