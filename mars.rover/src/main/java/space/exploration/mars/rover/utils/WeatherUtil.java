@@ -7,24 +7,6 @@ import space.exploration.mars.rover.dataUplink.WeatherData;
 public class WeatherUtil {
     private static Logger logger = LoggerFactory.getLogger(WeatherUtil.class);
 
-    private static final String[] WEATHER_ATTRS = {"\"terrestrial_date\":",
-                                                   "\"sol\":",
-                                                   "\"ls\":",
-                                                   "\"min_temp\":",
-                                                   "\"min_temp_fahrenheit\":",
-                                                   "\"max_temp\":",
-                                                   "\"max_temp_fahrenheit\":",
-                                                   "\"pressure\":",
-                                                   "\"pressure_string\":",
-                                                   "\"abs_humidity\":",
-                                                   "\"wind_speed\":",
-                                                   "\"wind_direction\":",
-                                                   "\"atmo_opacity\":",
-                                                   "\"season\":",
-                                                   "\"sunrise\":",
-                                                   "\"sunset\":",
-                                                   };
-
     public static WeatherData.WeatherPayload getweatherPayload(String weatherData) {
         WeatherData.WeatherPayload.Builder wBuilder = WeatherData.WeatherPayload.newBuilder();
         wBuilder.setAbsoluteHumidity(getValue(weatherData, "\"abs_humidity\""));
@@ -69,13 +51,13 @@ public class WeatherUtil {
             logger.info("maxTempFahrenheit information not present", nfe);
         }
 
-        try{
+        try {
             wBuilder.setWindSpeed(Double.parseDouble(getValue(weatherData, "\"wind_speed\":")));
         } catch (NumberFormatException nfe) {
             logger.info("wind_speed information not present", nfe);
         }
 
-        try{
+        try {
             wBuilder.setWindDirection(Double.parseDouble(getValue(weatherData, "\"wind_direction\":")));
         } catch (NumberFormatException nfe) {
             logger.info("wind_direction information not present", nfe);
@@ -86,6 +68,8 @@ public class WeatherUtil {
         wBuilder.setSunrise(getValue(weatherData, "\"sunrise\":"));
         wBuilder.setSunset(getValue(weatherData, "\"sunset\":"));
 
+        logger.debug("Debug Message " + wBuilder.build().toString());
+
         return wBuilder.build();
     }
 
@@ -94,7 +78,7 @@ public class WeatherUtil {
         String valString = body.substring(startPosn);
         int    endPosn   = valString.indexOf(",");
 
-        if((endPosn == -1)&&(tag.equals("\"sunset\":"))){
+        if ((endPosn == -1) && (tag.equals("\"sunset\":"))) {
             endPosn = valString.lastIndexOf("}");
         }
 
@@ -103,15 +87,8 @@ public class WeatherUtil {
         relevantText = relevantText.replaceAll("\"", "");
         relevantText = relevantText.replaceAll(":", "");
         relevantText = relevantText.replaceAll(" ", "");
-        relevantText = relevantText.replaceAll("}","");
-        relevantText = relevantText.replaceAll("\\{","");
+        relevantText = relevantText.replaceAll("}", "");
+        relevantText = relevantText.replaceAll("\\{", "");
         return relevantText;
-    }
-
-    private static Object extractValue(String body, String tag) {
-        int    startPosn = body.indexOf(tag);
-        String valString = body.substring(startPosn);
-        int    endPosn   = valString.indexOf(",");
-        return body.substring(startPosn, startPosn + endPosn);
     }
 }

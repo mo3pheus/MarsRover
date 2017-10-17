@@ -1,6 +1,5 @@
 package space.exploration.mars.rover.kernel;
 
-import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,6 +51,12 @@ public class PhotographingState implements State {
     }
 
     @Override
+    public void activateCamera() {
+        logger.error("This call has been deprecated");
+        rover.setState(rover.getListeningState());
+    }
+
+    @Override
     public void activateCameraById(String camId) {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 
@@ -67,7 +72,7 @@ public class PhotographingState implements State {
         photoQueryService.setCamId(camId);
         photoQueryService.setAuthenticationKey(rover.getNasaApiAuthKey());
 
-        int offsetDays = ThreadLocalRandom.current().nextInt(7, 365);
+        int offsetDays = ThreadLocalRandom.current().nextInt(0, 14);
         photoQueryService.setEarthStartDate(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(offsetDays));
         photoQueryService.executeQuery();
 
@@ -109,62 +114,6 @@ public class PhotographingState implements State {
 
         rover.setState(rover.getTransmittingState());
         rover.transmitMessage(rBuilder.build().toByteArray());
-    }
-
-    @Deprecated
-    public void activateCamera() {
-        MarsArchitect marsArchitect = rover.getMarsArchitect();
-        byte[]        cameraShot    = rover.getCamera().takePhoto(marsArchitect.getRobot().getLocation());
-
-            /* Do not render animation in case of sensor endOfLife */
-        if (!rover.isEquipmentEOL()) {
-            CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect
-                                                                                                         .getRobot()
-                                                                                                         .getLocation
-
-                                                                                                                 ());
-            cameraAnimationEngine.setMarsSurface(marsArchitect.getMarsSurface());
-            cameraAnimationEngine.setRobot(marsArchitect.getRobot());
-            cameraAnimationEngine.clickCamera();
-
-            RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
-                    .newBuilder()
-                    .setX(marsArchitect.getRobot().getLocation().x)
-                    .setY(marsArchitect.getRobot().getLocation().y).build();
-
-            RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
-
-            RoverStatusOuterClass.RoverStatus status = null;
-            if (cameraShot != null) {
-                System.out.println("Camera shot was not null");
-                status = rBuilder.setBatteryLevel(rover.getBattery()
-                                                          .getPrimaryPowerUnits())
-                        .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera used here")
-                        .setModuleMessage(ByteString.copyFrom(cameraShot)).setSCET(System
-                                                                                           .currentTimeMillis())
-                        .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
-            } else {
-                System.out.println("Camera shot was null");
-                status = rBuilder.setBatteryLevel(rover.getBattery()
-                                                          .getPrimaryPowerUnits())
-                        .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera wasn't able to take " +
-                                                                                             "a " +
-                                                                                             "shot. " +
-                                                                                             "Sorry earth!")
-                        .setSCET(System
-                                         .currentTimeMillis())
-                        .setModuleReporting(ModuleDirectory.Module.CAMERA_SENSOR.getValue()).build();
-            }
-
-            logger.debug(status.toString());
-
-            rover.getMarsArchitect().returnSurfaceToNormal();
-            rover.state = rover.transmittingState;
-            rover.transmitMessage(status.toByteArray());
-        }
-
-            /* Flip the flag so the sensor can perform its last operation */
-        rover.setEquipmentEOL(false);
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
