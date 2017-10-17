@@ -5,7 +5,7 @@ package space.exploration.mars.rover.dataUplink;
 message WeatherPayload {
     string terrestrialDate = 1;
     int32 sol = 2;
-    int32 ls = 3;
+    double ls = 3;
     double minTemp = 4;
     double minTemFahrenheit = 5;
     double maxTemp = 6;
@@ -17,4 +17,6 @@ message WeatherPayload {
     string season = 12;
     string sunrise = 13;
     string sunset = 14;
+    double windSpeed = 15;
+    double windDirection = 16;
 }
