@@ -703,3 +703,89 @@
 30835989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
 30836992 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
 30836992 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+30989517 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508158956498,8,ClickCamera Current instructionQueue length = 0
+30992535 [Thread-2] ERROR space.exploration.mars.rover.dataUplink.QueryService  - IOException
+java.net.UnknownHostException: api.nasa.gov
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:668)
+	at sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1138)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1032)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1546)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at space.exploration.mars.rover.dataUplink.QueryService.getResponseAsString(QueryService.java:82)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:74)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:498)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:86)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+30992540 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio receive operation encountered an exception
+java.lang.NullPointerException
+	at space.exploration.mars.rover.dataUplink.QueryService.getResponseAsString(QueryService.java:91)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:74)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:498)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:86)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+31017996 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+31024019 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508158991000,10,MeasureWeather Current instructionQueue length = 0
+31024020 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+31024020 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+31024022 [pool-4-thread-1] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - IOException 
+java.net.UnknownHostException: marsweather.ingenology.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:339)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:357)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1202)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1138)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1032)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:966)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1546)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:44)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:56)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:295)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:94)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.kernel.Rover.processPendingMessageQueue(Rover.java:130)
+	at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$1.run(RoverGarbageCollector.java:56)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+31112879 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+31227087 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+31339975 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+31473309 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+31594033 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+31704614 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+31841732 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+31962917 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+32077791 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+32201679 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+32328864 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+32443376 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
+32553761 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Adding message to the insturction Queue, current length = 0
