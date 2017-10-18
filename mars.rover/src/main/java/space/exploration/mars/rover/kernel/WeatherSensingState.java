@@ -42,8 +42,8 @@ public class WeatherSensingState implements State {
     public void senseWeather() {
         logger.info("Will get mars weather measurements");
         try {
-            WeatherAnimationEngine weatherAnimationEngine = new WeatherAnimationEngine(rover.getMarsConfig(), rover
-                    .getMarsArchitect().getRobot().getLocation(), 10, 25);
+            WeatherAnimationEngine weatherAnimationEngine = rover.getMarsArchitect().getWeatherEngine();
+            weatherAnimationEngine.updateLocation(rover.getMarsArchitect().getRobot().getLocation());
             weatherAnimationEngine.renderWeatherAnimation();
             rover.setState(rover.getTransmittingState());
             rover.transmitMessage(rover.getWeatherSensor().getWeather());
