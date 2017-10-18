@@ -27,12 +27,11 @@ public class WeatherAnimationEngine {
     }
 
     public void renderWeatherAnimation() {
-        this.weatherScanCell = new WeatherScanCell(marsConfig, location);
         JLayeredPane contentPane = AnimationUtil.getContent(marsConfig);
-        contentPane.add(weatherScanCell, Cell.ROBOT_DEPTH);
+        //contentPane.add(robot, Cell.ROBOT_DEPTH);
         int NUM_FLASHES = 10;
         for (int i = 0; i < NUM_FLASHES; i++) {
-            weatherScanCell.setLocation(location);
+            WeatherScanCell weatherScanCell = new WeatherScanCell(marsConfig,location);
             contentPane.add(weatherScanCell, new Integer(Cell.ROBOT_DEPTH + 1));
             marsSurface.setContentPane(contentPane);
             marsSurface.setVisible(true);
@@ -43,6 +42,7 @@ public class WeatherAnimationEngine {
             }
             contentPane.remove(weatherScanCell);
 
+            weatherScanCell.setVisible(false);
             contentPane.add(weatherScanCell, new Integer(Cell.ROBOT_DEPTH + 1));
             marsSurface.setContentPane(contentPane);
             marsSurface.setVisible(true);
