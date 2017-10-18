@@ -51,9 +51,6 @@ public class MovingState implements State {
     public void exploreArea() {
     }
 
-    public void activateCamera() {
-    }
-
     public void hibernate() {
     }
 

@@ -303,10 +303,6 @@ public class Rover {
         state.receiveMessage(message);
     }
 
-    public synchronized void activateCamera() {
-        state.activateCamera();
-    }
-
     public synchronized void scanSurroundings() {
         state.scanSurroundings();
     }

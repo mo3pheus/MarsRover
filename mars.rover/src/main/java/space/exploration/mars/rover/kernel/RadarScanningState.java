@@ -63,11 +63,6 @@ public class RadarScanningState implements State {
     }
 
     @Override
-    public void activateCamera() {
-        RoverUtil.roverSystemLog(logger, " Invalid action error. Can not click photos in current state.", "ERROR");
-    }
-
-    @Override
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         RoverUtil.roverSystemLog(logger, " Invalid action error. Can not move in current state.", "ERROR");
     }

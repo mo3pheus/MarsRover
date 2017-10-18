@@ -108,10 +108,6 @@ public class ListeningState implements State {
         logger.error("Can not explore area while in the listening state");
     }
 
-    public void activateCamera() {
-        logger.error("Can not perform experiments while in the listening state");
-    }
-
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         logger.error("Can not move while in the listening state");
     }

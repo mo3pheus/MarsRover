@@ -9,8 +9,6 @@ public interface State {
 
     void exploreArea();
 
-    void activateCamera();
-
     void move(InstructionPayloadOuterClass.InstructionPayload payload);
 
     void hibernate();

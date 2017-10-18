@@ -48,10 +48,6 @@ public class HibernatingState implements State {
         logger.debug("Can not explore area in hibernating state.");
     }
 
-    public void activateCamera() {
-        logger.debug("Can not activate camera in hibernating state.");
-    }
-
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         logger.debug("Can not move in hibernating state.");
     }

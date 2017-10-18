@@ -51,12 +51,6 @@ public class PhotographingState implements State {
     }
 
     @Override
-    public void activateCamera() {
-        logger.error("This call has been deprecated");
-        rover.setState(rover.getListeningState());
-    }
-
-    @Override
     public void activateCameraById(String camId) {
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 

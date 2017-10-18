@@ -3,10 +3,7 @@ package space.exploration.mars.rover.kernel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass;
-import space.exploration.mars.rover.dataUplink.WeatherData;
-import space.exploration.mars.rover.dataUplink.WeatherQueryService;
-import space.exploration.mars.rover.utils.RoverUtil;
+import space.exploration.mars.rover.animation.WeatherAnimationEngine;
 
 public class WeatherSensingState implements State {
     private Logger logger = LoggerFactory.getLogger(WeatherSensingState.class);
@@ -18,7 +15,7 @@ public class WeatherSensingState implements State {
 
     @Override
     public void receiveMessage(byte[] message) {
-        logger.info("Adding message to the insturction Queue, current length = " + rover.getInstructionQueue().size());
+        logger.info("Adding message to the instruction Queue, current length = " + rover.getInstructionQueue().size());
     }
 
     @Override
@@ -28,11 +25,6 @@ public class WeatherSensingState implements State {
 
     @Override
     public void exploreArea() {
-
-    }
-
-    @Override
-    public void activateCamera() {
 
     }
 
@@ -50,24 +42,11 @@ public class WeatherSensingState implements State {
     public void senseWeather() {
         logger.info("Will get mars weather measurements");
         try {
-            WeatherQueryService weatherQueryService = new WeatherQueryService();
-            weatherQueryService.executeQuery();
-            WeatherData.WeatherPayload weatherPayload = (WeatherData.WeatherPayload) weatherQueryService.getResponse();
-
-            logger.debug(weatherPayload.toString());
-
+            WeatherAnimationEngine weatherAnimationEngine = new WeatherAnimationEngine(rover.getMarsConfig(), rover
+                    .getMarsArchitect().getRobot().getLocation(), 10, 25);
+            weatherAnimationEngine.renderWeatherAnimation();
             rover.setState(rover.getTransmittingState());
-
-            RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
-            rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
-            rBuilder.setModuleMessage(weatherPayload.toByteString());
-            rBuilder.setModuleReporting(ModuleDirectory.Module.WEATHER_SENSOR.getValue());
-            rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
-            rBuilder.setNotes("Weather from Curiosity Actual");
-            rBuilder.setSolNumber(weatherPayload.getSol());
-            rBuilder.setSCET(System.currentTimeMillis());
-
-            rover.transmitMessage(rBuilder.build().toByteArray());
+            rover.transmitMessage(rover.getWeatherSensor().getWeather());
         } catch (Exception e) {
             logger.error("Error while requesting weather data.", e);
             rover.setState(rover.getListeningState());

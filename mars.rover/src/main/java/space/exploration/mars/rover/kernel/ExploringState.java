@@ -70,9 +70,6 @@ public class ExploringState implements State {
         rover.setEquipmentEOL(false);
     }
 
-    public void activateCamera() {
-    }
-
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
 

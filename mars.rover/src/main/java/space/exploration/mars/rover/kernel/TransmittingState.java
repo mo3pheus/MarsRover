@@ -54,11 +54,6 @@ public class TransmittingState implements State {
 
     }
 
-    public void activateCamera() {
-        // TODO Auto-generated method stub
-
-    }
-
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
 

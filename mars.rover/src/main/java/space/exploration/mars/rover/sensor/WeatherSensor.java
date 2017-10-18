@@ -3,75 +3,66 @@ package space.exploration.mars.rover.sensor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
+import space.exploration.mars.rover.dataUplink.WeatherData;
+import space.exploration.mars.rover.dataUplink.WeatherQueryService;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by skorgao on 10/10/2017.
  */
 public class WeatherSensor implements IsEquipment {
 
-    private static final String WEATHER_URL_PROPERTY    = "mars.rover.weather.station.url";
-    private static final String WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
-    private              String url                     = null;
-    private              Logger logger                  = LoggerFactory.getLogger(WeatherSensor.class);
-    private              int    lifeSpan                = 0;
-    private              Rover  rover                   = null;
+    private static final String              WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
+    private              String              url                     = null;
+    private              Logger              logger                  = LoggerFactory.getLogger(WeatherSensor.class);
+    private              WeatherQueryService rems                    = null;
+    private              int                 fullLifeSpan            = 0;
+    private              int                 lifeSpan                = 0;
+    private              Rover               rover                   = null;
+    private              double              queryRate               = 0.0d;
+    private              long                createTimeStamp         = System.currentTimeMillis();
 
     public WeatherSensor(Rover rover) {
         this.rover = rover;
-        this.url = rover.getMarsConfig().getProperty(WEATHER_URL_PROPERTY);
         this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(WEATHER_SENSOR_LIFESPAN));
+        this.fullLifeSpan = lifeSpan;
+        rems = new WeatherQueryService();
     }
 
     public byte[] getWeather() {
-        BufferedReader                            in       = null;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+        lifeSpan--;
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder       = getGeneralRoverStatus();
+        WeatherData.WeatherPayload                weatherPayload = null;
+
         try {
-            URL urlObj = new URL(url);
-            HttpURLConnection dataLink = (HttpURLConnection) urlObj
-                    .openConnection();
-            dataLink.setRequestMethod("GET");
-            int responseCode = dataLink.getResponseCode();
-
-            logger.info("Response from weather service = " + Integer.toString(responseCode));
-            logger.info("Content type is = " + dataLink.getContentType());
-
-            in = new BufferedReader(new InputStreamReader(dataLink.getInputStream()));
-            String       line     = null;
-            StringBuffer response = new StringBuffer();
-            while ((line = in.readLine()) != null) {
-                response.append(line);
-            }
-            rBuilder.setSCET(System.currentTimeMillis());
-            rBuilder.setSolNumber(rover.getSol());
-            rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
-            rBuilder.setModuleReporting(ModuleDirectory.Module.WEATHER_SENSOR.getValue());
-            rBuilder.setNotes(response.toString());
-            rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
-
-            lifeSpan--;
-        } catch (MalformedURLException e) {
-            logger.error("Malformed url ", e);
-        } catch (IOException e) {
-            logger.error("IOException ", e);
-        } finally {
-            try {
-                in.close();
-            } catch (IOException e) {
-                logger.error("IOException", e);
-            }
+            /*rems -> RoverEnvironmentalMonitoringStation */
+            rems.executeQuery();
+            weatherPayload = (WeatherData.WeatherPayload) rems.getResponse();
+        } catch (Exception e) {
+            logger.error("Weather Service had an exception.", e);
         }
+
+        if (weatherPayload != null) {
+            rBuilder.setModuleMessage(weatherPayload.toByteString());
+            rBuilder.setNotes("Curiosity Actual");
+        } else {
+            rBuilder.setNotes("No weather data at this time");
+        }
+
+        double hoursElapsed = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis() - createTimeStamp);
+        queryRate = (double) (fullLifeSpan - lifeSpan) / hoursElapsed;
+        logger.info("Current weatherQueryRate/hour = " + queryRate + " max allowed = 1000.0/hr");
+
         return rBuilder.build().toByteArray();
+    }
+
+    public double getQueryRate() {
+        return queryRate;
     }
 
     @Override
@@ -87,5 +78,14 @@ public class WeatherSensor implements IsEquipment {
     @Override
     public boolean isEndOfLife() {
         return (lifeSpan <= 0);
+    }
+
+    private RoverStatusOuterClass.RoverStatus.Builder getGeneralRoverStatus() {
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+        rBuilder.setModuleReporting(ModuleDirectory.Module.WEATHER_SENSOR.getValue());
+        rBuilder.setSCET(System.currentTimeMillis());
+        rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
+        rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
+        return rBuilder;
     }
 }

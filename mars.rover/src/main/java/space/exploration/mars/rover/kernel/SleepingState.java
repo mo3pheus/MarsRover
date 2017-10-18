@@ -46,11 +46,6 @@ public class SleepingState implements State {
     }
 
     @Override
-    public void activateCamera() {
-        logger.error("Can not take pictures from sleeping state");
-    }
-
-    @Override
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
         logger.error("Rover can not move while sleeping");
     }

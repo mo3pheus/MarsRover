@@ -54,11 +54,6 @@ public class SensingState implements State {
 
     }
 
-    public void activateCamera() {
-        // TODO Auto-generated method stub
-
-    }
-
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
 
