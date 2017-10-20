@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.dataUplink;
+package space.exploration.mars.rover.service;
 
 public class PhotoQueryService extends QueryService {
     private String camId  = "";

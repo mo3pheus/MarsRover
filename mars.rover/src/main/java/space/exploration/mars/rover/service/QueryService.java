@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.dataUplink;
+package space.exploration.mars.rover.service;
 
 import com.google.gson.JsonObject;
 import org.joda.time.DateTime;
@@ -21,6 +21,7 @@ public class QueryService implements isSpaceQuery {
     protected DateTime earthStartDate;
     protected DateTime earthEndDate;
     protected String   earthDate;
+    protected String   earthDateEnd;
 
     public static final String            DATE_FORMAT       = "YYYY-MM-dd";
     protected           DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(DATE_FORMAT);
@@ -35,13 +36,15 @@ public class QueryService implements isSpaceQuery {
     public void setEarthStartDate(long startMs) {
         this.earthStartDate = new DateTime(startMs);
         this.earthDate = dateTimeFormatter.print(startMs);
-        logger.debug("StartMS suppllied = " + startMs + " jodaInternalEarthDate = " + earthStartDate + " " +
+        logger.debug("StartMS supplied = " + startMs + " jodaInternalEarthDate = " + earthStartDate + " " +
                              "curiosityEarthDate = " + earthDate);
     }
 
     @Override
     public void setEarthEndDate(long endMs) {
         this.earthEndDate = new DateTime(endMs);
+        this.earthDateEnd = dateTimeFormatter.print(endMs);
+        logger.debug("EndDateMS supplied = " + endMs + " internal date = " + earthDateEnd);
     }
 
     @Override

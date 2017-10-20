@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.dataUplink;
+package space.exploration.mars.rover.service;
 
 import junit.framework.TestCase;
 import org.junit.Test;

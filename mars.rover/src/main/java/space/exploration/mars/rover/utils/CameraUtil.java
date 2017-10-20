@@ -8,7 +8,7 @@ import com.google.protobuf.ByteString;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.dataUplink.CameraPayload;
+import space.exploration.mars.rover.service.CameraPayload;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

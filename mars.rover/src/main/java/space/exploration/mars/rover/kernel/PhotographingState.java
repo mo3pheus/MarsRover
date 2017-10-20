@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
-import space.exploration.mars.rover.dataUplink.CameraPayload;
-import space.exploration.mars.rover.dataUplink.PhotoQueryService;
+import space.exploration.mars.rover.service.CameraPayload;
+import space.exploration.mars.rover.service.PhotoQueryService;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.utils.CameraUtil;
 

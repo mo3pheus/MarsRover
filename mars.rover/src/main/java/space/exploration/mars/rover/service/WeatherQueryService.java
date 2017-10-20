@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.dataUplink;
+package space.exploration.mars.rover.service;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -11,7 +11,7 @@ public class WeatherQueryService extends QueryService {
 
     @Override
     public String getQueryString() {
-        return "http://marsweather.ingenology.com/v1/latest/";
+        return "http://marsweather.ingenology.com/v1/archive/?";
     }
 
     @Override
@@ -21,4 +21,6 @@ public class WeatherQueryService extends QueryService {
 
         return weatherPayload;
     }
+
+
 }

@@ -3,8 +3,8 @@ package space.exploration.mars.rover.sensor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
-import space.exploration.mars.rover.dataUplink.WeatherData;
-import space.exploration.mars.rover.dataUplink.WeatherQueryService;
+import space.exploration.mars.rover.service.WeatherData;
+import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
@@ -18,7 +18,6 @@ import java.util.concurrent.TimeUnit;
 public class WeatherSensor implements IsEquipment {
 
     private static final String              WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
-    private              String              url                     = null;
     private              Logger              logger                  = LoggerFactory.getLogger(WeatherSensor.class);
     private              WeatherQueryService rems                    = null;
     private              int                 fullLifeSpan            = 0;
@@ -55,8 +54,9 @@ public class WeatherSensor implements IsEquipment {
         }
 
         double hoursElapsed = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis() - createTimeStamp);
-        queryRate = (double) (fullLifeSpan - lifeSpan) / hoursElapsed;
+        queryRate = (hoursElapsed > 0) ? (double) (fullLifeSpan - lifeSpan) / hoursElapsed : 0.0d;
         logger.info("Current weatherQueryRate/hour = " + queryRate + " max allowed = 1000.0/hr");
+
 
         return rBuilder.build().toByteArray();
     }

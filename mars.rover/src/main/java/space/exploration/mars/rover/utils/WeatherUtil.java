@@ -2,7 +2,11 @@ package space.exploration.mars.rover.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.dataUplink.WeatherData;
+import space.exploration.mars.rover.service.WeatherData;
+
+import javax.swing.text.Document;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WeatherUtil {
     private static Logger logger = LoggerFactory.getLogger(WeatherUtil.class);
@@ -90,5 +94,14 @@ public class WeatherUtil {
         relevantText = relevantText.replaceAll("}", "");
         relevantText = relevantText.replaceAll("\\{", "");
         return relevantText;
+    }
+
+    public static List<WeatherData.WeatherPayload> getWeatherPayload(String weatherData){
+        List<WeatherData.WeatherPayload> tempWeatherData = new ArrayList<>();
+
+
+
+
+        return tempWeatherData;
     }
 }
