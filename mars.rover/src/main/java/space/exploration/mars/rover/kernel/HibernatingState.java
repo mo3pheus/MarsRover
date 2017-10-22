@@ -56,7 +56,7 @@ public class HibernatingState implements State {
         logger.debug("Already in hibernating state.");
     }
 
-    public void senseWeather() {
+    public void senseWeather(boolean multipleDays) {
         logger.debug("Should already be recharging the battery");
     }
 

@@ -13,7 +13,7 @@ public interface State {
 
     void hibernate();
 
-    void senseWeather();
+    void senseWeather(boolean multipleDays);
 
     void scanSurroundings();
 

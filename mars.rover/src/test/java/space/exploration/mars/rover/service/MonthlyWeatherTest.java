@@ -2,7 +2,8 @@ package space.exploration.mars.rover.service;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
+import space.exploration.mars.rover.utils.WeatherUtil;
 
 public class MonthlyWeatherTest {
 
@@ -18,18 +19,33 @@ public class MonthlyWeatherTest {
 
 
     public static void main(String[] args) {
+        MarsMissionLaunch.configureLogging();
         setUp();
         System.out.println(weatherLongTermQueryService.getQueryString());
         weatherLongTermQueryService.executeQuery();
 
         String queryAsString = weatherLongTermQueryService.getResponseAsString();
-        System.out.println(weatherLongTermQueryService.getResponseAsString());
+        System.out.println(queryAsString);
 
-        Document document = Jsoup.parse(queryAsString);
+        Document document = Jsoup.parseBodyFragment(queryAsString);
+        System.out.println("=====================================================");
+        System.out.println(document.body().text());
 
-        for (Element e : document.body().getAllElements()) {
-            System.out.println(e);
+        System.out.println("=====================================================");
+
+        String textToParse = document.body().text();
+        String content     = textToParse.substring(textToParse.lastIndexOf("results"), textToParse.lastIndexOf("]"));
+        System.out.println("Proposed Content = " + content);
+
+        for(String dayWeather: content.split("},")){
+            System.out.println(WeatherUtil.getweatherPayload(dayWeather));
         }
+
+//        int      i        = 0;
+//        for (Element e : document.body().getAllElements()) {
+//            System.out.println(i++ + " " + e.toString() + " Element tag name = " + e.tag());
+//
+//        }
     }
 
 //

@@ -76,7 +76,7 @@ public class ExploringState implements State {
     public void hibernate() {
     }
 
-    public void senseWeather() {
+    public void senseWeather(boolean multipleDays) {
     }
 
     public void scanSurroundings() {

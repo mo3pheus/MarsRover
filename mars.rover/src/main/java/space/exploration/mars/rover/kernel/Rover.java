@@ -291,8 +291,8 @@ public class Rover {
         this.previousRovers = previousRovers;
     }
 
-    public synchronized void senseWeather() {
-        state.senseWeather();
+    public synchronized void senseWeather(boolean multipleDays) {
+        state.senseWeather(multipleDays);
     }
 
     public synchronized Camera getCamera() {

@@ -73,7 +73,7 @@ public class RadarScanningState implements State {
     }
 
     @Override
-    public void senseWeather() {
+    public void senseWeather(boolean multipleDays) {
         RoverUtil.roverSystemLog(logger, " Invalid action error. Can not senseWeather in current state.", "ERROR");
     }
 

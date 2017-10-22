@@ -1,10 +1,11 @@
 package space.exploration.mars.rover.utils;
 
+import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.service.SeasonalWeather;
 import space.exploration.mars.rover.service.WeatherData;
 
-import javax.swing.text.Document;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +57,12 @@ public class WeatherUtil {
         }
 
         try {
+            wBuilder.setTerrestrialDate(getValue(weatherData, "\"terrestrial_date\":"));
+        } catch (NumberFormatException nfe) {
+            logger.info("terrestrialDate information not present", nfe);
+        }
+
+        try {
             wBuilder.setWindSpeed(Double.parseDouble(getValue(weatherData, "\"wind_speed\":")));
         } catch (NumberFormatException nfe) {
             logger.info("wind_speed information not present", nfe);
@@ -86,6 +93,10 @@ public class WeatherUtil {
             endPosn = valString.lastIndexOf("}");
         }
 
+        if (endPosn == -1) {
+            endPosn = valString.lastIndexOf("\"");
+        }
+
         String relevantText = body.substring(startPosn, startPosn + endPosn);
         relevantText = relevantText.replaceAll(tag, "");
         relevantText = relevantText.replaceAll("\"", "");
@@ -96,12 +107,29 @@ public class WeatherUtil {
         return relevantText;
     }
 
-    public static List<WeatherData.WeatherPayload> getWeatherPayload(String weatherData){
+    public static List<WeatherData.WeatherPayload> getWeatherPayload(String weatherData) {
         List<WeatherData.WeatherPayload> tempWeatherData = new ArrayList<>();
 
-
-
-
+        org.jsoup.nodes.Document document    = Jsoup.parseBodyFragment(weatherData);
+        String                   textToParse = document.body().text();
+        String                   content     = textToParse.substring(textToParse.lastIndexOf("results"), textToParse
+                .lastIndexOf("]"));
+        for (String dayWeather : content.split("},")) {
+            WeatherData.WeatherPayload weatherPayload = WeatherUtil.getweatherPayload(dayWeather);
+            tempWeatherData.add(weatherPayload);
+        }
         return tempWeatherData;
+    }
+
+    public static SeasonalWeather.SeasonalWeatherPayload getSeasonalWeatherPayload(String weatherData) {
+        List<WeatherData.WeatherPayload>               seasonalWeatherData = getWeatherPayload(weatherData);
+        SeasonalWeather.SeasonalWeatherPayload.Builder sBuilder            = SeasonalWeather.SeasonalWeatherPayload
+                .newBuilder();
+
+        for (WeatherData.WeatherPayload weatherPayload : seasonalWeatherData) {
+            sBuilder.addWeatherReports(weatherPayload);
+        }
+
+        return sBuilder.build();
     }
 }

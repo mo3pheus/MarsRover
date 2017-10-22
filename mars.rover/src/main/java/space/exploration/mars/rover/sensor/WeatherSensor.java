@@ -3,12 +3,14 @@ package space.exploration.mars.rover.sensor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.communication.RoverStatusOuterClass;
-import space.exploration.mars.rover.service.WeatherData;
-import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.service.SeasonalWeather;
+import space.exploration.mars.rover.service.WeatherData;
+import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.utils.RoverUtil;
+import space.exploration.mars.rover.utils.WeatherUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -60,6 +62,39 @@ public class WeatherSensor implements IsEquipment {
 
         return rBuilder.build().toByteArray();
     }
+
+    public byte[] getWeather(boolean multipleDays) {
+        if (!multipleDays) {
+            return getWeather();
+        }
+
+        lifeSpan--;
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder               = getGeneralRoverStatus();
+        SeasonalWeather.SeasonalWeatherPayload    seasonalWeatherPayload = null;
+
+        try {
+            /*rems -> RoverEnvironmentalMonitoringStation */
+            rems.executeQuery();
+            seasonalWeatherPayload = WeatherUtil.getSeasonalWeatherPayload(rems.getResponseAsString());
+        } catch (Exception e) {
+            logger.error("Weather Service had an exception.", e);
+        }
+
+        if (seasonalWeatherPayload != null) {
+            rBuilder.setModuleMessage(seasonalWeatherPayload.toByteString());
+            rBuilder.setNotes("Curiosity Actual");
+        } else {
+            rBuilder.setNotes("No weather data at this time");
+        }
+
+        double hoursElapsed = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis() - createTimeStamp);
+        queryRate = (hoursElapsed > 0) ? (double) (fullLifeSpan - lifeSpan) / hoursElapsed : 0.0d;
+        logger.info("Current weatherQueryRate/hour = " + queryRate + " max allowed = 1000.0/hr");
+
+
+        return rBuilder.build().toByteArray();
+    }
+
 
     public double getQueryRate() {
         return queryRate;

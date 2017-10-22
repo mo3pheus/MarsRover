@@ -39,7 +39,7 @@ public class WeatherSensingState implements State {
     }
 
     @Override
-    public void senseWeather() {
+    public void senseWeather(boolean multipleDays) {
         logger.info("Will get mars weather measurements");
         try {
             WeatherAnimationEngine weatherAnimationEngine = rover.getMarsArchitect().getWeatherEngine();

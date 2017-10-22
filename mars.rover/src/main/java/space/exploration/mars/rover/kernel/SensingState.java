@@ -63,7 +63,7 @@ public class SensingState implements State {
 
     }
 
-    public void senseWeather() {
+    public void senseWeather(boolean multipleDays) {
         // TODO Auto-generated method stub
 
     }

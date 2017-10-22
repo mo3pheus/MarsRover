@@ -91,7 +91,8 @@ public class ListeningState implements State {
                 } else if (tp.getRoverModule() == Module.WEATHER_SENSOR.getValue()) {
                     logger.info("Rover will try to get weather measurements - actual Curiosity Data");
                     rover.state = rover.weatherSensingState;
-                    rover.senseWeather();
+                    boolean seasonalWeatherRequest = tp.getAction().equals("GetSeasonalWeather") ? true : false;
+                    rover.senseWeather(seasonalWeatherRequest);
                 }
             }
         } catch (InvalidProtocolBufferException e) {
@@ -115,7 +116,7 @@ public class ListeningState implements State {
     public void hibernate() {
     }
 
-    public void senseWeather() {
+    public void senseWeather(boolean multipleDays) {
     }
 
     public void scanSurroundings() {

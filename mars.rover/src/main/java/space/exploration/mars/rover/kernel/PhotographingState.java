@@ -115,32 +115,25 @@ public class PhotographingState implements State {
 
 
     public void hibernate() {
-
     }
 
-    public void senseWeather() {
-
+    public void senseWeather(boolean multipleDays) {
     }
 
     public void scanSurroundings() {
-
     }
 
     public void activateCameraById() {
-
     }
 
     public void performRadarScan() {
-
     }
 
     @Override
     public void sleep() {
-
     }
 
     @Override
     public void wakeUp() {
-
     }
 }
