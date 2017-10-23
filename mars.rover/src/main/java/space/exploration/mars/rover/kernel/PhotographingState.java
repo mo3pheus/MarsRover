@@ -67,7 +67,7 @@ public class PhotographingState implements State {
         photoQueryService.setCamId(camId);
         photoQueryService.setAuthenticationKey(rover.getNasaApiAuthKey());
 
-        int offsetDays = ThreadLocalRandom.current().nextInt(0, 14);
+        int offsetDays = ThreadLocalRandom.current().nextInt(0, 140);
         photoQueryService.setEarthStartDate(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(offsetDays));
         photoQueryService.executeQuery();
 

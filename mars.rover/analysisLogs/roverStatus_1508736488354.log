@@ -1,0 +1,277 @@
+46497 [Thread-2] DEBUG space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1508736305422
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "MARDI"
+}
+
+46650 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+48653 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+50654 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+52561 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508736494473,8,ClickCamera Current instructionQueue length = 0
+52655 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+54657 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+55648 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - StartMS supplied = 1508045297503 jodaInternalEarthDate = 2017-10-15T00:28:17.503-05:00 curiosityEarthDate = 2017-10-15
+55648 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-15&camera=MARDI&api_key=DEMO_KEY
+55648 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-15&camera=MARDI&api_key=DEMO_KEY
+55649 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-15&camera=MARDI&api_key=DEMO_KEY
+56249 [Thread-2] DEBUG space.exploration.mars.rover.kernel.PhotographingState  - Query String::https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-15&camera=MARDI&api_key=DEMO_KEY
+56249 [Thread-2] DEBUG space.exploration.mars.rover.kernel.PhotographingState  - Response String::{"photos":[]}
+56255 [Thread-2] DEBUG space.exploration.mars.rover.utils.CameraUtil  - Camera Module - archiveLocation = /home/sanket/Documents/workspace/MarsRover/mars.rover/dataArchives/MARDI
+56660 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+58663 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+60664 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+62667 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+64670 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+66670 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+68673 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+70675 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+72676 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+74678 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+76681 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+78683 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+80398 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f2dbff96c0018, packet:: clientPath:null serverPath:null finished:false header:: 23,5  replyHeader:: 23,1556,0  request:: '/consumers/space.exploration.mars.newRover/offsets/earth_to_curiosity_3/0,#343532,-1  response:: s{66,1556,1508301232237,1508736522308,448,0,0,0,3,0,66} 
+80399 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 2ms
+80540 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508736471006 Rover state = Listening State
+80540 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508736522452 Rover state = Listening State
+80540 [Thread-2] DEBUG kafka.consumer.PartitionTopicInfo  - reset consume offset of earth_to_curiosity_3:0: fetched offset = 457: consumed offset = 453 to 453
+80553 [pool-2-thread-1] DEBUG space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1508736522456
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9997
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 999
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Mars Weather Station"
+  value: 100
+}
+batteryLevel: 979
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 525
+  y: 100
+}
+
+82399 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+84400 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+86402 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+88405 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 1ms
+90407 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+92410 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+94412 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+96414 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+98416 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+100418 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+100690 [Thread-2] DEBUG space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1508736307707
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "MARDI"
+}
+
+102421 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+104424 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+106426 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+106728 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508736548640,8,ClickCamera Current instructionQueue length = 0
+108426 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+109754 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - StartMS supplied = 1508304551666 jodaInternalEarthDate = 2017-10-18T00:29:11.666-05:00 curiosityEarthDate = 2017-10-18
+109754 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-18&camera=MARDI&api_key=DEMO_KEY
+109755 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-18&camera=MARDI&api_key=DEMO_KEY
+109755 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-18&camera=MARDI&api_key=DEMO_KEY
+110036 [Thread-2] DEBUG space.exploration.mars.rover.kernel.PhotographingState  - Query String::https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-18&camera=MARDI&api_key=DEMO_KEY
+110036 [Thread-2] DEBUG space.exploration.mars.rover.kernel.PhotographingState  - Response String::{"photos":[]}
+110040 [Thread-2] DEBUG space.exploration.mars.rover.utils.CameraUtil  - Camera Module - archiveLocation = /home/sanket/Documents/workspace/MarsRover/mars.rover/dataArchives/MARDI
+110429 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+112431 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+114432 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+116436 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+118437 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+120438 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+122441 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+124445 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 1ms
+125785 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508736531005 Rover state = Listening State
+125785 [Thread-2] DEBUG kafka.consumer.PartitionTopicInfo  - reset consume offset of earth_to_curiosity_3:0: fetched offset = 457: consumed offset = 454 to 454
+125785 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508736567697 Rover state = Listening State
+125787 [pool-2-thread-1] DEBUG space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1508736567697
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9994
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 998
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Mars Weather Station"
+  value: 100
+}
+batteryLevel: 958
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 525
+  y: 100
+}
+
+126446 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+128449 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+130452 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+132455 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+134458 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+136462 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 1ms
+138464 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+140392 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f2dbff96c0018, packet:: clientPath:null serverPath:null finished:false header:: 24,5  replyHeader:: 24,1558,0  request:: '/consumers/space.exploration.mars.newRover/offsets/earth_to_curiosity_3/0,#343534,-1  response:: s{66,1558,1508301232237,1508736582302,449,0,0,0,3,0,66} 
+140393 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 4ms
+142391 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+144393 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+146395 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+147059 [Thread-2] DEBUG space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1508736312513
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "FHAZ"
+}
+
+148398 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+150398 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+152402 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+153087 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508736594999,8,ClickCamera Current instructionQueue length = 0
+154403 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+156113 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - StartMS supplied = 1508650198025 jodaInternalEarthDate = 2017-10-22T00:29:58.025-05:00 curiosityEarthDate = 2017-10-22
+156114 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-22&camera=FHAZ&api_key=DEMO_KEY
+156114 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-22&camera=FHAZ&api_key=DEMO_KEY
+156114 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-22&camera=FHAZ&api_key=DEMO_KEY
+156404 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+156444 [Thread-2] DEBUG space.exploration.mars.rover.kernel.PhotographingState  - Query String::https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-22&camera=FHAZ&api_key=DEMO_KEY
+156445 [Thread-2] DEBUG space.exploration.mars.rover.kernel.PhotographingState  - Response String::{"photos":[]}
+156449 [Thread-2] DEBUG space.exploration.mars.rover.utils.CameraUtil  - Camera Module - archiveLocation = /home/sanket/Documents/workspace/MarsRover/mars.rover/dataArchives/FHAZ
+158407 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+160409 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+162410 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+164413 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+166416 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+168418 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+170421 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+172423 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+172999 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508736591006 Rover state = Listening State
+172999 [Thread-2] DEBUG kafka.consumer.PartitionTopicInfo  - reset consume offset of earth_to_curiosity_3:0: fetched offset = 457: consumed offset = 455 to 455
+174425 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+175991 [pool-2-thread-1] DEBUG space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1508736617901
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9991
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 997
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Mars Weather Station"
+  value: 100
+}
+batteryLevel: 937
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 525
+  y: 100
+}
+
+176426 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+178428 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+180430 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+182433 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+184434 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+186436 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+188437 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+190438 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+190957 [Thread-2] DEBUG space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1508736321738
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "CHEMCAM"
+}
+
+192440 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+194442 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+196443 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+196987 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508736638899,8,ClickCamera Current instructionQueue length = 0
+198444 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+200012 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - StartMS supplied = 1507786241924 jodaInternalEarthDate = 2017-10-12T00:30:41.924-05:00 curiosityEarthDate = 2017-10-12
+200013 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-12&camera=CHEMCAM&api_key=DEMO_KEY
+200013 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-12&camera=CHEMCAM&api_key=DEMO_KEY
+200013 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-12&camera=CHEMCAM&api_key=DEMO_KEY
+200304 [Thread-2] DEBUG space.exploration.mars.rover.kernel.PhotographingState  - Query String::https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-12&camera=CHEMCAM&api_key=DEMO_KEY
+200304 [Thread-2] DEBUG space.exploration.mars.rover.kernel.PhotographingState  - Response String::{"photos":[]}
+200308 [Thread-2] DEBUG space.exploration.mars.rover.utils.CameraUtil  - Camera Module - archiveLocation = /home/sanket/Documents/workspace/MarsRover/mars.rover/dataArchives/CHEMCAM
+200391 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f2dbff96c0018, packet:: clientPath:null serverPath:null finished:false header:: 25,5  replyHeader:: 25,1560,0  request:: '/consumers/space.exploration.mars.newRover/offsets/earth_to_curiosity_3/0,#343535,-1  response:: s{66,1560,1508301232237,1508736642301,450,0,0,0,3,0,66} 
+200391 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 2ms
+202395 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+204396 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+206397 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+208399 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+210401 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+212402 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+212935 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508736621005 Rover state = Listening State
+212935 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508736654847 Rover state = Listening State
+212935 [Thread-2] DEBUG kafka.consumer.PartitionTopicInfo  - reset consume offset of earth_to_curiosity_3:0: fetched offset = 457: consumed offset = 456 to 456
+214404 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+216407 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+218408 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms
+220410 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0018 after 0ms

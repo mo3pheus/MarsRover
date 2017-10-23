@@ -14,7 +14,7 @@ public class PhotoQueryServiceTest extends TestCase {
     public void setUp() {
         MarsMissionLaunch.configureLogging(true);
         photoQueryService.setAuthenticationKey("DEMO_KEY");
-        photoQueryService.setEarthStartDate(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(365));
+        photoQueryService.setEarthStartDate(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(360));
     }
 
     @org.junit.Test
@@ -34,5 +34,7 @@ public class PhotoQueryServiceTest extends TestCase {
             System.out.println("=================================");
             System.out.println(jsonElement);
         }
+
+        System.out.println(responseString);
     }
 }
