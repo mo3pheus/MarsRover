@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 /**
  * @author sanketkorgaonkar
@@ -62,7 +63,7 @@ public class TransmittingState implements State {
 
     }
 
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         // TODO Auto-generated method stub
 
     }

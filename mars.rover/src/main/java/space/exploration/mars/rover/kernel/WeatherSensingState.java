@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.WeatherAnimationEngine;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 public class WeatherSensingState implements State {
     private Logger logger = LoggerFactory.getLogger(WeatherSensingState.class);
@@ -39,14 +40,19 @@ public class WeatherSensingState implements State {
     }
 
     @Override
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         logger.info("Will get mars weather measurements");
         try {
             WeatherAnimationEngine weatherAnimationEngine = rover.getMarsArchitect().getWeatherEngine();
             weatherAnimationEngine.updateLocation(rover.getMarsArchitect().getRobot().getLocation());
             weatherAnimationEngine.renderWeatherAnimation();
             rover.setState(rover.getTransmittingState());
-            rover.transmitMessage(rover.getWeatherSensor().getWeather());
+
+            if (weatherQuery == null) {
+                rover.transmitMessage(rover.getWeatherSensor().getWeather());
+            } else {
+                rover.transmitMessage(rover.getWeatherSensor().getWeather(weatherQuery));
+            }
         } catch (Exception e) {
             logger.error("Error while requesting weather data.", e);
             rover.setState(rover.getListeningState());

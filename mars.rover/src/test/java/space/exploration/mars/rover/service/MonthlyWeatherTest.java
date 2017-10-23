@@ -13,13 +13,15 @@ public class MonthlyWeatherTest {
     private static       WeatherLongTermQueryService weatherLongTermQueryService = new WeatherLongTermQueryService();
 
     public static void setUp() {
-        weatherLongTermQueryService.setEarthEndDate(1508475600000l);
-        weatherLongTermQueryService.setEarthStartDate(1505883600000l);
+//        weatherLongTermQueryService.setEarthEndDate(1508475600000l);
+//        weatherLongTermQueryService.setEarthStartDate(1505883600000l);
+        weatherLongTermQueryService.setEarthStartDate("2017-09-01");
+        weatherLongTermQueryService.setEarthEndDate("2017-09-30");
     }
 
 
     public static void main(String[] args) {
-        MarsMissionLaunch.configureLogging();
+        MarsMissionLaunch.configureLogging(true);
         setUp();
         System.out.println(weatherLongTermQueryService.getQueryString());
         weatherLongTermQueryService.executeQuery();

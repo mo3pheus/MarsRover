@@ -14,7 +14,7 @@ public class WeatherLongTermQueryService extends QueryService {
         queryBuilder.append("http://marsweather.ingenology.com/v1/archive/?");
         queryBuilder.append("terrestrial_date_end=");
         queryBuilder.append(this.earthDateEnd).append("&");
-        queryBuilder.append("terrestrial_date_start=").append(this.earthDate);
+        queryBuilder.append("terrestrial_date_start=").append(this.erthStartDate);
         return queryBuilder.toString();
     }
 

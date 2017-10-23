@@ -9,7 +9,7 @@ public class WeatherQueryServiceTest extends TestCase {
 
     @Override
     public void setUp() {
-        MarsMissionLaunch.configureLogging();
+        MarsMissionLaunch.configureLogging(true);
         weatherQueryService = new WeatherQueryService();
         weatherQueryService.executeQuery();
     }

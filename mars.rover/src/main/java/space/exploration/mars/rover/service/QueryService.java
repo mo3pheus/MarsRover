@@ -16,12 +16,13 @@ import java.net.URL;
 
 public class QueryService implements isSpaceQuery {
 
-    protected HttpURLConnection dataLink = null;
-    protected String   authenticationKey;
-    protected DateTime earthStartDate;
-    protected DateTime earthEndDate;
-    protected String   earthDate;
-    protected String   earthDateEnd;
+    protected HttpURLConnection dataLink          = null;
+    protected String            authenticationKey = null;
+    protected int               solNumber         = -1;
+    protected DateTime          earthStartDate    = null;
+    protected DateTime          earthEndDate      = null;
+    protected String            erthStartDate     = null;
+    protected String            earthDateEnd      = null;
 
     public static final String            DATE_FORMAT       = "YYYY-MM-dd";
     protected           DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(DATE_FORMAT);
@@ -35,9 +36,17 @@ public class QueryService implements isSpaceQuery {
     @Override
     public void setEarthStartDate(long startMs) {
         this.earthStartDate = new DateTime(startMs);
-        this.earthDate = dateTimeFormatter.print(startMs);
+        this.erthStartDate = dateTimeFormatter.print(startMs);
         logger.debug("StartMS supplied = " + startMs + " jodaInternalEarthDate = " + earthStartDate + " " +
-                             "curiosityEarthDate = " + earthDate);
+                             "curiosityEarthDate = " + erthStartDate);
+    }
+
+    public void setEarthStartDate(String earthStartDate) {
+        this.erthStartDate = earthStartDate;
+    }
+
+    public void setEarthEndDate(String earthDateEnd) {
+        this.earthDateEnd = earthDateEnd;
     }
 
     @Override
@@ -59,6 +68,7 @@ public class QueryService implements isSpaceQuery {
 
     @Override
     public void executeQuery() {
+        logger.debug(getTargetUrl().toString());
         try {
             dataLink = (HttpURLConnection) getTargetUrl().openConnection();
             dataLink.setRequestMethod("GET");
@@ -100,13 +110,26 @@ public class QueryService implements isSpaceQuery {
     }
 
     private URL getTargetUrl() {
-        URL url = null;
+        URL    url         = null;
+        String queryString = "";
         try {
-            url = new URL(getQueryString());
+            queryString = getQueryString();
+            if (erthStartDate != null && earthDateEnd != null) {
+                queryString += "terrestrial_date_end=" + earthDateEnd
+                        + "&terrestrial_date_start=" + erthStartDate;
+            } else if (solNumber != -1) {
+                queryString += "sol=" + Integer.toString(solNumber);
+            }
+
+            logger.debug(queryString);
+            url = new URL(queryString);
         } catch (MalformedURLException malFormedURL) {
             logger.error("URL was malformed.", malFormedURL);
         }
         return url;
     }
 
+    public void setSolNumber(int solNumber) {
+        this.solNumber = solNumber;
+    }
 }

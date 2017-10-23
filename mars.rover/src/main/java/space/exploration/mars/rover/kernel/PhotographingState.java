@@ -9,6 +9,7 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.service.CameraPayload;
 import space.exploration.mars.rover.service.PhotoQueryService;
 import space.exploration.mars.rover.environment.MarsArchitect;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.utils.CameraUtil;
 
 import java.io.IOException;
@@ -117,7 +118,7 @@ public class PhotographingState implements State {
     public void hibernate() {
     }
 
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
     }
 
     public void scanSurroundings() {

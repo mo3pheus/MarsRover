@@ -9,6 +9,7 @@ import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayl
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 public class ListeningState implements State {
 
@@ -91,8 +92,7 @@ public class ListeningState implements State {
                 } else if (tp.getRoverModule() == Module.WEATHER_SENSOR.getValue()) {
                     logger.info("Rover will try to get weather measurements - actual Curiosity Data");
                     rover.state = rover.weatherSensingState;
-                    boolean seasonalWeatherRequest = tp.getAction().equals("GetSeasonalWeather") ? true : false;
-                    rover.senseWeather(seasonalWeatherRequest);
+                    rover.senseWeather(WeatherQueryOuterClass.WeatherQuery.parseFrom(tp.getAuxiliaryData()));
                 }
             }
         } catch (InvalidProtocolBufferException e) {
@@ -116,7 +116,7 @@ public class ListeningState implements State {
     public void hibernate() {
     }
 
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
     }
 
     public void scanSurroundings() {

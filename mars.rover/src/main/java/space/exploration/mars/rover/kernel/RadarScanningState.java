@@ -9,6 +9,7 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RadarContactCell;
 import space.exploration.mars.rover.radar.RadarContactListOuterClass;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.utils.RadialContact;
 import space.exploration.mars.rover.utils.RoverUtil;
 
@@ -73,7 +74,7 @@ public class RadarScanningState implements State {
     }
 
     @Override
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         RoverUtil.roverSystemLog(logger, " Invalid action error. Can not senseWeather in current state.", "ERROR");
     }
 

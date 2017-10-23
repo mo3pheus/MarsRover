@@ -12,11 +12,11 @@ import java.util.Properties;
 public class MarsMissionLaunch {
 
     public static void main(String[] args) {
-        configureLogging();
         try {
             if (args.length == 0) {
                 new Rover(MatrixCreation.getMatrixConfig(), MatrixCreation.getComsConfig(), MatrixCreation
                         .getRoverDBConfig());
+                configureLogging(false);
             } else {
                 Properties marsConfig      = MatrixCreation.convertToPropertyFiles(args[0]);
                 Properties comsConfig      = MatrixCreation.convertToPropertyFiles(args[1]);
@@ -24,6 +24,7 @@ public class MarsMissionLaunch {
                 String     archiveLocation = args[4];
 
                 new Rover(marsConfig, comsConfig, dbConfig, args[3], archiveLocation);
+                configureLogging(Boolean.parseBoolean(args[5]));
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -31,11 +32,8 @@ public class MarsMissionLaunch {
         }
     }
 
-    public static void configureLogging() {
+    public static void configureLogging(boolean debug) {
         FileAppender fa = new FileAppender();
-
-        //boolean debug = true;
-        boolean debug = false;
 
         if (!debug) {
             fa.setThreshold(Level.toLevel(Priority.INFO_INT));

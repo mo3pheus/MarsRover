@@ -1,0 +1,1349 @@
+38160 [Thread-2] DEBUG space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1508718125258
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+  auxiliaryData: "\n\n2017-09-01\022\n2017-09-22"
+}
+
+38570 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+40573 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+42575 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+44224 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508718577398,10,GetSeasonalWeather Current instructionQueue length = 0
+44225 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+44226 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+44576 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+46580 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+47280 [Thread-2] DEBUG space.exploration.mars.rover.sensor.WeatherSensor  - terrestrialStartDate: "2017-09-01"
+terrestrialEndDate: "2017-09-22"
+
+47280 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+47281 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+47282 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+47642 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47643 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47645 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-17"
+sol: 1848
+ls: 75.0
+minTemp: -80.0
+minTemFahrenheit: -112.0
+maxTemp: -28.0
+maxTempFahrenheit: -18.4
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-17T105900Z"
+sunset: "2017-10-17T224200Z"
+
+47645 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47646 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47646 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-16"
+sol: 1847
+ls: 74.0
+minTemp: -80.0
+minTemFahrenheit: -112.0
+maxTemp: -30.0
+maxTempFahrenheit: -22.0
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-16T105900Z"
+sunset: "2017-10-16T224200Z"
+
+47647 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47647 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47648 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-13"
+sol: 1844
+ls: 73.0
+minTemp: -81.0
+minTemFahrenheit: -113.8
+maxTemp: -28.0
+maxTempFahrenheit: -18.4
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-13T105900Z"
+sunset: "2017-10-13T224300Z"
+
+47649 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47649 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47650 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-10"
+sol: 1841
+ls: 72.0
+minTemp: -77.0
+minTemFahrenheit: -106.6
+maxTemp: -32.0
+maxTempFahrenheit: -25.6
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-10T110000Z"
+sunset: "2017-10-10T224300Z"
+
+47650 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47651 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47652 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-09"
+sol: 1840
+ls: 71.0
+minTemp: -77.0
+minTemFahrenheit: -106.6
+maxTemp: -29.0
+maxTempFahrenheit: -20.2
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-09T110000Z"
+sunset: "2017-10-09T224300Z"
+
+47652 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47653 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47654 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-07"
+sol: 1838
+ls: 70.0
+minTemp: -79.0
+minTemFahrenheit: -110.2
+maxTemp: -27.0
+maxTempFahrenheit: -16.6
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-07T110000Z"
+sunset: "2017-10-07T224400Z"
+
+47654 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47654 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47655 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-04"
+sol: 1835
+ls: 69.0
+minTemp: -80.0
+minTemFahrenheit: -112.0
+maxTemp: -31.0
+maxTempFahrenheit: -23.8
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-04T110100Z"
+sunset: "2017-10-04T224500Z"
+
+47655 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47655 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47660 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-02"
+sol: 1833
+ls: 68.0
+minTemp: -81.0
+minTemFahrenheit: -113.8
+maxTemp: -30.0
+maxTempFahrenheit: -22.0
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-02T110100Z"
+sunset: "2017-10-02T224500Z"
+
+47660 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47661 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47661 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-01"
+sol: 1832
+ls: 68.0
+minTemp: -84.0
+minTemFahrenheit: -119.2
+maxTemp: -30.0
+maxTempFahrenheit: -22.0
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-01T110200Z"
+sunset: "2017-10-01T224500Z"
+
+47662 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47662 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+47663 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-09-30"
+sol: 1831
+ls: 67.0
+minTemp: -80.0
+minTemFahrenheit: -112.0
+maxTemp: -26.0
+maxTempFahrenheit: -14.8
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-09-30T110200Z"
+sunset: "2017-09-30T224600Z"
+
+47673 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - weatherReports {
+  terrestrialDate: "2017-10-17"
+  sol: 1848
+  ls: 75.0
+  minTemp: -80.0
+  minTemFahrenheit: -112.0
+  maxTemp: -28.0
+  maxTempFahrenheit: -18.4
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-17T105900Z"
+  sunset: "2017-10-17T224200Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-16"
+  sol: 1847
+  ls: 74.0
+  minTemp: -80.0
+  minTemFahrenheit: -112.0
+  maxTemp: -30.0
+  maxTempFahrenheit: -22.0
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-16T105900Z"
+  sunset: "2017-10-16T224200Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-13"
+  sol: 1844
+  ls: 73.0
+  minTemp: -81.0
+  minTemFahrenheit: -113.8
+  maxTemp: -28.0
+  maxTempFahrenheit: -18.4
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-13T105900Z"
+  sunset: "2017-10-13T224300Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-10"
+  sol: 1841
+  ls: 72.0
+  minTemp: -77.0
+  minTemFahrenheit: -106.6
+  maxTemp: -32.0
+  maxTempFahrenheit: -25.6
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-10T110000Z"
+  sunset: "2017-10-10T224300Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-09"
+  sol: 1840
+  ls: 71.0
+  minTemp: -77.0
+  minTemFahrenheit: -106.6
+  maxTemp: -29.0
+  maxTempFahrenheit: -20.2
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-09T110000Z"
+  sunset: "2017-10-09T224300Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-07"
+  sol: 1838
+  ls: 70.0
+  minTemp: -79.0
+  minTemFahrenheit: -110.2
+  maxTemp: -27.0
+  maxTempFahrenheit: -16.6
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-07T110000Z"
+  sunset: "2017-10-07T224400Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-04"
+  sol: 1835
+  ls: 69.0
+  minTemp: -80.0
+  minTemFahrenheit: -112.0
+  maxTemp: -31.0
+  maxTempFahrenheit: -23.8
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-04T110100Z"
+  sunset: "2017-10-04T224500Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-02"
+  sol: 1833
+  ls: 68.0
+  minTemp: -81.0
+  minTemFahrenheit: -113.8
+  maxTemp: -30.0
+  maxTempFahrenheit: -22.0
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-02T110100Z"
+  sunset: "2017-10-02T224500Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-01"
+  sol: 1832
+  ls: 68.0
+  minTemp: -84.0
+  minTemFahrenheit: -119.2
+  maxTemp: -30.0
+  maxTempFahrenheit: -22.0
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-01T110200Z"
+  sunset: "2017-10-01T224500Z"
+}
+weatherReports {
+  terrestrialDate: "2017-09-30"
+  sol: 1831
+  ls: 67.0
+  minTemp: -80.0
+  minTemFahrenheit: -112.0
+  maxTemp: -26.0
+  maxTempFahrenheit: -14.8
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-09-30T110200Z"
+  sunset: "2017-09-30T224600Z"
+}
+
+47674 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+48582 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+50584 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+52585 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+54587 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+56589 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+58592 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+60592 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+62594 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+64596 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 1ms
+66341 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508718560214 Rover state = Listening State
+66342 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508718599516 Rover state = Listening State
+66376 [pool-2-thread-1] DEBUG space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1508718599526
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9997
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Mars Weather Station"
+  value: 99
+}
+batteryLevel: 929
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 525
+  y: 100
+}
+
+66596 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+68598 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+70600 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+72602 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+74602 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+76604 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+78323 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f2dbff96c0013, packet:: clientPath:null serverPath:null finished:false header:: 23,5  replyHeader:: 23,1153,0  request:: '/consumers/space.exploration.mars.newRover/offsets/earth_to_curiosity_3/0,#333038,-1  response:: s{66,1153,1508301232237,1508718611495,307,0,0,0,3,0,66} 
+78323 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 1ms
+80323 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+82326 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+84327 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+86330 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+87040 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508718620214 Rover state = Listening State
+88333 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+90333 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+92334 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+94337 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+96338 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+98340 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+100342 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+102344 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+104346 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+105715 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1508718551461-83e299e1-0-0] DEBUG kafka.consumer.PartitionTopicInfo  - updated fetch offset of (earth_to_curiosity_3:0: fetched offset = 309: consumed offset = 308) to 309
+105715 [Thread-2] DEBUG kafka.consumer.PartitionTopicInfo  - reset consume offset of earth_to_curiosity_3:0: fetched offset = 309: consumed offset = 309 to 309
+106348 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+108349 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+110351 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+111728 [Thread-2] DEBUG space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1508718638869
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+  auxiliaryData: "\n\n2017-09-01\022\n2017-09-22"
+}
+
+112352 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+114354 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+116356 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+117762 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508718650936,10,GetSeasonalWeather Current instructionQueue length = 0
+117762 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+117762 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+118358 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+120360 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+120800 [Thread-2] DEBUG space.exploration.mars.rover.sensor.WeatherSensor  - terrestrialStartDate: "2017-09-01"
+terrestrialEndDate: "2017-09-22"
+
+120800 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+120801 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+120801 [Thread-2] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+121042 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121042 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121044 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-17"
+sol: 1848
+ls: 75.0
+minTemp: -80.0
+minTemFahrenheit: -112.0
+maxTemp: -28.0
+maxTempFahrenheit: -18.4
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-17T105900Z"
+sunset: "2017-10-17T224200Z"
+
+121044 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121045 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121046 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-16"
+sol: 1847
+ls: 74.0
+minTemp: -80.0
+minTemFahrenheit: -112.0
+maxTemp: -30.0
+maxTempFahrenheit: -22.0
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-16T105900Z"
+sunset: "2017-10-16T224200Z"
+
+121046 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121047 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121048 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-13"
+sol: 1844
+ls: 73.0
+minTemp: -81.0
+minTemFahrenheit: -113.8
+maxTemp: -28.0
+maxTempFahrenheit: -18.4
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-13T105900Z"
+sunset: "2017-10-13T224300Z"
+
+121049 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121049 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121050 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-10"
+sol: 1841
+ls: 72.0
+minTemp: -77.0
+minTemFahrenheit: -106.6
+maxTemp: -32.0
+maxTempFahrenheit: -25.6
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-10T110000Z"
+sunset: "2017-10-10T224300Z"
+
+121050 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121051 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121052 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-09"
+sol: 1840
+ls: 71.0
+minTemp: -77.0
+minTemFahrenheit: -106.6
+maxTemp: -29.0
+maxTempFahrenheit: -20.2
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-09T110000Z"
+sunset: "2017-10-09T224300Z"
+
+121052 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121053 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121054 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-07"
+sol: 1838
+ls: 70.0
+minTemp: -79.0
+minTemFahrenheit: -110.2
+maxTemp: -27.0
+maxTempFahrenheit: -16.6
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-07T110000Z"
+sunset: "2017-10-07T224400Z"
+
+121054 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121054 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121055 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-04"
+sol: 1835
+ls: 69.0
+minTemp: -80.0
+minTemFahrenheit: -112.0
+maxTemp: -31.0
+maxTempFahrenheit: -23.8
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-04T110100Z"
+sunset: "2017-10-04T224500Z"
+
+121055 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121056 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121056 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-02"
+sol: 1833
+ls: 68.0
+minTemp: -81.0
+minTemFahrenheit: -113.8
+maxTemp: -30.0
+maxTempFahrenheit: -22.0
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-02T110100Z"
+sunset: "2017-10-02T224500Z"
+
+121057 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121057 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121058 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-10-01"
+sol: 1832
+ls: 68.0
+minTemp: -84.0
+minTemFahrenheit: -119.2
+maxTemp: -30.0
+maxTempFahrenheit: -22.0
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-10-01T110200Z"
+sunset: "2017-10-01T224500Z"
+
+121058 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121058 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+121059 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-09-30"
+sol: 1831
+ls: 67.0
+minTemp: -80.0
+minTemFahrenheit: -112.0
+maxTemp: -26.0
+maxTempFahrenheit: -14.8
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-09-30T110200Z"
+sunset: "2017-09-30T224600Z"
+
+121061 [Thread-2] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - weatherReports {
+  terrestrialDate: "2017-10-17"
+  sol: 1848
+  ls: 75.0
+  minTemp: -80.0
+  minTemFahrenheit: -112.0
+  maxTemp: -28.0
+  maxTempFahrenheit: -18.4
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-17T105900Z"
+  sunset: "2017-10-17T224200Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-16"
+  sol: 1847
+  ls: 74.0
+  minTemp: -80.0
+  minTemFahrenheit: -112.0
+  maxTemp: -30.0
+  maxTempFahrenheit: -22.0
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-16T105900Z"
+  sunset: "2017-10-16T224200Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-13"
+  sol: 1844
+  ls: 73.0
+  minTemp: -81.0
+  minTemFahrenheit: -113.8
+  maxTemp: -28.0
+  maxTempFahrenheit: -18.4
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-13T105900Z"
+  sunset: "2017-10-13T224300Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-10"
+  sol: 1841
+  ls: 72.0
+  minTemp: -77.0
+  minTemFahrenheit: -106.6
+  maxTemp: -32.0
+  maxTempFahrenheit: -25.6
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-10T110000Z"
+  sunset: "2017-10-10T224300Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-09"
+  sol: 1840
+  ls: 71.0
+  minTemp: -77.0
+  minTemFahrenheit: -106.6
+  maxTemp: -29.0
+  maxTempFahrenheit: -20.2
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-09T110000Z"
+  sunset: "2017-10-09T224300Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-07"
+  sol: 1838
+  ls: 70.0
+  minTemp: -79.0
+  minTemFahrenheit: -110.2
+  maxTemp: -27.0
+  maxTempFahrenheit: -16.6
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-07T110000Z"
+  sunset: "2017-10-07T224400Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-04"
+  sol: 1835
+  ls: 69.0
+  minTemp: -80.0
+  minTemFahrenheit: -112.0
+  maxTemp: -31.0
+  maxTempFahrenheit: -23.8
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-04T110100Z"
+  sunset: "2017-10-04T224500Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-02"
+  sol: 1833
+  ls: 68.0
+  minTemp: -81.0
+  minTemFahrenheit: -113.8
+  maxTemp: -30.0
+  maxTempFahrenheit: -22.0
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-02T110100Z"
+  sunset: "2017-10-02T224500Z"
+}
+weatherReports {
+  terrestrialDate: "2017-10-01"
+  sol: 1832
+  ls: 68.0
+  minTemp: -84.0
+  minTemFahrenheit: -119.2
+  maxTemp: -30.0
+  maxTempFahrenheit: -22.0
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-10-01T110200Z"
+  sunset: "2017-10-01T224500Z"
+}
+weatherReports {
+  terrestrialDate: "2017-09-30"
+  sol: 1831
+  ls: 67.0
+  minTemp: -80.0
+  minTemFahrenheit: -112.0
+  maxTemp: -26.0
+  maxTempFahrenheit: -14.8
+  pressureDescription: "Higher"
+  absoluteHumidity: "null"
+  atmosphericOpacity: "Sunny"
+  season: "Month3"
+  sunrise: "2017-09-30T110200Z"
+  sunset: "2017-09-30T224600Z"
+}
+
+121062 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+122360 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+124363 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+126365 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+128367 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+130368 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+132371 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+133726 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1508718650214 Rover state = Listening State
+133727 [pool-2-thread-1] DEBUG space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1508718666900
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9994
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Mars Weather Station"
+  value: 98
+}
+batteryLevel: 858
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 525
+  y: 100
+}
+
+134375 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms
+136376 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f2dbff96c0013 after 0ms

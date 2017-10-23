@@ -21,6 +21,4 @@ public class WeatherQueryService extends QueryService {
 
         return weatherPayload;
     }
-
-
 }

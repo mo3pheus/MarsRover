@@ -8,6 +8,7 @@ import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.service.SeasonalWeather;
 import space.exploration.mars.rover.service.WeatherData;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;
@@ -63,17 +64,21 @@ public class WeatherSensor implements IsEquipment {
         return rBuilder.build().toByteArray();
     }
 
-    public byte[] getWeather(boolean multipleDays) {
-        if (!multipleDays) {
-            return getWeather();
-        }
-
+    public byte[] getWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
+        logger.debug(weatherQuery.toString());
         lifeSpan--;
         RoverStatusOuterClass.RoverStatus.Builder rBuilder               = getGeneralRoverStatus();
         SeasonalWeather.SeasonalWeatherPayload    seasonalWeatherPayload = null;
 
         try {
             /*rems -> RoverEnvironmentalMonitoringStation */
+            if (weatherQuery.getTerrestrialEndDate() != null && weatherQuery.getTerrestrialStartDate() != null) {
+                rems.setEarthEndDate(weatherQuery.getTerrestrialEndDate());
+                rems.setEarthStartDate(weatherQuery.getTerrestrialStartDate());
+            } else if (weatherQuery.getSolNumber() != -1) {
+                rems.setSolNumber(weatherQuery.getSolNumber());
+            }
+
             rems.executeQuery();
             seasonalWeatherPayload = WeatherUtil.getSeasonalWeatherPayload(rems.getResponseAsString());
         } catch (Exception e) {

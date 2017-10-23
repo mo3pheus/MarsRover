@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.animation.SleepingAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 public class SleepingState implements State {
     private Logger                  logger                  = LoggerFactory.getLogger(SleepingState.class);
@@ -56,7 +57,7 @@ public class SleepingState implements State {
     }
 
     @Override
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         logger.error("Rover conserves battery but does not recharge batteries in sleeping state");
     }
 

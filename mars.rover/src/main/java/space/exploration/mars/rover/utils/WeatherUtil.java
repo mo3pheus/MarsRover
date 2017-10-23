@@ -112,7 +112,7 @@ public class WeatherUtil {
 
         org.jsoup.nodes.Document document    = Jsoup.parseBodyFragment(weatherData);
         String                   textToParse = document.body().text();
-        String                   content     = textToParse.substring(textToParse.lastIndexOf("results"), textToParse
+        String content = textToParse.substring(textToParse.lastIndexOf("results"), textToParse
                 .lastIndexOf("]"));
         for (String dayWeather : content.split("},")) {
             WeatherData.WeatherPayload weatherPayload = WeatherUtil.getweatherPayload(dayWeather);
@@ -122,14 +122,15 @@ public class WeatherUtil {
     }
 
     public static SeasonalWeather.SeasonalWeatherPayload getSeasonalWeatherPayload(String weatherData) {
-        List<WeatherData.WeatherPayload>               seasonalWeatherData = getWeatherPayload(weatherData);
-        SeasonalWeather.SeasonalWeatherPayload.Builder sBuilder            = SeasonalWeather.SeasonalWeatherPayload
+        List<WeatherData.WeatherPayload> seasonalWeatherData = getWeatherPayload(weatherData);
+        SeasonalWeather.SeasonalWeatherPayload.Builder sBuilder = SeasonalWeather.SeasonalWeatherPayload
                 .newBuilder();
 
         for (WeatherData.WeatherPayload weatherPayload : seasonalWeatherData) {
             sBuilder.addWeatherReports(weatherPayload);
         }
 
+        logger.debug(sBuilder.build().toString());
         return sBuilder.build();
     }
 }

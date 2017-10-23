@@ -7,6 +7,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 /**
  * @author sanketkorgaonkar
@@ -56,7 +57,7 @@ public class HibernatingState implements State {
         logger.debug("Already in hibernating state.");
     }
 
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         logger.debug("Should already be recharging the battery");
     }
 

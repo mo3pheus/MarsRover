@@ -16,6 +16,7 @@ import space.exploration.mars.rover.navigation.NavigationEngine;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.power.BatteryMonitor;
 import space.exploration.mars.rover.sensor.*;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
@@ -291,8 +292,8 @@ public class Rover {
         this.previousRovers = previousRovers;
     }
 
-    public synchronized void senseWeather(boolean multipleDays) {
-        state.senseWeather(multipleDays);
+    public synchronized void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
+        state.senseWeather(weatherQuery);
     }
 
     public synchronized Camera getCamera() {

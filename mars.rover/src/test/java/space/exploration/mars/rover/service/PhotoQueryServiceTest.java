@@ -12,7 +12,7 @@ public class PhotoQueryServiceTest extends TestCase {
     private PhotoQueryService photoQueryService = new PhotoQueryService();
 
     public void setUp() {
-        MarsMissionLaunch.configureLogging();
+        MarsMissionLaunch.configureLogging(true);
         photoQueryService.setAuthenticationKey("DEMO_KEY");
         photoQueryService.setEarthStartDate(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(365));
     }

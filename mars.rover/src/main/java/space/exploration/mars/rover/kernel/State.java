@@ -1,6 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
 import space.exploration.mars.rover.InstructionPayloadOuterClass;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 public interface State {
     void receiveMessage(byte[] message);
@@ -13,7 +14,7 @@ public interface State {
 
     void hibernate();
 
-    void senseWeather(boolean multipleDays);
+    void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery);
 
     void scanSurroundings();
 

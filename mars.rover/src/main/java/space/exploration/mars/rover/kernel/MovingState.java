@@ -17,6 +17,7 @@ import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.mars.rover.robot.RobotPositionsOuterClass.RobotPositions.Point;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
 
 /**
@@ -54,7 +55,7 @@ public class MovingState implements State {
     public void hibernate() {
     }
 
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
     }
 
     public void scanSurroundings() {

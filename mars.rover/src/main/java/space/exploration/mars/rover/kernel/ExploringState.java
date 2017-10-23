@@ -9,6 +9,7 @@ import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverSta
 import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
+import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 /**
  * @author sanketkorgaonkar
@@ -76,7 +77,7 @@ public class ExploringState implements State {
     public void hibernate() {
     }
 
-    public void senseWeather(boolean multipleDays) {
+    public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
     }
 
     public void scanSurroundings() {

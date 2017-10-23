@@ -11,7 +11,7 @@ public class PhotoQueryService extends QueryService {
     public String getQueryString() {
         StringBuilder queryBuilder = new StringBuilder();
         queryBuilder.append("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=");
-        queryBuilder.append(earthDate);
+        queryBuilder.append(erthStartDate);
         queryBuilder.append("&camera=");
         queryBuilder.append(camId);
         queryBuilder.append("&api_key=");
