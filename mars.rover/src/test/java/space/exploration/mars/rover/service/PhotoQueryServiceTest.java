@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import junit.framework.TestCase;
 import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
+
 import java.util.concurrent.TimeUnit;
 
 public class PhotoQueryServiceTest extends TestCase {

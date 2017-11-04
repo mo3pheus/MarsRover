@@ -32,8 +32,8 @@ public class CameraUtil {
             throw new RuntimeException("BufferedImage was null");
         }
 
-        String fileName = dataArchivePath + ".jpg";
-        File outputFile = new File(fileName);
+        String fileName   = dataArchivePath + ".jpg";
+        File   outputFile = new File(fileName);
         logger.debug("CameraUtil trying to write the following fileName = " + fileName);
         try {
             ImageIO.write(bufferedImage, "jpg", outputFile);

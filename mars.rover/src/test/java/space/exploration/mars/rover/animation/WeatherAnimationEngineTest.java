@@ -3,12 +3,8 @@ package space.exploration.mars.rover.animation;
 import junit.framework.TestCase;
 import org.junit.Test;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;
-import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
-import space.exploration.mars.rover.environment.WeatherScanCell;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 
 public class WeatherAnimationEngineTest extends TestCase {

@@ -1,0 +1,352 @@
+55989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+56993 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+56994 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+152204 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508808815202,1,Move Current instructionQueue length = 0
+152221 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Radio receive operation encountered an exception
+java.lang.NullPointerException
+	at space.exploration.mars.rover.navigation.NavigationEngine.navigate(NavigationEngine.java:110)
+	at space.exploration.mars.rover.propulsion.PropulsionUnit.requestPropulsion(PropulsionUnit.java:52)
+	at space.exploration.mars.rover.propulsion.PropulsionUnit.<init>(PropulsionUnit.java:28)
+	at space.exploration.mars.rover.kernel.MovingState.move(MovingState.java:112)
+	at space.exploration.mars.rover.kernel.Rover.move(Rover.java:312)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:79)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+417996 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+424049 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508809087047,1,Move Current instructionQueue length = 0
+424129 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay commenced.
+463941 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 93
+563500 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+595989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+655989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+715989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+775989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+835989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+895989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+896992 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+896993 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+1031521 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+1075989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+1135989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+1195989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+1255989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+1315989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+1375989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+1376992 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+1376993 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+1522168 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+1555989 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+1600814 [Thread-2] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+1600814 [Thread-2] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+1609876 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508810272874,10,GetSeasonalWeather Current instructionQueue length = 0
+1609877 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+1609882 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+1613265 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613266 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613268 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613268 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613269 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613269 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613270 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613270 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613271 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613272 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613272 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613273 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613274 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613274 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613275 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613275 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613279 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613279 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:296)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:95)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:30)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:304)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1613285 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+1725690 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508810388688,9,PerformRadarScan Current instructionQueue length = 0

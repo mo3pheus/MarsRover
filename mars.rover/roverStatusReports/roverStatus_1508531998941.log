@@ -1,0 +1,991 @@
+11340 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+11411 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+11411 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+11411 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.newRover was supplied but isn't a known config.
+11411 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_3 was supplied but isn't a known config.
+11411 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+11411 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+11411 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_3 was supplied but isn't a known config.
+11412 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+11412 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+11499 [main] INFO kafka.utils.VerifiableProperties  - Verifying properties
+11516 [main] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+11516 [main] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+11517 [main] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+11517 [main] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+11517 [main] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+11517 [main] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+11517 [main] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+11517 [main] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+11517 [main] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+11544 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Connecting to zookeeper instance at localhost:2181
+11555 [ZkClient-EventThread-25-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+11559 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-portable
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=target/mars.rover-0.0.1-SOLSHOT-shaded.jar
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-37-generic
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+11560 [main] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@7c729a55
+11567 [main] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+11569 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+11572 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+11579 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15f362253aa0047, negotiated timeout = 6000
+11580 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+11587 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], starting auto committer every 60000 ms
+11605 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+11622 [Thread-1] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e (is it secure? false)
+11629 [Thread-1] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+11629 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+11632 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e
+11643 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+11714 [Thread-1] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+11714 [Thread-1] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+11715 [Thread-1] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+11715 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+11716 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+11716 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+11717 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+11796 [Thread-1] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer() for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+11797 [Thread-1] WARN kafka.consumer.RangeAssignor  - No broker partitions consumed by consumer thread space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 for topic earth_to_curiosity_3
+11809 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : 
+11812 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+11813 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+31199 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+55992 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+56995 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+56995 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+194749 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+235992 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+236178 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server localhost/127.0.0.1:2181, unexpected error, closing socket connection and attempting reconnect
+java.io.IOException: Connection reset by peer
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:68)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:366)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+236280 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+237754 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+237755 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+239004 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+239004 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+240755 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+240756 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+242010 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+242010 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+243247 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+243248 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+244961 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+244962 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+247056 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+247057 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+248746 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+248746 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+250578 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+250579 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+252455 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+252456 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+254547 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+254548 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+256391 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+256392 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+258125 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+258125 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+259795 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+259796 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+261349 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+261350 [main-SendThread(localhost:2181)] WARN org.apache.zookeeper.ClientCnxn  - Session 0x15f362253aa0047 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+263128 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+263129 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+263130 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15f362253aa0047, negotiated timeout = 6000
+263131 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+295992 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+355992 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+415992 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+475992 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+535992 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+536995 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+536995 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+685836 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+713636 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Topic info for path /brokers/topics/earth_to_curiosity_3 changed to {"version":1,"partitions":{"0":[0]}}, triggering rebalance
+713636 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+713671 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+713671 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+713672 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+713672 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+713672 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+713673 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+713673 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+713673 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+713673 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+713673 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+713688 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+713690 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+713734 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+713738 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = -1: consumed offset = -1
+713741 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+713741 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+713752 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+713752 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+713752 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+713752 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+713762 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_3)
+713766 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+713776 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+713778 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer()
+713999 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+714000 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+714001 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+714001 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+714002 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 1 for 1 topic(s) Set(earth_to_curiosity_3)
+714004 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+714019 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+714074 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+714099 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset -1 to broker BrokerEndPoint(0,zion-portable,9092)] )
+715494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+725397 [Thread-1] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+725397 [Thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+734454 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508532738551,8,ClickCamera Current instructionQueue length = 0
+865961 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+895494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+955494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+962833 [Thread-1] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+962834 [Thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+971862 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508532975959,0,ScanArea Current instructionQueue length = 0
+1046765 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533050862,0,ScanArea Current instructionQueue length = 0
+1104152 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533108249,0,ScanArea Current instructionQueue length = 0
+1159364 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533163461,0,ScanArea Current instructionQueue length = 0
+1221467 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533225564,0,ScanArea Current instructionQueue length = 0
+1351854 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533355951,10,MeasureWeather Current instructionQueue length = 0
+1351854 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+1351854 [Thread-1] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+1355147 [Thread-1] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:55)
+	at space.exploration.mars.rover.dataUplink.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:44)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:49)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:295)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:94)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1355147 [Thread-1] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:61)
+	at space.exploration.mars.rover.dataUplink.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:44)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:49)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:295)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:94)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+1355149 [Thread-1] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = Infinity max allowed = 1000.0/hr
+1463829 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533467926,0,ScanArea Current instructionQueue length = 0
+1530651 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533534748,9,PerformRadarScan Current instructionQueue length = 0
+1612248 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533616345,1,Move Current instructionQueue length = 0
+1612258 [Thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1508533616355 Power requested = 370 Critical = false
+1612258 [Thread-1] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+1615288 [Thread-1] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1615495 [pool-2-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 2
+1626060 [Thread-1] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1675494 [pool-2-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 3
+1700806 [pool-5-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+1730180 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+1736202 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533740299,1,Move Current instructionQueue length = 2
+1736270 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay commenced.
+1774918 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 90
+1793892 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+1799909 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533804005,5,Explore Current instructionQueue length = 1
+1843255 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+1849264 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508533853361,5,Explore Current instructionQueue length = 0
+1989411 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2035494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2092158 [Thread-1] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+2092158 [Thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+2101190 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508534105287,8,ClickCamera Current instructionQueue length = 0
+2237516 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2275494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2335494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2395494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2455494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2515494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2516498 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+2516498 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+2666432 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2695494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2755494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2815494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2875494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2935494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2995494 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2996498 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+2996498 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+3128160 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+3170886 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 27005ms for sessionid 0x15f362253aa0047, closing socket connection and attempting reconnect
+3170986 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+3172324 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+3172325 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+3172326 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Expired)
+3172326 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Unable to reconnect to ZooKeeper service, session 0x15f362253aa0047 has expired, closing socket connection
+3172327 [main-EventThread] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@7c729a55
+3172329 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+3172329 [main-EventThread] INFO org.apache.zookeeper.ClientCnxn  - EventThread shut down
+3172330 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+3172330 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], ZK expired; release old broker parition ownership; re-register consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e
+3172330 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+3172331 [ZkClient-EventThread-25-localhost:2181] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e (is it secure? false)
+3172335 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15f3b87a61f0049, negotiated timeout = 6000
+3172335 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+3172340 [ZkClient-EventThread-25-localhost:2181] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+3172340 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+3172340 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+3172364 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+3172365 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+3172365 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+3172365 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+3172365 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+3172365 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+3172367 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+3172367 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+3172372 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+3172372 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+3172372 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+3172372 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+3172372 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+3172379 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+3172379 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+3172381 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+3172382 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 13: consumed offset = 13
+3172382 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+3172382 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+3172383 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+3172384 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Topic info for path /brokers/topics/earth_to_curiosity_3 changed to {"version":1,"partitions":{"0":[0]}}, triggering rebalance
+3172385 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+3172385 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+3172385 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+3172385 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+3172385 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 2 for 1 topic(s) Set(earth_to_curiosity_3)
+3172386 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+3172387 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+3172388 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+3172388 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 13 to broker BrokerEndPoint(0,zion-portable,9092)] )
+3172391 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+3172391 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+3172391 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+3172391 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+3172391 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+3172391 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+3172392 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+3172392 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+3172393 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+3172393 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+3172393 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+3172393 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+3172393 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+3172404 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+3172404 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+3172407 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+3172407 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 13: consumed offset = 13
+3172407 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+3172407 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+3172408 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+3172411 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+3172412 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+3172412 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+3172412 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+3172412 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 3 for 1 topic(s) Set(earth_to_curiosity_3)
+3172412 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+3172413 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+3172415 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+3172415 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 13 to broker BrokerEndPoint(0,zion-portable,9092)] )
+3172416 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+3172416 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+3172416 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+3172416 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+3172416 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+3172416 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+3172417 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+3172417 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+3172418 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+3172418 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+3172418 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+3172418 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+3172418 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+3172426 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+3172427 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+3172429 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+3172430 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 13: consumed offset = 13
+3172430 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+3172430 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+3172433 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+3172433 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+3172433 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+3172433 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+3172433 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 4 for 1 topic(s) Set(earth_to_curiosity_3)
+3172434 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+3172435 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+3172436 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+3172436 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 13 to broker BrokerEndPoint(0,zion-portable,9092)] )
+20398881 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 17224449ms for sessionid 0x15f3b87a61f0049, closing socket connection and attempting reconnect
+20398982 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+20400636 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+20400636 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+20400636 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Unable to reconnect to ZooKeeper service, session 0x15f3b87a61f0049 has expired, closing socket connection
+20400636 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Expired)
+20400637 [main-EventThread] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@7c729a55
+20400637 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], ZK expired; release old broker parition ownership; re-register consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e
+20400638 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+20400638 [main-EventThread] INFO org.apache.zookeeper.ClientCnxn  - EventThread shut down
+20400638 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+20400638 [ZkClient-EventThread-25-localhost:2181] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e (is it secure? false)
+20400638 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+20400640 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15f3b87a61f005d, negotiated timeout = 6000
+20400640 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+20400643 [ZkClient-EventThread-25-localhost:2181] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+20400643 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+20400643 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+20400648 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+20400648 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+20400648 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+20400648 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+20400648 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+20400648 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+20400648 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+20400648 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+20400649 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+20400649 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+20400649 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+20400649 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+20400649 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+20400655 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+20400655 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+20400657 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+20400657 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 13: consumed offset = 13
+20400658 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+20400658 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+20400658 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+20400659 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Topic info for path /brokers/topics/earth_to_curiosity_3 changed to {"version":1,"partitions":{"0":[0]}}, triggering rebalance
+20400664 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+20400666 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+20400666 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+20400666 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+20400666 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 5 for 1 topic(s) Set(earth_to_curiosity_3)
+20400669 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+20400669 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+20400669 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+20400669 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] WARN kafka.client.ClientUtils$  - Fetching topic metadata with correlation id 5 for topics [Set(earth_to_curiosity_3)] from broker [BrokerEndPoint(0,zion-portable,9092)] failed
+java.nio.channels.ClosedChannelException
+	at kafka.network.BlockingChannel.send(BlockingChannel.scala:110)
+	at kafka.producer.SyncProducer.liftedTree1$1(SyncProducer.scala:80)
+	at kafka.producer.SyncProducer.kafka$producer$SyncProducer$$doSend(SyncProducer.scala:79)
+	at kafka.producer.SyncProducer.send(SyncProducer.scala:124)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:59)
+	at kafka.client.ClientUtils$.fetchTopicMetadata(ClientUtils.scala:94)
+	at kafka.consumer.ConsumerFetcherManager$LeaderFinderThread.doWork(ConsumerFetcherManager.scala:66)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+20400670 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+20400676 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+20400676 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+20400678 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+20400679 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 13: consumed offset = 13
+20400679 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+20400679 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+20400679 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+20400681 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+20400681 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+20400681 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+20400681 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+20400681 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 6 for 1 topic(s) Set(earth_to_curiosity_3)
+20400682 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+20400683 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+20400684 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+20400684 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 13 to broker BrokerEndPoint(0,zion-portable,9092)] )
+20400687 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+20400687 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+20400687 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+20400688 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+20400688 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+20400688 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+20400688 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+20400688 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+20400689 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+20400689 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+20400689 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+20400689 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+20400689 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+20400697 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+20400697 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+20400699 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+20400700 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 13: consumed offset = 13
+20400702 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+20400702 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+20400705 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+20400705 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+20400705 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+20400705 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+20400705 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 7 for 1 topic(s) Set(earth_to_curiosity_3)
+20400705 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+20400707 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+20400710 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+20400710 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 13 to broker BrokerEndPoint(0,zion-portable,9092)] )
+20419308 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+20420311 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+20420311 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+20552477 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+20599308 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+20659308 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+20698538 [Thread-1] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+20698538 [Thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+20707559 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508552711656,9,PerformRadarScan Current instructionQueue length = 0
+20853572 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+20864269 [Thread-1] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+20864270 [Thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+20873290 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508552877387,10,MeasureWeather Current instructionQueue length = 0
+20873291 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+20873291 [Thread-1] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+20876848 [Thread-1] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - Weather Service had an exception.
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1927)
+	at space.exploration.mars.rover.utils.WeatherUtil.getValue(WeatherUtil.java:78)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:12)
+	at space.exploration.mars.rover.dataUplink.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:44)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:49)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:295)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:94)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.kernel.SleepingState.receiveMessage(SleepingState.java:29)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+20876848 [Thread-1] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.4 max allowed = 1000.0/hr
+20936071 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508552940168,8,ClickCamera Current instructionQueue length = 0
+20939254 [Thread-1] ERROR space.exploration.mars.rover.dataUplink.QueryService  - IOException
+javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:992)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1375)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1403)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1387)
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:559)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:185)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1546)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at space.exploration.mars.rover.dataUplink.QueryService.getResponseAsString(QueryService.java:82)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:494)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:86)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+Caused by: java.io.EOFException: SSL peer shut down incorrectly
+	at sun.security.ssl.InputRecord.read(InputRecord.java:505)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:973)
+	... 15 more
+20939255 [Thread-1] ERROR space.exploration.mars.rover.communication.Radio  - Radio receive operation encountered an exception
+java.lang.NullPointerException
+	at space.exploration.mars.rover.dataUplink.QueryService.getResponseAsString(QueryService.java:91)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:494)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:86)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:60)
+21141314 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+21147331 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508553151428,10,MeasureWeather Current instructionQueue length = 0
+21147331 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+21147331 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+21157919 [pool-4-thread-1] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:55)
+	at space.exploration.mars.rover.dataUplink.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:44)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:49)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:295)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:94)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.kernel.Rover.processPendingMessageQueue(Rover.java:130)
+	at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$1.run(RoverGarbageCollector.java:56)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+21157920 [pool-4-thread-1] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:61)
+	at space.exploration.mars.rover.dataUplink.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:44)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:49)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:295)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:94)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)
+	at space.exploration.mars.rover.kernel.Rover.processPendingMessageQueue(Rover.java:130)
+	at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$1.run(RoverGarbageCollector.java:56)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+21157921 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.6 max allowed = 1000.0/hr
+21263610 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508553267707,8,ClickCamera Current instructionQueue length = 0
+21399431 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+21439308 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+21499308 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+21538733 [Thread-1] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+21538733 [Thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+21547753 [Thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1508553551850,1,Move Current instructionQueue length = 0
+21547800 [Thread-1] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay commenced.
+21559548 [Thread-1] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 28
+28370884 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 6675888ms for sessionid 0x15f3b87a61f005d, closing socket connection and attempting reconnect
+28370984 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+28372058 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+28372058 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+28372059 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Unable to reconnect to ZooKeeper service, session 0x15f3b87a61f005d has expired, closing socket connection
+28372059 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Expired)
+28372059 [main-EventThread] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@7c729a55
+28372059 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], ZK expired; release old broker parition ownership; re-register consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e
+28372060 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+28372060 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+28372060 [main-EventThread] INFO org.apache.zookeeper.ClientCnxn  - EventThread shut down
+28372060 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+28372060 [ZkClient-EventThread-25-localhost:2181] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e (is it secure? false)
+28372062 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15f3b87a61f0068, negotiated timeout = 6000
+28372062 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+28372065 [ZkClient-EventThread-25-localhost:2181] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+28372065 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+28372065 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+28372070 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+28372070 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+28372070 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+28372070 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+28372071 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+28372071 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+28372071 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+28372071 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+28372072 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+28372072 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+28372072 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+28372072 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+28372072 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+28372076 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+28372077 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+28372078 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+28372079 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 19: consumed offset = 19
+28372079 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+28372079 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+28372080 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+28372081 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Topic info for path /brokers/topics/earth_to_curiosity_3 changed to {"version":1,"partitions":{"0":[0]}}, triggering rebalance
+28372082 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+28372082 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+28372082 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+28372082 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+28372082 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 8 for 1 topic(s) Set(earth_to_curiosity_3)
+28372083 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+28372084 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+28372086 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+28372086 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 19 to broker BrokerEndPoint(0,zion-portable,9092)] )
+28372087 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+28372087 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+28372087 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+28372087 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+28372087 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+28372087 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+28372088 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+28372088 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+28372088 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+28372088 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+28372088 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+28372089 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+28372089 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+28372096 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+28372097 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+28372099 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+28372099 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 19: consumed offset = 19
+28372104 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+28372104 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+28372104 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+28372106 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+28372106 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+28372106 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+28372106 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+28372106 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 9 for 1 topic(s) Set(earth_to_curiosity_3)
+28372107 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+28372107 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+28372110 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+28372110 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 19 to broker BrokerEndPoint(0,zion-portable,9092)] )
+28372110 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+28372110 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+28372110 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+28372110 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+28372110 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+28372110 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+28372111 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+28372111 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+28372111 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+28372111 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+28372111 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+28372111 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+28372111 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+28372116 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+28372116 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+28372118 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+28372118 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 19: consumed offset = 19
+28372118 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+28372118 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+28372120 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+28372120 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+28372120 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+28372120 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+28372120 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 10 for 1 topic(s) Set(earth_to_curiosity_3)
+28372120 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+28372121 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+28372122 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 19 to broker BrokerEndPoint(0,zion-portable,9092)] )
+28372122 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+28376874 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+28411775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+28412779 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+28412779 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+28547596 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+28591775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+28651776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+28711775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+28771775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+28831775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+28891775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+28892779 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+28892779 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+29026731 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+29071776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29131776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29191775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29251775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29311776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29371775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29372779 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+29372779 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+29517807 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+29551776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29611775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29671775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29731776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29791775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29851775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+29852779 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+29852779 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+29986943 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+30031775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30091776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30151776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30211775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30271776 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30331775 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30332779 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+30332779 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+30474473 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+30512672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30572672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30632672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30692672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30752672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30812672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+30813675 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+30813675 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+30946667 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+30992672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31052671 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31112672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31172672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31232672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31292672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31293675 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+31293675 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+31430352 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+31472672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31532672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31592672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31652672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31712672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31772672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+31773675 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+31773675 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+31923400 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+31952672 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+241440872 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 209455172ms for sessionid 0x15f3b87a61f0068, closing socket connection and attempting reconnect
+241440975 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
+241442134 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+241442134 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+241442134 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Unable to reconnect to ZooKeeper service, session 0x15f3b87a61f0068 has expired, closing socket connection
+241442134 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Expired)
+241442134 [main-EventThread] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@7c729a55
+241442135 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], ZK expired; release old broker parition ownership; re-register consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e
+241442135 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+241442135 [main-EventThread] INFO org.apache.zookeeper.ClientCnxn  - EventThread shut down
+241442135 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+241442135 [ZkClient-EventThread-25-localhost:2181] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e (is it secure? false)
+241442135 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+241442136 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15f3b87a61f007a, negotiated timeout = 6000
+241442137 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+241442139 [ZkClient-EventThread-25-localhost:2181] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+241442139 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end registering consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e in ZK
+241442139 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+241442141 [ZkClient-EventThread-25-localhost:2181] WARN kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], no brokers found when trying to rebalance.
+241442141 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+241442142 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+241442142 [ZkClient-EventThread-25-localhost:2181] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Topic info for path /brokers/topics/earth_to_curiosity_3 changed to {"version":1,"partitions":{"0":[0]}}, triggering rebalance
+241442143 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] WARN kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], no brokers found when trying to rebalance.
+241442144 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+241442144 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+241442147 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] WARN kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], no brokers found when trying to rebalance.
+241442148 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+241442365 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], begin rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+241442383 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping leader finder thread
+241442383 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutting down
+241442383 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Stopped 
+241442383 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Shutdown completed
+241442383 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Stopping all fetchers
+241442383 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutting down
+241442384 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Stopped 
+241442384 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Shutdown completed
+241442386 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] All connections stopped
+241442386 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared all relevant queues for this fetcher
+241442386 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Cleared the data chunks in all the consumer message iterators
+241442386 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Committing all offsets after clearing the fetcher queues
+241442386 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Releasing partition ownership
+241442396 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0)
+241442396 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 attempting to claim partition 0
+241442399 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0 successfully owned partition 0 for topic earth_to_curiosity_3
+241442399 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], Consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e selected partitions : earth_to_curiosity_3:0: fetched offset = 19: consumed offset = 19
+241442399 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e], end rebalancing consumer space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e try #0
+241442400 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread], Starting 
+241442404 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+241442404 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+241442404 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-portable:9092
+241442404 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+241442404 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-portable,9092) with correlation id 11 for 1 topic(s) Set(earth_to_curiosity_3)
+241442405 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-portable:9092 for producing
+241442406 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-portable:9092
+241442407 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-0-0], Starting 
+241442407 [space.exploration.mars.newRover_zion-portable-1508532015640-e3d7e30e-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1508532015682] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 19 to broker BrokerEndPoint(0,zion-portable,9092)] )
+241465315 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+241466319 [pool-3-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+241466319 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+241601923 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+241645315 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+241705315 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+241765315 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+241825315 [pool-2-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0

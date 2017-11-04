@@ -15,8 +15,8 @@ public class WeatherQueryServiceTest extends TestCase {
     }
 
     @Test
-    public void testPayloadObject(){
-        WeatherData.WeatherPayload weatherPayload = (WeatherData.WeatherPayload)weatherQueryService.getResponse();
+    public void testPayloadObject() {
+        WeatherData.WeatherPayload weatherPayload = (WeatherData.WeatherPayload) weatherQueryService.getResponse();
         System.out.println(weatherPayload);
     }
 }

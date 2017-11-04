@@ -1,7 +1,7 @@
 package space.exploration.mars.rover.service;
 
 public class PhotoQueryService extends QueryService {
-    private String camId  = "";
+    private String camId = "";
 
     public void setCamId(String camId) {
         this.camId = camId;

@@ -1,7 +1,6 @@
 package space.exploration.mars.rover.animation;
 
 import space.exploration.mars.rover.environment.Cell;
-import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.WeatherScanCell;
 
 import javax.swing.*;
@@ -22,7 +21,7 @@ public class WeatherAnimationEngine {
         this.flashSpeed = flashSpeed;
     }
 
-    public void updateLocation(Point location){
+    public void updateLocation(Point location) {
         this.location = location;
     }
 
@@ -31,7 +30,7 @@ public class WeatherAnimationEngine {
         //contentPane.add(robot, Cell.ROBOT_DEPTH);
         int NUM_FLASHES = 10;
         for (int i = 0; i < NUM_FLASHES; i++) {
-            WeatherScanCell weatherScanCell = new WeatherScanCell(marsConfig,location);
+            WeatherScanCell weatherScanCell = new WeatherScanCell(marsConfig, location);
             contentPane.add(weatherScanCell, new Integer(Cell.ROBOT_DEPTH + 1));
             marsSurface.setContentPane(contentPane);
             marsSurface.setVisible(true);

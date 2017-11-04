@@ -92,6 +92,7 @@ public class Rover {
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
+        this.dataArchiveLocation = "/dataArchives";
         bootUp();
     }
 
@@ -248,24 +249,24 @@ public class Rover {
         return inRechargingModeTime;
     }
 
-    public String getNasaApiAuthKey() {
-        return nasaApiAuthKey;
-    }
-
     public synchronized void setInRechargingModeTime(long inRechargingModeTime) {
         this.inRechargingModeTime = inRechargingModeTime;
+    }
+
+    public String getNasaApiAuthKey() {
+        return nasaApiAuthKey;
     }
 
     public long getTimeMessageReceived() {
         return timeMessageReceived;
     }
 
-    public String getDataArchiveLocation() {
-        return dataArchiveLocation;
-    }
-
     public void setTimeMessageReceived(long timeMessageReceived) {
         this.timeMessageReceived = timeMessageReceived;
+    }
+
+    public String getDataArchiveLocation() {
+        return dataArchiveLocation;
     }
 
     public synchronized State getListeningState() {

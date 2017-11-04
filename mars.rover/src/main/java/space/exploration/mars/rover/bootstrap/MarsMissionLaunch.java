@@ -14,17 +14,17 @@ public class MarsMissionLaunch {
     public static void main(String[] args) {
         try {
             if (args.length == 0) {
+                configureLogging(false);
                 new Rover(MatrixCreation.getMatrixConfig(), MatrixCreation.getComsConfig(), MatrixCreation
                         .getRoverDBConfig());
-                configureLogging(false);
             } else {
+                configureLogging(Boolean.parseBoolean(args[5]));
                 Properties marsConfig      = MatrixCreation.convertToPropertyFiles(args[0]);
                 Properties comsConfig      = MatrixCreation.convertToPropertyFiles(args[1]);
                 Properties dbConfig        = MatrixCreation.convertToPropertyFiles(args[2]);
                 String     archiveLocation = args[4];
 
                 new Rover(marsConfig, comsConfig, dbConfig, args[3], archiveLocation);
-                configureLogging(Boolean.parseBoolean(args[5]));
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -43,11 +43,26 @@ public class MarsMissionLaunch {
             fa.setFile("analysisLogs/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
         }
 
-        //fa.setLayout(new PatternLayout("%-4r [%t] %-5p %c %x - %m%n"));
         fa.setLayout(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN));
 
         fa.activateOptions();
         org.apache.log4j.Logger.getRootLogger().addAppender(fa);
     }
 
+    public static void configureLogging(boolean debug, String className) {
+        FileAppender fa = new FileAppender();
+
+        if (!debug) {
+            fa.setThreshold(Level.toLevel(Priority.INFO_INT));
+            fa.setFile(className + "logStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
+        } else {
+            fa.setThreshold(Level.toLevel(Priority.DEBUG_INT));
+            fa.setFile("analysisLogs/" + className + "logStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
+        }
+
+        fa.setLayout(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN));
+
+        fa.activateOptions();
+        org.apache.log4j.Logger.getRootLogger().addAppender(fa);
+    }
 }
