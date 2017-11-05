@@ -17,13 +17,13 @@ import java.net.URL;
 public class QueryService implements isSpaceQuery {
 
     public static final String            DATE_FORMAT       = "YYYY-MM-dd";
-    protected HttpURLConnection dataLink          = null;
-    protected String            authenticationKey = null;
-    protected int               solNumber         = -1;
-    protected DateTime          earthStartDate    = null;
-    protected DateTime          earthEndDate      = null;
-    protected String            erthStartDate     = null;
-    protected String            earthDateEnd      = null;
+    protected           HttpURLConnection dataLink          = null;
+    protected           String            authenticationKey = null;
+    protected           int               solNumber         = -1;
+    protected           DateTime          earthStartDate    = null;
+    protected           DateTime          earthEndDate      = null;
+    protected           String            erthStartDate     = null;
+    protected           String            earthDateEnd      = null;
     protected           DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(DATE_FORMAT);
     protected           Logger            logger            = LoggerFactory.getLogger(QueryService.class);
 
@@ -72,7 +72,7 @@ public class QueryService implements isSpaceQuery {
             dataLink = (HttpURLConnection) getTargetUrl().openConnection();
             dataLink.setRequestMethod("GET");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not execute query for cameraAPI", e);
         }
     }
 

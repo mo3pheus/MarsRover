@@ -66,6 +66,7 @@ public class Radio implements IsEquipment {
             System.out.println("Radio receive operation has an exception");
             logger.error("Radio receive operation encountered an exception", e);
             rover.writeErrorLog("Radio receive operation encountered an exception", e);
+            rover.setState(rover.getListeningState());
         }
     }
 

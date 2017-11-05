@@ -1,0 +1,483 @@
+666 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+667 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+667 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+1043 [main] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.service.WeatherQueryServiceTest.testPayloadObject(WeatherQueryServiceTest.java:19)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:264)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+1045 [main] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.service.WeatherQueryServiceTest.testPayloadObject(WeatherQueryServiceTest.java:19)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:264)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+1080 [main] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-11-01"
+sol: 1862
+ls: 81.0
+minTemp: -81.0
+minTemFahrenheit: -113.8
+maxTemp: -30.0
+maxTempFahrenheit: -22.0
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-11-01T105600Z"
+sunset: "2017-11-01T223900Z"
+
+6206 [main] DEBUG space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=525,y=100]
+7208 [main] DEBUG space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+8211 [main] DEBUG space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+9473 [main] DEBUG space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+10476 [main] DEBUG space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+10712 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=100]
+10712 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=125]
+10712 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=150]
+10712 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=175]
+10712 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=200]
+10712 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=225]
+10713 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=250]
+10713 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=275]
+10713 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=300]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=325]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=350]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=500,y=350]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=500,y=375]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=500,y=400]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=525,y=400]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=550,y=400]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=575,y=400]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=575,y=375]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=600,y=375]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=625,y=375]
+10715 [main] DEBUG space.exploration.mars.rover.navigation.NavigationEngine  - navEnginePosn :: java.awt.Point[x=650,y=375]
+11717 [main] DEBUG space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1000 auxiliaryPowerUnits = 200 alertThreshold: 100 rechargeTime = 60000
+12720 [main] DEBUG space.exploration.mars.rover.kernel.Rover  - Battery Monitor configured!
+12761 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+12803 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name bufferpool-wait-time
+12805 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name buffer-exhausted-records
+12806 [main] DEBUG org.apache.kafka.clients.Metadata  - Updated cluster metadata version 1 to Cluster(nodes = [localhost:9092 (id: -1 rack: null)], partitions = [])
+12811 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name connections-closed:
+12811 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name connections-created:
+12811 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name bytes-sent-received:
+12811 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name bytes-sent:
+12812 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name bytes-received:
+12812 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name select-time:
+12813 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name io-time:
+12816 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name batch-size
+12816 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name compression-rate
+12816 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name queue-time
+12817 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name request-time
+12817 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name produce-throttle-time
+12817 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name records-per-request
+12817 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name record-retries
+12817 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name errors
+12818 [main] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name record-size-max
+12819 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.producer.internals.Sender  - Starting Kafka producer I/O thread.
+12819 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+12824 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+12824 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.newRover was supplied but isn't a known config.
+12824 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_3 was supplied but isn't a known config.
+12824 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+12825 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+12825 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_3 was supplied but isn't a known config.
+12825 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+12826 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+12826 [main] DEBUG org.apache.kafka.clients.producer.KafkaProducer  - Kafka producer started
+12949 [main] INFO kafka.utils.VerifiableProperties  - Verifying properties
+12974 [main] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+12974 [main] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+12974 [main] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+12975 [main] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+12975 [main] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+12975 [main] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+12975 [main] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+12975 [main] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+12975 [main] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+13001 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], Connecting to zookeeper instance at localhost:2181
+13008 [main] DEBUG org.I0Itec.zkclient.ZkConnection  - Creating new ZookKeeper instance to connect to localhost:2181.
+13008 [ZkClient-EventThread-26-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+13012 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+13012 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_131
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/home/sanket/Documents/workspace/MarsRover/mars.rover/target/test-classes:/home/sanket/Documents/workspace/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.2.0/protobuf-java-3.2.0.jar:/home/sanket/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/sanket/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.10.0.1/kafka_2.10-0.10.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.8/zkclient-0.8.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/home/sanket/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/home/sanket/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.6/scala-library-2.10.6.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.21/slf4j-log4j12-1.7.21.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.10.0.1/kafka-clients-0.10.0.1.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.3.0/lz4-1.3.0.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.2.6/snappy-java-1.1.2.6.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar:/home/sanket/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar:/home/sanket/.m2/repository/joda-time/joda-time/2.8.1/joda-time-2.8.1.jar:/home/sanket/.m2/repository/org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar:
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/home/sanket/Documents/Tools/intelliJ/idea-IC-171.4694.23/bin::/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-38-generic
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+13013 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+13014 [main] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@1b410b60
+13017 [main] DEBUG org.apache.zookeeper.ClientCnxn  - zookeeper.disableAutoWatchReset is false
+13023 [main] DEBUG org.I0Itec.zkclient.ZkClient  - Awaiting connection to Zookeeper server
+13023 [main] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+13026 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+13031 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+13032 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Session establishment request sent on localhost/127.0.0.1:2181
+13036 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15f885de2380008, negotiated timeout = 6000
+13037 [main-EventThread] DEBUG org.I0Itec.zkclient.ZkClient  - Received event: WatchedEvent state:SyncConnected type:None path:null
+13037 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+13037 [main-EventThread] DEBUG org.I0Itec.zkclient.ZkClient  - Leaving process event
+13037 [main] DEBUG org.I0Itec.zkclient.ZkClient  - State is SyncConnected
+13051 [main] DEBUG kafka.utils.KafkaScheduler  - Initializing task scheduler.
+13052 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], starting auto committer every 60000 ms
+13052 [main] DEBUG kafka.utils.KafkaScheduler  - Scheduling task kafka-consumer-autocommit with initial delay 60000 ms and period 60000 ms.
+13060 [Thread-1] DEBUG kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], entering consume 
+13078 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 in ZK
+13098 [Thread-1] DEBUG kafka.utils.ZKCheckedEphemeral  - Path: /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692, Prefix: /consumers, Suffix: /space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692
+13098 [Thread-1] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 (is it secure? false)
+13098 [Thread-1] DEBUG kafka.utils.ZKCheckedEphemeral  - Path: /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692, Prefix: /consumers, Suffix: /space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692
+13100 [Thread-1] DEBUG kafka.utils.ZKCheckedEphemeral  - Path: /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692, Prefix: /consumers/space.exploration.mars.newRover, Suffix: /ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692
+13101 [Thread-1] DEBUG kafka.utils.ZKCheckedEphemeral  - Path: /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692, Prefix: /consumers/space.exploration.mars.newRover/ids, Suffix: /space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692
+13101 [Thread-1] DEBUG kafka.utils.ZKCheckedEphemeral  - Path: /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692, Prefix: /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692, Suffix: 
+13103 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:/consumers serverPath:/consumers finished:false header:: 1,1  replyHeader:: 1,202,-110  request:: '/consumers,,v{s{31,s{'world,'anyone}}},0  response::  
+13104 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:/consumers/space.exploration.mars.newRover serverPath:/consumers/space.exploration.mars.newRover finished:false header:: 2,1  replyHeader:: 2,203,-110  request:: '/consumers/space.exploration.mars.newRover,,v{s{31,s{'world,'anyone}}},0  response::  
+13104 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:/consumers/space.exploration.mars.newRover/ids serverPath:/consumers/space.exploration.mars.newRover/ids finished:false header:: 3,1  replyHeader:: 3,204,-110  request:: '/consumers/space.exploration.mars.newRover/ids,,v{s{31,s{'world,'anyone}}},0  response::  
+13105 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:/consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 serverPath:/consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 finished:false header:: 4,1  replyHeader:: 4,205,0  request:: '/consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692,#7b2276657273696f6e223a312c22737562736372697074696f6e223a7b2265617274685f746f5f637572696f736974795f33223a317d2c227061747465726e223a22737461746963222c2274696d657374616d70223a2231353039383433333332343431227d,v{s{31,s{'world,'anyone}}},1  response:: '/consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 
+13105 [Thread-1] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+13105 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], end registering consumer space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 in ZK
+13108 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692
+13113 [Thread-1] DEBUG kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], Adding topicThreadId (earth_to_curiosity_3,space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-0) and queue [] to topicThreadIdAndQueues data structure
+13115 [Thread-1] DEBUG kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], adding topic earth_to_curiosity_3 and 1 streams to map.
+13117 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 5,3  replyHeader:: 5,205,0  request:: '/consumers/space.exploration.mars.newRover/ids,T  response:: s{32,32,1509821590522,1509821590522,0,11,0,0,0,1,205} 
+13119 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 6,8  replyHeader:: 6,205,0  request:: '/consumers/space.exploration.mars.newRover/ids,T  response:: v{'space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692} 
+13120 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 7,3  replyHeader:: 7,205,0  request:: '/brokers/topics/earth_to_curiosity_3,T  response:: s{63,63,1509822024238,1509822024238,0,1,0,0,36,1,66} 
+13120 [Thread-1] DEBUG org.I0Itec.zkclient.ZkClient  - Subscribed data changes for /brokers/topics/earth_to_curiosity_3
+13121 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 try #0
+13122 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 8,8  replyHeader:: 8,205,0  request:: '/brokers/ids,F  response:: v{'0} 
+13123 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 9,4  replyHeader:: 9,205,0  request:: '/brokers/ids/0,F  response:: #7b226a6d785f706f7274223a2d312c2274696d657374616d70223a2231353039383231333936373538222c22656e64706f696e7473223a5b22504c41494e544558543a2f2f7a696f6e2d6d61696e6672616d653a39303932225d2c22686f7374223a227a696f6e2d6d61696e6672616d65222c2276657273696f6e223a332c22706f7274223a393039327d,s{23,23,1509821396773,1509821396773,0,0,0,98947653634097152,139,0,23} 
+13180 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 10,4  replyHeader:: 10,205,0  request:: '/consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692,F  response:: #7b2276657273696f6e223a312c22737562736372697074696f6e223a7b2265617274685f746f5f637572696f736974795f33223a317d2c227061747465726e223a22737461746963222c2274696d657374616d70223a2231353039383433333332343431227d,s{205,205,1509843332464,1509843332464,0,0,0,98947653634097160,102,0,205} 
+13185 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 11,8  replyHeader:: 11,205,0  request:: '/brokers/ids,F  response:: v{'0} 
+13187 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 12,4  replyHeader:: 12,205,0  request:: '/brokers/ids/0,F  response:: #7b226a6d785f706f7274223a2d312c2274696d657374616d70223a2231353039383231333936373538222c22656e64706f696e7473223a5b22504c41494e544558543a2f2f7a696f6e2d6d61696e6672616d653a39303932225d2c22686f7374223a227a696f6e2d6d61696e6672616d65222c2276657273696f6e223a332c22706f7274223a393039327d,s{23,23,1509821396773,1509821396773,0,0,0,98947653634097152,139,0,23} 
+13193 [Thread-1] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1509843332412] Stopping leader finder thread
+13194 [Thread-1] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1509843332412] Stopping all fetchers
+13195 [Thread-1] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1509843332412] All connections stopped
+13195 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], Cleared all relevant queues for this fetcher
+13196 [Thread-1] DEBUG kafka.consumer.ConsumerIterator  - Clearing the current data chunk for this consumer iterator
+13196 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], Cleared the data chunks in all the consumer message iterators
+13196 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], Committing all offsets after clearing the fetcher queues
+13197 [Thread-1] DEBUG kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], No updates to offsets since last commit.
+13197 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], Releasing partition ownership
+13199 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 13,4  replyHeader:: 13,205,0  request:: '/consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692,F  response:: #7b2276657273696f6e223a312c22737562736372697074696f6e223a7b2265617274685f746f5f637572696f736974795f33223a317d2c227061747465726e223a22737461746963222c2274696d657374616d70223a2231353039383433333332343431227d,s{205,205,1509843332464,1509843332464,0,0,0,98947653634097160,102,0,205} 
+13205 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 14,4  replyHeader:: 14,205,0  request:: '/brokers/topics/earth_to_curiosity_3,T  response:: #7b2276657273696f6e223a312c22706172746974696f6e73223a7b2230223a5b305d7d7d,s{63,63,1509822024238,1509822024238,0,1,0,0,36,1,66} 
+13209 [Thread-1] DEBUG kafka.utils.ZkUtils  - Partition map for /brokers/topics/earth_to_curiosity_3 is Map(0 -> List(0))
+13210 [Thread-1] DEBUG kafka.utils.ZkUtils  - partition assignment of /brokers/topics/earth_to_curiosity_3 is Map(0 -> List(0))
+13212 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 15,8  replyHeader:: 15,205,0  request:: '/consumers/space.exploration.mars.newRover/ids,T  response:: v{'space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692} 
+13213 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 16,4  replyHeader:: 16,205,0  request:: '/consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692,F  response:: #7b2276657273696f6e223a312c22737562736372697074696f6e223a7b2265617274685f746f5f637572696f736974795f33223a317d2c227061747465726e223a22737461746963222c2274696d657374616d70223a2231353039383433333332343431227d,s{205,205,1509843332464,1509843332464,0,0,0,98947653634097160,102,0,205} 
+13219 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 17,8  replyHeader:: 17,205,0  request:: '/consumers/space.exploration.mars.newRover/ids,T  response:: v{'space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692} 
+13220 [Thread-1] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_3 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-0)
+13222 [Thread-1] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-0 attempting to claim partition 0
+13224 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 18,4  replyHeader:: 18,205,0  request:: '/consumers/space.exploration.mars.newRover/offsets/earth_to_curiosity_3/0,F  response:: #3233,s{79,189,1509822063006,1509837319402,20,0,0,0,2,0,79} 
+13234 [Thread-1] DEBUG kafka.consumer.PartitionTopicInfo  - initial consumer offset of earth_to_curiosity_3:0: fetched offset = 23: consumed offset = 23 is 23
+13234 [Thread-1] DEBUG kafka.consumer.PartitionTopicInfo  - initial fetch offset of earth_to_curiosity_3:0: fetched offset = 23: consumed offset = 23 is 23
+13235 [Thread-1] DEBUG kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], earth_to_curiosity_3:0: fetched offset = 23: consumed offset = 23 selected new offset 23
+13236 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 19,3  replyHeader:: 19,205,0  request:: '/,F  response:: s{0,0,0,0,0,6,0,0,0,8,19} 
+13238 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 20,1  replyHeader:: 20,206,0  request:: '/consumers/space.exploration.mars.newRover/owners/earth_to_curiosity_3/0,#73706163652e6578706c6f726174696f6e2e6d6172732e6e6577526f7665725f7a696f6e2d6d61696e6672616d652d313530393834333333323336342d62656666663639322d30,v{s{31,s{'world,'anyone}}},1  response:: '/consumers/space.exploration.mars.newRover/owners/earth_to_curiosity_3/0 
+13239 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-0 successfully owned partition 0 for topic earth_to_curiosity_3
+13253 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], Consumer space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 selected partitions : earth_to_curiosity_3:0: fetched offset = 23: consumed offset = 23
+13254 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread], Starting 
+13255 [Thread-1] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692 try #0
+13256 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 21,8  replyHeader:: 21,206,0  request:: '/brokers/ids,F  response:: v{'0} 
+13257 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Reading reply sessionid:0x15f885de2380008, packet:: clientPath:null serverPath:null finished:false header:: 22,4  replyHeader:: 22,206,0  request:: '/brokers/ids/0,F  response:: #7b226a6d785f706f7274223a2d312c2274696d657374616d70223a2231353039383231333936373538222c22656e64706f696e7473223a5b22504c41494e544558543a2f2f7a696f6e2d6d61696e6672616d653a39303932225d2c22686f7374223a227a696f6e2d6d61696e6672616d65222c2276657273696f6e223a332c22706f7274223a393039327d,s{23,23,1509821396773,1509821396773,0,0,0,98947653634097152,139,0,23} 
+13270 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+13271 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+13271 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+13271 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+13283 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_3)
+13287 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] DEBUG kafka.network.BlockingChannel  - Created socket with SO_TIMEOUT = 30000 (requested 30000), SO_RCVBUF = 530904 (requested -1), SO_SNDBUF = 102400 (requested 102400), connectTimeoutMs = 30000.
+13287 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+13300 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+13301 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] DEBUG kafka.client.ClientUtils$  - Successfully fetched metadata for 1 topic(s) Set(earth_to_curiosity_3)
+13303 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] DEBUG kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread], {TopicMetadata for topic earth_to_curiosity_3 -> 
+Metadata for partition [earth_to_curiosity_3,0] is 	partition 0	leader: BrokerEndPoint(0,zion-mainframe,9092)	replicas: BrokerEndPoint(0,zion-mainframe,9092)	isr: BrokerEndPoint(0,zion-mainframe,9092)	isUnderReplicated: false}
+13316 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-0-0], Starting 
+13318 [space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1509843332412] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_3,0], initOffset 23 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+13321 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-0-0] DEBUG kafka.consumer.SimpleConsumer  - Disconnecting from zion-mainframe:9092
+13322 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1509843332364-befff692-0-0] DEBUG kafka.network.BlockingChannel  - Created socket with SO_TIMEOUT = 30000 (requested 30000), SO_RCVBUF = 65536 (requested 65536), SO_SNDBUF = 1313280 (requested -1), connectTimeoutMs = 30000.
+14055 [main] DEBUG space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+group.id::space.exploration.mars.newRover
+auto.offset.reset::largest
+bootstrap.servers::localhost:9092
+value.serializer::org.apache.kafka.common.serialization.ByteArraySerializer
+destination.topic::curiosity_to_earth_3
+zookeeper.connect::localhost:2181
+key.serializer::org.apache.kafka.common.serialization.StringSerializer
+source.topic::earth_to_curiosity_3
+metadata.broker.list::localhost:9092
+15057 [main] DEBUG space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+15261 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 1ms
+17263 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+19265 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+21265 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+23269 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+25271 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+27274 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 1ms
+28179 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient  - Initialize connection to node -1 for sending metadata request
+28179 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient  - Initiating connection to node -1 at localhost:9092.
+28185 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name node--1.bytes-sent
+28187 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name node--1.bytes-received
+28188 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name node--1.latency
+28189 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient  - Completed connection to node -1
+28219 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient  - Sending metadata request {topics=[curiosity_to_earth_3]} to node -1
+28222 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.Metadata  - Updated cluster metadata version 2 to Cluster(nodes = [zion-mainframe:9092 (id: 0 rack: null)], partitions = [Partition(topic = curiosity_to_earth_3, partition = 0, leader = 0, replicas = [0,], isr = [0,]])
+28232 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient  - Initiating connection to node 0 at zion-mainframe:9092.
+28232 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name node-0.bytes-sent
+28233 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name node-0.bytes-received
+28233 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name node-0.latency
+28233 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient  - Completed connection to node 0
+28233 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name topic.curiosity_to_earth_3.records-per-batch
+28233 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name topic.curiosity_to_earth_3.bytes
+28234 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name topic.curiosity_to_earth_3.compression-rate
+28234 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name topic.curiosity_to_earth_3.record-retries
+28234 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics  - Added sensor with name topic.curiosity_to_earth_3.record-errors
+29277 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+31236 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1509843341083 Rover state = Listening State
+31237 [pool-3-thread-1] DEBUG space.exploration.mars.rover.kernel.Rover  - Rover accessLock acquired by sleepMonitor
+31237 [pool-3-thread-1] DEBUG space.exploration.mars.rover.kernel.Rover  -  Rover's current state = Listening State
+31237 [pool-3-thread-1] DEBUG space.exploration.mars.rover.kernel.Rover  - Rover accessLock released by sleepMonitor
+31237 [pool-3-thread-1] DEBUG space.exploration.mars.rover.kernel.Rover  -  Rover's current state = Sleeping State
+31238 [pool-3-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+31239 [pool-7-thread-1] DEBUG space.exploration.mars.rover.animation.SleepBreather  - Sleep breather started
+31249 [main] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+31279 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+33281 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 1ms
+34317 [main] DEBUG space.exploration.mars.rover.sensor.WeatherSensor  - terrestrialStartDate: "2017-10-01"
+terrestrialEndDate: "2017-09-31"
+
+34317 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?terrestrial_date_end=2017-09-31&terrestrial_date_start=2017-10-01
+34317 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?terrestrial_date_end=2017-09-31&terrestrial_date_start=2017-10-01
+34317 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?terrestrial_date_end=2017-09-31&terrestrial_date_start=2017-10-01
+34537 [main] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - Weather Service had an exception.
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1927)
+	at space.exploration.mars.rover.utils.WeatherUtil.getValue(WeatherUtil.java:89)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:17)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.WeatherSensingStateTest.testInvalidEndDate(WeatherSensingStateTest.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:264)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+34537 [main] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+35282 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+37284 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+37785 [pool-7-thread-1] DEBUG space.exploration.mars.rover.animation.SleepBreather  - Sleep breather finished.
+37785 [pool-7-thread-1] DEBUG space.exploration.mars.rover.animation.SleepBreather  - Sleep breather started
+39286 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+41287 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+43290 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+45291 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+47293 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+49294 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+51296 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+53298 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+55302 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+57303 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+59305 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+59859 [pool-5-thread-1] DEBUG space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1509843371083 Rover state = Listening State
+61307 [main-SendThread(localhost:2181)] DEBUG org.apache.zookeeper.ClientCnxn  - Got ping response for sessionid: 0x15f885de2380008 after 0ms
+62246 [pool-2-thread-1] DEBUG space.exploration.mars.rover.diagnostics.Pacemaker  - SCET: 1509843381567
+equipmentHealth {
+  key: "Battery"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radio"
+  value: 9998
+}
+equipmentHealth {
+  key: "Lidar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Camera"
+  value: 1000
+}
+equipmentHealth {
+  key: "Spectrometer"
+  value: 1000
+}
+equipmentHealth {
+  key: "Radar"
+  value: 1000
+}
+equipmentHealth {
+  key: "Mars Weather Station"
+  value: 99
+}
+batteryLevel: 999
+moduleReporting: 3
+notes: "This is rover Curiosity. Sending HeartBeat!"
+location {
+  x: 525
+  y: 100
+}
+

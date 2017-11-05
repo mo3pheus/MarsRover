@@ -46,13 +46,9 @@ public class SensingState implements State {
     }
 
     public void transmitMessage(byte[] message) {
-        // TODO Auto-generated method stub
-
     }
 
     public void exploreArea() {
-        // TODO Auto-generated method stub
-
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
@@ -60,18 +56,13 @@ public class SensingState implements State {
 
 
     public void hibernate() {
-        // TODO Auto-generated method stub
-
     }
 
     public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     public void activateCameraById(String camId) {
-
     }
 
     public void scanSurroundings() {
@@ -82,51 +73,40 @@ public class SensingState implements State {
         rover.getLidar().setWallBuilder(new WallBuilder(rover.getMarsConfig()));
         rover.getLidar().scanArea();
 
-        /* Do not render animation in case of sensor endOfLife */
-        if (!rover.isEquipmentEOL()) {
-            marsArchitect.setLidarAnimationEngine(rover.getLidar());
-            marsArchitect.getLidarAnimationEngine().activateLidar();
-            marsArchitect.returnSurfaceToNormal();
+        marsArchitect.setLidarAnimationEngine(rover.getLidar());
+        marsArchitect.getLidarAnimationEngine().activateLidar();
+        marsArchitect.returnSurfaceToNormal();
 
-            RoverPing.Builder lidarFeedback = RoverPing.newBuilder();
-            lidarFeedback.setTimeStamp(System.currentTimeMillis());
-            lidarFeedback.setMsg(rover.getLidar().getStatus());
+        RoverPing.Builder lidarFeedback = RoverPing.newBuilder();
+        lidarFeedback.setTimeStamp(System.currentTimeMillis());
+        lidarFeedback.setMsg(rover.getLidar().getStatus());
 
-            Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
-                    .setY(marsArchitect.getRobot().getLocation().y).build();
+        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
+                .setY(marsArchitect.getRobot().getLocation().y).build();
 
-            RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-            RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
-                    .setSolNumber(rover.getSol()).setLocation(location).setNotes("Lidar exercised here.")
-                    .setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
-                    .setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
+        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
+        RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
+                .setSolNumber(rover.getSol()).setLocation(location).setNotes("Lidar exercised here.")
+                .setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
+                .setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
 
-            rover.getMarsArchitect().returnSurfaceToNormal();
-            rover.state = rover.transmittingState;
-            rover.transmitMessage(status.toByteArray());
-        }
-
-        /* Flip the flag so the sensor can perform its last operation. */
-        rover.setEquipmentEOL(false);
+        rover.getMarsArchitect().returnSurfaceToNormal();
+        rover.state = rover.transmittingState;
+        rover.transmitMessage(status.toByteArray());
     }
 
     public void activateCameraById() {
-        // TODO Auto-generated method stub
-
     }
 
     public void performRadarScan() {
-
     }
 
     @Override
     public void sleep() {
-
     }
 
     @Override
     public void wakeUp() {
-
     }
 
 }

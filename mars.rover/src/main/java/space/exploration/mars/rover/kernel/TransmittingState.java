@@ -42,7 +42,6 @@ public class TransmittingState implements State {
 
     @Override
     public void activateCameraById(String camId) {
-
     }
 
     @Override
@@ -51,44 +50,31 @@ public class TransmittingState implements State {
     }
 
     public void exploreArea() {
-        // TODO Auto-generated method stub
-
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
 
     public void hibernate() {
-        // TODO Auto-generated method stub
-
     }
 
     public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
-        // TODO Auto-generated method stub
-
     }
 
     public void scanSurroundings() {
-        // TODO Auto-generated method stub
-
     }
 
     public void activateCameraById() {
-        // TODO Auto-generated method stub
-
     }
 
     public void performRadarScan() {
-
     }
 
     @Override
     public void sleep() {
-
     }
 
     @Override
     public void wakeUp() {
-
     }
 }

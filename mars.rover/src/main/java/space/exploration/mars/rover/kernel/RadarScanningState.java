@@ -89,7 +89,6 @@ public class RadarScanningState implements State {
         logger.debug("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
         MarsArchitect marsArchitect = rover.getMarsArchitect();
-        renderRadarAnimation();
 
         RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder()
@@ -112,6 +111,8 @@ public class RadarScanningState implements State {
                                  .currentTimeMillis())
                 .setModuleMessage(rContactListBuilder.build().toByteString())
                 .setModuleReporting(ModuleDirectory.Module.RADAR.getValue()).build();
+
+        renderRadarAnimation();
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.state = rover.transmittingState;
         rover.transmitMessage(status.toByteArray());
@@ -119,12 +120,10 @@ public class RadarScanningState implements State {
 
     @Override
     public void sleep() {
-
     }
 
     @Override
     public void wakeUp() {
-
     }
 
     private void renderRadarAnimation() {

@@ -62,7 +62,7 @@ public class MarsArchitect {
         return this.spectrometerEngine;
     }
 
-    public void setSpectrometerAnimationEngine(Spectrometer spectrometer) {
+    public void createSpectrometerAnimationEngine(Spectrometer spectrometer) {
         this.spectrometerEngine = new SpectrometerAnimationEngine(marsConfig, robot, spectrometer, marsSurface);
     }
 

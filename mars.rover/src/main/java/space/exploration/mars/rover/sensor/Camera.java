@@ -26,7 +26,6 @@ public class Camera implements IsEquipment {
     private static final String          LIFESPAN           = "mars.rover.camera.lifeSpan";
     private static final int             LAST_SHOTS_RESERVE = 10;
     private              int             numImages          = 0;
-    private              int             powerConsumption   = 0;
     private              int             numImageCaches     = 0;
     private              int             lifeSpan           = 0;
     private              long            shutterSpeed       = 0;
@@ -46,7 +45,6 @@ public class Camera implements IsEquipment {
         lifeSpan = Integer.parseInt(marsConfig.getProperty(LIFESPAN));
         marsImages = new BufferedImage[numImages];
         imageCachePoints = new ArrayList<Point>();
-        powerConsumption = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_POWER_CONSUMPTION));
         collectImages();
         loadImageCachePoints();
 
@@ -62,7 +60,6 @@ public class Camera implements IsEquipment {
         lifeSpan = Integer.parseInt(marsConfig.getProperty(LIFESPAN));
         marsImages = new BufferedImage[numImages];
         imageCachePoints = new ArrayList<Point>();
-        powerConsumption = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CAMERA_POWER_CONSUMPTION));
         collectImages(imagePath);
         loadImageCachePoints();
 

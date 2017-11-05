@@ -44,11 +44,9 @@ public class PhotographingState implements State {
     }
 
     public void transmitMessage(byte[] message) {
-
     }
 
     public void exploreArea() {
-
     }
 
     @Override
@@ -113,7 +111,6 @@ public class PhotographingState implements State {
 
     public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
     }
-
 
     public void hibernate() {
     }

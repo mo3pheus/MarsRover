@@ -12,8 +12,8 @@ public class CameraAnimationTest {
     public static void main(String[] args) {
         System.out.println(10 / 3);
         try {
-            MarsArchitect architect = new MarsArchitect(MatrixCreation.getMatrixConfig());
-            CameraAnimationEngine cameraAnimationEngine = new CameraAnimationEngine(MatrixCreation.getMatrixConfig(),
+            MarsArchitect architect = new MarsArchitect(MatrixCreation.getConfig());
+            CameraAnimationEngine cameraAnimationEngine = new CameraAnimationEngine(MatrixCreation.getConfig(),
                                                                                     new Point(50, 50), 150l,
                                                                                     architect.getRobot().getCellWidth
                                                                                             ());

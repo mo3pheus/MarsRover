@@ -93,6 +93,7 @@ public class Rover {
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
         this.dataArchiveLocation = "/dataArchives";
+        this.nasaApiAuthKey = "DEMO_KEY";
         bootUp();
     }
 
@@ -398,7 +399,7 @@ public class Rover {
     }
 
     public synchronized void getNasaApiCredentials() {
-        this.nasaApiAuthKey = RoverUtil.getNasaCredentials();
+        this.nasaApiAuthKey = (this.nasaApiAuthKey == null) ? RoverUtil.getNasaCredentials() : "DEMO_KEY";
     }
 
     public synchronized void configureDB() {

@@ -15,8 +15,8 @@ public class WeatherAnimationEngineTest extends TestCase {
     @Override
     public void setUp() {
         try {
-            marsArchitect = new MarsArchitect(MatrixCreation.getMatrixConfig());
-            weatherAnimationEngine = new WeatherAnimationEngine(MatrixCreation.getMatrixConfig(), marsArchitect
+            marsArchitect = new MarsArchitect(MatrixCreation.getConfig());
+            weatherAnimationEngine = new WeatherAnimationEngine(MatrixCreation.getConfig(), marsArchitect
                     .getRobot().getLocation(), 150, marsArchitect.getMarsSurface());
         } catch (IOException e) {
             e.printStackTrace();
@@ -26,7 +26,7 @@ public class WeatherAnimationEngineTest extends TestCase {
     @Test
     public void testAnimation() throws Exception {
         weatherAnimationEngine.renderWeatherAnimation();
-//        WeatherScanCell weatherScanCell = new WeatherScanCell(MatrixCreation.getMatrixConfig(), marsArchitect
+//        WeatherScanCell weatherScanCell = new WeatherScanCell(MatrixCreation.getConfig(), marsArchitect
 //                .getRobot().getLocation());
 //        JFrame marsSurface = marsArchitect.getMarsSurface();
 //        Container withWeatherCell = marsSurface.getContentPane();

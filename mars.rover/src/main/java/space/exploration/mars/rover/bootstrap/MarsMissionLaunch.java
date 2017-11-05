@@ -15,16 +15,17 @@ public class MarsMissionLaunch {
         try {
             if (args.length == 0) {
                 configureLogging(false);
-                new Rover(MatrixCreation.getMatrixConfig(), MatrixCreation.getComsConfig(), MatrixCreation
+                new Rover(MatrixCreation.getConfig(), MatrixCreation.getComsConfig(), MatrixCreation
                         .getRoverDBConfig());
             } else {
                 configureLogging(Boolean.parseBoolean(args[5]));
-                Properties marsConfig      = MatrixCreation.convertToPropertyFiles(args[0]);
-                Properties comsConfig      = MatrixCreation.convertToPropertyFiles(args[1]);
-                Properties dbConfig        = MatrixCreation.convertToPropertyFiles(args[2]);
-                String     archiveLocation = args[4];
+                Properties marsConfig       = MatrixCreation.convertToPropertyFiles(args[0]);
+                Properties comsConfig       = MatrixCreation.convertToPropertyFiles(args[1]);
+                Properties dbConfig         = MatrixCreation.convertToPropertyFiles(args[2]);
+                String     camCacheLocation = args[3];
+                String     archiveLocation  = args[4];
 
-                new Rover(marsConfig, comsConfig, dbConfig, args[3], archiveLocation);
+                new Rover(marsConfig, comsConfig, dbConfig, camCacheLocation, archiveLocation);
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block

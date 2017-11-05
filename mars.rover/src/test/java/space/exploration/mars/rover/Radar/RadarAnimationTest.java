@@ -15,7 +15,7 @@ import java.util.Properties;
 public class RadarAnimationTest {
 
     public static void main(String[] args) throws Exception {
-        Properties                       marsConfig           = MatrixCreation.getMatrixConfig();
+        Properties                       marsConfig           = MatrixCreation.getConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();
         contacts.add(new RadarContactCell(marsConfig, new Point(175, 175), Color.black, 8));
@@ -39,7 +39,7 @@ public class RadarAnimationTest {
     }
 
     public static void main1(String[] args) throws Exception {
-        Properties marsConfig = MatrixCreation.getMatrixConfig();
+        Properties marsConfig = MatrixCreation.getConfig();
 
         RadialContact radialContact = new RadialContact(new Point(350, 350), new Point(-177, 294));
         double        theta         = radialContact.getPolarPoint().getTheta();
