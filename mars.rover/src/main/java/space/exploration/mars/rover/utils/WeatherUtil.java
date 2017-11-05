@@ -3,8 +3,8 @@ package space.exploration.mars.rover.utils;
 import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.service.SeasonalWeather;
-import space.exploration.mars.rover.service.WeatherData;
+import space.exploration.communications.protocol.service.SeasonalWeather;
+import space.exploration.communications.protocol.service.WeatherData;
 
 import java.util.ArrayList;
 import java.util.List;

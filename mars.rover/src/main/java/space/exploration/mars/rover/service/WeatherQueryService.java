@@ -4,6 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.communications.protocol.service.WeatherData;
 import space.exploration.mars.rover.utils.WeatherUtil;
 
 public class WeatherQueryService extends QueryService {

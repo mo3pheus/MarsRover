@@ -3,23 +3,15 @@
  */
 package space.exploration.mars.rover.communication;
 
-import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import space.exploration.mars.rover.communication.MatrixCommunication.MatrixCall;
-import space.exploration.mars.rover.environment.PortableMatrixConfig;
-import space.exploration.mars.rover.navigation.NavigationEngine;
-import space.exploration.mars.rover.navigation.NavigationPath;
 
-import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 /**
@@ -55,67 +47,12 @@ public class Transmitter {
         earthChannel = new KafkaProducer<>(kafkaProperties);
     }
 
-    private static byte[] makeCall() {
-        PortableMatrixConfig matrixConfig    = new PortableMatrixConfig();
-        MatrixCall.Builder   matrixCallMaker = MatrixCall.newBuilder();
-        MatrixCall call = matrixCallMaker.setCommandCenter("zion.main.frame").setMessageType(1)
-                .setMatrixConfig(ByteString.copyFrom(SerializationUtil.serialize(matrixConfig))).build();
-        return call.toByteArray();
-    }
-
-    private List<byte[]> generatePathSplits() {
-        PortableMatrixConfig matrixConfig    = new PortableMatrixConfig();
-        NavigationEngine     navEngine       = new NavigationEngine(matrixConfig.getMatrixConfig());
-        List<Point>          fullPath        = navEngine.getAnimationCalibratedRobotPath();
-        List<byte[]>         messageSequence = new ArrayList<byte[]>();
-        List<NavigationPath> navSequence     = new ArrayList<NavigationPath>();
-
-        List<Point> tempPoints = new ArrayList<Point>();
-        for (int i = 0; i < fullPath.size(); i++) {
-            if ((i % 10 == 0) || (i % 10 < 100)) {
-                NavigationPath navPath = new NavigationPath(tempPoints);
-                navSequence.add(navPath);
-                tempPoints = new ArrayList<Point>();
-            }
-            tempPoints.add(fullPath.get(i));
-        }
-
-        for (int i = 0; i < navSequence.size(); i++) {
-            MatrixCall.Builder matrixCallMaker = MatrixCall.newBuilder();
-            MatrixCall call = matrixCallMaker.setCommandCenter("zion.main.frame").setMessageType(2)
-                    .setPath(ByteString.copyFrom(SerializationUtil.serialize(navSequence.get(i)))).build();
-            messageSequence.add(call.toByteArray());
-        }
-
-        return messageSequence;
-    }
-
-    public void sendMessage() throws InterruptedException, InvalidProtocolBufferException {
-        for (int i = 0; i < 1; i++) {
-            byte[] outputKafkaBytes = makeCall();
-            earthChannel.send(
-                    new ProducerRecord<>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
-            System.out.println("Sending information packet to " + kafkaProperties.getProperty("sourceTopic"));
-            System.out.println("Sent message = " + MatrixCall.parseFrom(outputKafkaBytes));
-            Thread.sleep(1500l);
-        }
-    }
-
     public void transmitMessage(byte[] message) throws InterruptedException, InvalidProtocolBufferException {
         for (int i = 0; i < 1; i++) {
             earthChannel.send(
                     new ProducerRecord<>(kafkaProperties.getProperty("destination.topic"), message));
             System.out.println("Sending information packet to " + kafkaProperties.getProperty("destination" +
                                                                                                       ".topic"));
-        }
-    }
-
-    public void sendMessages() throws Exception {
-        List<byte[]> messages = generatePathSplits();
-        for (int i = 0; i < messages.size(); i++) {
-            byte[] outputKafkaBytes = messages.get(i);
-            earthChannel.send(
-                    new ProducerRecord<>(kafkaProperties.getProperty("sourceTopic"), outputKafkaBytes));
         }
     }
 

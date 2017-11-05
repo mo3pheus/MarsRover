@@ -1,15 +1,16 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.radar.RadarContactListOuterClass;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.animation.RadarAnimationEngine;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RadarContactCell;
-import space.exploration.mars.rover.radar.RadarContactListOuterClass;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.utils.RadialContact;
 import space.exploration.mars.rover.utils.RoverUtil;
 

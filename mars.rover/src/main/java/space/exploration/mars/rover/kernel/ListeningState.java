@@ -1,15 +1,13 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
-import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
-import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
-import space.exploration.mars.rover.kernel.ModuleDirectory.Module;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 public class ListeningState implements State {
 
@@ -31,11 +29,11 @@ public class ListeningState implements State {
     }
 
     public void receiveMessage(byte[] message) {
-        InstructionPayload payload = null;
+        InstructionPayloadOuterClass.InstructionPayload payload = null;
         rover.setTimeMessageReceived(System.currentTimeMillis());
         System.out.println("This is the listening module");
         try {
-            payload = InstructionPayload.parseFrom(message);
+            payload = InstructionPayloadOuterClass.InstructionPayload.parseFrom(message);
             System.out.println(payload);
             logger.debug(payload.toString());
 
@@ -43,7 +41,7 @@ public class ListeningState implements State {
                     .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
             radioAnimationEngine.activateRadio();
 
-            for (TargetPackage tp : payload.getTargetsList()) {
+            for (InstructionPayloadOuterClass.InstructionPayload.TargetPackage tp : payload.getTargetsList()) {
                 rover.writeSystemLog(tp, rover.getInstructionQueue().size());
                 logger.info(Long.toString(System.currentTimeMillis()) + ","
                                     + Integer.toString(tp.getRoverModule()) + "," + tp.getAction()
@@ -69,27 +67,27 @@ public class ListeningState implements State {
                 rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - tp
                         .getEstimatedPowerUsage());
 
-                if (tp.getRoverModule() == Module.SENSOR_LIDAR.getValue()) {
+                if (tp.getRoverModule() == ModuleDirectory.Module.SENSOR_LIDAR.getValue()) {
                     System.out.println("Got lidar message");
                     rover.state = rover.sensingState;
                     rover.scanSurroundings();
-                } else if (tp.getRoverModule() == Module.PROPULSION.getValue()) {
+                } else if (tp.getRoverModule() == ModuleDirectory.Module.PROPULSION.getValue()) {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is on the move!");
                     rover.state = rover.movingState;
                     rover.move(payload);
-                } else if (tp.getRoverModule() == Module.SCIENCE.getValue()) {
+                } else if (tp.getRoverModule() == ModuleDirectory.Module.SCIENCE.getValue()) {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is on a scientific mission!");
                     rover.state = rover.exploringState;
                     rover.exploreArea();
-                } else if (tp.getRoverModule() == Module.CAMERA_SENSOR.getValue()) {
+                } else if (tp.getRoverModule() == ModuleDirectory.Module.CAMERA_SENSOR.getValue()) {
                     System.out.println("Rover " + Rover.ROVER_NAME + " is going to try to take pictures!");
                     rover.state = rover.photoGraphingState;
                     rover.activateCameraById(tp.getRoverSubModule());
-                } else if (tp.getRoverModule() == Module.RADAR.getValue()) {
+                } else if (tp.getRoverModule() == ModuleDirectory.Module.RADAR.getValue()) {
                     System.out.println("Rover " + Rover.ROVER_NAME + " will do a radarScan!");
                     rover.state = rover.radarScanningState;
                     rover.performRadarScan();
-                } else if (tp.getRoverModule() == Module.WEATHER_SENSOR.getValue()) {
+                } else if (tp.getRoverModule() == ModuleDirectory.Module.WEATHER_SENSOR.getValue()) {
                     logger.info("Rover will try to get weather measurements - actual Curiosity Data");
                     rover.state = rover.weatherSensingState;
                     rover.senseWeather(WeatherQueryOuterClass.WeatherQuery.parseFrom(tp.getAuxiliaryData()));

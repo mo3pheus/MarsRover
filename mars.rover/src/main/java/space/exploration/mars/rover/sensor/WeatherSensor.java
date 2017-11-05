@@ -1,14 +1,14 @@
 package space.exploration.mars.rover.sensor;
 
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.service.SeasonalWeather;
+import space.exploration.communications.protocol.service.WeatherData;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
-import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
-import space.exploration.mars.rover.service.SeasonalWeather;
-import space.exploration.mars.rover.service.WeatherData;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;

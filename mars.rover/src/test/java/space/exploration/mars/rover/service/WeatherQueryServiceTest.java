@@ -2,6 +2,7 @@ package space.exploration.mars.rover.service;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import space.exploration.communications.protocol.service.WeatherData;
 import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
 
 public class WeatherQueryServiceTest extends TestCase {

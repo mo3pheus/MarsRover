@@ -4,15 +4,15 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
-import space.exploration.mars.rover.communication.RoverPingOuterClass.RoverPing;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.communication.RoverPingOuterClass;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.WallBuilder;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 /**
  * @author sanketkorgaonkar
@@ -77,15 +77,15 @@ public class SensingState implements State {
         marsArchitect.getLidarAnimationEngine().activateLidar();
         marsArchitect.returnSurfaceToNormal();
 
-        RoverPing.Builder lidarFeedback = RoverPing.newBuilder();
+        RoverPingOuterClass.RoverPing.Builder lidarFeedback = RoverPingOuterClass.RoverPing.newBuilder();
         lidarFeedback.setTimeStamp(System.currentTimeMillis());
         lidarFeedback.setMsg(rover.getLidar().getStatus());
 
-        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
+        RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
                 .setY(marsArchitect.getRobot().getLocation().y).build();
 
-        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-        RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+        RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
                 .setSolNumber(rover.getSol()).setLocation(location).setNotes("Lidar exercised here.")
                 .setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
                 .setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
@@ -108,5 +108,4 @@ public class SensingState implements State {
     @Override
     public void wakeUp() {
     }
-
 }

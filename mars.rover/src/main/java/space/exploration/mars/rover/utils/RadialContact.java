@@ -1,6 +1,6 @@
 package space.exploration.mars.rover.utils;
 
-import space.exploration.mars.rover.radar.PolarCoord;
+import space.exploration.communications.protocol.radar.PolarCoord;
 
 import java.awt.*;
 

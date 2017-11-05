@@ -1,7 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 
 public interface State {
     void receiveMessage(byte[] message);

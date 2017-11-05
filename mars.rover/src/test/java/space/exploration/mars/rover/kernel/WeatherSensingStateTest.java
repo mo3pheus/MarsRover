@@ -3,8 +3,8 @@ package space.exploration.mars.rover.kernel;
 import junit.framework.TestCase;
 import org.junit.Ignore;
 import org.junit.Test;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 /**
  * This test is ignored for convenience building, if you change the weatherService - run this test to ensure fail

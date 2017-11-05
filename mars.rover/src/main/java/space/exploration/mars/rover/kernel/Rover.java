@@ -1,11 +1,12 @@
 package space.exploration.mars.rover.kernel;
 
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.communication.Radio;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
 import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
 import space.exploration.mars.rover.diagnostics.SleepMonitor;
@@ -16,7 +17,6 @@ import space.exploration.mars.rover.navigation.NavigationEngine;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.power.BatteryMonitor;
 import space.exploration.mars.rover.sensor.*;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
@@ -510,9 +510,9 @@ public class Rover {
     }
 
     public synchronized byte[] getBootupMessage() {
-        Location location = Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
+        RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
                 .setY(marsArchitect.getRobot().getLocation().y).build();
-        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
         rBuilder.setSCET(System.currentTimeMillis());
         rBuilder.setLocation(location);

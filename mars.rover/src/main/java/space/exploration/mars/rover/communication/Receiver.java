@@ -9,7 +9,7 @@ import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
-import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 
 import java.util.HashMap;
 import java.util.List;
@@ -56,7 +56,8 @@ public class Receiver extends Thread {
             }
 
             try {
-                InstructionPayload received = (InstructionPayload.parseFrom(it.next().message()));
+                InstructionPayloadOuterClass.InstructionPayload received = (InstructionPayloadOuterClass
+                        .InstructionPayload.parseFrom(it.next().message()));
                 radio.receiveMessage(received);
             } catch (InvalidProtocolBufferException e) {
                 e.printStackTrace();

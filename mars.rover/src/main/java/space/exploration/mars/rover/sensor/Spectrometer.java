@@ -1,16 +1,13 @@
 package space.exploration.mars.rover.sensor;
 
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.communications.protocol.spectrometer.SpectrometerScanOuterClass;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.SoilComposition;
 import space.exploration.mars.rover.kernel.IsEquipment;
-import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
-import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.SpectrometerScan;
-import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.SpectrometerScan.Composition;
-import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.SpectrometerScan.Location;
-import space.exploration.mars.rover.spectrometer.SpectrometerScanOuterClass.SpectrometerScan.PointComp;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
@@ -124,18 +121,19 @@ public class Spectrometer implements IsEquipment {
         return scanPoints;
     }
 
-    public SpectrometerScan getSpectrometerReading() {
-        SpectrometerScan.Builder sBuilder       = SpectrometerScan.newBuilder();
-        List<PointComp>          sampleReadings = new ArrayList<PointComp>();
+    public SpectrometerScanOuterClass.SpectrometerScan getSpectrometerReading() {
+        SpectrometerScanOuterClass.SpectrometerScan.Builder         sBuilder       = SpectrometerScanOuterClass.SpectrometerScan.newBuilder();
+        List<SpectrometerScanOuterClass.SpectrometerScan.PointComp> sampleReadings = new ArrayList<SpectrometerScanOuterClass.SpectrometerScan.PointComp>();
 
         for (SoilComp sample : scanAreaComp) {
-            PointComp.Builder pBuilder = PointComp.newBuilder();
+            SpectrometerScanOuterClass.SpectrometerScan.PointComp.Builder pBuilder = SpectrometerScanOuterClass
+                    .SpectrometerScan.PointComp.newBuilder();
 
             Point temp = sample.getPoint();
-            pBuilder.setPoint(Location.newBuilder().setX(temp.x).setY(temp.y).build());
+            pBuilder.setPoint(SpectrometerScanOuterClass.SpectrometerScan.Location.newBuilder().setX(temp.x).setY(temp.y).build());
 
             SoilComposition composition = sample.getComposition();
-            pBuilder.setSoilComp(Composition.newBuilder().setAl2O3(composition.getAl2O3()).setFeO(composition.getFeO())
+            pBuilder.setSoilComp(SpectrometerScanOuterClass.SpectrometerScan.Composition.newBuilder().setAl2O3(composition.getAl2O3()).setFeO(composition.getFeO())
                                          .setMgO(composition.getMgO()).setNa2O(composition.getNa2O()).build());
             sampleReadings.add(pBuilder.build());
         }

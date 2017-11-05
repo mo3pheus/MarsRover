@@ -4,12 +4,12 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass.RoverStatus.Location;
+import communications.protocol.ModuleDirectory;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 /**
  * @author sanketkorgaonkar
@@ -47,11 +47,11 @@ public class ExploringState implements State {
         marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
         marsArchitect.returnSurfaceToNormal();
 
-        Location.Builder lBuilder = Location.newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
+        RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location.newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
                 ().y);
 
-        RoverStatus.Builder rBuilder = RoverStatus.newBuilder();
-        RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+        RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
                 .setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
                 .setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
                 .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE

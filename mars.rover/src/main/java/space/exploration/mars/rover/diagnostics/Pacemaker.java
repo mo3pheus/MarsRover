@@ -1,11 +1,12 @@
 package space.exploration.mars.rover.diagnostics;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.diagnostics.HeartBeatOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
-import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
 
 import java.util.concurrent.Executors;

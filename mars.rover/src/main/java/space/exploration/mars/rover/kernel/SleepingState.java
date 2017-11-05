@@ -2,10 +2,10 @@ package space.exploration.mars.rover.kernel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.animation.SleepingAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
 
 public class SleepingState implements State {
     private Logger                  logger                  = LoggerFactory.getLogger(SleepingState.class);

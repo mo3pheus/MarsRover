@@ -1,8 +1,8 @@
 package space.exploration.mars.rover.utils;
 
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
-import space.exploration.mars.rover.communication.RoverStatusOuterClass;
-import space.exploration.mars.rover.kernel.ModuleDirectory;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.Rover;
 
 import java.awt.*;

@@ -1,11 +1,11 @@
 package space.exploration.mars.rover.sensor;
 
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.kernel.IsEquipment;
-import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.CameraUtil;
 import space.exploration.mars.rover.utils.RoverUtil;

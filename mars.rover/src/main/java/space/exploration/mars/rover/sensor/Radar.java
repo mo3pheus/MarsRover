@@ -2,11 +2,11 @@ package space.exploration.mars.rover.sensor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.communications.protocol.radar.PolarCoord;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.RoverCell;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
-import space.exploration.mars.rover.radar.PolarCoord;
 import space.exploration.mars.rover.utils.RadialContact;
 import space.exploration.mars.rover.utils.RoverUtil;
 

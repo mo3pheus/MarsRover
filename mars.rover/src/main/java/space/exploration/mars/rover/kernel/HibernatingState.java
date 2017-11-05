@@ -6,8 +6,8 @@ package space.exploration.mars.rover.kernel;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.InstructionPayloadOuterClass;
-import space.exploration.mars.rover.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 
 /**
  * @author sanketkorgaonkar

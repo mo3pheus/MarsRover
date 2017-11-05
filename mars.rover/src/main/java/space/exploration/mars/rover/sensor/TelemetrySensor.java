@@ -2,9 +2,9 @@ package space.exploration.mars.rover.sensor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.communications.protocol.propulsion.TelemetryDataOuterClass;
+import space.exploration.communications.protocol.propulsion.TelemetryPacketOuterClass;
 import space.exploration.mars.rover.animation.TrackingAnimationEngine;
-import space.exploration.mars.rover.propulsion.TelemetryDataOuterClass;
-import space.exploration.mars.rover.propulsion.TelemetryPacketOuterClass;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;

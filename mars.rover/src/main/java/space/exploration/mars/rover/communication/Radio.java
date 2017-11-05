@@ -1,12 +1,12 @@
 package space.exploration.mars.rover.communication;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.concurrent.forkjoin.ThreadLocalRandom;
-import space.exploration.mars.rover.InstructionPayloadOuterClass.InstructionPayload;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
-import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
 
@@ -49,7 +49,7 @@ public class Radio implements IsEquipment {
         this.endOfLife = endOfLife;
     }
 
-    public void receiveMessage(InstructionPayload instructionPayload) {
+    public void receiveMessage(InstructionPayloadOuterClass.InstructionPayload instructionPayload) {
         try {
             if (lifeSpan > SOS_RESERVE) {
                 System.out.println("Alert! Alert! Incoming message...");

@@ -1,9 +1,9 @@
 package space.exploration.mars.rover.animation;
 
+import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.environment.*;
-import space.exploration.mars.rover.kernel.ModuleDirectory;
 import space.exploration.mars.rover.sensor.Radar;
 import space.exploration.mars.rover.utils.RadialContact;
 

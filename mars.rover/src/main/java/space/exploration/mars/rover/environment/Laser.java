@@ -3,7 +3,7 @@
  */
 package space.exploration.mars.rover.environment;
 
-import space.exploration.mars.rover.kernel.ModuleDirectory;
+import communications.protocol.ModuleDirectory;
 import space.exploration.mars.rover.sensor.Radar;
 import space.exploration.mars.rover.utils.RadialContact;
 
