@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+##   m a r s R o v e r
 
 The MarsRover project is essentially an educational tool to help software developers try out new algorithms and technologies in a fun and challenging environment. The project has 2 essential parts viz. 1) The Rover, 2) Mission Control and Command Center
 
