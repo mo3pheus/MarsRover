@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-import "TelemetryData.proto";
-
-package space.exploration.mars.rover.propulsion;
-
-message TelemetryPacket {
-    repeated space.exploration.mars.rover.propulsion.TelemetryData telemetryData = 1;
-}

@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-import "WeatherData.proto";
-package space.exploration.mars.rover.service;
-
-message SeasonalWeatherPayload {
-    repeated WeatherPayload weatherReports = 1;
-}
