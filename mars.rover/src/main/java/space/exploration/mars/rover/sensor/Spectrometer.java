@@ -122,18 +122,22 @@ public class Spectrometer implements IsEquipment {
     }
 
     public SpectrometerScanOuterClass.SpectrometerScan getSpectrometerReading() {
-        SpectrometerScanOuterClass.SpectrometerScan.Builder         sBuilder       = SpectrometerScanOuterClass.SpectrometerScan.newBuilder();
-        List<SpectrometerScanOuterClass.SpectrometerScan.PointComp> sampleReadings = new ArrayList<SpectrometerScanOuterClass.SpectrometerScan.PointComp>();
+        SpectrometerScanOuterClass.SpectrometerScan.Builder         sBuilder       = SpectrometerScanOuterClass
+                .SpectrometerScan.newBuilder();
+        List<SpectrometerScanOuterClass.SpectrometerScan.PointComp> sampleReadings = new
+                ArrayList<SpectrometerScanOuterClass.SpectrometerScan.PointComp>();
 
         for (SoilComp sample : scanAreaComp) {
             SpectrometerScanOuterClass.SpectrometerScan.PointComp.Builder pBuilder = SpectrometerScanOuterClass
                     .SpectrometerScan.PointComp.newBuilder();
 
             Point temp = sample.getPoint();
-            pBuilder.setPoint(SpectrometerScanOuterClass.SpectrometerScan.Location.newBuilder().setX(temp.x).setY(temp.y).build());
+            pBuilder.setPoint(SpectrometerScanOuterClass.SpectrometerScan.Location.newBuilder().setX(temp.x).setY
+                    (temp.y).build());
 
             SoilComposition composition = sample.getComposition();
-            pBuilder.setSoilComp(SpectrometerScanOuterClass.SpectrometerScan.Composition.newBuilder().setAl2O3(composition.getAl2O3()).setFeO(composition.getFeO())
+            pBuilder.setSoilComp(SpectrometerScanOuterClass.SpectrometerScan.Composition.newBuilder().setAl2O3
+                    (composition.getAl2O3()).setFeO(composition.getFeO())
                                          .setMgO(composition.getMgO()).setNa2O(composition.getNa2O()).build());
             sampleReadings.add(pBuilder.build());
         }

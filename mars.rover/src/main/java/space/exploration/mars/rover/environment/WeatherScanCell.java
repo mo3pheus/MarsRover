@@ -4,23 +4,25 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 
 import static space.exploration.mars.rover.environment.Cell.CELL_WIDTH;
 
 public class WeatherScanCell extends VirtualElement {
-    private BufferedImage weatherImg = null;
-    private Properties    marsConfig = null;
-    private Point         location   = null;
-    private int           cellWidth  = 0;
+    private static final String        WEATHER_ICON_FILE = "/sunIcon.jpg";
+    private              BufferedImage weatherImg        = null;
+    private              Properties    marsConfig        = null;
+    private              Point         location          = null;
+    private              int           cellWidth         = 0;
 
     public WeatherScanCell(Properties marsConfig, Point location) {
         this.marsConfig = marsConfig;
         this.location = location;
         try {
-            weatherImg = ImageIO.read(new File(marsConfig.getProperty("mars.rover.weather.station.image")));
+            URL url = WeatherScanCell.class.getResource(WEATHER_ICON_FILE);
+            weatherImg = ImageIO.read(url);
         } catch (IOException e) {
             e.printStackTrace();
         }

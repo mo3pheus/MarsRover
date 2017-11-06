@@ -87,7 +87,8 @@ public class MovingState implements State {
         java.awt.Point                          robotPosition = rover.getMarsArchitect().getRobot().getLocation();
         RobotPositionsOuterClass.RobotPositions positions     = null;
         try {
-            positions = RobotPositionsOuterClass.RobotPositions.parseFrom(payload.getTargetsList().get(0).getAuxiliaryData().toByteArray());
+            positions = RobotPositionsOuterClass.RobotPositions.parseFrom(payload.getTargetsList().get(0)
+                                                                                  .getAuxiliaryData().toByteArray());
         } catch (InvalidProtocolBufferException e) {
             logger.error("Invalid / corrupted move command.", e);
             rover.writeErrorLog("Invalid / corrupted move command.", e);
@@ -154,7 +155,8 @@ public class MovingState implements State {
     private void sendTelemetry(MarsArchitect architect) {
         RoverStatusOuterClass.RoverStatus.Builder updateMsg = RoverStatusOuterClass.RoverStatus.newBuilder();
         updateMsg.setSCET(System.currentTimeMillis());
-        RoverStatusOuterClass.RoverStatus.Location robotLocation = RoverStatusOuterClass.RoverStatus.Location.newBuilder().setX(rover.getMarsArchitect().getRobot().getLocation().x)
+        RoverStatusOuterClass.RoverStatus.Location robotLocation = RoverStatusOuterClass.RoverStatus.Location
+                .newBuilder().setX(rover.getMarsArchitect().getRobot().getLocation().x)
                 .setY(rover.getMarsArchitect().getRobot().getLocation().y).build();
         updateMsg.setLocation(robotLocation);
         updateMsg.setNotes(
@@ -169,10 +171,12 @@ public class MovingState implements State {
         rover.transmitMessage(updateMsg.build().toByteArray());
     }
 
-    private void sendFailureToEarth(java.awt.Point source, RobotPositionsOuterClass.RobotPositions.Point destination, String message) {
+    private void sendFailureToEarth(java.awt.Point source, RobotPositionsOuterClass.RobotPositions.Point destination,
+                                    String message) {
         RoverStatusOuterClass.RoverStatus.Builder updateMsg = RoverStatusOuterClass.RoverStatus.newBuilder();
         updateMsg.setSCET(System.currentTimeMillis());
-        RoverStatusOuterClass.RoverStatus.Location robotLocation = RoverStatusOuterClass.RoverStatus.Location.newBuilder().setX(rover.getMarsArchitect().getRobot().getLocation().x)
+        RoverStatusOuterClass.RoverStatus.Location robotLocation = RoverStatusOuterClass.RoverStatus.Location
+                .newBuilder().setX(rover.getMarsArchitect().getRobot().getLocation().x)
                 .setY(rover.getMarsArchitect().getRobot().getLocation().y).build();
         updateMsg.setLocation(robotLocation);
         updateMsg.setNotes(message);

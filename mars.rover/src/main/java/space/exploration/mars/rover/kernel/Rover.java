@@ -510,7 +510,8 @@ public class Rover {
     }
 
     public synchronized byte[] getBootupMessage() {
-        RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location.newBuilder().setX(marsArchitect.getRobot().getLocation().x)
+        RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location.newBuilder()
+                .setX(marsArchitect.getRobot().getLocation().x)
                 .setY(marsArchitect.getRobot().getLocation().y).build();
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         rBuilder.setModuleReporting(ModuleDirectory.Module.KERNEL.getValue());
