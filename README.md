@@ -4,6 +4,7 @@ The MarsRover project is essentially an educational tool to help software develo
 
 1) The Rover is a softbot that you launch to the Mars surface and that you hope to control.
 2) Mission Control displays the messages received from the rover, such as any findings or status reports or diagnostic heartbeats. Command Center composes and forms properly formatted messages for the rover to act upon.
+3) The Rover and Mission Control communicate with each other through a common communcations-protocol<1.0>.
 
 Part 1 is this repository, part 2 is in a separate repository to help facilitate independent development.
 
