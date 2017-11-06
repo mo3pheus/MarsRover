@@ -53,3 +53,32 @@ The rover logs all instructions it receives and all actions its performing. If t
 Sanket Korgaonkar
 Email : sanket.korgaonkar@gmail.com
 GitHub: http://github.com/mo3pheus 
+
+### Installation Instructions:
+
+MarsRover installation steps:
+      1) create a folder called SpaceExploration somewhere on your harddrive => here by referred to as <HOME>
+        1.1) create a folder called Protobuf
+        1.2) download the protoc into this folder. (linux binary) https://github.com/google/protobuf/releases/download/v3.4.0/protoc-3.4.0-linux-x86_32.zip
+      2) clone https://github.com/mo3pheus/CommunicationsProtocol.git under <HOME> 
+        2.1) open the pom.xml - and modify the protoc path to point to the file downloaded in 1.2 - run mvn clean install
+      3) mvn install:install-file -Dfile=<HOME>/CommunicationsProtocol/target/communications.protocol-1.0.jar -Dpackaging=jar -DgroupId=space.exploration -DartifactId=communications.protocol -Dversion=1.0
+      4) clone https://github.com/mo3pheus/MarsRover.git under <HOME>
+        4.1 edit <HOME>.mars.rover/src/main/resources/marsConfig.properties and change mars.rover.weather.station.image to <HOME>/mars.rover/src/main/resources/sunIcon.jpg
+      5) mvn clean install
+      6) clone https://github.com/mo3pheus/Mission.Control.git under <HOME>
+      7) mvn clean install
+      8) Download kafka-jar -> http://apache.mesi.com.ar/kafka/0.10.2.1/kafka_2.10-0.10.2.1.tgz
+      9) Extract kafka-jar into <HOME>/kafka
+      10) open 5 terminal windows - here by referred to as t-i(0-4)
+        10.1 - in t0 cd into <HOME>/kafka - run ./bin/zookeeper-server-start.sh config/zookeeper.properties - if you have trouble with this run the same with sudo.
+        10.2 - in t1 cd into <HOME>/kafka - run ./bin/kafka-server-start.sh config/server.properties - if you run into trouble with this run the same with sudo.
+        10.3 - in t2 cd into <HOME>mars.rover open deployment/deploy.sh - modify any hardcoded paths to <HOME>mars.rover/src/main/resources/
+        10.3.1 - in t4 cd into <HOME>mars.rover/roverStatusReports - run ll and tail the last file in the list - this will give you a view into the inner workings of the rover OS.
+        10.4 - in t2 modify src/main/resources/roverDB.properties - mars.rover.database.logging.enable=false - make sure this property is set to false
+        10.5 - in t2 run ./deployment/deploy.sh false
+        10.6 - in t3 cd into <HOME>/mission.control - run java -jar target/mission.control-0.0.1-SNAPSHOT-shaded.jar src/main/resources/kafka.properties dataArchives/ false
+        10.7 - open <HOME>/mission.control/pom.xml as a PROJECT in intelliJ and run Producer.java as java Application
+      11) At this point, your java application in 10.7 should send commands to the marsRover, the marsRover should act upon it - and send feedback (data+heartBeat) to 10.6
+      12) If the any application crashes please raise an issue at https://github.com/mo3pheus/MarsRover/projects/1 along with a copy of the roverStatus/<timestamp>.log file.
+
