@@ -81,5 +81,6 @@ MarsRover installation steps:
         10.6 - in t3 cd into <HOME>/mission.control - run java -jar target/mission.control-0.0.1-SNAPSHOT-shaded.jar src/main/resources/kafka.properties dataArchives/ false
         10.7 - open <HOME>/mission.control/pom.xml as a PROJECT in intelliJ and run Producer.java as java Application
       11) At this point, your java application in 10.7 should send commands to the marsRover, the marsRover should act upon it - and send feedback (data+heartBeat) to 10.6
-      12) If the any application crashes please raise an issue at https://github.com/mo3pheus/MarsRover/projects/1 along with a copy of the roverStatus/<timestamp>.log file.
+### Installation Instructions:
+If the any application crashes please raise an issue at https://github.com/mo3pheus/MarsRover/projects/1 along with a copy of the roverStatusReports/roverStatus_<timestamp>.log file.
 
