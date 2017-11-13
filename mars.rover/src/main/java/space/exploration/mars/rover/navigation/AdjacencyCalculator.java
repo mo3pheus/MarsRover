@@ -54,7 +54,7 @@ public class AdjacencyCalculator {
      * navigation. For the order of the returned array please refer to
      * NavCell.Direction
      *
-     * @return
+     * @return Array of adjacentNodes
      */
     public NavCell[] getAdjacentNodes() {
         for (int i = 0; i < VALID_DIR; i++) {
@@ -77,7 +77,7 @@ public class AdjacencyCalculator {
      * navigation. For the order of the returned array please refer to
      * NavCell.Direction
      *
-     * @return
+     * @return array of adjacentNodes
      */
     public RCell[] getAdjacentRNodes() {
         for (int i = 0; i < VALID_DIR; i++) {

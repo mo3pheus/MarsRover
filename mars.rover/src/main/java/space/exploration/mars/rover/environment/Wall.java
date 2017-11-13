@@ -38,7 +38,7 @@ public class Wall extends VirtualElement {
     /**
      * This function returns a list of points that make up the wall.
      *
-     * @return
+     * @return returns a list of points comprising the wall.
      */
     public List<Point> getWallPoints() {
         List<Point> wallPoints = new ArrayList<Point>();

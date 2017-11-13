@@ -70,7 +70,7 @@ public class NavCell implements Comparator<NavCell> {
     }
 
     /**
-     * @param hCost the hCost to set
+     * @param destination for which hCost is to be calculated.
      */
     public void sethCost(Point destination) {
         this.hCost = center.distance(destination);

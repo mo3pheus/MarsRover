@@ -105,7 +105,7 @@ public class EnvironmentUtils {
      * Consider moving this out.
      *
      * @param marsConfig
-     * @return
+     * @return returns a map of the point to soilComposition
      */
     public static Map<Point, SoilComposition> setUpSurfaceComposition(Properties marsConfig) {
         Map<Point, SoilComposition> surfaceComp = new HashMap<Point, SoilComposition>();

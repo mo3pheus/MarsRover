@@ -72,7 +72,7 @@ public class NavUtil {
      * @param start
      * @param end
      * @param cellWidth
-     * @return
+     * @return index of the minFCell
      */
     public static int getMinFCell(List<NavCell> listCells, NavCell start, NavCell end, int cellWidth) {
         double minFScore = Double.MAX_VALUE;

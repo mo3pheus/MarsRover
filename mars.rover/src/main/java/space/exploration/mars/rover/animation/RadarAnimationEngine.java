@@ -25,7 +25,6 @@ public class RadarAnimationEngine {
     private int                    numRevs        = 0;
     private int                    laserDiameter  = 0;
     private double                 windowWidth    = 0.0d;
-    private boolean                blipSound      = false;
     private Properties             radarConfig    = null;
     private Point                  origin         = null;
     private List<Laser>            laserBeams     = null;
@@ -41,7 +40,6 @@ public class RadarAnimationEngine {
 
     public void setUpRadarWindow() {
         int fWidth = Integer.parseInt(radarConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
-        blipSound = Boolean.parseBoolean(radarConfig.getProperty(Radar.RADAR_PREFIX + ".blip.sound"));
         double scaleFactor = Double.parseDouble(radarConfig.getProperty(Radar.RADAR_PREFIX + ".scaleFactor"));
         windowWidth = scaleFactor * fWidth;
         numRevs = Integer.parseInt(radarConfig.getProperty(Radar.RADAR_PREFIX + ".numberOfRevelutions"));
@@ -155,7 +153,7 @@ public class RadarAnimationEngine {
 
         for (RadarContactCell contact : contacts) {
             if (contact.getContactRect().intersectsLine(laser.getBeam())) {
-                RadarContactBlip blip = new RadarContactBlip(contentPane, contact, blipSound);
+                RadarContactBlip blip = new RadarContactBlip(contentPane, contact);
                 blip.start();
             }
         }

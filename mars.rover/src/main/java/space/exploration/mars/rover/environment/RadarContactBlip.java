@@ -11,16 +11,14 @@ import java.awt.*;
  * Created by sanket on 6/3/17.
  */
 public class RadarContactBlip extends Thread {
-    private boolean          blipSound    = false;
     private JLayeredPane     contentPane  = null;
     private RadarContactCell contact      = null;
     private Logger           logger       = LoggerFactory.getLogger(RadarContactBlip.class);
     private int              contactDepth = RadarAnimationEngine.RADAR_DEPTH.intValue() + 1;
 
-    public RadarContactBlip(JLayeredPane contentPane, RadarContactCell contact, boolean blipSound) {
+    public RadarContactBlip(JLayeredPane contentPane, RadarContactCell contact ) {
         this.contact = contact;
         this.contentPane = contentPane;
-        this.blipSound = blipSound;
     }
 
     @Override
@@ -30,9 +28,6 @@ public class RadarContactBlip extends Thread {
         contact.setColor(EnvironmentUtils.findColor("lawnGreen"));
         contentPane.add(contact, new Integer(contactDepth));
         try {
-            if (blipSound) {
-                (new BlipSound()).start();
-            }
             Thread.sleep(900);
             contentPane.remove(contact);
 

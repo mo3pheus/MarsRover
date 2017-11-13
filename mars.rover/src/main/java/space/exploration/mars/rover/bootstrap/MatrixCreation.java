@@ -7,8 +7,6 @@ package space.exploration.mars.rover.bootstrap;
 //import space.exploration.mars.rover.environment.MarsArchitect;
 //import space.exploration.mars.rover.navigation.NavigationEngine;
 
-import sun.audio.AudioStream;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -65,11 +63,5 @@ public class MatrixCreation {
         Properties      config   = new Properties();
         config.load(propFile);
         return config;
-    }
-
-    public static AudioStream getBlipAudioPath() throws Exception {
-        URL         url         = MatrixCreation.class.getResource("/sonarBlip.wav");
-        AudioStream inputStream = new AudioStream(new FileInputStream(url.getPath()));
-        return inputStream;
     }
 }
