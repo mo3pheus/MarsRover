@@ -9,6 +9,8 @@ import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 
 import java.util.HashMap;
@@ -22,6 +24,7 @@ import java.util.Properties;
 public class Receiver extends Thread {
     public final static String TUNED_CHANNEL = "earth_to_curiosity_4";
 
+    private Logger            logger            = LoggerFactory.getLogger(Receiver.class);
     private ConsumerConnector consumerConnector = null;
     private Radio             radio             = null;
     private long              lastReportTime    = 0l;
@@ -50,7 +53,7 @@ public class Receiver extends Thread {
 
         while (it.hasNext()) {
             long timeElapsed = System.currentTimeMillis() - this.lastReportTime;
-            System.out.println("Time Elapsed since last message = " + timeElapsed);
+            logger.info("Time Elapsed since last message = " + timeElapsed);
             if (timeElapsed > this.radioCheckPulse) {
                 this.lastReportTime = System.currentTimeMillis();
             }

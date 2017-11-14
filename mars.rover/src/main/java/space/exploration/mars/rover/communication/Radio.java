@@ -52,7 +52,6 @@ public class Radio implements IsEquipment {
     public void receiveMessage(InstructionPayloadOuterClass.InstructionPayload instructionPayload) {
         try {
             if (lifeSpan > SOS_RESERVE) {
-                System.out.println("Alert! Alert! Incoming message...");
                 Thread.sleep(getComsDelaySecs());
                 rover.receiveMessage(instructionPayload.toByteArray());
                 lifeSpan--;
@@ -63,9 +62,8 @@ public class Radio implements IsEquipment {
                         "Earth?", rover).toByteArray());
             }
         } catch (Exception e) {
-            System.out.println("Radio receive operation has an exception");
-            logger.error("Radio receive operation encountered an exception", e);
-            rover.writeErrorLog("Radio receive operation encountered an exception", e);
+            logger.error("Houston, we have a problem!", e);
+            rover.writeErrorLog("Houston, we have a problem!", e);
             rover.setState(rover.getListeningState());
         }
     }
@@ -81,11 +79,9 @@ public class Radio implements IsEquipment {
                 rover.writeErrorLog("Radio lifeSpan has ended", null);
             }
         } catch (InvalidProtocolBufferException e) {
-            System.out.println("Transmit module is in exception - invalidProtocolBuffer ");
             logger.error("InvalidProtocolBufferException error - common guys send me a good message!", e);
             rover.writeErrorLog("InvalidProtocolBufferException error - common guys send me a good message!", e);
         } catch (InterruptedException e) {
-            System.out.println("Transmit module is in exception - interruptedException ");
             logger.error("InterruptedException", e);
             rover.writeErrorLog("InterruptedException", e);
         }
@@ -108,6 +104,17 @@ public class Radio implements IsEquipment {
         return this.receiver;
     }
 
+    /*
+    This needs to be replaced by computed lightTime from SPICE Data
+
+    Requirements:
+    1) Radio should go black if Curiosity does not have line of sight with Earth DNS Station
+    2) LightTime should be computed - include calculations packet with every telemetry signal
+    3) Find the angle of separation between Curiosity Radio Mast and LOS to Earth
+        LOS vs HGA, LOS vs LGA and LOS vs UHF
+    4) For UHF figure out if MEO/MRO/MOO can deliver data.
+    5) Transmit overhead pass time for each satellite along with telemetry.
+    */
     private int getComsDelaySecs() {
         return ThreadLocalRandom.current().nextInt(3000, 22000);
     }
