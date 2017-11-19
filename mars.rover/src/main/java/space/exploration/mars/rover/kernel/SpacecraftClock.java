@@ -1,6 +1,5 @@
 package space.exploration.mars.rover.kernel;
 
-import org.apache.commons.io.IOUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -8,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.spice.utilities.TimeUtils;
 
-import java.io.*;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -26,7 +24,6 @@ public class SpacecraftClock implements IsEquipment {
     private static final String SCLK_FORMAT           = "mars.rover.mission.clock.format";
     private static final String SCLK_START_TIME       = "mars.rover.mission.clock.start";
     private static final String SCLK_MISSION_DURATION = "mars.rover.mission.duration.years";
-    private static final String SCLK_FILE_PATH        = "mars.rover.sclk.file";
 
     private Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
                                                                                        .class);
@@ -34,30 +31,28 @@ public class SpacecraftClock implements IsEquipment {
     private DateTime                 internalClock   = null;
     private DateTimeFormatter        clockFormatter  = null;
     private String                   sclkStartTime   = null;
+    private TimeUtils                clockService    = null;
     private long                     missionDuration = 0l;
     private long                     timeElapsedMs   = 0l;
-    private String                   clockFilePath   = "";
-    private File                     clockFile       = null;
 
     public SpacecraftClock(Properties marsConfig) {
         clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
         sclkStartTime = marsConfig.getProperty(SCLK_START_TIME);
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
-        processClockFile(marsConfig);
+        clockService = new TimeUtils();
 
         clockCounter = Executors.newSingleThreadScheduledExecutor();
 
         String missionDurationString = marsConfig.getProperty(SCLK_MISSION_DURATION);
         missionDuration = TimeUnit.DAYS.toMillis(365 * Integer.parseInt(missionDurationString));
         logger.info("Curiosity internal spacecraft clock started at :: " + internalClock);
-        logger.info("Mission duration is set to :: " + missionDuration + " year(s).");
+        logger.info("Mission duration is set to :: " + missionDurationString + " year(s).");
     }
 
     public void start() {
         Runnable clock = new Runnable() {
             @Override
             public void run() {
-
                 if (timeElapsedMs > missionDuration) {
                     logger.error("Houston! Spacecraft clock has reached end of mission life.");
                     stopClock();
@@ -76,7 +71,7 @@ public class SpacecraftClock implements IsEquipment {
     }
 
     public synchronized String getSclkTime() {
-        return TimeUtils.getSpacecraftTime("./" + clockFile, clockFormatter.print(internalClock));
+        return clockService.getSpacecraftTime(clockFormatter.print(internalClock));
     }
 
     public synchronized String getSclkStartTime() {
@@ -96,25 +91,6 @@ public class SpacecraftClock implements IsEquipment {
     @Override
     public boolean isEndOfLife() {
         return (timeElapsedMs > missionDuration);
-    }
-
-    private void processClockFile(Properties marsConfig) {
-        clockFilePath = marsConfig.getProperty(SCLK_FILE_PATH);
-
-        InputStream clockFileInputStream = SpacecraftClock.class.getResourceAsStream(clockFilePath);
-        clockFile = new File("clockFile");
-        clockFile.setReadable(true);
-        clockFile.setExecutable(true);
-        try {
-            OutputStream outputStream = new FileOutputStream(clockFile);
-            IOUtils.copy(clockFileInputStream, outputStream);
-            outputStream.close();
-        } catch (IOException io) {
-            logger.error("Houston, we have a problem!. Can not access sclk file.", io);
-        }
-
-        clockFilePath = clockFile.getPath();
-        logger.info("Clock file found at path ", clockFilePath);
     }
 
     public void stopClock() {

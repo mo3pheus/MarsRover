@@ -30,18 +30,9 @@ public class SpacecraftClockTest extends TestCase {
     public void testClockInitialization() {
         clock = new SpacecraftClock(marsConfig);
         clock.start();
-
-        try {
-            Thread.sleep(5000);
-            for (int i = 0; i < 10; i++) {
-                Thread.sleep(1000);
-                System.out.println(clock.getSclkTime());
-            }
-
-        } catch (InterruptedException e) {
-            logger.error("Thread sleeping exception", e);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(clock.getSclkTime());
         }
-
         clock.stopClock();
     }
 }
