@@ -12,6 +12,7 @@ import java.util.Properties;
 
 public class SpacecraftClockTest extends TestCase {
 
+    public static final String SEPARATOR = "-------------------------------------------------------------------";
     Properties      marsConfig = null;
     Logger          logger     = LoggerFactory.getLogger(SpacecraftClock.class);
     SpacecraftClock clock      = null;
@@ -24,15 +25,26 @@ public class SpacecraftClockTest extends TestCase {
         } catch (IOException io) {
             logger.error("Can't open properties file marsConfig.properties", io);
         }
+
+        clock = new SpacecraftClock(marsConfig);
+        System.out.println(SEPARATOR);
+        System.out.println("Running Spacecraft clock test.");
+        System.out.println(SEPARATOR);
+        System.out.println("Clock Equipment Name = " + clock.getEquipmentName());
+        System.out.println("Clock Lifespan in millis = " + clock.getLifeSpan());
     }
 
     @Test
     public void testClockInitialization() {
-        clock = new SpacecraftClock(marsConfig);
         clock.start();
         for (int i = 0; i < 10; i++) {
-            System.out.println(clock.getSclkTime());
+            System.out.println("Clock internal time = " + clock.getInternalClock() + " corresponding sclk is = " +
+                                       clock.getSclkTime());
         }
         clock.stopClock();
+
+        System.out.println(SEPARATOR);
+        System.out.println("End of Spacecraft clock test!");
+        System.out.println(SEPARATOR);
     }
 }

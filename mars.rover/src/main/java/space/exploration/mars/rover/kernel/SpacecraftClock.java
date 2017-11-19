@@ -71,7 +71,9 @@ public class SpacecraftClock implements IsEquipment {
     }
 
     public synchronized String getSclkTime() {
-        return clockService.getSpacecraftTime(clockFormatter.print(internalClock));
+        String sclkString = clockService.getSpacecraftTime(clockFormatter.print(internalClock));
+        logger.info("Spacecraft clock reported at internal time::" + internalClock + " sclk of::" + sclkString);
+        return sclkString;
     }
 
     public synchronized String getSclkStartTime() {
