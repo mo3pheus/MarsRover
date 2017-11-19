@@ -33,7 +33,7 @@ public class BatteryMonitor {
                                      " state = " + rover.getState().getStateName());
                 if (rover.getState() == rover.getHibernatingState()) {
                     long timeInRecharge = System.currentTimeMillis() - rover.getInRechargingModeTime();
-                    System.out.println("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
+                    logger.info("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
                                                "required = " +
                                                rover.getBattery().getRechargeTime());
                     RoverUtil.roverSystemLog(logger, "Rover is in " + rover.getState().getStateName() +

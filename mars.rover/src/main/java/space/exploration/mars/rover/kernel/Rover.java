@@ -69,12 +69,13 @@ public class Rover {
     private String           nasaApiAuthKey           = null;
 
     /* Equipment Stack */
-    private Radio         radio         = null;
-    private Lidar         lidar         = null;
-    private Spectrometer  spectrometer  = null;
-    private Camera        camera        = null;
-    private Radar         radar         = null;
-    private WeatherSensor weatherSensor = null;
+    private Radio           radio           = null;
+    private Lidar           lidar           = null;
+    private Spectrometer    spectrometer    = null;
+    private Camera          camera          = null;
+    private Radar           radar           = null;
+    private WeatherSensor   weatherSensor   = null;
+    private SpacecraftClock spacecraftClock = null;
 
     /* Contingency Stack */
     private Map<Point, RoverCell> previousRovers       = null;
@@ -506,6 +507,7 @@ public class Rover {
         equipmentList.add(this.spectrometer);
         equipmentList.add(this.radar);
         equipmentList.add(this.weatherSensor);
+        equipmentList.add(this.spacecraftClock);
         return equipmentList;
     }
 
@@ -554,6 +556,9 @@ public class Rover {
         this.instructionQueue = new ArrayList<byte[]>();
         this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
+
+        this.spacecraftClock = new SpacecraftClock(marsConfig);
+        spacecraftClock.start();
 
         this.pacemaker = new Pacemaker(this);
         pacemaker.pulse();
