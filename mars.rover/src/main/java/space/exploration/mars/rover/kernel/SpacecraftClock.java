@@ -24,6 +24,7 @@ public class SpacecraftClock implements IsEquipment {
     private static final String SCLK_FORMAT           = "mars.rover.mission.clock.format";
     private static final String SCLK_START_TIME       = "mars.rover.mission.clock.start";
     private static final String SCLK_MISSION_DURATION = "mars.rover.mission.duration.years";
+    private static final String SCLK_FILE_PATH        = "mars.rover.sclk.file";
 
     private Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
                                                                                        .class);
@@ -33,11 +34,13 @@ public class SpacecraftClock implements IsEquipment {
     private String                   sclkStartTime   = null;
     private long                     missionDuration = 0l;
     private long                     timeElapsedMs   = 0l;
+    private String                   clockFilePath   = "";
 
     public SpacecraftClock(Properties marsConfig) {
         clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
         sclkStartTime = marsConfig.getProperty(SCLK_START_TIME);
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
+        clockFilePath = marsConfig.getProperty(SCLK_FILE_PATH);
 
         clockCounter = Executors.newSingleThreadScheduledExecutor();
 
@@ -70,7 +73,7 @@ public class SpacecraftClock implements IsEquipment {
     }
 
     public synchronized String getSclkTime() {
-        return TimeUtils.getSpacecraftTime(clockFormatter.print(internalClock));
+        return TimeUtils.getSpacecraftTime(clockFilePath, clockFormatter.print(internalClock));
     }
 
     public synchronized String getSclkStartTime() {
@@ -84,7 +87,7 @@ public class SpacecraftClock implements IsEquipment {
 
     @Override
     public String getEquipmentName() {
-        return "Spacecraft Clock -> " + getSclkStartTime();
+        return "Spacecraft Clock -> " + getSclkTime();
     }
 
     @Override
