@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
+import org.apache.commons.io.IOUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -7,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.spice.utilities.TimeUtils;
 
+import java.io.*;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -35,12 +37,13 @@ public class SpacecraftClock implements IsEquipment {
     private long                     missionDuration = 0l;
     private long                     timeElapsedMs   = 0l;
     private String                   clockFilePath   = "";
+    private File                     clockFile       = null;
 
     public SpacecraftClock(Properties marsConfig) {
         clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
         sclkStartTime = marsConfig.getProperty(SCLK_START_TIME);
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
-        clockFilePath = marsConfig.getProperty(SCLK_FILE_PATH);
+        processClockFile(marsConfig);
 
         clockCounter = Executors.newSingleThreadScheduledExecutor();
 
@@ -57,7 +60,7 @@ public class SpacecraftClock implements IsEquipment {
 
                 if (timeElapsedMs > missionDuration) {
                     logger.error("Houston! Spacecraft clock has reached end of mission life.");
-                    clockCounter.shutdown();
+                    stopClock();
                 }
 
                 internalClock = new DateTime(internalClock.getMillis() + 1);
@@ -73,7 +76,7 @@ public class SpacecraftClock implements IsEquipment {
     }
 
     public synchronized String getSclkTime() {
-        return TimeUtils.getSpacecraftTime(clockFilePath, clockFormatter.print(internalClock));
+        return TimeUtils.getSpacecraftTime("./" + clockFile, clockFormatter.print(internalClock));
     }
 
     public synchronized String getSclkStartTime() {
@@ -93,5 +96,28 @@ public class SpacecraftClock implements IsEquipment {
     @Override
     public boolean isEndOfLife() {
         return (timeElapsedMs > missionDuration);
+    }
+
+    private void processClockFile(Properties marsConfig) {
+        clockFilePath = marsConfig.getProperty(SCLK_FILE_PATH);
+
+        InputStream clockFileInputStream = SpacecraftClock.class.getResourceAsStream(clockFilePath);
+        clockFile = new File("clockFile");
+        clockFile.setReadable(true);
+        clockFile.setExecutable(true);
+        try {
+            OutputStream outputStream = new FileOutputStream(clockFile);
+            IOUtils.copy(clockFileInputStream, outputStream);
+            outputStream.close();
+        } catch (IOException io) {
+            logger.error("Houston, we have a problem!. Can not access sclk file.", io);
+        }
+
+        clockFilePath = clockFile.getPath();
+        logger.info("Clock file found at path ", clockFilePath);
+    }
+
+    public void stopClock() {
+        clockCounter.shutdown();
     }
 }
