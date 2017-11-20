@@ -21,9 +21,10 @@ import java.util.concurrent.TimeUnit;
  * Please contact sanket.korgaonkar@gmail.com if you have trouble extending the duration of the spacecraft clock.
  */
 public class SpacecraftClock implements IsEquipment {
-    private static final String SCLK_FORMAT           = "mars.rover.mission.clock.format";
-    private static final String SCLK_START_TIME       = "mars.rover.mission.clock.start";
-    private static final String SCLK_MISSION_DURATION = "mars.rover.mission.duration.years";
+    private static final String SCLK_FORMAT            = "mars.rover.mission.clock.format";
+    private static final String SCLK_START_TIME        = "mars.rover.mission.clock.start";
+    private static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
+    private static final String SCLK_TIME_SCALE_FACTOR = "mars.rover.clock.timeScaleFactor";
 
     private Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
                                                                                        .class);
@@ -32,12 +33,14 @@ public class SpacecraftClock implements IsEquipment {
     private DateTimeFormatter        clockFormatter  = null;
     private String                   sclkStartTime   = null;
     private TimeUtils                clockService    = null;
+    private int                      timeScaleFactor = 0;
     private long                     missionDuration = 0l;
     private long                     timeElapsedMs   = 0l;
 
     public SpacecraftClock(Properties marsConfig) {
         clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
         sclkStartTime = marsConfig.getProperty(SCLK_START_TIME);
+        timeScaleFactor = Integer.parseInt(marsConfig.getProperty(SCLK_TIME_SCALE_FACTOR));
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
         clockService = new TimeUtils();
 
@@ -47,6 +50,7 @@ public class SpacecraftClock implements IsEquipment {
         missionDuration = TimeUnit.DAYS.toMillis(365 * Integer.parseInt(missionDurationString));
         logger.info("Curiosity internal spacecraft clock started at :: " + internalClock);
         logger.info("Mission duration is set to :: " + missionDurationString + " year(s).");
+        logger.info("Mission duration = " + missionDuration);
     }
 
     public void start() {
@@ -58,8 +62,8 @@ public class SpacecraftClock implements IsEquipment {
                     stopClock();
                 }
 
-                internalClock = new DateTime(internalClock.getMillis() + 1);
-                timeElapsedMs++;
+                internalClock = new DateTime(internalClock.getMillis() + timeScaleFactor);
+                timeElapsedMs += timeScaleFactor;
             }
         };
 
@@ -72,7 +76,7 @@ public class SpacecraftClock implements IsEquipment {
 
     public synchronized String getSclkTime() {
         String sclkString = clockService.getSpacecraftTime(clockFormatter.print(internalClock));
-        logger.info("Spacecraft clock reported at internal time::" + internalClock + " sclk of::" + sclkString);
+        logger.info("Internal time::" + internalClock + " sclk of::" + sclkString);
         return sclkString;
     }
 
