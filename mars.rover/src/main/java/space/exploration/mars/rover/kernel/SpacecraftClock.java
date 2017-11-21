@@ -100,7 +100,7 @@ public class SpacecraftClock implements IsEquipment {
 
     @Override
     public synchronized String getEquipmentName() {
-        return "Spacecraft Clock";
+        return "Spacecraft Clock -> " + getSclkTime();
     }
 
     @Override
