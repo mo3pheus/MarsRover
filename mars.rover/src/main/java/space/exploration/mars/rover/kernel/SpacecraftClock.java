@@ -1,10 +1,14 @@
 package space.exploration.mars.rover.kernel;
 
+import communications.protocol.ModuleDirectory;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.spice.utilities.TimeUtils;
 
 import java.util.Properties;
@@ -42,6 +46,7 @@ public class SpacecraftClock implements IsEquipment {
         sclkStartTime = marsConfig.getProperty(SCLK_START_TIME);
         timeScaleFactor = Integer.parseInt(marsConfig.getProperty(SCLK_TIME_SCALE_FACTOR));
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
+        internalClock.withTimeAtStartOfDay().withZone(DateTimeZone.UTC);
         clockService = new TimeUtils();
 
         clockCounter = Executors.newSingleThreadScheduledExecutor();
@@ -53,7 +58,7 @@ public class SpacecraftClock implements IsEquipment {
         logger.info("Mission duration = " + missionDuration);
     }
 
-    public void start() {
+    public synchronized void start() {
         Runnable clock = new Runnable() {
             @Override
             public void run() {
@@ -74,6 +79,10 @@ public class SpacecraftClock implements IsEquipment {
         return internalClock;
     }
 
+    public synchronized String displayInternalClock() {
+        return clockFormatter.print(internalClock.getMillis());
+    }
+
     public synchronized String getSclkTime() {
         String sclkString = clockService.getSpacecraftTime(clockFormatter.print(internalClock));
         logger.info("Internal time::" + internalClock + " sclk of::" + sclkString);
@@ -85,21 +94,46 @@ public class SpacecraftClock implements IsEquipment {
     }
 
     @Override
-    public int getLifeSpan() {
+    public synchronized int getLifeSpan() {
         return (int) (missionDuration - timeElapsedMs);
     }
 
     @Override
-    public String getEquipmentName() {
-        return "Spacecraft Clock -> " + getSclkTime();
+    public synchronized String getEquipmentName() {
+        return "Spacecraft Clock";
     }
 
     @Override
-    public boolean isEndOfLife() {
+    public synchronized boolean isEndOfLife() {
         return (timeElapsedMs > missionDuration);
     }
 
-    public void stopClock() {
+    public synchronized void stopClock() {
         clockCounter.shutdown();
+    }
+
+    public synchronized int getTimeScaleFactor() {
+        return timeScaleFactor;
+    }
+
+    public synchronized long getMissionDuration() {
+        return missionDuration;
+    }
+
+    public synchronized long getTimeElapsedMs() {
+        return timeElapsedMs;
+    }
+
+    public String toString() {
+        space.exploration.communications.protocol.spacecraftClock.SpacecraftClock.SclkPacket.Builder sBuilder = space
+                .exploration.communications.protocol.spacecraftClock.SpacecraftClock.SclkPacket.newBuilder();
+        sBuilder.setMissionDurationMS(getMissionDuration());
+        sBuilder.setSclkValue(getSclkTime());
+        sBuilder.setStartTime(getSclkStartTime());
+        sBuilder.setTimeElapsedMs(getTimeElapsedMs());
+        sBuilder.setTimeScaleFactor(getTimeScaleFactor());
+        sBuilder.setUtcTime(displayInternalClock());
+
+        return sBuilder.build().toString();
     }
 }

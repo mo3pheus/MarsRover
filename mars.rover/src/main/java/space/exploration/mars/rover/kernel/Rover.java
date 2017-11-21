@@ -41,6 +41,7 @@ public class Rover {
     State radarScanningState;
     State sleepingState;
     State weatherSensingState;
+    State sclkBeepingState;
 
     /* Status messages */
     private long    creationTime = 0l;
@@ -283,6 +284,10 @@ public class Rover {
         return sleepingState;
     }
 
+    public synchronized State getSclkBeepingState() {
+        return sclkBeepingState;
+    }
+
     public State getHibernatingState() {
         return hibernatingState;
     }
@@ -325,6 +330,10 @@ public class Rover {
 
     public synchronized void sleep() {
         state.sleep();
+    }
+
+    public synchronized void getSclkInformation() {
+        state.getSclkInformation();
     }
 
     public synchronized void exploreArea() {
@@ -386,6 +395,21 @@ public class Rover {
 
     public synchronized void setEquipmentEOL(boolean equipmentEOL) {
         this.equipmentEOL = equipmentEOL;
+    }
+
+    public synchronized SpacecraftClock getSpacecraftClock() {
+        return spacecraftClock;
+    }
+
+    /**
+     * Note: This may be required if the clock primary partition fills or if there is a clock reset.
+     *
+     * @param spacecraftClock
+     */
+    public synchronized void setSpacecraftClock(SpacecraftClock spacecraftClock) {
+        this.spacecraftClock.stopClock();
+        this.spacecraftClock = spacecraftClock;
+        this.spacecraftClock.start();
     }
 
     public int getSol() {
@@ -540,6 +564,9 @@ public class Rover {
     public synchronized void bootUp() {
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
+        this.spacecraftClock = new SpacecraftClock(marsConfig);
+        spacecraftClock.start();
+
         this.listeningState = new ListeningState(this);
         this.hibernatingState = new HibernatingState(this);
         this.exploringState = new ExploringState(this);
@@ -549,16 +576,13 @@ public class Rover {
         this.transmittingState = new TransmittingState(this);
         this.radarScanningState = new RadarScanningState(this);
         this.weatherSensingState = new WeatherSensingState(this);
-
         this.sleepingState = new SleepingState(this);
         this.marsArchitect = new MarsArchitect(marsConfig);
+        this.sclkBeepingState = new SclkTimingState(this);
 
         this.instructionQueue = new ArrayList<byte[]>();
         this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
-
-        this.spacecraftClock = new SpacecraftClock(marsConfig);
-        spacecraftClock.start();
 
         this.pacemaker = new Pacemaker(this);
         pacemaker.pulse();

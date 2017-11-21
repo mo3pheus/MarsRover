@@ -26,5 +26,7 @@ public interface State {
 
     void wakeUp();
 
+    void getSclkInformation();
+
     String getStateName();
 }

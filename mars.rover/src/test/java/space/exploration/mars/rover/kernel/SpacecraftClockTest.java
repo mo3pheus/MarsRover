@@ -38,9 +38,12 @@ public class SpacecraftClockTest extends TestCase {
     public void testClockInitialization() {
         clock.start();
         for (int i = 0; i < 10; i++) {
-            System.out.println("Clock internal time = " + clock.getInternalClock() + " corresponding sclk is = " +
+            System.out.println("Clock internal time = " + clock.getInternalClock() +
+                                       " displayInternalClock = " + clock.displayInternalClock() +
+                                       " corresponding sclk is = " +
                                        clock.getSclkTime());
         }
+        System.out.println(clock.toString());
         clock.stopClock();
 
         System.out.println(SEPARATOR);

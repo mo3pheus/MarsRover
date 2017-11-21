@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82367465-5048-408b-b572-132b64bace55" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SclkTimingState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mars.rover.iml" afterPath="$PROJECT_DIR$/mars.rover.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ExploringState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ExploringState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/HibernatingState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/HibernatingState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ListeningState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ListeningState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/MovingState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/MovingState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PhotographingState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PhotographingState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/RadarScanningState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/RadarScanningState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SensingState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SensingState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SleepingState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SleepingState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SpacecraftClock.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SpacecraftClock.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/State.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/State.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/TransmittingState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/TransmittingState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/WeatherSensingState.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/WeatherSensingState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/marsConfig.properties" afterPath="$PROJECT_DIR$/src/main/resources/marsConfig.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SpacecraftClockTest.java" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SpacecraftClockTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,72 +32,126 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WeatherScanCell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/environment/WeatherScanCell.java">
+      <file leaf-file-name="SclkTimingState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SclkTimingState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="26" column="32" lean-forward="false" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+            <state relative-caret-position="1010">
+              <caret line="95" column="62" lean-forward="true" selection-start-line="78" selection-start-column="8" selection-end-line="95" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#743#744#0" expanded="true" />
+                <element signature="e#777#778#0" expanded="true" />
+                <element signature="e#3701#3702#0" expanded="true" />
+                <element signature="e#3742#3743#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="roverStatus_1511239883936.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1511239883936.log">
+          <provider selected="true" editor-type-id="LogFileEditorProvider">
+            <state relative-caret-position="728">
+              <caret line="182" column="79" lean-forward="false" selection-start-line="182" selection-start-column="79" selection-end-line="182" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpacecraftClockTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SpacecraftClockTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="45" column="45" lean-forward="false" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpacecraftClock.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SpacecraftClock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1095">
+              <caret line="136" column="43" lean-forward="false" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4884#4885#0" expanded="true" />
+                <element signature="e#4922#4923#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rover.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="578" column="53" lean-forward="true" selection-start-line="578" selection-start-column="53" selection-end-line="578" selection-end-column="53" />
+              <folding>
+                <element signature="e#11121#11122#0" expanded="true" />
+                <element signature="e#11160#11161#0" expanded="true" />
+                <element signature="e#12316#12317#0" expanded="true" />
+                <element signature="e#12358#12359#0" expanded="true" />
+                <marker date="1511240386229" expanded="true" signature="5749:5763" ph="SELECT * FRO... missingValue" />
+                <marker date="1511240386229" expanded="true" signature="6855:6869" ph="SELECT * FRO... missingValue" />
+                <marker date="1511240386229" expanded="true" signature="7913:7927" ph="SELECT * FRO... missingValue" />
+                <marker date="1511240386229" expanded="true" signature="8747:8761" ph="SELECT * FRO... missingValue" />
+                <marker date="1511240386229" expanded="true" signature="16007:16021" ph="SELECT * FRO... missingValue" />
+                <marker date="1511240386229" expanded="true" signature="16388:16402" ph="SELECT * FRO... missingValue" />
+                <marker date="1511240386229" expanded="true" signature="21871:23750" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/State.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="9" lean-forward="false" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SleepingState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SleepingState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="912">
+              <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpacecraftClock.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SpacecraftClock.java">
+      <file leaf-file-name="ListeningState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ListeningState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="57" column="21" lean-forward="true" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="671">
+              <caret line="97" column="47" lean-forward="true" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roverStatus_1511158095482.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1511158095482.log">
-          <provider selected="true" editor-type-id="LogFileEditorProvider">
-            <state relative-caret-position="-996">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpacecraftClockTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SpacecraftClockTest.java">
+      <file leaf-file-name="WeatherSensingState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/WeatherSensingState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="657">
+              <caret line="53" column="69" lean-forward="false" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roverStatus_1511157789363.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1511157789363.log">
-          <provider selected="true" editor-type-id="LogFileEditorProvider">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="roverStatus_1511157294726.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1511157294726.log">
-          <provider selected="true" editor-type-id="LogFileEditorProvider">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="marsConfig.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/marsConfig.properties">
+      <file leaf-file-name="WeatherSensor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/WeatherSensor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1083">
-              <caret line="117" column="33" lean-forward="false" selection-start-line="117" selection-start-column="33" selection-end-line="117" selection-end-column="33" />
+            <state relative-caret-position="366">
+              <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -136,22 +204,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SetupTestRover.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/State.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ExploringState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/utils/WeatherUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/utils/RadialContact.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/WeatherSensor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ListeningState.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/diagnostics/RoverGarbageCollector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/RadarScanningState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SensingState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/TransmittingState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PhotographingState.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/environment/Laser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/MovingState.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/environment/MarsArchitect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/HibernatingState.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/WeatherQueryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/animation/LidarAnimationEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/diagnostics/Pacemaker.java" />
@@ -159,10 +216,7 @@
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Camera.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Spectrometer.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Lidar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SleepingState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/WeatherSensingState.java" />
         <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/WeatherQueryServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/WeatherSensingStateTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/environment/WeatherScanCell.java" />
         <option value="$PROJECT_DIR$/src/main/resources/roverDB.properties" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/navigation/AdjacencyCalculator.java" />
@@ -181,12 +235,26 @@
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/communication/Radio.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/utils/RoverUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/power/BatteryMonitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java" />
         <option value="$PROJECT_DIR$/deployment/deploy.sh" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SpacecraftClockTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/State.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ExploringState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/HibernatingState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/MovingState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PhotographingState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/RadarScanningState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SensingState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SleepingState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/TransmittingState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/WeatherSensingState.java" />
         <option value="$PROJECT_DIR$/src/main/resources/marsConfig.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/WeatherSensingStateTest.java" />
+        <option value="$PROJECT_DIR$/roverStatusReports/roverStatus_1511239883936.log" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ListeningState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SclkTimingState.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SpacecraftClock.java" />
+        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SpacecraftClockTest.java" />
       </list>
     </option>
   </component>
@@ -208,11 +276,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="586" />
-    <option name="y" value="48" />
-    <option name="width" value="2788" />
-    <option name="height" value="2112" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1746" />
+    <option name="y" value="21" />
+    <option name="width" value="1692" />
+    <option name="height" value="1419" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -306,6 +374,9 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -321,12 +392,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
               <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="deployment" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
@@ -409,14 +489,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SpiceUtils/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Mission.Control/mission.control/pom.xml" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -443,7 +519,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SpacecraftClockTest">
+  <component name="RunManager" selected="Application.MarsMissionLaunch">
     <configuration name="MarsMissionLaunch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -646,8 +722,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SpacecraftClockTest" />
-        <item index="1" class="java.lang.String" itemvalue="Application.MarsMissionLaunch" />
+        <item index="0" class="java.lang.String" itemvalue="Application.MarsMissionLaunch" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SpacecraftClockTest" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.WeatherSensingStateTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.PhotoQueryServiceTest" />
         <item index="4" class="java.lang.String" itemvalue="Application.MonthlyWeatherTest" />
@@ -687,32 +763,33 @@
       <workItem from="1511114147242" duration="8320000" />
       <workItem from="1511124783599" duration="780000" />
       <workItem from="1511156957208" duration="1271000" />
+      <workItem from="1511239073133" duration="2695000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SpacecraftClockTest - 2017.11.19 at 13h 48m 48s.xml">
+    <history-entry file="SpacecraftClockTest - 2017.11.20 at 20h 29m 48s.xml">
       <configuration name="SpacecraftClockTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SpacecraftClockTest - 2017.11.19 at 13h 52m 54s.xml">
+    <history-entry file="SpacecraftClockTest - 2017.11.20 at 20h 32m 25s.xml">
       <configuration name="SpacecraftClockTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SpacecraftClockTest - 2017.11.19 at 13h 54m 08s.xml">
+    <history-entry file="SpacecraftClockTest - 2017.11.20 at 20h 42m 48s.xml">
       <configuration name="SpacecraftClockTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SpacecraftClockTest - 2017.11.19 at 14h 12m 37s.xml">
+    <history-entry file="SpacecraftClockTest - 2017.11.20 at 20h 48m 02s.xml">
       <configuration name="SpacecraftClockTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SpacecraftClockTest - 2017.11.19 at 14h 15m 43s.xml">
+    <history-entry file="SpacecraftClockTest - 2017.11.20 at 20h 48m 38s.xml">
       <configuration name="SpacecraftClockTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SpacecraftClockTest - 2017.11.19 at 14h 26m 37s.xml">
+    <history-entry file="SpacecraftClockTest - 2017.11.20 at 20h 49m 01s.xml">
       <configuration name="SpacecraftClockTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SpacecraftClockTest - 2017.11.19 at 14h 29m 34s.xml">
+    <history-entry file="SpacecraftClockTest - 2017.11.20 at 21h 00m 28s.xml">
       <configuration name="SpacecraftClockTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SpacecraftClockTest - 2017.11.19 at 14h 40m 33s.xml">
+    <history-entry file="SpacecraftClockTest - 2017.11.20 at 22h 51m 17s.xml">
       <configuration name="SpacecraftClockTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="WeatherSensingStateTest - 2017.11.04 at 19h 49m 31s.xml">
@@ -723,7 +800,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37397000" />
+    <option name="totallyTimeSpent" value="46663000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -735,11 +812,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-56" width="3840" height="2216" extended-state="0" />
+    <frame x="1746" y="21" width="1692" height="1419" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839313" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -747,12 +825,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2507716" sideWeight="0.49756396" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22238806" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22222222" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18359375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18321513" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30346233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496955" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496955" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -766,9 +845,7 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839313" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892057" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -817,8 +894,14 @@
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java</url>
+          <line>335</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="23" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -836,83 +919,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/animation/LidarAnimationEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Radar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Lidar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="59" column="34" lean-forward="false" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SleepingState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/WeatherQueryServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/roverDB.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1510333692672.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="-7513">
-          <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/navigation/AdjacencyCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-396">
-          <caret line="79" column="37" lean-forward="false" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/navigation/NavCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="72" column="62" lean-forward="false" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/navigation/NavUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="74" column="36" lean-forward="false" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/environment/EnvironmentUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -949,13 +955,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.m2/settings.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PhotographingState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/utils/CameraUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1041,18 +1040,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/WeatherSensor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3468">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4944#4945#0" expanded="false" />
-            <element signature="e#4982#4983#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/WeatherQueryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1081,33 +1068,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/diagnostics/Pacemaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="20" column="59" lean-forward="false" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/environment/WeatherScanCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="26" column="32" lean-forward="false" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6990">
-          <caret line="560" column="27" lean-forward="false" selection-start-line="560" selection-start-column="27" selection-end-line="560" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/WeatherSensingStateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <caret line="33" column="58" lean-forward="false" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1127,32 +1091,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deployment/deploy.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/marsConfig.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="117" column="33" lean-forward="false" selection-start-line="117" selection-start-column="33" selection-end-line="117" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/WeatherSensingState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="57" column="44" lean-forward="false" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1160,16 +1100,6 @@
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SpacecraftClockTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1187,10 +1117,207 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/diagnostics/Pacemaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="78" column="68" lean-forward="false" selection-start-line="78" selection-start-column="68" selection-end-line="78" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ExploringState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="942">
+          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding>
+            <element signature="e#3554#3555#0" expanded="true" />
+            <element signature="e#3637#3638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/HibernatingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="87" column="75" lean-forward="false" selection-start-line="87" selection-start-column="75" selection-end-line="87" selection-end-column="75" />
+          <folding>
+            <element signature="e#2420#2421#0" expanded="true" />
+            <element signature="e#2505#2506#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/MovingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="81" column="65" lean-forward="false" selection-start-line="81" selection-start-column="65" selection-end-line="81" selection-end-column="65" />
+          <folding>
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#2250#2251#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PhotographingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1180">
+          <caret line="140" column="76" lean-forward="false" selection-start-line="140" selection-start-column="76" selection-end-line="140" selection-end-column="76" />
+          <folding>
+            <element signature="e#5408#5409#0" expanded="true" />
+            <element signature="e#5494#5495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/RadarScanningState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1588">
+          <caret line="131" column="5" lean-forward="true" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SensingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/TransmittingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/marsConfig.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2312">
+          <caret line="136" column="35" lean-forward="false" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="36" lean-forward="false" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
+          <folding>
+            <marker date="1511234480703" expanded="true" signature="4607:4676" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/WeatherSensingStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="9" lean-forward="false" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1511239883936.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="728">
+          <caret line="182" column="79" lean-forward="false" selection-start-line="182" selection-start-column="79" selection-end-line="182" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ListeningState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="97" column="47" lean-forward="true" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="578" column="53" lean-forward="true" selection-start-line="578" selection-start-column="53" selection-end-line="578" selection-end-column="53" />
+          <folding>
+            <element signature="e#11121#11122#0" expanded="true" />
+            <element signature="e#11160#11161#0" expanded="true" />
+            <element signature="e#12316#12317#0" expanded="true" />
+            <element signature="e#12358#12359#0" expanded="true" />
+            <marker date="1511240386229" expanded="true" signature="5749:5763" ph="SELECT * FRO... missingValue" />
+            <marker date="1511240386229" expanded="true" signature="6855:6869" ph="SELECT * FRO... missingValue" />
+            <marker date="1511240386229" expanded="true" signature="7913:7927" ph="SELECT * FRO... missingValue" />
+            <marker date="1511240386229" expanded="true" signature="8747:8761" ph="SELECT * FRO... missingValue" />
+            <marker date="1511240386229" expanded="true" signature="16007:16021" ph="SELECT * FRO... missingValue" />
+            <marker date="1511240386229" expanded="true" signature="16388:16402" ph="SELECT * FRO... missingValue" />
+            <marker date="1511240386229" expanded="true" signature="21871:23750" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SleepingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/WeatherSensingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="53" column="69" lean-forward="false" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/WeatherSensor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SclkTimingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1010">
+          <caret line="95" column="62" lean-forward="true" selection-start-line="78" selection-start-column="8" selection-end-line="95" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+            <element signature="e#3701#3702#0" expanded="true" />
+            <element signature="e#3742#3743#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SpacecraftClock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="57" column="21" lean-forward="true" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+        <state relative-caret-position="1095">
+          <caret line="136" column="43" lean-forward="false" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4884#4885#0" expanded="true" />
+            <element signature="e#4922#4923#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SpacecraftClockTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="45" lean-forward="false" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -78,6 +78,11 @@ public class MovingState implements State {
     }
 
     @Override
+    public void getSclkInformation() {
+        logger.error("Can not get sclkInformation while in movingState");
+    }
+
+    @Override
     public String getStateName() {
         return "Moving State";
     }

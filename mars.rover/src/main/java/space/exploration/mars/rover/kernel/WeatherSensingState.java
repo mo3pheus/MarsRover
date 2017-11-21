@@ -85,6 +85,11 @@ public class WeatherSensingState implements State {
     }
 
     @Override
+    public void getSclkInformation() {
+
+    }
+
+    @Override
     public String getStateName() {
         return "Weather Sensing State";
     }

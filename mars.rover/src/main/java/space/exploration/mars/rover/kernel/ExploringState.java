@@ -5,6 +5,8 @@ package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import communications.protocol.ModuleDirectory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
@@ -15,8 +17,8 @@ import space.exploration.mars.rover.environment.MarsArchitect;
  * @author sanketkorgaonkar
  */
 public class ExploringState implements State {
-
-    private Rover rover = null;
+    private Rover  rover  = null;
+    private Logger logger = LoggerFactory.getLogger(ExploringState.class);
 
     public ExploringState(Rover rover) {
         this.rover = rover;
@@ -49,7 +51,7 @@ public class ExploringState implements State {
 
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
-                ().y);
+                        ().y);
 
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
@@ -96,6 +98,11 @@ public class ExploringState implements State {
     @Override
     public void wakeUp() {
 
+    }
+
+    @Override
+    public void getSclkInformation() {
+        logger.error("Can not get sclkInformation while in exploringState");
     }
 
     @Override

@@ -82,4 +82,9 @@ public class HibernatingState implements State {
     public void wakeUp() {
 
     }
+
+    @Override
+    public void getSclkInformation() {
+        logger.error("Can not get sclkInformation while in hibernatingState");
+    }
 }

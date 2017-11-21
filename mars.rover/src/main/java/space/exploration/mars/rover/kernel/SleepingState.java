@@ -89,4 +89,9 @@ public class SleepingState implements State {
         rover.setState(rover.getListeningState());
         rover.setTimeMessageReceived(System.currentTimeMillis());
     }
+
+    @Override
+    public void getSclkInformation() {
+
+    }
 }

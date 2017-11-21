@@ -127,6 +127,10 @@ public class RadarScanningState implements State {
     public void wakeUp() {
     }
 
+    @Override
+    public void getSclkInformation() {
+    }
+
     private void renderRadarAnimation() {
         Properties                       marsConfig           = rover.getMarsConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
