@@ -1,14 +1,11 @@
 package space.exploration.mars.rover.kernel;
 
-import communications.protocol.ModuleDirectory;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
-import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.spice.utilities.TimeUtils;
 
 import java.util.Properties;
@@ -30,16 +27,20 @@ public class SpacecraftClock implements IsEquipment {
     private static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
     private static final String SCLK_TIME_SCALE_FACTOR = "mars.rover.clock.timeScaleFactor";
 
-    private Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
-                                                                                       .class);
-    private ScheduledExecutorService clockCounter    = null;
-    private DateTime                 internalClock   = null;
-    private DateTimeFormatter        clockFormatter  = null;
-    private String                   sclkStartTime   = null;
-    private TimeUtils                clockService    = null;
-    private int                      timeScaleFactor = 0;
-    private long                     missionDuration = 0l;
-    private long                     timeElapsedMs   = 0l;
+    private Logger                   logger              = LoggerFactory.getLogger(SpacecraftClock
+                                                                                           .class);
+    private ScheduledExecutorService clockCounter        = null;
+    private DateTime                 internalClock       = null;
+    private DateTimeFormatter        clockFormatter      = null;
+    private String                   sclkStartTime       = null;
+    private TimeUtils                clockService        = null;
+    private int                      timeScaleFactor     = 0;
+    private long                     missionDuration     = 0l;
+    private long                     timeElapsedMs       = 0l;
+    private double                   ephemerisTime       = 0.0d;
+    private String                   applicableTimeFrame = "";
+    private String                   clockFilePath       = "";
+    private String                   calendarTime        = "";
 
     public SpacecraftClock(Properties marsConfig) {
         clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
@@ -68,6 +69,7 @@ public class SpacecraftClock implements IsEquipment {
                 }
 
                 internalClock = new DateTime(internalClock.getMillis() + timeScaleFactor);
+                clockService.updateClock(clockFormatter.print(internalClock));
                 timeElapsedMs += timeScaleFactor;
             }
         };
@@ -84,7 +86,7 @@ public class SpacecraftClock implements IsEquipment {
     }
 
     public synchronized String getSclkTime() {
-        String sclkString = clockService.getSpacecraftTime(clockFormatter.print(internalClock));
+        String sclkString = clockService.getSclkTime();
         logger.info("Internal time::" + internalClock + " sclk of::" + sclkString);
         return sclkString;
     }
@@ -124,6 +126,22 @@ public class SpacecraftClock implements IsEquipment {
         return timeElapsedMs;
     }
 
+    public double getEphemerisTime() {
+        return clockService.getEphemerisTime();
+    }
+
+    public String getApplicableTimeFrame() {
+        return clockService.getApplicableTimeFrame();
+    }
+
+    public String getClockFilePath() {
+        return clockService.getClockFile().toPath().toString();
+    }
+
+    public String getCalendarTime() {
+        return clockService.getCalendarTime();
+    }
+
     public String toString() {
         space.exploration.communications.protocol.spacecraftClock.SpacecraftClock.SclkPacket.Builder sBuilder = space
                 .exploration.communications.protocol.spacecraftClock.SpacecraftClock.SclkPacket.newBuilder();
@@ -133,6 +151,10 @@ public class SpacecraftClock implements IsEquipment {
         sBuilder.setTimeElapsedMs(getTimeElapsedMs());
         sBuilder.setTimeScaleFactor(getTimeScaleFactor());
         sBuilder.setUtcTime(displayInternalClock());
+        sBuilder.setClockFile(clockService.getClockFile().getPath());
+        sBuilder.setApplicableTimeFrame(clockService.getApplicableTimeFrame());
+        sBuilder.setEphemerisTime(clockService.getEphemerisTime());
+        sBuilder.setCalendarTime(clockService.getCalendarTime());
 
         return sBuilder.build().toString();
     }

@@ -27,6 +27,7 @@ public class SpacecraftClockTest extends TestCase {
         }
 
         clock = new SpacecraftClock(marsConfig);
+
         System.out.println(SEPARATOR);
         System.out.println("Running Spacecraft clock test.");
         System.out.println(SEPARATOR);
@@ -37,6 +38,12 @@ public class SpacecraftClockTest extends TestCase {
     @Test
     public void testClockInitialization() {
         clock.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         for (int i = 0; i < 10; i++) {
             System.out.println("Clock internal time = " + clock.getInternalClock() +
                                        " displayInternalClock = " + clock.displayInternalClock() +

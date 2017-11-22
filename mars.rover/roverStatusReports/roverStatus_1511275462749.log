@@ -1,0 +1,1357 @@
+0 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-01-01T00:00:00.000-06:00
+1 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+1 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+19944 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+20035 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+20035 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+20035 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.newRover was supplied but isn't a known config.
+20035 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_4 was supplied but isn't a known config.
+20035 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+20036 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+20036 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_4 was supplied but isn't a known config.
+20037 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+20037 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+20143 [main] INFO kafka.utils.VerifiableProperties  - Verifying properties
+20162 [main] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+20162 [main] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+20162 [main] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+20162 [main] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.newRover
+20162 [main] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+20162 [main] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+20162 [main] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+20162 [main] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+20163 [main] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+20186 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], Connecting to zookeeper instance at localhost:2181
+20191 [ZkClient-EventThread-26-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_151
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=target/mars.rover-1.1.0-SOLSHOT-shaded.jar
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=$LD_LIBRARY_PATH:"/home/sanket/Documents/workspace/SpiceUtilities/src/main/resources/JNISpice/lib/libJNISpice.so":/home/sanket/Documents/workspace/SpiceUtilities/src/main/resources/JNISpice/lib/libJNISpice.so:/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-38-generic
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+20194 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+20195 [main] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@1757cd72
+20201 [main] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+20203 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+20238 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+20242 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x15fdeec8dc40002, negotiated timeout = 6000
+20243 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+20249 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], starting auto committer every 60000 ms
+20268 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], begin registering consumer space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d in ZK
+20286 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.newRover/ids/space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d (is it secure? false)
+20296 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+20296 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], end registering consumer space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d in ZK
+20300 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], starting watcher executor thread for consumer space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d
+20312 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], begin rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d try #0
+20380 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1511275484087] Stopping leader finder thread
+20380 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1511275484087] Stopping all fetchers
+20381 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1511275484087] All connections stopped
+20381 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], Cleared all relevant queues for this fetcher
+20382 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], Cleared the data chunks in all the consumer message iterators
+20382 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], Committing all offsets after clearing the fetcher queues
+20383 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], Releasing partition ownership
+20404 [Thread-2] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_4 with consumers: List(space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-0)
+20405 [Thread-2] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-0 attempting to claim partition 0
+20423 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-0 successfully owned partition 0 for topic earth_to_curiosity_4
+20437 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], Consumer space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d selected partitions : earth_to_curiosity_4:0: fetched offset = 816: consumed offset = 816
+20438 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread], Starting 
+20439 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d], end rebalancing consumer space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d try #0
+20458 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+20458 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.newRover
+20459 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+20459 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+20471 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_4)
+20475 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+20486 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+20498 [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-0-0], Starting 
+20501 [space.exploration.mars.newRover_zion-mainframe-1511275484024-7bba2a5d-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1511275484087] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_4,0], initOffset 816 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+20527 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 275
+44153 [main] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+53305 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275517144,0,ScanArea Current instructionQueue length = 0
+53306 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+83296 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+86300 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 66048
+87365 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T01:27:21.840-06:00 sclk of::1/0504882440-40991
+110701 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+119734 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275583573,8,ClickCamera Current instructionQueue length = 0
+119735 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+123366 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-08-07&camera=CHEMCAM&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+123366 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+123371 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 37071
+149463 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275613302,9,PerformRadarScan Current instructionQueue length = 0
+149464 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+216914 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+219918 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 96547
+220948 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T03:40:56.820-06:00 sclk of::1/0504890456-35989
+232789 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+244672 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275708511,8,ClickCamera Current instructionQueue length = 0
+244673 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+248043 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-11-11&camera=NAVCAM&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+248044 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+248049 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 28130
+269037 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275732876,0,ScanArea Current instructionQueue length = 0
+269037 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+297850 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+300852 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 52803
+302139 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T05:02:08.340-06:00 sclk of::1/0504895328-32949
+321033 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+330068 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275793907,8,ClickCamera Current instructionQueue length = 0
+330068 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+333419 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-05&camera=RHAZ&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+333420 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+333425 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 32573
+361277 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275825116,9,PerformRadarScan Current instructionQueue length = 0
+361277 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+430877 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+433879 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 100454
+434908 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T07:14:54.360-06:00 sclk of::1/0504903293-27978
+462335 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+471374 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275935213,8,ClickCamera Current instructionQueue length = 0
+471374 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+474719 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-08-13&camera=CHEMCAM&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+474720 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+474725 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 40846
+475748 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T07:55:44.820-06:00 sclk of::1/0504905744-26449
+498207 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+507243 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511275971082,8,ClickCamera Current instructionQueue length = 0
+507243 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+510581 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-08-21&camera=MAHLI&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+510582 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+510587 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 35862
+511611 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T08:31:36.600-06:00 sclk of::1/0504907895-25107
+537230 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+546262 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276010101,9,PerformRadarScan Current instructionQueue length = 0
+546262 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+614445 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+617447 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 106860
+618476 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T10:18:28.500-06:00 sclk of::1/0504914307-21105
+636048 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+645080 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276108919,9,PerformRadarScan Current instructionQueue length = 0
+645080 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+706686 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+709688 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 92241
+710718 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T11:50:43.020-06:00 sclk of::1/0504919842-17651
+729964 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+733995 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T12:13:59.640-06:00 sclk of::1/0504921238-16780
+738993 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276202832,9,PerformRadarScan Current instructionQueue length = 0
+738994 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+803199 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+806200 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 96511
+831406 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+840436 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276304275,10,GetSeasonalWeather Current instructionQueue length = 0
+840436 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+840439 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+843866 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843867 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843869 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843870 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843871 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843871 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843872 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843872 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843873 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843873 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843874 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843874 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843874 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843875 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843875 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843875 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843878 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843878 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843879 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843879 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+843888 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+857546 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+860547 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 54346
+861577 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T14:21:34.560-06:00 sclk of::1/0504928893-12003
+874287 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+878319 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T14:38:19.080-06:00 sclk of::1/0504929898-11376
+883320 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276347159,9,PerformRadarScan Current instructionQueue length = 0
+883321 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+957926 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+960928 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 100380
+986599 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+995628 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276459467,8,ClickCamera Current instructionQueue length = 0
+995628 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+998958 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-11-07&camera=RHAZ&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+998959 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+998963 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 38035
+1017667 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276481506,9,PerformRadarScan Current instructionQueue length = 0
+1017668 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+1087211 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1090213 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 91249
+1091242 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T18:11:14.460-06:00 sclk of::1/0504942673-03404
+1110069 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1114100 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T18:34:05.940-06:00 sclk of::1/0504944045-02548
+1119097 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276582936,9,PerformRadarScan Current instructionQueue length = 0
+1119097 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+1177383 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1180384 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 90171
+1189503 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1193534 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T19:53:31.980-06:00 sclk of::1/0504948810-65110
+1202577 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1206609 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T20:06:36.420-06:00 sclk of::1/0504949594-64620
+1211607 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276675446,9,PerformRadarScan Current instructionQueue length = 0
+1211608 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+1278155 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1281157 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 100773
+1307197 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1316227 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276780066,5,Explore Current instructionQueue length = 0
+1316228 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+1362274 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1365276 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 84119
+1366307 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T22:46:18.360-06:00 sclk of::1/0504959176-58641
+1392633 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1396666 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T23:16:39.900-06:00 sclk of::1/0504960998-57504
+1401662 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276865501,9,PerformRadarScan Current instructionQueue length = 0
+1401662 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+1478708 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1481710 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 116434
+1499705 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1508733 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511276972572,10,GetSeasonalWeather Current instructionQueue length = 0
+1508733 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+1508733 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+1512065 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512066 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512067 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512067 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512068 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512068 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512069 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512069 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512070 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512070 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512071 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512071 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512071 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512072 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512072 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512073 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512073 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512074 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512074 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512075 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.utils.WeatherUtil.getWeatherPayload(WeatherUtil.java:118)
+	at space.exploration.mars.rover.utils.WeatherUtil.getSeasonalWeatherPayload(WeatherUtil.java:125)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:83)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:54)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:304)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1512076 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+1529868 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1532870 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 51160
+1533901 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-02T01:33:54.000-06:00 sclk of::1/0504969232-52366
+1543378 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1547409 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-02T01:47:24.480-06:00 sclk of::1/0504970042-51860
+1565942 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1569973 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-02T02:09:58.320-06:00 sclk of::1/0504971396-51015
+1574969 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277038808,5,Explore Current instructionQueue length = 0
+1574969 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+1616560 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1619561 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 86691
+1647119 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1656150 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277119988,8,ClickCamera Current instructionQueue length = 0
+1656150 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+1659460 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-07-28&camera=MAHLI&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1659461 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1659468 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 39906
+1660491 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-02T03:40:29.400-06:00 sclk of::1/0504976827-47626
+1675232 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1684261 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277148100,1,Move Current instructionQueue length = 0
+1684261 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on the move!
+1684275 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1511277148114 Power requested = 160 Critical = false
+1684276 [Thread-2] ERROR space.exploration.mars.rover.kernel.MovingState  - Propulsion unavailable due to insufficient battery. Sending the rover into hibernating state. Will attempt to restore propulsion upon battery recharge.
+1684280 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 24812
+1684280 [pool-6-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 0 required = 60000
+1685310 [pool-3-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-02T04:05:18.540-06:00 sclk of::1/0504978316-46697
+1706168 [pool-3-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1715199 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277179038,8,ClickCamera Current instructionQueue length = 1
+1715199 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+1718466 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-11-17&camera=CHEMCAM&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1718466 [pool-5-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+1718467 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1724496 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277188335,1,Move Current instructionQueue length = 0
+1724496 [pool-5-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1511277188335 Power requested = 40 Critical = false
+1724496 [pool-5-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+1724497 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 40217
+1738364 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277202203,8,ClickCamera Current instructionQueue length = 1
+1738364 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+1741538 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-08-25&camera=NAVCAM&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1741539 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1741544 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17047
+1743133 [pool-5-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 1
+1749163 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277213002,1,Move Current instructionQueue length = 0
+1749163 [pool-5-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1511277213002 Power requested = 40 Critical = false
+1749164 [pool-5-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+1755522 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1755526 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13982
+1767386 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1767391 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 11865
+1768903 [pool-6-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 19739 required = 60000
+1782330 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1782335 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14944
+1798647 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1798652 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16317
+1798903 [pool-6-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 49739 required = 60000
+1801128 [pool-3-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 5
+1803206 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1803210 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4558
+1819692 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+1819696 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16485
+1828903 [pool-6-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 79739 required = 60000
+1829904 [pool-6-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+1851664 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1854666 [pool-5-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 7
+1860692 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277324531,0,ScanArea Current instructionQueue length = 7
+1860692 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+1894727 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1897729 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 78033
+1903757 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277367596,1,Move Current instructionQueue length = 6
+1903758 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on the move!
+1903814 [pool-5-thread-1] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay commenced.
+1919995 [pool-5-thread-1] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 38
+1949885 [pool-5-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+1952886 [pool-5-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 6
+1958915 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277422754,8,ClickCamera Current instructionQueue length = 6
+1958915 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+1962281 [Thread-2] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-04&camera=RHAZ&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1962281 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:103)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:56)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:64)
+1968308 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277432147,5,Explore Current instructionQueue length = 5
+1968308 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2019838 [pool-5-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+2022839 [pool-5-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 5
+2022839 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 125110
+2028868 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277492707,0,ScanArea Current instructionQueue length = 4
+2028868 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2060688 [pool-5-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+2063689 [pool-5-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 4
+2069718 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277533557,9,PerformRadarScan Current instructionQueue length = 4
+2069718 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+2135551 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+2138552 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 115712
+2144580 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277608419,9,PerformRadarScan Current instructionQueue length = 3
+2144580 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+2216200 [pool-5-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+2219202 [pool-5-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+2225228 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277689067,5,Explore Current instructionQueue length = 3
+2225228 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2275092 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_4
+2278093 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 139540
+2284123 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1511277747962,8,ClickCamera Current instructionQueue length = 2
+2284123 [pool-5-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+2287484 [pool-5-thread-1] ERROR space.exploration.mars.rover.service.QueryService  - IOException
+java.io.IOException: Server returned HTTP response code: 429 for URL: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-09-11&camera=CHEMCAM&api_key=DEMO_KEY
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1894)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:263)
+	at space.exploration.mars.rover.service.QueryService.getResponseAsString(QueryService.java:94)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:73)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:522)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.kernel.Rover.processPendingMessageQueue(Rover.java:135)
+	at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$1.run(RoverGarbageCollector.java:56)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2287489 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 9396
+2294454 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 6965
+2311848 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17394
+2328565 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16716
+2339334 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 10769
+2352631 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13297
+2372228 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19597
+2380812 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 8584
+2396874 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16062
+2411850 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14976
+2418225 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 6375
+2432315 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14090
+2451920 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19605
+2469420 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17500
+2488012 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 18592
+2495599 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7587
+2504842 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 9243
+2521836 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16994
+2531732 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 9895
+2544092 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12360
+2554740 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 10647
+2569221 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14481
+2576361 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7140
+2582180 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 5819
+2592464 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 10284
+2611036 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 18571
+2618068 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7032
+2634077 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16008
+2638098 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4021
+2658524 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 20426
+2672385 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13860
+2690039 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17654
+2704452 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14413
+2717726 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13274
+2720799 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 3073
+2725133 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4334
+2731429 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 6296
+2748275 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16846
+2756780 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 8505
+2770986 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14205
+2791300 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 20314
+2811263 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19962
+2827485 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16222
+2838697 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 11211
+2847289 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 8592
+2858940 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 11651
+2877689 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 18749
+2883550 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 5861
+2905195 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 21645
+2923522 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 18327
+2932159 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 8637
+2949917 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17758
+2962116 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12199
+2971544 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 9428
+2979224 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7680
+2992989 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13765
+3011427 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 18438
+3031403 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19976
+3042374 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 10970
+3046665 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4291
+3064838 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 18172
+3077296 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12458
+3084153 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 6857
+3087204 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 3051
+3100881 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13677
+3109692 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 8811
+3116756 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7064
+3124339 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7583
+3144171 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19832
+3161200 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17029
+3178112 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16911
+3198011 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19898
+3208684 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 10673
+3218659 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 9974
+3239509 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 20850
+3244292 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4783
+3261401 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17109
+3269377 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7976
+3284851 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15474
+3291280 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 6429
+3306428 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15148
+3319757 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13329
+3327023 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7266
+3335619 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 8596
+3338690 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 3071
+3360197 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 21506
+3372820 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12623
+3380703 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7883
+3385150 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4447
+3399157 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14007
+3415550 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16393
+3427330 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 11780
+3436137 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 8807
+3440947 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4810
+3461477 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 20530
+3464669 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 3192
+3467781 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 3112
+3475073 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7292
+3489065 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13992
+3493936 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4871
+3508755 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14819
+3512907 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4152
+3532092 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19185
+3547543 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15451
+3554098 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 6555
+3569271 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15173
+3573935 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4664
+3579535 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 5600
+3596398 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16863
+3609142 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12744
+3614988 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 5846
+3618329 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 3340
+3638808 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 20479
+3659764 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 20956
+3672722 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12958
+3694112 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 21390
+3706598 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12486
+3713622 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7024
+3718529 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4907
+3731597 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 13068
+3741540 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 9942
+3754408 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12868
+3771155 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16747
+3785616 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14461
+3793258 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7642
+3798777 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 5519
+3806928 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 8151
+3823353 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16425
+3830646 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7292
+3846885 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16239
+3868032 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 21147
+3880103 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 12071
+3896726 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 16623
+3916093 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19366
+3923390 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7297
+3930194 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 6804
+3937753 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 7559
+3949670 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 11917
+3967429 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17759
+3987377 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19948
+4001412 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 14035
+4018812 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 17400
+4029917 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 11104
+4033975 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 4058
