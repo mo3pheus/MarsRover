@@ -22,19 +22,21 @@ import java.util.Properties;
  * @author sanketkorgaonkar
  */
 public class Receiver extends Thread {
-    public final static String TUNED_CHANNEL = "earth_to_curiosity_4";
+    public final static String CHANNEL_PROPERTY = "source.topic";
 
     private Logger            logger            = LoggerFactory.getLogger(Receiver.class);
     private ConsumerConnector consumerConnector = null;
     private Radio             radio             = null;
     private long              lastReportTime    = 0l;
     private long              radioCheckPulse   = 0l;
+    private String            tunedChannel      = "";
 
     public Receiver(Properties comsConfig, Radio radio) {
         ConsumerConfig consumerConfig = new ConsumerConfig(comsConfig);
         consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
         this.radio = radio;
         this.lastReportTime = System.currentTimeMillis();
+        this.tunedChannel = comsConfig.getProperty(CHANNEL_PROPERTY);
     }
 
     public void setRadioCheckPulse(long radioCheckPulse) {
@@ -45,10 +47,10 @@ public class Receiver extends Thread {
     public void run() {
         System.out.println("Rover Listening ...");
         Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
-        topicCountMap.put(TUNED_CHANNEL, new Integer(1));
+        topicCountMap.put(tunedChannel, new Integer(1));
         Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumerConnector
                 .createMessageStreams(topicCountMap);
-        KafkaStream<byte[], byte[]>      stream = consumerMap.get(TUNED_CHANNEL).get(0);
+        KafkaStream<byte[], byte[]>      stream = consumerMap.get(tunedChannel).get(0);
         ConsumerIterator<byte[], byte[]> it     = stream.iterator();
 
         while (it.hasNext()) {
