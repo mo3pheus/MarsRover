@@ -35,7 +35,7 @@ public class MatrixCreation {
     }
 
     public static Properties getComsConfig() throws IOException {
-        URL             url      = MatrixCreation.class.getResource("/kafka.properties");
+        URL             url      = MatrixCreation.class.getResource("/kafka1.properties");
         FileInputStream propFile = new FileInputStream(url.getPath());
         config = new Properties();
         config.load(propFile);

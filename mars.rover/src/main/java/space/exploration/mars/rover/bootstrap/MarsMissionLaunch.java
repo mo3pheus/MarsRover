@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.bootstrap;
 
+import communications.protocol.KafkaConfig;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.PatternLayout;
@@ -18,14 +19,13 @@ public class MarsMissionLaunch {
                 new Rover(MatrixCreation.getConfig(), MatrixCreation.getComsConfig(), MatrixCreation
                         .getRoverDBConfig());
             } else {
-                configureLogging(Boolean.parseBoolean(args[5]));
+                configureLogging(Boolean.parseBoolean(args[4]));
                 Properties marsConfig       = MatrixCreation.convertToPropertyFiles(args[0]);
-                Properties comsConfig       = MatrixCreation.convertToPropertyFiles(args[1]);
-                Properties dbConfig         = MatrixCreation.convertToPropertyFiles(args[2]);
-                String     camCacheLocation = args[3];
-                String     archiveLocation  = args[4];
+                Properties dbConfig         = MatrixCreation.convertToPropertyFiles(args[1]);
+                String     camCacheLocation = args[2];
+                String     archiveLocation  = args[3];
 
-                new Rover(marsConfig, comsConfig, dbConfig, camCacheLocation, archiveLocation);
+                new Rover(marsConfig, KafkaConfig.getKafkaConfig("Rover"), dbConfig, camCacheLocation, archiveLocation);
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
