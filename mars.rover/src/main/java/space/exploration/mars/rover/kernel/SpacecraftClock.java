@@ -81,7 +81,7 @@ public class SpacecraftClock implements IsEquipment {
         return internalClock;
     }
 
-    public synchronized String displayInternalClock() {
+    public synchronized String getUTCTime() {
         return clockFormatter.print(internalClock.getMillis());
     }
 
@@ -150,7 +150,7 @@ public class SpacecraftClock implements IsEquipment {
         sBuilder.setStartTime(getSclkStartTime());
         sBuilder.setTimeElapsedMs(getTimeElapsedMs());
         sBuilder.setTimeScaleFactor(getTimeScaleFactor());
-        sBuilder.setUtcTime(displayInternalClock());
+        sBuilder.setUtcTime(getUTCTime());
         sBuilder.setClockFile(clockService.getClockFile().getPath());
         sBuilder.setApplicableTimeFrame(clockService.getApplicableTimeFrame());
         sBuilder.setEphemerisTime(clockService.getEphemerisTime());

@@ -4,7 +4,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scala.concurrent.forkjoin.ThreadLocalRandom;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
@@ -16,18 +15,22 @@ import java.util.Properties;
  * Created by sanketkorgaonkar on 4/27/17.
  */
 public class Radio implements IsEquipment {
-    public static final String      LIFESPAN    = "mars.rover.radio.lifeSpan";
-    public static final int         SOS_RESERVE = 10;
-    private             Rover       rover       = null;
-    private             Transmitter transmitter = null;
-    private             Receiver    receiver    = null;
-    private             Logger      logger      = LoggerFactory.getLogger(Radio.class);
-    private             boolean     endOfLife   = false;
-    private             int         lifeSpan    = 0;
+    public static final String      LIFESPAN        = "mars.rover.radio.lifeSpan";
+    public static final int         SOS_RESERVE     = 10;
+    private             Rover       rover           = null;
+    private             Transmitter transmitter     = null;
+    private             Receiver    receiver        = null;
+    private             Logger      logger          = LoggerFactory.getLogger(Radio.class);
+    private             boolean     endOfLife       = false;
+    private             double      timeScaleFactor = 0.0d;
+    private             int         lifeSpan        = 0;
+    private             boolean     bootUp          = true;
 
     public Radio(Properties comsConfig, Rover rover) {
         this.rover = rover;
         long radioCheckPulse = Long.parseLong(rover.getMarsConfig().getProperty("mars.rover.radio.check.pulse"));
+        this.timeScaleFactor = Double.parseDouble(rover.getMarsConfig().getProperty("mars.rover.radio" +
+                                                                                            ".timeScaleFactor"));
 
         this.transmitter = new Transmitter(comsConfig);
         this.receiver = new Receiver(comsConfig, this);
@@ -71,7 +74,9 @@ public class Radio implements IsEquipment {
     public void sendMessage(byte[] message) {
         try {
             if (lifeSpan > 0) {
-                Thread.sleep(getComsDelaySecs());
+                if (!bootUp) {
+                    Thread.sleep(getComsDelaySecs());
+                }
                 transmitter.transmitMessage(message);
                 lifeSpan--;
             } else {
@@ -84,6 +89,8 @@ public class Radio implements IsEquipment {
         } catch (InterruptedException e) {
             logger.error("InterruptedException", e);
             rover.writeErrorLog("InterruptedException", e);
+        } finally {
+            bootUp = false;
         }
     }
 
@@ -116,6 +123,8 @@ public class Radio implements IsEquipment {
     5) Transmit overhead pass time for each satellite along with telemetry.
     */
     private int getComsDelaySecs() {
-        return ThreadLocalRandom.current().nextInt(3000, 22000);
+        double owlt = rover.getPositionSensor().getPositionsData().getOwltMSLEarth();
+        logger.info("One Way Light Time computed by SPICE :: " + Double.toString(owlt));
+        return (int) (owlt / timeScaleFactor);
     }
 }

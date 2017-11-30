@@ -1,0 +1,94 @@
+0 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+1 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+1 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?
+623 [main] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.service.WeatherQueryServiceTest.testPayloadObject(WeatherQueryServiceTest.java:20)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:369)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:275)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:239)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:160)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:373)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:334)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:119)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:407)
+627 [main] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.service.WeatherQueryServiceTest.testPayloadObject(WeatherQueryServiceTest.java:20)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:369)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:275)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:239)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:160)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:373)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:334)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:119)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:407)
+712 [main] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2017-11-19"
+sol: 1880
+ls: 89.0
+minTemp: -79.0
+minTemFahrenheit: -110.2
+maxTemp: -30.0
+maxTempFahrenheit: -22.0
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2017-11-19T115300Z"
+sunset: "2017-11-19T233600Z"
+
+827 [main] DEBUG space.exploration.mars.rover.service.QueryService  - StartMS supplied = 1480691182743 jodaInternalEarthDate = 2016-12-02T09:06:22.743-06:00 curiosityEarthDate = 2016-12-02
+827 [main] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-12-02&camera=FHAZ&api_key=DEMO_KEY
+827 [main] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-12-02&camera=FHAZ&api_key=DEMO_KEY
+827 [main] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-12-02&camera=FHAZ&api_key=DEMO_KEY
+3045 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-01-01T00:00:00.000-06:00
+3045 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+3045 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+3045 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:00.000-06:00 sclk of::
+4046 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:07.440-06:00 sclk of::1/0504877268-44219
+5046 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:15.000-06:00 sclk of::1/0504877275-44214
+6047 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:19.860-06:00 sclk of::1/0504877280-44211
+7047 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:26.400-06:00 sclk of::1/0504877287-44207
+8047 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:31.680-06:00 sclk of::1/0504877292-44204
+9047 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:37.620-06:00 sclk of::1/0504877298-44200
+10048 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:44.400-06:00 sclk of::1/0504877305-44196
+11048 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:49.680-06:00 sclk of::1/0504877310-44193
+12048 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:55.440-06:00 sclk of::1/0504877316-44189
+13048 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:01:01.260-06:00 sclk of::1/0504877322-44185
+13051 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:01:01.320-06:00 sclk of::1/0504877322-44185

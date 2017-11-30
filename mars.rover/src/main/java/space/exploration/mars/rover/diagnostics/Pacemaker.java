@@ -95,6 +95,7 @@ public class Pacemaker {
 
     private RoverStatusOuterClass.RoverStatus generateDiagnosticStatus() {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+        rBuilder.setMslPositionsPacket(rover.getPositionSensor().getPositionsData());
         rBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
         rBuilder.setModuleMessage(generateHeartBeat().toByteString());
 

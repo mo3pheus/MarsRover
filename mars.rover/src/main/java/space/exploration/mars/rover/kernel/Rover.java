@@ -77,6 +77,7 @@ public class Rover {
     private Radar           radar           = null;
     private WeatherSensor   weatherSensor   = null;
     private SpacecraftClock spacecraftClock = null;
+    private PositionSensor  positionSensor  = null;
 
     /* Contingency Stack */
     private Map<Point, RoverCell> previousRovers       = null;
@@ -532,6 +533,7 @@ public class Rover {
         equipmentList.add(this.radar);
         equipmentList.add(this.weatherSensor);
         equipmentList.add(this.spacecraftClock);
+        equipmentList.add(this.positionSensor);
         return equipmentList;
     }
 
@@ -557,6 +559,10 @@ public class Rover {
         return weatherSensingState;
     }
 
+    public synchronized PositionSensor getPositionSensor() {
+        return positionSensor;
+    }
+
     public synchronized void setWeatherSensingState(State weatherSensingState) {
         this.weatherSensingState = weatherSensingState;
     }
@@ -566,6 +572,9 @@ public class Rover {
         this.previousRovers = new HashMap<>();
         this.spacecraftClock = new SpacecraftClock(marsConfig);
         spacecraftClock.start();
+
+        this.positionSensor = new PositionSensor(this);
+        positionSensor.start();
 
         this.listeningState = new ListeningState(this);
         this.hibernatingState = new HibernatingState(this);
