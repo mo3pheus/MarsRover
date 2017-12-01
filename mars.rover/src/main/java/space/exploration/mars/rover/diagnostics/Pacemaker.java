@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.diagnostics.HeartBeatOuterClass;
+import space.exploration.communications.protocol.spice.MSLRelativePositions;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 
@@ -73,7 +74,7 @@ public class Pacemaker {
 
     private HeartBeatOuterClass.HeartBeat generateHeartBeat() {
         HeartBeatOuterClass.HeartBeat.Builder hBuilder = HeartBeatOuterClass.HeartBeat.newBuilder();
-        hBuilder.setSCET(System.currentTimeMillis());
+        hBuilder.setSCET(rover.getSpacecraftClock().getInternalClock().getMillis());
         hBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         hBuilder.setNotes("This is rover Curiosity. Sending HeartBeat!");
         hBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
@@ -94,11 +95,19 @@ public class Pacemaker {
     }
 
     private RoverStatusOuterClass.RoverStatus generateDiagnosticStatus() {
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
-        rBuilder.setMslPositionsPacket(rover.getPositionSensor().getPositionsData());
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus
+                .newBuilder();
+        MSLRelativePositions.MSLRelPositionsPacket mslRelPositionsPacket = rover.getPositionSensor().getPositionsData();
+        rBuilder.setMslPositionsPacket(mslRelPositionsPacket);
         rBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
         rBuilder.setModuleMessage(generateHeartBeat().toByteString());
 
-        return rBuilder.build();
+        if (mslRelPositionsPacket.getHgaPass()) {
+            rBuilder.setNotes("HGA PASS DETECTED AT THIS TIME!");
+        }
+
+        RoverStatusOuterClass.RoverStatus roverStatus = rBuilder.build();
+
+        return roverStatus;
     }
 }

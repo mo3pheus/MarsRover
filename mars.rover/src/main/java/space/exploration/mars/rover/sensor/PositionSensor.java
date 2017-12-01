@@ -1,5 +1,7 @@
 package space.exploration.mars.rover.sensor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.spice.MSLRelativePositions;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
@@ -14,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  * Lives as long as the spacecraftClock lives - since there is a dependency between the two.
  */
 public class PositionSensor implements IsEquipment {
-
+    private Logger                   logger        = LoggerFactory.getLogger(PositionSensor.class);
     private PositionUtils            positionUtils = null;
     private ScheduledExecutorService sensorUpdate  = null;
     private Rover                    rover         = null;
@@ -37,7 +39,9 @@ public class PositionSensor implements IsEquipment {
     }
 
     public synchronized MSLRelativePositions.MSLRelPositionsPacket getPositionsData() {
-        return positionUtils.getPositionPacket();
+        MSLRelativePositions.MSLRelPositionsPacket positionsPacket = positionUtils.getPositionPacket();
+        logger.info(positionsPacket.toString());
+        return positionsPacket;
     }
 
     @Override
