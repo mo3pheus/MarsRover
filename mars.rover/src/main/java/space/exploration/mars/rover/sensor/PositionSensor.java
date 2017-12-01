@@ -39,9 +39,15 @@ public class PositionSensor implements IsEquipment {
     }
 
     public synchronized MSLRelativePositions.MSLRelPositionsPacket getPositionsData() {
-        MSLRelativePositions.MSLRelPositionsPacket positionsPacket = positionUtils.getPositionPacket();
-        logger.info(positionsPacket.toString());
-        return positionsPacket;
+        MSLRelativePositions.MSLRelPositionsPacket         positionsPacket = positionUtils.getPositionPacket();
+        MSLRelativePositions.MSLRelPositionsPacket.Builder mBuilder        = MSLRelativePositions
+                .MSLRelPositionsPacket.newBuilder();
+        mBuilder.setSol(rover.getSpacecraftClock().getSol());
+        mBuilder.mergeFrom(positionsPacket);
+
+        MSLRelativePositions.MSLRelPositionsPacket mslRelPositionsPacket = mBuilder.build();
+        logger.info(mslRelPositionsPacket.toString());
+        return mslRelPositionsPacket;
     }
 
     @Override

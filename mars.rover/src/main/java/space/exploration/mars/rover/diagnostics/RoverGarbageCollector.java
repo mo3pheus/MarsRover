@@ -71,7 +71,8 @@ public class RoverGarbageCollector {
         rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
         rBuilder.setSCET(System.currentTimeMillis());
-        rBuilder.setSolNumber(rover.getSol());
+        rBuilder.setSolNumber(rover.getSpacecraftClock().getSol());
+        rBuilder.setMslPositionsPacket(rover.getPositionSensor().getPositionsData());
         rBuilder.setNotes("Houston, I am overworked and underpaid! " + errorMessage);
         return rBuilder.build().toByteArray();
     }

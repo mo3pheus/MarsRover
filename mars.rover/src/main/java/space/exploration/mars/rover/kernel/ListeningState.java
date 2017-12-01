@@ -90,7 +90,7 @@ public class ListeningState implements State {
                 } else if (tp.getRoverModule() == ModuleDirectory.Module.WEATHER_SENSOR.getValue()) {
                     logger.info("Rover will try to get weather measurements - actual Curiosity Data");
                     rover.state = rover.weatherSensingState;
-                    rover.senseWeather(WeatherQueryOuterClass.WeatherQuery.parseFrom(tp.getAuxiliaryData()));
+                    rover.senseWeather(null);
                 } else if (tp.getRoverModule() == ModuleDirectory.Module.SPACECRAFT_CLOCK.getValue()) {
                     logger.info("Rover will get detailed spacecraftClock information. " +
                                         "Houston, this is CuriosityActual.");

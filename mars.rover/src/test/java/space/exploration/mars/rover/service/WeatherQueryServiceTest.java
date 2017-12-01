@@ -12,6 +12,7 @@ public class WeatherQueryServiceTest extends TestCase {
     public void setUp() {
         MarsMissionLaunch.configureLogging(true);
         weatherQueryService = new WeatherQueryService();
+        weatherQueryService.setSolNumber(1212);
         weatherQueryService.executeQuery();
     }
 

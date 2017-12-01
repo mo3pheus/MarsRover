@@ -78,7 +78,7 @@ public class Pacemaker {
         hBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         hBuilder.setNotes("This is rover Curiosity. Sending HeartBeat!");
         hBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
-        hBuilder.setSolNumber(rover.getSol());
+        hBuilder.setSolNumber(rover.getSpacecraftClock().getSol());
 
         RoverStatusOuterClass.RoverStatus.Location location = RoverStatusOuterClass.RoverStatus.Location.newBuilder()
                 .setX(rover.getMarsArchitect().getRobot().getLocation().x)

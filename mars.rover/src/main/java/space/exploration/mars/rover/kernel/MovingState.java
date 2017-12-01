@@ -168,8 +168,7 @@ public class MovingState implements State {
                 "Telemetry Data relayed.");
         updateMsg.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         updateMsg.setModuleReporting(ModuleDirectory.Module.PROPULSION.getValue());
-        updateMsg.setSolNumber(rover.getSol());
-
+        updateMsg.setSolNumber(rover.getSpacecraftClock().getSol());
         updateMsg.setModuleMessage(architect.getTelemetryPayload().toByteString());
 
         rover.state = rover.transmittingState;
@@ -187,7 +186,7 @@ public class MovingState implements State {
         updateMsg.setNotes(message);
         updateMsg.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         updateMsg.setModuleReporting(ModuleDirectory.Module.PROPULSION.getValue());
-        updateMsg.setSolNumber(rover.getSol());
+        updateMsg.setSolNumber(rover.getSpacecraftClock().getSol());
 
         rover.state = rover.transmittingState;
         rover.transmitMessage(updateMsg.build().toByteArray());

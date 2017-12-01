@@ -43,6 +43,7 @@ public class WeatherSensor implements IsEquipment {
 
         try {
             /*rems -> RoverEnvironmentalMonitoringStation */
+            rems.setSolNumber(rover.getSpacecraftClock().getSol());
             rems.executeQuery();
             weatherPayload = (WeatherData.WeatherPayload) rems.getResponse();
         } catch (Exception e) {
@@ -64,6 +65,7 @@ public class WeatherSensor implements IsEquipment {
         return rBuilder.build().toByteArray();
     }
 
+    @Deprecated
     public byte[] getWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         logger.debug(weatherQuery.toString());
         lifeSpan--;
@@ -123,7 +125,8 @@ public class WeatherSensor implements IsEquipment {
     private RoverStatusOuterClass.RoverStatus.Builder getGeneralRoverStatus() {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         rBuilder.setModuleReporting(ModuleDirectory.Module.WEATHER_SENSOR.getValue());
-        rBuilder.setSCET(System.currentTimeMillis());
+        rBuilder.setSCET(rover.getSpacecraftClock().getInternalClock().getMillis());
+        rBuilder.setSolNumber(rover.getSpacecraftClock().getSol());
         rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
         rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         return rBuilder;

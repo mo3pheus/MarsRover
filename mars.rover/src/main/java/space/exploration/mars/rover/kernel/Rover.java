@@ -405,12 +405,6 @@ public class Rover {
         this.spacecraftClock.start();
     }
 
-    public int getSol() {
-        long diff  = System.currentTimeMillis() - creationTime;
-        long solMs = getOneSolDuration();
-        return Math.round(diff / solMs);
-    }
-
     public synchronized boolean isDiagnosticFriendly() {
         return ((this.state == this.listeningState)
                 && (instructionQueue.isEmpty()));
@@ -538,7 +532,6 @@ public class Rover {
         rBuilder.setSCET(System.currentTimeMillis());
         rBuilder.setLocation(location);
         rBuilder.setBatteryLevel(this.getBattery().getPrimaryPowerUnits());
-        rBuilder.setSolNumber(getSol());
         rBuilder.setNotes("Rover " + ROVER_NAME + " reporting to earth after a restart - How are you earth?");
         return rBuilder.build().toByteArray();
     }

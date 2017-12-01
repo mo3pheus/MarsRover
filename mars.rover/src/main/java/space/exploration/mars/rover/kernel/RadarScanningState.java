@@ -107,7 +107,7 @@ public class RadarScanningState implements State {
 
         status = rBuilder.setBatteryLevel(rover.getBattery()
                                                   .getPrimaryPowerUnits())
-                .setSolNumber(rover.getSol()).setLocation(location).setNotes("Radar scan performed!")
+                .setSolNumber(rover.getSpacecraftClock().getSol()).setLocation(location).setNotes("Radar scan performed!")
                 .setSCET(System
                                  .currentTimeMillis())
                 .setModuleMessage(rContactListBuilder.build().toByteString())

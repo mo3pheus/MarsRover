@@ -64,10 +64,8 @@ public class PhotographingState implements State {
 
         PhotoQueryService photoQueryService = new PhotoQueryService();
         photoQueryService.setCamId(camId);
+        photoQueryService.setSol(rover.getSpacecraftClock().getSol());
         photoQueryService.setAuthenticationKey(rover.getNasaApiAuthKey());
-
-        int offsetDays = ThreadLocalRandom.current().nextInt(0, 140);
-        photoQueryService.setEarthStartDate(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(offsetDays));
         photoQueryService.executeQuery();
 
         String responseString = photoQueryService.getResponseAsString();
@@ -93,7 +91,7 @@ public class PhotographingState implements State {
 
         rBuilder.setBatteryLevel(rover.getBattery()
                                          .getPrimaryPowerUnits())
-                .setSolNumber(rover.getSol()).setLocation(location).setNotes("Camera used here")
+                .setSolNumber(rover.getSpacecraftClock().getSol()).setLocation(location).setNotes("Camera used here")
                 .setSCET(System
                                  .currentTimeMillis())
                 .setNotes("Curiosity Actual")

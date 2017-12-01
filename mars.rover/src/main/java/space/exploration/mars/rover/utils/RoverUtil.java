@@ -55,7 +55,8 @@ public class RoverUtil {
         rBuilder.setLocation(RoverStatusOuterClass.RoverStatus.Location.newBuilder().
                 setX(rover.getMarsArchitect().getRobot().getLocation().x).setY(rover.getMarsArchitect().getRobot()
                                                                                        .getLocation().y).build());
-        rBuilder.setSolNumber(rover.getSol());
+        rBuilder.setSolNumber(rover.getSpacecraftClock().getSol());
+        rBuilder.setMslPositionsPacket(rover.getPositionSensor().getPositionsData());
         rBuilder.setNotes(message);
         rBuilder.setModuleReporting(module.getValue());
 

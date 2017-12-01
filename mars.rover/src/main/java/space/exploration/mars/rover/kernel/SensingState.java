@@ -87,7 +87,7 @@ public class SensingState implements State {
 
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
-                .setSolNumber(rover.getSol()).setLocation(location).setNotes("Lidar exercised here.")
+                .setSolNumber(rover.getSpacecraftClock().getSol()).setLocation(location).setNotes("Lidar exercised here.")
                 .setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
                 .setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
 

@@ -55,7 +55,8 @@ public class ExploringState implements State {
 
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
-                .setSolNumber(rover.getSol()).setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
+                .setSolNumber(rover.getSpacecraftClock().getSol())
+                .setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
                 .setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
                 .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE
                                                                                 .getValue())
