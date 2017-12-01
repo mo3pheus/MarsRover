@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit;
  * Please contact sanket.korgaonkar@gmail.com if you have trouble extending the duration of the spacecraft clock.
  */
 public class SpacecraftClock implements IsEquipment {
+    public static final  double SOL_DURATION_SECONDS   = 88642.66300d;
     private static final String SCLK_FORMAT            = "mars.rover.mission.clock.format";
     private static final String SCLK_START_TIME        = "mars.rover.mission.clock.start";
     private static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
@@ -37,6 +38,7 @@ public class SpacecraftClock implements IsEquipment {
     private int                      timeScaleFactor     = 0;
     private long                     missionDuration     = 0l;
     private long                     timeElapsedMs       = 0l;
+    private int                      sol                 = 0;
     private double                   ephemerisTime       = 0.0d;
     private String                   applicableTimeFrame = "";
     private String                   clockFilePath       = "";
@@ -47,7 +49,7 @@ public class SpacecraftClock implements IsEquipment {
         sclkStartTime = marsConfig.getProperty(SCLK_START_TIME);
         timeScaleFactor = Integer.parseInt(marsConfig.getProperty(SCLK_TIME_SCALE_FACTOR));
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
-        internalClock.withTimeAtStartOfDay().withZone(DateTimeZone.UTC);
+        internalClock.withZone(DateTimeZone.UTC);
         clockService = new TimeUtils();
 
         clockCounter = Executors.newSingleThreadScheduledExecutor();
@@ -71,6 +73,12 @@ public class SpacecraftClock implements IsEquipment {
                 internalClock = new DateTime(internalClock.getMillis() + timeScaleFactor);
                 clockService.updateClock(clockFormatter.print(internalClock));
                 timeElapsedMs += timeScaleFactor;
+                int solNumber = (int) Math.round((double) TimeUnit.MILLISECONDS.toSeconds(timeElapsedMs) /
+                                                         SOL_DURATION_SECONDS);
+                if (solNumber > sol) {
+                    logger.info("Sol rolled over, new sol = " + Integer.toString(solNumber));
+                }
+                sol = solNumber;
             }
         };
 
@@ -89,6 +97,10 @@ public class SpacecraftClock implements IsEquipment {
         String sclkString = clockService.getSclkTime();
         logger.info("Internal time::" + internalClock + " sclk of::" + sclkString);
         return sclkString;
+    }
+
+    public synchronized int getSol() {
+        return sol;
     }
 
     public synchronized String getSclkStartTime() {
@@ -155,6 +167,7 @@ public class SpacecraftClock implements IsEquipment {
         sBuilder.setApplicableTimeFrame(clockService.getApplicableTimeFrame());
         sBuilder.setEphemerisTime(clockService.getEphemerisTime());
         sBuilder.setCalendarTime(clockService.getCalendarTime());
+        sBuilder.setSol(sol);
 
         return sBuilder.build().toString();
     }

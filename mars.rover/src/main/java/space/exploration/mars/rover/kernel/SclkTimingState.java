@@ -93,6 +93,7 @@ public class SclkTimingState implements State {
         sBuilder.setCalendarTime(rover.getSpacecraftClock().getCalendarTime());
         sBuilder.setClockFile(rover.getSpacecraftClock().getClockFilePath());
         sBuilder.setEphemerisTime(rover.getSpacecraftClock().getEphemerisTime());
+        sBuilder.setSol(rover.getSpacecraftClock().getSol());
 
         rBuilder.setModuleMessage(sBuilder.build().toByteString());
 
