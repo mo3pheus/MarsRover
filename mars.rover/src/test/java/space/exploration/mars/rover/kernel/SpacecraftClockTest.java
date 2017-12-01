@@ -47,7 +47,7 @@ public class SpacecraftClockTest extends TestCase {
             System.out.println("Clock internal time = " + clock.getInternalClock() +
                                        " getUTCTime = " + clock.getUTCTime() +
                                        " corresponding sclk is = " +
-                                       clock.getSclkTime());
+                                       clock.getSclkTime() + " Sol = " + clock.getSol());
         }
         System.out.println(clock.toString());
         clock.stopClock();

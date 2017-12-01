@@ -22,7 +22,6 @@ import java.util.concurrent.TimeUnit;
  * Please contact sanket.korgaonkar@gmail.com if you have trouble extending the duration of the spacecraft clock.
  */
 public class SpacecraftClock implements IsEquipment {
-    public static final  double SOL_DURATION_SECONDS   = 88642.66300d;
     private static final String SCLK_FORMAT            = "mars.rover.mission.clock.format";
     private static final String SCLK_START_TIME        = "mars.rover.mission.clock.start";
     private static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
@@ -73,12 +72,7 @@ public class SpacecraftClock implements IsEquipment {
                 internalClock = new DateTime(internalClock.getMillis() + timeScaleFactor);
                 clockService.updateClock(clockFormatter.print(internalClock));
                 timeElapsedMs += timeScaleFactor;
-                int solNumber = (int) Math.round((double) TimeUnit.MILLISECONDS.toSeconds(timeElapsedMs) /
-                                                         SOL_DURATION_SECONDS);
-                if (solNumber > sol) {
-                    logger.info("Sol rolled over, new sol = " + Integer.toString(solNumber));
-                }
-                sol = solNumber;
+                sol = clockService.getSol();
             }
         };
 
