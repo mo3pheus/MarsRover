@@ -121,18 +121,10 @@ public class Rover {
 
     public synchronized void processPendingMessageQueue() {
         if (!instructionQueue.isEmpty() && state != hibernatingState) {
-            try {
-                acquireAceessLock("roverKernel");
-            } catch (InterruptedException e) {
-                logger.error("Error while acquiring accessLock", e);
-            }
-
-            if (state == sleepingState) {
-                releaseAccessLock("roverKernel");
+           if (state == sleepingState) {
                 wakeUp();
             } else {
                 state = listeningState;
-                releaseAccessLock("roverKernel");
                 receiveMessage(instructionQueue.remove(0));
             }
         }
