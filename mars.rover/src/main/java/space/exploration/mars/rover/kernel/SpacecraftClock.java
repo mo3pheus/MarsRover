@@ -60,7 +60,7 @@ public class SpacecraftClock implements IsEquipment {
         logger.info("Mission duration = " + missionDuration);
     }
 
-    public synchronized void start() {
+    public void start() {
         Runnable clock = new Runnable() {
             @Override
             public void run() {
@@ -79,56 +79,56 @@ public class SpacecraftClock implements IsEquipment {
         clockCounter.scheduleAtFixedRate(clock, 0l, 1l, TimeUnit.MILLISECONDS);
     }
 
-    public synchronized DateTime getInternalClock() {
+    public DateTime getInternalClock() {
         return internalClock;
     }
 
-    public synchronized String getUTCTime() {
+    public String getUTCTime() {
         return clockFormatter.print(internalClock.getMillis());
     }
 
-    public synchronized String getSclkTime() {
+    public String getSclkTime() {
         String sclkString = clockService.getSclkTime();
         logger.info("Internal time::" + internalClock + " sclk of::" + sclkString);
         return sclkString;
     }
 
-    public synchronized int getSol() {
+    public int getSol() {
         return sol;
     }
 
-    public synchronized String getSclkStartTime() {
+    public String getSclkStartTime() {
         return sclkStartTime;
     }
 
     @Override
-    public synchronized int getLifeSpan() {
+    public int getLifeSpan() {
         return (int) (missionDuration - timeElapsedMs);
     }
 
     @Override
-    public synchronized String getEquipmentName() {
+    public String getEquipmentName() {
         return "Spacecraft Clock -> " + getSclkTime();
     }
 
     @Override
-    public synchronized boolean isEndOfLife() {
+    public boolean isEndOfLife() {
         return (timeElapsedMs > missionDuration);
     }
 
-    public synchronized void stopClock() {
+    public void stopClock() {
         clockCounter.shutdown();
     }
 
-    public synchronized int getTimeScaleFactor() {
+    public int getTimeScaleFactor() {
         return timeScaleFactor;
     }
 
-    public synchronized long getMissionDuration() {
+    public long getMissionDuration() {
         return missionDuration;
     }
 
-    public synchronized long getTimeElapsedMs() {
+    public long getTimeElapsedMs() {
         return timeElapsedMs;
     }
 

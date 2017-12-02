@@ -27,7 +27,7 @@ public class PositionSensor implements IsEquipment {
         this.sensorUpdate = Executors.newSingleThreadScheduledExecutor();
     }
 
-    public synchronized void start() {
+    public void start() {
         Runnable positionUpdate = new Runnable() {
             @Override
             public void run() {
@@ -38,7 +38,7 @@ public class PositionSensor implements IsEquipment {
         sensorUpdate.scheduleAtFixedRate(positionUpdate, 0l, 1, TimeUnit.SECONDS);
     }
 
-    public synchronized MSLRelativePositions.MSLRelPositionsPacket getPositionsData() {
+    public MSLRelativePositions.MSLRelPositionsPacket getPositionsData() {
         MSLRelativePositions.MSLRelPositionsPacket         positionsPacket = positionUtils.getPositionPacket();
         MSLRelativePositions.MSLRelPositionsPacket.Builder mBuilder        = MSLRelativePositions
                 .MSLRelPositionsPacket.newBuilder();

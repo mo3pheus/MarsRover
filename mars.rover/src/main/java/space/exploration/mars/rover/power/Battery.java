@@ -45,15 +45,15 @@ public class Battery implements IsEquipment {
         this.endOfLife = endOfLife;
     }
 
-    public synchronized int getPrimaryPowerUnits() {
+    public int getPrimaryPowerUnits() {
         return primaryPowerUnits;
     }
 
-    public synchronized void setPrimaryPowerUnits(int primaryPowerUnits) {
+    public void setPrimaryPowerUnits(int primaryPowerUnits) {
         this.primaryPowerUnits = primaryPowerUnits;
     }
 
-    public synchronized void acquireAccessLock(String requestingParty) {
+    public void acquireAccessLock(String requestingParty) {
         logger.debug("Access Lock acquired by " + requestingParty);
         try {
             accessLock.acquire();
@@ -67,15 +67,15 @@ public class Battery implements IsEquipment {
         accessLock.release();
     }
 
-    public synchronized int getAuxiliaryPowerUnits() {
+    public int getAuxiliaryPowerUnits() {
         return auxiliaryPowerUnits;
     }
 
-    public synchronized void setAuxiliaryPowerUnits(int auxiliaryPowerUnits) {
+    public void setAuxiliaryPowerUnits(int auxiliaryPowerUnits) {
         this.auxiliaryPowerUnits = auxiliaryPowerUnits;
     }
 
-    public synchronized boolean requestPower(int powerUnitsRequested, boolean critical) {
+    public boolean requestPower(int powerUnitsRequested, boolean critical) {
         boolean powerAvailable = false;
         if (!critical) {
             powerAvailable = (primaryPowerUnits - auxiliaryPowerUnits) > powerUnitsRequested;

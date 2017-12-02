@@ -1,0 +1,317 @@
+"pool-1-thread-1@737" prio=5 tid=0xc nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at java.io.FileInputStream.readBytes(FileInputStream.java:-1)
+	  at java.io.FileInputStream.read(FileInputStream.java:255)
+	  at java.io.BufferedInputStream.read1(BufferedInputStream.java:284)
+	  at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	  - locked <0x134f> (a java.lang.UNIXProcess$ProcessPipeInputStream)
+	  at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	  at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	  at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	  - locked <0x1350> (a java.io.InputStreamReader)
+	  at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	  at java.io.BufferedReader.fill(BufferedReader.java:161)
+	  at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	  at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	  at space.exploration.spice.utilities.ExecUtils.getExecutionOutput(ExecUtils.java:41)
+	  at space.exploration.spice.utilities.TimeUtils.updateClock(TimeUtils.java:33)
+	  at space.exploration.mars.rover.kernel.SpacecraftClock$1.run(SpacecraftClock.java:73)
+	  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"ConsumerFetcherThread-space.exploration.mars.zionMainframe_zion-mainframe-1512173062639-41500cb7-0-0@3918" prio=5 tid=0x26 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	  at java.util.concurrent.LinkedBlockingQueue.put(LinkedBlockingQueue.java:350)
+	  at kafka.consumer.PartitionTopicInfo.enqueue(PartitionTopicInfo.scala:60)
+	  at kafka.consumer.ConsumerFetcherThread.processPartitionData(ConsumerFetcherThread.scala:74)
+	  at kafka.consumer.ConsumerFetcherThread.processPartitionData(ConsumerFetcherThread.scala:29)
+	  at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2$$anonfun$apply$mcV$sp$1$$anonfun$apply$2.apply(AbstractFetcherThread.scala:143)
+	  at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2$$anonfun$apply$mcV$sp$1$$anonfun$apply$2.apply(AbstractFetcherThread.scala:127)
+	  at scala.Option.foreach(Option.scala:236)
+	  at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2$$anonfun$apply$mcV$sp$1.apply(AbstractFetcherThread.scala:127)
+	  at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2$$anonfun$apply$mcV$sp$1.apply(AbstractFetcherThread.scala:125)
+	  at scala.collection.immutable.Map$Map1.foreach(Map.scala:109)
+	  at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2.apply$mcV$sp(AbstractFetcherThread.scala:125)
+	  at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2.apply(AbstractFetcherThread.scala:125)
+	  at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2.apply(AbstractFetcherThread.scala:125)
+	  at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:231)
+	  at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:123)
+	  at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:98)
+	  at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+
+"pool-4-thread-1@1719" prio=5 tid=0x15 nid=NA waiting for monitor entry
+  java.lang.Thread.State: BLOCKED
+	 blocks Thread-2@3188
+	 blocks pool-7-thread-1@2139
+	 blocks pool-6-thread-1@1725
+	 blocks pool-5-thread-1@1722
+	 blocks pool-2-thread-1@958
+	 waiting for Thread-2@3188 to release lock on <0x1344> (a space.exploration.mars.rover.sensor.PositionSensor)
+	  at space.exploration.mars.rover.sensor.PositionSensor.getPositionsData(PositionSensor.java:42)
+	  at space.exploration.mars.rover.communication.Radio.getComsDelaySecs(Radio.java:126)
+	  at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:78)
+	  at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:38)
+	  at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:337)
+	  - locked <0x1345> (a space.exploration.mars.rover.kernel.Rover)
+	  at space.exploration.mars.rover.diagnostics.Pacemaker$1.run(Pacemaker.java:60)
+	  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"kafka-producer-network-thread | producer-1@2548" daemon prio=5 tid=0x1b nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at sun.nio.ch.EPollArrayWrapper.epollWait(EPollArrayWrapper.java:-1)
+	  at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	  at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	  at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	  - locked <0x1349> (a sun.nio.ch.EPollSelectorImpl)
+	  - locked <0x134a> (a java.util.Collections$UnmodifiableSet)
+	  - locked <0x134b> (a sun.nio.ch.Util$3)
+	  at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	  at org.apache.kafka.common.network.Selector.select(Selector.java:454)
+	  at org.apache.kafka.common.network.Selector.poll(Selector.java:277)
+	  at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:260)
+	  at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:229)
+	  at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:134)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"pool-5-thread-1@1722" prio=5 tid=0x16 nid=NA waiting for monitor entry
+  java.lang.Thread.State: BLOCKED
+	 waiting for pool-4-thread-1@1719 to release lock on <0x1345> (a space.exploration.mars.rover.kernel.Rover)
+	  at space.exploration.mars.rover.kernel.Rover.getState(Rover.java:378)
+	  at space.exploration.mars.rover.diagnostics.SleepMonitor.isRoverRested(SleepMonitor.java:49)
+	  at space.exploration.mars.rover.diagnostics.SleepMonitor.access$000(SleepMonitor.java:11)
+	  at space.exploration.mars.rover.diagnostics.SleepMonitor$1.run(SleepMonitor.java:19)
+	  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"main-SendThread(localhost:2181)@3108" daemon prio=5 tid=0x21 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at sun.nio.ch.EPollArrayWrapper.epollWait(EPollArrayWrapper.java:-1)
+	  at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	  at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	  at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	  - locked <0x1346> (a sun.nio.ch.EPollSelectorImpl)
+	  - locked <0x1347> (a java.util.Collections$UnmodifiableSet)
+	  - locked <0x1348> (a sun.nio.ch.Util$3)
+	  at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	  at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:349)
+	  at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+
+"pool-7-thread-1@2139" prio=5 tid=0x19 nid=NA waiting for monitor entry
+  java.lang.Thread.State: BLOCKED
+	 waiting for pool-4-thread-1@1719 to release lock on <0x1345> (a space.exploration.mars.rover.kernel.Rover)
+	  at space.exploration.mars.rover.kernel.Rover.getState(Rover.java:378)
+	  at space.exploration.mars.rover.power.BatteryMonitor$1.run(BatteryMonitor.java:33)
+	  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"pool-6-thread-1@1725" prio=5 tid=0x17 nid=NA waiting for monitor entry
+  java.lang.Thread.State: BLOCKED
+	 waiting for pool-4-thread-1@1719 to release lock on <0x1345> (a space.exploration.mars.rover.kernel.Rover)
+	  at space.exploration.mars.rover.kernel.Rover.getInstructionQueue(Rover.java:362)
+	  at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$1.run(RoverGarbageCollector.java:26)
+	  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"AWT-EventQueue-0@1590" prio=6 tid=0x13 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	  at java.awt.EventQueue.getNextEvent(EventQueue.java:554)
+	  at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:170)
+	  at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	  at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	  at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	  at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	  at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+"pool-2-thread-1@958" prio=5 tid=0xe nid=NA waiting for monitor entry
+  java.lang.Thread.State: BLOCKED
+	 waiting for pool-4-thread-1@1719 to release lock on <0x1345> (a space.exploration.mars.rover.kernel.Rover)
+	  at space.exploration.mars.rover.kernel.Rover.getSpacecraftClock(Rover.java:394)
+	  at space.exploration.mars.rover.sensor.PositionSensor$1.run(PositionSensor.java:34)
+	  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"kafka-consumer-scheduler-0@3182" daemon prio=5 tid=0x23 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+	  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"metrics-meter-tick-thread-2@3040" daemon prio=5 tid=0x1f nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+	  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"metrics-meter-tick-thread-1@3030" daemon prio=5 tid=0x1e nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1088)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+	  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"process reaper@940" daemon prio=10 tid=0xd nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	  at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+	  at java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:362)
+	  at java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:941)
+	  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1073)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"Thread-2@3188" prio=5 tid=0x1c nid=NA waiting for monitor entry
+  java.lang.Thread.State: BLOCKED
+	 blocks pool-4-thread-1@1719
+	 waiting for pool-4-thread-1@1719 to release lock on <0x1345> (a space.exploration.mars.rover.kernel.Rover)
+	  at space.exploration.mars.rover.kernel.Rover.getSpacecraftClock(Rover.java:394)
+	  at space.exploration.mars.rover.sensor.PositionSensor.getPositionsData(PositionSensor.java:45)
+	  - locked <0x1344> (a space.exploration.mars.rover.sensor.PositionSensor)
+	  at space.exploration.mars.rover.communication.Radio.getComsDelaySecs(Radio.java:126)
+	  at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	  at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+
+"process reaper@4909" daemon prio=10 tid=0x2c nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at java.lang.UNIXProcess.waitForProcessExit(UNIXProcess.java:-1)
+	  at java.lang.UNIXProcess.lambda$initStreams$3(UNIXProcess.java:289)
+	  at java.lang.UNIXProcess$$Lambda$7.1236709972.run(Unknown Source:-1)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"space.exploration.mars.zionMainframe_zion-mainframe-1512173062639-41500cb7-leader-finder-thread@3764" prio=5 tid=0x25 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	  at kafka.consumer.ConsumerFetcherManager$LeaderFinderThread.doWork(ConsumerFetcherManager.scala:61)
+	  at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+
+"main-EventThread@3109" daemon prio=5 tid=0x22 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	  at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	  at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:494)
+
+"ZkClient-EventThread-32-localhost:2181@3087" daemon prio=5 tid=0x20 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	  at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	  at org.I0Itec.zkclient.ZkEventThread.run(ZkEventThread.java:67)
+
+"space.exploration.mars.zionMainframe_zion-mainframe-1512173062639-41500cb7_watcher_executor@3318" prio=5 tid=0x24 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at sun.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2163)
+	  at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener$$anon$2.run(ZookeeperConsumerConnector.scala:582)
+
+"AWT-XAWT@1305" daemon prio=6 tid=0x11 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at sun.awt.X11.XToolkit.waitForEvents(XToolkit.java:-1)
+	  at sun.awt.X11.XToolkit.run(XToolkit.java:568)
+	  at sun.awt.X11.XToolkit.run(XToolkit.java:532)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"MySQL Statement Cancellation Timer@1986" daemon prio=5 tid=0x18 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.Object.wait(Object.java:502)
+	  at java.util.TimerThread.mainLoop(Timer.java:526)
+	  at java.util.TimerThread.run(Timer.java:505)
+
+"AWT-Shutdown@1576" prio=5 tid=0x12 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.Object.wait(Object.java:502)
+	  at sun.awt.AWTAutoShutdown.run(AWTAutoShutdown.java:295)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"Java2D Disposer@1257" daemon prio=10 tid=0xf nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+	  at sun.java2d.Disposer.run(Disposer.java:148)
+	  at java.lang.Thread.run(Thread.java:748)
+
+"Finalizer@4930" daemon prio=8 tid=0x3 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+	  at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+"Reference Handler@4931" daemon prio=10 tid=0x2 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.Object.wait(Object.java:502)
+	  at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+	  at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+"DestroyJavaVM@4104" prio=5 tid=0x28 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"Signal Dispatcher@4929" daemon prio=9 tid=0x4 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
