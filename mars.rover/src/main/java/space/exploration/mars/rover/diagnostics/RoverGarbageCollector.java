@@ -61,7 +61,7 @@ public class RoverGarbageCollector {
     public RoverGarbageCollector(Rover rover) {
         this.rover = rover;
         this.roverGC = Executors.newSingleThreadScheduledExecutor();
-        roverGC.scheduleAtFixedRate(queueMonitor, 0l, 30l, TimeUnit.SECONDS);
+        roverGC.scheduleAtFixedRate(queueMonitor, 0l, 10l, TimeUnit.SECONDS);
     }
 
     private byte[] getDistressSignal() {

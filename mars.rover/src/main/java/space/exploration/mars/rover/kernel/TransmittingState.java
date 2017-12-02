@@ -52,7 +52,8 @@ public class TransmittingState implements State {
     public void exploreArea() {
     }
 
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        logger.debug("Can not move in " + getStateName() );
     }
 
     public void hibernate() {

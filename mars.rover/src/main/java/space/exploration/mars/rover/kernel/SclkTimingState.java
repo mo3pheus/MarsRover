@@ -35,8 +35,8 @@ public class SclkTimingState implements State {
     }
 
     @Override
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
-        logger.error("Can not move when in SclkTimingState");
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        logger.debug("Can not move in " + getStateName() );
     }
 
     @Override

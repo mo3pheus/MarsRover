@@ -1,6 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
-import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 
 public interface State {
@@ -10,7 +10,7 @@ public interface State {
 
     void exploreArea();
 
-    void move(InstructionPayloadOuterClass.InstructionPayload payload);
+    void move(TargetPackage payload);
 
     void hibernate();
 

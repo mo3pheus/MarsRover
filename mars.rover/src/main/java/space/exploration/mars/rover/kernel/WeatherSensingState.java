@@ -30,8 +30,8 @@ public class WeatherSensingState implements State {
     }
 
     @Override
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
-
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        logger.debug("Can not move in " + getStateName() );
     }
 
     @Override

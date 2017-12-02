@@ -51,9 +51,9 @@ public class SensingState implements State {
     public void exploreArea() {
     }
 
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        logger.debug("Can not move in " + getStateName() );
     }
-
 
     public void hibernate() {
     }

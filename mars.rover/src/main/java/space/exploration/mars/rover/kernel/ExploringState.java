@@ -66,7 +66,8 @@ public class ExploringState implements State {
         rover.transmitMessage(status.toByteArray());
     }
 
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        logger.debug("Can not move in " + getStateName() );
     }
 
     public void hibernate() {

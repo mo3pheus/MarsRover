@@ -47,8 +47,8 @@ public class SleepingState implements State {
     }
 
     @Override
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
-        logger.error("Rover can not move while sleeping");
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        logger.debug("Can not move in " + getStateName() );
     }
 
     @Override

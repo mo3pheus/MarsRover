@@ -4,6 +4,7 @@ import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.communication.Radio;
@@ -121,7 +122,7 @@ public class Rover {
 
     public synchronized void processPendingMessageQueue() {
         if (!instructionQueue.isEmpty() && state != hibernatingState) {
-           if (state == sleepingState) {
+            if (state == sleepingState) {
                 wakeUp();
             } else {
                 state = listeningState;
@@ -309,7 +310,7 @@ public class Rover {
         state.scanSurroundings();
     }
 
-    public synchronized void move(InstructionPayloadOuterClass.InstructionPayload payload) {
+    public synchronized void move(TargetPackage payload) {
         state.move(payload);
     }
 

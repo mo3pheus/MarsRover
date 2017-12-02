@@ -66,5 +66,6 @@ public class RadarContactBlip extends Thread {
         } catch (Exception e) {
             logger.error("Radar Contact Blip animation error", e);
         }
+        this.interrupt();
     }
 }

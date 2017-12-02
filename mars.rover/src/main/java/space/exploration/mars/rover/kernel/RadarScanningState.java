@@ -65,8 +65,8 @@ public class RadarScanningState implements State {
     }
 
     @Override
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
-        RoverUtil.roverSystemLog(logger, " Invalid action error. Can not move in current state.", "ERROR");
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        logger.debug("Can not move in " + getStateName() );
     }
 
     @Override

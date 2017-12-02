@@ -108,7 +108,8 @@ public class PhotographingState implements State {
         rover.transmitMessage(rBuilder.build().toByteArray());
     }
 
-    public void move(InstructionPayloadOuterClass.InstructionPayload payload) {
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        logger.debug("Can not move in " + getStateName() );
     }
 
     public void hibernate() {
