@@ -8,9 +8,11 @@ import space.exploration.mars.rover.environment.EnvironmentUtils;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class NavigationEngine implements PerformsNavigation {
     private static final int                   MAX_PATH_LENGTH   = 1000;
+    private static final long                  MAX_WAIT_TIME     = TimeUnit.SECONDS.toMillis(1);
     private              Map<Integer, NavCell> gridMap           = null;
     private              Properties            matrixConfig      = null;
     private              int                   cellWidth         = 0;
@@ -71,8 +73,9 @@ public class NavigationEngine implements PerformsNavigation {
         List<NavCell> closed = new ArrayList<NavCell>();
         open.add(start);
 
-        boolean done = false;
-        while (!done) {
+        boolean done      = false;
+        long    startTime = System.currentTimeMillis();
+        while ((!done) && ((System.currentTimeMillis() - startTime) < MAX_WAIT_TIME)) {
             int     minFIndex = NavUtil.getMinFCell(open, start, end, cellWidth);
             NavCell current   = open.get(minFIndex);
             open.remove(minFIndex);
@@ -112,10 +115,11 @@ public class NavigationEngine implements PerformsNavigation {
         }
 
         if (open.isEmpty()) {
-            System.out.println(
+            logger.error(
                     "No path was found between start => " + start.toString() + " and end => " + end.toString());
             return null;
         }
+        logger.error("NavigationEngine may have detected a possible cycle.");
         return null;
     }
 

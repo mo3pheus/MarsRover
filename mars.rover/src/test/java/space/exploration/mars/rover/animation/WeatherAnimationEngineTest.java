@@ -26,20 +26,5 @@ public class WeatherAnimationEngineTest extends TestCase {
     @Test
     public void testAnimation() throws Exception {
         weatherAnimationEngine.renderWeatherAnimation();
-//        WeatherScanCell weatherScanCell = new WeatherScanCell(MatrixCreation.getConfig(), marsArchitect
-//                .getRobot().getLocation());
-//        JFrame marsSurface = marsArchitect.getMarsSurface();
-//        Container withWeatherCell = marsSurface.getContentPane();
-//        withWeatherCell.add(weatherScanCell, Cell.ROBOT_DEPTH+1);
-//
-//        Container withoutWeatherCell = marsSurface.getContentPane();
-//
-//        for (int i = 0; i < 10; i++) {
-//            marsSurface.setContentPane(withWeatherCell);
-//            marsSurface.setVisible(true);
-//            Thread.sleep(2000);
-//            marsSurface.setContentPane(withoutWeatherCell);
-//            marsSurface.setVisible(true);
-//        }
     }
 }
