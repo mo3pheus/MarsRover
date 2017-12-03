@@ -10,13 +10,13 @@ import java.util.*;
 import java.util.List;
 
 public class NavigationEngine implements PerformsNavigation {
-
-    private Map<Integer, NavCell> gridMap           = null;
-    private Properties            matrixConfig      = null;
-    private int                   cellWidth         = 0;
-    private int                   animationStepSize = 5;
-    private List<Point>           robotPath         = null;
-    private Logger                logger            = LoggerFactory.getLogger(NavigationEngine.class);
+    private static final int                   MAX_PATH_LENGTH   = 1000;
+    private              Map<Integer, NavCell> gridMap           = null;
+    private              Properties            matrixConfig      = null;
+    private              int                   cellWidth         = 0;
+    private              int                   animationStepSize = 5;
+    private              List<Point>           robotPath         = null;
+    private              Logger                logger            = LoggerFactory.getLogger(NavigationEngine.class);
 
     public NavigationEngine(Properties matrixConfig) {
         this.matrixConfig = matrixConfig;
@@ -26,25 +26,6 @@ public class NavigationEngine implements PerformsNavigation {
         this.animationStepSize = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE));
 
         configureAdjacency();
-
-        try {
-            int sourceX = Integer
-                    .parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[0]);
-            int sourceY = Integer
-                    .parseInt(matrixConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",")[1]);
-            int destX = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.DESTN_POSN_PROPERTY).split(",")
-                                                 [0]);
-            int destY = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.DESTN_POSN_PROPERTY).split(",")
-                                                 [1]);
-            int     sourceId    = NavUtil.findNavId(gridMap, new Point(sourceX, sourceY));
-            int     destId      = NavUtil.findNavId(gridMap, new Point(destX, destY));
-            NavCell source      = gridMap.get(sourceId);
-            NavCell destination = gridMap.get(destId);
-            robotPath = navigate(source, destination);
-            logPath();
-        } catch (Exception e) {
-            System.out.println("Robot navigation guidance not provided");
-        }
     }
 
     public List<Point> getRobotPath() {
@@ -65,8 +46,14 @@ public class NavigationEngine implements PerformsNavigation {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb     = new StringBuilder();
+        int           length = 0;
         for (Integer i : gridMap.keySet()) {
+            if (length > MAX_PATH_LENGTH) {
+                throw new RuntimeException("Navigation path requested exceeds max path length. Check navigation " +
+                                                   "command at :: " +
+                                                   System.currentTimeMillis());
+            }
             NavCell nCell = gridMap.get(i);
             sb.append("\n ============================================ ");
             sb.append("\n Id = " + i + " Center = " + nCell.toString());
