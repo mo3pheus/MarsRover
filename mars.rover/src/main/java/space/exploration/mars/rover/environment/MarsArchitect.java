@@ -49,9 +49,7 @@ public class MarsArchitect {
 
     public CameraAnimationEngine getCameraAnimationEngine(Point location) {
         long shutterSpeed = Long.parseLong(marsConfig.getProperty(EnvironmentUtils.CAMERA_SHUTTER_SPEED));
-        CameraAnimationEngine cameraAnimationEngine = new CameraAnimationEngine(marsConfig, location, shutterSpeed,
-                                                                                cellWidth);
-        return cameraAnimationEngine;
+        return new CameraAnimationEngine(marsConfig, location, shutterSpeed);
     }
 
     public Map<Point, SoilComposition> getSoilCompositionMap() {

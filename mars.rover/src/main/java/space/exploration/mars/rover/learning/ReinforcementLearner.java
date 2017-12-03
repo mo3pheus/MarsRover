@@ -201,7 +201,7 @@ public class ReinforcementLearner {
         for (int i = 0; i < numCells; i++) {
             for (int j = 0; j < numCells; j++) {
                 Point point = new Point(i * cellWidth, j * cellWidth);
-                navGrid[i][j] = new RCell(point, id++, cellWidth);
+                navGrid[i][j] = new RCell(point, id++);
 
                 if (intersects(navGrid[i][j])) {
                     navGrid[i][j].setReward(minReward);

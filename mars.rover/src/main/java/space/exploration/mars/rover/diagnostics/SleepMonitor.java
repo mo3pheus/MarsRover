@@ -52,9 +52,7 @@ public class SleepMonitor {
             long timeInSleepMins = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - rover
                     .getTimeMessageReceived());
 
-            if (timeInSleepMins > maxSleepForMinutes) {
-                return true;
-            }
+            return timeInSleepMins > maxSleepForMinutes;
         }
         return false;
     }

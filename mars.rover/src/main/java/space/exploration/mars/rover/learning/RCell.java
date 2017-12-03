@@ -18,10 +18,9 @@ public class RCell {
     private double  reward        = 0.0d;
     private RCell[] adjacentNodes = new RCell[Direction.values().length];
 
-    public RCell(Point center, int id, int cellWidth) {
+    public RCell(Point center, int id) {
         this.center = center;
         this.id = id;
-        int cellWidth1 = cellWidth;
     }
 
     public double getqValue() {

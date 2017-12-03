@@ -37,8 +37,7 @@ public class Radio implements IsEquipment {
         receiver.setRadioCheckPulse(radioCheckPulse);
         receiver.start();
 
-        int lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(Radio.LIFESPAN));
-        this.lifeSpan = lifeSpan;
+        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(Radio.LIFESPAN));
 
         RoverUtil.roverSystemLog(logger, "Radio configured:: " + RoverUtil.getPropertiesAsString(comsConfig), "INFO");
     }
@@ -83,9 +82,6 @@ public class Radio implements IsEquipment {
                 logger.error("Radio lifeSpan has ended.");
                 rover.writeErrorLog("Radio lifeSpan has ended", null);
             }
-        } catch (InvalidProtocolBufferException e) {
-            logger.error("InvalidProtocolBufferException error - common guys send me a good message!", e);
-            rover.writeErrorLog("InvalidProtocolBufferException error - common guys send me a good message!", e);
         } catch (InterruptedException e) {
             logger.error("InterruptedException", e);
             rover.writeErrorLog("InterruptedException", e);

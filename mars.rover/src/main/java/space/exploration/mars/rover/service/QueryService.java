@@ -79,7 +79,7 @@ public class QueryService implements isSpaceQuery {
     @Override
     public Object getResponse() {
         try {
-            return (JsonObject) dataLink.getContent();
+            return dataLink.getContent();
         } catch (IOException e) {
             logger.error("IOException when getting queryResponse ", e);
             return null;

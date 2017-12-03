@@ -14,9 +14,7 @@ public class CameraAnimationTest {
         try {
             MarsArchitect architect = new MarsArchitect(MatrixCreation.getConfig());
             CameraAnimationEngine cameraAnimationEngine = new CameraAnimationEngine(MatrixCreation.getConfig(),
-                                                                                    new Point(50, 50), 150l,
-                                                                                    architect.getRobot().getCellWidth
-                                                                                            ());
+                                                                                    new Point(50, 50), 150l);
             cameraAnimationEngine.setMarsSurface(architect.getMarsSurface());
             cameraAnimationEngine.setRobot(architect.getRobot());
             cameraAnimationEngine.clickCamera();

@@ -106,8 +106,6 @@ public class Pacemaker {
             rBuilder.setNotes("HGA PASS DETECTED AT THIS TIME!");
         }
 
-        RoverStatusOuterClass.RoverStatus roverStatus = rBuilder.build();
-
-        return roverStatus;
+        return rBuilder.build();
     }
 }

@@ -27,7 +27,7 @@ public class CameraUtil {
 
     private static Logger logger = LoggerFactory.getLogger(CameraUtil.class);
 
-    public static void writeImageToFile(BufferedImage bufferedImage, String dataArchivePath) throws IOException {
+    public static void writeImageToFile(BufferedImage bufferedImage, String dataArchivePath) {
         if (bufferedImage == null) {
             throw new RuntimeException("BufferedImage was null");
         }
@@ -134,7 +134,6 @@ public class CameraUtil {
             throw new IllegalArgumentException("imageSource string is malformed. " + imageSource);
         }
 
-        String filename = imageSource.substring(startOfFilename, endOfFilename) + fileType;
-        return filename;
+        return (imageSource.substring(startOfFilename, endOfFilename) + fileType);
     }
 }

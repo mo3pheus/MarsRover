@@ -87,7 +87,7 @@ public class AdjacencyCalculator {
                 continue;
             } else {
                 int id = ReinforcementLearnerUtil.findPoint(temp, rGridMap).getId();
-                adjacentRNodes[i] = new RCell(temp, id, cellWidth);
+                adjacentRNodes[i] = new RCell(temp, id);
 
                 if (intersectsWall(temp)) {
                     adjacentRNodes[i].setReward(rlMinReward);

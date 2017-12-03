@@ -18,8 +18,6 @@ public class WeatherQueryService extends QueryService {
     @Override
     public Object getResponse() {
         Document                   document       = Jsoup.parse(getResponseAsString());
-        WeatherData.WeatherPayload weatherPayload = WeatherUtil.getweatherPayload(document.body().text());
-
-        return weatherPayload;
+        return WeatherUtil.getweatherPayload(document.body().text());
     }
 }

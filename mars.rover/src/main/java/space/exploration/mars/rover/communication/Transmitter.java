@@ -30,7 +30,7 @@ public class Transmitter {
         earthChannel = new KafkaProducer<>(kafkaProperties);
     }
 
-    public void transmitMessage(byte[] message) throws InterruptedException, InvalidProtocolBufferException {
+    public void transmitMessage(byte[] message) {
         earthChannel.send(
                 new ProducerRecord<>(kafkaProperties.getProperty("destination.topic"), message));
         logger.info("Sending information packet to " + kafkaProperties.getProperty("destination.topic"));

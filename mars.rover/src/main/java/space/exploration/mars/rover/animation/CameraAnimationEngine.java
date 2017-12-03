@@ -17,9 +17,8 @@ public class CameraAnimationEngine {
     protected            JFrame     marsSurface  = null;
     private              Properties marsConfig   = null;
 
-    public CameraAnimationEngine(Properties marsConfig, Point location, long shutterSpeed, int cellWidth) {
+    public CameraAnimationEngine(Properties marsConfig, Point location, long shutterSpeed) {
         this.location = location;
-        int cellWidth1 = cellWidth;
         this.shutterSpeed = shutterSpeed;
         this.marsConfig = marsConfig;
     }
