@@ -39,11 +39,9 @@ public class ListeningState implements State {
     public void receiveMessage(byte[] message) {
         InstructionPayload payload = null;
         rover.setTimeMessageReceived(System.currentTimeMillis());
-        System.out.println("This is the listening module");
         try {
             payload = InstructionPayload.parseFrom(message);
-            System.out.println(payload);
-            logger.debug(payload.toString());
+            logger.info(payload.toString());
 
             RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
                     .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), false);

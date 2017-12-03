@@ -8624,3 +8624,134 @@ sol: 1214
 
 2396443 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 819.439
 2396456 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2405477 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512232542285,10,GetSeasonalWeather Current instructionQueue length = 0
+2405477 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2405477 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2408723 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:48)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:52)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:99)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:59)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2408723 [Thread-2] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:48)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:52)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:99)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:59)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2408723 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+2414768 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.05246447184032E8
+stateCuriosity: -2.111852816E8
+stateCuriosity: -1.17548775116E8
+stateCuriosity: -4.3955457151E7
+stateCuriosity: 28.801
+stateCuriosity: -13.249
+stateCuriosity: -6.336
+owltMSLEarth: 819.435
+stateEarth: 2.11213974085E8
+stateEarth: 1.17564748083E8
+stateEarth: 4.396143116E7
+stateEarth: -28.808
+stateEarth: 13.249
+stateEarth: 6.337
+owltEarthMSL: 819.546
+positionEarthWRTCuriosity: 2.11213974085E8
+positionEarthWRTCuriosity: 1.17564748083E8
+positionEarthWRTCuriosity: 4.396143116E7
+owltEarthMSL2: 819.546
+angSepHGAEarth: 107.34
+utcTime: "2016-01-05~06:12:59"
+sol: 1214
+
+2414768 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 819.435
+2414781 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2417785 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 27486
+2417828 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.05246447184032E8
+stateCuriosity: -2.111852816E8
+stateCuriosity: -1.17548775116E8
+stateCuriosity: -4.3955457151E7
+stateCuriosity: 28.801
+stateCuriosity: -13.249
+stateCuriosity: -6.336
+owltMSLEarth: 819.435
+stateEarth: 2.11213974085E8
+stateEarth: 1.17564748083E8
+stateEarth: 4.396143116E7
+stateEarth: -28.808
+stateEarth: 13.249
+stateEarth: 6.337
+owltEarthMSL: 819.546
+positionEarthWRTCuriosity: 2.11213974085E8
+positionEarthWRTCuriosity: 1.17564748083E8
+positionEarthWRTCuriosity: 4.396143116E7
+owltEarthMSL2: 819.546
+angSepHGAEarth: 107.34
+utcTime: "2016-01-05~06:15:27"
+sol: 1214
+
+2417828 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-05T06:15:27.300-06:00 sclk of::1/01214:07:14:26:19281
+2423881 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.05246595184032E8
+stateCuriosity: -2.11181019053E8
+stateCuriosity: -1.17550735731E8
+stateCuriosity: -4.3956394813E7
+stateCuriosity: 28.801
+stateCuriosity: -13.246
+stateCuriosity: -6.335
+owltMSLEarth: 819.426
+stateEarth: 2.11209710589E8
+stateEarth: 1.17566708761E8
+stateEarth: 4.3962368897E7
+stateEarth: -28.807
+stateEarth: 13.246
+stateEarth: 6.335
+owltEarthMSL: 819.538
+positionEarthWRTCuriosity: 2.11209710589E8
+positionEarthWRTCuriosity: 1.17566708761E8
+positionEarthWRTCuriosity: 4.3962368897E7
+owltEarthMSL2: 819.538
+angSepHGAEarth: 106.94
+utcTime: "2016-01-05~06:15:27"
+sol: 1214
+
+2423881 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 819.426
+2423895 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2426895 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.05246595184032E8
+stateCuriosity: -2.11181019053E8
+stateCuriosity: -1.17550735731E8
+stateCuriosity: -4.3956394813E7
+stateCuriosity: 28.801
+stateCuriosity: -13.246
+stateCuriosity: -6.335
+owltMSLEarth: 819.426
+stateEarth: 2.11209710589E8
+stateEarth: 1.17566708761E8
+stateEarth: 4.3962368897E7
+stateEarth: -28.807
+stateEarth: 13.246
+stateEarth: 6.335
+owltEarthMSL: 819.538
+positionEarthWRTCuriosity: 2.11209710589E8
+positionEarthWRTCuriosity: 1.17566708761E8
+positionEarthWRTCuriosity: 4.3962368897E7
+owltEarthMSL2: 819.538
+angSepHGAEarth: 106.94
+utcTime: "2016-01-05~06:15:27"
+sol: 1214
+
+2426895 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 819.426

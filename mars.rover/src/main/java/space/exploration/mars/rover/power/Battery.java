@@ -9,7 +9,6 @@ import java.util.Properties;
 import java.util.concurrent.Semaphore;
 
 public class Battery implements IsEquipment {
-    private final Semaphore accessLock = new Semaphore(1, true);
     private int     primaryPowerUnits;
     private int     auxiliaryPowerUnits;
     private int     alertThreshold;
@@ -51,20 +50,6 @@ public class Battery implements IsEquipment {
 
     public void setPrimaryPowerUnits(int primaryPowerUnits) {
         this.primaryPowerUnits = primaryPowerUnits;
-    }
-
-    public void acquireAccessLock(String requestingParty) {
-        logger.debug("Access Lock acquired by " + requestingParty);
-        try {
-            accessLock.acquire();
-        } catch (InterruptedException e) {
-            logger.error("Exception while setting battery level", e);
-        }
-    }
-
-    public synchronized void releaseAccessLock(String releasingParty) {
-        logger.debug("Access Lock release by " + releasingParty);
-        accessLock.release();
     }
 
     public int getAuxiliaryPowerUnits() {

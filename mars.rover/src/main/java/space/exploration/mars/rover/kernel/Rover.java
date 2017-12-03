@@ -391,7 +391,7 @@ public class Rover {
         this.equipmentEOL = equipmentEOL;
     }
 
-    public synchronized SpacecraftClock getSpacecraftClock() {
+    public SpacecraftClock getSpacecraftClock() {
         return spacecraftClock;
     }
 
