@@ -109,19 +109,7 @@ public class NavCell implements Comparator<NavCell> {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(" Id = " + id + " Center = " + center.toString());
-        for (int i = 0; i < adjacentNodes.length; i++) {
-            NavCell nCell = adjacentNodes[i];
-            if (nCell != null && nCell.getCenter() != null) {
-                sb.append("\n adId = " + nCell.getId() + " Location => " + nCell.getCenter().toString());
-            }
-        }
-
-        if (parent != null) {
-            sb.append(" \n Parent = " + parent.toString());
-        }
-        return sb.toString();
+        return "";
     }
 
     public int compare(NavCell o1, NavCell o2) {

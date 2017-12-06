@@ -47,23 +47,6 @@ public class NavigationEngine implements PerformsNavigation {
         return calibratedPath;
     }
 
-    public String toString() {
-        StringBuilder sb     = new StringBuilder();
-        int           length = 0;
-        for (Integer i : gridMap.keySet()) {
-            if (length > MAX_PATH_LENGTH) {
-                throw new RuntimeException("Navigation path requested exceeds max path length. Check navigation " +
-                                                   "command at :: " +
-                                                   System.currentTimeMillis());
-            }
-            NavCell nCell = gridMap.get(i);
-            sb.append("\n ============================================ ");
-            sb.append("\n Id = " + i + " Center = " + nCell.toString());
-        }
-
-        return sb.toString();
-    }
-
     /**
      * This method provides the navigation functionality to get from point start
      * to point end. The following code implements the A* algorith m.

@@ -1,0 +1,244 @@
+PDS_VERSION_ID     = PDS3
+RECORD_TYPE        = STREAM
+OBJECT             = TEXT
+  NOTE             = "Release notes and errata for the MSL APXS EDR 
+                      data set (ERRATA.TXT)"
+  PUBLICATION_DATE = 2016-12-05
+END_OBJECT         = TEXT
+END
+
+Users are encouraged to provide comments to the PDS Geosciences Node
+if errors are found either in data or in documentation in this archive.
+Please send comments by e-mail or U.S. mail to the Geosicences Node:
+
+          PDS Geosciences Node
+          Washington University
+          Dept. of Earth and Planetary Sciences
+          1 Brookings Drive
+          St. Louis, MO 63130
+          314-935-5493
+
+          Web:   http://pds-geosciences.wustl.edu
+          Email: geosci@wunder.wustl.edu
+
+This file, ERRATA.TXT, contains release notes and errata concerning the
+MSL APXS EDR archive.
+
+During the course of the MSL mission the APXS science team may update
+previously released data products or documentation; for example, updates may
+occur due to changes in calibration data or procedures. Updates will be
+reported in this file. Older versions of data and documentation will not be
+retained in the archive.
+
+Section A of this file contains an entry for each MSL release with
+general information about the contents of the release, in order from newest
+to oldest.  Updates to previously released files are reported in these
+entries, along with any known errata.
+
+Section B of this file contains general notes, if any, concerning the archive
+as a whole.
+
+
+******** SECTION A ********
+
+RELEASE NUMBER: 13
+RELEASE DATE: 2016-12-05
+DATA COVERAGE: 2016-03-27 to 2016-08-01 (Sols 1294-1417)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 12
+RELEASE DATE: 2016-08-01
+DATA COVERAGE: 2015-11-10 to 2016-03-27 (Sols 1160-1293)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 11
+RELEASE DATE: 2016-03-16
+DATA COVERAGE: 2012-08-06 to 2015-11-10 (Sols 0-1062, Sols 1063-1159)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: APXS EDR
+
+This release contains new products from Sols 1063 through 1159, as well as
+corrected and redelivered products from Sols 0 through 1062 (all previous 
+releases).
+
+
+RELEASE NUMBER: 10
+RELEASE DATE: 2015-12-04
+DATA COVERAGE: 2015-03-28 to 2015-08-02 (Sols 939-1062)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 9
+RELEASE DATE: 2015-07-31
+DATA COVERAGE: 2014-11-10 to 2015-03-28 (Sols 805-938)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 8
+RELEASE DATE: 2015-03-16
+DATA COVERAGE: 2014-08-03 to 2014-11-10 (Sols 708-804)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 7
+RELEASE DATE: 2014-12-05
+DATA COVERAGE: 2014-03-28 to 2014-08-03 (Sols 584-707)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 6
+RELEASE DATE: 2014-08-01
+DATA COVERAGE: 2013-11-10 to 2014-03-28 (Sols 450-583)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 5
+RELEASE DATE: 2014-03-17
+DATA COVERAGE: 2013-08-10 to 2013-11-10 (Sols 360-449)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 4
+RELEASE DATE: 2013-12-13
+DATA COVERAGE: 2013-05-09 to 2013-08-10 (Sols 270-359)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+
+RELEASE NUMBER: 3
+RELEASE DATE: 2013-08-30
+DATA COVERAGE: 2012-08-06 to 2013-05-09 (Sols 0-269)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: APXS EDR
+
+
+All APXS EDR products from Sols 0 through 179 have been revised and 
+re-released. Revisions were made to their labels to correct errors 
+discovered in the keyword, STOP_TIME. STOP_TIME was being set by the 
+EARTH_RECEIVED_TIME value which is incorrect. A code change was made, to use 
+SCLK instead, which resolved this issue.
+
+
+RELEASE NUMBER: 2
+RELEASE DATE: 2013-06-10
+DATA COVERAGE: 2012-08-06 to 2013-02-03 (Sols 0-179)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: APXS EDR
+
+All APXS EDR products from Sols 0 through 89 have been revised and 
+re-released. Revisions were made to their labels to correct errors 
+discovered in the data processing. Revised products may be identified by the 
+label keyword PRODUCT_VERSION_ID, which will have a value greater than 1.0, 
+and by the keyword PRODUCT_CREATION_TIME, which will have a value later than 
+the previous release date of February 6, 2013.
+
+Note: the APXS EDR data set is classified by PDS as "IN LIEN RESOLUTION"
+because there are still minor liens on this data set resulting from the 
+peer review. The team is working to resolve the liens.
+
+
+OPGS Processing Issue Description:
+----------------------------------
+ 
+The millisecond value of the SCLK was incorrectly computed for all 
+instrument EDRs since sol 0.  Specifically, only 2 digits of the millisecond 
+value were being extracted from the source telemetry data product (DP) for 
+the following keywords:
+
+    MSL:LOCAL_MEAN_SOLAR_TIME        (all instruments)
+    MSL:TELEMETRY_SOURCE_SCLK_START  (all instruments)
+    SPACECRAFT_CLOCK_START_COUNT     (non-imaging instruments only)
+    SPACECRAFT_CLOCK_STOP_COUNT      (APXS, MAHLI and Mastcam ML0/MR0 images)
+
+For example, for the data product label, 
+file NLA_412503611EDR_M0060000NCAM00533M1.LBL :
+ 
+    Current values:
+        MSL:LOCAL_MEAN_SOLAR_TIME         = "Sol-00169M14:40:14.027"
+        MSL:TELEMETRY_SOURCE_SCLK_START   = "412503611.034"
+ 
+    Correct values:
+        MSL:LOCAL_MEAN_SOLAR_TIME         = "Sol-00169M14:40:14.271"
+        MSL:TELEMETRY_SOURCE_SCLK_START   = "412503611.341"
+ 
+This 2-digit value was then incorrectly 0 padded with a zero right after the 
+decimal place. Therefore, there is always a 0 value in the tenths position 
+of the Fine portion of the SCLK.  All data products affected have a 0 in the 
+tenths digit for these keywords. 
+ 
+To calculate the correct 3-digit milliseconds value, the following 
+calculations can be performed.
+
+For MSL:LOCAL_MEAN_SOLAR_TIME the correct value is 
+(idph.sclk_subseconds/ 2**16) then concatenated to 5 digits.
+ 
+For SPACECRAFT_CLOCK_START_COUNT(for imaging DPs) the correct value is 
+(idph.sclk_subseconds/2**12) * 0.000954 then converted to integer(nothing 
+after decimal point) and finally concatenated to 3 digits.
+
+This issue will be corrected for Release 3.
+
+
+RELEASE NUMBER: 1
+RELEASE DATE: 2013-02-06
+DATA COVERAGE: 2012-08-06 to 2012-11-05 (Sols 0-89)
+PRODUCT TYPES RELEASED FOR THIS ARCHIVE: APXS EDR
+PRODUCT TYPES UPDATED FOR THIS ARCHIVE: None
+
+The following documents in this archive are awaiting clearance by JPL 
+Document Review and/or the JPL Import/Export Control Office and will be
+posted online as soon as clearance has been received.
+
+APXS_EDR_SIS.* - The MSL APXS EDR Software Interface Specification
+
+Calibration data will be available in the APXS RDR archive, to be released
+March 20, 2013.
+
+APXS EDR data files have a four-byte checksum field at the end of the file 
+that is not described by the PDS label. This will be added to the labels for
+MSL Release 2, May 30, 2013.
+
+Labels for APXS EDR data products in this release erroneously list the value 
+UNK (unknown) for these keywords:
+OBSERVATION_ID
+COORDINATE_SYSTEM_INDEX
+ORIGIN_OFFSET_VECTOR
+ORIGIN_ROTATION_QUATERNION
+REFERENCE_COORD_SYSTEM_INDEX
+ARTICULATION_DEVICE_ANGLE
+The labels will be revised to show the correct values for these keywords 
+in Release 2.
+
+
+******** SECTION B ********
+
+This section is provided for general notes concerning the archive as a whole.
+
+1. Some documents in this archive appear in Portable Document Format (PDF) 
+   files. PDF files can be read using free software available at 
+   www.adobe.com. PDS requires that a PDF document be accompanied by an ASCII
+   text version; however, this has not been done for some PDF files in this 
+   archive because the documents contain figures, tables, equations, or 
+   other content that cannot be rendered as ASCII text. HTML is sometimes 
+   used as an alternative to plain ASCII, but in this case suitable HTML 
+   versions that captured all the content of the PDF could not be created.
+
+2. The CONTACT_SENSOR_STATE keyword is hardcoded to "OPEN" for all product 
+   labels in the archive. Correct values for the contact sensors are 
+   incorporated in the binary data files and can be determined using the 
+   APXS_EDR_CWA_HEADER.FMT or APXS_EDR_SCI_HEADER.FMT files. 
+
+3. Release 11 redelivers all previous data from Releases 1-10. A correction 
+   was made to fix an issue in the PDS labels where the start time had a 
+   later value than the stop time.
+   
