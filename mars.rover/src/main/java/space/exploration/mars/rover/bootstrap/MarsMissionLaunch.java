@@ -15,11 +15,11 @@ public class MarsMissionLaunch {
     public static void main(String[] args) {
         try {
             if (args.length == 0) {
-                configureLogging(false);
+                configureLogging(true);
                 new Rover(MatrixCreation.getConfig(), MatrixCreation.getComsConfig(), MatrixCreation
                         .getRoverDBConfig());
             } else {
-                configureLogging(Boolean.parseBoolean(args[4]));
+                configureLogging(false);
                 Properties marsConfig       = MatrixCreation.convertToPropertyFiles(args[0]);
                 Properties dbConfig         = MatrixCreation.convertToPropertyFiles(args[1]);
                 String     camCacheLocation = args[2];
@@ -43,7 +43,7 @@ public class MarsMissionLaunch {
             fa.setFile("analysisLogs/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
         }
 
-        fa.setLayout(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN));
+        fa.setLayout(new PatternLayout("%d [%t] %p %c %x - %m%n"));
 
         fa.activateOptions();
         org.apache.log4j.Logger.getRootLogger().addAppender(fa);
@@ -60,7 +60,7 @@ public class MarsMissionLaunch {
             fa.setFile("analysisLogs/" + className + "logStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
         }
 
-        fa.setLayout(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN));
+        fa.setLayout(new PatternLayout("%d [%t] %p %c %x - %m%n"));
 
         fa.activateOptions();
         org.apache.log4j.Logger.getRootLogger().addAppender(fa);

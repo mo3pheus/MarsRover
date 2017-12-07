@@ -412,7 +412,7 @@ public class Rover {
     }
 
     public synchronized void getNasaApiCredentials() {
-        this.nasaApiAuthKey = (this.nasaApiAuthKey == null) ? RoverUtil.getNasaCredentials() : "DEMO_KEY";
+        this.nasaApiAuthKey = marsConfig.getProperty("nasa.api.authentication.key");
     }
 
     public synchronized void configureDB() {
@@ -424,10 +424,8 @@ public class Rover {
 
         try {
             System.out.println("Configuring database");
-            if (dbUserName == null || dbPassword == null) {
-                dbUserName = RoverUtil.getDatabaseCredentials(false);
-                dbPassword = RoverUtil.getDatabaseCredentials(true);
-            }
+            dbUserName = logDBConfig.getProperty("mars.rover.database.user");
+            dbPassword = logDBConfig.getProperty("mars.rover.database.password");
             logDBConnection = DriverManager
                     .getConnection("jdbc:mysql://" + logDBConfig.getProperty("mars.rover.database.host")
                                            + "/" + logDBConfig.getProperty("mars.rover.database.dbName")

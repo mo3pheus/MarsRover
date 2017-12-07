@@ -38,10 +38,6 @@ public class SpacecraftClock implements IsEquipment {
     private long                     missionDuration     = 0l;
     private long                     timeElapsedMs       = 0l;
     private int                      sol                 = 0;
-    private double                   ephemerisTime       = 0.0d;
-    private String                   applicableTimeFrame = "";
-    private String                   clockFilePath       = "";
-    private String                   calendarTime        = "";
 
     public SpacecraftClock(Properties marsConfig) {
         clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
