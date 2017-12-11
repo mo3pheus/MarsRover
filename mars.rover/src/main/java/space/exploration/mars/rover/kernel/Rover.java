@@ -543,7 +543,7 @@ public class Rover {
         return weatherSensingState;
     }
 
-    public synchronized PositionSensor getPositionSensor() {
+    public PositionSensor getPositionSensor() {
         return positionSensor;
     }
 
@@ -557,7 +557,7 @@ public class Rover {
         this.spacecraftClock = new SpacecraftClock(marsConfig);
         spacecraftClock.start();
 
-        this.positionSensor = new PositionSensor(this);
+        this.positionSensor = new PositionSensor(marsConfig);
         positionSensor.start();
 
         this.listeningState = new ListeningState(this);

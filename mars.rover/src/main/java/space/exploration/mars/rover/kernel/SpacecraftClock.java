@@ -22,22 +22,22 @@ import java.util.concurrent.TimeUnit;
  * Please contact sanket.korgaonkar@gmail.com if you have trouble extending the duration of the spacecraft clock.
  */
 public class SpacecraftClock implements IsEquipment {
-    private static final String SCLK_FORMAT            = "mars.rover.mission.clock.format";
-    private static final String SCLK_START_TIME        = "mars.rover.mission.clock.start";
-    private static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
-    private static final String SCLK_TIME_SCALE_FACTOR = "mars.rover.clock.timeScaleFactor";
+    public static final String SCLK_FORMAT            = "mars.rover.mission.clock.format";
+    public static final String SCLK_START_TIME        = "mars.rover.mission.clock.start";
+    public static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
+    public static final String SCLK_TIME_SCALE_FACTOR = "mars.rover.clock.timeScaleFactor";
 
-    private Logger                   logger              = LoggerFactory.getLogger(SpacecraftClock
-                                                                                           .class);
-    private ScheduledExecutorService clockCounter        = null;
-    private DateTime                 internalClock       = null;
-    private DateTimeFormatter        clockFormatter      = null;
-    private String                   sclkStartTime       = null;
-    private TimeUtils                clockService        = null;
-    private int                      timeScaleFactor     = 0;
-    private long                     missionDuration     = 0l;
-    private long                     timeElapsedMs       = 0l;
-    private int                      sol                 = 0;
+    private Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
+                                                                                       .class);
+    private ScheduledExecutorService clockCounter    = null;
+    private DateTime                 internalClock   = null;
+    private DateTimeFormatter        clockFormatter  = null;
+    private String                   sclkStartTime   = null;
+    private TimeUtils                clockService    = null;
+    private int                      timeScaleFactor = 0;
+    private long                     missionDuration = 0l;
+    private long                     timeElapsedMs   = 0l;
+    private int                      sol             = 0;
 
     public SpacecraftClock(Properties marsConfig) {
         clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
@@ -72,7 +72,7 @@ public class SpacecraftClock implements IsEquipment {
             }
         };
 
-        clockCounter.scheduleAtFixedRate(clock, 0l, 1l, TimeUnit.MILLISECONDS);
+        clockCounter.scheduleAtFixedRate(clock, 0l, 1l, TimeUnit.SECONDS);
     }
 
     public DateTime getInternalClock() {

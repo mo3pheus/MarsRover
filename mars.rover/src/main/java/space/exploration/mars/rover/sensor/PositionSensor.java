@@ -1,37 +1,59 @@
 package space.exploration.mars.rover.sensor;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.spice.MSLRelativePositions;
 import space.exploration.mars.rover.kernel.IsEquipment;
-import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.spice.utilities.PositionUtils;
 
+import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import static space.exploration.mars.rover.kernel.SpacecraftClock.*;
 
 
 /**
  * Lives as long as the spacecraftClock lives - since there is a dependency between the two.
  */
 public class PositionSensor implements IsEquipment {
-    private Logger                   logger        = LoggerFactory.getLogger(PositionSensor.class);
-    private PositionUtils            positionUtils = null;
-    private ScheduledExecutorService sensorUpdate  = null;
-    private Rover                    rover         = null;
+    private Logger                   logger          = LoggerFactory.getLogger(PositionSensor.class);
+    private PositionUtils            positionUtils   = null;
+    private ScheduledExecutorService sensorUpdate    = null;
+    private Properties               roverProperties = null;
+    private DateTime                 internalClock   = null;
+    private DateTimeFormatter        clockFormatter  = null;
+    private String                   sclkStartTime   = null;
+    private int                      timeScaleFactor = 0;
+    private long                     timeElapsedMs   = 0l;
+    private int                      sol             = 0;
+    private long                     missionDuration = 0l;
 
-    public PositionSensor(Rover rover) {
-        this.rover = rover;
+    public PositionSensor(Properties roverProperties) {
+        this.roverProperties = roverProperties;
         this.positionUtils = new PositionUtils();
         this.sensorUpdate = Executors.newSingleThreadScheduledExecutor();
+        clockFormatter = DateTimeFormat.forPattern(roverProperties.getProperty(SCLK_FORMAT));
+        sclkStartTime = roverProperties.getProperty(SCLK_START_TIME);
+        timeScaleFactor = Integer.parseInt(roverProperties.getProperty(SCLK_TIME_SCALE_FACTOR));
+        internalClock = clockFormatter.parseDateTime(sclkStartTime);
+        internalClock.withZone(DateTimeZone.UTC);
+        String missionDurationString = roverProperties.getProperty(SCLK_MISSION_DURATION);
+        missionDuration = TimeUnit.DAYS.toMillis(365 * Integer.parseInt(missionDurationString));
     }
 
     public void start() {
         Runnable positionUpdate = new Runnable() {
             @Override
             public void run() {
-                positionUtils.setUtcTime(rover.getSpacecraftClock().getUTCTime());
+                internalClock = new DateTime(internalClock.getMillis() + timeScaleFactor);
+                timeElapsedMs += timeScaleFactor;
+                positionUtils.setUtcTime(clockFormatter.print(internalClock));
             }
         };
 
@@ -39,20 +61,14 @@ public class PositionSensor implements IsEquipment {
     }
 
     public MSLRelativePositions.MSLRelPositionsPacket getPositionsData() {
-        MSLRelativePositions.MSLRelPositionsPacket         positionsPacket = positionUtils.getPositionPacket();
-        MSLRelativePositions.MSLRelPositionsPacket.Builder mBuilder        = MSLRelativePositions
-                .MSLRelPositionsPacket.newBuilder();
-        mBuilder.setSol(rover.getSpacecraftClock().getSol());
-        mBuilder.mergeFrom(positionsPacket);
-
-        MSLRelativePositions.MSLRelPositionsPacket mslRelPositionsPacket = mBuilder.build();
-        logger.info(mslRelPositionsPacket.toString());
-        return mslRelPositionsPacket;
+        MSLRelativePositions.MSLRelPositionsPacket positionsPacket = positionUtils.getPositionPacket();
+        logger.info(positionsPacket.toString());
+        return positionsPacket;
     }
 
     @Override
     public int getLifeSpan() {
-        return rover.getSpacecraftClock().getLifeSpan();
+        return (int) (missionDuration - timeElapsedMs);
     }
 
     @Override
@@ -62,6 +78,7 @@ public class PositionSensor implements IsEquipment {
 
     @Override
     public boolean isEndOfLife() {
-        return rover.getSpacecraftClock().isEndOfLife();
+        return (timeElapsedMs > missionDuration);
     }
+
 }
