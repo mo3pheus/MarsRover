@@ -1,0 +1,2943 @@
+2017-12-10 23:05:37,054 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-01-01T00:00:00.000-06:00
+2017-12-10 23:05:37,056 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+2017-12-10 23:05:37,056 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+2017-12-10 23:05:49,955 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2017-12-10 23:05:50,042 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2017-12-10 23:05:50,043 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+2017-12-10 23:05:50,043 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.zionMainframe was supplied but isn't a known config.
+2017-12-10 23:05:50,043 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_5 was supplied but isn't a known config.
+2017-12-10 23:05:50,043 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+2017-12-10 23:05:50,043 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+2017-12-10 23:05:50,043 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_5 was supplied but isn't a known config.
+2017-12-10 23:05:50,044 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+2017-12-10 23:05:50,044 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+2017-12-10 23:05:50,180 [main] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2017-12-10 23:05:50,204 [main] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+2017-12-10 23:05:50,205 [main] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+2017-12-10 23:05:50,205 [main] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+2017-12-10 23:05:50,205 [main] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.zionMainframe
+2017-12-10 23:05:50,205 [main] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+2017-12-10 23:05:50,205 [main] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+2017-12-10 23:05:50,205 [main] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+2017-12-10 23:05:50,205 [main] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+2017-12-10 23:05:50,205 [main] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+2017-12-10 23:05:50,286 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], Connecting to zookeeper instance at localhost:2181
+2017-12-10 23:05:50,294 [ZkClient-EventThread-31-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_151
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/sanket/Documents/workspace/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.10.0.1/kafka_2.10-0.10.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.8/zkclient-0.8.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.6/scala-library-2.10.6.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.21/slf4j-log4j12-1.7.21.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.10.0.1/kafka-clients-0.10.0.1.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.3.0/lz4-1.3.0.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.2.6/snappy-java-1.1.2.6.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar:/home/sanket/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar:/home/sanket/.m2/repository/joda-time/joda-time/2.8.1/joda-time-2.8.1.jar:/home/sanket/.m2/repository/org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar:/home/sanket/.m2/repository/space/exploration/communications.protocol/1.1.4/communications.protocol-1.1.4.jar:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.4.0/protobuf-java-3.4.0.jar:/home/sanket/.m2/repository/space/exploration/spice.utilities/1.2.2/spice.utilities-1.2.2.jar:/home/sanket/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/sanket/Documents/Tools/idea/idea-IU-173.3727.127/lib/idea_rt.jar:/home/sanket/Documents/Tools/idea/idea-IU-173.3727.127/lib/rt/debugger-agent.jar
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=$LD_LIBRARY_PATH:"/home/sanket/Documents/workspace/SpiceUtilities/src/main/resources/JNISpice/lib/libJNISpice.so":/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-42-generic
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+2017-12-10 23:05:50,298 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+2017-12-10 23:05:50,299 [main] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@4763c727
+2017-12-10 23:05:50,307 [main] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+2017-12-10 23:05:50,309 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2017-12-10 23:05:50,313 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+2017-12-10 23:05:50,318 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x160431894db000b, negotiated timeout = 6000
+2017-12-10 23:05:50,320 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+2017-12-10 23:05:50,328 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], starting auto committer every 60000 ms
+2017-12-10 23:05:50,357 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], begin registering consumer space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701 in ZK
+2017-12-10 23:05:50,384 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.zionMainframe/ids/space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701 (is it secure? false)
+2017-12-10 23:05:50,394 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+2017-12-10 23:05:50,395 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], end registering consumer space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701 in ZK
+2017-12-10 23:05:50,399 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], starting watcher executor thread for consumer space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701
+2017-12-10 23:05:50,418 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], begin rebalancing consumer space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701 try #0
+2017-12-10 23:05:50,561 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1512968750326] Stopping leader finder thread
+2017-12-10 23:05:50,561 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1512968750326] Stopping all fetchers
+2017-12-10 23:05:50,562 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1512968750326] All connections stopped
+2017-12-10 23:05:50,563 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], Cleared all relevant queues for this fetcher
+2017-12-10 23:05:50,565 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], Cleared the data chunks in all the consumer message iterators
+2017-12-10 23:05:50,565 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], Committing all offsets after clearing the fetcher queues
+2017-12-10 23:05:50,567 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], Releasing partition ownership
+2017-12-10 23:05:50,594 [Thread-2] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_5 with consumers: List(space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-0)
+2017-12-10 23:05:50,596 [Thread-2] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-0 attempting to claim partition 0
+2017-12-10 23:05:50,619 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-0 successfully owned partition 0 for topic earth_to_curiosity_5
+2017-12-10 23:05:50,637 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], Consumer space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701 selected partitions : earth_to_curiosity_5:0: fetched offset = 245: consumed offset = 245
+2017-12-10 23:05:50,638 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread], Starting 
+2017-12-10 23:05:50,639 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701], end rebalancing consumer space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701 try #0
+2017-12-10 23:05:50,661 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2017-12-10 23:05:50,664 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.zionMainframe
+2017-12-10 23:05:50,664 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+2017-12-10 23:05:50,665 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+2017-12-10 23:05:50,683 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_5)
+2017-12-10 23:05:50,688 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+2017-12-10 23:05:50,699 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+2017-12-10 23:05:50,721 [ConsumerFetcherThread-space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-0-0], Starting 
+2017-12-10 23:05:50,721 [space.exploration.mars.zionMainframe_zion-mainframe-1512968750285-5e1b2701-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1512968750326] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_5,0], initOffset 245 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+2017-12-10 23:05:50,752 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 421
+2017-12-10 23:05:50,849 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878468183908E8
+stateCuriosity: -2.21653057203E8
+stateCuriosity: -1.12273956673E8
+stateCuriosity: -4.1493462149E7
+stateCuriosity: 28.42
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682959416E8
+stateEarth: 1.12289103287E8
+stateEarth: 4.1499058509E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682959416E8
+positionEarthWRTCuriosity: 1.12289103287E8
+positionEarthWRTCuriosity: 4.1499058509E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.672
+utcTime: "2016-01-01~00:00:00"
+sol: 1210
+sclkValue: " 1/01210:03:43:08:68911"
+
+2017-12-10 23:05:50,849 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 23:05:58,478 [main] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:06:01,500 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968659177
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:06:07,597 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512968767597,0,ScanArea Current instructionQueue length = 0
+2017-12-10 23:06:07,597 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-10 23:06:28,017 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878471183908E8
+stateCuriosity: -2.21652971941E8
+stateCuriosity: -1.12274002946E8
+stateCuriosity: -4.1493483887E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682874112E8
+stateEarth: 1.1228914955E8
+stateEarth: 4.1499080245E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682874112E8
+positionEarthWRTCuriosity: 1.1228914955E8
+positionEarthWRTCuriosity: 4.1499080245E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.666
+utcTime: "2016-01-01~00:00:03"
+sol: 1210
+sclkValue: " 1/01210:03:43:11:60884"
+
+2017-12-10 23:06:28,017 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 23:06:28,031 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:06:31,033 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 40702
+2017-12-10 23:06:31,034 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968748908 Rover state = Listening State
+2017-12-10 23:06:31,036 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968791036 Rover state = Listening State
+2017-12-10 23:06:31,102 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878471183908E8
+stateCuriosity: -2.21652971941E8
+stateCuriosity: -1.12274002946E8
+stateCuriosity: -4.1493483887E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682874112E8
+stateEarth: 1.1228914955E8
+stateEarth: 4.1499080245E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682874112E8
+positionEarthWRTCuriosity: 1.1228914955E8
+positionEarthWRTCuriosity: 4.1499080245E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.666
+utcTime: "2016-01-01~00:00:03"
+sol: 1210
+sclkValue: " 1/01210:03:43:11:60884"
+
+2017-12-10 23:06:31,102 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 23:06:31,116 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968720686
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 23:06:37,144 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512968797144,5,Explore Current instructionQueue length = 0
+2017-12-10 23:06:37,144 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512968797144 Power requested = 30 Critical = false
+2017-12-10 23:06:37,145 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:06:37,145 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 6112
+2017-12-10 23:06:37,212 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878471183908E8
+stateCuriosity: -2.21652971941E8
+stateCuriosity: -1.12274002946E8
+stateCuriosity: -4.1493483887E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682874112E8
+stateEarth: 1.1228914955E8
+stateEarth: 4.1499080245E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682874112E8
+positionEarthWRTCuriosity: 1.1228914955E8
+positionEarthWRTCuriosity: 4.1499080245E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.666
+utcTime: "2016-01-01~00:00:03"
+sol: 1210
+sclkValue: " 1/01210:03:43:11:60884"
+
+2017-12-10 23:06:37,212 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 23:06:37,226 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:06:39,244 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 2
+2017-12-10 23:06:48,908 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968808908 Rover state = Hibernating State
+2017-12-10 23:06:48,908 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 11763 required = 60000
+2017-12-10 23:07:18,907 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968838907 Rover state = Hibernating State
+2017-12-10 23:07:18,908 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 41763 required = 60000
+2017-12-10 23:07:23,704 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 46559
+2017-12-10 23:07:23,766 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878474183908E8
+stateCuriosity: -2.2165288668E8
+stateCuriosity: -1.12274049218E8
+stateCuriosity: -4.1493505625E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682788808E8
+stateEarth: 1.12289195814E8
+stateEarth: 4.1499101981E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682788808E8
+positionEarthWRTCuriosity: 1.12289195814E8
+positionEarthWRTCuriosity: 4.1499101981E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.659
+utcTime: "2016-01-01~00:00:06"
+sol: 1210
+sclkValue: " 1/01210:03:43:14:52857"
+
+2017-12-10 23:07:23,766 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 23:07:23,780 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:07:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 3
+2017-12-10 23:07:48,907 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968868907 Rover state = Hibernating State
+2017-12-10 23:07:48,908 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 71763 required = 60000
+2017-12-10 23:07:49,908 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:07:51,910 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968870910 Rover state = Hibernating State
+2017-12-10 23:07:58,009 [pool-7-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878476183908E8
+stateCuriosity: -2.21652829838E8
+stateCuriosity: -1.12274080066E8
+stateCuriosity: -4.1493520117E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682731939E8
+stateEarth: 1.12289226656E8
+stateEarth: 4.1499116472E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682731939E8
+positionEarthWRTCuriosity: 1.12289226656E8
+positionEarthWRTCuriosity: 4.1499116472E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.654
+utcTime: "2016-01-01~00:00:08"
+sol: 1210
+sclkValue: " 1/01210:03:43:16:47506"
+
+2017-12-10 23:07:58,009 [pool-7-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:07:58,023 [pool-7-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:08:01,257 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+2017-12-10 23:08:01,258 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968720686
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 23:08:07,294 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512968887294,5,Explore Current instructionQueue length = 2
+2017-12-10 23:08:07,294 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 23:08:25,209 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61504
+2017-12-10 23:08:25,276 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878478183908E8
+stateCuriosity: -2.21652772997E8
+stateCuriosity: -1.12274110913E8
+stateCuriosity: -4.1493534609E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682675069E8
+stateEarth: 1.12289257499E8
+stateEarth: 4.1499130962E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682675069E8
+positionEarthWRTCuriosity: 1.12289257499E8
+positionEarthWRTCuriosity: 4.1499130962E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.65
+utcTime: "2016-01-01~00:00:10"
+sol: 1210
+sclkValue: " 1/01210:03:43:18:42155"
+
+2017-12-10 23:08:25,276 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:08:38,424 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878478183908E8
+stateCuriosity: -2.21652772997E8
+stateCuriosity: -1.12274110913E8
+stateCuriosity: -4.1493534609E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682675069E8
+stateEarth: 1.12289257499E8
+stateEarth: 4.1499130962E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682675069E8
+positionEarthWRTCuriosity: 1.12289257499E8
+positionEarthWRTCuriosity: 4.1499130962E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.65
+utcTime: "2016-01-01~00:00:10"
+sol: 1210
+sclkValue: " 1/01210:03:43:18:42155"
+
+2017-12-10 23:08:38,424 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:08:38,438 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:08:41,439 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+2017-12-10 23:08:41,440 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968905203
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 23:08:47,477 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512968927477,10,GetSeasonalWeather Current instructionQueue length = 2
+2017-12-10 23:08:47,478 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512968927478 Power requested = 70 Critical = false
+2017-12-10 23:08:47,478 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:08:47,478 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968900909 Rover state = Hibernating State
+2017-12-10 23:08:47,478 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 0 required = 60000
+2017-12-10 23:08:50,909 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968930909 Rover state = Hibernating State
+2017-12-10 23:08:50,910 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 3432 required = 60000
+2017-12-10 23:09:20,909 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968960909 Rover state = Hibernating State
+2017-12-10 23:09:20,910 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 33432 required = 60000
+2017-12-10 23:09:26,718 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61508
+2017-12-10 23:09:26,785 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878481183908E8
+stateCuriosity: -2.21652687735E8
+stateCuriosity: -1.12274157185E8
+stateCuriosity: -4.1493556347E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682589765E8
+stateEarth: 1.12289303762E8
+stateEarth: 4.1499152698E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682589765E8
+positionEarthWRTCuriosity: 1.12289303762E8
+positionEarthWRTCuriosity: 4.1499152698E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.643
+utcTime: "2016-01-01~00:00:13"
+sol: 1210
+sclkValue: " 1/01210:03:43:21:34128"
+
+2017-12-10 23:09:26,785 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:09:26,799 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:09:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 4
+2017-12-10 23:09:50,909 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968990909 Rover state = Hibernating State
+2017-12-10 23:09:50,910 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 63432 required = 60000
+2017-12-10 23:09:51,910 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:10:00,008 [pool-9-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878483183908E8
+stateCuriosity: -2.21652630894E8
+stateCuriosity: -1.12274188033E8
+stateCuriosity: -4.1493570839E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682532896E8
+stateEarth: 1.12289334604E8
+stateEarth: 4.1499167189E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682532896E8
+positionEarthWRTCuriosity: 1.12289334604E8
+positionEarthWRTCuriosity: 4.1499167189E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.638
+utcTime: "2016-01-01~00:00:15"
+sol: 1210
+sclkValue: " 1/01210:03:43:23:28777"
+
+2017-12-10 23:10:00,008 [pool-9-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:10:00,022 [pool-9-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:10:03,024 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512968992912 Rover state = Listening State
+2017-12-10 23:10:03,024 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 4
+2017-12-10 23:10:03,026 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968782188
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:10:09,057 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969009057,0,ScanArea Current instructionQueue length = 3
+2017-12-10 23:10:09,057 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-10 23:10:28,226 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61508
+2017-12-10 23:10:28,291 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878485183908E8
+stateCuriosity: -2.21652574053E8
+stateCuriosity: -1.1227421888E8
+stateCuriosity: -4.1493585331E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682476026E8
+stateEarth: 1.12289365446E8
+stateEarth: 4.149918168E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682476026E8
+positionEarthWRTCuriosity: 1.12289365446E8
+positionEarthWRTCuriosity: 4.149918168E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.634
+utcTime: "2016-01-01~00:00:17"
+sol: 1210
+sclkValue: " 1/01210:03:43:25:23426"
+
+2017-12-10 23:10:28,292 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:10:29,434 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878485183908E8
+stateCuriosity: -2.21652574053E8
+stateCuriosity: -1.1227421888E8
+stateCuriosity: -4.1493585331E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682476026E8
+stateEarth: 1.12289365446E8
+stateEarth: 4.149918168E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682476026E8
+positionEarthWRTCuriosity: 1.12289365446E8
+positionEarthWRTCuriosity: 4.149918168E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.634
+utcTime: "2016-01-01~00:00:17"
+sol: 1210
+sclkValue: " 1/01210:03:43:25:23426"
+
+2017-12-10 23:10:29,434 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:10:29,448 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:10:32,449 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+2017-12-10 23:10:32,449 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969028218
+targets {
+  roverModule: 11
+  action: "GetSclkInformation"
+}
+
+2017-12-10 23:10:38,471 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969038471,11,GetSclkInformation Current instructionQueue length = 3
+2017-12-10 23:10:38,472 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will get detailed spacecraftClock information. Houston, this is CuriosityActual.
+2017-12-10 23:10:38,474 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:18.120-06:00 sclk of::1/01210:03:43:26:20751
+2017-12-10 23:10:44,536 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878486183908E8
+stateCuriosity: -2.21652545632E8
+stateCuriosity: -1.12274234304E8
+stateCuriosity: -4.1493592577E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682447591E8
+stateEarth: 1.12289380867E8
+stateEarth: 4.1499188925E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682447591E8
+positionEarthWRTCuriosity: 1.12289380867E8
+positionEarthWRTCuriosity: 4.1499188925E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.632
+utcTime: "2016-01-01~00:00:18"
+sol: 1210
+sclkValue: " 1/01210:03:43:26:20751"
+
+2017-12-10 23:10:44,536 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:10:44,550 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:10:47,551 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969022911 Rover state = Listening State
+2017-12-10 23:10:47,552 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968843696
+targets {
+  roverModule: 11
+  action: "GetSclkInformation"
+}
+
+2017-12-10 23:10:53,578 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969053578,11,GetSclkInformation Current instructionQueue length = 2
+2017-12-10 23:10:53,578 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will get detailed spacecraftClock information. Houston, this is CuriosityActual.
+2017-12-10 23:10:53,579 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:19.020-06:00 sclk of::1/01210:03:43:27:18075
+2017-12-10 23:10:59,673 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878487183908E8
+stateCuriosity: -2.21652517211E8
+stateCuriosity: -1.12274249728E8
+stateCuriosity: -4.1493599823E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682419157E8
+stateEarth: 1.12289396288E8
+stateEarth: 4.149919617E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682419157E8
+positionEarthWRTCuriosity: 1.12289396288E8
+positionEarthWRTCuriosity: 4.149919617E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.629
+utcTime: "2016-01-01~00:00:19"
+sol: 1210
+sclkValue: " 1/01210:03:43:27:18075"
+
+2017-12-10 23:10:59,673 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:10:59,688 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:11:02,688 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+2017-12-10 23:11:02,688 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969062688 Rover state = Listening State
+2017-12-10 23:11:02,693 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968905203
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 23:11:08,718 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969068718,10,GetSeasonalWeather Current instructionQueue length = 1
+2017-12-10 23:11:08,718 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512969068718 Power requested = 70 Critical = false
+2017-12-10 23:11:08,718 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:11:08,718 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 0 required = 60000
+2017-12-10 23:11:22,911 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969082911 Rover state = Hibernating State
+2017-12-10 23:11:22,912 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 14194 required = 60000
+2017-12-10 23:11:29,745 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61519
+2017-12-10 23:11:29,802 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878489183908E8
+stateCuriosity: -2.2165246037E8
+stateCuriosity: -1.12274280575E8
+stateCuriosity: -4.1493614315E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682362287E8
+stateEarth: 1.12289427129E8
+stateEarth: 4.1499210661E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682362287E8
+positionEarthWRTCuriosity: 1.12289427129E8
+positionEarthWRTCuriosity: 4.1499210661E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.625
+utcTime: "2016-01-01~00:00:21"
+sol: 1210
+sclkValue: " 1/01210:03:43:29:12724"
+
+2017-12-10 23:11:29,802 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:11:29,816 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:11:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 3
+2017-12-10 23:11:52,911 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969112911 Rover state = Hibernating State
+2017-12-10 23:11:52,912 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 44194 required = 60000
+2017-12-10 23:12:22,911 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969142911 Rover state = Hibernating State
+2017-12-10 23:12:22,912 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 74194 required = 60000
+2017-12-10 23:12:23,912 [pool-10-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:12:31,262 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61517
+2017-12-10 23:12:31,323 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878492183908E8
+stateCuriosity: -2.21652375108E8
+stateCuriosity: -1.12274326846E8
+stateCuriosity: -4.1493636052E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682276982E8
+stateEarth: 1.12289473392E8
+stateEarth: 4.1499232397E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682276982E8
+positionEarthWRTCuriosity: 1.12289473392E8
+positionEarthWRTCuriosity: 4.1499232397E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.618
+utcTime: "2016-01-01~00:00:24"
+sol: 1210
+sclkValue: " 1/01210:03:43:32:04697"
+
+2017-12-10 23:12:31,323 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:12:32,004 [pool-10-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878492183908E8
+stateCuriosity: -2.21652375108E8
+stateCuriosity: -1.12274326846E8
+stateCuriosity: -4.1493636052E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682276982E8
+stateEarth: 1.12289473392E8
+stateEarth: 4.1499232397E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682276982E8
+positionEarthWRTCuriosity: 1.12289473392E8
+positionEarthWRTCuriosity: 4.1499232397E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.618
+utcTime: "2016-01-01~00:00:24"
+sol: 1210
+sclkValue: " 1/01210:03:43:32:04697"
+
+2017-12-10 23:12:32,004 [pool-10-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 23:12:32,018 [pool-10-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:12:35,019 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969144913 Rover state = Listening State
+2017-12-10 23:12:35,023 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969151245
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\bK\020\254\002"
+}
+
+2017-12-10 23:12:41,048 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969161048,1,Move Current instructionQueue length = 3
+2017-12-10 23:12:41,075 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512969161075 Power requested = 270 Critical = false
+2017-12-10 23:12:41,075 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:12:41,076 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 4
+2017-12-10 23:12:41,078 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 2 required = 60000
+2017-12-10 23:12:54,913 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969174913 Rover state = Hibernating State
+2017-12-10 23:12:54,913 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 13837 required = 60000
+2017-12-10 23:13:24,913 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969204913 Rover state = Hibernating State
+2017-12-10 23:13:24,913 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 43837 required = 60000
+2017-12-10 23:13:32,769 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61507
+2017-12-10 23:13:32,840 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878496183908E8
+stateCuriosity: -2.21652261425E8
+stateCuriosity: -1.12274388541E8
+stateCuriosity: -4.1493665036E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682163243E8
+stateEarth: 1.12289535075E8
+stateEarth: 4.1499261378E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682163243E8
+positionEarthWRTCuriosity: 1.12289535075E8
+positionEarthWRTCuriosity: 4.1499261378E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.609
+utcTime: "2016-01-01~00:00:28"
+sol: 1210
+sclkValue: " 1/01210:03:43:35:93995"
+
+2017-12-10 23:13:32,840 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 23:13:32,854 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:13:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 5
+2017-12-10 23:13:54,913 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969234913 Rover state = Hibernating State
+2017-12-10 23:13:54,913 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 73837 required = 60000
+2017-12-10 23:13:55,914 [pool-11-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:13:57,915 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969236915 Rover state = Hibernating State
+2017-12-10 23:14:04,003 [pool-11-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878498183908E8
+stateCuriosity: -2.21652204583E8
+stateCuriosity: -1.12274419388E8
+stateCuriosity: -4.1493679528E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682106373E8
+stateEarth: 1.12289565917E8
+stateEarth: 4.1499275869E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682106373E8
+positionEarthWRTCuriosity: 1.12289565917E8
+positionEarthWRTCuriosity: 4.1499275869E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.604
+utcTime: "2016-01-01~00:00:30"
+sol: 1210
+sclkValue: " 1/01210:03:43:37:88644"
+
+2017-12-10 23:14:04,003 [pool-11-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 23:14:04,018 [pool-11-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:14:07,018 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 5
+2017-12-10 23:14:07,020 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968966709
+targets {
+  roverModule: 11
+  action: "GetSclkInformation"
+}
+
+2017-12-10 23:14:13,044 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969253044,11,GetSclkInformation Current instructionQueue length = 4
+2017-12-10 23:14:13,045 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will get detailed spacecraftClock information. Houston, this is CuriosityActual.
+2017-12-10 23:14:13,045 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:30.960-06:00 sclk of::1/01210:03:43:37:88644
+2017-12-10 23:14:19,131 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878499183908E8
+stateCuriosity: -2.21652176162E8
+stateCuriosity: -1.12274434811E8
+stateCuriosity: -4.1493686774E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682077938E8
+stateEarth: 1.12289581337E8
+stateEarth: 4.1499283114E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682077938E8
+positionEarthWRTCuriosity: 1.12289581337E8
+positionEarthWRTCuriosity: 4.1499283114E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.602
+utcTime: "2016-01-01~00:00:31"
+sol: 1210
+sclkValue: " 1/01210:03:43:38:85968"
+
+2017-12-10 23:14:19,131 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 23:14:19,145 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:14:22,146 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 4
+2017-12-10 23:14:22,146 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512968905203
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 23:14:28,166 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969268166,10,GetSeasonalWeather Current instructionQueue length = 3
+2017-12-10 23:14:28,166 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2017-12-10 23:14:28,167 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2017-12-10 23:14:31,576 [pool-6-thread-1] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - Weather Service had an exception.
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1927)
+	at space.exploration.mars.rover.utils.WeatherUtil.getValue(WeatherUtil.java:89)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:17)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:48)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:52)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:97)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.kernel.Rover.processPendingMessageQueue(Rover.java:129)
+	at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$1.run(RoverGarbageCollector.java:56)
+	at java.util.concurrent.Executors$RunnableAdapter.call$$$capture(Executors.java:511)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2017-12-10 23:14:31,577 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+2017-12-10 23:14:34,274 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61505
+2017-12-10 23:14:34,345 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878500183908E8
+stateCuriosity: -2.21652147741E8
+stateCuriosity: -1.12274450235E8
+stateCuriosity: -4.149369402E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682049503E8
+stateEarth: 1.12289596758E8
+stateEarth: 4.1499290359E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21682049503E8
+positionEarthWRTCuriosity: 1.12289596758E8
+positionEarthWRTCuriosity: 4.1499290359E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.6
+utcTime: "2016-01-01~00:00:32"
+sol: 1210
+sclkValue: " 1/01210:03:43:39:83293"
+
+2017-12-10 23:14:34,345 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 23:14:37,666 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878500183908E8
+stateCuriosity: -2.21652147741E8
+stateCuriosity: -1.12274450235E8
+stateCuriosity: -4.149369402E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682049503E8
+stateEarth: 1.12289596758E8
+stateEarth: 4.1499290359E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21682049503E8
+positionEarthWRTCuriosity: 1.12289596758E8
+positionEarthWRTCuriosity: 4.1499290359E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.6
+utcTime: "2016-01-01~00:00:32"
+sol: 1210
+sclkValue: " 1/01210:03:43:39:83293"
+
+2017-12-10 23:14:37,666 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 23:14:37,680 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:14:40,683 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+2017-12-10 23:14:40,683 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969274269
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 23:14:46,707 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969286707,5,Explore Current instructionQueue length = 3
+2017-12-10 23:14:46,707 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512969286707 Power requested = 30 Critical = false
+2017-12-10 23:14:46,707 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:14:46,708 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969266914 Rover state = Hibernating State
+2017-12-10 23:14:46,708 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1 required = 60000
+2017-12-10 23:14:56,915 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969296915 Rover state = Hibernating State
+2017-12-10 23:14:56,915 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 10208 required = 60000
+2017-12-10 23:15:26,914 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969326914 Rover state = Hibernating State
+2017-12-10 23:15:26,915 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 40208 required = 60000
+2017-12-10 23:15:35,780 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61505
+2017-12-10 23:15:35,846 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878503183908E8
+stateCuriosity: -2.21652062479E8
+stateCuriosity: -1.12274496505E8
+stateCuriosity: -4.1493715758E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681964198E8
+stateEarth: 1.1228964302E8
+stateEarth: 4.1499312095E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681964198E8
+positionEarthWRTCuriosity: 1.1228964302E8
+positionEarthWRTCuriosity: 4.1499312095E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.593
+utcTime: "2016-01-01~00:00:35"
+sol: 1210
+sclkValue: " 1/01210:03:43:42:75266"
+
+2017-12-10 23:15:35,846 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 23:15:35,861 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:15:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 5
+2017-12-10 23:15:56,914 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969356914 Rover state = Hibernating State
+2017-12-10 23:15:56,915 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 70208 required = 60000
+2017-12-10 23:15:57,915 [pool-12-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:16:06,045 [pool-12-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878505183908E8
+stateCuriosity: -2.21652005637E8
+stateCuriosity: -1.12274527352E8
+stateCuriosity: -4.1493730249E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681907328E8
+stateEarth: 1.12289673861E8
+stateEarth: 4.1499326586E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681907328E8
+positionEarthWRTCuriosity: 1.12289673861E8
+positionEarthWRTCuriosity: 4.1499326586E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.588
+utcTime: "2016-01-01~00:00:37"
+sol: 1210
+sclkValue: " 1/01210:03:43:44:69915"
+
+2017-12-10 23:16:06,045 [pool-12-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 23:16:06,060 [pool-12-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:16:09,062 [pool-13-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969358916 Rover state = Listening State
+2017-12-10 23:16:09,062 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 5
+2017-12-10 23:16:09,064 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969089725
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\310\001\020\367\002"
+}
+
+2017-12-10 23:16:15,105 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969375105,1,Move Current instructionQueue length = 4
+2017-12-10 23:16:15,120 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512969375120 Power requested = 250 Critical = false
+2017-12-10 23:16:15,120 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:16:28,915 [pool-13-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969388915 Rover state = Hibernating State
+2017-12-10 23:16:28,916 [pool-13-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 13796 required = 60000
+2017-12-10 23:16:37,284 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61504
+2017-12-10 23:16:37,349 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878507183908E8
+stateCuriosity: -2.21651948795E8
+stateCuriosity: -1.12274558199E8
+stateCuriosity: -4.1493744741E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681850458E8
+stateEarth: 1.12289704702E8
+stateEarth: 4.1499341076E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681850458E8
+positionEarthWRTCuriosity: 1.12289704702E8
+positionEarthWRTCuriosity: 4.1499341076E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.584
+utcTime: "2016-01-01~00:00:39"
+sol: 1210
+sclkValue: " 1/01210:03:43:46:64564"
+
+2017-12-10 23:16:37,349 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 23:16:37,363 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:16:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 6
+2017-12-10 23:16:58,915 [pool-13-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969418915 Rover state = Hibernating State
+2017-12-10 23:16:58,916 [pool-13-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 43796 required = 60000
+2017-12-10 23:17:28,915 [pool-13-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969448915 Rover state = Hibernating State
+2017-12-10 23:17:28,916 [pool-13-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 73796 required = 60000
+2017-12-10 23:17:29,916 [pool-13-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:17:38,021 [pool-13-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878511183908E8
+stateCuriosity: -2.21651835111E8
+stateCuriosity: -1.12274619892E8
+stateCuriosity: -4.1493773725E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681736718E8
+stateEarth: 1.12289766384E8
+stateEarth: 4.1499370057E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681736718E8
+positionEarthWRTCuriosity: 1.12289766384E8
+positionEarthWRTCuriosity: 4.1499370057E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.575
+utcTime: "2016-01-01~00:00:43"
+sol: 1210
+sclkValue: " 1/01210:03:43:50:53861"
+
+2017-12-10 23:17:38,021 [pool-13-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:17:38,035 [pool-13-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:17:38,790 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61506
+2017-12-10 23:17:38,853 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878511183908E8
+stateCuriosity: -2.21651835111E8
+stateCuriosity: -1.12274619892E8
+stateCuriosity: -4.1493773725E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681736718E8
+stateEarth: 1.12289766384E8
+stateEarth: 4.1499370057E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681736718E8
+positionEarthWRTCuriosity: 1.12289766384E8
+positionEarthWRTCuriosity: 4.1499370057E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.575
+utcTime: "2016-01-01~00:00:43"
+sol: 1210
+sclkValue: " 1/01210:03:43:50:53861"
+
+2017-12-10 23:17:38,853 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:17:41,037 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 6
+2017-12-10 23:17:41,037 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969450917 Rover state = Listening State
+2017-12-10 23:17:41,042 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969458784
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 23:17:47,078 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969467078,10,GetSeasonalWeather Current instructionQueue length = 6
+2017-12-10 23:17:47,079 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2017-12-10 23:17:47,079 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2017-12-10 23:17:50,420 [Thread-2] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - Weather Service had an exception.
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1927)
+	at space.exploration.mars.rover.utils.WeatherUtil.getValue(WeatherUtil.java:89)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:17)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:48)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:52)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:97)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-10 23:17:50,421 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+2017-12-10 23:17:56,491 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878512183908E8
+stateCuriosity: -2.2165180669E8
+stateCuriosity: -1.12274635315E8
+stateCuriosity: -4.1493780971E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681708283E8
+stateEarth: 1.12289781805E8
+stateEarth: 4.1499377303E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681708283E8
+positionEarthWRTCuriosity: 1.12289781805E8
+positionEarthWRTCuriosity: 4.1499377303E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.572
+utcTime: "2016-01-01~00:00:44"
+sol: 1210
+sclkValue: " 1/01210:03:43:51:51186"
+
+2017-12-10 23:17:56,492 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:17:56,506 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:17:59,508 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969151245
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\bK\020\254\002"
+}
+
+2017-12-10 23:18:05,544 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969485544,1,Move Current instructionQueue length = 5
+2017-12-10 23:18:05,552 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512969485552 Power requested = 270 Critical = false
+2017-12-10 23:18:05,552 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:18:05,553 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969485553 Rover state = Hibernating State
+2017-12-10 23:18:05,553 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1 required = 60000
+2017-12-10 23:18:30,917 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969510917 Rover state = Hibernating State
+2017-12-10 23:18:30,917 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 25365 required = 60000
+2017-12-10 23:18:39,244 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 6
+2017-12-10 23:18:40,294 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61503
+2017-12-10 23:18:40,362 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878514183908E8
+stateCuriosity: -2.21651749848E8
+stateCuriosity: -1.12274666162E8
+stateCuriosity: -4.1493795462E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681651413E8
+stateEarth: 1.12289812646E8
+stateEarth: 4.1499391793E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681651413E8
+positionEarthWRTCuriosity: 1.12289812646E8
+positionEarthWRTCuriosity: 4.1499391793E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.568
+utcTime: "2016-01-01~00:00:46"
+sol: 1210
+sclkValue: " 1/01210:03:43:53:45835"
+
+2017-12-10 23:18:40,362 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:18:40,376 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:19:00,917 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969540917 Rover state = Hibernating State
+2017-12-10 23:19:00,918 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 55366 required = 60000
+2017-12-10 23:19:30,917 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969570917 Rover state = Hibernating State
+2017-12-10 23:19:30,918 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 85366 required = 60000
+2017-12-10 23:19:31,918 [pool-14-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:19:40,028 [pool-14-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878518183908E8
+stateCuriosity: -2.21651636164E8
+stateCuriosity: -1.12274727854E8
+stateCuriosity: -4.1493824446E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681537672E8
+stateEarth: 1.12289874327E8
+stateEarth: 4.1499420774E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681537672E8
+positionEarthWRTCuriosity: 1.12289874327E8
+positionEarthWRTCuriosity: 4.1499420774E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.559
+utcTime: "2016-01-01~00:00:50"
+sol: 1210
+sclkValue: " 1/01210:03:43:57:35132"
+
+2017-12-10 23:19:40,028 [pool-14-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:19:40,042 [pool-14-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:19:41,800 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61505
+2017-12-10 23:19:41,868 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878518183908E8
+stateCuriosity: -2.21651636164E8
+stateCuriosity: -1.12274727854E8
+stateCuriosity: -4.1493824446E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681537672E8
+stateEarth: 1.12289874327E8
+stateEarth: 4.1499420774E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681537672E8
+positionEarthWRTCuriosity: 1.12289874327E8
+positionEarthWRTCuriosity: 4.1499420774E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.559
+utcTime: "2016-01-01~00:00:50"
+sol: 1210
+sclkValue: " 1/01210:03:43:57:35132"
+
+2017-12-10 23:19:41,868 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:19:43,043 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969572919 Rover state = Listening State
+2017-12-10 23:19:43,047 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969581794
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+2017-12-10 23:19:49,082 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969589082,9,PerformRadarScan Current instructionQueue length = 7
+2017-12-10 23:19:49,082 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+2017-12-10 23:20:44,346 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878522183908E8
+stateCuriosity: -2.2165152248E8
+stateCuriosity: -1.12274789547E8
+stateCuriosity: -4.1493853429E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681423932E8
+stateEarth: 1.12289936009E8
+stateEarth: 4.1499449755E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681423932E8
+positionEarthWRTCuriosity: 1.12289936009E8
+positionEarthWRTCuriosity: 4.1499449755E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.55
+utcTime: "2016-01-01~00:00:54"
+sol: 1210
+sclkValue: " 1/01210:03:44:01:24430"
+
+2017-12-10 23:20:44,347 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:20:44,361 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:20:47,362 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 7
+2017-12-10 23:20:47,362 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 65561
+2017-12-10 23:20:47,363 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969212763
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 23:20:47,433 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878522183908E8
+stateCuriosity: -2.2165152248E8
+stateCuriosity: -1.12274789547E8
+stateCuriosity: -4.1493853429E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681423932E8
+stateEarth: 1.12289936009E8
+stateEarth: 4.1499449755E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681423932E8
+positionEarthWRTCuriosity: 1.12289936009E8
+positionEarthWRTCuriosity: 4.1499449755E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.55
+utcTime: "2016-01-01~00:00:54"
+sol: 1210
+sclkValue: " 1/01210:03:44:01:24430"
+
+2017-12-10 23:20:47,433 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:20:53,395 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969653395,5,Explore Current instructionQueue length = 6
+2017-12-10 23:20:53,396 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 23:21:24,478 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878524183908E8
+stateCuriosity: -2.21651465638E8
+stateCuriosity: -1.12274820393E8
+stateCuriosity: -4.1493867921E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681367061E8
+stateEarth: 1.12289966849E8
+stateEarth: 4.1499464245E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681367061E8
+positionEarthWRTCuriosity: 1.12289966849E8
+positionEarthWRTCuriosity: 4.1499464245E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.545
+utcTime: "2016-01-01~00:00:56"
+sol: 1210
+sclkValue: " 1/01210:03:44:03:19079"
+
+2017-12-10 23:21:24,478 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:21:24,492 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:21:27,493 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969643300
+targets {
+  roverModule: 11
+  action: "GetSclkInformation"
+}
+
+2017-12-10 23:21:33,522 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969693522,11,GetSclkInformation Current instructionQueue length = 6
+2017-12-10 23:21:33,523 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will get detailed spacecraftClock information. Houston, this is CuriosityActual.
+2017-12-10 23:21:33,523 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:57.420-06:00 sclk of::1/01210:03:44:04:16403
+2017-12-10 23:21:39,617 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878525183908E8
+stateCuriosity: -2.21651437217E8
+stateCuriosity: -1.12274835816E8
+stateCuriosity: -4.1493875167E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681338626E8
+stateEarth: 1.12289982269E8
+stateEarth: 4.149947149E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681338626E8
+positionEarthWRTCuriosity: 1.12289982269E8
+positionEarthWRTCuriosity: 4.149947149E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.543
+utcTime: "2016-01-01~00:00:57"
+sol: 1210
+sclkValue: " 1/01210:03:44:04:16403"
+
+2017-12-10 23:21:39,618 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:21:39,632 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:21:42,633 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969647362 Rover state = Listening State
+2017-12-10 23:21:42,634 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969702634 Rover state = Listening State
+2017-12-10 23:21:42,635 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969702635 Rover state = Listening State
+2017-12-10 23:21:42,634 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 6
+2017-12-10 23:21:42,635 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969702635 Rover state = Listening State
+2017-12-10 23:21:42,635 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969274269
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 23:21:44,810 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 57448
+2017-12-10 23:21:44,876 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878526183908E8
+stateCuriosity: -2.21651408795E8
+stateCuriosity: -1.12274851239E8
+stateCuriosity: -4.1493882412E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681310191E8
+stateEarth: 1.12289997689E8
+stateEarth: 4.1499478736E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681310191E8
+positionEarthWRTCuriosity: 1.12289997689E8
+positionEarthWRTCuriosity: 4.1499478736E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.54
+utcTime: "2016-01-01~00:00:58"
+sol: 1210
+sclkValue: " 1/01210:03:44:05:13728"
+
+2017-12-10 23:21:44,876 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:21:48,665 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969708665,5,Explore Current instructionQueue length = 5
+2017-12-10 23:21:48,666 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 23:22:19,778 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878528183908E8
+stateCuriosity: -2.21651351953E8
+stateCuriosity: -1.12274882085E8
+stateCuriosity: -4.1493896904E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.2168125332E8
+stateEarth: 1.1229002853E8
+stateEarth: 4.1499493226E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.2168125332E8
+positionEarthWRTCuriosity: 1.1229002853E8
+positionEarthWRTCuriosity: 4.1499493226E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.536
+utcTime: "2016-01-01~00:01:00"
+sol: 1210
+sclkValue: " 1/01210:03:44:07:08377"
+
+2017-12-10 23:22:19,778 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 23:22:19,793 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:22:22,794 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 5
+2017-12-10 23:22:22,794 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969704804
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:22:28,829 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969748829,0,ScanArea Current instructionQueue length = 5
+2017-12-10 23:22:28,830 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512969748830 Power requested = 70 Critical = false
+2017-12-10 23:22:28,830 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:22:28,830 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 0 required = 60000
+2017-12-10 23:22:29,830 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969749830 Rover state = Hibernating State
+2017-12-10 23:22:29,831 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1001 required = 60000
+2017-12-10 23:22:32,919 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969752919 Rover state = Hibernating State
+2017-12-10 23:22:32,919 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 4089 required = 60000
+2017-12-10 23:22:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 6
+2017-12-10 23:22:46,314 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61504
+2017-12-10 23:22:46,355 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878529183908E8
+stateCuriosity: -2.21651323532E8
+stateCuriosity: -1.12274897508E8
+stateCuriosity: -4.149390415E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681224885E8
+stateEarth: 1.1229004395E8
+stateEarth: 4.1499500471E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681224885E8
+positionEarthWRTCuriosity: 1.1229004395E8
+positionEarthWRTCuriosity: 4.1499500471E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.534
+utcTime: "2016-01-01~00:01:01"
+sol: 1210
+sclkValue: " 1/01210:03:44:08:05701"
+
+2017-12-10 23:22:46,355 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 23:22:46,369 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:23:02,919 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969782919 Rover state = Hibernating State
+2017-12-10 23:23:02,920 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 34090 required = 60000
+2017-12-10 23:23:32,919 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969812919 Rover state = Hibernating State
+2017-12-10 23:23:32,919 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 64089 required = 60000
+2017-12-10 23:23:33,919 [pool-15-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:23:42,018 [pool-15-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878533183908E8
+stateCuriosity: -2.21651209847E8
+stateCuriosity: -1.12274959199E8
+stateCuriosity: -4.1493933133E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681111144E8
+stateEarth: 1.1229010563E8
+stateEarth: 4.1499529452E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681111144E8
+positionEarthWRTCuriosity: 1.1229010563E8
+positionEarthWRTCuriosity: 4.1499529452E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.525
+utcTime: "2016-01-01~00:01:05"
+sol: 1210
+sclkValue: " 1/01210:03:44:11:94999"
+
+2017-12-10 23:23:42,019 [pool-15-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 23:23:42,033 [pool-15-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:23:45,034 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969814920 Rover state = Listening State
+2017-12-10 23:23:45,035 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 7
+2017-12-10 23:23:45,037 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969335774
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+2017-12-10 23:23:47,820 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61506
+2017-12-10 23:23:47,888 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878533183908E8
+stateCuriosity: -2.21651209847E8
+stateCuriosity: -1.12274959199E8
+stateCuriosity: -4.1493933133E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681111144E8
+stateEarth: 1.1229010563E8
+stateEarth: 4.1499529452E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681111144E8
+positionEarthWRTCuriosity: 1.1229010563E8
+positionEarthWRTCuriosity: 4.1499529452E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.525
+utcTime: "2016-01-01~00:01:05"
+sol: 1210
+sclkValue: " 1/01210:03:44:11:94999"
+
+2017-12-10 23:23:47,888 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 23:23:51,070 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969831070,9,PerformRadarScan Current instructionQueue length = 6
+2017-12-10 23:23:51,071 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+2017-12-10 23:24:46,487 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878536183908E8
+stateCuriosity: -2.21651124584E8
+stateCuriosity: -1.12275005468E8
+stateCuriosity: -4.1493954871E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681025838E8
+stateEarth: 1.1229015189E8
+stateEarth: 4.1499551187E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21681025838E8
+positionEarthWRTCuriosity: 1.1229015189E8
+positionEarthWRTCuriosity: 4.1499551187E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.518
+utcTime: "2016-01-01~00:01:08"
+sol: 1210
+sclkValue: " 1/01210:03:44:14:86972"
+
+2017-12-10 23:24:46,487 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 23:24:46,501 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:24:49,504 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 6
+2017-12-10 23:24:49,504 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969844920 Rover state = Listening State
+2017-12-10 23:24:49,505 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969827816
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:24:55,533 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969895533,0,ScanArea Current instructionQueue length = 6
+2017-12-10 23:24:55,534 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512969895534 Power requested = 70 Critical = false
+2017-12-10 23:24:55,534 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:24:55,534 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 0 required = 60000
+2017-12-10 23:24:55,534 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 67713
+2017-12-10 23:24:55,601 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878537183908E8
+stateCuriosity: -2.21651096162E8
+stateCuriosity: -1.12275020891E8
+stateCuriosity: -4.1493962116E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680997403E8
+stateEarth: 1.1229016731E8
+stateEarth: 4.1499558432E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680997403E8
+positionEarthWRTCuriosity: 1.1229016731E8
+positionEarthWRTCuriosity: 4.1499558432E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.515
+utcTime: "2016-01-01~00:01:09"
+sol: 1210
+sclkValue: " 1/01210:03:44:15:84297"
+
+2017-12-10 23:24:55,601 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 23:24:55,615 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:24:56,535 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969896535 Rover state = Hibernating State
+2017-12-10 23:24:56,535 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1001 required = 60000
+2017-12-10 23:25:04,920 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969904920 Rover state = Hibernating State
+2017-12-10 23:25:04,920 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 9386 required = 60000
+2017-12-10 23:25:34,920 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969934920 Rover state = Hibernating State
+2017-12-10 23:25:34,921 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 39387 required = 60000
+2017-12-10 23:25:39,244 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 8
+2017-12-10 23:25:50,832 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 55297
+2017-12-10 23:25:50,901 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878540183908E8
+stateCuriosity: -2.21651010899E8
+stateCuriosity: -1.12275067159E8
+stateCuriosity: -4.1493983854E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680912097E8
+stateEarth: 1.1229021357E8
+stateEarth: 4.1499580168E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680912097E8
+positionEarthWRTCuriosity: 1.1229021357E8
+positionEarthWRTCuriosity: 4.1499580168E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.509
+utcTime: "2016-01-01~00:01:12"
+sol: 1210
+sclkValue: " 1/01210:03:44:18:76270"
+
+2017-12-10 23:25:50,901 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 23:25:50,915 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:26:04,920 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969964920 Rover state = Hibernating State
+2017-12-10 23:26:04,921 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 69387 required = 60000
+2017-12-10 23:26:05,921 [pool-16-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:26:13,990 [pool-16-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878542183908E8
+stateCuriosity: -2.21650954056E8
+stateCuriosity: -1.12275098004E8
+stateCuriosity: -4.1493998345E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680855226E8
+stateEarth: 1.1229024441E8
+stateEarth: 4.1499594658E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680855226E8
+positionEarthWRTCuriosity: 1.1229024441E8
+positionEarthWRTCuriosity: 4.1499594658E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.504
+utcTime: "2016-01-01~00:01:14"
+sol: 1210
+sclkValue: " 1/01210:03:44:20:70919"
+
+2017-12-10 23:26:13,990 [pool-16-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 23:26:14,004 [pool-16-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:26:17,005 [pool-17-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969966923 Rover state = Listening State
+2017-12-10 23:26:17,005 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 9
+2017-12-10 23:26:17,007 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969089725
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\310\001\020\367\002"
+}
+
+2017-12-10 23:26:23,042 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512969983042,1,Move Current instructionQueue length = 8
+2017-12-10 23:26:23,050 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512969983050 Power requested = 250 Critical = false
+2017-12-10 23:26:23,050 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:26:36,922 [pool-17-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512969996922 Rover state = Hibernating State
+2017-12-10 23:26:36,923 [pool-17-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 13873 required = 60000
+2017-12-10 23:26:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 9
+2017-12-10 23:26:52,336 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61503
+2017-12-10 23:26:52,407 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878544183908E8
+stateCuriosity: -2.21650897213E8
+stateCuriosity: -1.1227512885E8
+stateCuriosity: -4.1494012837E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680798355E8
+stateEarth: 1.1229027525E8
+stateEarth: 4.1499609148E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680798355E8
+positionEarthWRTCuriosity: 1.1229027525E8
+positionEarthWRTCuriosity: 4.1499609148E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.499
+utcTime: "2016-01-01~00:01:16"
+sol: 1210
+sclkValue: " 1/01210:03:44:22:65568"
+
+2017-12-10 23:26:52,407 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 23:26:52,421 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:27:06,923 [pool-17-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970026923 Rover state = Hibernating State
+2017-12-10 23:27:06,923 [pool-17-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 43873 required = 60000
+2017-12-10 23:27:36,923 [pool-17-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970056923 Rover state = Hibernating State
+2017-12-10 23:27:36,923 [pool-17-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 73873 required = 60000
+2017-12-10 23:27:37,924 [pool-17-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:27:46,024 [pool-17-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878547183908E8
+stateCuriosity: -2.21650811949E8
+stateCuriosity: -1.12275175117E8
+stateCuriosity: -4.1494034574E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680713049E8
+stateEarth: 1.12290321509E8
+stateEarth: 4.1499630884E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680713049E8
+positionEarthWRTCuriosity: 1.12290321509E8
+positionEarthWRTCuriosity: 4.1499630884E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.493
+utcTime: "2016-01-01~00:01:19"
+sol: 1210
+sclkValue: " 1/01210:03:44:25:57541"
+
+2017-12-10 23:27:46,024 [pool-17-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:27:46,039 [pool-17-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:27:49,039 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970058925 Rover state = Listening State
+2017-12-10 23:27:49,040 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 10
+2017-12-10 23:27:49,042 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969397278
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 23:27:53,841 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61505
+2017-12-10 23:27:53,909 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878548183908E8
+stateCuriosity: -2.21650783528E8
+stateCuriosity: -1.1227519054E8
+stateCuriosity: -4.149404182E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680684613E8
+stateEarth: 1.12290336929E8
+stateEarth: 4.1499638129E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680684613E8
+positionEarthWRTCuriosity: 1.12290336929E8
+positionEarthWRTCuriosity: 4.1499638129E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.49
+utcTime: "2016-01-01~00:01:20"
+sol: 1210
+sclkValue: " 1/01210:03:44:26:54865"
+
+2017-12-10 23:27:53,909 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:27:55,075 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970075075,10,GetSeasonalWeather Current instructionQueue length = 9
+2017-12-10 23:27:55,076 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2017-12-10 23:27:55,076 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2017-12-10 23:27:58,351 [pool-6-thread-1] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - Weather Service had an exception.
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1927)
+	at space.exploration.mars.rover.utils.WeatherUtil.getValue(WeatherUtil.java:89)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:17)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:48)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:52)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:97)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.kernel.Rover.processPendingMessageQueue(Rover.java:129)
+	at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$1.run(RoverGarbageCollector.java:56)
+	at java.util.concurrent.Executors$RunnableAdapter.call$$$capture(Executors.java:511)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2017-12-10 23:27:58,352 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+2017-12-10 23:28:04,451 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878548183908E8
+stateCuriosity: -2.21650783528E8
+stateCuriosity: -1.1227519054E8
+stateCuriosity: -4.149404182E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680684613E8
+stateEarth: 1.12290336929E8
+stateEarth: 4.1499638129E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680684613E8
+positionEarthWRTCuriosity: 1.12290336929E8
+positionEarthWRTCuriosity: 4.1499638129E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.49
+utcTime: "2016-01-01~00:01:20"
+sol: 1210
+sclkValue: " 1/01210:03:44:26:54865"
+
+2017-12-10 23:28:04,451 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:28:04,465 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:28:07,466 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970073837
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\b}\020\361\004"
+}
+
+2017-12-10 23:28:13,499 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970093499,1,Move Current instructionQueue length = 9
+2017-12-10 23:28:13,525 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512970093525 Power requested = 380 Critical = false
+2017-12-10 23:28:13,525 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:28:13,525 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970088924 Rover state = Hibernating State
+2017-12-10 23:28:13,526 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1 required = 60000
+2017-12-10 23:28:38,924 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970118924 Rover state = Hibernating State
+2017-12-10 23:28:38,924 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 25399 required = 60000
+2017-12-10 23:28:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 10
+2017-12-10 23:28:55,347 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61505
+2017-12-10 23:28:55,414 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878551183908E8
+stateCuriosity: -2.21650698264E8
+stateCuriosity: -1.12275236808E8
+stateCuriosity: -4.1494063557E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680599307E8
+stateEarth: 1.12290383188E8
+stateEarth: 4.1499659864E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680599307E8
+positionEarthWRTCuriosity: 1.12290383188E8
+positionEarthWRTCuriosity: 4.1499659864E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.484
+utcTime: "2016-01-01~00:01:23"
+sol: 1210
+sclkValue: " 1/01210:03:44:29:46839"
+
+2017-12-10 23:28:55,414 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:28:55,428 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:29:08,924 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970148924 Rover state = Hibernating State
+2017-12-10 23:29:08,925 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 55400 required = 60000
+2017-12-10 23:29:38,924 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970178924 Rover state = Hibernating State
+2017-12-10 23:29:38,925 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 85400 required = 60000
+2017-12-10 23:29:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 11
+2017-12-10 23:29:39,925 [pool-18-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:29:48,020 [pool-18-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878555183908E8
+stateCuriosity: -2.21650584578E8
+stateCuriosity: -1.12275298497E8
+stateCuriosity: -4.149409254E7
+stateCuriosity: 28.421
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680485565E8
+stateEarth: 1.12290444867E8
+stateEarth: 4.1499688844E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680485565E8
+positionEarthWRTCuriosity: 1.12290444867E8
+positionEarthWRTCuriosity: 4.1499688844E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.474
+utcTime: "2016-01-01~00:01:27"
+sol: 1210
+sclkValue: " 1/01210:03:44:33:36136"
+
+2017-12-10 23:29:48,021 [pool-18-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:29:48,035 [pool-18-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:29:51,035 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 11
+2017-12-10 23:29:51,035 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970180926 Rover state = Listening State
+2017-12-10 23:29:51,037 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969151245
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\bK\020\254\002"
+}
+
+2017-12-10 23:29:56,851 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61504
+2017-12-10 23:29:56,919 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878555183908E8
+stateCuriosity: -2.21650584578E8
+stateCuriosity: -1.12275298497E8
+stateCuriosity: -4.149409254E7
+stateCuriosity: 28.421
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680485565E8
+stateEarth: 1.12290444867E8
+stateEarth: 4.1499688844E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680485565E8
+positionEarthWRTCuriosity: 1.12290444867E8
+positionEarthWRTCuriosity: 4.1499688844E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.474
+utcTime: "2016-01-01~00:01:27"
+sol: 1210
+sclkValue: " 1/01210:03:44:33:36136"
+
+2017-12-10 23:29:56,920 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:29:57,071 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970197071,1,Move Current instructionQueue length = 10
+2017-12-10 23:29:57,077 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512970197077 Power requested = 270 Critical = false
+2017-12-10 23:29:57,077 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:29:57,077 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:29:57,080 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 3 required = 60000
+2017-12-10 23:30:10,926 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970210926 Rover state = Hibernating State
+2017-12-10 23:30:10,926 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 13849 required = 60000
+2017-12-10 23:30:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 12
+2017-12-10 23:30:40,926 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970240926 Rover state = Hibernating State
+2017-12-10 23:30:40,926 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 43849 required = 60000
+2017-12-10 23:30:58,356 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61505
+2017-12-10 23:30:58,428 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878559183908E8
+stateCuriosity: -2.21650470892E8
+stateCuriosity: -1.12275360187E8
+stateCuriosity: -4.1494121523E7
+stateCuriosity: 28.421
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680371823E8
+stateEarth: 1.12290506545E8
+stateEarth: 4.1499717825E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680371823E8
+positionEarthWRTCuriosity: 1.12290506545E8
+positionEarthWRTCuriosity: 4.1499717825E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.465
+utcTime: "2016-01-01~00:01:31"
+sol: 1210
+sclkValue: " 1/01210:03:44:37:25434"
+
+2017-12-10 23:30:58,428 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:30:58,443 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:31:10,926 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970270926 Rover state = Hibernating State
+2017-12-10 23:31:10,926 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 73849 required = 60000
+2017-12-10 23:31:11,927 [pool-19-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:31:13,928 [pool-20-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970272928 Rover state = Hibernating State
+2017-12-10 23:31:20,021 [pool-19-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878560183908E8
+stateCuriosity: -2.21650442471E8
+stateCuriosity: -1.12275375609E8
+stateCuriosity: -4.1494128768E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680343387E8
+stateEarth: 1.12290521965E8
+stateEarth: 4.149972507E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680343387E8
+positionEarthWRTCuriosity: 1.12290521965E8
+positionEarthWRTCuriosity: 4.149972507E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.463
+utcTime: "2016-01-01~00:01:32"
+sol: 1210
+sclkValue: " 1/01210:03:44:38:22758"
+
+2017-12-10 23:31:20,021 [pool-19-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:31:20,035 [pool-19-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:31:23,036 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 13
+2017-12-10 23:31:23,038 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969520289
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\302\003\020\246\004"
+}
+
+2017-12-10 23:31:29,070 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970289070,1,Move Current instructionQueue length = 12
+2017-12-10 23:31:29,081 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512970289081 Power requested = 280 Critical = false
+2017-12-10 23:31:29,082 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:31:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 13
+2017-12-10 23:31:42,927 [pool-20-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970302927 Rover state = Hibernating State
+2017-12-10 23:31:42,928 [pool-20-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 13846 required = 60000
+2017-12-10 23:31:59,860 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61504
+2017-12-10 23:31:59,927 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878562183908E8
+stateCuriosity: -2.21650385628E8
+stateCuriosity: -1.12275406454E8
+stateCuriosity: -4.149414326E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680286516E8
+stateEarth: 1.12290552804E8
+stateEarth: 4.149973956E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680286516E8
+positionEarthWRTCuriosity: 1.12290552804E8
+positionEarthWRTCuriosity: 4.149973956E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.458
+utcTime: "2016-01-01~00:01:34"
+sol: 1210
+sclkValue: " 1/01210:03:44:40:17407"
+
+2017-12-10 23:31:59,927 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 23:31:59,941 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:32:12,927 [pool-20-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970332927 Rover state = Hibernating State
+2017-12-10 23:32:12,928 [pool-20-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 43846 required = 60000
+2017-12-10 23:32:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 14
+2017-12-10 23:32:42,927 [pool-20-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970362927 Rover state = Hibernating State
+2017-12-10 23:32:42,928 [pool-20-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 73846 required = 60000
+2017-12-10 23:32:43,928 [pool-20-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:32:52,028 [pool-20-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878566183908E8
+stateCuriosity: -2.21650271941E8
+stateCuriosity: -1.12275468143E8
+stateCuriosity: -4.1494172242E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680172773E8
+stateEarth: 1.12290614482E8
+stateEarth: 4.149976854E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680172773E8
+positionEarthWRTCuriosity: 1.12290614482E8
+positionEarthWRTCuriosity: 4.149976854E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.449
+utcTime: "2016-01-01~00:01:38"
+sol: 1210
+sclkValue: " 1/01210:03:44:44:06705"
+
+2017-12-10 23:32:52,028 [pool-20-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:32:52,043 [pool-20-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:32:55,044 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970364929 Rover state = Listening State
+2017-12-10 23:32:55,044 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 14
+2017-12-10 23:32:55,045 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969704804
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:33:01,076 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970381076,0,ScanArea Current instructionQueue length = 13
+2017-12-10 23:33:01,076 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-10 23:33:01,375 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61515
+2017-12-10 23:33:01,435 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878566183908E8
+stateCuriosity: -2.21650271941E8
+stateCuriosity: -1.12275468143E8
+stateCuriosity: -4.1494172242E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680172773E8
+stateEarth: 1.12290614482E8
+stateEarth: 4.149976854E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680172773E8
+positionEarthWRTCuriosity: 1.12290614482E8
+positionEarthWRTCuriosity: 4.149976854E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.449
+utcTime: "2016-01-01~00:01:38"
+sol: 1210
+sclkValue: " 1/01210:03:44:44:06705"
+
+2017-12-10 23:33:01,435 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:33:21,465 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878567183908E8
+stateCuriosity: -2.2165024352E8
+stateCuriosity: -1.12275483565E8
+stateCuriosity: -4.1494179488E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680144338E8
+stateEarth: 1.12290629901E8
+stateEarth: 4.1499775785E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680144338E8
+positionEarthWRTCuriosity: 1.12290629901E8
+positionEarthWRTCuriosity: 4.1499775785E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.447
+utcTime: "2016-01-01~00:01:39"
+sol: 1210
+sclkValue: " 1/01210:03:44:45:04029"
+
+2017-12-10 23:33:21,466 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:33:21,480 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:33:24,480 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970394929 Rover state = Listening State
+2017-12-10 23:33:24,481 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970381360
+targets {
+  roverModule: 11
+  action: "GetSclkInformation"
+}
+
+2017-12-10 23:33:24,480 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 13
+2017-12-10 23:33:30,507 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970410507,11,GetSclkInformation Current instructionQueue length = 13
+2017-12-10 23:33:30,507 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will get detailed spacecraftClock information. Houston, this is CuriosityActual.
+2017-12-10 23:33:30,507 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:01:40.440-06:00 sclk of::1/01210:03:44:46:01354
+2017-12-10 23:33:36,567 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878568183908E8
+stateCuriosity: -2.21650215098E8
+stateCuriosity: -1.12275498987E8
+stateCuriosity: -4.1494186734E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680115902E8
+stateEarth: 1.12290645321E8
+stateEarth: 4.149978303E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680115902E8
+positionEarthWRTCuriosity: 1.12290645321E8
+positionEarthWRTCuriosity: 4.149978303E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.445
+utcTime: "2016-01-01~00:01:40"
+sol: 1210
+sclkValue: " 1/01210:03:44:46:01354"
+
+2017-12-10 23:33:36,567 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:33:36,581 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:33:39,582 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512969766310
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:33:45,608 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970425608,0,ScanArea Current instructionQueue length = 12
+2017-12-10 23:33:45,608 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512970425608 Power requested = 70 Critical = false
+2017-12-10 23:33:45,608 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:33:45,609 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 0 required = 60000
+2017-12-10 23:33:46,609 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970426609 Rover state = Hibernating State
+2017-12-10 23:33:46,609 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1001 required = 60000
+2017-12-10 23:34:02,879 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61504
+2017-12-10 23:34:02,951 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878570183908E8
+stateCuriosity: -2.21650158255E8
+stateCuriosity: -1.12275529832E8
+stateCuriosity: -4.1494201225E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680059031E8
+stateEarth: 1.12290676159E8
+stateEarth: 4.149979752E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21680059031E8
+positionEarthWRTCuriosity: 1.12290676159E8
+positionEarthWRTCuriosity: 4.149979752E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.44
+utcTime: "2016-01-01~00:01:42"
+sol: 1210
+sclkValue: " 1/01210:03:44:47:96003"
+
+2017-12-10 23:34:02,951 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:34:02,965 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:34:14,929 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970454929 Rover state = Hibernating State
+2017-12-10 23:34:14,929 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 29321 required = 60000
+2017-12-10 23:34:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 14
+2017-12-10 23:34:44,929 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970484929 Rover state = Hibernating State
+2017-12-10 23:34:44,929 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 59321 required = 60000
+2017-12-10 23:35:04,383 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61504
+2017-12-10 23:35:04,452 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878574183908E8
+stateCuriosity: -2.21650044568E8
+stateCuriosity: -1.1227559152E8
+stateCuriosity: -4.1494230208E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679945288E8
+stateEarth: 1.12290737837E8
+stateEarth: 4.14998265E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679945288E8
+positionEarthWRTCuriosity: 1.12290737837E8
+positionEarthWRTCuriosity: 4.14998265E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.431
+utcTime: "2016-01-01~00:01:46"
+sol: 1210
+sclkValue: " 1/01210:03:44:51:85300"
+
+2017-12-10 23:35:04,452 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:35:04,466 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:35:14,929 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970514929 Rover state = Hibernating State
+2017-12-10 23:35:14,930 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 89322 required = 60000
+2017-12-10 23:35:15,930 [pool-21-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:35:17,931 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970516931 Rover state = Hibernating State
+2017-12-10 23:35:24,030 [pool-21-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878575183908E8
+stateCuriosity: -2.21650016147E8
+stateCuriosity: -1.12275606942E8
+stateCuriosity: -4.1494237453E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679916852E8
+stateEarth: 1.12290753256E8
+stateEarth: 4.1499833745E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679916852E8
+positionEarthWRTCuriosity: 1.12290753256E8
+positionEarthWRTCuriosity: 4.1499833745E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.429
+utcTime: "2016-01-01~00:01:47"
+sol: 1210
+sclkValue: " 1/01210:03:44:52:82625"
+
+2017-12-10 23:35:24,030 [pool-21-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:35:24,044 [pool-21-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:35:27,045 [pool-6-thread-1] ERROR space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Diagnostics module clearing instructionQueue because maxLength has been reached.
+2017-12-10 23:35:27,098 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878575183908E8
+stateCuriosity: -2.21650016147E8
+stateCuriosity: -1.12275606942E8
+stateCuriosity: -4.1494237453E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679916852E8
+stateEarth: 1.12290753256E8
+stateEarth: 4.1499833745E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679916852E8
+positionEarthWRTCuriosity: 1.12290753256E8
+positionEarthWRTCuriosity: 4.1499833745E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.429
+utcTime: "2016-01-01~00:01:47"
+sol: 1210
+sclkValue: " 1/01210:03:44:52:82625"
+
+2017-12-10 23:35:33,195 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878575183908E8
+stateCuriosity: -2.21650016147E8
+stateCuriosity: -1.12275606942E8
+stateCuriosity: -4.1494237453E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679916852E8
+stateEarth: 1.12290753256E8
+stateEarth: 4.1499833745E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679916852E8
+positionEarthWRTCuriosity: 1.12290753256E8
+positionEarthWRTCuriosity: 4.1499833745E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.429
+utcTime: "2016-01-01~00:01:47"
+sol: 1210
+sclkValue: " 1/01210:03:44:52:82625"
+
+2017-12-10 23:35:33,196 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:35:33,210 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:35:39,315 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878576183908E8
+stateCuriosity: -2.21649987725E8
+stateCuriosity: -1.12275622364E8
+stateCuriosity: -4.1494244699E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679888416E8
+stateEarth: 1.12290768675E8
+stateEarth: 4.149984099E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679888416E8
+positionEarthWRTCuriosity: 1.12290768675E8
+positionEarthWRTCuriosity: 4.149984099E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.426
+utcTime: "2016-01-01~00:01:48"
+sol: 1210
+sclkValue: " 1/01210:03:44:53:79949"
+
+2017-12-10 23:35:39,322 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:01:48.180-06:00 sclk of::1/01210:03:44:53:79949
+2017-12-10 23:35:45,416 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878576183908E8
+stateCuriosity: -2.21649987725E8
+stateCuriosity: -1.12275622364E8
+stateCuriosity: -4.1494244699E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679888416E8
+stateEarth: 1.12290768675E8
+stateEarth: 4.149984099E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679888416E8
+positionEarthWRTCuriosity: 1.12290768675E8
+positionEarthWRTCuriosity: 4.149984099E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.426
+utcTime: "2016-01-01~00:01:48"
+sol: 1210
+sclkValue: " 1/01210:03:44:53:79949"
+
+2017-12-10 23:35:45,416 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:35:45,430 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:35:48,431 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970546931 Rover state = Listening State
+2017-12-10 23:35:48,433 [pool-5-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2017-12-10 23:36:05,888 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61503
+2017-12-10 23:36:05,953 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878577183908E8
+stateCuriosity: -2.21649959303E8
+stateCuriosity: -1.12275637786E8
+stateCuriosity: -4.1494251944E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679859981E8
+stateEarth: 1.12290784094E8
+stateEarth: 4.1499848235E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679859981E8
+positionEarthWRTCuriosity: 1.12290784094E8
+positionEarthWRTCuriosity: 4.1499848235E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.424
+utcTime: "2016-01-01~00:01:49"
+sol: 1210
+sclkValue: " 1/01210:03:44:54:77274"
+
+2017-12-10 23:36:05,953 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:36:05,967 [Thread-2] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+2017-12-10 23:36:05,967 [Thread-2] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+2017-12-10 23:36:08,968 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970565883
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 23:36:14,997 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970574997,5,Explore Current instructionQueue length = 0
+2017-12-10 23:36:14,998 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 23:36:46,092 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878580183908E8
+stateCuriosity: -2.21649874038E8
+stateCuriosity: -1.12275684052E8
+stateCuriosity: -4.1494273681E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679774673E8
+stateEarth: 1.12290830352E8
+stateEarth: 4.149986997E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679774673E8
+positionEarthWRTCuriosity: 1.12290830352E8
+positionEarthWRTCuriosity: 4.149986997E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.417
+utcTime: "2016-01-01~00:01:52"
+sol: 1210
+sclkValue: " 1/01210:03:44:57:69247"
+
+2017-12-10 23:36:46,092 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:36:46,106 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:36:49,107 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970576931 Rover state = Listening State
+2017-12-10 23:36:49,108 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970609108 Rover state = Listening State
+2017-12-10 23:36:49,167 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878580183908E8
+stateCuriosity: -2.21649874038E8
+stateCuriosity: -1.12275684052E8
+stateCuriosity: -4.1494273681E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679774673E8
+stateEarth: 1.12290830352E8
+stateEarth: 4.149986997E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679774673E8
+positionEarthWRTCuriosity: 1.12290830352E8
+positionEarthWRTCuriosity: 4.149986997E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.417
+utcTime: "2016-01-01~00:01:52"
+sol: 1210
+sclkValue: " 1/01210:03:44:57:69247"
+
+2017-12-10 23:36:49,167 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:01:52.380-06:00 sclk of::1/01210:03:44:57:69247
+2017-12-10 23:36:55,261 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878580183908E8
+stateCuriosity: -2.21649874038E8
+stateCuriosity: -1.12275684052E8
+stateCuriosity: -4.1494273681E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679774673E8
+stateEarth: 1.12290830352E8
+stateEarth: 4.149986997E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679774673E8
+positionEarthWRTCuriosity: 1.12290830352E8
+positionEarthWRTCuriosity: 4.149986997E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.417
+utcTime: "2016-01-01~00:01:52"
+sol: 1210
+sclkValue: " 1/01210:03:44:57:69247"
+
+2017-12-10 23:36:55,261 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:36:55,275 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:37:07,395 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61507
+2017-12-10 23:37:07,456 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878581183908E8
+stateCuriosity: -2.21649845617E8
+stateCuriosity: -1.12275699474E8
+stateCuriosity: -4.1494280927E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679746237E8
+stateEarth: 1.12290845771E8
+stateEarth: 4.1499877215E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679746237E8
+positionEarthWRTCuriosity: 1.12290845771E8
+positionEarthWRTCuriosity: 4.1499877215E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.415
+utcTime: "2016-01-01~00:01:53"
+sol: 1210
+sclkValue: " 1/01210:03:44:58:66571"
+
+2017-12-10 23:37:07,456 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 23:37:07,470 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970627387
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:37:13,498 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970633498,0,ScanArea Current instructionQueue length = 0
+2017-12-10 23:37:13,499 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512970633499 Power requested = 70 Critical = false
+2017-12-10 23:37:13,499 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:37:16,931 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970636931 Rover state = Hibernating State
+2017-12-10 23:37:16,932 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 3433 required = 60000
+2017-12-10 23:37:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 1
+2017-12-10 23:37:46,931 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970666931 Rover state = Hibernating State
+2017-12-10 23:37:46,932 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 33433 required = 60000
+2017-12-10 23:38:08,895 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61499
+2017-12-10 23:38:08,962 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878585183908E8
+stateCuriosity: -2.2164973193E8
+stateCuriosity: -1.12275761162E8
+stateCuriosity: -4.1494309909E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.265
+stateEarth: 2.21679632494E8
+stateEarth: 1.12290907448E8
+stateEarth: 4.1499906195E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679632494E8
+positionEarthWRTCuriosity: 1.12290907448E8
+positionEarthWRTCuriosity: 4.1499906195E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.406
+utcTime: "2016-01-01~00:01:57"
+sol: 1210
+sclkValue: " 1/01210:03:45:02:55869"
+
+2017-12-10 23:38:08,962 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.265
+2017-12-10 23:38:08,976 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:38:16,931 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970696931 Rover state = Hibernating State
+2017-12-10 23:38:16,932 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 63433 required = 60000
+2017-12-10 23:38:17,932 [pool-22-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:38:26,027 [pool-22-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878586183908E8
+stateCuriosity: -2.21649703508E8
+stateCuriosity: -1.12275776584E8
+stateCuriosity: -4.1494317155E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.265
+stateEarth: 2.21679604058E8
+stateEarth: 1.12290922867E8
+stateEarth: 4.149991344E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679604058E8
+positionEarthWRTCuriosity: 1.12290922867E8
+positionEarthWRTCuriosity: 4.149991344E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.404
+utcTime: "2016-01-01~00:01:58"
+sol: 1210
+sclkValue: " 1/01210:03:45:03:53194"
+
+2017-12-10 23:38:26,027 [pool-22-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.265
+2017-12-10 23:38:26,042 [pool-22-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:38:29,043 [pool-24-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970698933 Rover state = Listening State
+2017-12-10 23:38:29,043 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+2017-12-10 23:38:29,044 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970627387
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:38:35,074 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970715074,0,ScanArea Current instructionQueue length = 1
+2017-12-10 23:38:35,074 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512970715074 Power requested = 70 Critical = false
+2017-12-10 23:38:35,074 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:38:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 2
+2017-12-10 23:38:48,933 [pool-24-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970728933 Rover state = Hibernating State
+2017-12-10 23:38:48,933 [pool-24-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 13859 required = 60000
+2017-12-10 23:39:10,398 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61503
+2017-12-10 23:39:10,471 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878588183908E8
+stateCuriosity: -2.21649646664E8
+stateCuriosity: -1.12275807427E8
+stateCuriosity: -4.1494331646E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.265
+stateEarth: 2.21679547186E8
+stateEarth: 1.12290953705E8
+stateEarth: 4.149992793E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.378
+positionEarthWRTCuriosity: 2.21679547186E8
+positionEarthWRTCuriosity: 1.12290953705E8
+positionEarthWRTCuriosity: 4.149992793E7
+owltEarthMSL2: 840.378
+angSepHGAEarth: 141.399
+utcTime: "2016-01-01~00:02:00"
+sol: 1210
+sclkValue: " 1/01210:03:45:05:47842"
+
+2017-12-10 23:39:10,471 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.265
+2017-12-10 23:39:10,486 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:39:18,933 [pool-24-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970758933 Rover state = Hibernating State
+2017-12-10 23:39:18,933 [pool-24-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 43859 required = 60000
+2017-12-10 23:39:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 3
+2017-12-10 23:39:48,933 [pool-24-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970788933 Rover state = Hibernating State
+2017-12-10 23:39:48,933 [pool-24-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 73859 required = 60000
+2017-12-10 23:39:49,933 [pool-24-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:39:58,033 [pool-24-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878591183908E8
+stateCuriosity: -2.21649561399E8
+stateCuriosity: -1.12275853693E8
+stateCuriosity: -4.1494353383E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.265
+stateEarth: 2.21679461879E8
+stateEarth: 1.12290999962E8
+stateEarth: 4.1499949665E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.378
+positionEarthWRTCuriosity: 2.21679461879E8
+positionEarthWRTCuriosity: 1.12290999962E8
+positionEarthWRTCuriosity: 4.1499949665E7
+owltEarthMSL2: 840.378
+angSepHGAEarth: 141.392
+utcTime: "2016-01-01~00:02:03"
+sol: 1210
+sclkValue: " 1/01210:03:45:08:39816"
+
+2017-12-10 23:39:58,033 [pool-24-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.265
+2017-12-10 23:39:58,047 [pool-24-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:40:01,048 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 3
+2017-12-10 23:40:01,048 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970790935 Rover state = Listening State
+2017-12-10 23:40:01,049 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970688892
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 23:40:07,081 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970807081,5,Explore Current instructionQueue length = 2
+2017-12-10 23:40:07,081 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 23:40:11,902 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61504
+2017-12-10 23:40:11,970 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878592183908E8
+stateCuriosity: -2.21649532977E8
+stateCuriosity: -1.12275869114E8
+stateCuriosity: -4.1494360628E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.265
+stateEarth: 2.21679433443E8
+stateEarth: 1.12291015381E8
+stateEarth: 4.149995691E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.378
+positionEarthWRTCuriosity: 2.21679433443E8
+positionEarthWRTCuriosity: 1.12291015381E8
+positionEarthWRTCuriosity: 4.149995691E7
+owltEarthMSL2: 840.378
+angSepHGAEarth: 141.39
+utcTime: "2016-01-01~00:02:04"
+sol: 1210
+sclkValue: " 1/01210:03:45:09:37140"
+
+2017-12-10 23:40:11,970 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.265
+2017-12-10 23:40:38,192 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878594183908E8
+stateCuriosity: -2.21649476133E8
+stateCuriosity: -1.12275899958E8
+stateCuriosity: -4.149437512E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.265
+stateEarth: 2.21679376571E8
+stateEarth: 1.12291046218E8
+stateEarth: 4.14999714E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.378
+positionEarthWRTCuriosity: 2.21679376571E8
+positionEarthWRTCuriosity: 1.12291046218E8
+positionEarthWRTCuriosity: 4.14999714E7
+owltEarthMSL2: 840.378
+angSepHGAEarth: 141.385
+utcTime: "2016-01-01~00:02:06"
+sol: 1210
+sclkValue: " 1/01210:03:45:11:31789"
+
+2017-12-10 23:40:38,193 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.265
+2017-12-10 23:40:38,207 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:40:41,207 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 2
+2017-12-10 23:40:41,208 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970811897
+targets {
+  roverModule: 11
+  action: "GetSclkInformation"
+}
+
+2017-12-10 23:40:47,236 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970847236,11,GetSclkInformation Current instructionQueue length = 2
+2017-12-10 23:40:47,236 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will get detailed spacecraftClock information. Houston, this is CuriosityActual.
+2017-12-10 23:40:47,236 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:02:06.660-06:00 sclk of::1/01210:03:45:11:31789
+2017-12-10 23:40:53,328 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878594183908E8
+stateCuriosity: -2.21649476133E8
+stateCuriosity: -1.12275899958E8
+stateCuriosity: -4.149437512E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.265
+stateEarth: 2.21679376571E8
+stateEarth: 1.12291046218E8
+stateEarth: 4.14999714E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.378
+positionEarthWRTCuriosity: 2.21679376571E8
+positionEarthWRTCuriosity: 1.12291046218E8
+positionEarthWRTCuriosity: 4.14999714E7
+owltEarthMSL2: 840.378
+angSepHGAEarth: 141.385
+utcTime: "2016-01-01~00:02:06"
+sol: 1210
+sclkValue: " 1/01210:03:45:11:31789"
+
+2017-12-10 23:40:53,328 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.265
+2017-12-10 23:40:53,343 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:40:56,343 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970627387
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 23:41:02,389 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970862389,0,ScanArea Current instructionQueue length = 1
+2017-12-10 23:41:02,389 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512970862389 Power requested = 70 Critical = false
+2017-12-10 23:41:02,389 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:41:02,390 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970862390 Rover state = Hibernating State
+2017-12-10 23:41:02,390 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1 required = 60000
+2017-12-10 23:41:03,390 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970863390 Rover state = Hibernating State
+2017-12-10 23:41:03,390 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1001 required = 60000
+2017-12-10 23:41:13,405 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61502
+2017-12-10 23:41:13,471 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878596183908E8
+stateCuriosity: -2.21649419289E8
+stateCuriosity: -1.12275930801E8
+stateCuriosity: -4.1494389611E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.265
+stateEarth: 2.21679319699E8
+stateEarth: 1.12291077056E8
+stateEarth: 4.1499985889E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.378
+positionEarthWRTCuriosity: 2.21679319699E8
+positionEarthWRTCuriosity: 1.12291077056E8
+positionEarthWRTCuriosity: 4.1499985889E7
+owltEarthMSL2: 840.378
+angSepHGAEarth: 141.381
+utcTime: "2016-01-01~00:02:08"
+sol: 1210
+sclkValue: " 1/01210:03:45:13:26438"
+
+2017-12-10 23:41:13,471 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.265
+2017-12-10 23:41:13,486 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:41:20,934 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970880934 Rover state = Hibernating State
+2017-12-10 23:41:20,934 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 18545 required = 60000
+2017-12-10 23:41:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 3
+2017-12-10 23:41:50,934 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970910934 Rover state = Hibernating State
+2017-12-10 23:41:50,934 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 48545 required = 60000
+2017-12-10 23:42:14,909 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 61503
+2017-12-10 23:42:14,977 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878599183908E8
+stateCuriosity: -2.21649334024E8
+stateCuriosity: -1.12275977066E8
+stateCuriosity: -4.1494411347E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.264
+stateEarth: 2.21679234391E8
+stateEarth: 1.12291123313E8
+stateEarth: 4.1500007624E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.378
+positionEarthWRTCuriosity: 2.21679234391E8
+positionEarthWRTCuriosity: 1.12291123313E8
+positionEarthWRTCuriosity: 4.1500007624E7
+owltEarthMSL2: 840.378
+angSepHGAEarth: 141.374
+utcTime: "2016-01-01~00:02:11"
+sol: 1210
+sclkValue: " 1/01210:03:45:16:18411"
+
+2017-12-10 23:42:14,977 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.264
+2017-12-10 23:42:14,991 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 23:42:20,934 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970940934 Rover state = Hibernating State
+2017-12-10 23:42:20,934 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 78545 required = 60000
+2017-12-10 23:42:21,935 [pool-25-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:42:30,030 [pool-25-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878600183908E8
+stateCuriosity: -2.21649305602E8
+stateCuriosity: -1.12275992488E8
+stateCuriosity: -4.1494418593E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.264
+stateEarth: 2.21679205955E8
+stateEarth: 1.12291138731E8
+stateEarth: 4.1500014869E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.378
+positionEarthWRTCuriosity: 2.21679205955E8
+positionEarthWRTCuriosity: 1.12291138731E8
+positionEarthWRTCuriosity: 4.1500014869E7
+owltEarthMSL2: 840.378
+angSepHGAEarth: 141.372
+utcTime: "2016-01-01~00:02:12"
+sol: 1210
+sclkValue: " 1/01210:03:45:17:15736"
+
+2017-12-10 23:42:30,030 [pool-25-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.264
+2017-12-10 23:42:30,044 [pool-25-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 23:42:33,045 [pool-26-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970942941 Rover state = Listening State
+2017-12-10 23:42:33,045 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 4
+2017-12-10 23:42:33,047 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512970750393
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 23:42:39,080 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512970959080,10,GetSeasonalWeather Current instructionQueue length = 3
+2017-12-10 23:42:39,080 [pool-6-thread-1] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512970959080 Power requested = 70 Critical = false
+2017-12-10 23:42:39,080 [pool-6-thread-1] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 23:42:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 4
+2017-12-10 23:42:52,935 [pool-26-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512970972935 Rover state = Hibernating State
+2017-12-10 23:42:52,936 [pool-26-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 13856 required = 60000
+2017-12-10 23:43:22,935 [pool-26-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512971002935 Rover state = Hibernating State
+2017-12-10 23:43:22,935 [pool-26-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 43855 required = 60000
+2017-12-10 23:43:39,243 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 4
+2017-12-10 23:43:52,935 [pool-26-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1512971032935 Rover state = Hibernating State
+2017-12-10 23:43:52,935 [pool-26-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 73855 required = 60000
+2017-12-10 23:43:53,936 [pool-26-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 23:44:02,008 [pool-26-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878606183908E8
+stateCuriosity: -2.2164913507E8
+stateCuriosity: -1.12276085017E8
+stateCuriosity: -4.1494462066E7
+stateCuriosity: 28.422
+stateCuriosity: -15.421
+stateCuriosity: -7.246
+owltMSLEarth: 840.264
+stateEarth: 2.21679035339E8
+stateEarth: 1.12291231244E8
+stateEarth: 4.1500058339E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.377
+positionEarthWRTCuriosity: 2.21679035339E8
+positionEarthWRTCuriosity: 1.12291231244E8
+positionEarthWRTCuriosity: 4.1500058339E7
+owltEarthMSL2: 840.377
+angSepHGAEarth: 141.358
+utcTime: "2016-01-01~00:02:18"
+sol: 1210
+sclkValue: " 1/01210:03:45:22:99682"
+
+2017-12-10 23:44:02,008 [pool-26-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.264
+2017-12-10 23:44:02,022 [pool-26-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
