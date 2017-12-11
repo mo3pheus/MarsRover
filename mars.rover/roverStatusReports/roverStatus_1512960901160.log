@@ -1,0 +1,4074 @@
+2017-12-10 20:55:02,457 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-01-01T00:00:00.000-06:00
+2017-12-10 20:55:02,458 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+2017-12-10 20:55:02,459 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+2017-12-10 20:55:15,396 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2017-12-10 20:55:15,497 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2017-12-10 20:55:15,497 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+2017-12-10 20:55:15,497 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.zionMainframe was supplied but isn't a known config.
+2017-12-10 20:55:15,498 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_5 was supplied but isn't a known config.
+2017-12-10 20:55:15,498 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+2017-12-10 20:55:15,498 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+2017-12-10 20:55:15,498 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_5 was supplied but isn't a known config.
+2017-12-10 20:55:15,499 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+2017-12-10 20:55:15,499 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+2017-12-10 20:55:15,636 [main] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2017-12-10 20:55:15,659 [main] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+2017-12-10 20:55:15,660 [main] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+2017-12-10 20:55:15,660 [main] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+2017-12-10 20:55:15,660 [main] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.zionMainframe
+2017-12-10 20:55:15,660 [main] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+2017-12-10 20:55:15,660 [main] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+2017-12-10 20:55:15,660 [main] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+2017-12-10 20:55:15,660 [main] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+2017-12-10 20:55:15,660 [main] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+2017-12-10 20:55:15,741 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], Connecting to zookeeper instance at localhost:2181
+2017-12-10 20:55:15,748 [ZkClient-EventThread-31-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_151
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/sanket/Documents/workspace/MarsRover/mars.rover/target/classes:/home/sanket/.m2/repository/org/apache/kafka/kafka_2.10/0.10.0.1/kafka_2.10-0.10.0.1.jar:/home/sanket/.m2/repository/com/101tec/zkclient/0.8/zkclient-0.8.jar:/home/sanket/.m2/repository/org/scala-lang/scala-library/2.10.6/scala-library-2.10.6.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-log4j12/1.7.21/slf4j-log4j12-1.7.21.jar:/home/sanket/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/home/sanket/.m2/repository/org/apache/kafka/kafka-clients/0.10.0.1/kafka-clients-0.10.0.1.jar:/home/sanket/.m2/repository/net/jpountz/lz4/lz4/1.3.0/lz4-1.3.0.jar:/home/sanket/.m2/repository/org/xerial/snappy/snappy-java/1.1.2.6/snappy-java-1.1.2.6.jar:/home/sanket/.m2/repository/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.jar:/home/sanket/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar:/home/sanket/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/sanket/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/sanket/.m2/repository/org/tensorflow/tensorflow/1.1.0/tensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow/1.1.0/libtensorflow-1.1.0.jar:/home/sanket/.m2/repository/org/tensorflow/libtensorflow_jni/1.1.0/libtensorflow_jni-1.1.0.jar:/home/sanket/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar:/home/sanket/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar:/home/sanket/.m2/repository/joda-time/joda-time/2.8.1/joda-time-2.8.1.jar:/home/sanket/.m2/repository/org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar:/home/sanket/.m2/repository/space/exploration/communications.protocol/1.1.4/communications.protocol-1.1.4.jar:/home/sanket/.m2/repository/com/google/protobuf/protobuf-java/3.4.0/protobuf-java-3.4.0.jar:/home/sanket/.m2/repository/space/exploration/spice.utilities/1.2.2/spice.utilities-1.2.2.jar:/home/sanket/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar:/home/sanket/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/sanket/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/sanket/Documents/Tools/idea/idea-IU-173.3727.127/lib/idea_rt.jar:/home/sanket/Documents/Tools/idea/idea-IU-173.3727.127/lib/rt/debugger-agent.jar
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=$LD_LIBRARY_PATH:"/home/sanket/Documents/workspace/SpiceUtilities/src/main/resources/JNISpice/lib/libJNISpice.so":/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-42-generic
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+2017-12-10 20:55:15,755 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+2017-12-10 20:55:15,756 [main] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@5778826f
+2017-12-10 20:55:15,765 [main] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+2017-12-10 20:55:15,767 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2017-12-10 20:55:15,771 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+2017-12-10 20:55:15,776 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x160431894db0005, negotiated timeout = 6000
+2017-12-10 20:55:15,777 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+2017-12-10 20:55:15,785 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], starting auto committer every 60000 ms
+2017-12-10 20:55:15,810 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], begin registering consumer space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7 in ZK
+2017-12-10 20:55:15,838 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.zionMainframe/ids/space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7 (is it secure? false)
+2017-12-10 20:55:15,850 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+2017-12-10 20:55:15,851 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], end registering consumer space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7 in ZK
+2017-12-10 20:55:15,855 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], starting watcher executor thread for consumer space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7
+2017-12-10 20:55:15,876 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], begin rebalancing consumer space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7 try #0
+2017-12-10 20:55:15,981 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1512960915783] Stopping leader finder thread
+2017-12-10 20:55:15,981 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1512960915783] Stopping all fetchers
+2017-12-10 20:55:15,982 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1512960915783] All connections stopped
+2017-12-10 20:55:15,983 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], Cleared all relevant queues for this fetcher
+2017-12-10 20:55:15,984 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], Cleared the data chunks in all the consumer message iterators
+2017-12-10 20:55:15,985 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], Committing all offsets after clearing the fetcher queues
+2017-12-10 20:55:15,987 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], Releasing partition ownership
+2017-12-10 20:55:16,019 [Thread-2] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_5 with consumers: List(space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-0)
+2017-12-10 20:55:16,022 [Thread-2] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-0 attempting to claim partition 0
+2017-12-10 20:55:16,039 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-0 successfully owned partition 0 for topic earth_to_curiosity_5
+2017-12-10 20:55:16,055 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], Consumer space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7 selected partitions : earth_to_curiosity_5:0: fetched offset = 95: consumed offset = 95
+2017-12-10 20:55:16,056 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread], Starting 
+2017-12-10 20:55:16,057 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7], end rebalancing consumer space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7 try #0
+2017-12-10 20:55:16,082 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2017-12-10 20:55:16,082 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.zionMainframe
+2017-12-10 20:55:16,082 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+2017-12-10 20:55:16,083 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+2017-12-10 20:55:16,095 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_5)
+2017-12-10 20:55:16,099 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+2017-12-10 20:55:16,112 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+2017-12-10 20:55:16,128 [ConsumerFetcherThread-space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-0-0], Starting 
+2017-12-10 20:55:16,131 [space.exploration.mars.zionMainframe_zion-mainframe-1512960915740-179af7e7-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1512960915783] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_5,0], initOffset 95 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+2017-12-10 20:55:16,163 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 375
+2017-12-10 20:55:16,272 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878468183908E8
+stateCuriosity: -2.21653057203E8
+stateCuriosity: -1.12273956673E8
+stateCuriosity: -4.1493462149E7
+stateCuriosity: 28.42
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682959416E8
+stateEarth: 1.12289103287E8
+stateEarth: 4.1499058509E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682959416E8
+positionEarthWRTCuriosity: 1.12289103287E8
+positionEarthWRTCuriosity: 4.1499058509E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.672
+utcTime: "2016-01-01~00:00:00"
+sol: 1210
+sclkValue: " 1/01210:03:43:08:68911"
+
+2017-12-10 20:55:16,272 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 20:55:23,937 [main] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:55:26,961 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960577818
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 20:55:33,050 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512960933050,0,ScanArea Current instructionQueue length = 0
+2017-12-10 20:55:33,050 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-10 20:55:53,416 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878471183908E8
+stateCuriosity: -2.21652971941E8
+stateCuriosity: -1.12274002946E8
+stateCuriosity: -4.1493483887E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682874112E8
+stateEarth: 1.1228914955E8
+stateEarth: 4.1499080245E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682874112E8
+positionEarthWRTCuriosity: 1.1228914955E8
+positionEarthWRTCuriosity: 4.1499080245E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.666
+utcTime: "2016-01-01~00:00:03"
+sol: 1210
+sclkValue: " 1/01210:03:43:11:60884"
+
+2017-12-10 20:55:53,417 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 20:55:53,431 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:55:56,432 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 40644
+2017-12-10 20:55:56,502 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878471183908E8
+stateCuriosity: -2.21652971941E8
+stateCuriosity: -1.12274002946E8
+stateCuriosity: -4.1493483887E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682874112E8
+stateEarth: 1.1228914955E8
+stateEarth: 4.1499080245E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682874112E8
+positionEarthWRTCuriosity: 1.1228914955E8
+positionEarthWRTCuriosity: 4.1499080245E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.666
+utcTime: "2016-01-01~00:00:03"
+sol: 1210
+sclkValue: " 1/01210:03:43:11:60884"
+
+2017-12-10 20:55:56,502 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 20:55:56,516 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960609327
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 20:56:02,537 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512960962537,0,ScanArea Current instructionQueue length = 0
+2017-12-10 20:56:02,537 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-10 20:56:22,875 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878472183908E8
+stateCuriosity: -2.21652943521E8
+stateCuriosity: -1.1227401837E8
+stateCuriosity: -4.1493491133E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682845677E8
+stateEarth: 1.12289164972E8
+stateEarth: 4.149908749E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682845677E8
+positionEarthWRTCuriosity: 1.12289164972E8
+positionEarthWRTCuriosity: 4.149908749E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.663
+utcTime: "2016-01-01~00:00:04"
+sol: 1210
+sclkValue: " 1/01210:03:43:12:58209"
+
+2017-12-10 20:56:22,875 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 20:56:22,889 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:56:25,890 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 29458
+2017-12-10 20:56:25,969 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878472183908E8
+stateCuriosity: -2.21652943521E8
+stateCuriosity: -1.1227401837E8
+stateCuriosity: -4.1493491133E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682845677E8
+stateEarth: 1.12289164972E8
+stateEarth: 4.149908749E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682845677E8
+positionEarthWRTCuriosity: 1.12289164972E8
+positionEarthWRTCuriosity: 4.149908749E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.663
+utcTime: "2016-01-01~00:00:04"
+sol: 1210
+sclkValue: " 1/01210:03:43:12:58209"
+
+2017-12-10 20:56:25,971 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878472183908E8
+stateCuriosity: -2.21652943521E8
+stateCuriosity: -1.1227401837E8
+stateCuriosity: -4.1493491133E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682845677E8
+stateEarth: 1.12289164972E8
+stateEarth: 4.149908749E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682845677E8
+positionEarthWRTCuriosity: 1.12289164972E8
+positionEarthWRTCuriosity: 4.149908749E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.663
+utcTime: "2016-01-01~00:00:04"
+sol: 1210
+sclkValue: " 1/01210:03:43:12:58209"
+
+2017-12-10 20:56:25,971 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 20:56:25,978 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:05.040-06:00 sclk of::1/01210:03:43:13:55533
+2017-12-10 20:56:32,070 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878473183908E8
+stateCuriosity: -2.216529151E8
+stateCuriosity: -1.12274033794E8
+stateCuriosity: -4.1493498379E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682817243E8
+stateEarth: 1.12289180393E8
+stateEarth: 4.1499094735E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682817243E8
+positionEarthWRTCuriosity: 1.12289180393E8
+positionEarthWRTCuriosity: 4.1499094735E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.661
+utcTime: "2016-01-01~00:00:05"
+sol: 1210
+sclkValue: " 1/01210:03:43:13:55533"
+
+2017-12-10 20:56:32,070 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 20:56:32,084 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:56:35,086 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960640832
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "CHEMCAM"
+}
+
+2017-12-10 20:56:41,108 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961001108,8,ClickCamera Current instructionQueue length = 0
+2017-12-10 20:56:41,108 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+2017-12-10 20:56:51,010 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878474183908E8
+stateCuriosity: -2.2165288668E8
+stateCuriosity: -1.12274049218E8
+stateCuriosity: -4.1493505625E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682788808E8
+stateEarth: 1.12289195814E8
+stateEarth: 4.1499101981E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682788808E8
+positionEarthWRTCuriosity: 1.12289195814E8
+positionEarthWRTCuriosity: 4.1499101981E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.659
+utcTime: "2016-01-01~00:00:06"
+sol: 1210
+sclkValue: " 1/01210:03:43:14:52857"
+
+2017-12-10 20:56:51,010 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 20:56:51,025 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:56:54,026 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 28136
+2017-12-10 20:56:54,099 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878474183908E8
+stateCuriosity: -2.2165288668E8
+stateCuriosity: -1.12274049218E8
+stateCuriosity: -4.1493505625E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.272
+stateEarth: 2.21682788808E8
+stateEarth: 1.12289195814E8
+stateEarth: 4.1499101981E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682788808E8
+positionEarthWRTCuriosity: 1.12289195814E8
+positionEarthWRTCuriosity: 4.1499101981E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.659
+utcTime: "2016-01-01~00:00:06"
+sol: 1210
+sclkValue: " 1/01210:03:43:14:52857"
+
+2017-12-10 20:56:54,099 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.272
+2017-12-10 20:56:54,114 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960672337
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+2017-12-10 20:57:00,151 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961020151,9,PerformRadarScan Current instructionQueue length = 0
+2017-12-10 20:57:00,151 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+2017-12-10 20:57:55,642 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878478183908E8
+stateCuriosity: -2.21652772997E8
+stateCuriosity: -1.12274110913E8
+stateCuriosity: -4.1493534609E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682675069E8
+stateEarth: 1.12289257499E8
+stateEarth: 4.1499130962E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682675069E8
+positionEarthWRTCuriosity: 1.12289257499E8
+positionEarthWRTCuriosity: 4.1499130962E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.65
+utcTime: "2016-01-01~00:00:10"
+sol: 1210
+sclkValue: " 1/01210:03:43:18:42155"
+
+2017-12-10 20:57:55,642 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:57:55,656 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:57:58,658 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 64631
+2017-12-10 20:57:58,737 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878478183908E8
+stateCuriosity: -2.21652772997E8
+stateCuriosity: -1.12274110913E8
+stateCuriosity: -4.1493534609E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682675069E8
+stateEarth: 1.12289257499E8
+stateEarth: 4.1499130962E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682675069E8
+positionEarthWRTCuriosity: 1.12289257499E8
+positionEarthWRTCuriosity: 4.1499130962E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.65
+utcTime: "2016-01-01~00:00:10"
+sol: 1210
+sclkValue: " 1/01210:03:43:18:42155"
+
+2017-12-10 20:57:58,737 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:57:58,738 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878478183908E8
+stateCuriosity: -2.21652772997E8
+stateCuriosity: -1.12274110913E8
+stateCuriosity: -4.1493534609E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682675069E8
+stateEarth: 1.12289257499E8
+stateEarth: 4.1499130962E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682675069E8
+positionEarthWRTCuriosity: 1.12289257499E8
+positionEarthWRTCuriosity: 4.1499130962E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.65
+utcTime: "2016-01-01~00:00:10"
+sol: 1210
+sclkValue: " 1/01210:03:43:18:42155"
+
+2017-12-10 20:57:58,738 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:10.620-06:00 sclk of::1/01210:03:43:18:42155
+2017-12-10 20:58:04,839 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878478183908E8
+stateCuriosity: -2.21652772997E8
+stateCuriosity: -1.12274110913E8
+stateCuriosity: -4.1493534609E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682675069E8
+stateEarth: 1.12289257499E8
+stateEarth: 4.1499130962E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682675069E8
+positionEarthWRTCuriosity: 1.12289257499E8
+positionEarthWRTCuriosity: 4.1499130962E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.65
+utcTime: "2016-01-01~00:00:10"
+sol: 1210
+sclkValue: " 1/01210:03:43:18:42155"
+
+2017-12-10 20:58:04,839 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:58:04,854 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:58:07,857 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960703842
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 20:58:07,928 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878479183908E8
+stateCuriosity: -2.21652744577E8
+stateCuriosity: -1.12274126337E8
+stateCuriosity: -4.1493541855E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682646635E8
+stateEarth: 1.1228927292E8
+stateEarth: 4.1499138208E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682646635E8
+positionEarthWRTCuriosity: 1.1228927292E8
+positionEarthWRTCuriosity: 4.1499138208E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.647
+utcTime: "2016-01-01~00:00:11"
+sol: 1210
+sclkValue: " 1/01210:03:43:19:39480"
+
+2017-12-10 20:58:13,893 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961093893,5,Explore Current instructionQueue length = 0
+2017-12-10 20:58:13,895 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 20:58:45,024 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878481183908E8
+stateCuriosity: -2.21652687735E8
+stateCuriosity: -1.12274157185E8
+stateCuriosity: -4.1493556347E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682589765E8
+stateEarth: 1.12289303762E8
+stateEarth: 4.1499152698E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682589765E8
+positionEarthWRTCuriosity: 1.12289303762E8
+positionEarthWRTCuriosity: 4.1499152698E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.643
+utcTime: "2016-01-01~00:00:13"
+sol: 1210
+sclkValue: " 1/01210:03:43:21:34128"
+
+2017-12-10 20:58:45,024 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:58:45,038 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:58:48,039 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 49380
+2017-12-10 20:58:48,040 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:13.560-06:00 sclk of::1/01210:03:43:21:34128
+2017-12-10 20:58:48,112 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878481183908E8
+stateCuriosity: -2.21652687735E8
+stateCuriosity: -1.12274157185E8
+stateCuriosity: -4.1493556347E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682589765E8
+stateEarth: 1.12289303762E8
+stateEarth: 4.1499152698E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682589765E8
+positionEarthWRTCuriosity: 1.12289303762E8
+positionEarthWRTCuriosity: 4.1499152698E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.643
+utcTime: "2016-01-01~00:00:13"
+sol: 1210
+sclkValue: " 1/01210:03:43:21:34128"
+
+2017-12-10 20:58:48,112 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:58:54,146 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878481183908E8
+stateCuriosity: -2.21652687735E8
+stateCuriosity: -1.12274157185E8
+stateCuriosity: -4.1493556347E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682589765E8
+stateEarth: 1.12289303762E8
+stateEarth: 4.1499152698E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.385
+positionEarthWRTCuriosity: 2.21682589765E8
+positionEarthWRTCuriosity: 1.12289303762E8
+positionEarthWRTCuriosity: 4.1499152698E7
+owltEarthMSL2: 840.385
+angSepHGAEarth: 141.643
+utcTime: "2016-01-01~00:00:13"
+sol: 1210
+sclkValue: " 1/01210:03:43:21:34128"
+
+2017-12-10 20:58:54,146 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:58:54,160 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:58:57,162 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960735349
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\330\004\020\251\003"
+}
+
+2017-12-10 20:59:03,195 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961143195,1,Move Current instructionQueue length = 0
+2017-12-10 20:59:03,244 [Thread-2] ERROR space.exploration.mars.rover.navigation.NavigationEngine  - No path was found between start =>  and end => 
+2017-12-10 20:59:03,245 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.propulsion.PropulsionUnit.requestPropulsion(PropulsionUnit.java:53)
+	at space.exploration.mars.rover.propulsion.PropulsionUnit.<init>(PropulsionUnit.java:28)
+	at space.exploration.mars.rover.kernel.ListeningState.requestPower(ListeningState.java:123)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:56)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-10 20:59:03,249 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15209
+2017-12-10 20:59:03,287 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878482183908E8
+stateCuriosity: -2.21652659315E8
+stateCuriosity: -1.12274172609E8
+stateCuriosity: -4.1493563593E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.2168256133E8
+stateEarth: 1.12289319183E8
+stateEarth: 4.1499159944E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.2168256133E8
+positionEarthWRTCuriosity: 1.12289319183E8
+positionEarthWRTCuriosity: 4.1499159944E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.641
+utcTime: "2016-01-01~00:00:14"
+sol: 1210
+sclkValue: " 1/01210:03:43:22:31453"
+
+2017-12-10 20:59:03,287 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:59:03,301 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960766851
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 20:59:09,331 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961149331,0,ScanArea Current instructionQueue length = 0
+2017-12-10 20:59:09,332 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-10 20:59:29,744 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878484183908E8
+stateCuriosity: -2.21652602473E8
+stateCuriosity: -1.12274203457E8
+stateCuriosity: -4.1493578085E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682504461E8
+stateEarth: 1.12289350025E8
+stateEarth: 4.1499174434E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682504461E8
+positionEarthWRTCuriosity: 1.12289350025E8
+positionEarthWRTCuriosity: 4.1499174434E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.636
+utcTime: "2016-01-01~00:00:16"
+sol: 1210
+sclkValue: " 1/01210:03:43:24:26102"
+
+2017-12-10 20:59:29,744 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:59:29,758 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:59:32,759 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 29510
+2017-12-10 20:59:32,837 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878484183908E8
+stateCuriosity: -2.21652602473E8
+stateCuriosity: -1.12274203457E8
+stateCuriosity: -4.1493578085E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682504461E8
+stateEarth: 1.12289350025E8
+stateEarth: 4.1499174434E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682504461E8
+positionEarthWRTCuriosity: 1.12289350025E8
+positionEarthWRTCuriosity: 4.1499174434E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.636
+utcTime: "2016-01-01~00:00:16"
+sol: 1210
+sclkValue: " 1/01210:03:43:24:26102"
+
+2017-12-10 20:59:32,837 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:16.260-06:00 sclk of::1/01210:03:43:24:26102
+2017-12-10 20:59:32,840 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878484183908E8
+stateCuriosity: -2.21652602473E8
+stateCuriosity: -1.12274203457E8
+stateCuriosity: -4.1493578085E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682504461E8
+stateEarth: 1.12289350025E8
+stateEarth: 4.1499174434E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682504461E8
+positionEarthWRTCuriosity: 1.12289350025E8
+positionEarthWRTCuriosity: 4.1499174434E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.636
+utcTime: "2016-01-01~00:00:16"
+sol: 1210
+sclkValue: " 1/01210:03:43:24:26102"
+
+2017-12-10 20:59:32,840 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:59:38,935 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878484183908E8
+stateCuriosity: -2.21652602473E8
+stateCuriosity: -1.12274203457E8
+stateCuriosity: -4.1493578085E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682504461E8
+stateEarth: 1.12289350025E8
+stateEarth: 4.1499174434E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682504461E8
+positionEarthWRTCuriosity: 1.12289350025E8
+positionEarthWRTCuriosity: 4.1499174434E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.636
+utcTime: "2016-01-01~00:00:16"
+sol: 1210
+sclkValue: " 1/01210:03:43:24:26102"
+
+2017-12-10 20:59:38,935 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 20:59:38,949 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 20:59:41,954 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960798357
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+2017-12-10 20:59:47,991 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961187991,9,PerformRadarScan Current instructionQueue length = 0
+2017-12-10 20:59:47,992 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+2017-12-10 21:00:43,544 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878488183908E8
+stateCuriosity: -2.21652488791E8
+stateCuriosity: -1.12274265152E8
+stateCuriosity: -4.1493607069E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682390722E8
+stateEarth: 1.12289411709E8
+stateEarth: 4.1499203416E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682390722E8
+positionEarthWRTCuriosity: 1.12289411709E8
+positionEarthWRTCuriosity: 4.1499203416E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.627
+utcTime: "2016-01-01~00:00:20"
+sol: 1210
+sclkValue: " 1/01210:03:43:28:15399"
+
+2017-12-10 21:00:43,544 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 21:00:43,558 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:00:46,559 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 73799
+2017-12-10 21:00:46,630 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878488183908E8
+stateCuriosity: -2.21652488791E8
+stateCuriosity: -1.12274265152E8
+stateCuriosity: -4.1493607069E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682390722E8
+stateEarth: 1.12289411709E8
+stateEarth: 4.1499203416E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682390722E8
+positionEarthWRTCuriosity: 1.12289411709E8
+positionEarthWRTCuriosity: 4.1499203416E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.627
+utcTime: "2016-01-01~00:00:20"
+sol: 1210
+sclkValue: " 1/01210:03:43:28:15399"
+
+2017-12-10 21:00:46,630 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:20.700-06:00 sclk of::1/01210:03:43:28:15399
+2017-12-10 21:00:46,632 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878488183908E8
+stateCuriosity: -2.21652488791E8
+stateCuriosity: -1.12274265152E8
+stateCuriosity: -4.1493607069E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682390722E8
+stateEarth: 1.12289411709E8
+stateEarth: 4.1499203416E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682390722E8
+positionEarthWRTCuriosity: 1.12289411709E8
+positionEarthWRTCuriosity: 4.1499203416E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.627
+utcTime: "2016-01-01~00:00:20"
+sol: 1210
+sclkValue: " 1/01210:03:43:28:15399"
+
+2017-12-10 21:00:46,633 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 21:00:52,727 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878489183908E8
+stateCuriosity: -2.2165246037E8
+stateCuriosity: -1.12274280575E8
+stateCuriosity: -4.1493614315E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682362287E8
+stateEarth: 1.12289427129E8
+stateEarth: 4.1499210661E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682362287E8
+positionEarthWRTCuriosity: 1.12289427129E8
+positionEarthWRTCuriosity: 4.1499210661E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.625
+utcTime: "2016-01-01~00:00:21"
+sol: 1210
+sclkValue: " 1/01210:03:43:29:12724"
+
+2017-12-10 21:00:52,727 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 21:00:52,742 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:00:55,744 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960829868
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 21:01:01,782 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961261782,0,ScanArea Current instructionQueue length = 0
+2017-12-10 21:01:01,782 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-10 21:01:22,182 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878490183908E8
+stateCuriosity: -2.21652431949E8
+stateCuriosity: -1.12274295999E8
+stateCuriosity: -4.149362156E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682333852E8
+stateEarth: 1.1228944255E8
+stateEarth: 4.1499217906E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682333852E8
+positionEarthWRTCuriosity: 1.1228944255E8
+positionEarthWRTCuriosity: 4.1499217906E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.622
+utcTime: "2016-01-01~00:00:22"
+sol: 1210
+sclkValue: " 1/01210:03:43:30:10048"
+
+2017-12-10 21:01:22,182 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 21:01:22,197 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:01:25,198 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 38639
+2017-12-10 21:01:25,271 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878490183908E8
+stateCuriosity: -2.21652431949E8
+stateCuriosity: -1.12274295999E8
+stateCuriosity: -4.149362156E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682333852E8
+stateEarth: 1.1228944255E8
+stateEarth: 4.1499217906E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682333852E8
+positionEarthWRTCuriosity: 1.1228944255E8
+positionEarthWRTCuriosity: 4.1499217906E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.622
+utcTime: "2016-01-01~00:00:22"
+sol: 1210
+sclkValue: " 1/01210:03:43:30:10048"
+
+2017-12-10 21:01:25,272 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:22.980-06:00 sclk of::1/01210:03:43:30:10048
+2017-12-10 21:01:25,272 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878490183908E8
+stateCuriosity: -2.21652431949E8
+stateCuriosity: -1.12274295999E8
+stateCuriosity: -4.149362156E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682333852E8
+stateEarth: 1.1228944255E8
+stateEarth: 4.1499217906E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682333852E8
+positionEarthWRTCuriosity: 1.1228944255E8
+positionEarthWRTCuriosity: 4.1499217906E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.622
+utcTime: "2016-01-01~00:00:22"
+sol: 1210
+sclkValue: " 1/01210:03:43:30:10048"
+
+2017-12-10 21:01:25,272 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 21:01:31,370 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878491183908E8
+stateCuriosity: -2.21652403528E8
+stateCuriosity: -1.12274311423E8
+stateCuriosity: -4.1493628806E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.271
+stateEarth: 2.21682305417E8
+stateEarth: 1.12289457971E8
+stateEarth: 4.1499225152E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682305417E8
+positionEarthWRTCuriosity: 1.12289457971E8
+positionEarthWRTCuriosity: 4.1499225152E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.62
+utcTime: "2016-01-01~00:00:23"
+sol: 1210
+sclkValue: " 1/01210:03:43:31:07373"
+
+2017-12-10 21:01:31,370 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.271
+2017-12-10 21:01:31,384 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:01:34,386 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960861370
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 21:01:40,418 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961300418,5,Explore Current instructionQueue length = 0
+2017-12-10 21:01:40,418 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 21:02:11,536 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878493183908E8
+stateCuriosity: -2.21652346687E8
+stateCuriosity: -1.1227434227E8
+stateCuriosity: -4.1493643298E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682248547E8
+stateEarth: 1.12289488813E8
+stateEarth: 4.1499239642E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682248547E8
+positionEarthWRTCuriosity: 1.12289488813E8
+positionEarthWRTCuriosity: 4.1499239642E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.616
+utcTime: "2016-01-01~00:00:25"
+sol: 1210
+sclkValue: " 1/01210:03:43:33:02022"
+
+2017-12-10 21:02:11,536 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:02:11,550 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:02:14,551 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 49353
+2017-12-10 21:02:14,623 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878493183908E8
+stateCuriosity: -2.21652346687E8
+stateCuriosity: -1.1227434227E8
+stateCuriosity: -4.1493643298E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682248547E8
+stateEarth: 1.12289488813E8
+stateEarth: 4.1499239642E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682248547E8
+positionEarthWRTCuriosity: 1.12289488813E8
+positionEarthWRTCuriosity: 4.1499239642E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.616
+utcTime: "2016-01-01~00:00:25"
+sol: 1210
+sclkValue: " 1/01210:03:43:33:02022"
+
+2017-12-10 21:02:14,623 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:02:14,623 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878493183908E8
+stateCuriosity: -2.21652346687E8
+stateCuriosity: -1.1227434227E8
+stateCuriosity: -4.1493643298E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682248547E8
+stateEarth: 1.12289488813E8
+stateEarth: 4.1499239642E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682248547E8
+positionEarthWRTCuriosity: 1.12289488813E8
+positionEarthWRTCuriosity: 4.1499239642E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.616
+utcTime: "2016-01-01~00:00:25"
+sol: 1210
+sclkValue: " 1/01210:03:43:33:02022"
+
+2017-12-10 21:02:14,623 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:25.980-06:00 sclk of::1/01210:03:43:33:02022
+2017-12-10 21:02:20,715 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878494183908E8
+stateCuriosity: -2.21652318266E8
+stateCuriosity: -1.12274357693E8
+stateCuriosity: -4.1493650544E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682220113E8
+stateEarth: 1.12289504234E8
+stateEarth: 4.1499246888E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682220113E8
+positionEarthWRTCuriosity: 1.12289504234E8
+positionEarthWRTCuriosity: 4.1499246888E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.613
+utcTime: "2016-01-01~00:00:26"
+sol: 1210
+sclkValue: " 1/01210:03:43:33:99346"
+
+2017-12-10 21:02:20,715 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:02:20,729 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:02:23,730 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960892875
+targets {
+  roverModule: 11
+  action: "GetSclkInformation"
+}
+
+2017-12-10 21:02:29,764 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961349764,11,GetSclkInformation Current instructionQueue length = 0
+2017-12-10 21:02:29,764 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will get detailed spacecraftClock information. Houston, this is CuriosityActual.
+2017-12-10 21:02:29,777 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:26.880-06:00 sclk of::1/01210:03:43:33:99346
+2017-12-10 21:02:35,876 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878495183908E8
+stateCuriosity: -2.21652289845E8
+stateCuriosity: -1.12274373117E8
+stateCuriosity: -4.149365779E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682191678E8
+stateEarth: 1.12289519654E8
+stateEarth: 4.1499254133E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682191678E8
+positionEarthWRTCuriosity: 1.12289519654E8
+positionEarthWRTCuriosity: 4.1499254133E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.611
+utcTime: "2016-01-01~00:00:27"
+sol: 1210
+sclkValue: " 1/01210:03:43:34:96670"
+
+2017-12-10 21:02:35,876 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:02:35,890 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:02:38,891 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 24340
+2017-12-10 21:02:38,961 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878495183908E8
+stateCuriosity: -2.21652289845E8
+stateCuriosity: -1.12274373117E8
+stateCuriosity: -4.149365779E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682191678E8
+stateEarth: 1.12289519654E8
+stateEarth: 4.1499254133E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682191678E8
+positionEarthWRTCuriosity: 1.12289519654E8
+positionEarthWRTCuriosity: 4.1499254133E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.611
+utcTime: "2016-01-01~00:00:27"
+sol: 1210
+sclkValue: " 1/01210:03:43:34:96670"
+
+2017-12-10 21:02:38,961 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:02:38,976 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960924380
+targets {
+  roverModule: 11
+  action: "GetSclkInformation"
+}
+
+2017-12-10 21:02:45,006 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961365006,11,GetSclkInformation Current instructionQueue length = 0
+2017-12-10 21:02:45,007 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will get detailed spacecraftClock information. Houston, this is CuriosityActual.
+2017-12-10 21:02:45,007 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:27.780-06:00 sclk of::1/01210:03:43:34:96670
+2017-12-10 21:02:51,105 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878496183908E8
+stateCuriosity: -2.21652261425E8
+stateCuriosity: -1.12274388541E8
+stateCuriosity: -4.1493665036E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682163243E8
+stateEarth: 1.12289535075E8
+stateEarth: 4.1499261378E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682163243E8
+positionEarthWRTCuriosity: 1.12289535075E8
+positionEarthWRTCuriosity: 4.1499261378E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.609
+utcTime: "2016-01-01~00:00:28"
+sol: 1210
+sclkValue: " 1/01210:03:43:35:93995"
+
+2017-12-10 21:02:51,105 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:02:51,119 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:02:54,121 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15229
+2017-12-10 21:02:54,193 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878496183908E8
+stateCuriosity: -2.21652261425E8
+stateCuriosity: -1.12274388541E8
+stateCuriosity: -4.1493665036E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682163243E8
+stateEarth: 1.12289535075E8
+stateEarth: 4.1499261378E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682163243E8
+positionEarthWRTCuriosity: 1.12289535075E8
+positionEarthWRTCuriosity: 4.1499261378E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.609
+utcTime: "2016-01-01~00:00:28"
+sol: 1210
+sclkValue: " 1/01210:03:43:35:93995"
+
+2017-12-10 21:02:54,193 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:02:54,207 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960955885
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "MARDI"
+}
+
+2017-12-10 21:03:00,239 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961380239,8,ClickCamera Current instructionQueue length = 0
+2017-12-10 21:03:00,239 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+2017-12-10 21:03:09,755 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878497183908E8
+stateCuriosity: -2.21652233004E8
+stateCuriosity: -1.12274403964E8
+stateCuriosity: -4.1493672282E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682134808E8
+stateEarth: 1.12289550496E8
+stateEarth: 4.1499268624E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682134808E8
+positionEarthWRTCuriosity: 1.12289550496E8
+positionEarthWRTCuriosity: 4.1499268624E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.606
+utcTime: "2016-01-01~00:00:29"
+sol: 1210
+sclkValue: " 1/01210:03:43:36:91319"
+
+2017-12-10 21:03:09,755 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:03:09,769 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:03:12,770 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 18649
+2017-12-10 21:03:12,853 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878497183908E8
+stateCuriosity: -2.21652233004E8
+stateCuriosity: -1.12274403964E8
+stateCuriosity: -4.1493672282E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682134808E8
+stateEarth: 1.12289550496E8
+stateEarth: 4.1499268624E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682134808E8
+positionEarthWRTCuriosity: 1.12289550496E8
+positionEarthWRTCuriosity: 4.1499268624E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.606
+utcTime: "2016-01-01~00:00:29"
+sol: 1210
+sclkValue: " 1/01210:03:43:36:91319"
+
+2017-12-10 21:03:12,854 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:29.460-06:00 sclk of::1/01210:03:43:36:91319
+2017-12-10 21:03:12,854 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878497183908E8
+stateCuriosity: -2.21652233004E8
+stateCuriosity: -1.12274403964E8
+stateCuriosity: -4.1493672282E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682134808E8
+stateEarth: 1.12289550496E8
+stateEarth: 4.1499268624E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682134808E8
+positionEarthWRTCuriosity: 1.12289550496E8
+positionEarthWRTCuriosity: 4.1499268624E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.606
+utcTime: "2016-01-01~00:00:29"
+sol: 1210
+sclkValue: " 1/01210:03:43:36:91319"
+
+2017-12-10 21:03:12,855 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:03:18,955 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878497183908E8
+stateCuriosity: -2.21652233004E8
+stateCuriosity: -1.12274403964E8
+stateCuriosity: -4.1493672282E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682134808E8
+stateEarth: 1.12289550496E8
+stateEarth: 4.1499268624E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682134808E8
+positionEarthWRTCuriosity: 1.12289550496E8
+positionEarthWRTCuriosity: 4.1499268624E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.606
+utcTime: "2016-01-01~00:00:29"
+sol: 1210
+sclkValue: " 1/01210:03:43:36:91319"
+
+2017-12-10 21:03:18,956 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:03:18,970 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:03:21,973 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512960987391
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 21:03:28,006 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961408006,10,GetSeasonalWeather Current instructionQueue length = 0
+2017-12-10 21:03:28,006 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2017-12-10 21:03:28,007 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2017-12-10 21:03:31,433 [Thread-2] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - Weather Service had an exception.
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1927)
+	at space.exploration.mars.rover.utils.WeatherUtil.getValue(WeatherUtil.java:89)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:17)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:48)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:52)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:97)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-10 21:03:31,433 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+2017-12-10 21:03:37,530 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878498183908E8
+stateCuriosity: -2.21652204583E8
+stateCuriosity: -1.12274419388E8
+stateCuriosity: -4.1493679528E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682106373E8
+stateEarth: 1.12289565917E8
+stateEarth: 4.1499275869E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682106373E8
+positionEarthWRTCuriosity: 1.12289565917E8
+positionEarthWRTCuriosity: 4.1499275869E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.604
+utcTime: "2016-01-01~00:00:30"
+sol: 1210
+sclkValue: " 1/01210:03:43:37:88644"
+
+2017-12-10 21:03:37,530 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:03:37,544 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:03:40,545 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 27775
+2017-12-10 21:03:40,583 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878499183908E8
+stateCuriosity: -2.21652176162E8
+stateCuriosity: -1.12274434811E8
+stateCuriosity: -4.1493686774E7
+stateCuriosity: 28.421
+stateCuriosity: -15.424
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682077938E8
+stateEarth: 1.12289581337E8
+stateEarth: 4.1499283114E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.384
+positionEarthWRTCuriosity: 2.21682077938E8
+positionEarthWRTCuriosity: 1.12289581337E8
+positionEarthWRTCuriosity: 4.1499283114E7
+owltEarthMSL2: 840.384
+angSepHGAEarth: 141.602
+utcTime: "2016-01-01~00:00:31"
+sol: 1210
+sclkValue: " 1/01210:03:43:38:85968"
+
+2017-12-10 21:03:40,583 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:03:40,597 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961018902
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 21:03:46,624 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961426624,5,Explore Current instructionQueue length = 0
+2017-12-10 21:03:46,625 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 21:04:17,736 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878501183908E8
+stateCuriosity: -2.2165211932E8
+stateCuriosity: -1.12274465658E8
+stateCuriosity: -4.1493701266E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682021068E8
+stateEarth: 1.12289612179E8
+stateEarth: 4.1499297605E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21682021068E8
+positionEarthWRTCuriosity: 1.12289612179E8
+positionEarthWRTCuriosity: 4.1499297605E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.597
+utcTime: "2016-01-01~00:00:33"
+sol: 1210
+sclkValue: " 1/01210:03:43:40:80617"
+
+2017-12-10 21:04:17,736 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:04:17,750 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:04:20,751 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 40206
+2017-12-10 21:04:20,819 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878501183908E8
+stateCuriosity: -2.2165211932E8
+stateCuriosity: -1.12274465658E8
+stateCuriosity: -4.1493701266E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682021068E8
+stateEarth: 1.12289612179E8
+stateEarth: 4.1499297605E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21682021068E8
+positionEarthWRTCuriosity: 1.12289612179E8
+positionEarthWRTCuriosity: 4.1499297605E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.597
+utcTime: "2016-01-01~00:00:33"
+sol: 1210
+sclkValue: " 1/01210:03:43:40:80617"
+
+2017-12-10 21:04:20,819 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:33.540-06:00 sclk of::1/01210:03:43:40:80617
+2017-12-10 21:04:20,821 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878501183908E8
+stateCuriosity: -2.2165211932E8
+stateCuriosity: -1.12274465658E8
+stateCuriosity: -4.1493701266E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682021068E8
+stateEarth: 1.12289612179E8
+stateEarth: 4.1499297605E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21682021068E8
+positionEarthWRTCuriosity: 1.12289612179E8
+positionEarthWRTCuriosity: 4.1499297605E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.597
+utcTime: "2016-01-01~00:00:33"
+sol: 1210
+sclkValue: " 1/01210:03:43:40:80617"
+
+2017-12-10 21:04:20,821 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:04:26,918 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878501183908E8
+stateCuriosity: -2.2165211932E8
+stateCuriosity: -1.12274465658E8
+stateCuriosity: -4.1493701266E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21682021068E8
+stateEarth: 1.12289612179E8
+stateEarth: 4.1499297605E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21682021068E8
+positionEarthWRTCuriosity: 1.12289612179E8
+positionEarthWRTCuriosity: 4.1499297605E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.597
+utcTime: "2016-01-01~00:00:33"
+sol: 1210
+sclkValue: " 1/01210:03:43:40:80617"
+
+2017-12-10 21:04:26,918 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:04:26,933 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:04:29,936 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961050408
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\bd\020\277\004"
+}
+
+2017-12-10 21:04:35,971 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961475971,1,Move Current instructionQueue length = 0
+2017-12-10 21:04:35,994 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on the move!
+2017-12-10 21:04:36,056 [Thread-2] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay commenced.
+2017-12-10 21:05:15,085 [Thread-2] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 90
+2017-12-10 21:05:24,184 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878505183908E8
+stateCuriosity: -2.21652005637E8
+stateCuriosity: -1.12274527352E8
+stateCuriosity: -4.1493730249E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681907328E8
+stateEarth: 1.12289673861E8
+stateEarth: 4.1499326586E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681907328E8
+positionEarthWRTCuriosity: 1.12289673861E8
+positionEarthWRTCuriosity: 4.1499326586E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.588
+utcTime: "2016-01-01~00:00:37"
+sol: 1210
+sclkValue: " 1/01210:03:43:44:69915"
+
+2017-12-10 21:05:24,184 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:24,198 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:05:27,199 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 66448
+2017-12-10 21:05:27,200 [pool-7-thread-1] ERROR space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor has put the rover into hibernating mode.
+2017-12-10 21:05:27,201 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 0 required = 60000
+2017-12-10 21:05:27,276 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878505183908E8
+stateCuriosity: -2.21652005637E8
+stateCuriosity: -1.12274527352E8
+stateCuriosity: -4.1493730249E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681907328E8
+stateEarth: 1.12289673861E8
+stateEarth: 4.1499326586E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681907328E8
+positionEarthWRTCuriosity: 1.12289673861E8
+positionEarthWRTCuriosity: 4.1499326586E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.588
+utcTime: "2016-01-01~00:00:37"
+sol: 1210
+sclkValue: " 1/01210:03:43:44:69915"
+
+2017-12-10 21:05:27,276 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:37.500-06:00 sclk of::1/01210:03:43:44:69915
+2017-12-10 21:05:27,277 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878505183908E8
+stateCuriosity: -2.21652005637E8
+stateCuriosity: -1.12274527352E8
+stateCuriosity: -4.1493730249E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681907328E8
+stateEarth: 1.12289673861E8
+stateEarth: 4.1499326586E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681907328E8
+positionEarthWRTCuriosity: 1.12289673861E8
+positionEarthWRTCuriosity: 4.1499326586E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.588
+utcTime: "2016-01-01~00:00:37"
+sol: 1210
+sclkValue: " 1/01210:03:43:44:69915"
+
+2017-12-10 21:05:27,277 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:33,373 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878505183908E8
+stateCuriosity: -2.21652005637E8
+stateCuriosity: -1.12274527352E8
+stateCuriosity: -4.1493730249E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681907328E8
+stateEarth: 1.12289673861E8
+stateEarth: 4.1499326586E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681907328E8
+positionEarthWRTCuriosity: 1.12289673861E8
+positionEarthWRTCuriosity: 4.1499326586E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.588
+utcTime: "2016-01-01~00:00:37"
+sol: 1210
+sclkValue: " 1/01210:03:43:44:69915"
+
+2017-12-10 21:05:33,374 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:33,388 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:05:36,390 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961081912
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "MAHLI"
+}
+
+2017-12-10 21:05:42,423 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961542423,8,ClickCamera Current instructionQueue length = 0
+2017-12-10 21:05:42,424 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512961542423 Power requested = 20 Critical = false
+2017-12-10 21:05:42,424 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 21:05:42,425 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15225
+2017-12-10 21:05:42,495 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,495 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,510 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,512 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 87
+2017-12-10 21:05:42,550 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,550 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,565 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,568 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 143
+2017-12-10 21:05:42,624 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,624 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,638 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,640 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 215
+2017-12-10 21:05:42,679 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,679 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,694 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,697 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 272
+2017-12-10 21:05:42,736 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,736 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,750 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,752 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 327
+2017-12-10 21:05:42,792 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,792 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,806 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,809 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 384
+2017-12-10 21:05:42,846 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,846 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,861 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,863 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 438
+2017-12-10 21:05:42,900 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,900 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,914 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,916 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 491
+2017-12-10 21:05:42,956 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:42,956 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:42,970 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:42,973 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 548
+2017-12-10 21:05:43,010 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:43,010 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:43,025 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:43,028 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 55
+2017-12-10 21:05:43,083 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:43,083 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:43,097 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:43,100 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 127
+2017-12-10 21:05:43,138 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:43,138 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:43,152 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:43,155 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 182
+2017-12-10 21:05:43,196 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:43,196 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:43,210 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:43,213 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 240
+2017-12-10 21:05:43,251 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878506183908E8
+stateCuriosity: -2.21651977216E8
+stateCuriosity: -1.12274542775E8
+stateCuriosity: -4.1493737495E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681878893E8
+stateEarth: 1.12289689282E8
+stateEarth: 4.1499333831E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681878893E8
+positionEarthWRTCuriosity: 1.12289689282E8
+positionEarthWRTCuriosity: 4.1499333831E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.586
+utcTime: "2016-01-01~00:00:38"
+sol: 1210
+sclkValue: " 1/01210:03:43:45:67239"
+
+2017-12-10 21:05:43,251 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:43,265 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:05:44,351 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 1927 required = 60000
+2017-12-10 21:05:54,495 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 11522
+2017-12-10 21:05:54,545 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878507183908E8
+stateCuriosity: -2.21651948795E8
+stateCuriosity: -1.12274558199E8
+stateCuriosity: -4.1493744741E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681850458E8
+stateEarth: 1.12289704702E8
+stateEarth: 4.1499341076E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681850458E8
+positionEarthWRTCuriosity: 1.12289704702E8
+positionEarthWRTCuriosity: 4.1499341076E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.584
+utcTime: "2016-01-01~00:00:39"
+sol: 1210
+sclkValue: " 1/01210:03:43:46:64564"
+
+2017-12-10 21:05:54,545 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:05:54,559 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:06:04,630 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 16
+2017-12-10 21:06:14,351 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 31927 required = 60000
+2017-12-10 21:06:25,999 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:06:26,065 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878508183908E8
+stateCuriosity: -2.21651920374E8
+stateCuriosity: -1.12274573622E8
+stateCuriosity: -4.1493751987E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681822023E8
+stateEarth: 1.12289720123E8
+stateEarth: 4.1499348322E7
+stateEarth: -28.435
+stateEarth: 15.421
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681822023E8
+positionEarthWRTCuriosity: 1.12289720123E8
+positionEarthWRTCuriosity: 4.1499348322E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.581
+utcTime: "2016-01-01~00:00:40"
+sol: 1210
+sclkValue: " 1/01210:03:43:47:61888"
+
+2017-12-10 21:06:26,065 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:06:26,079 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:06:44,351 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 61927 required = 60000
+2017-12-10 21:06:45,352 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 21:06:53,459 [pool-7-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878510183908E8
+stateCuriosity: -2.21651863532E8
+stateCuriosity: -1.12274604469E8
+stateCuriosity: -4.1493766479E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681765153E8
+stateEarth: 1.12289750964E8
+stateEarth: 4.1499362812E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681765153E8
+positionEarthWRTCuriosity: 1.12289750964E8
+positionEarthWRTCuriosity: 4.1499362812E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.577
+utcTime: "2016-01-01~00:00:42"
+sol: 1210
+sclkValue: " 1/01210:03:43:49:56537"
+
+2017-12-10 21:06:53,460 [pool-7-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:06:53,474 [pool-7-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:06:56,636 [pool-6-thread-1] ERROR space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Diagnostics module clearing instructionQueue because maxLength has been reached.
+2017-12-10 21:06:56,717 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878510183908E8
+stateCuriosity: -2.21651863532E8
+stateCuriosity: -1.12274604469E8
+stateCuriosity: -4.1493766479E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681765153E8
+stateEarth: 1.12289750964E8
+stateEarth: 4.1499362812E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681765153E8
+positionEarthWRTCuriosity: 1.12289750964E8
+positionEarthWRTCuriosity: 4.1499362812E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.577
+utcTime: "2016-01-01~00:00:42"
+sol: 1210
+sclkValue: " 1/01210:03:43:49:56537"
+
+2017-12-10 21:06:57,503 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31504
+2017-12-10 21:06:57,551 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878510183908E8
+stateCuriosity: -2.21651863532E8
+stateCuriosity: -1.12274604469E8
+stateCuriosity: -4.1493766479E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.27
+stateEarth: 2.21681765153E8
+stateEarth: 1.12289750964E8
+stateEarth: 4.1499362812E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681765153E8
+positionEarthWRTCuriosity: 1.12289750964E8
+positionEarthWRTCuriosity: 4.1499362812E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.577
+utcTime: "2016-01-01~00:00:42"
+sol: 1210
+sclkValue: " 1/01210:03:43:49:56537"
+
+2017-12-10 21:06:57,552 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.27
+2017-12-10 21:07:02,815 [pool-6-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878511183908E8
+stateCuriosity: -2.21651835111E8
+stateCuriosity: -1.12274619892E8
+stateCuriosity: -4.1493773725E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681736718E8
+stateEarth: 1.12289766384E8
+stateEarth: 4.1499370057E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681736718E8
+positionEarthWRTCuriosity: 1.12289766384E8
+positionEarthWRTCuriosity: 4.1499370057E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.575
+utcTime: "2016-01-01~00:00:43"
+sol: 1210
+sclkValue: " 1/01210:03:43:50:53861"
+
+2017-12-10 21:07:02,816 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:07:02,830 [pool-6-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:07:05,832 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961617500
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "CHEMCAM"
+}
+
+2017-12-10 21:07:05,901 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878511183908E8
+stateCuriosity: -2.21651835111E8
+stateCuriosity: -1.12274619892E8
+stateCuriosity: -4.1493773725E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681736718E8
+stateEarth: 1.12289766384E8
+stateEarth: 4.1499370057E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681736718E8
+positionEarthWRTCuriosity: 1.12289766384E8
+positionEarthWRTCuriosity: 4.1499370057E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.575
+utcTime: "2016-01-01~00:00:43"
+sol: 1210
+sclkValue: " 1/01210:03:43:50:53861"
+
+2017-12-10 21:07:11,865 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961631865,8,ClickCamera Current instructionQueue length = 0
+2017-12-10 21:07:11,866 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+2017-12-10 21:07:21,308 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878512183908E8
+stateCuriosity: -2.2165180669E8
+stateCuriosity: -1.12274635315E8
+stateCuriosity: -4.1493780971E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681708283E8
+stateEarth: 1.12289781805E8
+stateEarth: 4.1499377303E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681708283E8
+positionEarthWRTCuriosity: 1.12289781805E8
+positionEarthWRTCuriosity: 4.1499377303E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.572
+utcTime: "2016-01-01~00:00:44"
+sol: 1210
+sclkValue: " 1/01210:03:43:51:51186"
+
+2017-12-10 21:07:21,308 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:07:21,322 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:07:24,323 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:44.520-06:00 sclk of::1/01210:03:43:51:51186
+2017-12-10 21:07:29,007 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31504
+2017-12-10 21:07:29,073 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878512183908E8
+stateCuriosity: -2.2165180669E8
+stateCuriosity: -1.12274635315E8
+stateCuriosity: -4.1493780971E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681708283E8
+stateEarth: 1.12289781805E8
+stateEarth: 4.1499377303E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681708283E8
+positionEarthWRTCuriosity: 1.12289781805E8
+positionEarthWRTCuriosity: 4.1499377303E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.572
+utcTime: "2016-01-01~00:00:44"
+sol: 1210
+sclkValue: " 1/01210:03:43:51:51186"
+
+2017-12-10 21:07:29,073 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:07:30,426 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878512183908E8
+stateCuriosity: -2.2165180669E8
+stateCuriosity: -1.12274635315E8
+stateCuriosity: -4.1493780971E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681708283E8
+stateEarth: 1.12289781805E8
+stateEarth: 4.1499377303E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681708283E8
+positionEarthWRTCuriosity: 1.12289781805E8
+positionEarthWRTCuriosity: 4.1499377303E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.572
+utcTime: "2016-01-01~00:00:44"
+sol: 1210
+sclkValue: " 1/01210:03:43:51:51186"
+
+2017-12-10 21:07:30,426 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:07:30,441 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:07:33,442 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961649002
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 21:07:39,475 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961659475,10,GetSeasonalWeather Current instructionQueue length = 0
+2017-12-10 21:07:39,476 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2017-12-10 21:07:39,476 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2017-12-10 21:07:42,791 [Thread-2] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - Weather Service had an exception.
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1927)
+	at space.exploration.mars.rover.utils.WeatherUtil.getValue(WeatherUtil.java:89)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:17)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:48)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:52)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:97)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-10 21:07:42,791 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+2017-12-10 21:07:48,886 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878513183908E8
+stateCuriosity: -2.21651778269E8
+stateCuriosity: -1.12274650738E8
+stateCuriosity: -4.1493788216E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681679848E8
+stateEarth: 1.12289797225E8
+stateEarth: 4.1499384548E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681679848E8
+positionEarthWRTCuriosity: 1.12289797225E8
+positionEarthWRTCuriosity: 4.1499384548E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.57
+utcTime: "2016-01-01~00:00:45"
+sol: 1210
+sclkValue: " 1/01210:03:43:52:48510"
+
+2017-12-10 21:07:48,886 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:07:48,901 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:08:00,511 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:08:00,567 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878514183908E8
+stateCuriosity: -2.21651749848E8
+stateCuriosity: -1.12274666162E8
+stateCuriosity: -4.1493795462E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681651413E8
+stateEarth: 1.12289812646E8
+stateEarth: 4.1499391793E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681651413E8
+positionEarthWRTCuriosity: 1.12289812646E8
+positionEarthWRTCuriosity: 4.1499391793E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.568
+utcTime: "2016-01-01~00:00:46"
+sol: 1210
+sclkValue: " 1/01210:03:43:53:45835"
+
+2017-12-10 21:08:00,567 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:08:00,581 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961680506
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\b\364\003\020\031"
+}
+
+2017-12-10 21:08:06,610 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961686610,1,Move Current instructionQueue length = 0
+2017-12-10 21:08:06,656 [Thread-2] ERROR space.exploration.mars.rover.navigation.NavigationEngine  - No path was found between start =>  and end => 
+2017-12-10 21:08:06,656 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.propulsion.PropulsionUnit.requestPropulsion(PropulsionUnit.java:53)
+	at space.exploration.mars.rover.propulsion.PropulsionUnit.<init>(PropulsionUnit.java:28)
+	at space.exploration.mars.rover.kernel.ListeningState.requestPower(ListeningState.java:123)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:56)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-10 21:08:06,697 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878515183908E8
+stateCuriosity: -2.21651721427E8
+stateCuriosity: -1.12274681585E8
+stateCuriosity: -4.1493802708E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681622978E8
+stateEarth: 1.12289828066E8
+stateEarth: 4.1499399038E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681622978E8
+positionEarthWRTCuriosity: 1.12289828066E8
+positionEarthWRTCuriosity: 4.1499399038E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.566
+utcTime: "2016-01-01~00:00:47"
+sol: 1210
+sclkValue: " 1/01210:03:43:54:43159"
+
+2017-12-10 21:08:06,697 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:47.100-06:00 sclk of::1/01210:03:43:54:43159
+2017-12-10 21:08:12,796 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878515183908E8
+stateCuriosity: -2.21651721427E8
+stateCuriosity: -1.12274681585E8
+stateCuriosity: -4.1493802708E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681622978E8
+stateEarth: 1.12289828066E8
+stateEarth: 4.1499399038E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681622978E8
+positionEarthWRTCuriosity: 1.12289828066E8
+positionEarthWRTCuriosity: 4.1499399038E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.566
+utcTime: "2016-01-01~00:00:47"
+sol: 1210
+sclkValue: " 1/01210:03:43:54:43159"
+
+2017-12-10 21:08:12,796 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:08:12,810 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:08:32,016 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31504
+2017-12-10 21:08:32,089 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878516183908E8
+stateCuriosity: -2.21651693006E8
+stateCuriosity: -1.12274697008E8
+stateCuriosity: -4.1493809954E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681594543E8
+stateEarth: 1.12289843487E8
+stateEarth: 4.1499406283E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.383
+positionEarthWRTCuriosity: 2.21681594543E8
+positionEarthWRTCuriosity: 1.12289843487E8
+positionEarthWRTCuriosity: 4.1499406283E7
+owltEarthMSL2: 840.383
+angSepHGAEarth: 141.563
+utcTime: "2016-01-01~00:00:48"
+sol: 1210
+sclkValue: " 1/01210:03:43:55:40484"
+
+2017-12-10 21:08:32,089 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:08:32,103 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961712010
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetSeasonalWeather"
+}
+
+2017-12-10 21:08:38,136 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961718136,10,GetSeasonalWeather Current instructionQueue length = 0
+2017-12-10 21:08:38,136 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2017-12-10 21:08:38,136 [Thread-2] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2017-12-10 21:08:41,449 [Thread-2] ERROR space.exploration.mars.rover.sensor.WeatherSensor  - Weather Service had an exception.
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1927)
+	at space.exploration.mars.rover.utils.WeatherUtil.getValue(WeatherUtil.java:89)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:17)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:21)
+	at space.exploration.mars.rover.sensor.WeatherSensor.getWeather(WeatherSensor.java:48)
+	at space.exploration.mars.rover.kernel.WeatherSensingState.senseWeather(WeatherSensingState.java:52)
+	at space.exploration.mars.rover.kernel.Rover.senseWeather(Rover.java:298)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:97)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-10 21:08:41,449 [Thread-2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Current weatherQueryRate/hour = 0.0 max allowed = 1000.0/hr
+2017-12-10 21:08:47,543 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878517183908E8
+stateCuriosity: -2.21651664585E8
+stateCuriosity: -1.12274712431E8
+stateCuriosity: -4.14938172E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681566107E8
+stateEarth: 1.12289858907E8
+stateEarth: 4.1499413529E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681566107E8
+positionEarthWRTCuriosity: 1.12289858907E8
+positionEarthWRTCuriosity: 4.1499413529E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.561
+utcTime: "2016-01-01~00:00:49"
+sol: 1210
+sclkValue: " 1/01210:03:43:56:37808"
+
+2017-12-10 21:08:47,543 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:08:47,557 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:09:03,520 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:09:03,580 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878518183908E8
+stateCuriosity: -2.21651636164E8
+stateCuriosity: -1.12274727854E8
+stateCuriosity: -4.1493824446E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681537672E8
+stateEarth: 1.12289874327E8
+stateEarth: 4.1499420774E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681537672E8
+positionEarthWRTCuriosity: 1.12289874327E8
+positionEarthWRTCuriosity: 4.1499420774E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.559
+utcTime: "2016-01-01~00:00:50"
+sol: 1210
+sclkValue: " 1/01210:03:43:57:35132"
+
+2017-12-10 21:09:03,580 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:09:03,595 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961743514
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\005\b\367\002\0202"
+}
+
+2017-12-10 21:09:09,625 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961749625,1,Move Current instructionQueue length = 0
+2017-12-10 21:09:09,650 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on the move!
+2017-12-10 21:09:09,705 [Thread-2] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay commenced.
+2017-12-10 21:09:44,278 [Thread-2] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 80
+2017-12-10 21:09:53,341 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878521183908E8
+stateCuriosity: -2.21651550901E8
+stateCuriosity: -1.12274774124E8
+stateCuriosity: -4.1493846183E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681452367E8
+stateEarth: 1.12289920588E8
+stateEarth: 4.149944251E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681452367E8
+positionEarthWRTCuriosity: 1.12289920588E8
+positionEarthWRTCuriosity: 4.149944251E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.552
+utcTime: "2016-01-01~00:00:53"
+sol: 1210
+sclkValue: " 1/01210:03:44:00:27106"
+
+2017-12-10 21:09:53,341 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:09:53,355 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:09:56,356 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 52835
+2017-12-10 21:09:56,432 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878521183908E8
+stateCuriosity: -2.21651550901E8
+stateCuriosity: -1.12274774124E8
+stateCuriosity: -4.1493846183E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681452367E8
+stateEarth: 1.12289920588E8
+stateEarth: 4.149944251E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681452367E8
+positionEarthWRTCuriosity: 1.12289920588E8
+positionEarthWRTCuriosity: 4.149944251E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.552
+utcTime: "2016-01-01~00:00:53"
+sol: 1210
+sclkValue: " 1/01210:03:44:00:27106"
+
+2017-12-10 21:09:56,433 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:53.640-06:00 sclk of::1/01210:03:44:00:27106
+2017-12-10 21:09:56,433 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878521183908E8
+stateCuriosity: -2.21651550901E8
+stateCuriosity: -1.12274774124E8
+stateCuriosity: -4.1493846183E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681452367E8
+stateEarth: 1.12289920588E8
+stateEarth: 4.149944251E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681452367E8
+positionEarthWRTCuriosity: 1.12289920588E8
+positionEarthWRTCuriosity: 4.149944251E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.552
+utcTime: "2016-01-01~00:00:53"
+sol: 1210
+sclkValue: " 1/01210:03:44:00:27106"
+
+2017-12-10 21:09:56,433 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:10:02,528 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878521183908E8
+stateCuriosity: -2.21651550901E8
+stateCuriosity: -1.12274774124E8
+stateCuriosity: -4.1493846183E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681452367E8
+stateEarth: 1.12289920588E8
+stateEarth: 4.149944251E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681452367E8
+positionEarthWRTCuriosity: 1.12289920588E8
+positionEarthWRTCuriosity: 4.149944251E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.552
+utcTime: "2016-01-01~00:00:54"
+sol: 1210
+sclkValue: " 1/01210:03:44:00:27106"
+
+2017-12-10 21:10:02,529 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:10:02,543 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:10:05,544 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961775018
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-10 21:10:05,613 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878522183908E8
+stateCuriosity: -2.2165152248E8
+stateCuriosity: -1.12274789547E8
+stateCuriosity: -4.1493853429E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681423932E8
+stateEarth: 1.12289936009E8
+stateEarth: 4.1499449755E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681423932E8
+positionEarthWRTCuriosity: 1.12289936009E8
+positionEarthWRTCuriosity: 4.1499449755E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.55
+utcTime: "2016-01-01~00:00:54"
+sol: 1210
+sclkValue: " 1/01210:03:44:01:24430"
+
+2017-12-10 21:10:11,576 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961811576,0,ScanArea Current instructionQueue length = 0
+2017-12-10 21:10:11,576 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-10 21:10:31,960 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878523183908E8
+stateCuriosity: -2.21651494059E8
+stateCuriosity: -1.1227480497E8
+stateCuriosity: -4.1493860675E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681395496E8
+stateEarth: 1.12289951429E8
+stateEarth: 4.1499457E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681395496E8
+positionEarthWRTCuriosity: 1.12289951429E8
+positionEarthWRTCuriosity: 4.1499457E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.547
+utcTime: "2016-01-01~00:00:55"
+sol: 1210
+sclkValue: " 1/01210:03:44:02:21755"
+
+2017-12-10 21:10:31,960 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:10:31,975 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:10:34,976 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 38619
+2017-12-10 21:10:34,976 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:55.980-06:00 sclk of::1/01210:03:44:02:21755
+2017-12-10 21:10:35,048 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878523183908E8
+stateCuriosity: -2.21651494059E8
+stateCuriosity: -1.1227480497E8
+stateCuriosity: -4.1493860675E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681395496E8
+stateEarth: 1.12289951429E8
+stateEarth: 4.1499457E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681395496E8
+positionEarthWRTCuriosity: 1.12289951429E8
+positionEarthWRTCuriosity: 4.1499457E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.547
+utcTime: "2016-01-01~00:00:55"
+sol: 1210
+sclkValue: " 1/01210:03:44:02:21755"
+
+2017-12-10 21:10:35,048 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:10:41,075 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878524183908E8
+stateCuriosity: -2.21651465638E8
+stateCuriosity: -1.12274820393E8
+stateCuriosity: -4.1493867921E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681367061E8
+stateEarth: 1.12289966849E8
+stateEarth: 4.1499464245E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681367061E8
+positionEarthWRTCuriosity: 1.12289966849E8
+positionEarthWRTCuriosity: 4.1499464245E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.545
+utcTime: "2016-01-01~00:00:56"
+sol: 1210
+sclkValue: " 1/01210:03:44:03:19079"
+
+2017-12-10 21:10:41,076 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:10:41,090 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:10:44,091 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961806522
+targets {
+  roverModule: 5
+  estimatedPowerUsage: 30
+  action: "Explore"
+}
+
+2017-12-10 21:10:50,121 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961850121,5,Explore Current instructionQueue length = 0
+2017-12-10 21:10:50,121 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
+2017-12-10 21:11:21,231 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878526183908E8
+stateCuriosity: -2.21651408795E8
+stateCuriosity: -1.12274851239E8
+stateCuriosity: -4.1493882412E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681310191E8
+stateEarth: 1.12289997689E8
+stateEarth: 4.1499478736E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681310191E8
+positionEarthWRTCuriosity: 1.12289997689E8
+positionEarthWRTCuriosity: 4.1499478736E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.54
+utcTime: "2016-01-01~00:00:58"
+sol: 1210
+sclkValue: " 1/01210:03:44:05:13728"
+
+2017-12-10 21:11:21,231 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:11:21,245 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:11:24,246 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 49270
+2017-12-10 21:11:24,321 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878526183908E8
+stateCuriosity: -2.21651408795E8
+stateCuriosity: -1.12274851239E8
+stateCuriosity: -4.1493882412E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681310191E8
+stateEarth: 1.12289997689E8
+stateEarth: 4.1499478736E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681310191E8
+positionEarthWRTCuriosity: 1.12289997689E8
+positionEarthWRTCuriosity: 4.1499478736E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.54
+utcTime: "2016-01-01~00:00:58"
+sol: 1210
+sclkValue: " 1/01210:03:44:05:13728"
+
+2017-12-10 21:11:24,321 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:11:24,321 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878526183908E8
+stateCuriosity: -2.21651408795E8
+stateCuriosity: -1.12274851239E8
+stateCuriosity: -4.1493882412E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681310191E8
+stateEarth: 1.12289997689E8
+stateEarth: 4.1499478736E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681310191E8
+positionEarthWRTCuriosity: 1.12289997689E8
+positionEarthWRTCuriosity: 4.1499478736E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.54
+utcTime: "2016-01-01~00:00:58"
+sol: 1210
+sclkValue: " 1/01210:03:44:05:13728"
+
+2017-12-10 21:11:24,321 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:00:58.920-06:00 sclk of::1/01210:03:44:05:13728
+2017-12-10 21:11:30,417 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878527183908E8
+stateCuriosity: -2.21651380374E8
+stateCuriosity: -1.12274866662E8
+stateCuriosity: -4.1493889658E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.269
+stateEarth: 2.21681281756E8
+stateEarth: 1.1229001311E8
+stateEarth: 4.1499485981E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681281756E8
+positionEarthWRTCuriosity: 1.1229001311E8
+positionEarthWRTCuriosity: 4.1499485981E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.538
+utcTime: "2016-01-01~00:00:59"
+sol: 1210
+sclkValue: " 1/01210:03:44:06:11052"
+
+2017-12-10 21:11:30,418 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.269
+2017-12-10 21:11:30,432 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:11:33,434 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961838026
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+2017-12-10 21:11:39,467 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961899467,9,PerformRadarScan Current instructionQueue length = 0
+2017-12-10 21:11:39,467 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+2017-12-10 21:12:34,713 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878531183908E8
+stateCuriosity: -2.2165126669E8
+stateCuriosity: -1.12274928354E8
+stateCuriosity: -4.1493918642E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681168015E8
+stateEarth: 1.1229007479E8
+stateEarth: 4.1499514961E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681168015E8
+positionEarthWRTCuriosity: 1.1229007479E8
+positionEarthWRTCuriosity: 4.1499514961E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.529
+utcTime: "2016-01-01~00:01:03"
+sol: 1210
+sclkValue: " 1/01210:03:44:10:00350"
+
+2017-12-10 21:12:34,713 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:12:34,727 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:12:37,728 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 73481
+2017-12-10 21:12:37,803 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878531183908E8
+stateCuriosity: -2.2165126669E8
+stateCuriosity: -1.12274928354E8
+stateCuriosity: -4.1493918642E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681168015E8
+stateEarth: 1.1229007479E8
+stateEarth: 4.1499514961E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681168015E8
+positionEarthWRTCuriosity: 1.1229007479E8
+positionEarthWRTCuriosity: 4.1499514961E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.529
+utcTime: "2016-01-01~00:01:03"
+sol: 1210
+sclkValue: " 1/01210:03:44:10:00350"
+
+2017-12-10 21:12:37,803 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:12:37,804 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878531183908E8
+stateCuriosity: -2.2165126669E8
+stateCuriosity: -1.12274928354E8
+stateCuriosity: -4.1493918642E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681168015E8
+stateEarth: 1.1229007479E8
+stateEarth: 4.1499514961E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681168015E8
+positionEarthWRTCuriosity: 1.1229007479E8
+positionEarthWRTCuriosity: 4.1499514961E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.529
+utcTime: "2016-01-01~00:01:03"
+sol: 1210
+sclkValue: " 1/01210:03:44:10:00350"
+
+2017-12-10 21:12:37,804 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:01:03.360-06:00 sclk of::1/01210:03:44:10:00350
+2017-12-10 21:12:43,900 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878531183908E8
+stateCuriosity: -2.2165126669E8
+stateCuriosity: -1.12274928354E8
+stateCuriosity: -4.1493918642E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681168015E8
+stateEarth: 1.1229007479E8
+stateEarth: 4.1499514961E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681168015E8
+positionEarthWRTCuriosity: 1.1229007479E8
+positionEarthWRTCuriosity: 4.1499514961E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.529
+utcTime: "2016-01-01~00:01:03"
+sol: 1210
+sclkValue: " 1/01210:03:44:10:00350"
+
+2017-12-10 21:12:43,900 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:12:43,914 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:12:46,916 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961869530
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "FHAZ"
+}
+
+2017-12-10 21:12:52,949 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961972949,8,ClickCamera Current instructionQueue length = 0
+2017-12-10 21:12:52,949 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+2017-12-10 21:12:57,386 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at javax.imageio.ImageIO.write(ImageIO.java:1538)
+	at space.exploration.mars.rover.utils.CameraUtil.writeImageToFile(CameraUtil.java:39)
+	at space.exploration.mars.rover.utils.CameraUtil.convertToCamPayload(CameraUtil.java:85)
+	at space.exploration.mars.rover.kernel.PhotographingState.activateCameraById(PhotographingState.java:79)
+	at space.exploration.mars.rover.kernel.Rover.activateCameraById(Rover.java:508)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:89)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:306)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-10 21:12:57,390 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 19662
+2017-12-10 21:12:57,439 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878532183908E8
+stateCuriosity: -2.21651238268E8
+stateCuriosity: -1.12274943776E8
+stateCuriosity: -4.1493925887E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681139579E8
+stateEarth: 1.1229009021E8
+stateEarth: 4.1499522207E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681139579E8
+positionEarthWRTCuriosity: 1.1229009021E8
+positionEarthWRTCuriosity: 4.1499522207E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.527
+utcTime: "2016-01-01~00:01:04"
+sol: 1210
+sclkValue: " 1/01210:03:44:10:97674"
+
+2017-12-10 21:12:57,439 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:12:57,453 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961901033
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\305\002\020\215\004"
+}
+
+2017-12-10 21:13:03,486 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512961983486,1,Move Current instructionQueue length = 0
+2017-12-10 21:13:03,491 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on the move!
+2017-12-10 21:13:03,540 [Thread-2] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay commenced.
+2017-12-10 21:13:26,204 [Thread-2] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 53
+2017-12-10 21:13:35,304 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878534183908E8
+stateCuriosity: -2.21651181426E8
+stateCuriosity: -1.12274974622E8
+stateCuriosity: -4.1493940379E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681082709E8
+stateEarth: 1.1229012105E8
+stateEarth: 4.1499536697E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681082709E8
+positionEarthWRTCuriosity: 1.1229012105E8
+positionEarthWRTCuriosity: 4.1499536697E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.522
+utcTime: "2016-01-01~00:01:06"
+sol: 1210
+sclkValue: " 1/01210:03:44:12:92323"
+
+2017-12-10 21:13:35,304 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:13:35,319 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:13:38,320 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 40929
+2017-12-10 21:13:38,389 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878534183908E8
+stateCuriosity: -2.21651181426E8
+stateCuriosity: -1.12274974622E8
+stateCuriosity: -4.1493940379E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681082709E8
+stateEarth: 1.1229012105E8
+stateEarth: 4.1499536697E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681082709E8
+positionEarthWRTCuriosity: 1.1229012105E8
+positionEarthWRTCuriosity: 4.1499536697E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.522
+utcTime: "2016-01-01~00:01:06"
+sol: 1210
+sclkValue: " 1/01210:03:44:12:92323"
+
+2017-12-10 21:13:38,390 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:01:06.960-06:00 sclk of::1/01210:03:44:12:92323
+2017-12-10 21:13:38,390 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878534183908E8
+stateCuriosity: -2.21651181426E8
+stateCuriosity: -1.12274974622E8
+stateCuriosity: -4.1493940379E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681082709E8
+stateEarth: 1.1229012105E8
+stateEarth: 4.1499536697E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.382
+positionEarthWRTCuriosity: 2.21681082709E8
+positionEarthWRTCuriosity: 1.1229012105E8
+positionEarthWRTCuriosity: 4.1499536697E7
+owltEarthMSL2: 840.382
+angSepHGAEarth: 141.522
+utcTime: "2016-01-01~00:01:06"
+sol: 1210
+sclkValue: " 1/01210:03:44:12:92323"
+
+2017-12-10 21:13:38,390 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:13:44,490 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878535183908E8
+stateCuriosity: -2.21651153005E8
+stateCuriosity: -1.12274990045E8
+stateCuriosity: -4.1493947625E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21681054273E8
+stateEarth: 1.1229013647E8
+stateEarth: 4.1499543942E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21681054273E8
+positionEarthWRTCuriosity: 1.1229013647E8
+positionEarthWRTCuriosity: 4.1499543942E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.52
+utcTime: "2016-01-01~00:01:07"
+sol: 1210
+sclkValue: " 1/01210:03:44:13:89648"
+
+2017-12-10 21:13:44,490 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:13:44,504 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:13:47,505 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961932536
+targets {
+  roverModule: 9
+  estimatedPowerUsage: 20
+  action: "PerformRadarScan"
+}
+
+2017-12-10 21:13:53,525 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512962033525,9,PerformRadarScan Current instructionQueue length = 0
+2017-12-10 21:13:53,525 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity will do a radarScan!
+2017-12-10 21:14:47,657 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878539183908E8
+stateCuriosity: -2.2165103932E8
+stateCuriosity: -1.12275051736E8
+stateCuriosity: -4.1493976608E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680940532E8
+stateEarth: 1.1229019815E8
+stateEarth: 4.1499572923E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680940532E8
+positionEarthWRTCuriosity: 1.1229019815E8
+positionEarthWRTCuriosity: 4.1499572923E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.511
+utcTime: "2016-01-01~00:01:11"
+sol: 1210
+sclkValue: " 1/01210:03:44:17:78945"
+
+2017-12-10 21:14:47,657 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:14:47,671 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:14:50,672 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 72352
+2017-12-10 21:14:50,805 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878539183908E8
+stateCuriosity: -2.2165103932E8
+stateCuriosity: -1.12275051736E8
+stateCuriosity: -4.1493976608E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680940532E8
+stateEarth: 1.1229019815E8
+stateEarth: 4.1499572923E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680940532E8
+positionEarthWRTCuriosity: 1.1229019815E8
+positionEarthWRTCuriosity: 4.1499572923E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.511
+utcTime: "2016-01-01~00:01:11"
+sol: 1210
+sclkValue: " 1/01210:03:44:17:78945"
+
+2017-12-10 21:14:50,805 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:14:50,806 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878539183908E8
+stateCuriosity: -2.2165103932E8
+stateCuriosity: -1.12275051736E8
+stateCuriosity: -4.1493976608E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680940532E8
+stateEarth: 1.1229019815E8
+stateEarth: 4.1499572923E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680940532E8
+positionEarthWRTCuriosity: 1.1229019815E8
+positionEarthWRTCuriosity: 4.1499572923E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.511
+utcTime: "2016-01-01~00:01:11"
+sol: 1210
+sclkValue: " 1/01210:03:44:17:78945"
+
+2017-12-10 21:14:50,806 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-01-01T00:01:11.340-06:00 sclk of::1/01210:03:44:17:78945
+2017-12-10 21:14:56,893 [pool-4-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878539183908E8
+stateCuriosity: -2.2165103932E8
+stateCuriosity: -1.12275051736E8
+stateCuriosity: -4.1493976608E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680940532E8
+stateEarth: 1.1229019815E8
+stateEarth: 4.1499572923E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680940532E8
+positionEarthWRTCuriosity: 1.1229019815E8
+positionEarthWRTCuriosity: 4.1499572923E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.511
+utcTime: "2016-01-01~00:01:11"
+sol: 1210
+sclkValue: " 1/01210:03:44:17:78945"
+
+2017-12-10 21:14:56,893 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:14:56,907 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:14:59,908 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961964039
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "FHAZ"
+}
+
+2017-12-10 21:15:05,930 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512962105930,8,ClickCamera Current instructionQueue length = 0
+2017-12-10 21:15:05,931 [Thread-2] ERROR space.exploration.mars.rover.power.Battery  - Battery insufficient at time = 1512962105931 Power requested = 20 Critical = false
+2017-12-10 21:15:05,931 [Thread-2] ERROR space.exploration.mars.rover.kernel.ListeningState  - Going into hibernation from Listening state.
+2017-12-10 21:15:05,931 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15259
+2017-12-10 21:15:05,932 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 1
+2017-12-10 21:15:06,002 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878540183908E8
+stateCuriosity: -2.21651010899E8
+stateCuriosity: -1.12275067159E8
+stateCuriosity: -4.1493983854E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680912097E8
+stateEarth: 1.1229021357E8
+stateEarth: 4.1499580168E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680912097E8
+positionEarthWRTCuriosity: 1.1229021357E8
+positionEarthWRTCuriosity: 4.1499580168E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.509
+utcTime: "2016-01-01~00:01:12"
+sol: 1210
+sclkValue: " 1/01210:03:44:18:76270"
+
+2017-12-10 21:15:06,002 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:15:06,016 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:15:06,019 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 87
+2017-12-10 21:15:06,057 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878540183908E8
+stateCuriosity: -2.21651010899E8
+stateCuriosity: -1.12275067159E8
+stateCuriosity: -4.1493983854E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680912097E8
+stateEarth: 1.1229021357E8
+stateEarth: 4.1499580168E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680912097E8
+positionEarthWRTCuriosity: 1.1229021357E8
+positionEarthWRTCuriosity: 4.1499580168E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.509
+utcTime: "2016-01-01~00:01:12"
+sol: 1210
+sclkValue: " 1/01210:03:44:18:76270"
+
+2017-12-10 21:15:06,057 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:15:06,071 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:15:06,074 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 142
+2017-12-10 21:15:06,111 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878540183908E8
+stateCuriosity: -2.21651010899E8
+stateCuriosity: -1.12275067159E8
+stateCuriosity: -4.1493983854E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680912097E8
+stateEarth: 1.1229021357E8
+stateEarth: 4.1499580168E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680912097E8
+positionEarthWRTCuriosity: 1.1229021357E8
+positionEarthWRTCuriosity: 4.1499580168E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.509
+utcTime: "2016-01-01~00:01:12"
+sol: 1210
+sclkValue: " 1/01210:03:44:18:76270"
+
+2017-12-10 21:15:06,111 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:15:06,125 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:15:06,128 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 196
+2017-12-10 21:15:06,164 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878540183908E8
+stateCuriosity: -2.21651010899E8
+stateCuriosity: -1.12275067159E8
+stateCuriosity: -4.1493983854E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680912097E8
+stateEarth: 1.1229021357E8
+stateEarth: 4.1499580168E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680912097E8
+positionEarthWRTCuriosity: 1.1229021357E8
+positionEarthWRTCuriosity: 4.1499580168E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.509
+utcTime: "2016-01-01~00:01:12"
+sol: 1210
+sclkValue: " 1/01210:03:44:18:76270"
+
+2017-12-10 21:15:06,164 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:15:06,179 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:15:16,353 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 10422 required = 60000
+2017-12-10 21:15:21,565 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 15633
+2017-12-10 21:15:21,615 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878541183908E8
+stateCuriosity: -2.21650982477E8
+stateCuriosity: -1.12275082582E8
+stateCuriosity: -4.1493991099E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680883661E8
+stateEarth: 1.1229022899E8
+stateEarth: 4.1499587413E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680883661E8
+positionEarthWRTCuriosity: 1.1229022899E8
+positionEarthWRTCuriosity: 4.1499587413E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.506
+utcTime: "2016-01-01~00:01:13"
+sol: 1210
+sclkValue: " 1/01210:03:44:19:73594"
+
+2017-12-10 21:15:21,615 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:15:21,629 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:15:46,353 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 40422 required = 60000
+2017-12-10 21:15:53,066 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31501
+2017-12-10 21:15:53,109 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878543183908E8
+stateCuriosity: -2.21650925635E8
+stateCuriosity: -1.12275113427E8
+stateCuriosity: -4.1494005591E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680826791E8
+stateEarth: 1.1229025983E8
+stateEarth: 4.1499601903E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680826791E8
+positionEarthWRTCuriosity: 1.1229025983E8
+positionEarthWRTCuriosity: 4.1499601903E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.502
+utcTime: "2016-01-01~00:01:15"
+sol: 1210
+sclkValue: " 1/01210:03:44:21:68243"
+
+2017-12-10 21:15:53,109 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:15:53,123 [Thread-2] INFO space.exploration.mars.rover.kernel.HibernatingState  - In hibernating state's receiveMessage(), adding message to instruction queue
+2017-12-10 21:16:04,630 [pool-4-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is in hibernating state. Current instructionQueue length = 7
+2017-12-10 21:16:16,353 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Rover is in hibernating state, timeInRecharge = 70422 required = 60000
+2017-12-10 21:16:17,353 [pool-9-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - Battery Monitor restoring the rover to normal after recharge
+2017-12-10 21:16:24,572 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31506
+2017-12-10 21:16:24,703 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878544183908E8
+stateCuriosity: -2.21650897213E8
+stateCuriosity: -1.1227512885E8
+stateCuriosity: -4.1494012837E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680798355E8
+stateEarth: 1.1229027525E8
+stateEarth: 4.1499609148E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680798355E8
+positionEarthWRTCuriosity: 1.1229027525E8
+positionEarthWRTCuriosity: 4.1499609148E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.499
+utcTime: "2016-01-01~00:01:16"
+sol: 1210
+sclkValue: " 1/01210:03:44:22:65568"
+
+2017-12-10 21:16:24,703 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:16:25,438 [pool-9-thread-1] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878544183908E8
+stateCuriosity: -2.21650897213E8
+stateCuriosity: -1.1227512885E8
+stateCuriosity: -4.1494012837E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.268
+stateEarth: 2.21680798355E8
+stateEarth: 1.1229027525E8
+stateEarth: 4.1499609148E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680798355E8
+positionEarthWRTCuriosity: 1.1229027525E8
+positionEarthWRTCuriosity: 4.1499609148E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.499
+utcTime: "2016-01-01~00:01:16"
+sol: 1210
+sclkValue: " 1/01210:03:44:22:65568"
+
+2017-12-10 21:16:25,438 [pool-9-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.268
+2017-12-10 21:16:25,452 [pool-9-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:16:28,453 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512962184566
+targets {
+  roverModule: 1
+  estimatedPowerUsage: 40
+  action: "Move"
+  auxiliaryData: "\n\006\b\333\003\020\333\003"
+}
+
+2017-12-10 21:16:34,472 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512962194472,1,Move Current instructionQueue length = 7
+2017-12-10 21:16:34,475 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on the move!
+2017-12-10 21:16:34,521 [Thread-2] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay commenced.
+2017-12-10 21:16:43,069 [Thread-2] INFO space.exploration.mars.rover.sensor.TelemetrySensor  - Telemetry relay stopped, number of telemetryDataPoints = 20
+2017-12-10 21:16:52,152 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878546183908E8
+stateCuriosity: -2.21650840371E8
+stateCuriosity: -1.12275159695E8
+stateCuriosity: -4.1494027328E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680741484E8
+stateEarth: 1.12290306089E8
+stateEarth: 4.1499623639E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680741484E8
+positionEarthWRTCuriosity: 1.12290306089E8
+positionEarthWRTCuriosity: 4.1499623639E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.495
+utcTime: "2016-01-01~00:01:18"
+sol: 1210
+sclkValue: " 1/01210:03:44:24:60216"
+
+2017-12-10 21:16:52,153 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:16:52,167 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-10 21:16:55,168 [pool-6-thread-1] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC trimming instructionQueue. Current length = 7
+2017-12-10 21:16:55,169 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1512961964039
+targets {
+  roverModule: 8
+  estimatedPowerUsage: 20
+  action: "ClickCamera"
+  roverSubModule: "FHAZ"
+}
+
+2017-12-10 21:16:56,072 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31500
+2017-12-10 21:16:56,140 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878546183908E8
+stateCuriosity: -2.21650840371E8
+stateCuriosity: -1.12275159695E8
+stateCuriosity: -4.1494027328E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680741484E8
+stateEarth: 1.12290306089E8
+stateEarth: 4.1499623639E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680741484E8
+positionEarthWRTCuriosity: 1.12290306089E8
+positionEarthWRTCuriosity: 4.1499623639E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.495
+utcTime: "2016-01-01~00:01:18"
+sol: 1210
+sclkValue: " 1/01210:03:44:24:60216"
+
+2017-12-10 21:16:56,140 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:17:01,190 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - 1512962221190,8,ClickCamera Current instructionQueue length = 6
+2017-12-10 21:17:01,196 [pool-6-thread-1] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is going to try to take pictures!
+2017-12-10 21:17:27,575 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:17:27,643 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878548183908E8
+stateCuriosity: -2.21650783528E8
+stateCuriosity: -1.1227519054E8
+stateCuriosity: -4.149404182E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680684613E8
+stateEarth: 1.12290336929E8
+stateEarth: 4.1499638129E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680684613E8
+positionEarthWRTCuriosity: 1.12290336929E8
+positionEarthWRTCuriosity: 4.1499638129E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.49
+utcTime: "2016-01-01~00:01:20"
+sol: 1210
+sclkValue: " 1/01210:03:44:26:54865"
+
+2017-12-10 21:17:27,643 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:17:59,078 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:17:59,145 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878550183908E8
+stateCuriosity: -2.21650726685E8
+stateCuriosity: -1.12275221385E8
+stateCuriosity: -4.1494056311E7
+stateCuriosity: 28.421
+stateCuriosity: -15.423
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680627742E8
+stateEarth: 1.12290367769E8
+stateEarth: 4.1499652619E7
+stateEarth: -28.435
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680627742E8
+positionEarthWRTCuriosity: 1.12290367769E8
+positionEarthWRTCuriosity: 4.1499652619E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.486
+utcTime: "2016-01-01~00:01:22"
+sol: 1210
+sclkValue: " 1/01210:03:44:28:49514"
+
+2017-12-10 21:17:59,145 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:18:30,582 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:18:30,643 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878552183908E8
+stateCuriosity: -2.21650669842E8
+stateCuriosity: -1.1227525223E8
+stateCuriosity: -4.1494070803E7
+stateCuriosity: 28.421
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680570871E8
+stateEarth: 1.12290398608E8
+stateEarth: 4.1499667109E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.381
+positionEarthWRTCuriosity: 2.21680570871E8
+positionEarthWRTCuriosity: 1.12290398608E8
+positionEarthWRTCuriosity: 4.1499667109E7
+owltEarthMSL2: 840.381
+angSepHGAEarth: 141.481
+utcTime: "2016-01-01~00:01:24"
+sol: 1210
+sclkValue: " 1/01210:03:44:30:44163"
+
+2017-12-10 21:18:30,643 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:19:02,086 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31504
+2017-12-10 21:19:02,154 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878554183908E8
+stateCuriosity: -2.21650612999E8
+stateCuriosity: -1.12275283075E8
+stateCuriosity: -4.1494085294E7
+stateCuriosity: 28.421
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680514E8
+stateEarth: 1.12290429447E8
+stateEarth: 4.1499681599E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680514E8
+positionEarthWRTCuriosity: 1.12290429447E8
+positionEarthWRTCuriosity: 4.1499681599E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.477
+utcTime: "2016-01-01~00:01:26"
+sol: 1210
+sclkValue: " 1/01210:03:44:32:38812"
+
+2017-12-10 21:19:02,154 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:19:33,589 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:19:33,653 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878556183908E8
+stateCuriosity: -2.21650556157E8
+stateCuriosity: -1.1227531392E8
+stateCuriosity: -4.1494099785E7
+stateCuriosity: 28.421
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680457129E8
+stateEarth: 1.12290460287E8
+stateEarth: 4.1499696089E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680457129E8
+positionEarthWRTCuriosity: 1.12290460287E8
+positionEarthWRTCuriosity: 4.1499696089E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.472
+utcTime: "2016-01-01~00:01:28"
+sol: 1210
+sclkValue: " 1/01210:03:44:34:33461"
+
+2017-12-10 21:19:33,653 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:20:05,092 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:20:05,157 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878558183908E8
+stateCuriosity: -2.21650499314E8
+stateCuriosity: -1.12275344765E8
+stateCuriosity: -4.1494114277E7
+stateCuriosity: 28.421
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680400258E8
+stateEarth: 1.12290491126E8
+stateEarth: 4.149971058E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680400258E8
+positionEarthWRTCuriosity: 1.12290491126E8
+positionEarthWRTCuriosity: 4.149971058E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.468
+utcTime: "2016-01-01~00:01:30"
+sol: 1210
+sclkValue: " 1/01210:03:44:36:28110"
+
+2017-12-10 21:20:05,157 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:20:36,595 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:20:36,664 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878560183908E8
+stateCuriosity: -2.21650442471E8
+stateCuriosity: -1.12275375609E8
+stateCuriosity: -4.1494128768E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680343387E8
+stateEarth: 1.12290521965E8
+stateEarth: 4.149972507E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680343387E8
+positionEarthWRTCuriosity: 1.12290521965E8
+positionEarthWRTCuriosity: 4.149972507E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.463
+utcTime: "2016-01-01~00:01:32"
+sol: 1210
+sclkValue: " 1/01210:03:44:38:22758"
+
+2017-12-10 21:20:36,664 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:21:08,097 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31502
+2017-12-10 21:21:08,169 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878561183908E8
+stateCuriosity: -2.21650414049E8
+stateCuriosity: -1.12275391032E8
+stateCuriosity: -4.1494136014E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.21680314951E8
+stateEarth: 1.12290537384E8
+stateEarth: 4.1499732315E7
+stateEarth: -28.436
+stateEarth: 15.42
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680314951E8
+positionEarthWRTCuriosity: 1.12290537384E8
+positionEarthWRTCuriosity: 4.1499732315E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.461
+utcTime: "2016-01-01~00:01:33"
+sol: 1210
+sclkValue: " 1/01210:03:44:39:20083"
+
+2017-12-10 21:21:08,169 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:21:39,600 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:21:39,673 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878563183908E8
+stateCuriosity: -2.21650357206E8
+stateCuriosity: -1.12275421876E8
+stateCuriosity: -4.1494150505E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.267
+stateEarth: 2.2168025808E8
+stateEarth: 1.12290568223E8
+stateEarth: 4.1499746805E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.2168025808E8
+positionEarthWRTCuriosity: 1.12290568223E8
+positionEarthWRTCuriosity: 4.1499746805E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.456
+utcTime: "2016-01-01~00:01:35"
+sol: 1210
+sclkValue: " 1/01210:03:44:41:14732"
+
+2017-12-10 21:21:39,673 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.267
+2017-12-10 21:22:11,103 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31503
+2017-12-10 21:22:11,220 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878565183908E8
+stateCuriosity: -2.21650300363E8
+stateCuriosity: -1.12275452721E8
+stateCuriosity: -4.1494164997E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680201209E8
+stateEarth: 1.12290599062E8
+stateEarth: 4.1499761295E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680201209E8
+positionEarthWRTCuriosity: 1.12290599062E8
+positionEarthWRTCuriosity: 4.1499761295E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.452
+utcTime: "2016-01-01~00:01:37"
+sol: 1210
+sclkValue: " 1/01210:03:44:43:09381"
+
+2017-12-10 21:22:11,220 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 21:22:42,606 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31502
+2017-12-10 21:22:42,676 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878567183908E8
+stateCuriosity: -2.2165024352E8
+stateCuriosity: -1.12275483565E8
+stateCuriosity: -4.1494179488E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680144338E8
+stateEarth: 1.12290629901E8
+stateEarth: 4.1499775785E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680144338E8
+positionEarthWRTCuriosity: 1.12290629901E8
+positionEarthWRTCuriosity: 4.1499775785E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.447
+utcTime: "2016-01-01~00:01:39"
+sol: 1210
+sclkValue: " 1/01210:03:44:45:04029"
+
+2017-12-10 21:22:42,676 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 21:23:14,112 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31505
+2017-12-10 21:23:14,181 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878569183908E8
+stateCuriosity: -2.21650186677E8
+stateCuriosity: -1.1227551441E8
+stateCuriosity: -4.1494193979E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680087466E8
+stateEarth: 1.1229066074E8
+stateEarth: 4.1499790275E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.38
+positionEarthWRTCuriosity: 2.21680087466E8
+positionEarthWRTCuriosity: 1.1229066074E8
+positionEarthWRTCuriosity: 4.1499790275E7
+owltEarthMSL2: 840.38
+angSepHGAEarth: 141.442
+utcTime: "2016-01-01~00:01:41"
+sol: 1210
+sclkValue: " 1/01210:03:44:46:98678"
+
+2017-12-10 21:23:14,181 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 21:23:45,613 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31500
+2017-12-10 21:23:45,685 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878571183908E8
+stateCuriosity: -2.21650129833E8
+stateCuriosity: -1.12275545254E8
+stateCuriosity: -4.1494208471E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21680030595E8
+stateEarth: 1.12290691579E8
+stateEarth: 4.1499804765E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21680030595E8
+positionEarthWRTCuriosity: 1.12290691579E8
+positionEarthWRTCuriosity: 4.1499804765E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.438
+utcTime: "2016-01-01~00:01:43"
+sol: 1210
+sclkValue: " 1/01210:03:44:48:93327"
+
+2017-12-10 21:23:45,685 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 21:24:17,116 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31502
+2017-12-10 21:24:17,186 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878573183908E8
+stateCuriosity: -2.2165007299E8
+stateCuriosity: -1.12275576098E8
+stateCuriosity: -4.1494222962E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679973724E8
+stateEarth: 1.12290722417E8
+stateEarth: 4.1499819255E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679973724E8
+positionEarthWRTCuriosity: 1.12290722417E8
+positionEarthWRTCuriosity: 4.1499819255E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.433
+utcTime: "2016-01-01~00:01:45"
+sol: 1210
+sclkValue: " 1/01210:03:44:50:87976"
+
+2017-12-10 21:24:17,186 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 21:24:48,625 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31509
+2017-12-10 21:24:48,690 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878575183908E8
+stateCuriosity: -2.21650016147E8
+stateCuriosity: -1.12275606942E8
+stateCuriosity: -4.1494237453E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679916852E8
+stateEarth: 1.12290753256E8
+stateEarth: 4.1499833745E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679916852E8
+positionEarthWRTCuriosity: 1.12290753256E8
+positionEarthWRTCuriosity: 4.1499833745E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.429
+utcTime: "2016-01-01~00:01:47"
+sol: 1210
+sclkValue: " 1/01210:03:44:52:82625"
+
+2017-12-10 21:24:48,690 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 21:25:20,127 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31502
+2017-12-10 21:25:20,200 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878577183908E8
+stateCuriosity: -2.21649959303E8
+stateCuriosity: -1.12275637786E8
+stateCuriosity: -4.1494251944E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679859981E8
+stateEarth: 1.12290784094E8
+stateEarth: 4.1499848235E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679859981E8
+positionEarthWRTCuriosity: 1.12290784094E8
+positionEarthWRTCuriosity: 4.1499848235E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.424
+utcTime: "2016-01-01~00:01:49"
+sol: 1210
+sclkValue: " 1/01210:03:44:54:77274"
+
+2017-12-10 21:25:20,200 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266
+2017-12-10 21:25:51,630 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 31502
+2017-12-10 21:25:51,701 [Thread-2] INFO space.exploration.mars.rover.sensor.PositionSensor  - ephemerisTime: 5.04878578183908E8
+stateCuriosity: -2.21649930882E8
+stateCuriosity: -1.12275653208E8
+stateCuriosity: -4.149425919E7
+stateCuriosity: 28.422
+stateCuriosity: -15.422
+stateCuriosity: -7.246
+owltMSLEarth: 840.266
+stateEarth: 2.21679831545E8
+stateEarth: 1.12290799514E8
+stateEarth: 4.149985548E7
+stateEarth: -28.436
+stateEarth: 15.419
+stateEarth: 7.245
+owltEarthMSL: 840.379
+positionEarthWRTCuriosity: 2.21679831545E8
+positionEarthWRTCuriosity: 1.12290799514E8
+positionEarthWRTCuriosity: 4.149985548E7
+owltEarthMSL2: 840.379
+angSepHGAEarth: 141.422
+utcTime: "2016-01-01~00:01:50"
+sol: 1210
+sclkValue: " 1/01210:03:44:55:74598"
+
+2017-12-10 21:25:51,701 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 840.266

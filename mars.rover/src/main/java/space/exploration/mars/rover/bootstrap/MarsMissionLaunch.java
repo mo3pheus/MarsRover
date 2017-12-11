@@ -15,7 +15,7 @@ public class MarsMissionLaunch {
     public static void main(String[] args) {
         try {
             if (args.length == 0) {
-                configureLogging(true);
+                configureLogging(false);
                 new Rover(MatrixCreation.getConfig(), MatrixCreation.getComsConfig(), MatrixCreation
                         .getRoverDBConfig());
             } else {

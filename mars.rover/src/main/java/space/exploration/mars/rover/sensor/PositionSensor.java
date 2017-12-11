@@ -52,7 +52,7 @@ public class PositionSensor implements IsEquipment {
             @Override
             public void run() {
                 internalClock = new DateTime(internalClock.getMillis() + timeScaleFactor);
-                timeElapsedMs += timeScaleFactor;
+                timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
                 positionUtils.setUtcTime(clockFormatter.print(internalClock));
             }
         };
