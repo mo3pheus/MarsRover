@@ -65,7 +65,8 @@ public class SpacecraftClock implements IsEquipment {
                     stopClock();
                 }
 
-                internalClock = new DateTime(internalClock.getMillis() + timeScaleFactor);
+                internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
+                        (1)));
                 clockService.updateClock(clockFormatter.print(internalClock));
                 timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
                 sol = clockService.getSol();

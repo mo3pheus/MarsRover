@@ -69,7 +69,7 @@ public class BatteryMonitor {
                 rover.getMarsArchitect().getMarsSurface().repaint();
             }
         };
-        scheduler.scheduleAtFixedRate(bMonitor, 0, 30, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(bMonitor, 31, 30, TimeUnit.SECONDS);
     }
 
     public void interrupt() {

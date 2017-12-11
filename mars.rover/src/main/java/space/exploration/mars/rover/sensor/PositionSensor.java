@@ -51,7 +51,8 @@ public class PositionSensor implements IsEquipment {
         Runnable positionUpdate = new Runnable() {
             @Override
             public void run() {
-                internalClock = new DateTime(internalClock.getMillis() + timeScaleFactor);
+                internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
+                        (1)));
                 timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
                 positionUtils.setUtcTime(clockFormatter.print(internalClock));
             }
