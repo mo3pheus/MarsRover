@@ -6,7 +6,6 @@ import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.Properties;
-import java.util.concurrent.Semaphore;
 
 public class Battery implements IsEquipment {
     private int     primaryPowerUnits;

@@ -20,7 +20,9 @@ public class RoverGarbageCollector {
     private             String                   errorMessage         = "";
     private             Logger                   logger               = LoggerFactory.getLogger
             (RoverGarbageCollector.class);
-    public              Runnable                 queueMonitor         = new Runnable() {
+    private             QueueMonitor             queueMonitor         = null;
+
+    public class QueueMonitor implements Runnable {
         @Override
         public void run() {
             if (rover.getInstructionQueue().size() >= MAX_PENDING_MESSAGES
@@ -43,11 +45,17 @@ public class RoverGarbageCollector {
                     }
                 }
 
-                rover.writeErrorLog(errorMessage, null);
-                rover.getInstructionQueue().clear();
-                rover.setState(rover.getTransmittingState());
-                rover.transmitMessage(getDistressSignal());
-                return;
+                try {
+                    byte[] distressSignal = getDistressSignal();
+                    rover.writeErrorLog(errorMessage, null);
+                    rover.getInstructionQueue().clear();
+                    rover.setState(rover.getTransmittingState());
+                    rover.transmitMessage(distressSignal);
+                } catch (Exception e) {
+                    logger.error("Encountered error while generating distressSignal.", e);
+                    rover.getInstructionQueue().clear();
+                    rover.setState(rover.getListeningState());
+                }
             } else if (rover.getState() != rover.getHibernatingState()) {
                 if (!rover.getInstructionQueue().isEmpty()) {
                     logger.info("RoverGC trimming instructionQueue. Current length = " + rover.getInstructionQueue()
@@ -56,12 +64,22 @@ public class RoverGarbageCollector {
                 rover.processPendingMessageQueue();
             }
         }
-    };
+    }
 
     public RoverGarbageCollector(Rover rover) {
         this.rover = rover;
         this.roverGC = Executors.newSingleThreadScheduledExecutor();
+        queueMonitor = new QueueMonitor();
+    }
+
+    public void start(){
+        logger.info("Starting garbageCollection");
         roverGC.scheduleAtFixedRate(queueMonitor, 0l, 10l, TimeUnit.SECONDS);
+    }
+
+    public void interrupt(){
+        logger.info("RoverGC interrupted");
+        roverGC.shutdown();
     }
 
     private byte[] getDistressSignal() {

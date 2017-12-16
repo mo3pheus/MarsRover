@@ -29,13 +29,13 @@ public class BatteryMonitor {
             @Override
             public void run() {
                 logger.info("BatteryMonitor performing due diligence. SCET = " + System.currentTimeMillis() + " " +
-                                     "Rover" +
-                                     " state = " + rover.getState().getStateName());
+                                    "Rover" +
+                                    " state = " + rover.getState().getStateName());
                 if (rover.getState() == rover.getHibernatingState()) {
                     long timeInRecharge = System.currentTimeMillis() - rover.getInRechargingModeTime();
                     logger.info("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
-                                               "required = " +
-                                               rover.getBattery().getRechargeTime());
+                                        "required = " +
+                                        rover.getBattery().getRechargeTime());
                     RoverUtil.roverSystemLog(logger, "Rover is in " + rover.getState().getStateName() +
                                                      ", timeInRecharge = " +
                                                      timeInRecharge + " " +

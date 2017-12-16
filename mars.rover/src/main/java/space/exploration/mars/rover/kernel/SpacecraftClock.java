@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Note: Be very careful in adding log statements in this class. Chances are the clock will log once every
- * milliSecond and overwhelm storage.
+ * Second and overwhelm storage.
  * <p>
  * The sclk is only as valid as the spice.utilities library provides. Which in turn is driven by the MSL mission data
  * processed.
@@ -30,7 +30,6 @@ public class SpacecraftClock implements IsEquipment {
     private Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
                                                                                        .class);
     private ScheduledExecutorService clockCounter    = null;
-    private DateTime                 internalClock   = null;
     private DateTimeFormatter        clockFormatter  = null;
     private String                   sclkStartTime   = null;
     private TimeUtils                clockService    = null;
@@ -39,15 +38,24 @@ public class SpacecraftClock implements IsEquipment {
     private long                     timeElapsedMs   = 0l;
     private int                      sol             = 0;
 
+    private DateTime internalClock;
+    private Clock    clock;
+
     public SpacecraftClock(Properties marsConfig) {
         clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
         sclkStartTime = marsConfig.getProperty(SCLK_START_TIME);
         timeScaleFactor = Integer.parseInt(marsConfig.getProperty(SCLK_TIME_SCALE_FACTOR));
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
-        internalClock.withZone(DateTimeZone.UTC);
+        internalClock = internalClock.withZone(DateTimeZone.UTC);
         clockService = new TimeUtils();
 
+        logger.info("Valid utc time ranges are dictated by clockService as follows:");
+        logger.info(clockService.getApplicableTimeFrame());
+        logger.info("Given UTC = " + sclkStartTime);
+        logger.info("Please ensure that positionSensor and sclk are synchronized");
+
         clockCounter = Executors.newSingleThreadScheduledExecutor();
+        clock = new Clock();
 
         String missionDurationString = marsConfig.getProperty(SCLK_MISSION_DURATION);
         missionDuration = TimeUnit.DAYS.toMillis(365 * Integer.parseInt(missionDurationString));
@@ -56,23 +64,22 @@ public class SpacecraftClock implements IsEquipment {
         logger.info("Mission duration = " + missionDuration);
     }
 
+    protected void resetSpacecraftClock(String utcTime) {
+        logger.info("UTCTime = " + utcTime);
+        internalClock = clockFormatter.parseDateTime(utcTime);
+        internalClock = internalClock.withZone(DateTimeZone.UTC);
+
+        logger.info("Valid utc time ranges are dictated by clockService as follows:");
+        logger.info(clockService.getApplicableTimeFrame());
+        logger.info("Given UTC = " + utcTime);
+        logger.info("Please ensure that positionSensor and sclk are synchronized");
+
+        clockCounter.shutdown();
+        clockCounter = Executors.newSingleThreadScheduledExecutor();
+        start();
+    }
+
     public void start() {
-        Runnable clock = new Runnable() {
-            @Override
-            public void run() {
-                if (timeElapsedMs > missionDuration) {
-                    logger.error("Houston! Spacecraft clock has reached end of mission life.");
-                    stopClock();
-                }
-
-                internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
-                        (1)));
-                clockService.updateClock(clockFormatter.print(internalClock));
-                timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
-                sol = clockService.getSol();
-            }
-        };
-
         clockCounter.scheduleAtFixedRate(clock, 0l, 1l, TimeUnit.SECONDS);
     }
 
@@ -161,5 +168,21 @@ public class SpacecraftClock implements IsEquipment {
         sBuilder.setSol(sol);
 
         return sBuilder.build().toString();
+    }
+
+    private class Clock implements Runnable {
+        @Override
+        public void run() {
+            if (timeElapsedMs > missionDuration) {
+                logger.error("Houston! Spacecraft clock has reached end of mission life.");
+                stopClock();
+            }
+
+            internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
+                    (1)));
+            clockService.updateClock(clockFormatter.print(internalClock));
+            timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
+            sol = clockService.getSol();
+        }
     }
 }

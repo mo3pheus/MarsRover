@@ -16,7 +16,7 @@ public class RadarContactBlip extends Thread {
     private Logger           logger       = LoggerFactory.getLogger(RadarContactBlip.class);
     private int              contactDepth = RadarAnimationEngine.RADAR_DEPTH.intValue() + 1;
 
-    public RadarContactBlip(JLayeredPane contentPane, RadarContactCell contact ) {
+    public RadarContactBlip(JLayeredPane contentPane, RadarContactCell contact) {
         this.contact = contact;
         this.contentPane = contentPane;
     }

@@ -30,6 +30,10 @@ public class SleepingState implements State {
         rover.receiveMessage(message);
     }
 
+    @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName());
+    }
 
     @Override
     public void activateCameraById(String camId) {
@@ -48,7 +52,7 @@ public class SleepingState implements State {
 
     @Override
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     @Override

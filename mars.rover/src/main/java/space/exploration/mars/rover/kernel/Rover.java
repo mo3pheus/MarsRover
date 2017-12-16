@@ -71,12 +71,14 @@ public class Rover {
     private String           nasaApiAuthKey           = null;
 
     /* Equipment Stack */
-    private Radio           radio           = null;
-    private Lidar           lidar           = null;
-    private Spectrometer    spectrometer    = null;
-    private Camera          camera          = null;
-    private Radar           radar           = null;
-    private WeatherSensor   weatherSensor   = null;
+    private Radio         radio         = null;
+    private Lidar         lidar         = null;
+    private Spectrometer  spectrometer  = null;
+    private Camera        camera        = null;
+    private Radar         radar         = null;
+    private WeatherSensor weatherSensor = null;
+
+    /* Kernel Sensors   */
     private SpacecraftClock spacecraftClock = null;
     private PositionSensor  positionSensor  = null;
 
@@ -87,10 +89,11 @@ public class Rover {
     private long                  timeMessageReceived  = 0l;
 
     /* Resource Management Stack */
-    private Semaphore      accessLock     = new Semaphore(1);
-    private Pacemaker      pacemaker      = null;
-    private Battery        battery        = null;
-    private BatteryMonitor batteryMonitor = null;
+    private Semaphore             accessLock            = new Semaphore(1);
+    private Pacemaker             pacemaker             = null;
+    private Battery               battery               = null;
+    private BatteryMonitor        batteryMonitor        = null;
+    private RoverGarbageCollector roverGarbageCollector = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig) {
         this.marsConfig = marsConfig;
@@ -338,6 +341,10 @@ public class Rover {
         state.transmitMessage(message);
     }
 
+    public synchronized void synchronizeClocks(String utcTime) {
+        state.synchronizeClocks(utcTime);
+    }
+
     public synchronized void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
         /* Choose to filter upon modules here */
         logger.debug("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife " +
@@ -345,6 +352,14 @@ public class Rover {
                              " to " + Boolean.toString(equipmentEOL));
         state = transmittingState;
         transmitMessage(message);
+    }
+
+    public synchronized void setPaceMaker(Pacemaker pacemaker) {
+        this.pacemaker = pacemaker;
+    }
+
+    public synchronized void setGarbageCollector(RoverGarbageCollector garbageCollector) {
+        this.roverGarbageCollector = garbageCollector;
     }
 
     public synchronized Radio getRadio() {
@@ -395,11 +410,22 @@ public class Rover {
         return spacecraftClock;
     }
 
-    /**
-     * Note: This may be required if the clock primary partition fills or if there is a clock reset.
-     *
-     * @param spacecraftClock
-     */
+    public synchronized void setPositionSensor(PositionSensor positionSensor) {
+        this.positionSensor = positionSensor;
+    }
+
+    public synchronized Pacemaker getPacemaker() {
+        return this.pacemaker;
+    }
+
+    public synchronized RoverGarbageCollector getGarbageCollector() {
+        return this.roverGarbageCollector;
+    }
+
+    public synchronized void setRoverGarbageCollector(RoverGarbageCollector roverGarbageCollector) {
+        this.roverGarbageCollector = roverGarbageCollector;
+    }
+
     public synchronized void setSpacecraftClock(SpacecraftClock spacecraftClock) {
         this.spacecraftClock.stopClock();
         this.spacecraftClock = spacecraftClock;
@@ -543,12 +569,12 @@ public class Rover {
         return weatherSensingState;
     }
 
-    public PositionSensor getPositionSensor() {
-        return positionSensor;
-    }
-
     public synchronized void setWeatherSensingState(State weatherSensingState) {
         this.weatherSensingState = weatherSensingState;
+    }
+
+    public PositionSensor getPositionSensor() {
+        return positionSensor;
     }
 
     public synchronized void bootUp() {
@@ -584,7 +610,8 @@ public class Rover {
         new SleepMonitor(this);
         RoverUtil.roverSystemLog(logger, "SleepMonitor initialized. ", "INFO ");
 
-        new RoverGarbageCollector(this);
+        roverGarbageCollector = new RoverGarbageCollector(this);
+        roverGarbageCollector.start();
         RoverUtil.roverSystemLog(logger, "RoverGC initialized. ", "INFO ");
 
         String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");

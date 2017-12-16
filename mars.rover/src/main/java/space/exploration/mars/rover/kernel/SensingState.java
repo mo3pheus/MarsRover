@@ -41,6 +41,11 @@ public class SensingState implements State {
     }
 
     @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName());
+    }
+
+    @Override
     public String getStateName() {
         return "Sensing State";
     }
@@ -52,7 +57,7 @@ public class SensingState implements State {
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     public void hibernate() {
@@ -87,7 +92,8 @@ public class SensingState implements State {
 
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
-                .setSolNumber(rover.getSpacecraftClock().getSol()).setLocation(location).setNotes("Lidar exercised here.")
+                .setSolNumber(rover.getSpacecraftClock().getSol()).setLocation(location).setNotes("Lidar exercised " +
+                                                                                                          "here.")
                 .setModuleMessage(lidarFeedback.build().toByteString()).setSCET(System.currentTimeMillis())
                 .setModuleReporting(ModuleDirectory.Module.SENSOR_LIDAR.getValue()).build();
 

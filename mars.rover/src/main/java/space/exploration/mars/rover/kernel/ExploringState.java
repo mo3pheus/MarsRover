@@ -67,7 +67,7 @@ public class ExploringState implements State {
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     public void hibernate() {
@@ -110,6 +110,11 @@ public class ExploringState implements State {
     @Override
     public String getStateName() {
         return "Exploring State";
+    }
+
+    @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName() );
     }
 
 }

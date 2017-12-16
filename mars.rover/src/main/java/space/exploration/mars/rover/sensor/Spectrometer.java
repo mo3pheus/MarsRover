@@ -122,7 +122,7 @@ public class Spectrometer implements IsEquipment {
     }
 
     public SpectrometerScanOuterClass.SpectrometerScan getSpectrometerReading() {
-        SpectrometerScanOuterClass.SpectrometerScan.Builder         sBuilder       = SpectrometerScanOuterClass
+        SpectrometerScanOuterClass.SpectrometerScan.Builder sBuilder = SpectrometerScanOuterClass
                 .SpectrometerScan.newBuilder();
         List<SpectrometerScanOuterClass.SpectrometerScan.PointComp> sampleReadings = new
                 ArrayList<SpectrometerScanOuterClass.SpectrometerScan.PointComp>();

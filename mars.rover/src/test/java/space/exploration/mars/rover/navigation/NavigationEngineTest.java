@@ -1,4 +1,4 @@
-package space.exploration.mars.rover;
+package space.exploration.mars.rover.navigation;
 
 import communications.protocol.ModuleDirectory;
 import junit.framework.TestCase;
@@ -11,7 +11,6 @@ import space.exploration.communications.protocol.robot.RobotPositionsOuterClass;
 import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.kernel.SetupTestRover;
-import space.exploration.mars.rover.navigation.NavigationEngine;
 
 @Ignore
 public class NavigationEngineTest extends TestCase {

@@ -50,7 +50,7 @@ public class HibernatingState implements State {
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     public void hibernate() {
@@ -86,5 +86,10 @@ public class HibernatingState implements State {
     @Override
     public void getSclkInformation() {
         logger.error("Can not get sclkInformation while in hibernatingState");
+    }
+
+    @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName() );
     }
 }

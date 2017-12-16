@@ -30,8 +30,13 @@ public class WeatherSensingState implements State {
     }
 
     @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName());
+    }
+
+    @Override
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     @Override

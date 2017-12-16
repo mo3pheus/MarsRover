@@ -16,6 +16,9 @@ import space.exploration.mars.rover.propulsion.PropulsionUnit;
 import java.awt.*;
 import java.util.Properties;
 
+import static communications.protocol.ModuleDirectory.SCLK_COMMAND;
+import static communications.protocol.ModuleDirectory.SCLK_SYNC;
+
 public class ListeningState implements State {
 
     private Logger logger         = LoggerFactory.getLogger(ListeningState.class);
@@ -29,6 +32,11 @@ public class ListeningState implements State {
     @Override
     public void activateCameraById(String camId) {
 
+    }
+
+    @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName());
     }
 
     @Override
@@ -99,7 +107,20 @@ public class ListeningState implements State {
                         logger.info("Rover will get detailed spacecraftClock information. " +
                                             "Houston, this is CuriosityActual.");
                         rover.state = rover.sclkBeepingState;
-                        rover.getSclkInformation();
+
+                        switch (tp.getAction()) {
+                            case SCLK_COMMAND: {
+                                rover.getSclkInformation();
+                            }
+                            break;
+                            case SCLK_SYNC: {
+                                rover.synchronizeClocks(tp.getUtcTime());
+                            }
+                            break;
+                            default: {
+                                logger.error("Unknown action specified for Sclk articulation.");
+                            }
+                        }
                     }
                 }
             }
@@ -135,7 +156,7 @@ public class ListeningState implements State {
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     public void hibernate() {

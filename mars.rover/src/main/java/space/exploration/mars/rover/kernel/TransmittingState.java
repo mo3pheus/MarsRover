@@ -31,6 +31,11 @@ public class TransmittingState implements State {
         }
     }
 
+    @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName());
+    }
+
     public void transmitMessage(byte[] message) {
         RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
                 .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
@@ -53,7 +58,7 @@ public class TransmittingState implements State {
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     public void hibernate() {

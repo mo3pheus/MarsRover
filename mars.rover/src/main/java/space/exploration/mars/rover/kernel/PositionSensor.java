@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.sensor;
+package space.exploration.mars.rover.kernel;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -7,7 +7,6 @@ import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.spice.MSLRelativePositions;
-import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.spice.utilities.PositionUtils;
 
 import java.util.Properties;
@@ -31,8 +30,9 @@ public class PositionSensor implements IsEquipment {
     private String                   sclkStartTime   = null;
     private int                      timeScaleFactor = 0;
     private long                     timeElapsedMs   = 0l;
-    private int                      sol             = 0;
     private long                     missionDuration = 0l;
+
+    private PositionUpdate positionUpdate;
 
     public PositionSensor(Properties roverProperties) {
         this.roverProperties = roverProperties;
@@ -45,25 +45,25 @@ public class PositionSensor implements IsEquipment {
         internalClock.withZone(DateTimeZone.UTC);
         String missionDurationString = roverProperties.getProperty(SCLK_MISSION_DURATION);
         missionDuration = TimeUnit.DAYS.toMillis(365 * Integer.parseInt(missionDurationString));
+        positionUpdate = new PositionUpdate();
     }
 
-    public void start() {
-        Runnable positionUpdate = new Runnable() {
-            @Override
-            public void run() {
-                internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
-                        (1)));
-                timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
-                positionUtils.setUtcTime(clockFormatter.print(internalClock));
-            }
-        };
+    protected void resetPositionSensor(String utcTime) {
+        sensorUpdate.shutdown();
+        sensorUpdate = Executors.newSingleThreadScheduledExecutor();
+        logger.info("Synchronizing positionSensor clock to " + utcTime);
+        internalClock = clockFormatter.parseDateTime(utcTime);
+        internalClock.withZone(DateTimeZone.UTC);
+        start();
+    }
 
+    protected void start() {
         sensorUpdate.scheduleAtFixedRate(positionUpdate, 0l, 1, TimeUnit.SECONDS);
     }
 
     public MSLRelativePositions.MSLRelPositionsPacket getPositionsData() {
         MSLRelativePositions.MSLRelPositionsPacket positionsPacket = positionUtils.getPositionPacket();
-        logger.info(positionsPacket.toString());
+        logger.info("Houston - this is curiosityActual." + positionsPacket.toString());
         return positionsPacket;
     }
 
@@ -82,4 +82,13 @@ public class PositionSensor implements IsEquipment {
         return (timeElapsedMs > missionDuration);
     }
 
+    private class PositionUpdate implements Runnable {
+        @Override
+        public void run() {
+            internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
+                    (1)));
+            timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
+            positionUtils.setUtcTime(clockFormatter.print(internalClock));
+        }
+    }
 }

@@ -1,6 +1,5 @@
 package space.exploration.mars.rover.communication;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

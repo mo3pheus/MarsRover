@@ -7,6 +7,8 @@ import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.spacecraftClock.SpacecraftClock.SclkPacket;
+import space.exploration.mars.rover.diagnostics.Pacemaker;
+import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 public class SclkTimingState implements State {
@@ -25,6 +27,43 @@ public class SclkTimingState implements State {
     }
 
     @Override
+    public void synchronizeClocks(String utcTime) {
+        try {
+            logger.info("Synchronizing sclk and positionSensor to " + utcTime);
+
+            logger.info("Houston, expect a diagnostics pause. Shutting down paceMaker");
+            rover.getPacemaker().interrupt();
+
+            logger.info("Houston, be advised - garbageCollection is paused. Please wait before sending new signals.");
+            rover.getGarbageCollector().interrupt();
+
+            rover.getSpacecraftClock().resetSpacecraftClock(utcTime);
+            rover.getSpacecraftClock().start();
+
+            rover.getPositionSensor().resetPositionSensor(utcTime);
+            rover.getPositionSensor().start();
+
+            logger.info("Restarting diagnostics heartbeat");
+            rover.setPaceMaker(new Pacemaker(rover));
+            rover.getPacemaker().pulse();
+
+            logger.info("Restarting garbageCollection");
+            rover.setGarbageCollector(new RoverGarbageCollector(rover));
+            rover.getGarbageCollector().start();
+        } catch (Exception e) {
+            logger.error("Clock synchronization was unsuccessful. Attempting to restore the rover to previous state",
+                         e);
+            rover.getPacemaker().pulse();
+            rover.getGarbageCollector().start();
+            rover.getSpacecraftClock().start();
+            rover.getPositionSensor().start();
+            rover.setState(rover.getListeningState());
+        } finally {
+            getSclkInformation();
+        }
+    }
+
+    @Override
     public void transmitMessage(byte[] message) {
         logger.error("Can not transmit from SclkTimingState");
     }
@@ -36,7 +75,7 @@ public class SclkTimingState implements State {
 
     @Override
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     @Override

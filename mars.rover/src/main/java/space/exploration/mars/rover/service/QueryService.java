@@ -1,6 +1,5 @@
 package space.exploration.mars.rover.service;
 
-import com.google.gson.JsonObject;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;

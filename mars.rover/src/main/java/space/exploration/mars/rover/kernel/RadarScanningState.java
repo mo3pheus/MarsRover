@@ -38,6 +38,11 @@ public class RadarScanningState implements State {
     }
 
     @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName() );
+    }
+
+    @Override
     public String getStateName() {
         return "Radar Scanning State";
     }
@@ -66,7 +71,7 @@ public class RadarScanningState implements State {
 
     @Override
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     @Override

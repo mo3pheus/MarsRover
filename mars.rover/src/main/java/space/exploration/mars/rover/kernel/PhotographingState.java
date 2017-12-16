@@ -14,8 +14,6 @@ import space.exploration.mars.rover.service.PhotoQueryService;
 import space.exploration.mars.rover.utils.CameraUtil;
 
 import java.io.IOException;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sanketkorgaonkar on 5/9/17.
@@ -37,6 +35,11 @@ public class PhotographingState implements State {
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("Invalid protocolBuffer Exception", ipe);
         }
+    }
+
+    @Override
+    public void synchronizeClocks(String utcTime) {
+        logger.debug("Can not sync clocks in " + getStateName() );
     }
 
     @Override
@@ -109,7 +112,7 @@ public class PhotographingState implements State {
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName() );
+        logger.debug("Can not move in " + getStateName());
     }
 
     public void hibernate() {

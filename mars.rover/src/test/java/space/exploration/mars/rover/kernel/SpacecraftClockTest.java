@@ -56,4 +56,28 @@ public class SpacecraftClockTest extends TestCase {
         System.out.println("End of Spacecraft clock test!");
         System.out.println(SEPARATOR);
     }
+
+    @Test
+    public void testSynchronization() {
+        clock = new SpacecraftClock(marsConfig);
+        clock.resetSpacecraftClock("2016-05-05~12:00:00");
+        clock.start();
+        for (int i = 0; i < 10; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Clock internal time = " + clock.getInternalClock() +
+                                       " getUTCTime = " + clock.getUTCTime() +
+                                       " corresponding sclk is = " +
+                                       clock.getSclkTime() + " Sol = " + clock.getSol());
+        }
+        System.out.println(clock.toString());
+        clock.stopClock();
+
+        System.out.println(SEPARATOR);
+        System.out.println("End of Spacecraft clock test!");
+        System.out.println(SEPARATOR);
+    }
 }

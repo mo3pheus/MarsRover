@@ -29,4 +29,6 @@ public interface State {
     void getSclkInformation();
 
     String getStateName();
+
+    void synchronizeClocks(String utcTime);
 }
