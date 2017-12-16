@@ -64,6 +64,7 @@ public class Radio implements IsEquipment {
             }
         } catch (Exception e) {
             logger.error("Houston, we have a problem!", e);
+            logger.error("The following instruction may have been lost." + instructionPayload.toString());
             rover.writeErrorLog("Houston, we have a problem!", e);
             rover.setState(rover.getListeningState());
         }
