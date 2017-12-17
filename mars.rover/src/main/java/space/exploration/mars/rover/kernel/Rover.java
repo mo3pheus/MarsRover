@@ -124,14 +124,8 @@ public class Rover {
     }
 
     public synchronized void processPendingMessageQueue() {
-        if (!instructionQueue.isEmpty() && state != hibernatingState) {
-            if (state == sleepingState) {
-                wakeUp();
-            } else {
-                state = listeningState;
-                receiveMessage(instructionQueue.remove(0));
-            }
-        }
+            state = listeningState;
+            receiveMessage(instructionQueue.remove(0));
     }
 
     public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage, int

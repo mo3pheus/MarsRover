@@ -60,8 +60,13 @@ public class RoverGarbageCollector {
                 if (!rover.getInstructionQueue().isEmpty()) {
                     logger.info("RoverGC trimming instructionQueue. Current length = " + rover.getInstructionQueue()
                             .size());
+                    try {
+                        rover.processPendingMessageQueue();
+                    } catch(Exception e){
+                        logger.error("Encountered exception while processing instructionQueue", e);
+                        rover.setState(rover.getListeningState());
+                    }
                 }
-                rover.processPendingMessageQueue();
             }
         }
     }
