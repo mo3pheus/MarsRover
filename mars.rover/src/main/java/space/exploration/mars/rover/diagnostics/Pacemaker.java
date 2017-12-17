@@ -50,7 +50,8 @@ public class Pacemaker {
                     rover.setState(rover.getTransmittingState());
                     rover.transmitMessage(roverStatus.toByteArray());
                 } catch (Exception e) {
-                    logger.error(e.getMessage());
+                    logger.error("Encountered exception while generating diagnostic heartBeat. Its possible this " +
+                                         "instance is in a coverage gap for positionVectors.", e);
                     rover.setState(rover.getListeningState());
                 }
             }
