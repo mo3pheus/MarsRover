@@ -24,6 +24,7 @@ public class Radio implements IsEquipment {
     private             double      timeScaleFactor = 0.0d;
     private             int         lifeSpan        = 0;
     private             boolean     bootUp          = true;
+    private             Integer     comsDelay       = 0;
 
     public Radio(Properties comsConfig, Rover rover) {
         this.rover = rover;
@@ -119,8 +120,15 @@ public class Radio implements IsEquipment {
     5) Transmit overhead pass time for each satellite along with telemetry.
     */
     private int getComsDelaySecs() {
-        double owlt = rover.getPositionSensor().getPositionsData().getOwltMSLEarth();
-        logger.info("One Way Light Time computed by SPICE :: " + Double.toString(owlt));
-        return (int) (owlt / timeScaleFactor);
+        try {
+            double owlt = rover.getPositionSensor().getPositionsData().getOwltMSLEarth();
+            logger.info("One Way Light Time computed by SPICE :: " + Double.toString(owlt));
+            comsDelay = (int) (owlt / timeScaleFactor);
+        } catch (Exception e) {
+            logger.error("Encountered exception when getting comsDelay. There may be a coverage gap at this time." +
+                                 "Radio is returning the last known communications delay.", e);
+        } finally {
+            return comsDelay;
+        }
     }
 }
