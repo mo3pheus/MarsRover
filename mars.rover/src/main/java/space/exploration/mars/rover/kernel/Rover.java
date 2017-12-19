@@ -60,23 +60,23 @@ public class Rover {
     private boolean    dbLoggingEnabled = false;
 
     /* Configuration */
-    private Properties       marsConfig               = null;
-    private Properties       comsConfig               = null;
-    private Properties       logDBConfig              = null;
-    private String           cameraImageCacheLocation = null;
-    private String           dataArchiveLocation      = null;
-    private MarsArchitect    marsArchitect            = null;
-    private Point            location                 = null;
-    private NavigationEngine navigationEngine         = null;
-    private String           nasaApiAuthKey           = null;
+    private Properties    marsConfig               = null;
+    private Properties    comsConfig               = null;
+    private Properties    logDBConfig              = null;
+    private String        cameraImageCacheLocation = null;
+    private String        dataArchiveLocation      = null;
+    private MarsArchitect marsArchitect            = null;
+    private Point         location                 = null;
+    private String        nasaApiAuthKey           = null;
 
     /* Equipment Stack */
-    private Radio         radio         = null;
-    private Lidar         lidar         = null;
-    private Spectrometer  spectrometer  = null;
-    private Camera        camera        = null;
-    private Radar         radar         = null;
-    private WeatherSensor weatherSensor = null;
+    private Radio            radio            = null;
+    private Lidar            lidar            = null;
+    private Spectrometer     spectrometer     = null;
+    private Camera           camera           = null;
+    private Radar            radar            = null;
+    private WeatherSensor    weatherSensor    = null;
+    private NavigationEngine navigationEngine = null;
 
     /* Kernel Sensors   */
     private SpacecraftClock spacecraftClock = null;
@@ -124,8 +124,8 @@ public class Rover {
     }
 
     public synchronized void processPendingMessageQueue() {
-            state = listeningState;
-            receiveMessage(instructionQueue.remove(0));
+        state = listeningState;
+        receiveMessage(instructionQueue.remove(0));
     }
 
     public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage, int
@@ -625,7 +625,6 @@ public class Rover {
                                                                                                           cameraImageCacheLocation);
         this.radar = new Radar(this);
         this.weatherSensor = new WeatherSensor(this);
-
 
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());
 
