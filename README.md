@@ -22,6 +22,9 @@ The rover is a softbot or a software robot with predefined capabilities. It is o
 9) WeatherSensingState
 10) ExploringState
 
+### Rover Architecture Diagram:
+![Rover Architecture](MarsRover/mars.rover/src/main/resources/roverArchitecture.jpg)
+
 Following is the rover equipment list:
 1) Battery/ PowerUnit.
 2) Propulsion Unit + TelemetrySensor*
