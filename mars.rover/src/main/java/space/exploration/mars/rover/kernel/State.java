@@ -31,4 +31,6 @@ public interface State {
     String getStateName();
 
     void synchronizeClocks(String utcTime);
+
+    void gracefulShutdown();
 }

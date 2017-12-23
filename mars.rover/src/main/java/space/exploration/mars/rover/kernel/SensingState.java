@@ -67,6 +67,11 @@ public class SensingState implements State {
     }
 
     @Override
+    public void gracefulShutdown(){
+        logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+    }
+
+    @Override
     public void activateCameraById(String camId) {
     }
 

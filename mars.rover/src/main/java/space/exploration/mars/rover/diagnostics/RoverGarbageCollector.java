@@ -31,19 +31,7 @@ public class RoverGarbageCollector {
                         "reached.";
                 logger.error(errorMessage);
 
-                errorMessage += " Number of messages lost = " + rover.getInstructionQueue().size();
-
-                for (byte[] message : rover.getInstructionQueue()) {
-                    try {
-                        InstructionPayloadOuterClass.InstructionPayload instructionPayload =
-                                InstructionPayloadOuterClass.InstructionPayload.parseFrom(message);
-
-                        errorMessage += instructionPayload.toString();
-                    } catch (InvalidProtocolBufferException invalidProtocol) {
-                        logger.error("Invalid protocol buffer for instructionPayload", invalidProtocol);
-                        rover.writeErrorLog("Invalid protocol buffer for instructionPayload", invalidProtocol);
-                    }
-                }
+                errorMessage += " Number of messages lost = " + RoverUtil.getInstructionQueue(rover);
 
                 try {
                     byte[] distressSignal = getDistressSignal();
@@ -85,6 +73,11 @@ public class RoverGarbageCollector {
     public void interrupt(){
         logger.info("RoverGC interrupted");
         roverGC.shutdown();
+    }
+
+    public void hardInterrupt(){
+        logger.info("RoverGC shuttingDown.");
+        roverGC.shutdownNow();
     }
 
     private byte[] getDistressSignal() {

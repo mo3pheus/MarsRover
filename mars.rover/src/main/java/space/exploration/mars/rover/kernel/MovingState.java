@@ -34,6 +34,11 @@ public class MovingState implements State {
     }
 
     @Override
+    public void gracefulShutdown(){
+        logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+    }
+
+    @Override
     public void synchronizeClocks(String utcTime) {
         logger.debug("Can not sync clocks in " + getStateName() );
     }

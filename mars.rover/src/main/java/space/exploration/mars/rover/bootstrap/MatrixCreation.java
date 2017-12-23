@@ -16,30 +16,17 @@ public class MatrixCreation {
 
     private static Properties config = null;
 
-//    @Deprecated
-//    public static void configureLogging() {
-//        FileAppender fa = new FileAppender();
-//        fa.setFile("roverStatusReports/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
-//        fa.setLayout(new PatternLayout("%-4r [%t] %-5p %c %x - %m%n"));
-//        fa.setThreshold(Level.toLevel(Priority.INFO_INT));
-//        fa.activateOptions();
-//        org.apache.log4j.Logger.getRootLogger().addAppender(fa);
-//    }
-
     public static Properties getConfig() throws IOException {
-        URL             url      = MatrixCreation.class.getResource("/marsConfig.properties");
+        URL             url      = MatrixCreation.class.getResource("/testMarsConfig.properties");
         FileInputStream propFile = new FileInputStream(url.getPath());
         config = new Properties();
         config.load(propFile);
         return config;
     }
 
-    public static Properties getComsConfig() throws IOException {
-        URL             url      = MatrixCreation.class.getResource("/kafka1.properties");
-        FileInputStream propFile = new FileInputStream(url.getPath());
-        config = new Properties();
-        config.load(propFile);
-        return config;
+    public static String getConfigFilePath(){
+        URL             url      = MatrixCreation.class.getResource("/testMarsConfig.properties");
+        return url.getPath();
     }
 
     public static Properties getRoverDBConfig() throws IOException {

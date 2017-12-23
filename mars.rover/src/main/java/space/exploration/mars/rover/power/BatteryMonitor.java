@@ -75,4 +75,8 @@ public class BatteryMonitor {
     public void interrupt() {
         scheduler.shutdown();
     }
+
+    public void hardInterrupt() {
+        scheduler.shutdownNow();
+    }
 }

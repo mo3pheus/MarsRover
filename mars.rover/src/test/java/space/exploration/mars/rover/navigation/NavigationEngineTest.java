@@ -14,12 +14,17 @@ import space.exploration.mars.rover.kernel.SetupTestRover;
 
 @Ignore
 public class NavigationEngineTest extends TestCase {
+    public static final String SEPARATOR = "-------------------------------------------------------------------";
+
     private NavigationEngine navigationEngine = null;
     private Rover            rover            = null;
     private Logger           logger           = LoggerFactory.getLogger(NavigationEngineTest.class);
 
     @Override
     public void setUp() {
+        System.out.println(SEPARATOR);
+        System.out.println("Running NavigationEngineTest.");
+        System.out.println(SEPARATOR);
         MarsMissionLaunch.configureLogging(false);
         try {
             rover = SetupTestRover.setupTestRover();

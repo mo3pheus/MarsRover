@@ -64,6 +64,11 @@ public class SclkTimingState implements State {
     }
 
     @Override
+    public void gracefulShutdown(){
+        logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+    }
+
+    @Override
     public void transmitMessage(byte[] message) {
         logger.error("Can not transmit from SclkTimingState");
     }

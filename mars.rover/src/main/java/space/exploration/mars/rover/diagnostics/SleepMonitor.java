@@ -40,6 +40,11 @@ public class SleepMonitor {
                                                                                            ".minutes"));
     }
 
+    public void hardInterrupt() {
+        logger.info("SleepMonitor is shuttingDown.");
+        monitor.shutdownNow();
+    }
+
     private boolean isRoverSleepy() {
         return (((System.currentTimeMillis() - rover.getTimeMessageReceived()) > TimeUnit.MINUTES.toMillis
                 (sleepAfterTimeMinutes)) && (rover.getState() == rover.getListeningState()));

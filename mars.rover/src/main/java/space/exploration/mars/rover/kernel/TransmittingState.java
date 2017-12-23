@@ -57,6 +57,11 @@ public class TransmittingState implements State {
     public void exploreArea() {
     }
 
+    @Override
+    public void gracefulShutdown(){
+        logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+    }
+
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
         logger.debug("Can not move in " + getStateName());
     }

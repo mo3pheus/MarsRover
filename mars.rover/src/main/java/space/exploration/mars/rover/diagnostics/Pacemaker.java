@@ -8,6 +8,7 @@ import space.exploration.communications.protocol.diagnostics.HeartBeatOuterClass
 import space.exploration.communications.protocol.spice.MSLRelativePositions;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -40,21 +41,25 @@ public class Pacemaker {
                 rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery",
                                      rover.getInstructionQueue().size());
             } else if (rover.isDiagnosticFriendly()) {
-                rover.powerCheck(1);
-                RoverStatusOuterClass.RoverStatus roverStatus = null;
-                try {
-                    roverStatus = generateDiagnosticStatus();
-                    heartBeat = HeartBeatOuterClass.HeartBeat.parseFrom(roverStatus.getModuleMessage()
-                                                                                .toByteArray());
-                    logger.debug(heartBeat.toString());
-                    rover.setState(rover.getTransmittingState());
-                    rover.transmitMessage(roverStatus.toByteArray());
-                } catch (Exception e) {
-                    logger.error("Encountered exception while generating diagnostic heartBeat. Its possible this " +
-                                         "instance is in a coverage gap for positionVectors.", e);
-                    rover.setState(rover.getListeningState());
-                }
+                sendHeartBeat(false);
             }
+        }
+    }
+
+    public void sendHeartBeat(boolean shutdown) {
+        rover.powerCheck(1);
+        RoverStatusOuterClass.RoverStatus roverStatus = null;
+        try {
+            roverStatus = generateDiagnosticStatus(shutdown);
+            heartBeat = HeartBeatOuterClass.HeartBeat.parseFrom(roverStatus.getModuleMessage()
+                                                                        .toByteArray());
+            logger.debug(heartBeat.toString());
+            rover.setState(rover.getTransmittingState());
+            rover.transmitMessage(roverStatus.toByteArray());
+        } catch (Exception e) {
+            logger.error("Encountered exception while generating diagnostic heartBeat. Its possible this " +
+                                 "instance is in a coverage gap for positionVectors.", e);
+            rover.setState(rover.getListeningState());
         }
     }
 
@@ -73,6 +78,10 @@ public class Pacemaker {
     public void interrupt() {
         logger.info("Pacemaker diagnostic module interrupted.");
         scheduler.shutdown();
+    }
+
+    public void hardInterrupt() {
+        logger.info("Pacemaker diagnostic module shuttingDown.");
     }
 
     private HeartBeatOuterClass.HeartBeat generateHeartBeat() {
@@ -97,7 +106,7 @@ public class Pacemaker {
         return hBuilder.build();
     }
 
-    private RoverStatusOuterClass.RoverStatus generateDiagnosticStatus() {
+    private RoverStatusOuterClass.RoverStatus generateDiagnosticStatus(boolean shutdown) {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus
                 .newBuilder();
         MSLRelativePositions.MSLRelPositionsPacket mslRelPositionsPacket = rover.getPositionSensor().getPositionsData();
@@ -105,7 +114,12 @@ public class Pacemaker {
         rBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
         rBuilder.setModuleMessage(generateHeartBeat().toByteString());
 
-        if (mslRelPositionsPacket.getHgaPass()) {
+        if (shutdown) {
+            String notes = "Messages Lost = " + RoverUtil.getInstructionQueue(rover);
+            rBuilder.setNotes(notes + "\nHouston - be advised Curiosity is shutting down. This will be the last " +
+                                      "diagnostic " +
+                                      "message. Farewell!");
+        } else if (mslRelPositionsPacket.getHgaPass()) {
             rBuilder.setNotes("HGA PASS DETECTED AT THIS TIME!");
         }
 

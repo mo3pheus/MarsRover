@@ -79,6 +79,11 @@ public class SpacecraftClock implements IsEquipment {
         start();
     }
 
+    public void hardInterrupt(){
+        logger.info("SpacecraftClock shuttingDown.");
+        clockCounter.shutdownNow();
+    }
+
     public void start() {
         clockCounter.scheduleAtFixedRate(clock, 0l, 1l, TimeUnit.SECONDS);
     }

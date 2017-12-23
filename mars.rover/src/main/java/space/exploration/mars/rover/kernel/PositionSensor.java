@@ -91,4 +91,9 @@ public class PositionSensor implements IsEquipment {
             positionUtils.setUtcTime(clockFormatter.print(internalClock));
         }
     }
+
+    public void hardInterrupt() {
+        logger.info("PositionSensor is shutting down.");
+        sensorUpdate.shutdownNow();
+    }
 }

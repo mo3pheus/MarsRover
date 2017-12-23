@@ -60,14 +60,15 @@ public class Rover {
     private boolean    dbLoggingEnabled = false;
 
     /* Configuration */
-    private Properties    marsConfig               = null;
-    private Properties    comsConfig               = null;
-    private Properties    logDBConfig              = null;
-    private String        cameraImageCacheLocation = null;
-    private String        dataArchiveLocation      = null;
-    private MarsArchitect marsArchitect            = null;
-    private Point         location                 = null;
-    private String        nasaApiAuthKey           = null;
+    private   Properties    marsConfig               = null;
+    private   Properties    comsConfig               = null;
+    private   Properties    logDBConfig              = null;
+    private   String        cameraImageCacheLocation = null;
+    private   String        dataArchiveLocation      = null;
+    private   MarsArchitect marsArchitect            = null;
+    private   Point         location                 = null;
+    private   String        nasaApiAuthKey           = null;
+    protected String        marsConfigLocation       = null;
 
     /* Equipment Stack */
     private Radio            radio            = null;
@@ -93,24 +94,27 @@ public class Rover {
     private Pacemaker             pacemaker             = null;
     private Battery               battery               = null;
     private BatteryMonitor        batteryMonitor        = null;
+    private SleepMonitor          sleepMonitor          = null;
     private RoverGarbageCollector roverGarbageCollector = null;
 
-    public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig) {
+    public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String marsConfigLocation) {
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
+        this.marsConfigLocation = marsConfigLocation;
         this.dataArchiveLocation = "/dataArchives";
         this.nasaApiAuthKey = "DEMO_KEY";
         bootUp();
     }
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String
-            cameraImageCacheLocation, String dataArchiveLocation) {
+            cameraImageCacheLocation, String dataArchiveLocation, String marsConfigLocation) {
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
         this.cameraImageCacheLocation = cameraImageCacheLocation;
         this.dataArchiveLocation = dataArchiveLocation;
+        this.marsConfigLocation = marsConfigLocation;
         bootUp();
     }
 
@@ -121,6 +125,10 @@ public class Rover {
         time += 35;
         time += 244;
         return time;
+    }
+
+    protected void setRoverConfigProperties(Properties marsConfig) {
+        this.marsConfig = marsConfig;
     }
 
     public synchronized void processPendingMessageQueue() {
@@ -337,6 +345,10 @@ public class Rover {
 
     public synchronized void synchronizeClocks(String utcTime) {
         state.synchronizeClocks(utcTime);
+    }
+
+    public synchronized void gracefulShutdown() {
+        state.gracefulShutdown();
     }
 
     public synchronized void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
@@ -567,6 +579,14 @@ public class Rover {
         this.weatherSensingState = weatherSensingState;
     }
 
+    public synchronized BatteryMonitor getBatteryMonitor() {
+        return batteryMonitor;
+    }
+
+    public synchronized SleepMonitor getSleepMonitor() {
+        return sleepMonitor;
+    }
+
     public PositionSensor getPositionSensor() {
         return positionSensor;
     }
@@ -601,7 +621,7 @@ public class Rover {
         pacemaker.pulse();
         RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
 
-        new SleepMonitor(this);
+        sleepMonitor = new SleepMonitor(this);
         RoverUtil.roverSystemLog(logger, "SleepMonitor initialized. ", "INFO ");
 
         roverGarbageCollector = new RoverGarbageCollector(this);

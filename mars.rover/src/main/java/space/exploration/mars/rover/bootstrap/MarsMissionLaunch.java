@@ -16,16 +16,18 @@ public class MarsMissionLaunch {
         try {
             if (args.length == 0) {
                 configureLogging(false);
-                new Rover(MatrixCreation.getConfig(), MatrixCreation.getComsConfig(), MatrixCreation
-                        .getRoverDBConfig());
+                new Rover(MatrixCreation.getConfig(), KafkaConfig.getKafkaConfig("Rover"), MatrixCreation
+                        .getRoverDBConfig(), MatrixCreation.getConfigFilePath());
             } else {
                 configureLogging(false);
-                Properties marsConfig       = MatrixCreation.convertToPropertyFiles(args[0]);
-                Properties dbConfig         = MatrixCreation.convertToPropertyFiles(args[1]);
-                String     camCacheLocation = args[2];
-                String     archiveLocation  = args[3];
+                Properties marsConfig         = MatrixCreation.convertToPropertyFiles(args[0]);
+                Properties dbConfig           = MatrixCreation.convertToPropertyFiles(args[1]);
+                String     camCacheLocation   = args[2];
+                String     archiveLocation    = args[3];
+                String     marsConfigLocation = args[0];
 
-                new Rover(marsConfig, KafkaConfig.getKafkaConfig("Rover"), dbConfig, camCacheLocation, archiveLocation);
+                new Rover(marsConfig, KafkaConfig.getKafkaConfig("Rover"), dbConfig, camCacheLocation,
+                          archiveLocation, marsConfigLocation);
             }
         } catch (IOException e) {
             e.printStackTrace();

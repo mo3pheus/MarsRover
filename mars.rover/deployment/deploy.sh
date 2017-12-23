@@ -1,4 +1,6 @@
 #!/bin/bash
 echo "Deploying Mars Rover"
-java -jar target/mars.rover-1.3-SOLSHOT-shaded.jar src/main/resources/marsConfig.properties src/main/resources/roverDB.properties src/main/resources/ /home/sanket/Documents/workspace/MarsRover/mars.rover/dataArchives $1
+pwd=$(echo pwd)
+dataArchiveLocation=$($pwd)/dataArchives
+java -jar target/mars.rover-1.3-SOLSHOT-shaded.jar src/main/resources/marsConfig.properties src/main/resources/roverDB.properties src/main/resources/ $dataArchiveLocation $1
 

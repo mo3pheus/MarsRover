@@ -117,4 +117,8 @@ public class ExploringState implements State {
         logger.debug("Can not sync clocks in " + getStateName() );
     }
 
+    @Override
+    public void gracefulShutdown(){
+        logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+    }
 }

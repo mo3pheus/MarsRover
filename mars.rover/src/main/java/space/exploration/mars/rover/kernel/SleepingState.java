@@ -61,6 +61,11 @@ public class SleepingState implements State {
     }
 
     @Override
+    public void gracefulShutdown(){
+        logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+    }
+
+    @Override
     public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         logger.error("Rover conserves battery but does not recharge batteries in sleeping state");
     }

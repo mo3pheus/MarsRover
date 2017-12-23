@@ -1,11 +1,16 @@
 package space.exploration.mars.rover.utils;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.mars.rover.kernel.Rover;
 
 import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -28,7 +33,7 @@ public class RoverUtil {
 
         if (severity.equals("INFO")) {
             System.out.println(logger.getName() + " INFO ::" + message);
-            logger.debug(message);
+            logger.info(message);
         } else if (severity.equals("ERROR")) {
             System.out.println(logger.getName() + " ERROR ::" + message);
             logger.error(message);
@@ -108,5 +113,29 @@ public class RoverUtil {
         } else {
             return 90.0d;
         }
+    }
+
+    public static void saveOffProperties(Properties marsConfig, String filePath) throws IOException {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath))) {
+            for (Object key : marsConfig.keySet()) {
+                String value = marsConfig.getProperty((String) key);
+                bufferedWriter.write((String) key + "=" + value + "\n");
+            }
+        }
+    }
+
+    public static String getInstructionQueue(Rover rover) {
+        String errorMessage = "";
+        for (byte[] message : rover.getInstructionQueue()) {
+            try {
+                InstructionPayloadOuterClass.InstructionPayload instructionPayload =
+                        InstructionPayloadOuterClass.InstructionPayload.parseFrom(message);
+
+                errorMessage += instructionPayload.toString();
+            } catch (InvalidProtocolBufferException invalidProtocol) {
+                rover.writeErrorLog("Invalid protocol buffer for instructionPayload", invalidProtocol);
+            }
+        }
+        return errorMessage;
     }
 }

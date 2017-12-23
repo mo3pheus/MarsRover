@@ -60,6 +60,11 @@ public class RadarScanningState implements State {
     }
 
     @Override
+    public void gracefulShutdown(){
+        logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+    }
+
+    @Override
     public void transmitMessage(byte[] message) {
         RoverUtil.roverSystemLog(logger, " Invalid action error. Can not transmit in current state.", "ERROR");
     }
