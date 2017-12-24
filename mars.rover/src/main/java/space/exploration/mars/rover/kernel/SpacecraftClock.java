@@ -27,16 +27,17 @@ public class SpacecraftClock implements IsEquipment {
     public static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
     public static final String SCLK_TIME_SCALE_FACTOR = "mars.rover.clock.timeScaleFactor";
 
-    private Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
-                                                                                       .class);
-    private ScheduledExecutorService clockCounter    = null;
-    private DateTimeFormatter        clockFormatter  = null;
-    private String                   sclkStartTime   = null;
-    private TimeUtils                clockService    = null;
-    private int                      timeScaleFactor = 0;
-    private long                     missionDuration = 0l;
-    private long                     timeElapsedMs   = 0l;
-    private int                      sol             = 0;
+    private          Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
+                                                                                                .class);
+    private          ScheduledExecutorService clockCounter    = null;
+    private          DateTimeFormatter        clockFormatter  = null;
+    private          String                   sclkStartTime   = null;
+    private          int                      timeScaleFactor = 0;
+    private          long                     missionDuration = 0l;
+    private          long                     timeElapsedMs   = 0l;
+    private          int                      sol             = 0;
+    private          TimeUtils                clockService    = null;
+    private volatile boolean                  runThread       = true;
 
     private DateTime internalClock;
     private Clock    clock;
@@ -79,8 +80,9 @@ public class SpacecraftClock implements IsEquipment {
         start();
     }
 
-    public void hardInterrupt(){
+    public void hardInterrupt() {
         logger.info("SpacecraftClock shuttingDown.");
+        runThread = false;
         clockCounter.shutdownNow();
     }
 
@@ -178,16 +180,20 @@ public class SpacecraftClock implements IsEquipment {
     private class Clock implements Runnable {
         @Override
         public void run() {
-            if (timeElapsedMs > missionDuration) {
-                logger.error("Houston! Spacecraft clock has reached end of mission life.");
-                stopClock();
-            }
+            if (runThread) {
+                Thread.currentThread().setName("spacecraftClock");
 
-            internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
-                    (1)));
-            clockService.updateClock(clockFormatter.print(internalClock));
-            timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
-            sol = clockService.getSol();
+                if (timeElapsedMs > missionDuration) {
+                    logger.error("Houston! Spacecraft clock has reached end of mission life.");
+                    stopClock();
+                }
+
+                internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
+                        (1)));
+                clockService.updateClock(clockFormatter.print(internalClock));
+                timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
+                sol = clockService.getSol();
+            }
         }
     }
 }

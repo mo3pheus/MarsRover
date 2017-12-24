@@ -17,6 +17,7 @@ public class RadarContactBlip extends Thread {
     private int              contactDepth = RadarAnimationEngine.RADAR_DEPTH.intValue() + 1;
 
     public RadarContactBlip(JLayeredPane contentPane, RadarContactCell contact) {
+        super("radarContactBlip_" + Long.toString(System.currentTimeMillis()));
         this.contact = contact;
         this.contentPane = contentPane;
     }

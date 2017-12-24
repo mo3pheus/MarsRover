@@ -15,22 +15,43 @@ import java.util.concurrent.TimeUnit;
  * Created by sanket on 6/11/17.
  */
 public class BatteryMonitor {
+    private volatile Rover   rover     = null;
+    private volatile boolean runThread = true;
+
     private Logger                   logger    = LoggerFactory.getLogger(BatteryMonitor.class);
     private ScheduledExecutorService scheduler = null;
-    private Rover                    rover     = null;
+    private Monitor                  bMonitor  = null;
 
     public BatteryMonitor(Rover rover) {
         this.rover = rover;
         this.scheduler = Executors.newSingleThreadScheduledExecutor();
+        bMonitor = new Monitor();
     }
 
     public void monitor() {
-        Runnable bMonitor = new Runnable() {
-            @Override
-            public void run() {
+        scheduler.scheduleAtFixedRate(bMonitor, 31, 30, TimeUnit.SECONDS);
+    }
+
+    public void interrupt() {
+        scheduler.shutdown();
+    }
+
+    public void hardInterrupt() {
+        runThread = false;
+        scheduler.shutdownNow();
+    }
+
+    public class Monitor implements Runnable {
+        @Override
+        public void run() {
+            if (runThread) {
+                Thread.currentThread().setName("batteryMonitor");
+
                 logger.info("BatteryMonitor performing due diligence. SCET = " + System.currentTimeMillis() + " " +
                                     "Rover" +
                                     " state = " + rover.getState().getStateName());
+                logger.info(" Battery primaryUnits = " + rover.getBattery().getPrimaryPowerUnits() + " " +
+                                    "auxiliaryPowerUnits = " + rover.getBattery().getAuxiliaryPowerUnits());
                 if (rover.getState() == rover.getHibernatingState()) {
                     long timeInRecharge = System.currentTimeMillis() - rover.getInRechargingModeTime();
                     logger.info("Rover is in hibernating state, timeInRecharge = " + timeInRecharge + " " +
@@ -54,6 +75,7 @@ public class BatteryMonitor {
                                                                                                         .getProperty
                                                                                                                 (EnvironmentUtils.ROBOT_COLOR)));
 
+
                         rover.setState(rover.getTransmittingState());
                         rover.transmitMessage(rover.getBootupMessage());
                     }
@@ -68,15 +90,6 @@ public class BatteryMonitor {
                 }
                 rover.getMarsArchitect().getMarsSurface().repaint();
             }
-        };
-        scheduler.scheduleAtFixedRate(bMonitor, 31, 30, TimeUnit.SECONDS);
-    }
-
-    public void interrupt() {
-        scheduler.shutdown();
-    }
-
-    public void hardInterrupt() {
-        scheduler.shutdownNow();
+        }
     }
 }

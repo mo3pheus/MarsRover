@@ -65,7 +65,7 @@ public class WeatherSensingState implements State {
     }
 
     @Override
-    public void gracefulShutdown(){
+    public void gracefulShutdown() {
         logger.error(" Can not perform gracefulShutdown while in " + getStateName());
     }
 

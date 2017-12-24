@@ -18,6 +18,7 @@ public class SleepBreather implements Runnable {
 
     @Override
     public void run() {
+        Thread.currentThread().setName("sleepBreather");
         logger.debug("Sleep breather started");
         Cell  robot      = rover.getMarsArchitect().getRobot();
         Color robotColor = EnvironmentUtils.findColor("robotSleepMode");
@@ -33,7 +34,8 @@ public class SleepBreather implements Runnable {
             try {
                 Thread.sleep(15);
             } catch (InterruptedException e) {
-                logger.error("Sleep animation interrupted.", e);
+                logger.info("Sleep animation interrupted.");
+                logger.debug("Sleep animation interrupted.", e);
             }
             robot.repaint();
         }
@@ -47,7 +49,8 @@ public class SleepBreather implements Runnable {
             try {
                 Thread.sleep(15);
             } catch (InterruptedException e) {
-                logger.error("Sleep animation interrupted.", e);
+                logger.info("Sleep animation interrupted.");
+                logger.debug("Sleep animation interrupted.", e);
             }
             robot.repaint();
         }

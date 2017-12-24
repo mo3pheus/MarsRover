@@ -1,0 +1,161 @@
+2017-12-23 16:03:32,964 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?sol=1212
+2017-12-23 16:03:32,966 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?sol=1212
+2017-12-23 16:03:32,966 [main] DEBUG space.exploration.mars.rover.service.QueryService  - http://marsweather.ingenology.com/v1/archive/?sol=1212
+2017-12-23 16:03:33,380 [main] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_speed information not present
+java.lang.NumberFormatException: For input string: "null"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:66)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.service.WeatherQueryServiceTest.testPayloadObject(WeatherQueryServiceTest.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:369)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:275)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:239)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:160)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:373)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:334)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:119)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:407)
+2017-12-23 16:03:33,382 [main] INFO space.exploration.mars.rover.utils.WeatherUtil  - wind_direction information not present
+java.lang.NumberFormatException: For input string: "--"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at space.exploration.mars.rover.utils.WeatherUtil.getweatherPayload(WeatherUtil.java:72)
+	at space.exploration.mars.rover.service.WeatherQueryService.getResponse(WeatherQueryService.java:20)
+	at space.exploration.mars.rover.service.WeatherQueryServiceTest.testPayloadObject(WeatherQueryServiceTest.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:369)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:275)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:239)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:160)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:373)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:334)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:119)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:407)
+2017-12-23 16:03:33,425 [main] DEBUG space.exploration.mars.rover.utils.WeatherUtil  - Debug Message terrestrialDate: "2016-01-03"
+sol: 1212
+ls: 89.0
+minTemp: -86.0
+minTemFahrenheit: -122.8
+maxTemp: -28.0
+maxTempFahrenheit: -18.4
+pressureDescription: "Higher"
+absoluteHumidity: "null"
+atmosphericOpacity: "Sunny"
+season: "Month3"
+sunrise: "2016-01-03T115300Z"
+sunset: "2016-01-03T233600Z]"
+
+2017-12-23 16:03:33,474 [main] DEBUG space.exploration.mars.rover.service.QueryService  - StartMS supplied = 1482962613429 jodaInternalEarthDate = 2016-12-28T16:03:33.429-06:00 curiosityEarthDate = 2016-12-28
+2017-12-23 16:03:33,475 [main] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=0&camera=FHAZ&api_key=TLcQa8H1EH0nc7teUJQwP7cIJyqnXtwE25A2vXHP
+2017-12-23 16:03:33,475 [main] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=0&camera=FHAZ&api_key=TLcQa8H1EH0nc7teUJQwP7cIJyqnXtwE25A2vXHP
+2017-12-23 16:03:33,475 [main] DEBUG space.exploration.mars.rover.service.QueryService  - https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=0&camera=FHAZ&api_key=TLcQa8H1EH0nc7teUJQwP7cIJyqnXtwE25A2vXHP
+2017-12-23 16:03:35,704 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Valid utc time ranges are dictated by clockService as follows:
+2017-12-23 16:03:35,705 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2017-12-23 16:03:35,705 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Given UTC = 2016-08-26~17:49:00
+2017-12-23 16:03:35,705 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Please ensure that positionSensor and sclk are synchronized
+2017-12-23 16:03:35,707 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-08-26T22:49:00.000Z
+2017-12-23 16:03:35,707 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+2017-12-23 16:03:35,707 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+2017-12-23 16:03:35,707 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T22:49:00.000Z sclk of::
+2017-12-23 16:03:35,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:50:00
+2017-12-23 16:03:36,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:51:00
+2017-12-23 16:03:36,708 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:51:00.000-05:00 sclk of::1/01442:12:14:48:11433
+2017-12-23 16:03:37,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:52:00
+2017-12-23 16:03:37,710 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:52:00.000-05:00 sclk of::1/01442:12:15:46:50899
+2017-12-23 16:03:38,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:53:00
+2017-12-23 16:03:38,711 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:53:00.000-05:00 sclk of::1/01442:12:16:44:90365
+2017-12-23 16:03:39,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:54:00
+2017-12-23 16:03:39,712 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:54:00.000-05:00 sclk of::1/01442:12:17:43:29830
+2017-12-23 16:03:40,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:55:00
+2017-12-23 16:03:40,713 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:55:00.000-05:00 sclk of::1/01442:12:18:41:69296
+2017-12-23 16:03:41,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:56:00
+2017-12-23 16:03:41,714 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:56:00.000-05:00 sclk of::1/01442:12:19:40:08762
+2017-12-23 16:03:42,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:57:00
+2017-12-23 16:03:42,714 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:57:00.000-05:00 sclk of::1/01442:12:20:38:48228
+2017-12-23 16:03:43,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:58:00
+2017-12-23 16:03:43,715 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:58:00.000-05:00 sclk of::1/01442:12:21:36:87694
+2017-12-23 16:03:44,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~17:59:00
+2017-12-23 16:03:44,716 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T17:59:00.000-05:00 sclk of::1/01442:12:22:35:27159
+2017-12-23 16:03:45,708 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-08-26~18:00:00
+2017-12-23 16:03:45,718 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T18:00:00.000-05:00 sclk of::1/01442:12:23:33:66625
+2017-12-23 16:03:45,727 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T18:00:00.000-05:00 sclk of::1/01442:12:23:33:66625
+2017-12-23 16:03:46,775 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Valid utc time ranges are dictated by clockService as follows:
+2017-12-23 16:03:46,775 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2017-12-23 16:03:46,775 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Given UTC = 2016-08-26~17:49:00
+2017-12-23 16:03:46,776 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Please ensure that positionSensor and sclk are synchronized
+2017-12-23 16:03:46,776 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-08-26T22:49:00.000Z
+2017-12-23 16:03:46,776 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+2017-12-23 16:03:46,776 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+2017-12-23 16:03:46,778 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T22:49:00.000Z sclk of::
+2017-12-23 16:03:47,809 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Valid utc time ranges are dictated by clockService as follows:
+2017-12-23 16:03:47,809 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2017-12-23 16:03:47,809 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Given UTC = 2016-08-26~17:49:00
+2017-12-23 16:03:47,809 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Please ensure that positionSensor and sclk are synchronized
+2017-12-23 16:03:47,810 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-08-26T22:49:00.000Z
+2017-12-23 16:03:47,810 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+2017-12-23 16:03:47,810 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+2017-12-23 16:03:47,810 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - UTCTime = 2016-05-05~12:00:00
+2017-12-23 16:03:47,811 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Valid utc time ranges are dictated by clockService as follows:
+2017-12-23 16:03:47,811 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2017-12-23 16:03:47,811 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Given UTC = 2016-05-05~12:00:00
+2017-12-23 16:03:47,811 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Please ensure that positionSensor and sclk are synchronized
+2017-12-23 16:03:47,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:01:00
+2017-12-23 16:03:47,825 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:02:00
+2017-12-23 16:03:48,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:03:00
+2017-12-23 16:03:48,812 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:03:00.000-05:00 sclk of::1/01332:07:09:48:04872
+2017-12-23 16:03:48,819 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:04:00
+2017-12-23 16:03:49,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:05:00
+2017-12-23 16:03:49,813 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:05:00.000-05:00 sclk of::1/01332:07:11:44:83804
+2017-12-23 16:03:49,841 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:06:00
+2017-12-23 16:03:50,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:07:00
+2017-12-23 16:03:50,814 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:07:00.000-05:00 sclk of::1/01332:07:13:41:62735
+2017-12-23 16:03:50,819 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:08:00
+2017-12-23 16:03:51,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:09:00
+2017-12-23 16:03:51,814 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:09:00.000-05:00 sclk of::1/01332:07:15:38:41667
+2017-12-23 16:03:51,844 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:10:00
+2017-12-23 16:03:52,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:11:00
+2017-12-23 16:03:52,815 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:11:00.000-05:00 sclk of::1/01332:07:17:35:20598
+2017-12-23 16:03:52,841 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:12:00
+2017-12-23 16:03:53,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:13:00
+2017-12-23 16:03:53,816 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:13:00.000-05:00 sclk of::1/01332:07:19:31:99530
+2017-12-23 16:03:53,841 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:14:00
+2017-12-23 16:03:54,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:15:00
+2017-12-23 16:03:54,817 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:15:00.000-05:00 sclk of::1/01332:07:21:28:78461
+2017-12-23 16:03:54,840 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:16:00
+2017-12-23 16:03:55,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:17:00
+2017-12-23 16:03:55,818 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:17:00.000-05:00 sclk of::1/01332:07:23:25:57393
+2017-12-23 16:03:55,841 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:18:00
+2017-12-23 16:03:56,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:19:00
+2017-12-23 16:03:56,819 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:19:00.000-05:00 sclk of::1/01332:07:25:22:36325
+2017-12-23 16:03:56,843 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:20:00
+2017-12-23 16:03:57,812 [spacecraftClock] DEBUG space.exploration.spice.utilities.TimeUtils  - 2016-05-05~12:21:00
+2017-12-23 16:03:57,820 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:21:00.000-05:00 sclk of::1/01332:07:27:19:15256
+2017-12-23 16:03:57,821 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-05-05T12:21:00.000-05:00 sclk of::1/01332:07:27:19:15256

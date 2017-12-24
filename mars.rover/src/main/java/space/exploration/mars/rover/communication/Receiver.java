@@ -24,14 +24,16 @@ import java.util.Properties;
 public class Receiver extends Thread {
     public final static String CHANNEL_PROPERTY = "source.topic";
 
-    private Logger            logger            = LoggerFactory.getLogger(Receiver.class);
-    private ConsumerConnector consumerConnector = null;
-    private Radio             radio             = null;
-    private long              lastReportTime    = 0l;
-    private long              radioCheckPulse   = 0l;
-    private String            tunedChannel      = "";
+    private          Logger            logger            = LoggerFactory.getLogger(Receiver.class);
+    private          ConsumerConnector consumerConnector = null;
+    private          Radio             radio             = null;
+    private          long              lastReportTime    = 0l;
+    private          long              radioCheckPulse   = 0l;
+    private          String            tunedChannel      = "";
+    private volatile boolean           runThread         = true;
 
     public Receiver(Properties comsConfig, Radio radio) {
+        super("radio");
         ConsumerConfig consumerConfig = new ConsumerConfig(comsConfig);
         consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
         this.radio = radio;
@@ -45,7 +47,6 @@ public class Receiver extends Thread {
 
     @Override
     public void run() {
-        System.out.println("Rover Listening ...");
         Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
         topicCountMap.put(tunedChannel, new Integer(1));
         Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumerConnector
@@ -53,7 +54,7 @@ public class Receiver extends Thread {
         KafkaStream<byte[], byte[]>      stream = consumerMap.get(tunedChannel).get(0);
         ConsumerIterator<byte[], byte[]> it     = stream.iterator();
 
-        while (it.hasNext()) {
+        while (it.hasNext() && runThread) {
             long timeElapsed = System.currentTimeMillis() - this.lastReportTime;
             logger.info("Time Elapsed since last message = " + timeElapsed);
             if (timeElapsed > this.radioCheckPulse) {
@@ -68,5 +69,10 @@ public class Receiver extends Thread {
                 e.printStackTrace();
             }
         }
+        logger.info("Radio receiver stopped.");
+    }
+
+    public void stopReceiver() {
+        runThread = false;
     }
 }

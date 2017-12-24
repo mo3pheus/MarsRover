@@ -19,31 +19,20 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 5/15/17.
  */
 public class Pacemaker {
-    private ScheduledExecutorService scheduler;
-    private Rover                    rover;
-    private Pulse                    pulse;
+    private volatile Rover                    rover;
+    private          ScheduledExecutorService scheduler;
+    private          Pulse                    pulse;
+
+    private volatile boolean runThread = true;
 
     private HeartBeatOuterClass.HeartBeat heartBeat = null;
 
     private Logger logger = LoggerFactory.getLogger(Pacemaker.class);
 
-    private class Pulse implements Runnable {
-        @Override
-        public void run() {
-            if (rover.getState() == rover.getHibernatingState()) {
-                logger.error("Diagnostics inhibited because rover is in hibernating state."
-                                     + " Current instructionQueue length = " + rover.getInstructionQueue().size());
-                rover.writeErrorLog("Diagnostics inhibited because rover is in hibernating state.", null);
-            } else if (rover.getState() == rover.getSleepingState()) {
-                logger.info("Diagnostics inhibited because rover is sleeping to conserve battery"
-                                    + " Current instructionQueue length = " + rover.getInstructionQueue()
-                        .size());
-                rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery",
-                                     rover.getInstructionQueue().size());
-            } else if (rover.isDiagnosticFriendly()) {
-                sendHeartBeat(false);
-            }
-        }
+    public Pacemaker(Rover rover) {
+        this.rover = rover;
+        this.scheduler = Executors.newSingleThreadScheduledExecutor();
+        pulse = new Pulse();
     }
 
     public void sendHeartBeat(boolean shutdown) {
@@ -63,12 +52,6 @@ public class Pacemaker {
         }
     }
 
-    public Pacemaker(Rover rover) {
-        this.rover = rover;
-        this.scheduler = Executors.newSingleThreadScheduledExecutor();
-        pulse = new Pulse();
-    }
-
     public void pulse() {
         int pulseInterval = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.heartbeat" +
                                                                                        ".pulse"));
@@ -82,6 +65,8 @@ public class Pacemaker {
 
     public void hardInterrupt() {
         logger.info("Pacemaker diagnostic module shuttingDown.");
+        runThread = false;
+        scheduler.shutdownNow();
     }
 
     private HeartBeatOuterClass.HeartBeat generateHeartBeat() {
@@ -124,5 +109,27 @@ public class Pacemaker {
         }
 
         return rBuilder.build();
+    }
+
+    private class Pulse implements Runnable {
+        @Override
+        public void run() {
+            if (runThread) {
+                Thread.currentThread().setName("pacemaker");
+                if (rover.getState() == rover.getHibernatingState()) {
+                    logger.error("Diagnostics inhibited because rover is in hibernating state."
+                                         + " Current instructionQueue length = " + rover.getInstructionQueue().size());
+                    rover.writeErrorLog("Diagnostics inhibited because rover is in hibernating state.", null);
+                } else if (rover.getState() == rover.getSleepingState()) {
+                    logger.info("Diagnostics inhibited because rover is sleeping to conserve battery"
+                                        + " Current instructionQueue length = " + rover.getInstructionQueue()
+                            .size());
+                    rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery",
+                                         rover.getInstructionQueue().size());
+                } else if (rover.isDiagnosticFriendly()) {
+                    sendHeartBeat(false);
+                }
+            }
+        }
     }
 }

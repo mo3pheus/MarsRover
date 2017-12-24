@@ -1,0 +1,531 @@
+2017-12-23 12:47:55,784 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Valid utc time ranges are dictated by clockService as follows:
+2017-12-23 12:47:55,785 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2017-12-23 12:47:55,785 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Given UTC = 2016-08-26~20:35:00
+2017-12-23 12:47:55,785 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Please ensure that positionSensor and sclk are synchronized
+2017-12-23 12:47:55,798 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-08-27T01:35:00.000Z
+2017-12-23 12:47:55,799 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+2017-12-23 12:47:55,799 [main] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+2017-12-23 12:47:59,921 [main] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
+2017-12-23 12:48:01,923 [main] INFO space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=525,y=100]
+2017-12-23 12:48:02,925 [main] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2017-12-23 12:48:03,926 [main] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 12:48:05,137 [main] INFO space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+2017-12-23 12:48:06,141 [main] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+2017-12-23 12:48:07,591 [main] INFO space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
+2017-12-23 12:48:08,594 [main] INFO space.exploration.mars.rover.kernel.Rover  - Battery Monitor configured!
+2017-12-23 12:48:08,636 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2017-12-23 12:48:08,721 [main] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2017-12-23 12:48:08,721 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+2017-12-23 12:48:08,722 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.rover.curiosity.1514054874695 was supplied but isn't a known config.
+2017-12-23 12:48:08,722 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_5 was supplied but isn't a known config.
+2017-12-23 12:48:08,722 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+2017-12-23 12:48:08,722 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+2017-12-23 12:48:08,722 [main] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_5 was supplied but isn't a known config.
+2017-12-23 12:48:08,726 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+2017-12-23 12:48:08,727 [main] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+2017-12-23 12:48:08,831 [main] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2017-12-23 12:48:08,853 [main] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+2017-12-23 12:48:08,853 [main] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+2017-12-23 12:48:08,853 [main] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+2017-12-23 12:48:08,853 [main] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover.curiosity.1514054874695
+2017-12-23 12:48:08,853 [main] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+2017-12-23 12:48:08,853 [main] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+2017-12-23 12:48:08,853 [main] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+2017-12-23 12:48:08,854 [main] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+2017-12-23 12:48:08,854 [main] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+2017-12-23 12:48:08,878 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], Connecting to zookeeper instance at localhost:2181
+2017-12-23 12:48:08,883 [ZkClient-EventThread-28-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_151
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=target/mars.rover-1.3-SOLSHOT-shaded.jar
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=$LD_LIBRARY_PATH:"/home/sanket/Documents/workspace/SpiceUtilities/src/main/resources/JNISpice/lib/libJNISpice.so":/home/sanket/Documents/workspace/SpiceUtilities/src/main/resources/JNISpice/lib/libJNISpice.so:/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-42-generic
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+2017-12-23 12:48:08,935 [main] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+2017-12-23 12:48:08,936 [main] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@26794848
+2017-12-23 12:48:08,942 [main] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+2017-12-23 12:48:08,943 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2017-12-23 12:48:08,946 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+2017-12-23 12:48:08,951 [main-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x160431894db0046, negotiated timeout = 6000
+2017-12-23 12:48:08,952 [main-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+2017-12-23 12:48:08,959 [main] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], starting auto committer every 60000 ms
+2017-12-23 12:48:08,976 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], begin registering consumer space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13 in ZK
+2017-12-23 12:48:08,996 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover.curiosity.1514054874695/ids/space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13 (is it secure? false)
+2017-12-23 12:48:09,009 [Thread-2] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+2017-12-23 12:48:09,009 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], end registering consumer space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13 in ZK
+2017-12-23 12:48:09,017 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], starting watcher executor thread for consumer space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13
+2017-12-23 12:48:09,027 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], begin rebalancing consumer space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13 try #0
+2017-12-23 12:48:09,098 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1514054888957] Stopping leader finder thread
+2017-12-23 12:48:09,098 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1514054888957] Stopping all fetchers
+2017-12-23 12:48:09,099 [Thread-2] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1514054888957] All connections stopped
+2017-12-23 12:48:09,099 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], Cleared all relevant queues for this fetcher
+2017-12-23 12:48:09,100 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], Cleared the data chunks in all the consumer message iterators
+2017-12-23 12:48:09,100 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], Committing all offsets after clearing the fetcher queues
+2017-12-23 12:48:09,100 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], Releasing partition ownership
+2017-12-23 12:48:09,120 [Thread-2] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_5 with consumers: List(space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-0)
+2017-12-23 12:48:09,122 [Thread-2] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-0 attempting to claim partition 0
+2017-12-23 12:48:09,152 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-0 successfully owned partition 0 for topic earth_to_curiosity_5
+2017-12-23 12:48:09,166 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], Consumer space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13 selected partitions : earth_to_curiosity_5:0: fetched offset = -1: consumed offset = -1
+2017-12-23 12:48:09,167 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread], Starting 
+2017-12-23 12:48:09,168 [Thread-2] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13], end rebalancing consumer space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13 try #0
+2017-12-23 12:48:09,196 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2017-12-23 12:48:09,196 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover.curiosity.1514054874695
+2017-12-23 12:48:09,197 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+2017-12-23 12:48:09,197 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+2017-12-23 12:48:09,209 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_5)
+2017-12-23 12:48:09,214 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+2017-12-23 12:48:09,224 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+2017-12-23 12:48:09,237 [ConsumerFetcherThread-space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-0-0], Starting 
+2017-12-23 12:48:09,250 [space.exploration.mars.rover.curiosity.1514054874695_zion-mainframe-1514054888877-4380af13-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1514054888957] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_5,0], initOffset -1 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+2017-12-23 12:48:09,961 [main] INFO space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+group.id::space.exploration.mars.rover.curiosity.1514054874695
+auto.offset.reset::largest
+bootstrap.servers::localhost:9092
+value.serializer::org.apache.kafka.common.serialization.ByteArraySerializer
+destination.topic::curiosity_to_earth_5
+zookeeper.connect::localhost:2181
+key.serializer::org.apache.kafka.common.serialization.StringSerializer
+source.topic::earth_to_curiosity_5
+metadata.broker.list::localhost:9092
+2017-12-23 12:48:10,963 [main] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+2017-12-23 12:48:17,116 [main] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-23 12:48:20,120 [pool-5-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2017-12-23 12:48:38,594 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1514054918594 Rover state = Sleeping State
+2017-12-23 12:48:57,916 [pool-4-thread-1] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2017-12-23 12:48:58,918 [pool-5-thread-1] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+2017-12-23 12:48:58,918 [pool-5-thread-1] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+2017-12-23 12:48:58,919 [pool-9-thread-1] ERROR space.exploration.mars.rover.animation.SleepBreather  - Sleep animation interrupted.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at space.exploration.mars.rover.animation.SleepBreather.run(SleepBreather.java:48)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2017-12-23 12:49:04,259 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 55298
+2017-12-23 12:49:04,320 [Thread-2] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25519848182702E8
+stateCuriosity: -4.2276366975E7
+stateCuriosity: -1.0968210581E8
+stateCuriosity: -5.4367482808E7
+stateCuriosity: 9.975
+stateCuriosity: -12.765
+stateCuriosity: -5.863
+owltMSLEarth: 432.005
+stateEarth: 4.2269522633E7
+stateEarth: 1.09664348324E8
+stateEarth: 5.4358679966E7
+stateEarth: -9.974
+stateEarth: 12.76
+stateEarth: 5.861
+owltEarthMSL: 431.935
+positionEarthWRTCuriosity: 4.2269522633E7
+positionEarthWRTCuriosity: 1.09664348324E8
+positionEarthWRTCuriosity: 5.4358679966E7
+owltEarthMSL2: 431.935
+angSepHGAEarth: 149.42
+utcTime: "2016-08-26~21:43:00"
+sol: 1442
+sclkValue: " 1/01442:16:01:34:06961"
+
+2017-12-23 12:49:04,320 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 432.005
+2017-12-23 12:49:04,331 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1514054944133
+targets {
+  estimatedPowerUsage: 70
+  action: "ScanArea"
+}
+
+2017-12-23 12:49:10,357 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514054950357,0,ScanArea Current instructionQueue length = 0
+2017-12-23 12:49:10,358 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Got lidar message
+2017-12-23 12:49:11,359 [Thread-2] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2017-12-23 12:49:30,752 [Thread-2] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25521408182701E8
+stateCuriosity: -4.22607832E7
+stateCuriosity: -1.09702013581E8
+stateCuriosity: -5.4376637161E7
+stateCuriosity: 10.004
+stateCuriosity: -12.758
+stateCuriosity: -5.873
+owltMSLEarth: 432.057
+stateEarth: 4.2253939777E7
+stateEarth: 1.09684248896E8
+stateEarth: 5.4367830876E7
+stateEarth: -10.004
+stateEarth: 12.753
+stateEarth: 5.87
+owltEarthMSL: 431.987
+positionEarthWRTCuriosity: 4.2253939777E7
+positionEarthWRTCuriosity: 1.09684248896E8
+positionEarthWRTCuriosity: 5.4367830876E7
+owltEarthMSL2: 431.987
+angSepHGAEarth: 154.981
+utcTime: "2016-08-26~22:09:00"
+sol: 1442
+sclkValue: " 1/01442:16:26:52:33071"
+
+2017-12-23 12:49:30,752 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 432.057
+2017-12-23 12:49:30,760 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-23 12:49:33,760 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1514054948594 Rover state = Listening State
+2017-12-23 12:49:38,594 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1514054978594 Rover state = Listening State
+2017-12-23 12:49:57,988 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25523088182701E8
+stateCuriosity: -4.2243949102E7
+stateCuriosity: -1.0972343812E8
+stateCuriosity: -5.4386510921E7
+stateCuriosity: 10.036
+stateCuriosity: -12.747
+stateCuriosity: -5.881
+owltMSLEarth: 432.113
+stateEarth: 4.2237106252E7
+stateEarth: 1.09705664618E8
+stateEarth: 5.4377700409E7
+stateEarth: -10.036
+stateEarth: 12.742
+stateEarth: 5.879
+owltEarthMSL: 432.043
+positionEarthWRTCuriosity: 4.2237106252E7
+positionEarthWRTCuriosity: 1.09705664618E8
+positionEarthWRTCuriosity: 5.4377700409E7
+owltEarthMSL2: 432.043
+angSepHGAEarth: 160.453
+utcTime: "2016-08-26~22:37:00"
+sol: 1442
+sclkValue: " 1/01442:16:54:07:38113"
+
+2017-12-23 12:49:57,993 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T22:38:00.000-05:00 sclk of::1/01442:16:55:05:77579
+2017-12-23 12:50:04,093 [pool-4-thread-1] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25523448182701E8
+stateCuriosity: -4.2240334914E7
+stateCuriosity: -1.09728026674E8
+stateCuriosity: -5.438862851E7
+stateCuriosity: 10.043
+stateCuriosity: -12.745
+stateCuriosity: -5.883
+owltMSLEarth: 432.125
+stateEarth: 4.2233492134E7
+stateEarth: 1.09710251145E8
+stateEarth: 5.4379817024E7
+stateEarth: -10.043
+stateEarth: 12.739
+stateEarth: 5.88
+owltEarthMSL: 432.055
+positionEarthWRTCuriosity: 4.2233492134E7
+positionEarthWRTCuriosity: 1.09710251145E8
+positionEarthWRTCuriosity: 5.4379817024E7
+owltEarthMSL2: 432.055
+angSepHGAEarth: 161.51
+utcTime: "2016-08-26~22:43:00"
+sol: 1442
+sclkValue: " 1/01442:16:59:57:74908"
+
+2017-12-23 12:50:04,093 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 432.125
+2017-12-23 12:50:04,100 [pool-4-thread-1] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-23 12:50:08,594 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1514055008594 Rover state = Listening State
+2017-12-23 12:50:29,365 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 85106
+2017-12-23 12:50:29,402 [Thread-2] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25524948182701E8
+stateCuriosity: -4.2225250099E7
+stateCuriosity: -1.09747134852E8
+stateCuriosity: -5.4397457497E7
+stateCuriosity: 10.07
+stateCuriosity: -12.733
+stateCuriosity: -5.889
+owltMSLEarth: 432.175
+stateEarth: 4.2218407414E7
+stateEarth: 1.09729350387E8
+stateEarth: 5.4388641716E7
+stateEarth: -10.07
+stateEarth: 12.726
+stateEarth: 5.886
+owltEarthMSL: 432.105
+positionEarthWRTCuriosity: 4.2218407414E7
+positionEarthWRTCuriosity: 1.09729350387E8
+positionEarthWRTCuriosity: 5.4388641716E7
+owltEarthMSL2: 432.105
+angSepHGAEarth: 165.171
+utcTime: "2016-08-26~23:08:00"
+sol: 1442
+sclkValue: " 1/01442:17:24:17:61553"
+
+2017-12-23 12:50:29,402 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 432.175
+2017-12-23 12:50:29,409 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1514055029362
+targets {
+  roverModule: 6
+  action: "Graceful Shutdown."
+}
+
+2017-12-23 12:50:35,427 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514055035427,6,Graceful Shutdown. Current instructionQueue length = 0
+2017-12-23 12:50:35,427 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover initiating a gracefulShutdown.
+2017-12-23 12:50:35,427 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Synchronizing Clocks.
+2017-12-23 12:50:35,427 [Thread-2] INFO space.exploration.mars.rover.kernel.SclkTimingState  - Synchronizing sclk and positionSensor to 2016-08-26~23:15:00
+2017-12-23 12:50:35,427 [Thread-2] INFO space.exploration.mars.rover.kernel.SclkTimingState  - Houston, expect a diagnostics pause. Shutting down paceMaker
+2017-12-23 12:50:35,428 [Thread-2] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Pacemaker diagnostic module interrupted.
+2017-12-23 12:50:35,428 [Thread-2] INFO space.exploration.mars.rover.kernel.SclkTimingState  - Houston, be advised - garbageCollection is paused. Please wait before sending new signals.
+2017-12-23 12:50:35,428 [Thread-2] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC interrupted
+2017-12-23 12:50:35,429 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - UTCTime = 2016-08-26~23:15:00
+2017-12-23 12:50:35,429 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Valid utc time ranges are dictated by clockService as follows:
+2017-12-23 12:50:35,429 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2017-12-23 12:50:35,429 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Given UTC = 2016-08-26~23:15:00
+2017-12-23 12:50:35,429 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Please ensure that positionSensor and sclk are synchronized
+2017-12-23 12:50:35,430 [Thread-2] INFO space.exploration.mars.rover.kernel.PositionSensor  - Synchronizing positionSensor clock to 2016-08-26~23:15:00
+2017-12-23 12:50:35,431 [Thread-2] INFO space.exploration.mars.rover.kernel.SclkTimingState  - Restarting diagnostics heartbeat
+2017-12-23 12:50:35,432 [Thread-2] INFO space.exploration.mars.rover.kernel.SclkTimingState  - Restarting garbageCollection
+2017-12-23 12:50:35,432 [Thread-2] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
+2017-12-23 12:50:35,441 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T23:16:00.000-05:00 sclk of::1/01442:17:31:06:37813
+2017-12-23 12:50:41,514 [Thread-2] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.255262081827E8
+stateCuriosity: -4.2212547466E7
+stateCuriosity: -1.09763170581E8
+stateCuriosity: -5.4404879737E7
+stateCuriosity: 10.093
+stateCuriosity: -12.721
+stateCuriosity: -5.892
+owltMSLEarth: 432.216
+stateEarth: 4.2205704636E7
+stateEarth: 1.09745378027E8
+stateEarth: 5.4396060063E7
+stateEarth: -10.093
+stateEarth: 12.714
+stateEarth: 5.889
+owltEarthMSL: 432.146
+positionEarthWRTCuriosity: 4.2205704636E7
+positionEarthWRTCuriosity: 1.09745378027E8
+positionEarthWRTCuriosity: 5.4396060063E7
+owltEarthMSL2: 432.146
+angSepHGAEarth: 166.796
+utcTime: "2016-08-26~23:29:00"
+sol: 1442
+sclkValue: " 1/01442:17:44:43:90334"
+
+2017-12-23 12:50:41,514 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 432.216
+2017-12-23 12:50:41,521 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-23 12:50:44,522 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Sending diagnostic heartbeat.
+2017-12-23 12:50:44,559 [Thread-2] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.255265681827E8
+stateCuriosity: -4.2208913006E7
+stateCuriosity: -1.09767749407E8
+stateCuriosity: -5.4407001155E7
+stateCuriosity: 10.099
+stateCuriosity: -12.717
+stateCuriosity: -5.893
+owltMSLEarth: 432.228
+stateEarth: 4.2202070099E7
+stateEarth: 1.09749954452E8
+stateEarth: 5.4398180325E7
+stateEarth: -10.099
+stateEarth: 12.71
+stateEarth: 5.89
+owltEarthMSL: 432.158
+positionEarthWRTCuriosity: 4.2202070099E7
+positionEarthWRTCuriosity: 1.09749954452E8
+positionEarthWRTCuriosity: 5.4398180325E7
+owltEarthMSL2: 432.158
+angSepHGAEarth: 166.928
+utcTime: "2016-08-26~23:35:00"
+sol: 1442
+sclkValue: " 1/01442:17:50:34:27129"
+
+2017-12-23 12:50:44,559 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-08-26T23:35:00.000-05:00 sclk of::1/01442:17:50:34:27129
+2017-12-23 12:50:50,610 [Thread-2] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.255272881827E8
+stateCuriosity: -4.2201637383E7
+stateCuriosity: -1.09776903058E8
+stateCuriosity: -5.4411244817E7
+stateCuriosity: 10.111
+stateCuriosity: -12.71
+stateCuriosity: -5.895
+owltMSLEarth: 432.252
+stateEarth: 4.2194794277E7
+stateEarth: 1.09759103182E8
+stateEarth: 5.4402421618E7
+stateEarth: -10.111
+stateEarth: 12.703
+stateEarth: 5.891
+owltEarthMSL: 432.182
+positionEarthWRTCuriosity: 4.2194794277E7
+positionEarthWRTCuriosity: 1.09759103182E8
+positionEarthWRTCuriosity: 5.4402421618E7
+owltEarthMSL2: 432.182
+angSepHGAEarth: 166.708
+utcTime: "2016-08-26~23:47:00"
+sol: 1442
+sclkValue: " 1/01442:18:02:15:00718"
+
+2017-12-23 12:50:50,610 [Thread-2] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 432.252
+2017-12-23 12:50:50,618 [Thread-2] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2017-12-23 12:50:53,618 [Thread-2] INFO space.exploration.mars.rover.kernel.ListeningState  - Severing ties with the rover.
+2017-12-23 12:50:53,618 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  - Stopping all daemon processes.
+2017-12-23 12:50:53,618 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  -  3.1 Stopping Pacemaker.
+2017-12-23 12:50:53,618 [Thread-2] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Pacemaker diagnostic module shuttingDown.
+2017-12-23 12:50:53,618 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  -  3.2 Stopping GarbageCollector.
+2017-12-23 12:50:53,618 [Thread-2] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - RoverGC shuttingDown.
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  -  3.3 Stopping BatteryMonitor. 
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  -  3.4. Stopping SleepMonitor. 
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - SleepMonitor is shuttingDown.
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  -  3.5 Stopping PositionSensor.
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.PositionSensor  - PositionSensor is shutting down.
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  - 3.6. Saving properties file. 
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  - Writing properties file to :: src/main/resources/marsConfig.properties
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  -  3.7 Stopping SpacecraftClock. 
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - SpacecraftClock shuttingDown.
+2017-12-23 12:50:53,619 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  -  3.8 Shutting down graphics.
+2017-12-23 12:50:53,623 [Thread-2] INFO space.exploration.mars.rover.kernel.Rover  - Houston this is Curiosity saying goodbye! Hope I did OK!
+2017-12-23 12:50:53,623 [pool-7-thread-1] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1514055038594 Rover state = Listening State
+2017-12-23 12:51:35,432 [pool-12-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Encountered exception while generating diagnostic heartBeat. Its possible this instance is in a coverage gap for positionVectors.
+java.lang.NullPointerException
+	at space.exploration.mars.rover.diagnostics.Pacemaker.generateDiagnosticStatus(Pacemaker.java:112)
+	at space.exploration.mars.rover.diagnostics.Pacemaker.sendHeartBeat(Pacemaker.java:53)
+	at space.exploration.mars.rover.diagnostics.Pacemaker$Pulse.run(Pacemaker.java:44)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2017-12-23 12:52:35,432 [pool-12-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Encountered exception while generating diagnostic heartBeat. Its possible this instance is in a coverage gap for positionVectors.
+java.lang.NullPointerException
+	at space.exploration.mars.rover.diagnostics.Pacemaker.generateDiagnosticStatus(Pacemaker.java:112)
+	at space.exploration.mars.rover.diagnostics.Pacemaker.sendHeartBeat(Pacemaker.java:53)
+	at space.exploration.mars.rover.diagnostics.Pacemaker$Pulse.run(Pacemaker.java:44)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2017-12-23 12:53:35,432 [pool-12-thread-1] ERROR space.exploration.mars.rover.diagnostics.Pacemaker  - Encountered exception while generating diagnostic heartBeat. Its possible this instance is in a coverage gap for positionVectors.
+java.lang.NullPointerException
+	at space.exploration.mars.rover.diagnostics.Pacemaker.generateDiagnosticStatus(Pacemaker.java:112)
+	at space.exploration.mars.rover.diagnostics.Pacemaker.sendHeartBeat(Pacemaker.java:53)
+	at space.exploration.mars.rover.diagnostics.Pacemaker$Pulse.run(Pacemaker.java:44)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2017-12-23 12:53:43,283 [Thread-2] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 193918
+2017-12-23 12:53:43,284 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Encountered exception when getting comsDelay. There may be a coverage gap at this time.Radio is returning the last known communications delay.
+java.lang.NullPointerException
+	at space.exploration.mars.rover.communication.Radio.getComsDelaySecs(Radio.java:124)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:57)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-23 12:53:43,291 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
+java.lang.NullPointerException
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:49)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:312)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:58)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:66)
+2017-12-23 12:53:43,292 [Thread-2] ERROR space.exploration.mars.rover.communication.Radio  - The following instruction may have been lost.timeStamp: 1514055223280
+targets {
+  roverModule: 11
+  action: "SynchronizeClock"
+  utcTime: "2016-08-26~19:51:00"
+}
+
