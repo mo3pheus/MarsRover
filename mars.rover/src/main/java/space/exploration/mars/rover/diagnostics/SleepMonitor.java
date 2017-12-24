@@ -9,32 +9,17 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class SleepMonitor {
-    private Logger                   logger                = LoggerFactory.getLogger(SleepMonitor.class);
-    private Rover                    rover                 = null;
-    private ScheduledExecutorService monitor               = null;
-    private int                      sleepAfterTimeMinutes = 0;
-    private Runnable                 snooze                = new Runnable() {
-        @Override
-        public void run() {
-            if (isRoverRested()) {
-                logger.info("Awakening rover from slumber");
-                rover.wakeUp();
-            } else if (isRoverSleepy()) {
-                try {
-                    rover.acquireAceessLock("sleepMonitor");
-                    rover.setState(rover.getSleepingState());
-                    rover.releaseAccessLock("sleepMonitor");
-                } catch (InterruptedException ie) {
-                    logger.error("Exception while acquiring rover.accessLock mutex", ie);
-                }
-                rover.sleep();
-            }
-        }
-    };
+    private volatile Rover                    rover                 = null;
+    private volatile boolean                  runThread             = true;
+    private          Logger                   logger                = LoggerFactory.getLogger(SleepMonitor.class);
+    private          ScheduledExecutorService monitor               = null;
+    private          Snooze                   snooze                = null;
+    private          int                      sleepAfterTimeMinutes = 0;
 
     public SleepMonitor(Rover rover) {
         this.rover = rover;
         monitor = Executors.newSingleThreadScheduledExecutor();
+        snooze = new Snooze();
         monitor.scheduleAtFixedRate(snooze, 0l, 1l, TimeUnit.MINUTES);
         sleepAfterTimeMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
                                                                                            ".minutes"));
@@ -42,6 +27,7 @@ public class SleepMonitor {
 
     public void hardInterrupt() {
         logger.info("SleepMonitor is shuttingDown.");
+        runThread = false;
         monitor.shutdownNow();
     }
 
@@ -60,5 +46,28 @@ public class SleepMonitor {
             return timeInSleepMins > maxSleepForMinutes;
         }
         return false;
+    }
+
+    public class Snooze implements Runnable {
+        @Override
+        public void run() {
+            if (runThread) {
+                Thread.currentThread().setName("sleepMonitor");
+
+                if (isRoverRested()) {
+                    logger.info("Awakening rover from slumber");
+                    rover.wakeUp();
+                } else if (isRoverSleepy()) {
+                    try {
+                        rover.acquireAceessLock("sleepMonitor");
+                        rover.setState(rover.getSleepingState());
+                        rover.releaseAccessLock("sleepMonitor");
+                    } catch (InterruptedException ie) {
+                        logger.error("Exception while acquiring rover.accessLock mutex", ie);
+                    }
+                    rover.sleep();
+                }
+            }
+        }
     }
 }

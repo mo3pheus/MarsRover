@@ -131,4 +131,10 @@ public class Radio implements IsEquipment {
             return comsDelay;
         }
     }
+
+    public void stopRadio() {
+        logger.info("Radio stopped");
+        receiver.stopReceiver();
+        transmitter = null;
+    }
 }

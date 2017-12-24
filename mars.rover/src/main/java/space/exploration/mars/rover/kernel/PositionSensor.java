@@ -21,16 +21,17 @@ import static space.exploration.mars.rover.kernel.SpacecraftClock.*;
  * Lives as long as the spacecraftClock lives - since there is a dependency between the two.
  */
 public class PositionSensor implements IsEquipment {
-    private Logger                   logger          = LoggerFactory.getLogger(PositionSensor.class);
-    private PositionUtils            positionUtils   = null;
-    private ScheduledExecutorService sensorUpdate    = null;
-    private Properties               roverProperties = null;
-    private DateTime                 internalClock   = null;
-    private DateTimeFormatter        clockFormatter  = null;
-    private String                   sclkStartTime   = null;
-    private int                      timeScaleFactor = 0;
-    private long                     timeElapsedMs   = 0l;
-    private long                     missionDuration = 0l;
+    private          Logger                   logger          = LoggerFactory.getLogger(PositionSensor.class);
+    private          ScheduledExecutorService sensorUpdate    = null;
+    private          Properties               roverProperties = null;
+    private          DateTime                 internalClock   = null;
+    private          DateTimeFormatter        clockFormatter  = null;
+    private          String                   sclkStartTime   = null;
+    private          int                      timeScaleFactor = 0;
+    private          long                     timeElapsedMs   = 0l;
+    private          long                     missionDuration = 0l;
+    private          PositionUtils            positionUtils   = null;
+    private volatile boolean                  runThread       = true;
 
     private PositionUpdate positionUpdate;
 
@@ -82,18 +83,22 @@ public class PositionSensor implements IsEquipment {
         return (timeElapsedMs > missionDuration);
     }
 
+    public void hardInterrupt() {
+        logger.info("PositionSensor is shutting down.");
+        runThread = false;
+        sensorUpdate.shutdownNow();
+    }
+
     private class PositionUpdate implements Runnable {
         @Override
         public void run() {
-            internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
-                    (1)));
-            timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
-            positionUtils.setUtcTime(clockFormatter.print(internalClock));
+            if (runThread) {
+                Thread.currentThread().setName("positionSensor");
+                internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
+                        (1)));
+                timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
+                positionUtils.setUtcTime(clockFormatter.print(internalClock));
+            }
         }
-    }
-
-    public void hardInterrupt() {
-        logger.info("PositionSensor is shutting down.");
-        sensorUpdate.shutdownNow();
     }
 }

@@ -37,7 +37,7 @@ public class HibernatingState implements State {
     }
 
     @Override
-    public void gracefulShutdown(){
+    public void gracefulShutdown() {
         logger.error(" Can not perform gracefulShutdown while in " + getStateName());
     }
 
@@ -95,6 +95,6 @@ public class HibernatingState implements State {
 
     @Override
     public void synchronizeClocks(String utcTime) {
-        logger.debug("Can not sync clocks in " + getStateName() );
+        logger.debug("Can not sync clocks in " + getStateName());
     }
 }

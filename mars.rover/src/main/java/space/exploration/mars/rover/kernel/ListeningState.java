@@ -12,10 +12,8 @@ import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
-import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
-import java.io.IOException;
 import java.util.Properties;
 
 import static communications.protocol.ModuleDirectory.SCLK_COMMAND;
@@ -182,50 +180,19 @@ public class ListeningState implements State {
 
     @Override
     public void gracefulShutdown() {
-        try {
-            logger.info("Rover initiating a gracefulShutdown.");
+        logger.info("Rover initiating a gracefulShutdown.");
+        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotShutdownMode"));
+        rover.getMarsArchitect().getMarsSurface().repaint();
 
-            logger.info("1. Synchronizing Clocks.");
-            rover.state = rover.sclkBeepingState;
-            rover.synchronizeClocks(rover.getSpacecraftClock().getUTCTime());
+        logger.info("Synchronizing Clocks.");
+        rover.state = rover.sclkBeepingState;
+        rover.synchronizeClocks(rover.getSpacecraftClock().getUTCTime());
 
-            logger.info("2. Sending diagnostic heartbeat.");
-            rover.getPacemaker().sendHeartBeat(true);
+        logger.info("Sending diagnostic heartbeat.");
+        rover.getPacemaker().sendHeartBeat(true);
 
-            logger.info("3. Stopping all daemon processes.");
-
-            logger.info(" 3.1 Stopping Pacemaker.");
-            rover.getPacemaker().hardInterrupt();
-
-            logger.info(" 3.2 Stopping GarbageCollector.");
-            rover.getGarbageCollector().hardInterrupt();
-
-            logger.info(" 3.3 Stopping BatteryMonitor. ");
-            rover.getBatteryMonitor().hardInterrupt();
-
-            logger.info(" 3.4. Stopping SleepMonitor. ");
-            rover.getSleepMonitor().hardInterrupt();
-
-            logger.info(" 3.5 Stopping PositionSensor.");
-            rover.getPositionSensor().hardInterrupt();
-
-            logger.info("3.6. Saving properties file. ");
-
-            String utcTime = rover.getSpacecraftClock().getUTCTime();
-            Properties marsConfig = rover.getMarsConfig();
-            marsConfig.replace(SpacecraftClock.SCLK_START_TIME, utcTime);
-            rover.setRoverConfigProperties(marsConfig);
-
-            RoverUtil.saveOffProperties(rover.getMarsConfig(), rover.marsConfigLocation);
-
-            logger.info(" 3.7 Stopping SpacecraftClock. ");
-            rover.getSpacecraftClock().hardInterrupt();
-
-            logger.info("Houston this is Curiosity saying goodbye! Hope I did OK!");
-            rover = null;
-        } catch (IOException io) {
-            logger.error(" Encountered IOException during gracefulShutdown.", io);
-        }
+        logger.info("Severing ties with the rover.");
+        rover.shutdownRover();
     }
 
     @Override

@@ -24,8 +24,8 @@ public class MatrixCreation {
         return config;
     }
 
-    public static String getConfigFilePath(){
-        URL             url      = MatrixCreation.class.getResource("/testMarsConfig.properties");
+    public static String getConfigFilePath() {
+        URL url = MatrixCreation.class.getResource("/testMarsConfig.properties");
         return url.getPath();
     }
 

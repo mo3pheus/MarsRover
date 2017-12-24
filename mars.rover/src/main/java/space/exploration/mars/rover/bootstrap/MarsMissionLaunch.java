@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class MarsMissionLaunch {
-
     public static void main(String[] args) {
         try {
             if (args.length == 0) {
@@ -27,7 +26,7 @@ public class MarsMissionLaunch {
                 String     marsConfigLocation = args[0];
 
                 new Rover(marsConfig, KafkaConfig.getKafkaConfig("Rover"), dbConfig, camCacheLocation,
-                          archiveLocation, marsConfigLocation);
+                                  archiveLocation, marsConfigLocation);
             }
         } catch (IOException e) {
             e.printStackTrace();

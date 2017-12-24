@@ -21,6 +21,7 @@ import space.exploration.mars.rover.sensor.*;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
+import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
@@ -29,8 +30,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Rover {
     public static final String ROVER_NAME = "Curiosity";
+    protected String        marsConfigLocation       = null;
     State state = null;
-
     /* Kernel definition */
     State listeningState;
     State sensingState;
@@ -43,11 +44,9 @@ public class Rover {
     State sleepingState;
     State weatherSensingState;
     State sclkBeepingState;
-
     /* Status messages */
     private long    creationTime = 0l;
     private boolean equipmentEOL = false;
-
     /* Logging Details */
     private Connection logDBConnection  = null;
     private ResultSet  resultSet        = null;
@@ -58,7 +57,6 @@ public class Rover {
     private Statement  statement        = null;
     private Statement  errorStatement   = null;
     private boolean    dbLoggingEnabled = false;
-
     /* Configuration */
     private   Properties    marsConfig               = null;
     private   Properties    comsConfig               = null;
@@ -68,34 +66,32 @@ public class Rover {
     private   MarsArchitect marsArchitect            = null;
     private   Point         location                 = null;
     private   String        nasaApiAuthKey           = null;
-    protected String        marsConfigLocation       = null;
-
     /* Equipment Stack */
-    private Radio            radio            = null;
-    private Lidar            lidar            = null;
-    private Spectrometer     spectrometer     = null;
-    private Camera           camera           = null;
-    private Radar            radar            = null;
-    private WeatherSensor    weatherSensor    = null;
-    private NavigationEngine navigationEngine = null;
+    private volatile Radio            radio            = null;
+    private          Lidar            lidar            = null;
+    private          Spectrometer     spectrometer     = null;
+    private          Camera           camera           = null;
+    private          Radar            radar            = null;
+    private          WeatherSensor    weatherSensor    = null;
+    private          NavigationEngine navigationEngine = null;
 
     /* Kernel Sensors   */
-    private SpacecraftClock spacecraftClock = null;
-    private PositionSensor  positionSensor  = null;
+    private volatile SpacecraftClock spacecraftClock = null;
+    private volatile PositionSensor  positionSensor  = null;
 
     /* Contingency Stack */
-    private Map<Point, RoverCell> previousRovers       = null;
-    private List<byte[]>          instructionQueue     = null;
-    private long                  inRechargingModeTime = 0l;
-    private long                  timeMessageReceived  = 0l;
+    private          Map<Point, RoverCell> previousRovers       = null;
+    private volatile List<byte[]>          instructionQueue     = null;
+    private volatile long                  inRechargingModeTime = 0l;
+    private volatile long                  timeMessageReceived  = 0l;
 
     /* Resource Management Stack */
-    private Semaphore             accessLock            = new Semaphore(1);
-    private Pacemaker             pacemaker             = null;
-    private Battery               battery               = null;
-    private BatteryMonitor        batteryMonitor        = null;
-    private SleepMonitor          sleepMonitor          = null;
-    private RoverGarbageCollector roverGarbageCollector = null;
+    private volatile Semaphore             accessLock            = new Semaphore(1);
+    private volatile Pacemaker             pacemaker             = null;
+    private volatile Battery               battery               = null;
+    private volatile BatteryMonitor        batteryMonitor        = null;
+    private volatile SleepMonitor          sleepMonitor          = null;
+    private volatile RoverGarbageCollector roverGarbageCollector = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String marsConfigLocation) {
         this.marsConfig = marsConfig;
@@ -364,10 +360,6 @@ public class Rover {
         this.pacemaker = pacemaker;
     }
 
-    public synchronized void setGarbageCollector(RoverGarbageCollector garbageCollector) {
-        this.roverGarbageCollector = garbageCollector;
-    }
-
     public synchronized Radio getRadio() {
         return radio;
     }
@@ -416,8 +408,10 @@ public class Rover {
         return spacecraftClock;
     }
 
-    public synchronized void setPositionSensor(PositionSensor positionSensor) {
-        this.positionSensor = positionSensor;
+    public synchronized void setSpacecraftClock(SpacecraftClock spacecraftClock) {
+        this.spacecraftClock.stopClock();
+        this.spacecraftClock = spacecraftClock;
+        this.spacecraftClock.start();
     }
 
     public synchronized Pacemaker getPacemaker() {
@@ -428,14 +422,12 @@ public class Rover {
         return this.roverGarbageCollector;
     }
 
-    public synchronized void setRoverGarbageCollector(RoverGarbageCollector roverGarbageCollector) {
-        this.roverGarbageCollector = roverGarbageCollector;
+    public synchronized void setGarbageCollector(RoverGarbageCollector garbageCollector) {
+        this.roverGarbageCollector = garbageCollector;
     }
 
-    public synchronized void setSpacecraftClock(SpacecraftClock spacecraftClock) {
-        this.spacecraftClock.stopClock();
-        this.spacecraftClock = spacecraftClock;
-        this.spacecraftClock.start();
+    public synchronized void setRoverGarbageCollector(RoverGarbageCollector roverGarbageCollector) {
+        this.roverGarbageCollector = roverGarbageCollector;
     }
 
     public synchronized boolean isDiagnosticFriendly() {
@@ -591,7 +583,12 @@ public class Rover {
         return positionSensor;
     }
 
+    public synchronized void setPositionSensor(PositionSensor positionSensor) {
+        this.positionSensor = positionSensor;
+    }
+
     public synchronized void bootUp() {
+        Thread.currentThread().setName("roverMain");
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
         this.spacecraftClock = new SpacecraftClock(marsConfig);
@@ -656,5 +653,55 @@ public class Rover {
 
         state = transmittingState;
         transmitMessage(getBootupMessage());
+    }
+
+    protected void shutdownRover() {
+        logger.info("Stopping all daemon processes.");
+
+        logger.info(" 3.1 Stopping Pacemaker.");
+        pacemaker.hardInterrupt();
+        pacemaker = null;
+
+        logger.info(" 3.2 Stopping GarbageCollector.");
+        roverGarbageCollector.hardInterrupt();
+        roverGarbageCollector = null;
+
+        logger.info(" 3.3 Stopping BatteryMonitor. ");
+        batteryMonitor.hardInterrupt();
+        batteryMonitor = null;
+
+        logger.info(" 3.4. Stopping SleepMonitor. ");
+        sleepMonitor.hardInterrupt();
+        sleepMonitor = null;
+
+        logger.info(" 3.5 Stopping PositionSensor.");
+        positionSensor.hardInterrupt();
+        positionSensor = null;
+
+        logger.info("3.6. Saving properties file. ");
+
+        String utcTime = spacecraftClock.getUTCTime();
+        marsConfig.replace(SpacecraftClock.SCLK_START_TIME, utcTime);
+        try {
+            logger.info("Writing properties file to :: " + marsConfigLocation);
+            RoverUtil.saveOffProperties(marsConfig, marsConfigLocation);
+        } catch (IOException e) {
+            logger.error("Encountered an exception when writing properties file during shutdown.", e);
+        }
+
+        logger.info(" 3.7 Stopping SpacecraftClock. ");
+        spacecraftClock.hardInterrupt();
+        spacecraftClock = null;
+
+        logger.info(" 3.8 Shutting down graphics.");
+        marsArchitect.getMarsSurface().dispose();
+        marsArchitect = null;
+
+        logger.info(" 3.9 Stopping Radio Communications.");
+        radio.stopRadio();
+        radio = null;
+
+        logger.info("Houston this is Curiosity saying goodbye! Hope I did OK!");
+        Runtime.getRuntime().halt(0);
     }
 }
