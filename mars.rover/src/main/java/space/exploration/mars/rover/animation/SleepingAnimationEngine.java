@@ -27,6 +27,7 @@ public class SleepingAnimationEngine {
 
     public void wakeupRover() {
         logger.info("Waking up rover");
+        sleepBreather.hardInterrupt();
         nap.shutdownNow();
     }
 }

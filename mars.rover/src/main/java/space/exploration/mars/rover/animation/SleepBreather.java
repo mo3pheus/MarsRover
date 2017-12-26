@@ -9,8 +9,9 @@ import space.exploration.mars.rover.kernel.Rover;
 import java.awt.*;
 
 public class SleepBreather implements Runnable {
-    private Logger logger = LoggerFactory.getLogger(SleepBreather.class);
-    private Rover  rover  = null;
+    private          Logger  logger    = LoggerFactory.getLogger(SleepBreather.class);
+    private volatile Rover   rover     = null;
+    private volatile boolean runThread = true;
 
     public SleepBreather(Rover rover) {
         this.rover = rover;
@@ -25,7 +26,7 @@ public class SleepBreather implements Runnable {
         robot.setColor(robotColor);
         robot.repaint();
 
-        while (!robotColor.equals(Color.white)) {
+        while (!robotColor.equals(Color.white) && runThread) {
             int r = ((robotColor.getRed() + 1) <= 255) ? robotColor.getRed() + 1 : robotColor.getRed();
             int g = ((robotColor.getGreen() + 1) <= 255) ? robotColor.getGreen() + 1 : robotColor.getGreen();
             int b = ((robotColor.getBlue() + 1) <= 255) ? robotColor.getBlue() + 1 : robotColor.getBlue();
@@ -40,7 +41,7 @@ public class SleepBreather implements Runnable {
             robot.repaint();
         }
 
-        while (!robotColor.equals(EnvironmentUtils.findColor("robotSleepMode"))) {
+        while (!robotColor.equals(EnvironmentUtils.findColor("robotSleepMode")) && runThread) {
             int r = ((robotColor.getRed() - 1) >= 40) ? robotColor.getRed() - 1 : robotColor.getRed();
             int g = ((robotColor.getGreen() - 1) >= 40) ? robotColor.getGreen() - 1 : robotColor.getGreen();
             int b = ((robotColor.getBlue() - 1) >= 40) ? robotColor.getBlue() - 1 : robotColor.getBlue();
@@ -55,5 +56,9 @@ public class SleepBreather implements Runnable {
             robot.repaint();
         }
         logger.debug("Sleep breather finished.");
+    }
+
+    public void hardInterrupt() {
+        this.runThread = false;
     }
 }
