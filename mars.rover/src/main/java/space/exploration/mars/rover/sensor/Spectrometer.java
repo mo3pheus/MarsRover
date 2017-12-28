@@ -66,6 +66,11 @@ public class Spectrometer implements IsEquipment {
         return endOfLife;
     }
 
+    @Override
+    public long getRequestMetric() {
+        return rover.getExploringState().getRequests().count();
+    }
+
     public void setEndOfLife(boolean endOfLife) {
         this.endOfLife = endOfLife;
     }

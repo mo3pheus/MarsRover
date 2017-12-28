@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
+import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,12 +12,17 @@ import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
 import space.exploration.mars.rover.utils.RoverUtil;
 
+import java.util.concurrent.TimeUnit;
+
 public class SclkTimingState implements State {
-    private Logger logger = LoggerFactory.getLogger(SclkTimingState.class);
-    private Rover  rover  = null;
+    private Meter  requests = null;
+    private Logger logger   = LoggerFactory.getLogger(SclkTimingState.class);
+    private Rover  rover    = null;
 
     public SclkTimingState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(SclkTimingState.class, getStateName(), "requests", TimeUnit
+                .HOURS);
     }
 
     @Override
@@ -24,6 +30,11 @@ public class SclkTimingState implements State {
         logger.info("Saving the message to the instruction queue. Current instructionQueue length = " + rover
                 .getInstructionQueue().size());
         rover.getInstructionQueue().add(message);
+    }
+
+    @Override
+    public Meter getRequests() {
+        return requests;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,23 +16,31 @@ import space.exploration.mars.rover.propulsion.PropulsionUnit;
 
 import java.awt.*;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import static communications.protocol.ModuleDirectory.SCLK_COMMAND;
 import static communications.protocol.ModuleDirectory.SCLK_SYNC;
 
 public class ListeningState implements State {
 
+    private Meter  requests       = null;
     private Logger logger         = LoggerFactory.getLogger(ListeningState.class);
     private Rover  rover          = null;
     private int    powerRequested = 0;
 
     public ListeningState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(ListeningState.class, getStateName(), "requests", TimeUnit.HOURS);
     }
 
     @Override
     public void activateCameraById(String camId) {
 
+    }
+
+    @Override
+    public Meter getRequests() {
+        return requests;
     }
 
     @Override
@@ -45,6 +54,7 @@ public class ListeningState implements State {
     }
 
     public void receiveMessage(byte[] message) {
+        requests.mark();
         InstructionPayload payload = null;
         rover.setTimeMessageReceived(System.currentTimeMillis());
         try {

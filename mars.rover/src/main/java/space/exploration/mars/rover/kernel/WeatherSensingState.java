@@ -1,17 +1,23 @@
 package space.exploration.mars.rover.kernel;
 
+import com.yammer.metrics.core.Meter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.animation.WeatherAnimationEngine;
 
+import java.util.concurrent.TimeUnit;
+
 public class WeatherSensingState implements State {
-    private Logger logger = LoggerFactory.getLogger(WeatherSensingState.class);
-    private Rover  rover  = null;
+    private Meter  requests = null;
+    private Logger logger   = LoggerFactory.getLogger(WeatherSensingState.class);
+    private Rover  rover    = null;
 
     public WeatherSensingState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(WeatherSensingState.class, getStateName(), "requests", TimeUnit
+                .HOURS);
     }
 
     @Override
@@ -45,7 +51,13 @@ public class WeatherSensingState implements State {
     }
 
     @Override
+    public Meter getRequests() {
+        return requests;
+    }
+
+    @Override
     public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
+        requests.mark();
         logger.info("Will get mars weather measurements");
         try {
             WeatherAnimationEngine weatherAnimationEngine = rover.getMarsArchitect().getWeatherEngine();

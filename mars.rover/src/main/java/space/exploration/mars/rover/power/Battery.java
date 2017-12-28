@@ -39,6 +39,11 @@ public class Battery implements IsEquipment {
         return endOfLife;
     }
 
+    @Override
+    public long getRequestMetric() {
+        return primaryPowerUnits;
+    }
+
     public void setEndOfLife(boolean endOfLife) {
         this.endOfLife = endOfLife;
     }

@@ -1,5 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
+import com.sun.org.apache.regexp.internal.RE;
+import com.yammer.metrics.core.Meter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
@@ -7,7 +9,10 @@ import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.animation.SleepingAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 
+import java.util.concurrent.TimeUnit;
+
 public class SleepingState implements State {
+    private Meter                   requests                = null;
     private Logger                  logger                  = LoggerFactory.getLogger(SleepingState.class);
     private Rover                   rover                   = null;
     private SleepingAnimationEngine sleepingAnimationEngine = null;
@@ -15,6 +20,7 @@ public class SleepingState implements State {
     public SleepingState(Rover rover) {
         this.rover = rover;
         sleepingAnimationEngine = new SleepingAnimationEngine(this.rover);
+        requests = this.rover.getMetrics().newMeter(SleepingState.class, getStateName(), "requests", TimeUnit.HOURS);
     }
 
     @Override
@@ -71,6 +77,11 @@ public class SleepingState implements State {
     }
 
     @Override
+    public Meter getRequests() {
+        return requests;
+    }
+
+    @Override
     public void scanSurroundings() {
         logger.error("Can not run experiments(scan surroundings) from sleeping state");
     }
@@ -82,6 +93,7 @@ public class SleepingState implements State {
 
     @Override
     public void sleep() {
+        requests.mark();
         sleepingAnimationEngine = new SleepingAnimationEngine(rover);
         sleepingAnimationEngine.sleep();
     }
@@ -93,6 +105,7 @@ public class SleepingState implements State {
 
     @Override
     public void wakeUp() {
+        requests.mark();
         sleepingAnimationEngine.wakeupRover();
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.setState(rover.getListeningState());

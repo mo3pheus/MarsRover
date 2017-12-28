@@ -4,6 +4,7 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +18,29 @@ import space.exploration.mars.rover.environment.WallBuilder;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author sanketkorgaonkar
  */
 public class MovingState implements State {
-    private Rover  rover  = null;
-    private Logger logger = LoggerFactory.getLogger(MovingState.class);
+    private Meter  requests = null;
+    private Rover  rover    = null;
+    private Logger logger   = LoggerFactory.getLogger(MovingState.class);
 
     public MovingState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(MovingState.class, getStateName(), "requests", TimeUnit.HOURS);
     }
 
     @Override
     public void activateCameraById(String camId) {
 
+    }
+
+    @Override
+    public Meter getRequests() {
+        return requests;
     }
 
     @Override
@@ -97,6 +107,7 @@ public class MovingState implements State {
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        requests.mark();
         MarsArchitect  architect     = rover.getMarsArchitect();
         java.awt.Point robotPosition = rover.getMarsArchitect().getRobot().getLocation();
         RobotPositions positions     = null;

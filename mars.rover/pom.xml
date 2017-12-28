@@ -12,6 +12,7 @@
 
     <properties>
         <junit.output.dir>output</junit.output.dir>
+        <metrics.version>4.0.0</metrics.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -67,6 +68,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>${metrics.version}</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
@@ -110,7 +116,7 @@
         <dependency>
             <groupId>space.exploration</groupId>
             <artifactId>communications.protocol</artifactId>
-            <version>1.1.5</version>
+            <version>1.1.6</version>
         </dependency>
         <!-- MSL Telemetry Data lib -->
         <dependency>

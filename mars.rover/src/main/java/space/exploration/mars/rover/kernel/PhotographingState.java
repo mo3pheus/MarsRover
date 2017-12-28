@@ -1,6 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,16 +15,20 @@ import space.exploration.mars.rover.service.PhotoQueryService;
 import space.exploration.mars.rover.utils.CameraUtil;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sanketkorgaonkar on 5/9/17.
  */
 public class PhotographingState implements State {
-    private Logger logger = LoggerFactory.getLogger(PhotographingState.class);
-    private Rover  rover  = null;
+    private Meter  requests = null;
+    private Logger logger   = LoggerFactory.getLogger(PhotographingState.class);
+    private Rover  rover    = null;
 
     public PhotographingState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(PhotographingState.class, getStateName(), "requests", TimeUnit
+                .HOURS);
     }
 
     public void receiveMessage(byte[] message) {
@@ -59,7 +64,13 @@ public class PhotographingState implements State {
     }
 
     @Override
+    public Meter getRequests() {
+        return requests;
+    }
+
+    @Override
     public void activateCameraById(String camId) {
+        requests.mark();
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 
         CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect

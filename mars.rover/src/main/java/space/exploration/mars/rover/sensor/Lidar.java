@@ -65,6 +65,7 @@ public class Lidar implements IsEquipment {
         return contacts;
     }
 
+
     public double getRange() {
         return range;
     }
@@ -116,6 +117,11 @@ public class Lidar implements IsEquipment {
 
     public boolean isEndOfLife() {
         return endOfLife;
+    }
+
+    @Override
+    public long getRequestMetric() {
+        return rover.getSensingState().getRequests().count();
     }
 
     public void setEndOfLife(boolean endOfLife) {

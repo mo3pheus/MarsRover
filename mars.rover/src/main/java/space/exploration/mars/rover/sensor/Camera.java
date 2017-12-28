@@ -103,6 +103,11 @@ public class Camera implements IsEquipment {
         return endOfLife;
     }
 
+    @Override
+    public long getRequestMetric() {
+        return rover.getPhotoGraphingState().getRequests().count();
+    }
+
     public void setEndOfLife(boolean endOfLife) {
         this.endOfLife = endOfLife;
     }

@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.communication;
 
+import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sanketkorgaonkar on 4/27/17.
@@ -25,9 +27,11 @@ public class Radio implements IsEquipment {
     private             int         lifeSpan        = 0;
     private             boolean     bootUp          = true;
     private             Integer     comsDelay       = 0;
+    private             Meter       requests        = null;
 
     public Radio(Properties comsConfig, Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(Radio.class, "Radio", "requests", TimeUnit.HOURS);
         long radioCheckPulse = Long.parseLong(rover.getMarsConfig().getProperty("mars.rover.radio.check.pulse"));
         this.timeScaleFactor = Double.parseDouble(rover.getMarsConfig().getProperty("mars.rover.radio" +
                                                                                             ".timeScaleFactor"));
@@ -47,11 +51,17 @@ public class Radio implements IsEquipment {
         return endOfLife;
     }
 
+    @Override
+    public long getRequestMetric() {
+        return requests.count();
+    }
+
     public void setEndOfLife(boolean endOfLife) {
         this.endOfLife = endOfLife;
     }
 
     public void receiveMessage(InstructionPayloadOuterClass.InstructionPayload instructionPayload) {
+        requests.mark();
         try {
             if (lifeSpan > SOS_RESERVE) {
                 Thread.sleep(getComsDelaySecs());
@@ -72,6 +82,7 @@ public class Radio implements IsEquipment {
     }
 
     public void sendMessage(byte[] message) {
+        requests.mark();
         try {
             if (lifeSpan > 0) {
                 if (!bootUp) {
@@ -126,7 +137,8 @@ public class Radio implements IsEquipment {
             comsDelay = (int) (owlt / timeScaleFactor);
         } catch (Exception e) {
             logger.error("Encountered exception when getting comsDelay. There may be a coverage gap at this time." +
-                                 "Radio is returning the last known communications delay.", e);
+                                 "Radio is returning the last known communications delay." + comsDelay + " utcTime = " +
+                                 "" + rover.getSpacecraftClock().getUTCTime(), e);
         } finally {
             return comsDelay;
         }

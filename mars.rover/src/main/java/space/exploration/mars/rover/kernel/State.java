@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
+import com.yammer.metrics.core.Meter;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 
@@ -33,4 +34,6 @@ public interface State {
     void synchronizeClocks(String utcTime);
 
     void gracefulShutdown();
+
+    Meter getRequests();
 }

@@ -122,6 +122,11 @@ public class WeatherSensor implements IsEquipment {
         return (lifeSpan <= 0);
     }
 
+    @Override
+    public long getRequestMetric() {
+        return rover.getWeatherSensingState().getRequests().count();
+    }
+
     private RoverStatusOuterClass.RoverStatus.Builder getGeneralRoverStatus() {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         rBuilder.setModuleReporting(ModuleDirectory.Module.WEATHER_SENSOR.getValue());

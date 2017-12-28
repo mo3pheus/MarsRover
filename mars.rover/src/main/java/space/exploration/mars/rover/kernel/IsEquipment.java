@@ -9,4 +9,6 @@ public interface IsEquipment {
     String getEquipmentName();
 
     boolean isEndOfLife();
+
+    long getRequestMetric();
 }

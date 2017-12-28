@@ -4,6 +4,7 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,15 +14,20 @@ import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author sanketkorgaonkar
  */
 public class ExploringState implements State {
-    private Rover  rover  = null;
-    private Logger logger = LoggerFactory.getLogger(ExploringState.class);
+    private Meter  requests = null;
+    private Rover  rover    = null;
+    private Logger logger   = LoggerFactory.getLogger(ExploringState.class);
 
     public ExploringState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(ExploringState.class, getStateName(), "requests", TimeUnit
+                .HOURS);
     }
 
     public void receiveMessage(byte[] message) {
@@ -38,6 +44,7 @@ public class ExploringState implements State {
     }
 
     public void exploreArea() {
+        requests.mark();
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         Cell          robot         = marsArchitect.getRobot();
         rover.configureSpectrometer(robot.getLocation());
@@ -120,5 +127,10 @@ public class ExploringState implements State {
     @Override
     public void gracefulShutdown() {
         logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+    }
+
+    @Override
+    public Meter getRequests() {
+        return requests;
     }
 }

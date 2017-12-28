@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.diagnostics.HeartBeatOuterClass;
+import space.exploration.communications.protocol.kernel.EquipmentHealthOuterClass;
 import space.exploration.communications.protocol.spice.MSLRelativePositions;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
@@ -85,7 +86,12 @@ public class Pacemaker {
 
         //Equipment check
         for (IsEquipment equipment : rover.getEquimentList()) {
-            hBuilder.putEquipmentHealth(equipment.getEquipmentName(), equipment.getLifeSpan());
+            EquipmentHealthOuterClass.EquipmentHealth.Builder eBuilder = EquipmentHealthOuterClass.EquipmentHealth
+                    .newBuilder();
+            eBuilder.setEquipmentName(equipment.getEquipmentName());
+            eBuilder.setLifeSpan(equipment.getLifeSpan());
+            eBuilder.setRequestCount(equipment.getRequestMetric());
+            hBuilder.addEquipmentHealth(eBuilder.build());
         }
 
         return hBuilder.build();

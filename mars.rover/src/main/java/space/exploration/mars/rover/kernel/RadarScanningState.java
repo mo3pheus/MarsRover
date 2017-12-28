@@ -1,6 +1,7 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sanket on 5/30/17.
@@ -25,16 +27,24 @@ import java.util.Properties;
 public class RadarScanningState implements State {
     public static final int CONTACT_DIAMETER = 8;
 
-    private Rover  rover  = null;
-    private Logger logger = LoggerFactory.getLogger(RadarScanningState.class);
+    private Meter  requests = null;
+    private Rover  rover    = null;
+    private Logger logger   = LoggerFactory.getLogger(RadarScanningState.class);
 
     public RadarScanningState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(RadarScanningState.class, getStateName(), "requests", TimeUnit
+                .HOURS);
     }
 
     @Override
     public void activateCameraById(String camId) {
 
+    }
+
+    @Override
+    public Meter getRequests() {
+        return requests;
     }
 
     @Override
@@ -97,6 +107,7 @@ public class RadarScanningState implements State {
 
     @Override
     public void performRadarScan() {
+        requests.mark();
         logger.debug("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
         MarsArchitect marsArchitect = rover.getMarsArchitect();

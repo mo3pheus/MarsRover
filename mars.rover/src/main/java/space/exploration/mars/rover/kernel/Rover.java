@@ -1,5 +1,8 @@
 package space.exploration.mars.rover.kernel;
 
+import com.yammer.metrics.core.Gauge;
+import com.yammer.metrics.core.MetricName;
+import com.yammer.metrics.core.MetricsRegistry;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +32,10 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class Rover {
-    public static final String ROVER_NAME = "Curiosity";
-    protected String        marsConfigLocation       = null;
+    public static final String ROVER_NAME         = "Curiosity";
+    protected           String marsConfigLocation = null;
     State state = null;
+
     /* Kernel definition */
     State listeningState;
     State sensingState;
@@ -44,9 +48,11 @@ public class Rover {
     State sleepingState;
     State weatherSensingState;
     State sclkBeepingState;
+
     /* Status messages */
     private long    creationTime = 0l;
     private boolean equipmentEOL = false;
+
     /* Logging Details */
     private Connection logDBConnection  = null;
     private ResultSet  resultSet        = null;
@@ -57,15 +63,17 @@ public class Rover {
     private Statement  statement        = null;
     private Statement  errorStatement   = null;
     private boolean    dbLoggingEnabled = false;
+
     /* Configuration */
-    private   Properties    marsConfig               = null;
-    private   Properties    comsConfig               = null;
-    private   Properties    logDBConfig              = null;
-    private   String        cameraImageCacheLocation = null;
-    private   String        dataArchiveLocation      = null;
-    private   MarsArchitect marsArchitect            = null;
-    private   Point         location                 = null;
-    private   String        nasaApiAuthKey           = null;
+    private Properties    marsConfig               = null;
+    private Properties    comsConfig               = null;
+    private Properties    logDBConfig              = null;
+    private String        cameraImageCacheLocation = null;
+    private String        dataArchiveLocation      = null;
+    private MarsArchitect marsArchitect            = null;
+    private Point         location                 = null;
+    private String        nasaApiAuthKey           = null;
+
     /* Equipment Stack */
     private volatile Radio            radio            = null;
     private          Lidar            lidar            = null;
@@ -92,6 +100,11 @@ public class Rover {
     private volatile BatteryMonitor        batteryMonitor        = null;
     private volatile SleepMonitor          sleepMonitor          = null;
     private volatile RoverGarbageCollector roverGarbageCollector = null;
+
+    /* Metrics Configuration */
+    private final MetricsRegistry metrics               = new MetricsRegistry();
+    private       Gauge<Integer>  batteryGauge          = null;
+    private       Gauge<Integer>  instructionQueueGauge = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String marsConfigLocation) {
         this.marsConfig = marsConfig;
@@ -229,6 +242,10 @@ public class Rover {
         } catch (Exception exception) {
             logger.error("Exception while writing errorLog", e);
         }
+    }
+
+    public MetricsRegistry getMetrics() {
+        return metrics;
     }
 
     public synchronized void acquireAceessLock(String acquiringParty) throws InterruptedException {
@@ -528,6 +545,14 @@ public class Rover {
         battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - powerConsumed);
     }
 
+    public Gauge<Integer> getBatteryGauge() {
+        return batteryGauge;
+    }
+
+    public Gauge<Integer> getInstructionQueueGauge() {
+        return instructionQueueGauge;
+    }
+
     public synchronized void activateCameraById(String camId) {
         state.activateCameraById(camId);
     }
@@ -587,8 +612,48 @@ public class Rover {
         this.positionSensor = positionSensor;
     }
 
+    private void setUpGauges() {
+        batteryGauge = new Gauge<Integer>() {
+            @Override
+            public Integer value() {
+                return battery.getAuxiliaryPowerUnits();
+            }
+        };
+
+        instructionQueueGauge = new Gauge<Integer>() {
+            @Override
+            public Integer value() {
+                return instructionQueue.size();
+            }
+        };
+    }
+
+    public State getSensingState() {
+        return sensingState;
+    }
+
+    public State getMovingState() {
+        return movingState;
+    }
+
+    public State getExploringState() {
+        return exploringState;
+    }
+
+    public State getPhotoGraphingState() {
+        return photoGraphingState;
+    }
+
+    public State getRadarScanningState() {
+        return radarScanningState;
+    }
+
     public synchronized void bootUp() {
         Thread.currentThread().setName("roverMain");
+        setUpGauges();
+        metrics.newGauge(new MetricName(Rover.class, "RoverBattery"), batteryGauge);
+        metrics.newGauge(new MetricName(Rover.class, "RoverInstructionQueue"), instructionQueueGauge);
+
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
         this.spacecraftClock = new SpacecraftClock(marsConfig);

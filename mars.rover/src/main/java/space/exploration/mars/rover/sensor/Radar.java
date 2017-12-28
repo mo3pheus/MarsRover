@@ -62,6 +62,11 @@ public class Radar implements IsEquipment {
         return endOfLife;
     }
 
+    @Override
+    public long getRequestMetric() {
+        return rover.getRadarScanningState().getRequests().count();
+    }
+
     public void setEndOfLife(boolean endOfLife) {
         this.endOfLife = endOfLife;
     }

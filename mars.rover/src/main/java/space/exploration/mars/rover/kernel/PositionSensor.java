@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
+import com.yammer.metrics.core.Gauge;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
@@ -31,6 +32,7 @@ public class PositionSensor implements IsEquipment {
     private          long                     timeElapsedMs   = 0l;
     private          long                     missionDuration = 0l;
     private          PositionUtils            positionUtils   = null;
+    private          Gauge<String>            positionGauge   = null;
     private volatile boolean                  runThread       = true;
 
     private PositionUpdate positionUpdate;
@@ -47,6 +49,12 @@ public class PositionSensor implements IsEquipment {
         String missionDurationString = roverProperties.getProperty(SCLK_MISSION_DURATION);
         missionDuration = TimeUnit.DAYS.toMillis(365 * Integer.parseInt(missionDurationString));
         positionUpdate = new PositionUpdate();
+        positionGauge = new Gauge<String>() {
+            @Override
+            public String value() {
+                return positionUtils.getPositionPacket().toString();
+            }
+        };
     }
 
     protected void resetPositionSensor(String utcTime) {
@@ -65,6 +73,7 @@ public class PositionSensor implements IsEquipment {
     public MSLRelativePositions.MSLRelPositionsPacket getPositionsData() {
         MSLRelativePositions.MSLRelPositionsPacket positionsPacket = positionUtils.getPositionPacket();
         logger.info("Houston - this is curiosityActual." + positionsPacket.toString());
+        logger.info(positionGauge.value());
         return positionsPacket;
     }
 
@@ -81,6 +90,11 @@ public class PositionSensor implements IsEquipment {
     @Override
     public boolean isEndOfLife() {
         return (timeElapsedMs > missionDuration);
+    }
+
+    @Override
+    public long getRequestMetric() {
+        return 0;
     }
 
     public void hardInterrupt() {

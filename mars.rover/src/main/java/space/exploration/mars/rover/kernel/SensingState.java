@@ -4,6 +4,7 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,15 +15,19 @@ import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.WallBuilder;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author sanketkorgaonkar
  */
 public class SensingState implements State {
-    private Logger logger = LoggerFactory.getLogger(SensingState.class);
-    private Rover  rover  = null;
+    private Meter  requests = null;
+    private Logger logger   = LoggerFactory.getLogger(SensingState.class);
+    private Rover  rover    = null;
 
     public SensingState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(SensingState.class, getStateName(), "requests", TimeUnit.HOURS);
     }
 
     public void receiveMessage(byte[] message) {
@@ -38,6 +43,11 @@ public class SensingState implements State {
         } catch (InvalidProtocolBufferException ipe) {
             rover.writeErrorLog("InvalidProtocolBuffer", ipe);
         }
+    }
+
+    @Override
+    public Meter getRequests() {
+        return requests;
     }
 
     @Override
@@ -76,6 +86,7 @@ public class SensingState implements State {
     }
 
     public void scanSurroundings() {
+        requests.mark();
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 
         rover.configureLidar(marsArchitect.getRobot().getLocation(), marsArchitect.getCellWidth(),

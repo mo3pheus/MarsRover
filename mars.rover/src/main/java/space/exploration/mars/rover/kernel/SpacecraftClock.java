@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
+import com.yammer.metrics.core.Gauge;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
@@ -38,6 +39,7 @@ public class SpacecraftClock implements IsEquipment {
     private          int                      sol             = 0;
     private          TimeUtils                clockService    = null;
     private volatile boolean                  runThread       = true;
+    private          Gauge<Long>              sclkGauge       = null;
 
     private DateTime internalClock;
     private Clock    clock;
@@ -63,6 +65,13 @@ public class SpacecraftClock implements IsEquipment {
         logger.info("Curiosity internal spacecraft clock started at :: " + internalClock);
         logger.info("Mission duration is set to :: " + missionDurationString + " year(s).");
         logger.info("Mission duration = " + missionDuration);
+
+        sclkGauge = new Gauge<Long>() {
+            @Override
+            public Long value() {
+                return internalClock.getMillis();
+            }
+        };
     }
 
     protected void resetSpacecraftClock(String utcTime) {
@@ -125,6 +134,11 @@ public class SpacecraftClock implements IsEquipment {
     @Override
     public boolean isEndOfLife() {
         return (timeElapsedMs > missionDuration);
+    }
+
+    @Override
+    public long getRequestMetric() {
+        return sclkGauge.value();
     }
 
     public void stopClock() {

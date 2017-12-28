@@ -4,20 +4,26 @@
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.yammer.metrics.core.Meter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author sanketkorgaonkar
  */
 public class HibernatingState implements State {
-    private Rover  rover  = null;
-    private Logger logger = LoggerFactory.getLogger(HibernatingState.class);
+    private Meter  requests = null;
+    private Rover  rover    = null;
+    private Logger logger   = LoggerFactory.getLogger(HibernatingState.class);
 
     public HibernatingState(Rover rover) {
         this.rover = rover;
+        requests = this.rover.getMetrics().newMeter(HibernatingState.class, getStateName(), "requests", TimeUnit
+                .HOURS);
     }
 
     public void receiveMessage(byte[] message) {
@@ -34,6 +40,11 @@ public class HibernatingState implements State {
     @Override
     public void activateCameraById(String camId) {
 
+    }
+
+    @Override
+    public Meter getRequests() {
+        return requests;
     }
 
     @Override
@@ -60,6 +71,7 @@ public class HibernatingState implements State {
 
     public void hibernate() {
         logger.debug("Already in hibernating state.");
+        requests.mark();
     }
 
     public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
