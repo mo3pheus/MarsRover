@@ -29,6 +29,7 @@ public class HibernatingState implements State {
     public void receiveMessage(byte[] message) {
         logger.info("In hibernating state's receiveMessage(), adding message to instruction queue");
         rover.getInstructionQueue().add(message);
+        logger.info("Current instructionQueue length = " + rover.getInstructionQueue().size());
         try {
             rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
                     .getInstructionQueue().size());

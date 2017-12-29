@@ -12,13 +12,14 @@ import java.util.Properties;
 
 public class MarsMissionLaunch {
     public static void main(String[] args) {
+        String logFilePath = "";
         try {
             if (args.length == 0) {
-                configureLogging(false);
+                logFilePath = configureLogging(false);
                 new Rover(MatrixCreation.getConfig(), KafkaConfig.getKafkaConfig("Rover"), MatrixCreation
                         .getRoverDBConfig(), MatrixCreation.getConfigFilePath());
             } else {
-                configureLogging(false);
+                logFilePath = configureLogging(false);
                 Properties marsConfig         = MatrixCreation.convertToPropertyFiles(args[0]);
                 Properties dbConfig           = MatrixCreation.convertToPropertyFiles(args[1]);
                 String     camCacheLocation   = args[2];
@@ -26,14 +27,15 @@ public class MarsMissionLaunch {
                 String     marsConfigLocation = args[0];
 
                 new Rover(marsConfig, KafkaConfig.getKafkaConfig("Rover"), dbConfig, camCacheLocation,
-                                  archiveLocation, marsConfigLocation);
+                          archiveLocation, marsConfigLocation);
             }
+            System.out.println("LogFilePath = " + logFilePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void configureLogging(boolean debug) {
+    public static String configureLogging(boolean debug) {
         FileAppender fa = new FileAppender();
 
         if (!debug) {
@@ -48,6 +50,7 @@ public class MarsMissionLaunch {
 
         fa.activateOptions();
         org.apache.log4j.Logger.getRootLogger().addAppender(fa);
+        return fa.getFile();
     }
 
     public static void configureLogging(boolean debug, String className) {
