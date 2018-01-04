@@ -12,12 +12,15 @@ mkdir dataArchives/MAHLI
 mkdir dataArchives/MAST
 mkdir dataArchives/NAVCAM
 mkdir dataArchives/RHAZ
+mkdir src
+mkdir src/main
+mkdir src/main/resources
+mkdir src/main/resources/WeatherDataArchive
 
-echo "Install wget"
+echo "Using homebrew to install necessary programs"
 brew install wget
-
-echo "Get gzip installed"
 brew install gzip
+brew install figlet
 
 echo "Download required image files"
 wget https://storage.googleapis.com/rover_artifacts/camImages.tar.gzip
@@ -58,4 +61,5 @@ echo "Deploying MissionCommand - this process sends commands to the rover and ex
 java -jar mission.control-producer-1.2-shaded.jar -o missionCommand.log > missionCommand.log &
 
 echo "Start tailing nohup"
+figlet Mission Control - H O U S T O N
 tail -f missionControl.log
