@@ -2,7 +2,7 @@
 
 # make all required directories
 echo "Make the required directory structure"
-mkdir statusReports
+mkdir statusLogs
 mkdir analysisLogs
 mkdir roverStatusReports
 mkdir dataArchives
@@ -39,7 +39,7 @@ echo "Start kafka"
 nohup ./kafka_2.10-0.10.0.1/bin/kafka-server-start.sh kafka_2.10-0.10.0.1/config/server.properties > kafkaLogs.log &
 
 echo "Download marsRover project!"
-wget https://storage.googleapis.com/rover_artifacts/mars.rover.mac.distro-1.5-SOLSHOT-shaded.jar
+wget https://storage.googleapis.com/rover_artifacts/mars.rover-mac-distro-1.5-SOLSHOT-shaded.jar
 wget https://storage.googleapis.com/rover_artifacts/marsConfig.properties
 wget https://storage.googleapis.com/rover_artifacts/roverDB.properties
 
@@ -52,10 +52,10 @@ wget https://storage.googleapis.com/rover_artifacts/mission.control-producer-1.2
 echo "Deploying Mars Rover"
 pwd=$(echo pwd)
 dataArchiveLocation=$($pwd)/dataArchives
-nohup java -jar mars.rover.mac.distro-1.5-SOLSHOT-shaded.jar marsConfig.properties roverDB.properties camImages/ $dataArchiveLocation false > marsRoverAppOutput.log > roverConsoleLog.log &
+nohup java -jar mars.rover-mac-distro-1.5-SOLSHOT-shaded.jar marsConfig.properties roverDB.properties camImages/ $dataArchiveLocation false > roverConsoleLog.log &
 
 echo "Deploying MissionControl - this is where you will see the received messages"
-nohup java -jar mission.control-1.2-shaded.jar statusReports/ false -o missionControl.log > missionControl.log &
+nohup java -jar mission.control-1.2-shaded.jar statusLogs/ false > missionControl.log &
 
 echo "Deploying MissionCommand - this process sends commands to the rover and exercises various sensors."
 java -jar mission.control-producer-1.2-shaded.jar -o missionCommand.log > missionCommand.log &

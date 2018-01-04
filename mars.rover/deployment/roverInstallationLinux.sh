@@ -2,7 +2,7 @@
 
 # make all required directories
 echo "Make the required directory structure"
-mkdir statusReports
+mkdir statusLogs
 mkdir analysisLogs
 mkdir roverStatusReports
 mkdir dataArchives
@@ -52,13 +52,13 @@ wget https://storage.googleapis.com/rover_artifacts/mission.control-producer-1.2
 echo "Deploying Mars Rover"
 pwd=$(echo pwd)
 dataArchiveLocation=$($pwd)/dataArchives
-nohup java -jar mars.rover-1.5-SOLSHOT-shaded.jar marsConfig.properties roverDB.properties camImages/ $dataArchiveLocation false > marsRoverAppOutput.log > roverConsoleLog.log &
+nohup java -jar mars.rover-1.5-SOLSHOT-shaded.jar marsConfig.properties roverDB.properties camImages/ $dataArchiveLocation false > roverConsoleLog.log &
 
 echo "Deploying MissionControl - this is where you will see the received messages"
-nohup java -jar mission.control-1.2-shaded.jar statusReports/ false -o missionControl.log > missionControl.log &
+nohup java -jar mission.control-1.2-shaded.jar statusLogs/ false > missionControl.log &
 
 echo "Deploying MissionCommand - this process sends commands to the rover and exercises various sensors."
-java -jar mission.control-producer-1.2-shaded.jar -o missionCommand.log > missionCommand.log &
+java -jar mission.control-producer-1.2-shaded.jar > missionCommand.log &
 
 echo "Start tailing nohup"
 figlet Mission Control - H O U S T O N
