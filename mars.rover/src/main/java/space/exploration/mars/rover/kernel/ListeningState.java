@@ -12,6 +12,8 @@ import space.exploration.communications.protocol.robot.RobotPositionsOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
+import space.exploration.mars.rover.propulsion.AStarPropulsionUnit;
+import space.exploration.mars.rover.propulsion.LearningPropulsionUnit;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
 
 import java.awt.*;
@@ -20,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 import static communications.protocol.ModuleDirectory.SCLK_COMMAND;
 import static communications.protocol.ModuleDirectory.SCLK_SYNC;
+import static space.exploration.mars.rover.kernel.Rover.PROPULSION_CHOICE;
 
 public class ListeningState implements State {
 
@@ -153,8 +156,16 @@ public class ListeningState implements State {
             RobotPositionsOuterClass.RobotPositions positions = RobotPositionsOuterClass.RobotPositions.parseFrom
                     (targetPackage.getAuxiliaryData().toByteArray());
             RobotPositionsOuterClass.RobotPositions.Point destination = positions.getPositions(0);
-            PropulsionUnit powerTran = new PropulsionUnit(rover, robotPosition, new java.awt.Point(destination.getX(),
-                                                                                                   destination.getY()));
+
+            String propulsionChoice = rover.getMarsConfig().getProperty(PROPULSION_CHOICE);
+            AStarPropulsionUnit aStarPropulsionUnit = new AStarPropulsionUnit(rover, robotPosition, new java.awt.Point
+                    (destination.getX(),
+                     destination.getY()));
+            LearningPropulsionUnit learningPropulsionUnit = new LearningPropulsionUnit(rover, robotPosition, new java.awt
+                    .Point(destination.getX(),
+                           destination.getY()));
+
+            PropulsionUnit powerTran = (propulsionChoice.equals("rl")) ? learningPropulsionUnit : aStarPropulsionUnit;
             powerRequested = powerTran.getPowerConsumptionPerUnit() * powerTran.getTrajectory().size();
             return rover.getBattery().requestPower((powerRequested), critical);
         }

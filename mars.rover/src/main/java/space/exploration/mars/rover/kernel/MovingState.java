@@ -15,18 +15,22 @@ import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
+import space.exploration.mars.rover.propulsion.AStarPropulsionUnit;
+import space.exploration.mars.rover.propulsion.LearningPropulsionUnit;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
 
 import java.util.concurrent.TimeUnit;
 
+import static space.exploration.mars.rover.kernel.Rover.PROPULSION_CHOICE;
+
 /**
  * @author sanketkorgaonkar
  */
 public class MovingState implements State {
-    private Meter  requests = null;
-    private Rover  rover    = null;
-    private Logger logger   = LoggerFactory.getLogger(MovingState.class);
+    private             Meter  requests          = null;
+    private             Rover  rover             = null;
+    private             Logger logger            = LoggerFactory.getLogger(MovingState.class);
 
     public MovingState(Rover rover) {
         this.rover = rover;
@@ -131,8 +135,15 @@ public class MovingState implements State {
             return;
         }
 
-        PropulsionUnit powerTran = new PropulsionUnit(rover, robotPosition, new java.awt.Point(destination.getX(),
-                                                                                               destination.getY()));
+        String propulsionChoice = rover.getMarsConfig().getProperty(PROPULSION_CHOICE);
+        AStarPropulsionUnit aStarPropulsionUnit = new AStarPropulsionUnit(rover, robotPosition, new java.awt.Point
+                (destination.getX(),
+                                                                                                                   destination.getY()));
+        LearningPropulsionUnit learningPropulsionUnit = new LearningPropulsionUnit(rover, robotPosition, new java.awt
+                .Point(destination.getX(),
+                                                                                                                            destination.getY()));
+
+        PropulsionUnit powerTran = (propulsionChoice.equals("rl")) ? learningPropulsionUnit : aStarPropulsionUnit;
         if (!powerTran.isTrajectoryValid()) {
             logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
                     .getLocation().toString() + " and " + destination.toString());
@@ -153,6 +164,12 @@ public class MovingState implements State {
         sendTelemetry(architect);
     }
 
+    /**
+     * Should also check if the point falls outside the grid.
+     *
+     * @param destination
+     * @return
+     */
     private boolean isDestinationValid(java.awt.Point destination) {
         boolean     invalid     = false;
         WallBuilder wallBuilder = new WallBuilder(rover.getMarsConfig());

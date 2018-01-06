@@ -32,8 +32,10 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class Rover {
-    public static final String ROVER_NAME         = "Curiosity";
-    protected           String marsConfigLocation = null;
+    public static final String ROVER_NAME        = "Curiosity";
+    public static final String PROPULSION_CHOICE = "mars.rover.propulsion.engine.choice";
+
+    protected String marsConfigLocation = null;
     State state = null;
 
     /* Kernel definition */
