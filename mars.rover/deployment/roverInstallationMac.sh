@@ -42,7 +42,6 @@ echo "Download marsRover project!"
 wget https://storage.googleapis.com/rover_artifacts/mars.rover-mac-distro-1.5-SOLSHOT-shaded.jar
 wget https://storage.googleapis.com/rover_artifacts/marsConfig.properties
 wget https://storage.googleapis.com/rover_artifacts/roverDB.properties
-wget https://storage.googleapis.com/rover_artifacts/launch.sh
 
 echo "Download the Mission.Control application"
 wget https://storage.googleapis.com/rover_artifacts/mission.control-1.2-shaded.jar

@@ -27,13 +27,10 @@ sleep 10
 
 echo "Grab the script to get the command control software"
 wget https://storage.googleapis.com/rover_artifacts/launchMissionCommand.sh
-chmod +x launchMissionCommand.sh
+chmod +x launchMissionCommand.sh $1
 
 echo "Deploying MissionCommand - this process sends commands to the rover and exercises various sensors."
 gnome-terminal --command="./launchMissionCommand.sh"
-
-echo "Grab the coverageGaps.txt file for research"
-wget https://storage.googleapis.com/rover_artifacts/coverageGaps.txt
 
 echo "Start tailing nohup"
 figlet NASA  HOUSTON

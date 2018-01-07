@@ -32,14 +32,6 @@ wget https://storage.googleapis.com/rover_artifacts/kafka_2.10-0.10.0.1.tar.gz
 echo "Unzipping kafka"
 tar -xzf kafka_2.10-0.10.0.1.tar.gz
 
-echo "Start zookeeper"
-nohup ./kafka_2.10-0.10.0.1/bin/zookeeper-server-start.sh kafka_2.10-0.10.0.1/config/zookeeper.properties > zookeeperLogs.log &
-sleep 10
-
-echo "Start kafka"
-nohup ./kafka_2.10-0.10.0.1/bin/kafka-server-start.sh kafka_2.10-0.10.0.1/config/server.properties > kafkaLogs.log &
-sleep 5
-
 echo "Download marsRover project!"
 wget https://storage.googleapis.com/rover_artifacts/mars.rover-1.5-SOLSHOT-shaded.jar
 wget https://storage.googleapis.com/rover_artifacts/marsConfig.properties
@@ -49,9 +41,15 @@ wget https://storage.googleapis.com/rover_artifacts/launch.sh
 echo "Download the Mission.Control application"
 wget https://storage.googleapis.com/rover_artifacts/mission.control-1.2-shaded.jar
 
+echo "Downloading the missionCommand software"
+wget https://storage.googleapis.com/rover_artifacts/mission.control.manual.command-1.2-shaded.jar
+
+echo "Downloading the missionCommand software"
+wget https://storage.googleapis.com/rover_artifacts/mission.control-producer-1.2-shaded.jar
+
 echo "Get the launch script"
 wget https://storage.googleapis.com/rover_artifacts/linuxLaunch.sh
 chmod +x linuxLaunch.sh
 
 echo "Execute the launch script"
-./linuxLaunch.sh
+./linuxLaunch.sh $1
