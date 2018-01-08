@@ -9,6 +9,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 public class WeatherDataService {
     public static final  String                  REMS_CALIBRATION_FILE   = "remsCalibrationFile.dat";

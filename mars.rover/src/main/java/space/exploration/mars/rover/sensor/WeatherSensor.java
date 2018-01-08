@@ -8,7 +8,6 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.service.WeatherRDRData;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
-import space.exploration.mars.rover.kernel.SpacecraftClock;
 import space.exploration.mars.rover.service.WeatherDataService;
 import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.utils.RoverUtil;
@@ -16,8 +15,8 @@ import space.exploration.mars.rover.utils.WeatherUtil;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -38,7 +37,7 @@ public class WeatherSensor implements IsEquipment {
     private          long                                              createTimeStamp          = System
             .currentTimeMillis();
     private volatile boolean                                           calibratingSensor        = false;
-    private volatile int                                               sol                      = 0;
+    private          ExecutorService                                   calibrationService       = null;
 
     public WeatherSensor(Rover rover) {
         this.rover = rover;
@@ -47,6 +46,7 @@ public class WeatherSensor implements IsEquipment {
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();
         rems = new WeatherQueryService();
+        calibrationService = Executors.newSingleThreadScheduledExecutor();
     }
 
     public boolean isCalibratingSensor() {
@@ -54,19 +54,8 @@ public class WeatherSensor implements IsEquipment {
     }
 
     public void calibrateREMS(int sol) {
-        logger.info("Calibrating REMS Weather Station now for sol = " + sol);
-        calibratingSensor = true;
-        weatherDataService.downloadCalibrationData(sol);
-
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            logger.error("Interrupted while calibrating weatherSensor");
-        }
-        logger.info("CalibrationStatus for REMS = " + Boolean.toString(weatherDataService.isCalibrated()));
-        weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherDataService.getWeatherCalibrationFile());
-
-        calibratingSensor = false;
+        SensorCalibrater sensorCalibrater = new SensorCalibrater(sol);
+        calibrationService.submit(sensorCalibrater);
     }
 
     public byte[] getWeather() {
@@ -140,5 +129,27 @@ public class WeatherSensor implements IsEquipment {
         rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
         rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         return rBuilder;
+    }
+
+    private class SensorCalibrater implements Runnable{
+
+        private int sol = 0;
+
+        public SensorCalibrater(int sol){
+            this.sol = sol;
+        }
+
+        @Override
+        public void run() {
+            Thread.currentThread().setName("remsCalibration");
+            logger.info("Calibrating REMS Weather Station now for sol = " + this.sol);
+            calibratingSensor = true;
+            weatherDataService.downloadCalibrationData(this.sol);
+
+            logger.info("CalibrationStatus for REMS = " + Boolean.toString(weatherDataService.isCalibrated()));
+            weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherDataService.getWeatherCalibrationFile());
+
+            calibratingSensor = false;
+        }
     }
 }

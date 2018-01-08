@@ -318,6 +318,15 @@ public class Rover {
         state.senseWeather(weatherQuery);
     }
 
+    /**
+     * The clock sends this signal to the rover, so it can update all its sensors.
+     *
+     * @param sol
+     */
+    public synchronized void updateSensors(int sol) {
+        weatherSensor.calibrateREMS(sol);
+    }
+
     public synchronized Camera getCamera() {
         return camera;
     }
@@ -661,7 +670,7 @@ public class Rover {
         this.weatherSensor = new WeatherSensor(this);
 
         this.spacecraftClock = new SpacecraftClock(marsConfig);
-        spacecraftClock.setWeatherSensor(weatherSensor);
+        spacecraftClock.setRover(this);
         spacecraftClock.start();
 
         this.positionSensor = new PositionSensor(marsConfig);

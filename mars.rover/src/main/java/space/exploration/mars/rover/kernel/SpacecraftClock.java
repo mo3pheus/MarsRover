@@ -7,9 +7,9 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.mars.rover.sensor.WeatherSensor;
 import space.exploration.spice.utilities.TimeUtils;
 
+import java.util.Observable;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * processed.
  * Please contact sanket.korgaonkar@gmail.com if you have trouble extending the duration of the spacecraft clock.
  */
-public class SpacecraftClock implements IsEquipment {
+public class SpacecraftClock extends Observable implements IsEquipment {
     public static final String SCLK_FORMAT            = "mars.rover.mission.clock.format";
     public static final String SCLK_START_TIME        = "mars.rover.mission.clock.start";
     public static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
@@ -42,7 +42,7 @@ public class SpacecraftClock implements IsEquipment {
     private volatile boolean                  runThread       = true;
     private          Gauge<Long>              sclkGauge       = null;
     private          int                      previousSol     = 0;
-    private          WeatherSensor            weatherSensor   = null;
+    private          Rover                    rover           = null;
 
     private DateTime internalClock;
     private Clock    clock;
@@ -75,10 +75,6 @@ public class SpacecraftClock implements IsEquipment {
                 return internalClock.getMillis();
             }
         };
-    }
-
-    protected void setWeatherSensor(WeatherSensor weatherSensor){
-        this.weatherSensor = weatherSensor;
     }
 
     protected void resetSpacecraftClock(String utcTime) {
@@ -198,6 +194,10 @@ public class SpacecraftClock implements IsEquipment {
         return sBuilder.build().toString();
     }
 
+    public void setRover(Rover rover) {
+        this.rover = rover;
+    }
+
     private class Clock implements Runnable {
         @Override
         public void run() {
@@ -217,7 +217,7 @@ public class SpacecraftClock implements IsEquipment {
 
                 if (sol != previousSol) {
                     previousSol = sol;
-                    weatherSensor.calibrateREMS(sol);
+                    rover.updateSensors(sol);
                 }
             }
         }
