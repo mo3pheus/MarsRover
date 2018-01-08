@@ -82,7 +82,7 @@ public class Rover {
     private          Spectrometer     spectrometer     = null;
     private          Camera           camera           = null;
     private          Radar            radar            = null;
-    private          WeatherSensor    weatherSensor    = null;
+    private volatile WeatherSensor    weatherSensor    = null;
     private          NavigationEngine navigationEngine = null;
 
     /* Kernel Sensors   */
@@ -658,9 +658,10 @@ public class Rover {
 
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
-        this.spacecraftClock = new SpacecraftClock(marsConfig);
+        this.weatherSensor = new WeatherSensor(this);
 
-        this.weatherSensor = new WeatherSensor(this,spacecraftClock);
+        this.spacecraftClock = new SpacecraftClock(marsConfig);
+        spacecraftClock.setWeatherSensor(weatherSensor);
         spacecraftClock.start();
 
         this.positionSensor = new PositionSensor(marsConfig);

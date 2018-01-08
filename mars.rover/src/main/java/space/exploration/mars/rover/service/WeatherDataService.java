@@ -66,7 +66,7 @@ public class WeatherDataService {
                     calibrated = true;
                     break;
                 } catch (Exception e) {
-                    logger.info("Failed for url = " + urlString);
+                    logger.debug("Failed for url = " + urlString);
                     calibrated = false;
                     weatherCalibrationFile = null;
                     continue;

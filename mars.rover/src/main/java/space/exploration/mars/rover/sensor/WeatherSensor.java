@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by skorgao on 10/10/2017.
  */
-public class WeatherSensor implements IsEquipment, Observer {
+public class WeatherSensor implements IsEquipment {
     private static final String WEATHER_SENSOR_LIFESPAN    = "mars.rover.weather.station.lifeSpan";
     private static final Long   STALE_DATA_THRESHOLD_HOURS = 19l;
     private              Logger logger                     = LoggerFactory.getLogger(WeatherSensor.class);
@@ -40,14 +40,13 @@ public class WeatherSensor implements IsEquipment, Observer {
     private volatile boolean                                           calibratingSensor        = false;
     private volatile int                                               sol                      = 0;
 
-    public WeatherSensor(Rover rover, Observable observable) {
+    public WeatherSensor(Rover rover) {
         this.rover = rover;
         this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(WEATHER_SENSOR_LIFESPAN));
         this.fullLifeSpan = lifeSpan;
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();
         rems = new WeatherQueryService();
-        observable.addObserver(this);
     }
 
     public boolean isCalibratingSensor() {
@@ -141,13 +140,5 @@ public class WeatherSensor implements IsEquipment, Observer {
         rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
         rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         return rBuilder;
-    }
-
-    @Override
-    public void update(Observable observable, Object o) {
-        if (observable instanceof SpacecraftClock) {
-            sol = (Integer) o;
-            calibrateREMS(sol);
-        }
     }
 }
