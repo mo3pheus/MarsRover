@@ -207,6 +207,8 @@ public class SpacecraftClock implements IsEquipment {
                 clockService.updateClock(clockFormatter.print(internalClock));
                 timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
                 sol = clockService.getSol();
+
+                // if sol != previousSol - trigger update
             }
         }
     }

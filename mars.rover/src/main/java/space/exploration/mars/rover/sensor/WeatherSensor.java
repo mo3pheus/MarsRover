@@ -1,33 +1,39 @@
 package space.exploration.mars.rover.sensor;
 
+import com.google.protobuf.ByteString;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.SeasonalWeather;
-import space.exploration.communications.protocol.service.WeatherData;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.service.WeatherRDRData;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by skorgao on 10/10/2017.
  */
 public class WeatherSensor implements IsEquipment {
+    private static final String WEATHER_SENSOR_LIFESPAN    = "mars.rover.weather.station.lifeSpan";
+    private static final Long   STALE_DATA_THRESHOLD_HOURS = 19l;
+    private              Logger logger                     = LoggerFactory.getLogger(WeatherSensor.class);
 
-    private static final String              WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
-    private              Logger              logger                  = LoggerFactory.getLogger(WeatherSensor.class);
-    private              WeatherQueryService rems                    = null;
-    private              int                 fullLifeSpan            = 0;
-    private              int                 lifeSpan                = 0;
-    private              Rover               rover                   = null;
-    private              double              queryRate               = 0.0d;
-    private              long                createTimeStamp         = System.currentTimeMillis();
+    private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = new HashMap<>();
+    private          WeatherQueryService                               rems                     = null;
+    private          int                                               fullLifeSpan             = 0;
+    private          int                                               lifeSpan                 = 0;
+    private          Rover                                             rover                    = null;
+    private          double                                            queryRate                = 0.0d;
+    private          long                                              createTimeStamp          = System
+            .currentTimeMillis();
 
     public WeatherSensor(Rover rover) {
         this.rover = rover;
@@ -38,70 +44,42 @@ public class WeatherSensor implements IsEquipment {
 
     public byte[] getWeather() {
         lifeSpan--;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder       = getGeneralRoverStatus();
-        WeatherData.WeatherPayload                weatherPayload = null;
-
-        try {
-            /*rems -> RoverEnvironmentalMonitoringStation */
-            rems.setSolNumber(rover.getSpacecraftClock().getSol());
-            rems.executeQuery();
-            weatherPayload = (WeatherData.WeatherPayload) rems.getResponse();
-        } catch (Exception e) {
-            logger.error("Weather Service had an exception.", e);
-        }
-
-        if (weatherPayload != null) {
-            rBuilder.setModuleMessage(weatherPayload.toByteString());
-            rBuilder.setNotes("Curiosity Actual");
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder              = getGeneralRoverStatus();
+        Double                                    currentEphemerisTime  = rover.getSpacecraftClock().getEphemerisTime();
+        WeatherRDRData.WeatherEnvReducedData      weatherEnvReducedData = findClosestWeatherData(currentEphemerisTime);
+        if (weatherEnvReducedData != null) {
+            rBuilder.setModuleMessage(ByteString.copyFrom(findClosestWeatherData(currentEphemerisTime).toByteArray()));
         } else {
-            rBuilder.setNotes("No weather data at this time");
+            rBuilder.setNotes("Weather Data not available at this time. Please calibrate the weatherSensor." +
+                                      " Calendar Time = " + rover.getSpacecraftClock().getCalendarTime());
         }
-
-        double hoursElapsed = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis() - createTimeStamp);
-        queryRate = (hoursElapsed > 0) ? (double) (fullLifeSpan - lifeSpan) / hoursElapsed : 0.0d;
-        logger.info("Current weatherQueryRate/hour = " + queryRate + " max allowed = 1000.0/hr");
-
 
         return rBuilder.build().toByteArray();
     }
 
-    @Deprecated
-    public byte[] getWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
-        logger.debug(weatherQuery.toString());
-        lifeSpan--;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder               = getGeneralRoverStatus();
-        SeasonalWeather.SeasonalWeatherPayload    seasonalWeatherPayload = null;
+    private WeatherRDRData.WeatherEnvReducedData findClosestWeatherData(Double epemerisTime) {
+        if (weatherEnvReducedDataMap.containsKey(epemerisTime)) {
+            return weatherEnvReducedDataMap.get(epemerisTime);
+        }
 
-        try {
-            /*rems -> RoverEnvironmentalMonitoringStation */
-            if (weatherQuery.getTerrestrialEndDate() != null && weatherQuery.getTerrestrialStartDate() != null) {
-                rems.setEarthEndDate(weatherQuery.getTerrestrialEndDate());
-                rems.setEarthStartDate(weatherQuery.getTerrestrialStartDate());
-            } else if (weatherQuery.getSolNumber() != -1) {
-                rems.setSolNumber(weatherQuery.getSolNumber());
+        Double                               timeDiff              = Double.MAX_VALUE;
+        WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = null;
+        for (Double ephTime : weatherEnvReducedDataMap.keySet()) {
+            Double diff = Math.abs(epemerisTime - ephTime);
+            if (diff < timeDiff) {
+                timeDiff = diff;
+                weatherEnvReducedData = weatherEnvReducedDataMap.get(ephTime);
             }
-
-            rems.executeQuery();
-            seasonalWeatherPayload = WeatherUtil.getSeasonalWeatherPayload(rems.getResponseAsString());
-        } catch (Exception e) {
-            logger.error("Weather Service had an exception.", e);
         }
 
-        if (seasonalWeatherPayload != null) {
-            rBuilder.setModuleMessage(seasonalWeatherPayload.toByteString());
-            rBuilder.setNotes("Curiosity Actual");
-        } else {
-            rBuilder.setNotes("No weather data at this time");
+        /* Check if the difference is more than 19 hours */
+        if (timeDiff >= TimeUnit.HOURS.toSeconds(STALE_DATA_THRESHOLD_HOURS)) {
+            logger.error("WeatherData is too stale. Calendar Date = " + rover.getSpacecraftClock().getCalendarTime());
+            return null;
         }
 
-        double hoursElapsed = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis() - createTimeStamp);
-        queryRate = (hoursElapsed > 0) ? (double) (fullLifeSpan - lifeSpan) / hoursElapsed : 0.0d;
-        logger.info("Current weatherQueryRate/hour = " + queryRate + " max allowed = 1000.0/hr");
-
-
-        return rBuilder.build().toByteArray();
+        return weatherEnvReducedData;
     }
-
 
     public double getQueryRate() {
         return queryRate;

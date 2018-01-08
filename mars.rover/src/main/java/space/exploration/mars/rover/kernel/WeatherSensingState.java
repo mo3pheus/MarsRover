@@ -68,7 +68,7 @@ public class WeatherSensingState implements State {
             if (weatherQuery == null) {
                 rover.transmitMessage(rover.getWeatherSensor().getWeather());
             } else {
-                rover.transmitMessage(rover.getWeatherSensor().getWeather(weatherQuery));
+                rover.transmitMessage(rover.getWeatherSensor().getWeather());
             }
         } catch (Exception e) {
             logger.error("Error while requesting weather data.", e);
