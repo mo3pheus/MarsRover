@@ -659,6 +659,8 @@ public class Rover {
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
         this.spacecraftClock = new SpacecraftClock(marsConfig);
+
+        this.weatherSensor = new WeatherSensor(this,spacecraftClock);
         spacecraftClock.start();
 
         this.positionSensor = new PositionSensor(marsConfig);
@@ -708,7 +710,6 @@ public class Rover {
                                                                                                           this,
                                                                                                           cameraImageCacheLocation);
         this.radar = new Radar(this);
-        this.weatherSensor = new WeatherSensor(this);
 
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());
 

@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.spice.utilities.TimeUtils;
 
+import java.util.Observable;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -22,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * processed.
  * Please contact sanket.korgaonkar@gmail.com if you have trouble extending the duration of the spacecraft clock.
  */
-public class SpacecraftClock implements IsEquipment {
+public class SpacecraftClock extends Observable implements IsEquipment {
     public static final String SCLK_FORMAT            = "mars.rover.mission.clock.format";
     public static final String SCLK_START_TIME        = "mars.rover.mission.clock.start";
     public static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
@@ -40,6 +41,7 @@ public class SpacecraftClock implements IsEquipment {
     private          TimeUtils                clockService    = null;
     private volatile boolean                  runThread       = true;
     private          Gauge<Long>              sclkGauge       = null;
+    private          int                      previousSol     = 0;
 
     private DateTime internalClock;
     private Clock    clock;
@@ -208,7 +210,10 @@ public class SpacecraftClock implements IsEquipment {
                 timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));
                 sol = clockService.getSol();
 
-                // if sol != previousSol - trigger update
+                if (sol != previousSol) {
+                    notifyObservers(sol);
+                    previousSol = sol;
+                }
             }
         }
     }

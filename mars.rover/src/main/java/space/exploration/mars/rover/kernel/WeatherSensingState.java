@@ -63,13 +63,10 @@ public class WeatherSensingState implements State {
             WeatherAnimationEngine weatherAnimationEngine = rover.getMarsArchitect().getWeatherEngine();
             weatherAnimationEngine.updateLocation(rover.getMarsArchitect().getRobot().getLocation());
             weatherAnimationEngine.renderWeatherAnimation();
-            rover.setState(rover.getTransmittingState());
 
-            if (weatherQuery == null) {
-                rover.transmitMessage(rover.getWeatherSensor().getWeather());
-            } else {
-                rover.transmitMessage(rover.getWeatherSensor().getWeather());
-            }
+            byte[] weatherData = rover.getWeatherSensor().getWeather();
+            rover.setState(rover.getTransmittingState());
+            rover.transmitMessage(weatherData);
         } catch (Exception e) {
             logger.error("Error while requesting weather data.", e);
             rover.setState(rover.getListeningState());

@@ -1,11 +1,10 @@
 package space.exploration.mars.rover.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import space.exploration.spice.utilities.EphemerisConversionUtil;
 
-import java.io.BufferedInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -13,12 +12,15 @@ import java.util.List;
 
 public class WeatherDataService {
     public static final  String                  REMS_CALIBRATION_FILE   = "remsCalibrationFile.dat";
+    public static final  Integer                 SOL_SECONDS             = 88775;
+    private              Logger                  logger                  = LoggerFactory.getLogger(WeatherDataService
+                                                                                                           .class);
     private static final String                  URL_BEGIN               = "http://pds-atmospheres.nmsu" +
             ".edu/PDS/data/mslrem_1001/DATA/";
-    private static final String                  URL_END                 = "_______P1.TAB";
     private              List<WeatherDirectory>  weatherDirectories      = new ArrayList<>();
     private              boolean                 calibrated              = false;
     private              EphemerisConversionUtil ephemerisConversionUtil = new EphemerisConversionUtil();
+    private              File                    weatherCalibrationFile  = null;
 
     public WeatherDataService() {
         initializeWeatherDirectories();
@@ -37,28 +39,41 @@ public class WeatherDataService {
      *            0000000_______ - 6
      *            P8.TAB - 7 partition
      */
-    public void downloadCalibrationData(int sol, double ephemerisTime) {
-        String piece1 = findDirectory(sol);
-        String piece2 = "SOL" + getPaddedDirectoryString(sol) + "/RME_";
+    public void downloadCalibrationData(int sol) {
+        String piece1        = findDirectory(sol);
+        int    startSol      = getStartSol(sol);
+        int    solsDiff      = sol - startSol;
+        String piece2        = "SOL" + getPaddedDirectoryString(sol) + "/RME_";
+        double ephemerisTime = ((double) getEphemerisStart(sol)) + (solsDiff * SOL_SECONDS);
+
+        String solPart         = "";
+        int    solStringLength = Integer.toString(sol).length();
+        for (int i = 0; i < (4 - solStringLength); i++) {
+            solPart += "0";
+        }
+        solPart += Integer.toString(sol);
 
         for (String eTime : getEphemerisTimeStrings(ephemerisTime)) {
             for (String partition : getPartitionStrings()) {
-                urlString = URL_BEGIN + piece1 + piece2 + eTime + "RNV" + getPaddedDirectoryString(sol) +
+                urlString = URL_BEGIN + piece1 + piece2 + eTime + "RNV" + solPart +
                         "0000000_______" + partition;
                 try {
                     byte[]           weatherContents = download(urlString);
                     FileOutputStream fos             = new FileOutputStream(REMS_CALIBRATION_FILE);
                     fos.write(weatherContents);
+                    weatherCalibrationFile = new File(REMS_CALIBRATION_FILE);
                     fos.close();
                     calibrated = true;
                     break;
                 } catch (Exception e) {
-                    System.out.println(" Required timeStamp = 504863505 actual = " + eTime + " difference = " + Long
-                            .toString(504863505 - Long.parseLong(eTime)));
-                    System.out.println("Failed for url = " + urlString);
+                    logger.info("Failed for url = " + urlString);
                     calibrated = false;
+                    weatherCalibrationFile = null;
                     continue;
                 }
+            }
+            if (calibrated) {
+                break;
             }
         }
     }
@@ -90,6 +105,10 @@ public class WeatherDataService {
         } finally {
             is.close();
         }
+    }
+
+    public File getWeatherCalibrationFile() {
+        return weatherCalibrationFile;
     }
 
     private void initializeWeatherDirectories() {
@@ -180,7 +199,9 @@ public class WeatherDataService {
         }
 
         public WeatherDirectory(int startSol, int endSol, long ephemerisTimeStamp, String directoryString) {
-            this.startSol = startSol;
+            ephemerisConversionUtil.updateClock(Long.toString(ephemerisTimeStamp));
+            this.startSol = (ephemerisConversionUtil.getSol() < startSol) ? startSol : ephemerisConversionUtil.getSol();
+            this.ephemerisTimestamp = ephemerisTimeStamp;
             this.endSol = endSol;
             this.directoryString = directoryString;
         }
@@ -188,8 +209,8 @@ public class WeatherDataService {
 
     private final List<String> getEphemerisTimeStrings(double ephemerisTime) {
         List<String> ephTimes = new ArrayList<>();
-        for (int i = -5000; i <= 5000; i = i + 1000) {
-            long ephTime = (long) ephemerisTime;
+        for (int i = -150; i <= 150; i++) {
+            long ephTime = ((long) ephemerisTime);
             ephTime += i;
             ephTimes.add(Long.toString(ephTime));
         }
@@ -202,5 +223,23 @@ public class WeatherDataService {
             partitions.add("P" + Integer.toString(i) + ".TAB");
         }
         return partitions;
+    }
+
+    private long getEphemerisStart(int sol) {
+        for (WeatherDirectory weatherDirectory : weatherDirectories) {
+            if (weatherDirectory.getDirectoryString(sol) != null) {
+                return weatherDirectory.getEphemerisTimestamp();
+            }
+        }
+        return -1l;
+    }
+
+    private int getStartSol(int sol) {
+        for (WeatherDirectory weatherDirectory : weatherDirectories) {
+            if (weatherDirectory.getDirectoryString(sol) != null) {
+                return weatherDirectory.getStartSol();
+            }
+        }
+        return -1;
     }
 }

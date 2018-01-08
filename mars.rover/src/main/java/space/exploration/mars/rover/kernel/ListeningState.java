@@ -114,8 +114,13 @@ public class ListeningState implements State {
                         rover.performRadarScan();
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.WEATHER_SENSOR.getValue()) {
                         logger.info("Rover will try to get weather measurements - actual Curiosity Data");
-                        rover.state = rover.weatherSensingState;
-                        rover.senseWeather(null);
+                        if (rover.getWeatherSensor().isCalibratingSensor()) {
+                            logger.error("WeatherSensor is calibrating. Please try to get weather later!");
+                            rover.state = rover.listeningState;
+                        } else {
+                            rover.state = rover.weatherSensingState;
+                            rover.senseWeather(null);
+                        }
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.KERNEL.getValue()) {
                         rover.state = rover.listeningState;
                         rover.gracefulShutdown();
@@ -161,7 +166,8 @@ public class ListeningState implements State {
             AStarPropulsionUnit aStarPropulsionUnit = new AStarPropulsionUnit(rover, robotPosition, new java.awt.Point
                     (destination.getX(),
                      destination.getY()));
-            LearningPropulsionUnit learningPropulsionUnit = new LearningPropulsionUnit(rover, robotPosition, new java.awt
+            LearningPropulsionUnit learningPropulsionUnit = new LearningPropulsionUnit(rover, robotPosition, new java
+                    .awt
                     .Point(destination.getX(),
                            destination.getY()));
 

@@ -5,28 +5,31 @@ import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
-import space.exploration.communications.protocol.service.SeasonalWeather;
-import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.service.WeatherRDRData;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.kernel.SpacecraftClock;
+import space.exploration.mars.rover.service.WeatherDataService;
 import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by skorgao on 10/10/2017.
  */
-public class WeatherSensor implements IsEquipment {
+public class WeatherSensor implements IsEquipment, Observer {
     private static final String WEATHER_SENSOR_LIFESPAN    = "mars.rover.weather.station.lifeSpan";
     private static final Long   STALE_DATA_THRESHOLD_HOURS = 19l;
     private              Logger logger                     = LoggerFactory.getLogger(WeatherSensor.class);
 
-    private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = new HashMap<>();
+    private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = null;
+    private          WeatherDataService                                weatherDataService       = null;
     private          WeatherQueryService                               rems                     = null;
     private          int                                               fullLifeSpan             = 0;
     private          int                                               lifeSpan                 = 0;
@@ -34,12 +37,37 @@ public class WeatherSensor implements IsEquipment {
     private          double                                            queryRate                = 0.0d;
     private          long                                              createTimeStamp          = System
             .currentTimeMillis();
+    private volatile boolean                                           calibratingSensor        = false;
+    private volatile int                                               sol                      = 0;
 
-    public WeatherSensor(Rover rover) {
+    public WeatherSensor(Rover rover, Observable observable) {
         this.rover = rover;
         this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(WEATHER_SENSOR_LIFESPAN));
         this.fullLifeSpan = lifeSpan;
+        this.weatherEnvReducedDataMap = new HashMap<>();
+        this.weatherDataService = new WeatherDataService();
         rems = new WeatherQueryService();
+        observable.addObserver(this);
+    }
+
+    public boolean isCalibratingSensor() {
+        return calibratingSensor;
+    }
+
+    public void calibrateREMS(int sol) {
+        logger.info("Calibrating REMS Weather Station now for sol = " + sol);
+        calibratingSensor = true;
+        weatherDataService.downloadCalibrationData(sol);
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            logger.error("Interrupted while calibrating weatherSensor");
+        }
+        logger.info("CalibrationStatus for REMS = " + Boolean.toString(weatherDataService.isCalibrated()));
+        weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherDataService.getWeatherCalibrationFile());
+
+        calibratingSensor = false;
     }
 
     public byte[] getWeather() {
@@ -113,5 +141,13 @@ public class WeatherSensor implements IsEquipment {
         rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
         rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         return rBuilder;
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        if (observable instanceof SpacecraftClock) {
+            sol = (Integer) o;
+            calibrateREMS(sol);
+        }
     }
 }
