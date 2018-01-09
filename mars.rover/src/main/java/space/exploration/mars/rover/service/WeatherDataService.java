@@ -78,37 +78,63 @@ public class WeatherDataService {
      *            0000000_______ - 6
      *            P8.TAB - 7 partition
      */
+    @Deprecated
     public void downloadCalibrationData(int sol) {
         int          urlCount                   = 0;
         int          startSol                   = getStartSol(sol);
         int          solsDiff                   = sol - startSol;
-        String       piece1                     = findDirectory(sol);
-        String       piece2                     = "SOL" + getPaddedDirectoryString(sol) + "/RME_";
-        String       solPart                    = generateSolPart(sol);
         double       ephemerisTime              = ((double) getEphemerisStart(sol)) + (solsDiff * SOL_SECONDS);
         List<String> ephemerisTimes             = getEphemerisTimeStrings(ephemerisTime);
         List<String> partitions                 = getPartitionStrings();
         double       totalUrls                  = ephemerisTimes.size() * partitions.size();
         double       progressReportingThreshold = 1.0d;
 
-        for (String eTime : ephemerisTimes) {
-            for (String partition : partitions) {
-                urlString = URL_BEGIN + piece1 + piece2 + eTime + "RNV" + solPart +
-                        "0000000_______" + partition;
-                if (!downloadFile()) {
-                    urlCount++;
-                    double progress = ((double) urlCount) / totalUrls * 100.0d;
-                    if (progress >= progressReportingThreshold) {
-                        logger.info("REMS Sensor Calibrating Progress = " + progress);
-                        progressReportingThreshold++;
-                    }
-                    logger.debug("Failed to download for sol = " + sol + " url = " + urlString);
-                    continue;
-                } else {
-                    return;
+        for (String url : getURLCombinations(sol)) {
+            if (!downloadFile(url)) {
+                urlCount++;
+                double progress = ((double) urlCount) / totalUrls * 100.0d;
+                if (progress >= progressReportingThreshold) {
+                    logger.info("REMS Sensor Calibrating Progress = " + progress);
+                    progressReportingThreshold++;
                 }
+                logger.debug("Failed to download for sol = " + sol + " url = " + urlString);
+                continue;
+            } else {
+                return;
             }
         }
+    }
+
+    public File downloadCalibrationData(List<String> urls) {
+        for (String url : urls) {
+            if (!downloadFile(url)) {
+                continue;
+            } else {
+                return weatherCalibrationFile;
+            }
+        }
+        return null;
+    }
+
+    public List<String> getURLCombinations(int sol) {
+        List<String> urls           = new ArrayList<>();
+        int          startSol       = getStartSol(sol);
+        int          solsDiff       = sol - startSol;
+        String       piece1         = findDirectory(sol);
+        String       piece2         = "SOL" + getPaddedDirectoryString(sol) + "/RME_";
+        String       solPart        = generateSolPart(sol);
+        double       ephemerisTime  = ((double) getEphemerisStart(sol)) + (solsDiff * SOL_SECONDS);
+        List<String> ephemerisTimes = getEphemerisTimeStrings(ephemerisTime);
+        List<String> partitions     = getPartitionStrings();
+
+        for (String eTime : ephemerisTimes) {
+            for (String partition : partitions) {
+                String urlCombination = URL_BEGIN + piece1 + piece2 + eTime + "RNV" + solPart +
+                        "0000000_______" + partition;
+                urls.add(urlCombination);
+            }
+        }
+        return urls;
     }
 
     public boolean isCalibrated() {
@@ -154,16 +180,16 @@ public class WeatherDataService {
         }
     }
 
-    private boolean downloadFile() {
+    private boolean downloadFile(String url) {
         try {
-            byte[]           weatherContents = download(urlString);
+            byte[]           weatherContents = download(url);
             FileOutputStream fos             = new FileOutputStream(REMS_CALIBRATION_FILE);
             fos.write(weatherContents);
             weatherCalibrationFile = new File(REMS_CALIBRATION_FILE);
             fos.close();
             calibrated = true;
         } catch (Exception e) {
-            logger.debug("Failed for url = " + urlString);
+            logger.debug("Failed for url = " + url);
             calibrated = false;
             weatherCalibrationFile = null;
         }
@@ -229,7 +255,7 @@ public class WeatherDataService {
 
     private final List<String> getEphemerisTimeStrings(double ephemerisTime) {
         List<String> ephTimes = new ArrayList<>();
-        for (int i = -150; i <= 150; i++) {
+        for (int i = -150; i < 150; i++) {
             long ephTime = ((long) ephemerisTime);
             ephTime += i;
             ephTimes.add(Long.toString(ephTime));

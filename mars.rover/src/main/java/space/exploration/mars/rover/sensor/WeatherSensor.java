@@ -13,11 +13,11 @@ import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * Created by skorgao on 10/10/2017.
@@ -25,7 +25,9 @@ import java.util.concurrent.TimeUnit;
 public class WeatherSensor implements IsEquipment {
     private static final String WEATHER_SENSOR_LIFESPAN    = "mars.rover.weather.station.lifeSpan";
     private static final Long   STALE_DATA_THRESHOLD_HOURS = 19l;
-    private              Logger logger                     = LoggerFactory.getLogger(WeatherSensor.class);
+    private static final int    NUM_CALIBRATION_THREADS    = 100;
+
+    private Logger logger = LoggerFactory.getLogger(WeatherSensor.class);
 
     private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = null;
     private          WeatherDataService                                weatherDataService       = null;
@@ -36,7 +38,10 @@ public class WeatherSensor implements IsEquipment {
     private          long                                              createTimeStamp          = System
             .currentTimeMillis();
     private volatile boolean                                           calibratingSensor        = false;
+    private          Future<File>[]                                    calibrationTasks         = new
+            Future[NUM_CALIBRATION_THREADS];
     private          ExecutorService                                   calibrationService       = null;
+    private          int                                               sol                      = 0;
 
     public WeatherSensor(Rover rover) {
         this.rover = rover;
@@ -44,7 +49,7 @@ public class WeatherSensor implements IsEquipment {
         this.fullLifeSpan = lifeSpan;
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();
-        calibrationService = Executors.newSingleThreadScheduledExecutor();
+        calibrationService = Executors.newFixedThreadPool(NUM_CALIBRATION_THREADS);
     }
 
     public boolean isCalibratingSensor() {
@@ -52,8 +57,33 @@ public class WeatherSensor implements IsEquipment {
     }
 
     public void calibrateREMS(int sol) {
-        SensorCalibrater sensorCalibrater = new SensorCalibrater(sol);
-        calibrationService.submit(sensorCalibrater);
+        this.sol = sol;
+        List<String> urls     = weatherDataService.getURLCombinations(sol);
+        int          biteSize = (int) ((double) urls.size() / (double) NUM_CALIBRATION_THREADS);
+
+        for (int i = 0; i < calibrationTasks.length; i++) {
+            calibrationTasks[i] = calibrationService.submit(new RemsCalibrater(urls, i, biteSize));
+        }
+
+        boolean killThreads = false;
+        try {
+            for (Future<File> calibrationTask : calibrationTasks) {
+                if (killThreads) {
+                    calibrationTask.cancel(true);
+                    continue;
+                }
+
+                File weatherFile = calibrationTask.get();
+                if (weatherFile != null) {
+                    weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
+                    killThreads = true;
+                }
+            }
+        } catch (ExecutionException ee) {
+            logger.error("Error while calibrating REMS Sensor for sol = " + sol, ee);
+        } catch (InterruptedException ie) {
+            logger.error("Interruption Error while calibrating REMS Sensor for sol = " + sol, ie);
+        }
     }
 
     public byte[] getWeather() {
@@ -86,7 +116,8 @@ public class WeatherSensor implements IsEquipment {
             }
         }
 
-        /* Check if the difference is more than 19 hours */
+        /* Check if the difference is more than 19 hours. This is because the weatherSensor aboard Curiosity is
+        exercised for only 5 hours a day */
         if (timeDiff >= TimeUnit.HOURS.toSeconds(STALE_DATA_THRESHOLD_HOURS)) {
             logger.error("WeatherData is too stale. Calendar Date = " + rover.getSpacecraftClock().getCalendarTime());
             return null;
@@ -129,27 +160,22 @@ public class WeatherSensor implements IsEquipment {
         return rBuilder;
     }
 
-    private class SensorCalibrater implements Runnable {
+    private class RemsCalibrater implements Callable<File> {
+        List<String> urls     = new ArrayList<>();
+        int          threadId = -1;
 
-        private int sol = 0;
-
-        public SensorCalibrater(int sol) {
-            this.sol = sol;
+        public RemsCalibrater(List<String> urlSet, int threadId, int biteSize) {
+            this.threadId = threadId;
+            for (int i = (threadId * biteSize); i < ((threadId * biteSize) + biteSize); i++) {
+                urls.add(urlSet.get(i));
+            }
         }
 
         @Override
-        public void run() {
-            Thread.currentThread().setName("remsCalibration");
-            logger.info("Calibrating REMS Weather Station now for sol = " + this.sol);
-            calibratingSensor = true;
-            weatherDataService.downloadCalibrationData(this.sol);
-            File weatherDataFile = weatherDataService.getWeatherCalibrationFile();
-
-            logger.info("CalibrationStatus for REMS = " + Boolean.toString(weatherDataService.isCalibrated()));
-            weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherDataFile);
-            weatherDataFile.delete();
-
-            calibratingSensor = false;
+        public File call() throws Exception {
+            Thread.currentThread().setName("remsCalibrationThread" + Integer.toString(threadId));
+            logger.info("ThreadId = " + threadId + " started for remsCalibration for sol = " + sol);
+            return weatherDataService.downloadCalibrationData(urls);
         }
     }
 }
