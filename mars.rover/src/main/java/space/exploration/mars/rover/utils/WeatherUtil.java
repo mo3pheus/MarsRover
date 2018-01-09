@@ -145,23 +145,23 @@ public class WeatherUtil {
         return sBuilder.build();
     }
 
-    public static Map<Double,WeatherRDRData.WeatherEnvReducedData> readWeatherDataFile(File weatherDataFile) {
+    public static Map<Double, WeatherRDRData.WeatherEnvReducedData> readWeatherDataFile(File weatherDataFile) {
         Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = new HashMap<>();
-        BufferedReader bufferedReader = null;
+        BufferedReader                                    bufferedReader           = null;
         try {
             bufferedReader = new BufferedReader(new FileReader(weatherDataFile));
             String dataLine = null;
             while ((dataLine = bufferedReader.readLine()) != null) {
                 try {
                     WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = extractWeatherData(dataLine);
-                    weatherEnvReducedDataMap.put(weatherEnvReducedData.getEphemerisTime(),weatherEnvReducedData);
+                    weatherEnvReducedDataMap.put(weatherEnvReducedData.getEphemerisTime(), weatherEnvReducedData);
                 } catch (Exception e) {
                     logger.debug("Failed to parseWeatherDataLine = " + dataLine);
                 }
             }
             bufferedReader.close();
         } catch (IOException io) {
-            logger.error("Error while reading weatherFile.", io);
+            logger.debug("Error while reading weatherFile.", io);
         }
         return weatherEnvReducedDataMap;
     }
@@ -174,7 +174,6 @@ public class WeatherUtil {
      */
     public static WeatherRDRData.WeatherEnvReducedData extractWeatherData(String rawData) {
         rawData = rawData.replaceAll("\"", " ");
-        rawData = rawData.replaceAll(" \"", " ");
         String[] weatherDataArr = rawData.split(",");
 
         WeatherRDRData.WeatherEnvReducedData.Builder weatherEnvReducedDataBuilder = WeatherRDRData
@@ -209,11 +208,41 @@ public class WeatherUtil {
         // parse AirTemp data boom1
         try {
             boomAirTempBuilder.setBoomAirTemp(Double.parseDouble(weatherDataArr[27]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setBoomIntermediateAirTemp(Double.parseDouble(weatherDataArr[28]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setBoomAtsAirTemp(Double.parseDouble(weatherDataArr[29]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setInternalAirTempUncertainty(Double.parseDouble(weatherDataArr[30]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setIntermediateTempUncertainty(Double.parseDouble(weatherDataArr[31]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setTipAirTempUncertainty(Double.parseDouble(weatherDataArr[32]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setAtsBoomConfidenceLevel(weatherDataArr[33]);
             weatherEnvReducedDataBuilder.setBoomOne(boomAirTempBuilder.build());
         } catch (NumberFormatException nfe) {
@@ -225,12 +254,47 @@ public class WeatherUtil {
         try {
             boomAirTempBuilder = WeatherRDRData.WeatherEnvReducedData.BoomAirTemp.newBuilder();
             boomAirTempBuilder.setBoomAirTemp(Double.parseDouble(weatherDataArr[34]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setBoomIntermediateAirTemp(Double.parseDouble(weatherDataArr[35]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setBoomAtsAirTemp(Double.parseDouble(weatherDataArr[36]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setInternalAirTempUncertainty(Double.parseDouble(weatherDataArr[37]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setIntermediateTempUncertainty(Double.parseDouble(weatherDataArr[38]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setTipAirTempUncertainty(Double.parseDouble(weatherDataArr[39]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             boomAirTempBuilder.setAtsBoomConfidenceLevel(weatherDataArr[40]);
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             weatherEnvReducedDataBuilder.setBoomTwo(boomAirTempBuilder.build());
         } catch (NumberFormatException nfe) {
             logger.debug("Can't parse boomTwoAirTempData for ephemeris time = " + weatherEnvReducedDataBuilder
@@ -241,19 +305,50 @@ public class WeatherUtil {
         try {
             // channel A
             humidityBuilder.setPercentage(Double.parseDouble(weatherDataArr[55]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             humidityBuilder.setUncertainty(Double.parseDouble(weatherDataArr[58]));
             weatherEnvReducedDataBuilder.setChannelAHumidity(humidityBuilder.build());
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
 
             //channel B
+
             humidityBuilder = WeatherRDRData.WeatherEnvReducedData.Humidity.newBuilder();
             humidityBuilder.setPercentage(Double.parseDouble(weatherDataArr[56]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             humidityBuilder.setUncertainty(Double.parseDouble(weatherDataArr[59]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             weatherEnvReducedDataBuilder.setChannelBHumidity(humidityBuilder.build());
 
             //channel C
             humidityBuilder = WeatherRDRData.WeatherEnvReducedData.Humidity.newBuilder();
             humidityBuilder.setPercentage(Double.parseDouble(weatherDataArr[57]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             humidityBuilder.setUncertainty(Double.parseDouble(weatherDataArr[60]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             weatherEnvReducedDataBuilder.setChannelCHumidity(humidityBuilder.build());
 
             weatherEnvReducedDataBuilder.setHumiditySensorTemp(Double.parseDouble(weatherDataArr[61]));
@@ -266,20 +361,46 @@ public class WeatherUtil {
         try {
             // pressureSensor 1
             pressureBuilder.setThermoCapTemp(Double.parseDouble(weatherDataArr[64]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             pressureBuilder.setBaroCapPressure((Double.parseDouble(weatherDataArr[66])));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             pressureBuilder.setBaroCapAbsoluteUncertainty((Double.parseDouble(weatherDataArr[68])));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             weatherEnvReducedDataBuilder.setPressureSensor1(pressureBuilder.build());
 
             // pressureSensor 2
             pressureBuilder = WeatherRDRData.WeatherEnvReducedData.Pressure.newBuilder();
             pressureBuilder.setThermoCapTemp(Double.parseDouble(weatherDataArr[65]));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             pressureBuilder.setBaroCapPressure((Double.parseDouble(weatherDataArr[67])));
+        } catch (NumberFormatException nfe) {
+            logger.debug("Can't parse humiditySensorTemp for ephemeris time = " + weatherEnvReducedDataBuilder
+                    .getEphemerisTime(), nfe);
+        }
+        try {
             pressureBuilder.setBaroCapAbsoluteUncertainty((Double.parseDouble(weatherDataArr[69])));
             weatherEnvReducedDataBuilder.setPressureSensor2(pressureBuilder.build());
         } catch (NumberFormatException nfe) {
             logger.debug("Can't parse pressureData for ephemeris time = " + weatherEnvReducedDataBuilder
                     .getEphemerisTime(), nfe);
         }
+        logger.debug(rawData);
 
         return weatherEnvReducedDataBuilder.build();
     }

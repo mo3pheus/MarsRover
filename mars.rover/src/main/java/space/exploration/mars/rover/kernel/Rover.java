@@ -131,9 +131,9 @@ public class Rover {
 
     public static long getOneSolDuration() {
         /* Time scaled by a factor of 60. */
-        long time = TimeUnit.MINUTES.toMillis(24);
-        time += TimeUnit.SECONDS.toMillis(39);
-        time += 35;
+        long time = TimeUnit.HOURS.toMillis(24);
+        time += TimeUnit.MINUTES.toMillis(39);
+        time += TimeUnit.SECONDS.toMillis(35);
         time += 244;
         return time;
     }

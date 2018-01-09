@@ -23,12 +23,12 @@ import java.util.concurrent.*;
  * Created by skorgao on 10/10/2017.
  */
 public class WeatherSensor implements IsEquipment {
-    private static final String WEATHER_SENSOR_LIFESPAN    = "mars.rover.weather.station.lifeSpan";
-    private static final Long   STALE_DATA_THRESHOLD_HOURS = 19l;
-    private static final int    NUM_CALIBRATION_THREADS    = 100;
+    private static final String WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
+    private static final int    NUM_CALIBRATION_THREADS = 100;
 
     private Logger logger = LoggerFactory.getLogger(WeatherSensor.class);
 
+    private          double                                            staleDataThresholdHours  = 0.0d;
     private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = null;
     private          WeatherDataService                                weatherDataService       = null;
     private          int                                               fullLifeSpan             = 0;
@@ -36,8 +36,7 @@ public class WeatherSensor implements IsEquipment {
     private          Rover                                             rover                    = null;
     private          double                                            queryRate                = 0.0d;
     private volatile boolean                                           calibratingSensor        = false;
-    private          Future<File>[]                                    calibrationTasks         = new
-            Future[NUM_CALIBRATION_THREADS];
+    private          Future<File>[]                                    calibrationTasks         = null;
     private          ExecutorService                                   calibrationService       = null;
     private          ExecutorService                                   calibrationKickOff       = null;
     private          int                                               sol                      = 0;
@@ -48,7 +47,9 @@ public class WeatherSensor implements IsEquipment {
         this.fullLifeSpan = lifeSpan;
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();
+        this.staleDataThresholdHours = TimeUnit.MILLISECONDS.toHours(rover.getOneSolDuration());
         calibrationService = Executors.newFixedThreadPool(NUM_CALIBRATION_THREADS);
+        calibrationTasks = new Future[NUM_CALIBRATION_THREADS];
         calibrationKickOff = Executors.newSingleThreadExecutor();
     }
 
@@ -72,11 +73,11 @@ public class WeatherSensor implements IsEquipment {
             WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = findClosestWeatherData(currentEphemerisTime);
             if (weatherEnvReducedData != null) {
                 rBuilder.setModuleMessage(ByteString.copyFrom(findClosestWeatherData(currentEphemerisTime)
-                                                                      .toByteArray()));
+                        .toByteArray()));
 
             } else {
                 rBuilder.setNotes("Weather Data not available at this time. Please calibrate the weatherSensor." +
-                                          " Calendar Time = " + rover.getSpacecraftClock().getCalendarTime());
+                                  " Calendar Time = " + rover.getSpacecraftClock().getCalendarTime());
             }
         }
 
@@ -100,7 +101,7 @@ public class WeatherSensor implements IsEquipment {
 
         /* Check if the difference is more than 19 hours. This is because the weatherSensor aboard Curiosity is
         exercised for only 5 hours a day */
-        if (timeDiff >= TimeUnit.HOURS.toSeconds(STALE_DATA_THRESHOLD_HOURS)) {
+        if (timeDiff >= TimeUnit.HOURS.toSeconds((long) staleDataThresholdHours)) {
             logger.error("WeatherData is too stale. Calendar Date = " + rover.getSpacecraftClock().getCalendarTime());
             return null;
         }
