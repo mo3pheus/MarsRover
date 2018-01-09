@@ -57,6 +57,7 @@ public class TransmittingState implements State {
         rover.getRadio().sendMessage(message);
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.state = rover.listeningState;
+        rover.reflectRoverState();
     }
 
     @Override
