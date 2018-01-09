@@ -1,0 +1,1554 @@
+2018-01-09 14:56:13,461 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Valid utc time ranges are dictated by clockService as follows:
+2018-01-09 14:56:13,463 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2018-01-09 14:56:13,463 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Given UTC = 2016-12-16~10:11:00
+2018-01-09 14:56:13,463 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Please ensure that positionSensor and sclk are synchronized
+2018-01-09 14:56:13,470 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-12-16T16:11:00.000Z
+2018-01-09 14:56:13,470 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+2018-01-09 14:56:13,470 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+2018-01-09 14:56:17,869 [roverMain] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
+2018-01-09 14:56:19,880 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=525,y=100]
+2018-01-09 14:56:20,883 [roverMain] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2018-01-09 14:56:21,884 [roverMain] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-09 14:56:23,192 [roverMain] INFO space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+2018-01-09 14:56:24,199 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+2018-01-09 14:56:25,374 [roverMain] INFO space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
+2018-01-09 14:56:26,378 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Battery Monitor configured!
+2018-01-09 14:56:26,393 [roverMain] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2018-01-09 14:56:26,503 [roverMain] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2018-01-09 14:56:26,507 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+2018-01-09 14:56:26,507 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.rover.curiosity.1515531371003 was supplied but isn't a known config.
+2018-01-09 14:56:26,507 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_5 was supplied but isn't a known config.
+2018-01-09 14:56:26,507 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+2018-01-09 14:56:26,507 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+2018-01-09 14:56:26,507 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_5 was supplied but isn't a known config.
+2018-01-09 14:56:26,508 [roverMain] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+2018-01-09 14:56:26,508 [roverMain] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+2018-01-09 14:56:26,618 [roverMain] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2018-01-09 14:56:26,639 [roverMain] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+2018-01-09 14:56:26,640 [roverMain] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+2018-01-09 14:56:26,640 [roverMain] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+2018-01-09 14:56:26,640 [roverMain] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover.curiosity.1515531371003
+2018-01-09 14:56:26,640 [roverMain] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+2018-01-09 14:56:26,640 [roverMain] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+2018-01-09 14:56:26,640 [roverMain] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+2018-01-09 14:56:26,640 [roverMain] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+2018-01-09 14:56:26,640 [roverMain] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+2018-01-09 14:56:26,674 [roverMain] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], Connecting to zookeeper instance at localhost:2181
+2018-01-09 14:56:26,680 [ZkClient-EventThread-30-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=ushofml708v.kih.kmart.com
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_151
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=target/mars.rover-mac-distro-1.5-SOLSHOT-shaded.jar
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=/Users/skorgao/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/var/folders/r9/645qqsvd6kv7b55b43dkkjzn14rhpy/T/
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Mac OS X
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=x86_64
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=10.12.6
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=skorgao
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/Users/skorgao
+2018-01-09 14:56:26,690 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/Users/skorgao/Documents/workspace/MarsRover/mars.rover
+2018-01-09 14:56:26,691 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@4b2bac3f
+2018-01-09 14:56:26,700 [roverMain] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+2018-01-09 14:56:26,703 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
+2018-01-09 14:56:26,736 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/0:0:0:0:0:0:0:1:2181, initiating session
+2018-01-09 14:56:26,752 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, sessionid = 0x160dc6fca860000, negotiated timeout = 6000
+2018-01-09 14:56:26,753 [roverMain-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+2018-01-09 14:56:26,760 [roverMain] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], starting auto committer every 60000 ms
+2018-01-09 14:56:26,780 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], begin registering consumer space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035 in ZK
+2018-01-09 14:56:26,802 [radio] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover.curiosity.1515531371003/ids/space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035 (is it secure? false)
+2018-01-09 14:56:26,818 [radio] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+2018-01-09 14:56:26,818 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], end registering consumer space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035 in ZK
+2018-01-09 14:56:26,821 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], starting watcher executor thread for consumer space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035
+2018-01-09 14:56:26,837 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], begin rebalancing consumer space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035 try #0
+2018-01-09 14:56:26,945 [radio] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1515531386758] Stopping leader finder thread
+2018-01-09 14:56:26,945 [radio] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1515531386758] Stopping all fetchers
+2018-01-09 14:56:26,946 [radio] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1515531386758] All connections stopped
+2018-01-09 14:56:26,946 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], Cleared all relevant queues for this fetcher
+2018-01-09 14:56:26,947 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], Cleared the data chunks in all the consumer message iterators
+2018-01-09 14:56:26,947 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], Committing all offsets after clearing the fetcher queues
+2018-01-09 14:56:26,948 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], Releasing partition ownership
+2018-01-09 14:56:26,969 [radio] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_5 with consumers: List(space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-0)
+2018-01-09 14:56:26,970 [radio] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-0 attempting to claim partition 0
+2018-01-09 14:56:26,989 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-0 successfully owned partition 0 for topic earth_to_curiosity_5
+2018-01-09 14:56:27,000 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], Consumer space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035 selected partitions : earth_to_curiosity_5:0: fetched offset = -1: consumed offset = -1
+2018-01-09 14:56:27,001 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread], Starting 
+2018-01-09 14:56:27,002 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035], end rebalancing consumer space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035 try #0
+2018-01-09 14:56:27,013 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2018-01-09 14:56:27,013 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover.curiosity.1515531371003
+2018-01-09 14:56:27,013 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to ushofml708v.kih.kmart.com:9092
+2018-01-09 14:56:27,013 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+2018-01-09 14:56:27,023 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,ushofml708v.kih.kmart.com,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_5)
+2018-01-09 14:56:27,030 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to ushofml708v.kih.kmart.com:9092 for producing
+2018-01-09 14:56:27,040 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from ushofml708v.kih.kmart.com:9092
+2018-01-09 14:56:27,054 [ConsumerFetcherThread-space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-0-0], Starting 
+2018-01-09 14:56:27,066 [space.exploration.mars.rover.curiosity.1515531371003_ushofml708v-1515531386674-c846d035-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1515531386758] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_5,0], initOffset -1 to broker BrokerEndPoint(0,ushofml708v.kih.kmart.com,9092)] )
+2018-01-09 14:56:27,763 [roverMain] INFO space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+group.id::space.exploration.mars.rover.curiosity.1515531371003
+auto.offset.reset::largest
+bootstrap.servers::localhost:9092
+value.serializer::org.apache.kafka.common.serialization.ByteArraySerializer
+destination.topic::curiosity_to_earth_5
+zookeeper.connect::localhost:2181
+key.serializer::org.apache.kafka.common.serialization.StringSerializer
+source.topic::earth_to_curiosity_5
+metadata.broker.list::localhost:9092
+2018-01-09 14:56:28,763 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+2018-01-09 14:56:34,910 [roverMain] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 14:56:37,918 [sleepMonitor] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2018-01-09 14:56:37,922 [remsCalibrationThread0] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 0 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,922 [remsCalibrationThread1] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 1 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,922 [remsCalibrationThread2] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 2 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,922 [remsCalibrationThread3] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 3 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,923 [remsCalibrationThread4] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 4 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,923 [remsCalibrationThread5] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 5 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,924 [remsCalibrationThread6] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 6 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,924 [remsCalibrationThread7] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 7 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,925 [remsCalibrationThread9] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 9 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,925 [remsCalibrationThread8] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 8 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,925 [remsCalibrationThread10] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 10 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,925 [remsCalibrationThread11] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 11 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,926 [remsCalibrationThread12] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 12 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,926 [remsCalibrationThread13] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 13 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,926 [remsCalibrationThread15] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 15 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,926 [remsCalibrationThread14] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 14 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,927 [remsCalibrationThread17] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 17 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,926 [remsCalibrationThread16] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 16 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,927 [remsCalibrationThread18] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 18 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,927 [remsCalibrationThread19] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 19 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,927 [remsCalibrationThread20] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 20 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,928 [remsCalibrationThread22] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 22 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,928 [remsCalibrationThread21] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 21 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,928 [remsCalibrationThread23] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 23 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,928 [remsCalibrationThread25] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 25 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread24] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 24 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread27] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 27 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread26] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 26 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread30] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 30 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread29] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 29 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread28] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 28 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread31] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 31 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread32] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 32 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,929 [remsCalibrationThread33] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 33 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,930 [remsCalibrationThread34] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 34 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,930 [remsCalibrationThread35] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 35 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,930 [remsCalibrationThread36] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 36 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,930 [remsCalibrationThread37] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 37 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,930 [remsCalibrationThread38] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 38 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,931 [remsCalibrationThread39] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 39 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,931 [remsCalibrationThread40] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 40 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,931 [remsCalibrationThread41] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 41 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,931 [remsCalibrationThread42] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 42 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,931 [remsCalibrationThread43] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 43 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,931 [remsCalibrationThread44] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 44 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,932 [remsCalibrationThread45] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 45 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,932 [remsCalibrationThread46] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 46 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread48] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 48 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread49] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 49 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread50] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 50 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread47] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 47 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread51] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 51 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread52] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 52 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread53] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 53 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread54] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 54 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,933 [remsCalibrationThread55] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 55 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,934 [remsCalibrationThread56] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 56 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,934 [remsCalibrationThread57] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 57 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,935 [remsCalibrationThread58] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 58 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,935 [remsCalibrationThread59] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 59 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,936 [remsCalibrationThread60] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 60 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,936 [remsCalibrationThread61] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 61 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,936 [remsCalibrationThread62] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 62 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,937 [remsCalibrationThread63] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 63 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,937 [remsCalibrationThread64] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 64 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,937 [remsCalibrationThread65] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 65 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,937 [remsCalibrationThread66] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 66 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,938 [remsCalibrationThread67] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 67 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,938 [remsCalibrationThread68] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 68 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,938 [remsCalibrationThread69] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 69 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,938 [remsCalibrationThread70] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 70 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,939 [remsCalibrationThread71] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 71 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,939 [remsCalibrationThread72] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 72 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,939 [remsCalibrationThread73] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 73 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,939 [remsCalibrationThread75] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 75 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,940 [remsCalibrationThread76] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 76 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,940 [remsCalibrationThread77] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 77 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,940 [remsCalibrationThread78] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 78 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,940 [remsCalibrationThread74] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 74 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,940 [remsCalibrationThread79] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 79 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,941 [remsCalibrationThread80] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 80 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,941 [remsCalibrationThread81] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 81 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,941 [remsCalibrationThread82] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 82 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,941 [remsCalibrationThread83] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 83 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread84] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 84 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread85] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 85 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread86] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 86 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread87] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 87 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread88] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 88 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread89] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 89 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread90] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 90 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread91] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 91 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,942 [remsCalibrationThread92] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 92 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,943 [remsCalibrationThread93] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 93 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,943 [remsCalibrationThread94] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 94 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,943 [remsCalibrationThread95] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 95 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,943 [remsCalibrationThread96] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 96 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,943 [remsCalibrationThread97] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 97 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,943 [remsCalibrationThread98] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 98 started for remsCalibration for sol = 1551
+2018-01-09 14:56:37,943 [remsCalibrationThread99] INFO space.exploration.mars.rover.sensor.WeatherSensor  - ThreadId = 99 started for remsCalibration for sol = 1551
+2018-01-09 14:56:56,377 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531416377 Rover state = Sleeping State
+2018-01-09 14:56:56,378 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1200 auxiliaryPowerUnits = 100
+2018-01-09 14:57:12,740 [radio] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 45978
+2018-01-09 14:57:12,926 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35158668183488E8
+stateCuriosity: 1.94106175483E8
+stateCuriosity: -1.11371526669E8
+stateCuriosity: -5.3306353051E7
+stateCuriosity: 28.16
+stateCuriosity: 21.299
+stateCuriosity: 9.997
+owltMSLEarth: 767.36
+stateEarth: -1.94078611576E8
+stateEarth: 1.11355704245E8
+stateEarth: 5.3298779974E7
+stateEarth: -28.162
+stateEarth: -21.292
+stateEarth: -9.994
+owltEarthMSL: 767.251
+positionEarthWRTCuriosity: -1.94078611576E8
+positionEarthWRTCuriosity: 1.11355704245E8
+positionEarthWRTCuriosity: 5.3298779974E7
+owltEarthMSL2: 767.251
+angSepHGAEarth: 70.333
+utcTime: "2016-12-16~11:10:00"
+sol: 1551
+sclkValue: " 1/01551:05:50:20:67194"
+
+2018-01-09 14:57:13,048 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35158668183488E8
+stateCuriosity: 1.94106175483E8
+stateCuriosity: -1.11371526669E8
+stateCuriosity: -5.3306353051E7
+stateCuriosity: 28.16
+stateCuriosity: 21.299
+stateCuriosity: 9.997
+owltMSLEarth: 767.36
+stateEarth: -1.94078611576E8
+stateEarth: 1.11355704245E8
+stateEarth: 5.3298779974E7
+stateEarth: -28.162
+stateEarth: -21.292
+stateEarth: -9.994
+owltEarthMSL: 767.251
+positionEarthWRTCuriosity: -1.94078611576E8
+positionEarthWRTCuriosity: 1.11355704245E8
+positionEarthWRTCuriosity: 5.3298779974E7
+owltEarthMSL2: 767.251
+angSepHGAEarth: 70.333
+utcTime: "2016-12-16~11:10:00"
+sol: 1551
+sclkValue: " 1/01551:05:50:20:67194"
+
+2018-01-09 14:57:13,048 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 767.36
+2018-01-09 14:57:13,061 [radio] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+2018-01-09 14:57:13,061 [radio] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+2018-01-09 14:57:13,062 [sleepBreather] INFO space.exploration.mars.rover.animation.SleepBreather  - Sleep animation interrupted.
+2018-01-09 14:57:16,074 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1515531432727
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetWeather"
+}
+
+2018-01-09 14:57:22,152 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1515531442152,10,GetWeather Current instructionQueue length = 0
+2018-01-09 14:57:22,152 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2018-01-09 14:57:22,153 [radio] ERROR space.exploration.mars.rover.kernel.ListeningState  - WeatherSensor is calibrating. Please try to get weather later!
+2018-01-09 14:57:22,276 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35159208183488E8
+stateCuriosity: 1.94121381153E8
+stateCuriosity: -1.11360026655E8
+stateCuriosity: -5.3300955416E7
+stateCuriosity: 28.158
+stateCuriosity: 21.294
+stateCuriosity: 9.994
+owltMSLEarth: 767.38
+stateEarth: -1.9409381856E8
+stateEarth: 1.11344207988E8
+stateEarth: 5.3293384028E7
+stateEarth: -28.16
+stateEarth: -21.287
+stateEarth: -9.991
+owltEarthMSL: 767.271
+positionEarthWRTCuriosity: -1.9409381856E8
+positionEarthWRTCuriosity: 1.11344207988E8
+positionEarthWRTCuriosity: 5.3293384028E7
+owltEarthMSL2: 767.271
+angSepHGAEarth: 69.431
+utcTime: "2016-12-16~11:19:00"
+sol: 1551
+sclkValue: " 1/01551:05:59:06:22386"
+
+2018-01-09 14:57:22,390 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35159208183488E8
+stateCuriosity: 1.94121381153E8
+stateCuriosity: -1.11360026655E8
+stateCuriosity: -5.3300955416E7
+stateCuriosity: 28.158
+stateCuriosity: 21.294
+stateCuriosity: 9.994
+owltMSLEarth: 767.38
+stateEarth: -1.9409381856E8
+stateEarth: 1.11344207988E8
+stateEarth: 5.3293384028E7
+stateEarth: -28.16
+stateEarth: -21.287
+stateEarth: -9.991
+owltEarthMSL: 767.271
+positionEarthWRTCuriosity: -1.9409381856E8
+positionEarthWRTCuriosity: 1.11344207988E8
+positionEarthWRTCuriosity: 5.3293384028E7
+owltEarthMSL2: 767.271
+angSepHGAEarth: 69.431
+utcTime: "2016-12-16~11:19:00"
+sol: 1551
+sclkValue: " 1/01551:05:59:06:22386"
+
+2018-01-09 14:57:22,395 [pacemaker] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-12-16T11:20:00.000-06:00 sclk of::1/01551:06:00:04:61852
+2018-01-09 14:57:28,611 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35159568183488E8
+stateCuriosity: 1.94131517744E8
+stateCuriosity: -1.11352361608E8
+stateCuriosity: -5.3297357805E7
+stateCuriosity: 28.157
+stateCuriosity: 21.29
+stateCuriosity: 9.992
+owltMSLEarth: 767.393
+stateEarth: -1.94103956121E8
+stateEarth: 1.11336545503E8
+stateEarth: 5.3289787569E7
+stateEarth: -28.159
+stateEarth: -21.283
+stateEarth: -9.989
+owltEarthMSL: 767.284
+positionEarthWRTCuriosity: -1.94103956121E8
+positionEarthWRTCuriosity: 1.11336545503E8
+positionEarthWRTCuriosity: 5.3289787569E7
+owltEarthMSL2: 767.284
+angSepHGAEarth: 68.857
+utcTime: "2016-12-16~11:26:00"
+sol: 1551
+sclkValue: " 1/01551:06:04:56:59181"
+
+2018-01-09 14:57:28,734 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35159628183489E8
+stateCuriosity: 1.9413320714E8
+stateCuriosity: -1.11351084226E8
+stateCuriosity: -5.3296758268E7
+stateCuriosity: 28.157
+stateCuriosity: 21.289
+stateCuriosity: 9.992
+owltMSLEarth: 767.395
+stateEarth: -1.94105645686E8
+stateEarth: 1.11335268553E8
+stateEarth: 5.3289188227E7
+stateEarth: -28.159
+stateEarth: -21.282
+stateEarth: -9.989
+owltEarthMSL: 767.286
+positionEarthWRTCuriosity: -1.94105645686E8
+positionEarthWRTCuriosity: 1.11335268553E8
+positionEarthWRTCuriosity: 5.3289188227E7
+owltEarthMSL2: 767.286
+angSepHGAEarth: 68.763
+utcTime: "2016-12-16~11:26:00"
+sol: 1551
+sclkValue: " 1/01551:06:05:54:98647"
+
+2018-01-09 14:57:28,734 [pacemaker] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 767.393
+2018-01-09 14:57:28,747 [pacemaker] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 14:57:31,750 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531446379 Rover state = Listening State
+2018-01-09 14:57:31,751 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1129 auxiliaryPowerUnits = 100
+2018-01-09 14:57:56,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531476379 Rover state = Listening State
+2018-01-09 14:57:56,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1129 auxiliaryPowerUnits = 100
+2018-01-09 14:58:15,996 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35162448183489E8
+stateCuriosity: 1.94212601768E8
+stateCuriosity: -1.11291086685E8
+stateCuriosity: -5.3268603085E7
+stateCuriosity: 28.153
+stateCuriosity: 21.262
+stateCuriosity: 9.976
+owltMSLEarth: 767.5
+stateEarth: -1.94185050443E8
+stateEarth: 1.11275292607E8
+stateEarth: 5.3261042813E7
+stateEarth: -28.157
+stateEarth: -21.254
+stateEarth: -9.972
+owltEarthMSL: 767.391
+positionEarthWRTCuriosity: -1.94185050443E8
+positionEarthWRTCuriosity: 1.11275292607E8
+positionEarthWRTCuriosity: 5.3261042813E7
+owltEarthMSL2: 767.391
+angSepHGAEarth: 65.106
+utcTime: "2016-12-16~12:13:00"
+sol: 1551
+sclkValue: " 1/01551:06:51:39:53539"
+
+2018-01-09 14:58:16,117 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35162448183489E8
+stateCuriosity: 1.94212601768E8
+stateCuriosity: -1.11291086685E8
+stateCuriosity: -5.3268603085E7
+stateCuriosity: 28.153
+stateCuriosity: 21.262
+stateCuriosity: 9.976
+owltMSLEarth: 767.5
+stateEarth: -1.94185050443E8
+stateEarth: 1.11275292607E8
+stateEarth: 5.3261042813E7
+stateEarth: -28.157
+stateEarth: -21.254
+stateEarth: -9.972
+owltEarthMSL: 767.391
+positionEarthWRTCuriosity: -1.94185050443E8
+positionEarthWRTCuriosity: 1.11275292607E8
+positionEarthWRTCuriosity: 5.3261042813E7
+owltEarthMSL2: 767.391
+angSepHGAEarth: 65.106
+utcTime: "2016-12-16~12:13:00"
+sol: 1551
+sclkValue: " 1/01551:06:51:39:53539"
+
+2018-01-09 14:58:16,117 [pacemaker] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-12-16T12:14:00.000-06:00 sclk of::1/01551:06:52:37:93005
+2018-01-09 14:58:22,314 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.3516280818349E8
+stateCuriosity: 1.94222736932E8
+stateCuriosity: -1.11283432771E8
+stateCuriosity: -5.3265012319E7
+stateCuriosity: 28.153
+stateCuriosity: 21.259
+stateCuriosity: 9.973
+owltMSLEarth: 767.514
+stateEarth: -1.94195187188E8
+stateEarth: 1.11267641623E8
+stateEarth: 5.3257453379E7
+stateEarth: -28.158
+stateEarth: -21.251
+stateEarth: -9.969
+owltEarthMSL: 767.405
+positionEarthWRTCuriosity: -1.94195187188E8
+positionEarthWRTCuriosity: 1.11267641623E8
+positionEarthWRTCuriosity: 5.3257453379E7
+owltEarthMSL2: 767.405
+angSepHGAEarth: 64.751
+utcTime: "2016-12-16~12:19:00"
+sol: 1551
+sclkValue: " 1/01551:06:57:29:90333"
+
+2018-01-09 14:58:22,428 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.3516280818349E8
+stateCuriosity: 1.94222736932E8
+stateCuriosity: -1.11283432771E8
+stateCuriosity: -5.3265012319E7
+stateCuriosity: 28.153
+stateCuriosity: 21.259
+stateCuriosity: 9.973
+owltMSLEarth: 767.514
+stateEarth: -1.94195187188E8
+stateEarth: 1.11267641623E8
+stateEarth: 5.3257453379E7
+stateEarth: -28.158
+stateEarth: -21.251
+stateEarth: -9.969
+owltEarthMSL: 767.405
+positionEarthWRTCuriosity: -1.94195187188E8
+positionEarthWRTCuriosity: 1.11267641623E8
+positionEarthWRTCuriosity: 5.3257453379E7
+owltEarthMSL2: 767.405
+angSepHGAEarth: 64.751
+utcTime: "2016-12-16~12:19:00"
+sol: 1551
+sclkValue: " 1/01551:06:57:29:90333"
+
+2018-01-09 14:58:22,428 [pacemaker] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 767.514
+2018-01-09 14:58:22,442 [pacemaker] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 14:58:26,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531506379 Rover state = Listening State
+2018-01-09 14:58:26,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1128 auxiliaryPowerUnits = 100
+2018-01-09 14:58:56,378 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531536378 Rover state = Listening State
+2018-01-09 14:58:56,378 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1128 auxiliaryPowerUnits = 100
+2018-01-09 14:59:15,974 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35166048183491E8
+stateCuriosity: 1.94313963269E8
+stateCuriosity: -1.11214596369E8
+stateCuriosity: -5.3232735683E7
+stateCuriosity: 28.161
+stateCuriosity: 21.233
+stateCuriosity: 9.95
+owltMSLEarth: 767.635
+stateEarth: -1.94286430226E8
+stateEarth: 1.11198833074E8
+stateEarth: 5.3225189461E7
+stateEarth: -28.167
+stateEarth: -21.224
+stateEarth: -9.946
+owltEarthMSL: 767.526
+positionEarthWRTCuriosity: -1.94286430226E8
+positionEarthWRTCuriosity: 1.11198833074E8
+positionEarthWRTCuriosity: 5.3225189461E7
+owltEarthMSL2: 767.526
+angSepHGAEarth: 62.799
+utcTime: "2016-12-16~13:13:00"
+sol: 1551
+sclkValue: " 1/01551:07:50:03:21486"
+
+2018-01-09 14:59:16,092 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35166048183491E8
+stateCuriosity: 1.94313963269E8
+stateCuriosity: -1.11214596369E8
+stateCuriosity: -5.3232735683E7
+stateCuriosity: 28.161
+stateCuriosity: 21.233
+stateCuriosity: 9.95
+owltMSLEarth: 767.635
+stateEarth: -1.94286430226E8
+stateEarth: 1.11198833074E8
+stateEarth: 5.3225189461E7
+stateEarth: -28.167
+stateEarth: -21.224
+stateEarth: -9.946
+owltEarthMSL: 767.526
+positionEarthWRTCuriosity: -1.94286430226E8
+positionEarthWRTCuriosity: 1.11198833074E8
+positionEarthWRTCuriosity: 5.3225189461E7
+owltEarthMSL2: 767.526
+angSepHGAEarth: 62.799
+utcTime: "2016-12-16~13:13:00"
+sol: 1551
+sclkValue: " 1/01551:07:50:03:21486"
+
+2018-01-09 14:59:16,092 [pacemaker] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-12-16T13:14:00.000-06:00 sclk of::1/01551:07:51:01:60952
+2018-01-09 14:59:22,290 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35166408183491E8
+stateCuriosity: 1.94324101495E8
+stateCuriosity: -1.11206952817E8
+stateCuriosity: -5.3229154103E7
+stateCuriosity: 28.163
+stateCuriosity: 21.231
+stateCuriosity: 9.947
+owltMSLEarth: 767.648
+stateEarth: -1.94296570548E8
+stateEarth: 1.1119119276E8
+stateEarth: 5.3221609366E7
+stateEarth: -28.168
+stateEarth: -21.222
+stateEarth: -9.943
+owltEarthMSL: 767.539
+positionEarthWRTCuriosity: -1.94296570548E8
+positionEarthWRTCuriosity: 1.1119119276E8
+positionEarthWRTCuriosity: 5.3221609366E7
+owltEarthMSL2: 767.539
+angSepHGAEarth: 62.727
+utcTime: "2016-12-16~13:19:00"
+sol: 1551
+sclkValue: " 1/01551:07:55:53:58281"
+
+2018-01-09 14:59:22,402 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35166408183491E8
+stateCuriosity: 1.94324101495E8
+stateCuriosity: -1.11206952817E8
+stateCuriosity: -5.3229154103E7
+stateCuriosity: 28.163
+stateCuriosity: 21.231
+stateCuriosity: 9.947
+owltMSLEarth: 767.648
+stateEarth: -1.94296570548E8
+stateEarth: 1.1119119276E8
+stateEarth: 5.3221609366E7
+stateEarth: -28.168
+stateEarth: -21.222
+stateEarth: -9.943
+owltEarthMSL: 767.539
+positionEarthWRTCuriosity: -1.94296570548E8
+positionEarthWRTCuriosity: 1.1119119276E8
+positionEarthWRTCuriosity: 5.3221609366E7
+owltEarthMSL2: 767.539
+angSepHGAEarth: 62.727
+utcTime: "2016-12-16~13:19:00"
+sol: 1551
+sclkValue: " 1/01551:07:55:53:58281"
+
+2018-01-09 14:59:22,402 [pacemaker] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 767.648
+2018-01-09 14:59:22,415 [pacemaker] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 14:59:25,419 [sleepMonitor] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2018-01-09 14:59:26,378 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531566378 Rover state = Sleeping State
+2018-01-09 14:59:26,378 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1127 auxiliaryPowerUnits = 100
+2018-01-09 14:59:56,375 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531596375 Rover state = Sleeping State
+2018-01-09 14:59:56,376 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1127 auxiliaryPowerUnits = 100
+2018-01-09 14:59:57,402 [radio] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 164662
+2018-01-09 14:59:57,538 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35168508183491E8
+stateCuriosity: 1.9438325378E8
+stateCuriosity: -1.11162381835E8
+stateCuriosity: -5.3208281353E7
+stateCuriosity: 28.174
+stateCuriosity: 21.218
+stateCuriosity: 9.931
+owltMSLEarth: 767.727
+stateEarth: -1.94355735797E8
+stateEarth: 1.11146641104E8
+stateEarth: 5.3200745503E7
+stateEarth: -28.18
+stateEarth: -21.209
+stateEarth: -9.927
+owltEarthMSL: 767.618
+positionEarthWRTCuriosity: -1.94355735797E8
+positionEarthWRTCuriosity: 1.11146641104E8
+positionEarthWRTCuriosity: 5.3200745503E7
+owltEarthMSL2: 767.618
+angSepHGAEarth: 62.892
+utcTime: "2016-12-16~13:55:00"
+sol: 1551
+sclkValue: " 1/01551:08:29:57:39583"
+
+2018-01-09 14:59:57,662 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35168568183491E8
+stateCuriosity: 1.94384944213E8
+stateCuriosity: -1.11161108749E8
+stateCuriosity: -5.3207685493E7
+stateCuriosity: 28.174
+stateCuriosity: 21.218
+stateCuriosity: 9.931
+owltMSLEarth: 767.729
+stateEarth: -1.94357426616E8
+stateEarth: 1.11145368579E8
+stateEarth: 5.3200149901E7
+stateEarth: -28.181
+stateEarth: -21.209
+stateEarth: -9.926
+owltEarthMSL: 767.62
+positionEarthWRTCuriosity: -1.94357426616E8
+positionEarthWRTCuriosity: 1.11145368579E8
+positionEarthWRTCuriosity: 5.3200149901E7
+owltEarthMSL2: 767.62
+angSepHGAEarth: 62.911
+utcTime: "2016-12-16~13:55:00"
+sol: 1551
+sclkValue: " 1/01551:08:30:55:79049"
+
+2018-01-09 14:59:57,663 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 767.727
+2018-01-09 14:59:57,675 [radio] INFO space.exploration.mars.rover.kernel.SleepingState  - Awaking from sleeping state
+2018-01-09 14:59:57,675 [radio] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+2018-01-09 14:59:57,675 [sleepBreather] INFO space.exploration.mars.rover.animation.SleepBreather  - Sleep animation interrupted.
+2018-01-09 15:00:00,683 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1515531597398
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetWeather"
+}
+
+2018-01-09 15:00:06,761 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1515531606761,10,GetWeather Current instructionQueue length = 0
+2018-01-09 15:00:06,762 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2018-01-09 15:00:06,762 [radio] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2018-01-09 15:00:16,116 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35169648183492E8
+stateCuriosity: 1.9441537608E8
+stateCuriosity: -1.11138196186E8
+stateCuriosity: -5.3196964856E7
+stateCuriosity: 28.181
+stateCuriosity: 21.213
+stateCuriosity: 9.922
+owltMSLEarth: 767.77
+stateEarth: -1.94387865562E8
+stateEarth: 1.11122466196E8
+stateEarth: 5.3189433964E7
+stateEarth: -28.188
+stateEarth: -21.203
+stateEarth: -9.918
+owltEarthMSL: 767.661
+positionEarthWRTCuriosity: -1.94387865562E8
+positionEarthWRTCuriosity: 1.11122466196E8
+positionEarthWRTCuriosity: 5.3189433964E7
+owltEarthMSL2: 767.661
+angSepHGAEarth: 63.399
+utcTime: "2016-12-16~14:13:00"
+sol: 1551
+sclkValue: " 1/01551:08:48:26:89433"
+
+2018-01-09 15:00:16,228 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35169648183492E8
+stateCuriosity: 1.9441537608E8
+stateCuriosity: -1.11138196186E8
+stateCuriosity: -5.3196964856E7
+stateCuriosity: 28.181
+stateCuriosity: 21.213
+stateCuriosity: 9.922
+owltMSLEarth: 767.77
+stateEarth: -1.94387865562E8
+stateEarth: 1.11122466196E8
+stateEarth: 5.3189433964E7
+stateEarth: -28.188
+stateEarth: -21.203
+stateEarth: -9.918
+owltEarthMSL: 767.661
+positionEarthWRTCuriosity: -1.94387865562E8
+positionEarthWRTCuriosity: 1.11122466196E8
+positionEarthWRTCuriosity: 5.3189433964E7
+owltEarthMSL2: 767.661
+angSepHGAEarth: 63.399
+utcTime: "2016-12-16~14:13:00"
+sol: 1551
+sclkValue: " 1/01551:08:48:26:89433"
+
+2018-01-09 15:00:16,228 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 767.77
+2018-01-09 15:00:16,241 [radio] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 15:00:19,366 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35169828183492E8
+stateCuriosity: 1.94420448853E8
+stateCuriosity: -1.11134377933E8
+stateCuriosity: -5.3195178979E7
+stateCuriosity: 28.183
+stateCuriosity: 21.212
+stateCuriosity: 9.921
+owltMSLEarth: 767.776
+stateEarth: -1.94392939534E8
+stateEarth: 1.11118649652E8
+stateEarth: 5.3187648876E7
+stateEarth: -28.189
+stateEarth: -21.203
+stateEarth: -9.916
+owltEarthMSL: 767.668
+positionEarthWRTCuriosity: -1.94392939534E8
+positionEarthWRTCuriosity: 1.11118649652E8
+positionEarthWRTCuriosity: 5.3187648876E7
+owltEarthMSL2: 767.668
+angSepHGAEarth: 63.506
+utcTime: "2016-12-16~14:16:00"
+sol: 1551
+sclkValue: " 1/01551:08:51:22:07831"
+
+2018-01-09 15:00:19,480 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35169828183492E8
+stateCuriosity: 1.94420448853E8
+stateCuriosity: -1.11134377933E8
+stateCuriosity: -5.3195178979E7
+stateCuriosity: 28.183
+stateCuriosity: 21.212
+stateCuriosity: 9.921
+owltMSLEarth: 767.776
+stateEarth: -1.94392939534E8
+stateEarth: 1.11118649652E8
+stateEarth: 5.3187648876E7
+stateEarth: -28.189
+stateEarth: -21.203
+stateEarth: -9.916
+owltEarthMSL: 767.668
+positionEarthWRTCuriosity: -1.94392939534E8
+positionEarthWRTCuriosity: 1.11118649652E8
+positionEarthWRTCuriosity: 5.3187648876E7
+owltEarthMSL2: 767.668
+angSepHGAEarth: 63.506
+utcTime: "2016-12-16~14:16:00"
+sol: 1551
+sclkValue: " 1/01551:08:51:22:07831"
+
+2018-01-09 15:00:19,481 [pacemaker] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-12-16T14:18:00.000-06:00 sclk of::1/01551:08:52:20:47296
+2018-01-09 15:00:25,680 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35170248183492E8
+stateCuriosity: 1.94432286262E8
+stateCuriosity: -1.11125469181E8
+stateCuriosity: -5.3191012928E7
+stateCuriosity: 28.186
+stateCuriosity: 21.211
+stateCuriosity: 9.918
+owltMSLEarth: 767.792
+stateEarth: -1.94404779761E8
+stateEarth: 1.11109744896E8
+stateEarth: 5.3183484673E7
+stateEarth: -28.193
+stateEarth: -21.201
+stateEarth: -9.913
+owltEarthMSL: 767.684
+positionEarthWRTCuriosity: -1.94404779761E8
+positionEarthWRTCuriosity: 1.11109744896E8
+positionEarthWRTCuriosity: 5.3183484673E7
+owltEarthMSL2: 767.684
+angSepHGAEarth: 63.782
+utcTime: "2016-12-16~14:23:00"
+sol: 1551
+sclkValue: " 1/01551:08:58:10:84091"
+
+2018-01-09 15:00:25,793 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35170248183492E8
+stateCuriosity: 1.94432286262E8
+stateCuriosity: -1.11125469181E8
+stateCuriosity: -5.3191012928E7
+stateCuriosity: 28.186
+stateCuriosity: 21.211
+stateCuriosity: 9.918
+owltMSLEarth: 767.792
+stateEarth: -1.94404779761E8
+stateEarth: 1.11109744896E8
+stateEarth: 5.3183484673E7
+stateEarth: -28.193
+stateEarth: -21.201
+stateEarth: -9.913
+owltEarthMSL: 767.684
+positionEarthWRTCuriosity: -1.94404779761E8
+positionEarthWRTCuriosity: 1.11109744896E8
+positionEarthWRTCuriosity: 5.3183484673E7
+owltEarthMSL2: 767.684
+angSepHGAEarth: 63.782
+utcTime: "2016-12-16~14:23:00"
+sol: 1551
+sclkValue: " 1/01551:08:58:10:84091"
+
+2018-01-09 15:00:25,793 [pacemaker] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 767.792
+2018-01-09 15:00:25,808 [pacemaker] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 15:00:28,810 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531626376 Rover state = Listening State
+2018-01-09 15:00:28,811 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1056 auxiliaryPowerUnits = 100
+2018-01-09 15:00:56,377 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531656377 Rover state = Listening State
+2018-01-09 15:00:56,377 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1056 auxiliaryPowerUnits = 100
+2018-01-09 15:01:15,978 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35173248183493E8
+stateCuriosity: 1.94516882258E8
+stateCuriosity: -1.11061850045E8
+stateCuriosity: -5.3161295764E7
+stateCuriosity: 28.212
+stateCuriosity: 21.204
+stateCuriosity: 9.894
+owltMSLEarth: 767.905
+stateEarth: -1.94489396349E8
+stateEarth: 1.11046154561E8
+stateEarth: 5.3153780878E7
+stateEarth: -28.219
+stateEarth: -21.194
+stateEarth: -9.89
+owltEarthMSL: 767.797
+positionEarthWRTCuriosity: -1.94489396349E8
+positionEarthWRTCuriosity: 1.11046154561E8
+positionEarthWRTCuriosity: 5.3153780878E7
+owltEarthMSL2: 767.797
+angSepHGAEarth: 0.164
+utcTime: "2016-12-16~15:13:00"
+hgaPass: true
+sol: 1551
+sclkValue: " 1/01551:09:46:50:57381"
+
+2018-01-09 15:01:16,091 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35173248183493E8
+stateCuriosity: 1.94516882258E8
+stateCuriosity: -1.11061850045E8
+stateCuriosity: -5.3161295764E7
+stateCuriosity: 28.212
+stateCuriosity: 21.204
+stateCuriosity: 9.894
+owltMSLEarth: 767.905
+stateEarth: -1.94489396349E8
+stateEarth: 1.11046154561E8
+stateEarth: 5.3153780878E7
+stateEarth: -28.219
+stateEarth: -21.194
+stateEarth: -9.89
+owltEarthMSL: 767.797
+positionEarthWRTCuriosity: -1.94489396349E8
+positionEarthWRTCuriosity: 1.11046154561E8
+positionEarthWRTCuriosity: 5.3153780878E7
+owltEarthMSL2: 767.797
+angSepHGAEarth: 0.164
+utcTime: "2016-12-16~15:13:00"
+hgaPass: true
+sol: 1551
+sclkValue: " 1/01551:09:46:50:57381"
+
+2018-01-09 15:01:16,091 [pacemaker] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-12-16T15:14:00.000-06:00 sclk of::1/01551:09:47:48:96846
+2018-01-09 15:01:22,275 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35173608183493E8
+stateCuriosity: 1.94527039401E8
+stateCuriosity: -1.11054216764E8
+stateCuriosity: -5.3157734393E7
+stateCuriosity: 28.216
+stateCuriosity: 21.203
+stateCuriosity: 9.891
+owltMSLEarth: 767.919
+stateEarth: -1.9449955598E8
+stateEarth: 1.11038524742E8
+stateEarth: 5.3150221121E7
+stateEarth: -28.223
+stateEarth: -21.194
+stateEarth: -9.887
+owltEarthMSL: 767.81
+positionEarthWRTCuriosity: -1.9449955598E8
+positionEarthWRTCuriosity: 1.11038524742E8
+positionEarthWRTCuriosity: 5.3150221121E7
+owltEarthMSL2: 767.81
+angSepHGAEarth: 0.178
+utcTime: "2016-12-16~15:19:00"
+hgaPass: true
+sol: 1551
+sclkValue: " 1/01551:09:52:40:94175"
+
+2018-01-09 15:01:22,390 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35173608183493E8
+stateCuriosity: 1.94527039401E8
+stateCuriosity: -1.11054216764E8
+stateCuriosity: -5.3157734393E7
+stateCuriosity: 28.216
+stateCuriosity: 21.203
+stateCuriosity: 9.891
+owltMSLEarth: 767.919
+stateEarth: -1.9449955598E8
+stateEarth: 1.11038524742E8
+stateEarth: 5.3150221121E7
+stateEarth: -28.223
+stateEarth: -21.194
+stateEarth: -9.887
+owltEarthMSL: 767.81
+positionEarthWRTCuriosity: -1.9449955598E8
+positionEarthWRTCuriosity: 1.11038524742E8
+positionEarthWRTCuriosity: 5.3150221121E7
+owltEarthMSL2: 767.81
+angSepHGAEarth: 0.178
+utcTime: "2016-12-16~15:19:00"
+hgaPass: true
+sol: 1551
+sclkValue: " 1/01551:09:52:40:94175"
+
+2018-01-09 15:01:22,390 [pacemaker] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 767.919
+2018-01-09 15:01:22,406 [pacemaker] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 15:01:26,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531686379 Rover state = Listening State
+2018-01-09 15:01:26,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1055 auxiliaryPowerUnits = 100
+2018-01-09 15:01:56,376 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531716376 Rover state = Listening State
+2018-01-09 15:01:56,376 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1055 auxiliaryPowerUnits = 100
+2018-01-09 15:02:16,016 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35176848183494E8
+stateCuriosity: 1.94618515757E8
+stateCuriosity: -1.10985513967E8
+stateCuriosity: -5.3125725014E7
+stateCuriosity: 28.252
+stateCuriosity: 21.208
+stateCuriosity: 9.868
+owltMSLEarth: 768.042
+stateEarth: -1.94591054253E8
+stateEarth: 1.10969852794E8
+stateEarth: 5.3118226167E7
+stateEarth: -28.258
+stateEarth: -21.198
+stateEarth: -9.864
+owltEarthMSL: 767.933
+positionEarthWRTCuriosity: -1.94591054253E8
+positionEarthWRTCuriosity: 1.10969852794E8
+positionEarthWRTCuriosity: 5.3118226167E7
+owltEarthMSL2: 767.933
+angSepHGAEarth: 72.67
+utcTime: "2016-12-16~16:13:00"
+sol: 1551
+sclkValue: " 1/01551:10:45:14:25328"
+
+2018-01-09 15:02:16,145 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35176848183494E8
+stateCuriosity: 1.94618515757E8
+stateCuriosity: -1.10985513967E8
+stateCuriosity: -5.3125725014E7
+stateCuriosity: 28.252
+stateCuriosity: 21.208
+stateCuriosity: 9.868
+owltMSLEarth: 768.042
+stateEarth: -1.94591054253E8
+stateEarth: 1.10969852794E8
+stateEarth: 5.3118226167E7
+stateEarth: -28.258
+stateEarth: -21.198
+stateEarth: -9.864
+owltEarthMSL: 767.933
+positionEarthWRTCuriosity: -1.94591054253E8
+positionEarthWRTCuriosity: 1.10969852794E8
+positionEarthWRTCuriosity: 5.3118226167E7
+owltEarthMSL2: 767.933
+angSepHGAEarth: 72.67
+utcTime: "2016-12-16~16:13:00"
+sol: 1551
+sclkValue: " 1/01551:10:45:14:25328"
+
+2018-01-09 15:02:16,145 [pacemaker] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-12-16T16:14:00.000-06:00 sclk of::1/01551:10:46:12:64794
+2018-01-09 15:02:22,313 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35177208183494E8
+stateCuriosity: 1.94628687119E8
+stateCuriosity: -1.10977879053E8
+stateCuriosity: -5.3122172965E7
+stateCuriosity: 28.256
+stateCuriosity: 21.209
+stateCuriosity: 9.866
+owltMSLEarth: 768.055
+stateEarth: -1.94601227956E8
+stateEarth: 1.10962221246E8
+stateEarth: 5.3114675699E7
+stateEarth: -28.262
+stateEarth: -21.199
+stateEarth: -9.861
+owltEarthMSL: 767.947
+positionEarthWRTCuriosity: -1.94601227956E8
+positionEarthWRTCuriosity: 1.10962221246E8
+positionEarthWRTCuriosity: 5.3114675699E7
+owltEarthMSL2: 767.947
+angSepHGAEarth: 73.367
+utcTime: "2016-12-16~16:19:00"
+sol: 1551
+sclkValue: " 1/01551:10:51:04:62123"
+
+2018-01-09 15:02:22,434 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35177208183494E8
+stateCuriosity: 1.94628687119E8
+stateCuriosity: -1.10977879053E8
+stateCuriosity: -5.3122172965E7
+stateCuriosity: 28.256
+stateCuriosity: 21.209
+stateCuriosity: 9.866
+owltMSLEarth: 768.055
+stateEarth: -1.94601227956E8
+stateEarth: 1.10962221246E8
+stateEarth: 5.3114675699E7
+stateEarth: -28.262
+stateEarth: -21.199
+stateEarth: -9.861
+owltEarthMSL: 767.947
+positionEarthWRTCuriosity: -1.94601227956E8
+positionEarthWRTCuriosity: 1.10962221246E8
+positionEarthWRTCuriosity: 5.3114675699E7
+owltEarthMSL2: 767.947
+angSepHGAEarth: 73.367
+utcTime: "2016-12-16~16:19:00"
+sol: 1551
+sclkValue: " 1/01551:10:51:04:62123"
+
+2018-01-09 15:02:22,434 [pacemaker] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 768.055
+2018-01-09 15:02:22,448 [pacemaker] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 15:02:25,454 [sleepMonitor] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2018-01-09 15:02:26,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531746380 Rover state = Sleeping State
+2018-01-09 15:02:26,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:02:56,376 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531776376 Rover state = Sleeping State
+2018-01-09 15:02:56,376 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:03:15,862 [pacemaker] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2018-01-09 15:03:26,377 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531806377 Rover state = Sleeping State
+2018-01-09 15:03:26,377 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:03:56,381 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531836381 Rover state = Sleeping State
+2018-01-09 15:03:56,381 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:04:15,863 [pacemaker] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2018-01-09 15:04:26,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531866378 Rover state = Sleeping State
+2018-01-09 15:04:26,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:04:56,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531896380 Rover state = Sleeping State
+2018-01-09 15:04:56,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:05:15,861 [pacemaker] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2018-01-09 15:05:26,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531926380 Rover state = Sleeping State
+2018-01-09 15:05:26,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:05:56,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531956380 Rover state = Sleeping State
+2018-01-09 15:05:56,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:06:15,861 [pacemaker] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2018-01-09 15:06:26,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515531986380 Rover state = Sleeping State
+2018-01-09 15:06:26,380 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:06:56,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515532016379 Rover state = Sleeping State
+2018-01-09 15:06:56,379 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:07:15,861 [pacemaker] INFO space.exploration.mars.rover.diagnostics.Pacemaker  - Diagnostics inhibited because rover is sleeping to conserve battery Current instructionQueue length = 0
+2018-01-09 15:07:16,863 [sleepMonitor] INFO space.exploration.mars.rover.diagnostics.SleepMonitor  - Awakening rover from slumber
+2018-01-09 15:07:16,863 [sleepMonitor] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Waking up rover
+2018-01-09 15:07:16,863 [sleepBreather] INFO space.exploration.mars.rover.animation.SleepBreather  - Sleep animation interrupted.
+2018-01-09 15:07:26,377 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515532046377 Rover state = Listening State
+2018-01-09 15:07:26,377 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1054 auxiliaryPowerUnits = 100
+2018-01-09 15:07:52,525 [radio] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 475123
+2018-01-09 15:07:52,680 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.351970681835E8
+stateCuriosity: 1.95192178312E8
+stateCuriosity: -1.10554660164E8
+stateCuriosity: -5.292685368E7
+stateCuriosity: 28.467
+stateCuriosity: 21.469
+stateCuriosity: 9.847
+owltMSLEarth: 768.817
+stateEarth: -1.95164756249E8
+stateEarth: 1.10539131634E8
+stateEarth: 5.2919418685E7
+stateEarth: -28.462
+stateEarth: -21.466
+stateEarth: -9.845
+owltEarthMSL: 768.709
+positionEarthWRTCuriosity: -1.95164756249E8
+positionEarthWRTCuriosity: 1.10539131634E8
+positionEarthWRTCuriosity: 5.2919418685E7
+owltEarthMSL2: 768.709
+angSepHGAEarth: 128.133
+utcTime: "2016-12-16~21:50:00"
+sol: 1551
+sclkValue: " 1/01551:16:13:13:25298"
+
+2018-01-09 15:07:52,795 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.351970681835E8
+stateCuriosity: 1.95192178312E8
+stateCuriosity: -1.10554660164E8
+stateCuriosity: -5.292685368E7
+stateCuriosity: 28.467
+stateCuriosity: 21.469
+stateCuriosity: 9.847
+owltMSLEarth: 768.817
+stateEarth: -1.95164756249E8
+stateEarth: 1.10539131634E8
+stateEarth: 5.2919418685E7
+stateEarth: -28.462
+stateEarth: -21.466
+stateEarth: -9.845
+owltEarthMSL: 768.709
+positionEarthWRTCuriosity: -1.95164756249E8
+positionEarthWRTCuriosity: 1.10539131634E8
+positionEarthWRTCuriosity: 5.2919418685E7
+owltEarthMSL2: 768.709
+angSepHGAEarth: 128.133
+utcTime: "2016-12-16~21:50:00"
+sol: 1551
+sclkValue: " 1/01551:16:13:13:25298"
+
+2018-01-09 15:07:52,795 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 768.817
+2018-01-09 15:07:52,810 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1515532072359
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetWeather"
+}
+
+2018-01-09 15:07:58,890 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1515532078889,10,GetWeather Current instructionQueue length = 0
+2018-01-09 15:07:58,890 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2018-01-09 15:07:58,890 [radio] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2018-01-09 15:08:08,267 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35197968183501E8
+stateCuriosity: 1.95217800067E8
+stateCuriosity: -1.10535329989E8
+stateCuriosity: -5.2917989333E7
+stateCuriosity: 28.471
+stateCuriosity: 21.487
+stateCuriosity: 9.852
+owltMSLEarth: 768.852
+stateEarth: -1.95190373758E8
+stateEarth: 1.10519803723E8
+stateEarth: 5.2910555514E7
+stateEarth: -28.466
+stateEarth: -21.485
+stateEarth: -9.851
+owltEarthMSL: 768.744
+positionEarthWRTCuriosity: -1.95190373758E8
+positionEarthWRTCuriosity: 1.10519803723E8
+positionEarthWRTCuriosity: 5.2910555514E7
+owltEarthMSL2: 768.744
+angSepHGAEarth: 130.934
+utcTime: "2016-12-16~22:05:00"
+sol: 1551
+sclkValue: " 1/01551:16:27:49:17285"
+
+2018-01-09 15:08:08,381 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35197968183501E8
+stateCuriosity: 1.95217800067E8
+stateCuriosity: -1.10535329989E8
+stateCuriosity: -5.2917989333E7
+stateCuriosity: 28.471
+stateCuriosity: 21.487
+stateCuriosity: 9.852
+owltMSLEarth: 768.852
+stateEarth: -1.95190373758E8
+stateEarth: 1.10519803723E8
+stateEarth: 5.2910555514E7
+stateEarth: -28.466
+stateEarth: -21.485
+stateEarth: -9.851
+owltEarthMSL: 768.744
+positionEarthWRTCuriosity: -1.95190373758E8
+positionEarthWRTCuriosity: 1.10519803723E8
+positionEarthWRTCuriosity: 5.2910555514E7
+owltEarthMSL2: 768.744
+angSepHGAEarth: 130.934
+utcTime: "2016-12-16~22:05:00"
+sol: 1551
+sclkValue: " 1/01551:16:27:49:17285"
+
+2018-01-09 15:08:08,381 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 768.852
+2018-01-09 15:08:08,396 [radio] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 15:08:11,402 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515532076377 Rover state = Listening State
+2018-01-09 15:08:11,402 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 984 auxiliaryPowerUnits = 100
+2018-01-09 15:08:15,981 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35198448183501E8
+stateCuriosity: 1.95231466379E8
+stateCuriosity: -1.10525013828E8
+stateCuriosity: -5.2913259585E7
+stateCuriosity: 28.472
+stateCuriosity: 21.497
+stateCuriosity: 9.855
+owltMSLEarth: 768.87
+stateEarth: -1.95204037577E8
+stateEarth: 1.10509488632E8
+stateEarth: 5.2905826328E7
+stateEarth: -28.467
+stateEarth: -21.495
+stateEarth: -9.854
+owltEarthMSL: 768.762
+positionEarthWRTCuriosity: -1.95204037577E8
+positionEarthWRTCuriosity: 1.10509488632E8
+positionEarthWRTCuriosity: 5.2905826328E7
+owltEarthMSL2: 768.762
+angSepHGAEarth: 132.426
+utcTime: "2016-12-16~22:13:00"
+sol: 1551
+sclkValue: " 1/01551:16:35:36:33012"
+
+2018-01-09 15:08:16,108 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35198448183501E8
+stateCuriosity: 1.95231466379E8
+stateCuriosity: -1.10525013828E8
+stateCuriosity: -5.2913259585E7
+stateCuriosity: 28.472
+stateCuriosity: 21.497
+stateCuriosity: 9.855
+owltMSLEarth: 768.87
+stateEarth: -1.95204037577E8
+stateEarth: 1.10509488632E8
+stateEarth: 5.2905826328E7
+stateEarth: -28.467
+stateEarth: -21.495
+stateEarth: -9.854
+owltEarthMSL: 768.762
+positionEarthWRTCuriosity: -1.95204037577E8
+positionEarthWRTCuriosity: 1.10509488632E8
+positionEarthWRTCuriosity: 5.2905826328E7
+owltEarthMSL2: 768.762
+angSepHGAEarth: 132.426
+utcTime: "2016-12-16~22:13:00"
+sol: 1551
+sclkValue: " 1/01551:16:35:36:33012"
+
+2018-01-09 15:08:16,108 [pacemaker] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-12-16T22:14:00.000-06:00 sclk of::1/01551:16:36:34:72477
+2018-01-09 15:08:22,294 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35198808183501E8
+stateCuriosity: 1.95241716657E8
+stateCuriosity: -1.10517273612E8
+stateCuriosity: -5.2909711258E7
+stateCuriosity: 28.474
+stateCuriosity: 21.504
+stateCuriosity: 9.858
+owltMSLEarth: 768.884
+stateEarth: -1.9521428588E8
+stateEarth: 1.10501749157E8
+stateEarth: 5.2902278394E7
+stateEarth: -28.468
+stateEarth: -21.502
+stateEarth: -9.857
+owltEarthMSL: 768.776
+positionEarthWRTCuriosity: -1.9521428588E8
+positionEarthWRTCuriosity: 1.10501749157E8
+positionEarthWRTCuriosity: 5.2902278394E7
+owltEarthMSL2: 768.776
+angSepHGAEarth: 133.543
+utcTime: "2016-12-16~22:19:00"
+sol: 1551
+sclkValue: " 1/01551:16:41:26:69806"
+
+2018-01-09 15:08:22,355 [radio] INFO space.exploration.mars.rover.communication.Receiver  - Time Elapsed since last message = 29830
+2018-01-09 15:08:22,418 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35198808183501E8
+stateCuriosity: 1.95241716657E8
+stateCuriosity: -1.10517273612E8
+stateCuriosity: -5.2909711258E7
+stateCuriosity: 28.474
+stateCuriosity: 21.504
+stateCuriosity: 9.858
+owltMSLEarth: 768.884
+stateEarth: -1.9521428588E8
+stateEarth: 1.10501749157E8
+stateEarth: 5.2902278394E7
+stateEarth: -28.468
+stateEarth: -21.502
+stateEarth: -9.857
+owltEarthMSL: 768.776
+positionEarthWRTCuriosity: -1.9521428588E8
+positionEarthWRTCuriosity: 1.10501749157E8
+positionEarthWRTCuriosity: 5.2902278394E7
+owltEarthMSL2: 768.776
+angSepHGAEarth: 133.543
+utcTime: "2016-12-16~22:19:00"
+sol: 1551
+sclkValue: " 1/01551:16:41:26:69806"
+
+2018-01-09 15:08:22,419 [pacemaker] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 768.884
+2018-01-09 15:08:22,433 [pacemaker] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 15:08:22,483 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35198808183501E8
+stateCuriosity: 1.95241716657E8
+stateCuriosity: -1.10517273612E8
+stateCuriosity: -5.2909711258E7
+stateCuriosity: 28.474
+stateCuriosity: 21.504
+stateCuriosity: 9.858
+owltMSLEarth: 768.884
+stateEarth: -1.9521428588E8
+stateEarth: 1.10501749157E8
+stateEarth: 5.2902278394E7
+stateEarth: -28.468
+stateEarth: -21.502
+stateEarth: -9.857
+owltEarthMSL: 768.776
+positionEarthWRTCuriosity: -1.9521428588E8
+positionEarthWRTCuriosity: 1.10501749157E8
+positionEarthWRTCuriosity: 5.2902278394E7
+owltEarthMSL2: 768.776
+angSepHGAEarth: 133.543
+utcTime: "2016-12-16~22:19:00"
+sol: 1551
+sclkValue: " 1/01551:16:41:26:69806"
+
+2018-01-09 15:08:22,604 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35198808183501E8
+stateCuriosity: 1.95241716657E8
+stateCuriosity: -1.10517273612E8
+stateCuriosity: -5.2909711258E7
+stateCuriosity: 28.474
+stateCuriosity: 21.504
+stateCuriosity: 9.858
+owltMSLEarth: 768.884
+stateEarth: -1.9521428588E8
+stateEarth: 1.10501749157E8
+stateEarth: 5.2902278394E7
+stateEarth: -28.468
+stateEarth: -21.502
+stateEarth: -9.857
+owltEarthMSL: 768.776
+positionEarthWRTCuriosity: -1.9521428588E8
+positionEarthWRTCuriosity: 1.10501749157E8
+positionEarthWRTCuriosity: 5.2902278394E7
+owltEarthMSL2: 768.776
+angSepHGAEarth: 133.543
+utcTime: "2016-12-16~22:20:00"
+sol: 1551
+sclkValue: " 1/01551:16:41:26:69806"
+
+2018-01-09 15:08:22,604 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 768.884
+2018-01-09 15:08:25,439 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - timeStamp: 1515532102351
+targets {
+  roverModule: 10
+  estimatedPowerUsage: 70
+  action: "GetWeather"
+}
+
+2018-01-09 15:08:31,515 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1515532111515,10,GetWeather Current instructionQueue length = 0
+2018-01-09 15:08:31,515 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover will try to get weather measurements - actual Curiosity Data
+2018-01-09 15:08:31,515 [radio] INFO space.exploration.mars.rover.kernel.WeatherSensingState  - Will get mars weather measurements
+2018-01-09 15:08:40,861 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35199948183501E8
+stateCuriosity: 1.95274178372E8
+stateCuriosity: -1.10492745334E8
+stateCuriosity: -5.2898468782E7
+stateCuriosity: 28.477
+stateCuriosity: 21.528
+stateCuriosity: 9.866
+owltMSLEarth: 768.928
+stateEarth: -1.95246740764E8
+stateEarth: 1.10477222874E8
+stateEarth: 5.2891036998E7
+stateEarth: -28.47
+stateEarth: -21.526
+stateEarth: -9.865
+owltEarthMSL: 768.82
+positionEarthWRTCuriosity: -1.95246740764E8
+positionEarthWRTCuriosity: 1.10477222874E8
+positionEarthWRTCuriosity: 5.2891036998E7
+owltEarthMSL2: 768.82
+angSepHGAEarth: 137.067
+utcTime: "2016-12-16~22:38:00"
+sol: 1551
+sclkValue: " 1/01551:16:59:56:19656"
+
+2018-01-09 15:08:40,982 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35199948183501E8
+stateCuriosity: 1.95274178372E8
+stateCuriosity: -1.10492745334E8
+stateCuriosity: -5.2898468782E7
+stateCuriosity: 28.477
+stateCuriosity: 21.528
+stateCuriosity: 9.866
+owltMSLEarth: 768.928
+stateEarth: -1.95246740764E8
+stateEarth: 1.10477222874E8
+stateEarth: 5.2891036998E7
+stateEarth: -28.47
+stateEarth: -21.526
+stateEarth: -9.865
+owltEarthMSL: 768.82
+positionEarthWRTCuriosity: -1.95246740764E8
+positionEarthWRTCuriosity: 1.10477222874E8
+positionEarthWRTCuriosity: 5.2891036998E7
+owltEarthMSL2: 768.82
+angSepHGAEarth: 137.067
+utcTime: "2016-12-16~22:38:00"
+sol: 1551
+sclkValue: " 1/01551:16:59:56:19656"
+
+2018-01-09 15:08:40,982 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 768.928
+2018-01-09 15:08:40,997 [radio] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 15:08:43,999 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515532106380 Rover state = Listening State
+2018-01-09 15:08:43,999 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 913 auxiliaryPowerUnits = 100
+2018-01-09 15:08:56,376 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515532136376 Rover state = Listening State
+2018-01-09 15:08:56,376 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 913 auxiliaryPowerUnits = 100
+2018-01-09 15:09:15,972 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35202048183502E8
+stateCuriosity: 1.95333982047E8
+stateCuriosity: -1.10447491254E8
+stateCuriosity: -5.2877732117E7
+stateCuriosity: 28.479
+stateCuriosity: 21.571
+stateCuriosity: 9.884
+owltMSLEarth: 769.009
+stateEarth: -1.95306529613E8
+stateEarth: 1.10431971128E8
+stateEarth: 5.2870301686E7
+stateEarth: -28.471
+stateEarth: -21.571
+stateEarth: -9.883
+owltEarthMSL: 768.901
+positionEarthWRTCuriosity: -1.95306529613E8
+positionEarthWRTCuriosity: 1.10431971128E8
+positionEarthWRTCuriosity: 5.2870301686E7
+owltEarthMSL2: 768.901
+angSepHGAEarth: 143.458
+utcTime: "2016-12-16~23:13:00"
+sol: 1551
+sclkValue: " 1/01551:17:34:00:00959"
+
+2018-01-09 15:09:16,093 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35202048183502E8
+stateCuriosity: 1.95333982047E8
+stateCuriosity: -1.10447491254E8
+stateCuriosity: -5.2877732117E7
+stateCuriosity: 28.479
+stateCuriosity: 21.571
+stateCuriosity: 9.884
+owltMSLEarth: 769.009
+stateEarth: -1.95306529613E8
+stateEarth: 1.10431971128E8
+stateEarth: 5.2870301686E7
+stateEarth: -28.471
+stateEarth: -21.571
+stateEarth: -9.883
+owltEarthMSL: 768.901
+positionEarthWRTCuriosity: -1.95306529613E8
+positionEarthWRTCuriosity: 1.10431971128E8
+positionEarthWRTCuriosity: 5.2870301686E7
+owltEarthMSL2: 768.901
+angSepHGAEarth: 143.458
+utcTime: "2016-12-16~23:13:00"
+sol: 1551
+sclkValue: " 1/01551:17:34:00:00959"
+
+2018-01-09 15:09:16,094 [pacemaker] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Internal time::2016-12-16T23:14:00.000-06:00 sclk of::1/01551:17:34:58:40425
+2018-01-09 15:09:22,281 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.35202408183502E8
+stateCuriosity: 1.95344234302E8
+stateCuriosity: -1.10439724237E8
+stateCuriosity: -5.2874173451E7
+stateCuriosity: 28.478
+stateCuriosity: 21.579
+stateCuriosity: 9.887
+owltMSLEarth: 769.022
+stateEarth: -1.95316779045E8
+stateEarth: 1.10424204343E8
+stateEarth: 5.2866743172E7
+stateEarth: -28.47
+stateEarth: -21.578
+stateEarth: -9.886
+owltEarthMSL: 768.914
+positionEarthWRTCuriosity: -1.95316779045E8
+positionEarthWRTCuriosity: 1.10424204343E8
+positionEarthWRTCuriosity: 5.2866743172E7
+owltEarthMSL2: 768.914
+angSepHGAEarth: 144.534
+utcTime: "2016-12-16~23:19:00"
+sol: 1551
+sclkValue: " 1/01551:17:39:50:37754"
+
+2018-01-09 15:09:22,395 [pacemaker] INFO space.exploration.mars.rover.kernel.PositionSensor  - ephemerisTime: 5.35202408183502E8
+stateCuriosity: 1.95344234302E8
+stateCuriosity: -1.10439724237E8
+stateCuriosity: -5.2874173451E7
+stateCuriosity: 28.478
+stateCuriosity: 21.579
+stateCuriosity: 9.887
+owltMSLEarth: 769.022
+stateEarth: -1.95316779045E8
+stateEarth: 1.10424204343E8
+stateEarth: 5.2866743172E7
+stateEarth: -28.47
+stateEarth: -21.578
+stateEarth: -9.886
+owltEarthMSL: 768.914
+positionEarthWRTCuriosity: -1.95316779045E8
+positionEarthWRTCuriosity: 1.10424204343E8
+positionEarthWRTCuriosity: 5.2866743172E7
+owltEarthMSL2: 768.914
+angSepHGAEarth: 144.534
+utcTime: "2016-12-16~23:19:00"
+sol: 1551
+sclkValue: " 1/01551:17:39:50:37754"
+
+2018-01-09 15:09:22,395 [pacemaker] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 769.022
+2018-01-09 15:09:22,408 [pacemaker] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-09 15:09:26,376 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515532166376 Rover state = Listening State
+2018-01-09 15:09:26,377 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 912 auxiliaryPowerUnits = 100
