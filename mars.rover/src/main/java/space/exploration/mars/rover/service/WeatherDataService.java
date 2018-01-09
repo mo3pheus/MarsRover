@@ -9,8 +9,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 public class WeatherDataService {
     public static final  String                  REMS_CALIBRATION_FILE   = "remsCalibrationFile.dat";
@@ -30,6 +28,45 @@ public class WeatherDataService {
 
     private String urlString = "";
 
+    public class WeatherDirectory {
+        int    startSol;
+        int    endSol;
+        long   ephemerisTimestamp;
+        String directoryString;
+
+        String getDirectoryString(int sol) {
+            if (sol >= startSol && sol <= endSol) {
+                return directoryString;
+            } else {
+                return null;
+            }
+        }
+
+        public long getEphemerisTimestamp() {
+            return ephemerisTimestamp;
+        }
+
+        public void setEphemerisTimestamp(long ephemerisTimestamp) {
+            this.ephemerisTimestamp = ephemerisTimestamp;
+        }
+
+        public int getStartSol() {
+            return startSol;
+        }
+
+        public int getEndSol() {
+            return endSol;
+        }
+
+        public WeatherDirectory(int startSol, int endSol, long ephemerisTimeStamp, String directoryString) {
+            ephemerisConversionUtil.updateClock(Long.toString(ephemerisTimeStamp));
+            this.startSol = (ephemerisConversionUtil.getSol() < startSol) ? startSol : ephemerisConversionUtil.getSol();
+            this.ephemerisTimestamp = ephemerisTimeStamp;
+            this.endSol = endSol;
+            this.directoryString = directoryString;
+        }
+    }
+
     /**
      * @param sol This function sets the urlString and downloads the calibrationFile.
      *            http://pds-atmospheres.nmsu.edu/PDS/data/mslrem_1001/DATA/ - 0 begin
@@ -42,40 +79,34 @@ public class WeatherDataService {
      *            P8.TAB - 7 partition
      */
     public void downloadCalibrationData(int sol) {
-        String piece1        = findDirectory(sol);
-        int    startSol      = getStartSol(sol);
-        int    solsDiff      = sol - startSol;
-        String piece2        = "SOL" + getPaddedDirectoryString(sol) + "/RME_";
-        double ephemerisTime = ((double) getEphemerisStart(sol)) + (solsDiff * SOL_SECONDS);
+        int          urlCount                   = 0;
+        int          startSol                   = getStartSol(sol);
+        int          solsDiff                   = sol - startSol;
+        String       piece1                     = findDirectory(sol);
+        String       piece2                     = "SOL" + getPaddedDirectoryString(sol) + "/RME_";
+        String       solPart                    = generateSolPart(sol);
+        double       ephemerisTime              = ((double) getEphemerisStart(sol)) + (solsDiff * SOL_SECONDS);
+        List<String> ephemerisTimes             = getEphemerisTimeStrings(ephemerisTime);
+        List<String> partitions                 = getPartitionStrings();
+        double       totalUrls                  = ephemerisTimes.size() * partitions.size();
+        double       progressReportingThreshold = 1.0d;
 
-        String solPart         = "";
-        int    solStringLength = Integer.toString(sol).length();
-        for (int i = 0; i < (4 - solStringLength); i++) {
-            solPart += "0";
-        }
-        solPart += Integer.toString(sol);
-
-        for (String eTime : getEphemerisTimeStrings(ephemerisTime)) {
-            for (String partition : getPartitionStrings()) {
+        for (String eTime : ephemerisTimes) {
+            for (String partition : partitions) {
                 urlString = URL_BEGIN + piece1 + piece2 + eTime + "RNV" + solPart +
                         "0000000_______" + partition;
-                try {
-                    byte[]           weatherContents = download(urlString);
-                    FileOutputStream fos             = new FileOutputStream(REMS_CALIBRATION_FILE);
-                    fos.write(weatherContents);
-                    weatherCalibrationFile = new File(REMS_CALIBRATION_FILE);
-                    fos.close();
-                    calibrated = true;
-                    break;
-                } catch (Exception e) {
-                    logger.debug("Failed for url = " + urlString);
-                    calibrated = false;
-                    weatherCalibrationFile = null;
+                if (!downloadFile()) {
+                    urlCount++;
+                    double progress = ((double) urlCount) / totalUrls * 100.0d;
+                    if (progress >= progressReportingThreshold) {
+                        logger.info("REMS Sensor Calibrating Progress = " + progress);
+                        progressReportingThreshold++;
+                    }
+                    logger.debug("Failed to download for sol = " + sol + " url = " + urlString);
                     continue;
+                } else {
+                    return;
                 }
-            }
-            if (calibrated) {
-                break;
             }
         }
     }
@@ -84,7 +115,21 @@ public class WeatherDataService {
         return calibrated;
     }
 
-    public byte[] download(String urlString) throws IOException {
+    public File getWeatherCalibrationFile() {
+        return weatherCalibrationFile;
+    }
+
+    private String generateSolPart(int sol) {
+        String solPart         = "";
+        int    solStringLength = Integer.toString(sol).length();
+        for (int i = 0; i < (4 - solStringLength); i++) {
+            solPart += "0";
+        }
+        solPart += Integer.toString(sol);
+        return solPart;
+    }
+
+    private byte[] download(String urlString) throws IOException {
         URL           url = new URL(urlString);
         URLConnection uc  = url.openConnection();
         int           len = uc.getContentLength();
@@ -109,11 +154,23 @@ public class WeatherDataService {
         }
     }
 
-    public File getWeatherCalibrationFile() {
-        return weatherCalibrationFile;
+    private boolean downloadFile() {
+        try {
+            byte[]           weatherContents = download(urlString);
+            FileOutputStream fos             = new FileOutputStream(REMS_CALIBRATION_FILE);
+            fos.write(weatherContents);
+            weatherCalibrationFile = new File(REMS_CALIBRATION_FILE);
+            fos.close();
+            calibrated = true;
+        } catch (Exception e) {
+            logger.debug("Failed for url = " + urlString);
+            calibrated = false;
+            weatherCalibrationFile = null;
+        }
+        return calibrated;
     }
 
-    private void initializeWeatherDirectories() {
+    private final void initializeWeatherDirectories() {
         WeatherDirectory weatherDirectory = new WeatherDirectory(1, 89, 397535244, "SOL_00001_00089/");
         weatherDirectories.add(weatherDirectory);
         weatherDirectory = new WeatherDirectory(90, 179, 405436167, "SOL_00090_00179/");
@@ -168,45 +225,6 @@ public class WeatherDataService {
         }
         directory = directory + Integer.toString(sol);
         return directory;
-    }
-
-    public class WeatherDirectory {
-        int    startSol;
-        int    endSol;
-        long   ephemerisTimestamp;
-        String directoryString;
-
-        String getDirectoryString(int sol) {
-            if (sol >= startSol && sol <= endSol) {
-                return directoryString;
-            } else {
-                return null;
-            }
-        }
-
-        public long getEphemerisTimestamp() {
-            return ephemerisTimestamp;
-        }
-
-        public void setEphemerisTimestamp(long ephemerisTimestamp) {
-            this.ephemerisTimestamp = ephemerisTimestamp;
-        }
-
-        public int getStartSol() {
-            return startSol;
-        }
-
-        public int getEndSol() {
-            return endSol;
-        }
-
-        public WeatherDirectory(int startSol, int endSol, long ephemerisTimeStamp, String directoryString) {
-            ephemerisConversionUtil.updateClock(Long.toString(ephemerisTimeStamp));
-            this.startSol = (ephemerisConversionUtil.getSol() < startSol) ? startSol : ephemerisConversionUtil.getSol();
-            this.ephemerisTimestamp = ephemerisTimeStamp;
-            this.endSol = endSol;
-            this.directoryString = directoryString;
-        }
     }
 
     private final List<String> getEphemerisTimeStrings(double ephemerisTime) {

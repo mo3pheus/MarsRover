@@ -659,7 +659,7 @@ public class Rover {
         return radarScanningState;
     }
 
-    protected synchronized void reflectRoverState(){
+    protected synchronized void reflectRoverState() {
         marsArchitect.getMarsSurface().setTitle(state.getStateName());
         marsArchitect.getMarsSurface().repaint();
     }

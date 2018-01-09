@@ -9,10 +9,10 @@ import space.exploration.communications.protocol.service.WeatherRDRData;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.service.WeatherDataService;
-import space.exploration.mars.rover.service.WeatherQueryService;
 import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -29,7 +29,6 @@ public class WeatherSensor implements IsEquipment {
 
     private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = null;
     private          WeatherDataService                                weatherDataService       = null;
-    private          WeatherQueryService                               rems                     = null;
     private          int                                               fullLifeSpan             = 0;
     private          int                                               lifeSpan                 = 0;
     private          Rover                                             rover                    = null;
@@ -45,7 +44,6 @@ public class WeatherSensor implements IsEquipment {
         this.fullLifeSpan = lifeSpan;
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();
-        rems = new WeatherQueryService();
         calibrationService = Executors.newSingleThreadScheduledExecutor();
     }
 
@@ -131,11 +129,11 @@ public class WeatherSensor implements IsEquipment {
         return rBuilder;
     }
 
-    private class SensorCalibrater implements Runnable{
+    private class SensorCalibrater implements Runnable {
 
         private int sol = 0;
 
-        public SensorCalibrater(int sol){
+        public SensorCalibrater(int sol) {
             this.sol = sol;
         }
 
@@ -145,9 +143,11 @@ public class WeatherSensor implements IsEquipment {
             logger.info("Calibrating REMS Weather Station now for sol = " + this.sol);
             calibratingSensor = true;
             weatherDataService.downloadCalibrationData(this.sol);
+            File weatherDataFile = weatherDataService.getWeatherCalibrationFile();
 
             logger.info("CalibrationStatus for REMS = " + Boolean.toString(weatherDataService.isCalibrated()));
-            weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherDataService.getWeatherCalibrationFile());
+            weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherDataFile);
+            weatherDataFile.delete();
 
             calibratingSensor = false;
         }

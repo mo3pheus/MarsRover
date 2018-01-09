@@ -154,7 +154,6 @@ public class WeatherUtil {
             while ((dataLine = bufferedReader.readLine()) != null) {
                 try {
                     WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = extractWeatherData(dataLine);
-                    System.out.println(weatherEnvReducedData);
                     weatherEnvReducedDataMap.put(weatherEnvReducedData.getEphemerisTime(),weatherEnvReducedData);
                 } catch (Exception e) {
                     logger.debug("Failed to parseWeatherDataLine = " + dataLine);
