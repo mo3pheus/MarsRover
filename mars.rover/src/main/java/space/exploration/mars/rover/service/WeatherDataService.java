@@ -20,7 +20,7 @@ public class WeatherDataService {
     private              List<WeatherDirectory>  weatherDirectories      = new ArrayList<>();
     private              boolean                 calibrated              = false;
     private              EphemerisConversionUtil ephemerisConversionUtil = new EphemerisConversionUtil();
-    private              File                    weatherCalibrationFile  = null;
+    private volatile     File                    weatherCalibrationFile  = null;
 
     public WeatherDataService() {
         initializeWeatherDirectories();

@@ -35,12 +35,11 @@ public class WeatherSensor implements IsEquipment {
     private          int                                               lifeSpan                 = 0;
     private          Rover                                             rover                    = null;
     private          double                                            queryRate                = 0.0d;
-    private          long                                              createTimeStamp          = System
-            .currentTimeMillis();
     private volatile boolean                                           calibratingSensor        = false;
     private          Future<File>[]                                    calibrationTasks         = new
             Future[NUM_CALIBRATION_THREADS];
     private          ExecutorService                                   calibrationService       = null;
+    private          ExecutorService                                   calibrationKickOff       = null;
     private          int                                               sol                      = 0;
 
     public WeatherSensor(Rover rover) {
@@ -50,6 +49,7 @@ public class WeatherSensor implements IsEquipment {
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();
         calibrationService = Executors.newFixedThreadPool(NUM_CALIBRATION_THREADS);
+        calibrationKickOff = Executors.newSingleThreadExecutor();
     }
 
     public boolean isCalibratingSensor() {
@@ -58,44 +58,26 @@ public class WeatherSensor implements IsEquipment {
 
     public void calibrateREMS(int sol) {
         this.sol = sol;
-        List<String> urls     = weatherDataService.getURLCombinations(sol);
-        int          biteSize = (int) ((double) urls.size() / (double) NUM_CALIBRATION_THREADS);
-
-        for (int i = 0; i < calibrationTasks.length; i++) {
-            calibrationTasks[i] = calibrationService.submit(new RemsCalibrater(urls, i, biteSize));
-        }
-
-        boolean killThreads = false;
-        try {
-            for (Future<File> calibrationTask : calibrationTasks) {
-                if (killThreads) {
-                    calibrationTask.cancel(true);
-                    continue;
-                }
-
-                File weatherFile = calibrationTask.get();
-                if (weatherFile != null) {
-                    weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
-                    killThreads = true;
-                }
-            }
-        } catch (ExecutionException ee) {
-            logger.error("Error while calibrating REMS Sensor for sol = " + sol, ee);
-        } catch (InterruptedException ie) {
-            logger.error("Interruption Error while calibrating REMS Sensor for sol = " + sol, ie);
-        }
+        calibrationKickOff.submit(new CalibrationKickOff());
     }
 
     public byte[] getWeather() {
         lifeSpan--;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder              = getGeneralRoverStatus();
-        Double                                    currentEphemerisTime  = rover.getSpacecraftClock().getEphemerisTime();
-        WeatherRDRData.WeatherEnvReducedData      weatherEnvReducedData = findClosestWeatherData(currentEphemerisTime);
-        if (weatherEnvReducedData != null) {
-            rBuilder.setModuleMessage(ByteString.copyFrom(findClosestWeatherData(currentEphemerisTime).toByteArray()));
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder             = getGeneralRoverStatus();
+        Double                                    currentEphemerisTime = rover.getSpacecraftClock().getEphemerisTime();
+
+        if (calibratingSensor) {
+            rBuilder.setNotes("Weather Data not available at this time. REMS Calibration is ongoing.");
         } else {
-            rBuilder.setNotes("Weather Data not available at this time. Please calibrate the weatherSensor." +
-                                      " Calendar Time = " + rover.getSpacecraftClock().getCalendarTime());
+            WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = findClosestWeatherData(currentEphemerisTime);
+            if (weatherEnvReducedData != null) {
+                rBuilder.setModuleMessage(ByteString.copyFrom(findClosestWeatherData(currentEphemerisTime)
+                                                                      .toByteArray()));
+
+            } else {
+                rBuilder.setNotes("Weather Data not available at this time. Please calibrate the weatherSensor." +
+                                          " Calendar Time = " + rover.getSpacecraftClock().getCalendarTime());
+            }
         }
 
         return rBuilder.build().toByteArray();
@@ -158,6 +140,40 @@ public class WeatherSensor implements IsEquipment {
         rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
         rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         return rBuilder;
+    }
+
+    private class CalibrationKickOff implements Runnable {
+        @Override
+        public void run() {
+            calibratingSensor = true;
+            List<String> urls     = weatherDataService.getURLCombinations(sol);
+            int          biteSize = (int) ((double) urls.size() / (double) NUM_CALIBRATION_THREADS);
+
+            for (int i = 0; i < calibrationTasks.length; i++) {
+                calibrationTasks[i] = calibrationService.submit(new RemsCalibrater(urls, i, biteSize));
+            }
+
+            boolean killThreads = false;
+            try {
+                for (Future<File> calibrationTask : calibrationTasks) {
+                    if (killThreads) {
+                        calibrationTask.cancel(true);
+                        continue;
+                    }
+
+                    File weatherFile = calibrationTask.get();
+                    if (weatherFile != null) {
+                        weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
+                        killThreads = true;
+                    }
+                }
+            } catch (ExecutionException ee) {
+                logger.error("Error while calibrating REMS Sensor for sol = " + sol, ee);
+            } catch (InterruptedException ie) {
+                logger.error("Interruption Error while calibrating REMS Sensor for sol = " + sol, ie);
+            }
+            calibratingSensor = false;
+        }
     }
 
     private class RemsCalibrater implements Callable<File> {
