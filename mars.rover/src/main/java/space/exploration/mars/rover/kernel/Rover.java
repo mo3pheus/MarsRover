@@ -659,6 +659,11 @@ public class Rover {
         return radarScanningState;
     }
 
+    protected synchronized void reflectRoverState(){
+        marsArchitect.getMarsSurface().setTitle(state.getStateName());
+        marsArchitect.getMarsSurface().repaint();
+    }
+
     public synchronized void bootUp() {
         Thread.currentThread().setName("roverMain");
         setUpGauges();
@@ -681,7 +686,7 @@ public class Rover {
         this.exploringState = new ExploringState(this);
         this.movingState = new MovingState(this);
         this.photoGraphingState = new PhotographingState(this);
-        this.sensingState = new SensingState(this);
+        this.sensingState = new LidarSensingState(this);
         this.transmittingState = new TransmittingState(this);
         this.radarScanningState = new RadarScanningState(this);
         this.weatherSensingState = new WeatherSensingState(this);

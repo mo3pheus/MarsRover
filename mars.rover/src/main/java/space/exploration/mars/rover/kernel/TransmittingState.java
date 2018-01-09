@@ -28,6 +28,7 @@ public class TransmittingState implements State {
     }
 
     public void receiveMessage(byte[] message) {
+        rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         try {
             rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
@@ -49,6 +50,7 @@ public class TransmittingState implements State {
 
     public void transmitMessage(byte[] message) {
         requests.mark();
+        rover.reflectRoverState();
         RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
                 .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
         radioAnimationEngine.activateRadio();

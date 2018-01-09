@@ -32,6 +32,7 @@ public class PhotographingState implements State {
     }
 
     public void receiveMessage(byte[] message) {
+        rover.reflectRoverState();
         logger.debug("Photographing state received message. Saving to instruction queue");
         rover.getInstructionQueue().add(message);
         try {
@@ -71,6 +72,7 @@ public class PhotographingState implements State {
     @Override
     public void activateCameraById(String camId) {
         requests.mark();
+        rover.reflectRoverState();
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 
         CameraAnimationEngine cameraAnimationEngine = marsArchitect.getCameraAnimationEngine(marsArchitect

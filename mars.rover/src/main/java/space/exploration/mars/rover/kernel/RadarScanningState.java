@@ -59,6 +59,7 @@ public class RadarScanningState implements State {
 
     @Override
     public void receiveMessage(byte[] message) {
+        rover.reflectRoverState();
         logger.debug("Radar Module received message, adding to rover's instruction queue");
         rover.getInstructionQueue().add(message);
         try {
@@ -108,6 +109,7 @@ public class RadarScanningState implements State {
     @Override
     public void performRadarScan() {
         requests.mark();
+        rover.reflectRoverState();
         logger.debug("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
         MarsArchitect marsArchitect = rover.getMarsArchitect();

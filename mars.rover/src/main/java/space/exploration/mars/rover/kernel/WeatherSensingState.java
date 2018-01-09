@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.yammer.metrics.core.Meter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,14 @@ public class WeatherSensingState implements State {
     @Override
     public void receiveMessage(byte[] message) {
         logger.info("Adding message to the instruction Queue, current length = " + rover.getInstructionQueue().size());
+        rover.reflectRoverState();
+        rover.getInstructionQueue().add(message);
+        try {
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+                    .getInstructionQueue().size());
+        } catch (InvalidProtocolBufferException ipe) {
+            rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
+        }
     }
 
     @Override
@@ -58,6 +67,7 @@ public class WeatherSensingState implements State {
     @Override
     public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         requests.mark();
+        rover.reflectRoverState();
         logger.info("Will get mars weather measurements");
         try {
             WeatherAnimationEngine weatherAnimationEngine = rover.getMarsArchitect().getWeatherEngine();

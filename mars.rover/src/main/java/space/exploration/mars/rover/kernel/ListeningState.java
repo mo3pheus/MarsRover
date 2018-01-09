@@ -60,6 +60,7 @@ public class ListeningState implements State {
         requests.mark();
         InstructionPayload payload = null;
         rover.setTimeMessageReceived(System.currentTimeMillis());
+        rover.reflectRoverState();
         try {
             payload = InstructionPayload.parseFrom(message);
             logger.info(payload.toString());
@@ -151,7 +152,7 @@ public class ListeningState implements State {
         }
     }
 
-    public boolean requestPower(TargetPackage targetPackage) throws InvalidProtocolBufferException {
+    private boolean requestPower(TargetPackage targetPackage) throws InvalidProtocolBufferException {
         final boolean critical = false;
         if (targetPackage.getRoverModule() != ModuleDirectory.Module.PROPULSION.getValue()) {
             powerRequested = targetPackage.getEstimatedPowerUsage();
@@ -207,6 +208,7 @@ public class ListeningState implements State {
 
     @Override
     public void gracefulShutdown() {
+        rover.reflectRoverState();
         logger.info("Rover initiating a gracefulShutdown.");
         rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotShutdownMode"));
         rover.getMarsArchitect().getMarsSurface().repaint();

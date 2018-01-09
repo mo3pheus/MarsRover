@@ -20,17 +20,18 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author sanketkorgaonkar
  */
-public class SensingState implements State {
+public class LidarSensingState implements State {
     private Meter  requests = null;
-    private Logger logger   = LoggerFactory.getLogger(SensingState.class);
+    private Logger logger   = LoggerFactory.getLogger(LidarSensingState.class);
     private Rover  rover    = null;
 
-    public SensingState(Rover rover) {
+    public LidarSensingState(Rover rover) {
         this.rover = rover;
-        requests = this.rover.getMetrics().newMeter(SensingState.class, getStateName(), "requests", TimeUnit.HOURS);
+        requests = this.rover.getMetrics().newMeter(LidarSensingState.class, getStateName(), "requests", TimeUnit.HOURS);
     }
 
     public void receiveMessage(byte[] message) {
+        rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         logger.debug("Rover not in the correct state to receive message. Message added to the instruction queue, " +
                              "instruction queue length = " + rover.getInstructionQueue().size());
@@ -57,7 +58,7 @@ public class SensingState implements State {
 
     @Override
     public String getStateName() {
-        return "Sensing State";
+        return "Lidar Sensing State";
     }
 
     public void transmitMessage(byte[] message) {
@@ -87,6 +88,7 @@ public class SensingState implements State {
 
     public void scanSurroundings() {
         requests.mark();
+        rover.reflectRoverState();
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 
         rover.configureLidar(marsArchitect.getRobot().getLocation(), marsArchitect.getCellWidth(),
