@@ -155,18 +155,21 @@ public class WeatherSensor implements IsEquipment {
             }
 
             int doneThreads = 0;
+            int[] visited = new int[calibrationTasks.length];
             try {
                 while (doneThreads < calibrationTasks.length) {
-                    for (Future<File> calibrationTask : calibrationTasks) {
-                        if (calibrationTask.isDone()) {
+                    for (int i = 0; i < calibrationTasks.length; i++) {
+                        if (calibrationTasks[i].isDone() && visited[i] != 0) {
                             doneThreads++;
-                            File weatherFile = calibrationTask.get();
+                            visited[i] = 1;
+                            File weatherFile = calibrationTasks[i].get();
                             if (weatherFile != null) {
                                 weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
                                 doneThreads = calibrationTasks.length;
                                 break;
                             }
                         }
+
                     }
                 }
                 for (Future<File> calibrationTask : calibrationTasks) {
