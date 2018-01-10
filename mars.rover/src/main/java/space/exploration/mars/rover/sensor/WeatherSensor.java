@@ -99,8 +99,8 @@ public class WeatherSensor implements IsEquipment {
             }
         }
 
-        /* Check if the difference is more than 19 hours. This is because the weatherSensor aboard Curiosity is
-        exercised for only 5 hours a day */
+        /* Check if the difference is more than 24 hours. This is because the weatherSensor aboard Curiosity is
+        exercised for only 5 minutes a day */
         if (timeDiff >= TimeUnit.HOURS.toSeconds((long) staleDataThresholdHours)) {
             logger.error("WeatherData is too stale. Calendar Date = " + rover.getSpacecraftClock().getCalendarTime());
             return null;
@@ -154,19 +154,23 @@ public class WeatherSensor implements IsEquipment {
                 calibrationTasks[i] = calibrationService.submit(new RemsCalibrater(urls, i, biteSize));
             }
 
-            boolean killThreads = false;
+            int doneThreads = 0;
             try {
+                while (doneThreads < calibrationTasks.length) {
+                    for (Future<File> calibrationTask : calibrationTasks) {
+                        if (calibrationTask.isDone()) {
+                            doneThreads++;
+                            File weatherFile = calibrationTask.get();
+                            if (weatherFile != null) {
+                                weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
+                                doneThreads = calibrationTasks.length;
+                                break;
+                            }
+                        }
+                    }
+                }
                 for (Future<File> calibrationTask : calibrationTasks) {
-                    if (killThreads) {
-                        calibrationTask.cancel(true);
-                        continue;
-                    }
-
-                    File weatherFile = calibrationTask.get();
-                    if (weatherFile != null) {
-                        weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
-                        killThreads = true;
-                    }
+                    calibrationTask.cancel(true);
                 }
             } catch (ExecutionException ee) {
                 logger.error("Error while calibrating REMS Sensor for sol = " + sol, ee);
