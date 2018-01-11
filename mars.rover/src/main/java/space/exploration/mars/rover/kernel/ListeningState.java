@@ -115,13 +115,8 @@ public class ListeningState implements State {
                         rover.performRadarScan();
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.WEATHER_SENSOR.getValue()) {
                         logger.info("Rover will try to get weather measurements - actual Curiosity Data");
-                        if (rover.getWeatherSensor().isCalibratingSensor()) {
-                            logger.error("WeatherSensor is calibrating. Please try to get weather later!");
-                            rover.state = rover.listeningState;
-                        } else {
-                            rover.state = rover.weatherSensingState;
-                            rover.senseWeather(null);
-                        }
+                        rover.state = rover.weatherSensingState;
+                        rover.senseWeather(null);
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.KERNEL.getValue()) {
                         rover.state = rover.listeningState;
                         rover.gracefulShutdown();

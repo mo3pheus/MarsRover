@@ -36,6 +36,7 @@ public class WeatherSensor implements IsEquipment {
     private          Rover                                             rover                    = null;
     private          double                                            queryRate                = 0.0d;
     private volatile boolean                                           calibratingSensor        = false;
+    private volatile double                                            calibrationKickOffTime   = 0.0d;
     private          Future<File>[]                                    calibrationTasks         = null;
     private          ExecutorService                                   calibrationService       = null;
     private          ExecutorService                                   calibrationKickOff       = null;
@@ -60,6 +61,7 @@ public class WeatherSensor implements IsEquipment {
     public void calibrateREMS(int sol) {
         this.sol = sol;
         calibrationKickOff.submit(new CalibrationKickOff());
+        calibrationKickOffTime = rover.getSpacecraftClock().getEphemerisTime();
     }
 
     public byte[] getWeather() {
@@ -68,16 +70,20 @@ public class WeatherSensor implements IsEquipment {
         Double                                    currentEphemerisTime = rover.getSpacecraftClock().getEphemerisTime();
 
         if (calibratingSensor) {
-            rBuilder.setNotes("Weather Data not available at this time. REMS Calibration is ongoing.");
+            rBuilder.setNotes("Weather Data not available at this time. REMS Calibration is ongoing. Calibration " +
+                                      "kicked off at TDB = " + calibrationKickOffTime
+                                      + " Time elapsed = " + (rover.getSpacecraftClock().getEphemerisTime() -
+                    calibrationKickOffTime) + " seconds"
+            );
         } else {
             WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = findClosestWeatherData(currentEphemerisTime);
             if (weatherEnvReducedData != null) {
                 rBuilder.setModuleMessage(ByteString.copyFrom(findClosestWeatherData(currentEphemerisTime)
-                        .toByteArray()));
+                                                                      .toByteArray()));
 
             } else {
                 rBuilder.setNotes("Weather Data not available at this time. Please calibrate the weatherSensor." +
-                                  " Calendar Time = " + rover.getSpacecraftClock().getCalendarTime());
+                                          " Calendar Time = " + rover.getSpacecraftClock().getCalendarTime());
             }
         }
 
@@ -146,6 +152,7 @@ public class WeatherSensor implements IsEquipment {
     private class CalibrationKickOff implements Runnable {
         @Override
         public void run() {
+            Thread.currentThread().setName("remsCalibrationKickOff");
             calibratingSensor = true;
             List<String> urls     = weatherDataService.getURLCombinations(sol);
             int          biteSize = (int) ((double) urls.size() / (double) NUM_CALIBRATION_THREADS);
@@ -181,6 +188,9 @@ public class WeatherSensor implements IsEquipment {
                 logger.error("Interruption Error while calibrating REMS Sensor for sol = " + sol, ie);
             }
             calibratingSensor = false;
+            logger.info("REMS finished calibration. Time taken = " + (rover.getSpacecraftClock().getEphemerisTime() -
+                    calibrationKickOffTime) + " seconds. Calibration successful = " + Boolean.toString
+                    (calibrationSuccessful));
         }
     }
 
