@@ -70,6 +70,7 @@ public class WeatherSensor implements IsEquipment {
         Double                                    currentEphemerisTime = rover.getSpacecraftClock().getEphemerisTime();
 
         if (calibratingSensor) {
+            logger.error("REMS sensor is calibrating. Please wait for a while.");
             rBuilder.setNotes("Weather Data not available at this time. REMS Calibration is ongoing. Calibration " +
                                       "kicked off at TDB = " + calibrationKickOffTime
                                       + " Time elapsed = " + (rover.getSpacecraftClock().getEphemerisTime() -
@@ -161,22 +162,17 @@ public class WeatherSensor implements IsEquipment {
                 calibrationTasks[i] = calibrationService.submit(new RemsCalibrater(urls, i, biteSize));
             }
 
-            int doneThreads = 0;
-            int[] visited = new int[calibrationTasks.length];
+            boolean calibrationSuccessful = false;
             try {
-                while (doneThreads < calibrationTasks.length) {
-                    for (int i = 0; i < calibrationTasks.length; i++) {
-                        if (calibrationTasks[i].isDone() && visited[i] != 0) {
-                            doneThreads++;
-                            visited[i] = 1;
-                            File weatherFile = calibrationTasks[i].get();
-                            if (weatherFile != null) {
-                                weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
-                                doneThreads = calibrationTasks.length;
-                                break;
-                            }
-                        }
-
+                for (int i = 0; i < calibrationTasks.length; i++) {
+                    File weatherFile = calibrationTasks[i].get();
+                    if (weatherFile != null) {
+                        weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
+                        calibrationSuccessful = true;
+                        break;
+                    } else {
+                        logger.info("Thread id = " + i + " finished checking urls, file not found. Done status = " +
+                                            calibrationTasks[i].isDone());
                     }
                 }
                 for (Future<File> calibrationTask : calibrationTasks) {
@@ -209,7 +205,8 @@ public class WeatherSensor implements IsEquipment {
         public File call() throws Exception {
             Thread.currentThread().setName("remsCalibrationThread" + Integer.toString(threadId));
             logger.info("ThreadId = " + threadId + " started for remsCalibration for sol = " + sol);
-            return weatherDataService.downloadCalibrationData(urls);
+            File weatherFile = weatherDataService.downloadCalibrationData(urls);
+            return weatherFile;
         }
     }
 }
