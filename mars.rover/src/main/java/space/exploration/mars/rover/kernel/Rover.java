@@ -82,7 +82,7 @@ public class Rover {
     private          Spectrometer     spectrometer     = null;
     private          Camera           camera           = null;
     private          Radar            radar            = null;
-    private          WeatherSensor    weatherSensor    = null;
+    private volatile WeatherSensor    weatherSensor    = null;
     private          NavigationEngine navigationEngine = null;
 
     /* Kernel Sensors   */
@@ -131,9 +131,9 @@ public class Rover {
 
     public static long getOneSolDuration() {
         /* Time scaled by a factor of 60. */
-        long time = TimeUnit.MINUTES.toMillis(24);
-        time += TimeUnit.SECONDS.toMillis(39);
-        time += 35;
+        long time = TimeUnit.HOURS.toMillis(24);
+        time += TimeUnit.MINUTES.toMillis(39);
+        time += TimeUnit.SECONDS.toMillis(35);
         time += 244;
         return time;
     }
@@ -316,6 +316,15 @@ public class Rover {
 
     public synchronized void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
         state.senseWeather(weatherQuery);
+    }
+
+    /**
+     * The clock sends this signal to the rover, so it can update all its sensors.
+     *
+     * @param sol
+     */
+    public synchronized void updateSensors(int sol) {
+        weatherSensor.calibrateREMS(sol);
     }
 
     public synchronized Camera getCamera() {
@@ -650,6 +659,11 @@ public class Rover {
         return radarScanningState;
     }
 
+    protected synchronized void reflectRoverState() {
+        marsArchitect.getMarsSurface().setTitle(state.getStateName());
+        marsArchitect.getMarsSurface().repaint();
+    }
+
     public synchronized void bootUp() {
         Thread.currentThread().setName("roverMain");
         setUpGauges();
@@ -658,7 +672,10 @@ public class Rover {
 
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
+        this.weatherSensor = new WeatherSensor(this);
+
         this.spacecraftClock = new SpacecraftClock(marsConfig);
+        spacecraftClock.setRover(this);
         spacecraftClock.start();
 
         this.positionSensor = new PositionSensor(marsConfig);
@@ -669,7 +686,7 @@ public class Rover {
         this.exploringState = new ExploringState(this);
         this.movingState = new MovingState(this);
         this.photoGraphingState = new PhotographingState(this);
-        this.sensingState = new SensingState(this);
+        this.sensingState = new LidarSensingState(this);
         this.transmittingState = new TransmittingState(this);
         this.radarScanningState = new RadarScanningState(this);
         this.weatherSensingState = new WeatherSensingState(this);
@@ -708,7 +725,6 @@ public class Rover {
                                                                                                           this,
                                                                                                           cameraImageCacheLocation);
         this.radar = new Radar(this);
-        this.weatherSensor = new WeatherSensor(this);
 
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());
 

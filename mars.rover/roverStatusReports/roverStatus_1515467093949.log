@@ -1,0 +1,349 @@
+2018-01-08 21:04:56,230 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Valid utc time ranges are dictated by clockService as follows:
+2018-01-08 21:04:56,231 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2018-01-08 21:04:56,231 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Given UTC = 2016-12-16~10:11:00
+2018-01-08 21:04:56,231 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Please ensure that positionSensor and sclk are synchronized
+2018-01-08 21:04:56,238 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Curiosity internal spacecraft clock started at :: 2016-12-16T16:11:00.000Z
+2018-01-08 21:04:56,238 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration is set to :: 1 year(s).
+2018-01-08 21:04:56,238 [roverMain] INFO space.exploration.mars.rover.kernel.SpacecraftClock  - Mission duration = 31536000000
+2018-01-08 21:05:00,384 [roverMain] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
+2018-01-08 21:05:02,386 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=525,y=100]
+2018-01-08 21:05:03,389 [roverMain] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
+2018-01-08 21:05:04,392 [roverMain] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-08 21:05:05,636 [roverMain] INFO space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
+2018-01-08 21:05:06,640 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+2018-01-08 21:05:08,100 [roverMain] INFO space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
+2018-01-08 21:05:09,102 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Battery Monitor configured!
+2018-01-08 21:05:09,147 [roverMain] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = 
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2018-01-08 21:05:09,215 [roverMain] INFO org.apache.kafka.clients.producer.ProducerConfig  - ProducerConfig values: 
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	reconnect.backoff.ms = 50
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	bootstrap.servers = [localhost:9092]
+	ssl.keystore.type = JKS
+	sasl.mechanism = GSSAPI
+	max.block.ms = 60000
+	interceptor.classes = null
+	ssl.truststore.password = null
+	client.id = producer-1
+	ssl.endpoint.identification.algorithm = null
+	request.timeout.ms = 30000
+	acks = 1
+	receive.buffer.bytes = 32768
+	ssl.truststore.type = JKS
+	retries = 0
+	ssl.truststore.location = null
+	ssl.keystore.password = null
+	send.buffer.bytes = 131072
+	compression.type = none
+	metadata.fetch.timeout.ms = 60000
+	retry.backoff.ms = 100
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	ssl.trustmanager.algorithm = PKIX
+	block.on.buffer.full = false
+	ssl.key.password = null
+	sasl.kerberos.min.time.before.relogin = 60000
+	connections.max.idle.ms = 540000
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	batch.size = 16384
+	ssl.keystore.location = null
+	ssl.cipher.suites = null
+	security.protocol = PLAINTEXT
+	max.request.size = 1048576
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	ssl.keymanager.algorithm = SunX509
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	linger.ms = 0
+
+2018-01-08 21:05:09,216 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration zookeeper.connect = localhost:2181 was supplied but isn't a known config.
+2018-01-08 21:05:09,216 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration group.id = space.exploration.mars.rover.curiosity.1515467093984 was supplied but isn't a known config.
+2018-01-08 21:05:09,216 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration source.topic = earth_to_curiosity_5 was supplied but isn't a known config.
+2018-01-08 21:05:09,216 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration auto.offset.reset = largest was supplied but isn't a known config.
+2018-01-08 21:05:09,216 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration metadata.broker.list = localhost:9092 was supplied but isn't a known config.
+2018-01-08 21:05:09,216 [roverMain] WARN org.apache.kafka.clients.producer.ProducerConfig  - The configuration destination.topic = curiosity_to_earth_5 was supplied but isn't a known config.
+2018-01-08 21:05:09,216 [roverMain] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka version : 0.10.0.1
+2018-01-08 21:05:09,216 [roverMain] INFO org.apache.kafka.common.utils.AppInfoParser  - Kafka commitId : a7a17cdec9eaa6c5
+2018-01-08 21:05:09,303 [roverMain] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2018-01-08 21:05:09,321 [roverMain] INFO kafka.utils.VerifiableProperties  - Property auto.offset.reset is overridden to largest
+2018-01-08 21:05:09,322 [roverMain] WARN kafka.utils.VerifiableProperties  - Property bootstrap.servers is not valid
+2018-01-08 21:05:09,322 [roverMain] WARN kafka.utils.VerifiableProperties  - Property destination.topic is not valid
+2018-01-08 21:05:09,322 [roverMain] INFO kafka.utils.VerifiableProperties  - Property group.id is overridden to space.exploration.mars.rover.curiosity.1515467093984
+2018-01-08 21:05:09,322 [roverMain] WARN kafka.utils.VerifiableProperties  - Property key.serializer is not valid
+2018-01-08 21:05:09,322 [roverMain] WARN kafka.utils.VerifiableProperties  - Property metadata.broker.list is not valid
+2018-01-08 21:05:09,322 [roverMain] WARN kafka.utils.VerifiableProperties  - Property source.topic is not valid
+2018-01-08 21:05:09,322 [roverMain] WARN kafka.utils.VerifiableProperties  - Property value.serializer is not valid
+2018-01-08 21:05:09,322 [roverMain] INFO kafka.utils.VerifiableProperties  - Property zookeeper.connect is overridden to localhost:2181
+2018-01-08 21:05:09,344 [roverMain] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], Connecting to zookeeper instance at localhost:2181
+2018-01-08 21:05:09,349 [ZkClient-EventThread-30-localhost:2181] INFO org.I0Itec.zkclient.ZkEventThread  - Starting ZkClient event thread.
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:zookeeper.version=3.4.6-1569965, built on 02/20/2014 09:09 GMT
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:host.name=zion-mainframe
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.version=1.8.0_151
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.vendor=Oracle Corporation
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.class.path=target/mars.rover-1.5-SOLSHOT-shaded.jar
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.library.path=$LD_LIBRARY_PATH:"/home/sanket/Documents/workspace/SpiceUtilities/src/main/resources/JNISpice/lib/libJNISpice.so":/home/sanket/Documents/workspace/SpiceUtilities/src/main/resources/JNISpice/lib/libJNISpice.so:/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.io.tmpdir=/tmp
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:java.compiler=<NA>
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.name=Linux
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.arch=amd64
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:os.version=4.10.0-42-generic
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.name=sanket
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.home=/home/sanket
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Client environment:user.dir=/home/sanket/Documents/workspace/MarsRover/mars.rover
+2018-01-08 21:05:09,352 [roverMain] INFO org.apache.zookeeper.ZooKeeper  - Initiating client connection, connectString=localhost:2181 sessionTimeout=6000 watcher=org.I0Itec.zkclient.ZkClient@d21a74c
+2018-01-08 21:05:09,359 [roverMain] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
+2018-01-08 21:05:09,361 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2018-01-08 21:05:09,424 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Socket connection established to localhost/127.0.0.1:2181, initiating session
+2018-01-08 21:05:09,430 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x160d47047e2000b, negotiated timeout = 6000
+2018-01-08 21:05:09,431 [roverMain-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (SyncConnected)
+2018-01-08 21:05:09,437 [roverMain] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], starting auto committer every 60000 ms
+2018-01-08 21:05:09,454 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], begin registering consumer space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2 in ZK
+2018-01-08 21:05:09,473 [radio] INFO kafka.utils.ZKCheckedEphemeral  - Creating /consumers/space.exploration.mars.rover.curiosity.1515467093984/ids/space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2 (is it secure? false)
+2018-01-08 21:05:09,481 [radio] INFO kafka.utils.ZKCheckedEphemeral  - Result of znode creation is: OK
+2018-01-08 21:05:09,481 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], end registering consumer space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2 in ZK
+2018-01-08 21:05:09,485 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2_watcher_executor] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], starting watcher executor thread for consumer space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2
+2018-01-08 21:05:09,498 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], begin rebalancing consumer space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2 try #0
+2018-01-08 21:05:09,565 [radio] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1515467109436] Stopping leader finder thread
+2018-01-08 21:05:09,565 [radio] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1515467109436] Stopping all fetchers
+2018-01-08 21:05:09,566 [radio] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1515467109436] All connections stopped
+2018-01-08 21:05:09,566 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], Cleared all relevant queues for this fetcher
+2018-01-08 21:05:09,567 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], Cleared the data chunks in all the consumer message iterators
+2018-01-08 21:05:09,567 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], Committing all offsets after clearing the fetcher queues
+2018-01-08 21:05:09,567 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], Releasing partition ownership
+2018-01-08 21:05:09,586 [radio] INFO kafka.consumer.RangeAssignor  - Consumer space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2 rebalancing the following partitions: ArrayBuffer(0) for topic earth_to_curiosity_5 with consumers: List(space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-0)
+2018-01-08 21:05:09,588 [radio] INFO kafka.consumer.RangeAssignor  - space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-0 attempting to claim partition 0
+2018-01-08 21:05:09,616 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-0 successfully owned partition 0 for topic earth_to_curiosity_5
+2018-01-08 21:05:09,630 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], Consumer space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2 selected partitions : earth_to_curiosity_5:0: fetched offset = -1: consumed offset = -1
+2018-01-08 21:05:09,635 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager$LeaderFinderThread  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread], Starting 
+2018-01-08 21:05:09,636 [radio] INFO kafka.consumer.ZookeeperConsumerConnector  - [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2], end rebalancing consumer space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2 try #0
+2018-01-08 21:05:09,654 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Verifying properties
+2018-01-08 21:05:09,655 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property client.id is overridden to space.exploration.mars.rover.curiosity.1515467093984
+2018-01-08 21:05:09,655 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property metadata.broker.list is overridden to zion-mainframe:9092
+2018-01-08 21:05:09,655 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.utils.VerifiableProperties  - Property request.timeout.ms is overridden to 30000
+2018-01-08 21:05:09,667 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.client.ClientUtils$  - Fetching metadata from broker BrokerEndPoint(0,zion-mainframe,9092) with correlation id 0 for 1 topic(s) Set(earth_to_curiosity_5)
+2018-01-08 21:05:09,672 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.producer.SyncProducer  - Connected to zion-mainframe:9092 for producing
+2018-01-08 21:05:09,683 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.producer.SyncProducer  - Disconnecting from zion-mainframe:9092
+2018-01-08 21:05:09,696 [ConsumerFetcherThread-space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-0-0] INFO kafka.consumer.ConsumerFetcherThread  - [ConsumerFetcherThread-space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-0-0], Starting 
+2018-01-08 21:05:09,706 [space.exploration.mars.rover.curiosity.1515467093984_zion-mainframe-1515467109344-af4ae9b2-leader-finder-thread] INFO kafka.consumer.ConsumerFetcherManager  - [ConsumerFetcherManager-1515467109436] Added fetcher for partitions ArrayBuffer([[earth_to_curiosity_5,0], initOffset -1 to broker BrokerEndPoint(0,zion-mainframe,9092)] )
+2018-01-08 21:05:10,439 [roverMain] INFO space.exploration.mars.rover.communication.Radio  - Radio configured:: 
+group.id::space.exploration.mars.rover.curiosity.1515467093984
+auto.offset.reset::largest
+bootstrap.servers::localhost:9092
+value.serializer::org.apache.kafka.common.serialization.ByteArraySerializer
+destination.topic::curiosity_to_earth_5
+zookeeper.connect::localhost:2181
+key.serializer::org.apache.kafka.common.serialization.StringSerializer
+source.topic::earth_to_curiosity_5
+metadata.broker.list::localhost:9092
+2018-01-08 21:05:11,440 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
+2018-01-08 21:05:17,645 [roverMain] INFO space.exploration.mars.rover.communication.Transmitter  - Sending information packet to curiosity_to_earth_5
+2018-01-08 21:05:20,649 [remsCalibration] INFO space.exploration.mars.rover.sensor.WeatherSensor  - Calibrating REMS Weather Station now for sol = 1551
+2018-01-08 21:05:20,652 [sleepMonitor] INFO space.exploration.mars.rover.animation.SleepingAnimationEngine  - Rover is sleeping now
+2018-01-08 21:05:21,022 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.03322259136212625
+2018-01-08 21:05:21,167 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.0664451827242525
+2018-01-08 21:05:21,312 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.09966777408637872
+2018-01-08 21:05:21,457 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.132890365448505
+2018-01-08 21:05:21,604 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.16611295681063123
+2018-01-08 21:05:21,748 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.19933554817275745
+2018-01-08 21:05:21,894 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.23255813953488372
+2018-01-08 21:05:22,041 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.26578073089701
+2018-01-08 21:05:22,187 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.29900332225913623
+2018-01-08 21:05:22,333 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.33222591362126247
+2018-01-08 21:05:22,819 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.3654485049833887
+2018-01-08 21:05:23,844 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.3986710963455149
+2018-01-08 21:05:23,990 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.4318936877076412
+2018-01-08 21:05:24,867 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.46511627906976744
+2018-01-08 21:05:25,013 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.4983388704318937
+2018-01-08 21:05:25,167 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.53156146179402
+2018-01-08 21:05:25,314 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.5647840531561462
+2018-01-08 21:05:25,880 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.5980066445182725
+2018-01-08 21:05:26,025 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.6312292358803987
+2018-01-08 21:05:26,170 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.6644518272425249
+2018-01-08 21:05:26,319 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.6976744186046512
+2018-01-08 21:05:26,466 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.7308970099667774
+2018-01-08 21:05:26,611 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.7641196013289037
+2018-01-08 21:05:26,771 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.7973421926910298
+2018-01-08 21:05:27,946 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.8305647840531563
+2018-01-08 21:05:28,091 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.8637873754152824
+2018-01-08 21:05:28,237 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.8970099667774086
+2018-01-08 21:05:28,383 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.9302325581395349
+2018-01-08 21:05:28,529 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.9634551495016611
+2018-01-08 21:05:28,676 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 0.9966777408637874
+2018-01-08 21:05:28,820 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.0299003322259137
+2018-01-08 21:05:28,966 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.06312292358804
+2018-01-08 21:05:29,115 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.0963455149501662
+2018-01-08 21:05:29,261 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.1295681063122924
+2018-01-08 21:05:29,406 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.1627906976744187
+2018-01-08 21:05:29,552 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.196013289036545
+2018-01-08 21:05:29,699 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.229235880398671
+2018-01-08 21:05:29,843 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.2624584717607974
+2018-01-08 21:05:29,988 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.2956810631229236
+2018-01-08 21:05:30,132 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.3289036544850499
+2018-01-08 21:05:30,278 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.3621262458471761
+2018-01-08 21:05:30,422 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.3953488372093024
+2018-01-08 21:05:30,568 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.4285714285714286
+2018-01-08 21:05:30,714 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.4617940199335548
+2018-01-08 21:05:30,859 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.495016611295681
+2018-01-08 21:05:31,003 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.5282392026578073
+2018-01-08 21:05:31,149 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.5614617940199336
+2018-01-08 21:05:31,293 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.5946843853820596
+2018-01-08 21:05:31,437 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.627906976744186
+2018-01-08 21:05:31,581 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.6611295681063125
+2018-01-08 21:05:31,726 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.6943521594684385
+2018-01-08 21:05:31,872 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.7275747508305648
+2018-01-08 21:05:32,018 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.7607973421926908
+2018-01-08 21:05:32,162 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.7940199335548173
+2018-01-08 21:05:32,309 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.8272425249169437
+2018-01-08 21:05:32,453 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.8604651162790697
+2018-01-08 21:05:32,740 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.8936877076411962
+2018-01-08 21:05:32,884 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.9269102990033222
+2018-01-08 21:05:33,028 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.9601328903654487
+2018-01-08 21:05:33,172 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 1.9933554817275747
+2018-01-08 21:05:33,317 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.026578073089701
+2018-01-08 21:05:33,463 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.0598006644518274
+2018-01-08 21:05:33,608 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.0930232558139537
+2018-01-08 21:05:33,755 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.12624584717608
+2018-01-08 21:05:33,903 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.1594684385382057
+2018-01-08 21:05:34,050 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.1926910299003324
+2018-01-08 21:05:34,197 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.225913621262458
+2018-01-08 21:05:34,344 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.259136212624585
+2018-01-08 21:05:34,489 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.292358803986711
+2018-01-08 21:05:34,635 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.3255813953488373
+2018-01-08 21:05:34,779 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.3588039867109636
+2018-01-08 21:05:34,925 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.39202657807309
+2018-01-08 21:05:35,070 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.425249169435216
+2018-01-08 21:05:35,216 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.458471760797342
+2018-01-08 21:05:35,364 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.4916943521594686
+2018-01-08 21:05:35,509 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.524916943521595
+2018-01-08 21:05:35,656 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.558139534883721
+2018-01-08 21:05:35,801 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.5913621262458473
+2018-01-08 21:05:35,946 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.6245847176079735
+2018-01-08 21:05:36,092 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.6578073089700998
+2018-01-08 21:05:36,237 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.691029900332226
+2018-01-08 21:05:36,383 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.7242524916943522
+2018-01-08 21:05:36,527 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.7574750830564785
+2018-01-08 21:05:36,671 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.7906976744186047
+2018-01-08 21:05:36,817 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.823920265780731
+2018-01-08 21:05:37,237 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.857142857142857
+2018-01-08 21:05:37,382 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.8903654485049834
+2018-01-08 21:05:37,529 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.9235880398671097
+2018-01-08 21:05:37,677 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.956810631229236
+2018-01-08 21:05:37,823 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 2.990033222591362
+2018-01-08 21:05:37,970 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.0232558139534884
+2018-01-08 21:05:38,116 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.0564784053156147
+2018-01-08 21:05:38,263 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.089700996677741
+2018-01-08 21:05:38,408 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.122923588039867
+2018-01-08 21:05:38,555 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.1561461794019934
+2018-01-08 21:05:38,700 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.189368770764119
+2018-01-08 21:05:38,847 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.222591362126246
+2018-01-08 21:05:38,990 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.255813953488372
+2018-01-08 21:05:39,102 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  - BatteryMonitor performing due diligence. SCET = 1515467139102 Rover state = Sleeping State
+2018-01-08 21:05:39,102 [batteryMonitor] INFO space.exploration.mars.rover.power.BatteryMonitor  -  Battery primaryUnits = 1200 auxiliaryPowerUnits = 100
+2018-01-08 21:05:39,135 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.289036544850498
+2018-01-08 21:05:39,280 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.322259136212625
+2018-01-08 21:05:39,427 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.355481727574751
+2018-01-08 21:05:39,573 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.388704318936877
+2018-01-08 21:05:39,718 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.421926910299003
+2018-01-08 21:05:39,863 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.4551495016611296
+2018-01-08 21:05:40,761 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.488372093023256
+2018-01-08 21:05:40,907 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.5215946843853816
+2018-01-08 21:05:41,051 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.5548172757475087
+2018-01-08 21:05:41,198 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.5880398671096345
+2018-01-08 21:05:41,343 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.6212624584717608
+2018-01-08 21:05:41,488 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.6544850498338874
+2018-01-08 21:05:41,635 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.6877076411960132
+2018-01-08 21:05:41,781 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.7209302325581395
+2018-01-08 21:05:41,926 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.7541528239202657
+2018-01-08 21:05:42,071 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.7873754152823924
+2018-01-08 21:05:42,218 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.820598006644518
+2018-01-08 21:05:42,367 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.8538205980066444
+2018-01-08 21:05:42,511 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.887043189368771
+2018-01-08 21:05:42,657 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.9202657807308974
+2018-01-08 21:05:42,801 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.953488372093023
+2018-01-08 21:05:42,945 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 3.9867109634551494
+2018-01-08 21:05:43,090 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.019933554817276
+2018-01-08 21:05:43,237 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.053156146179402
+2018-01-08 21:05:43,385 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.086378737541528
+2018-01-08 21:05:43,531 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.119601328903655
+2018-01-08 21:05:43,675 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.152823920265781
+2018-01-08 21:05:43,822 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.186046511627907
+2018-01-08 21:05:43,966 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.219269102990033
+2018-01-08 21:05:44,111 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.25249169435216
+2018-01-08 21:05:44,256 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.285714285714286
+2018-01-08 21:05:44,400 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.318936877076411
+2018-01-08 21:05:44,544 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.352159468438539
+2018-01-08 21:05:44,689 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.385382059800665
+2018-01-08 21:05:44,833 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.4186046511627906
+2018-01-08 21:05:44,976 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.451827242524916
+2018-01-08 21:05:45,121 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.485049833887043
+2018-01-08 21:05:45,266 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.51827242524917
+2018-01-08 21:05:45,411 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.5514950166112955
+2018-01-08 21:05:45,555 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.584717607973422
+2018-01-08 21:05:45,703 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.617940199335548
+2018-01-08 21:05:45,849 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.651162790697675
+2018-01-08 21:05:45,995 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.6843853820598005
+2018-01-08 21:05:46,141 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.717607973421927
+2018-01-08 21:05:46,285 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.750830564784053
+2018-01-08 21:05:46,431 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.78405315614618
+2018-01-08 21:05:46,577 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.817275747508306
+2018-01-08 21:05:46,724 [remsCalibration] INFO space.exploration.mars.rover.service.WeatherDataService  - REMS Sensor Calibrating Progress = 4.850498338870432

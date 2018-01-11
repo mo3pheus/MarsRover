@@ -31,6 +31,7 @@ public class ExploringState implements State {
     }
 
     public void receiveMessage(byte[] message) {
+        rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         try {
             rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
@@ -45,6 +46,7 @@ public class ExploringState implements State {
 
     public void exploreArea() {
         requests.mark();
+        rover.reflectRoverState();
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         Cell          robot         = marsArchitect.getRobot();
         rover.configureSpectrometer(robot.getLocation());
@@ -54,6 +56,7 @@ public class ExploringState implements State {
 
         marsArchitect.createSpectrometerAnimationEngine(rover.getSpectrometer());
         marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
+
         marsArchitect.returnSurfaceToNormal();
 
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location

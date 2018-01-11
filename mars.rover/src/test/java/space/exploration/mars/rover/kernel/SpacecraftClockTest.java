@@ -44,6 +44,7 @@ public class SpacecraftClockTest extends TestCase {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println("Ephemeris Time = " + clock.getEphemerisTime());
             System.out.println("Clock internal time = " + clock.getInternalClock() +
                                        " getUTCTime = " + clock.getUTCTime() +
                                        " corresponding sclk is = " +

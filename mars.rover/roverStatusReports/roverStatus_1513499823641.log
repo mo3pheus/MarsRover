@@ -876,7 +876,7 @@ java.lang.NumberFormatException: empty String
 	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:78)
 	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:43)
 	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:335)
-	at space.exploration.mars.rover.kernel.SensingState.scanSurroundings(SensingState.java:102)
+	at space.exploration.mars.rover.kernel.LidarSensingState.scanSurroundings(SensingState.java:102)
 	at space.exploration.mars.rover.kernel.Rover.scanSurroundings(Rover.java:307)
 	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:85)
 	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:303)

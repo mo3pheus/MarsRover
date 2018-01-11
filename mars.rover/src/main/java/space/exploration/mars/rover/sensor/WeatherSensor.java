@@ -1,107 +1,120 @@
 package space.exploration.mars.rover.sensor;
 
+import com.google.protobuf.ByteString;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
-import space.exploration.communications.protocol.service.SeasonalWeather;
-import space.exploration.communications.protocol.service.WeatherData;
-import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.service.WeatherRDRData;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
-import space.exploration.mars.rover.service.WeatherQueryService;
+import space.exploration.mars.rover.service.WeatherDataService;
 import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;
 
-import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.*;
 
 /**
  * Created by skorgao on 10/10/2017.
  */
 public class WeatherSensor implements IsEquipment {
+    private static final String WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
+    private static final int    NUM_CALIBRATION_THREADS = 100;
 
-    private static final String              WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
-    private              Logger              logger                  = LoggerFactory.getLogger(WeatherSensor.class);
-    private              WeatherQueryService rems                    = null;
-    private              int                 fullLifeSpan            = 0;
-    private              int                 lifeSpan                = 0;
-    private              Rover               rover                   = null;
-    private              double              queryRate               = 0.0d;
-    private              long                createTimeStamp         = System.currentTimeMillis();
+    private Logger logger = LoggerFactory.getLogger(WeatherSensor.class);
+
+    private          double                                            staleDataThresholdHours  = 0.0d;
+    private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = null;
+    private          WeatherDataService                                weatherDataService       = null;
+    private          int                                               fullLifeSpan             = 0;
+    private          int                                               lifeSpan                 = 0;
+    private          Rover                                             rover                    = null;
+    private          double                                            queryRate                = 0.0d;
+    private volatile boolean                                           calibratingSensor        = false;
+    private volatile double                                            calibrationKickOffTime   = 0.0d;
+    private          Future<File>[]                                    calibrationTasks         = null;
+    private          ExecutorService                                   calibrationService       = null;
+    private          ExecutorService                                   calibrationKickOff       = null;
+    private          int                                               sol                      = 0;
 
     public WeatherSensor(Rover rover) {
         this.rover = rover;
         this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(WEATHER_SENSOR_LIFESPAN));
         this.fullLifeSpan = lifeSpan;
-        rems = new WeatherQueryService();
+        this.weatherEnvReducedDataMap = new HashMap<>();
+        this.weatherDataService = new WeatherDataService();
+        this.staleDataThresholdHours = TimeUnit.MILLISECONDS.toHours(rover.getOneSolDuration());
+        calibrationService = Executors.newFixedThreadPool(NUM_CALIBRATION_THREADS);
+        calibrationTasks = new Future[NUM_CALIBRATION_THREADS];
+        calibrationKickOff = Executors.newSingleThreadExecutor();
+    }
+
+    public boolean isCalibratingSensor() {
+        return calibratingSensor;
+    }
+
+    public void calibrateREMS(int sol) {
+        this.sol = sol;
+        calibrationKickOff.submit(new CalibrationKickOff());
+        calibrationKickOffTime = rover.getSpacecraftClock().getEphemerisTime();
     }
 
     public byte[] getWeather() {
         lifeSpan--;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder       = getGeneralRoverStatus();
-        WeatherData.WeatherPayload                weatherPayload = null;
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder             = getGeneralRoverStatus();
+        Double                                    currentEphemerisTime = rover.getSpacecraftClock().getEphemerisTime();
 
-        try {
-            /*rems -> RoverEnvironmentalMonitoringStation */
-            rems.setSolNumber(rover.getSpacecraftClock().getSol());
-            rems.executeQuery();
-            weatherPayload = (WeatherData.WeatherPayload) rems.getResponse();
-        } catch (Exception e) {
-            logger.error("Weather Service had an exception.", e);
-        }
-
-        if (weatherPayload != null) {
-            rBuilder.setModuleMessage(weatherPayload.toByteString());
-            rBuilder.setNotes("Curiosity Actual");
+        if (calibratingSensor) {
+            logger.error("REMS sensor is calibrating. Please wait for a while.");
+            rBuilder.setNotes("Weather Data not available at this time. REMS Calibration is ongoing. Calibration " +
+                                      "kicked off at TDB = " + calibrationKickOffTime
+                                      + " Time elapsed = " + (rover.getSpacecraftClock().getEphemerisTime() -
+                    calibrationKickOffTime) + " seconds"
+            );
         } else {
-            rBuilder.setNotes("No weather data at this time");
-        }
+            WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = findClosestWeatherData(currentEphemerisTime);
+            if (weatherEnvReducedData != null) {
+                rBuilder.setModuleMessage(ByteString.copyFrom(findClosestWeatherData(currentEphemerisTime)
+                                                                      .toByteArray()));
 
-        double hoursElapsed = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis() - createTimeStamp);
-        queryRate = (hoursElapsed > 0) ? (double) (fullLifeSpan - lifeSpan) / hoursElapsed : 0.0d;
-        logger.info("Current weatherQueryRate/hour = " + queryRate + " max allowed = 1000.0/hr");
-
-
-        return rBuilder.build().toByteArray();
-    }
-
-    @Deprecated
-    public byte[] getWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
-        logger.debug(weatherQuery.toString());
-        lifeSpan--;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder               = getGeneralRoverStatus();
-        SeasonalWeather.SeasonalWeatherPayload    seasonalWeatherPayload = null;
-
-        try {
-            /*rems -> RoverEnvironmentalMonitoringStation */
-            if (weatherQuery.getTerrestrialEndDate() != null && weatherQuery.getTerrestrialStartDate() != null) {
-                rems.setEarthEndDate(weatherQuery.getTerrestrialEndDate());
-                rems.setEarthStartDate(weatherQuery.getTerrestrialStartDate());
-            } else if (weatherQuery.getSolNumber() != -1) {
-                rems.setSolNumber(weatherQuery.getSolNumber());
+            } else {
+                rBuilder.setNotes("Weather Data not available at this time. Please calibrate the weatherSensor." +
+                                          " Calendar Time = " + rover.getSpacecraftClock().getCalendarTime());
             }
-
-            rems.executeQuery();
-            seasonalWeatherPayload = WeatherUtil.getSeasonalWeatherPayload(rems.getResponseAsString());
-        } catch (Exception e) {
-            logger.error("Weather Service had an exception.", e);
         }
-
-        if (seasonalWeatherPayload != null) {
-            rBuilder.setModuleMessage(seasonalWeatherPayload.toByteString());
-            rBuilder.setNotes("Curiosity Actual");
-        } else {
-            rBuilder.setNotes("No weather data at this time");
-        }
-
-        double hoursElapsed = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis() - createTimeStamp);
-        queryRate = (hoursElapsed > 0) ? (double) (fullLifeSpan - lifeSpan) / hoursElapsed : 0.0d;
-        logger.info("Current weatherQueryRate/hour = " + queryRate + " max allowed = 1000.0/hr");
-
 
         return rBuilder.build().toByteArray();
     }
 
+    private WeatherRDRData.WeatherEnvReducedData findClosestWeatherData(Double epemerisTime) {
+        if (weatherEnvReducedDataMap.containsKey(epemerisTime)) {
+            return weatherEnvReducedDataMap.get(epemerisTime);
+        }
+
+        Double                               timeDiff              = Double.MAX_VALUE;
+        WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = null;
+        for (Double ephTime : weatherEnvReducedDataMap.keySet()) {
+            Double diff = Math.abs(epemerisTime - ephTime);
+            if (diff < timeDiff) {
+                timeDiff = diff;
+                weatherEnvReducedData = weatherEnvReducedDataMap.get(ephTime);
+            }
+        }
+
+        /* Check if the difference is more than 24 hours. This is because the weatherSensor aboard Curiosity is
+        exercised for only 5 minutes a day */
+        if (timeDiff >= TimeUnit.HOURS.toSeconds((long) staleDataThresholdHours)) {
+            logger.error("WeatherData is too stale. Calendar Date = " + rover.getSpacecraftClock().getCalendarTime());
+            return null;
+        }
+
+        return weatherEnvReducedData;
+    }
 
     public double getQueryRate() {
         return queryRate;
@@ -135,5 +148,65 @@ public class WeatherSensor implements IsEquipment {
         rBuilder.setLocation(RoverUtil.getLocation(rover.getMarsArchitect().getRobot().getLocation()));
         rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         return rBuilder;
+    }
+
+    private class CalibrationKickOff implements Runnable {
+        @Override
+        public void run() {
+            Thread.currentThread().setName("remsCalibrationKickOff");
+            calibratingSensor = true;
+            List<String> urls     = weatherDataService.getURLCombinations(sol);
+            int          biteSize = (int) ((double) urls.size() / (double) NUM_CALIBRATION_THREADS);
+
+            for (int i = 0; i < calibrationTasks.length; i++) {
+                calibrationTasks[i] = calibrationService.submit(new RemsCalibrater(urls, i, biteSize));
+            }
+
+            boolean calibrationSuccessful = false;
+            try {
+                for (int i = 0; i < calibrationTasks.length; i++) {
+                    File weatherFile = calibrationTasks[i].get();
+                    if (weatherFile != null) {
+                        weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
+                        calibrationSuccessful = true;
+                        break;
+                    } else {
+                        logger.info("Thread id = " + i + " finished checking urls, file not found. Done status = " +
+                                            calibrationTasks[i].isDone());
+                    }
+                }
+                for (Future<File> calibrationTask : calibrationTasks) {
+                    calibrationTask.cancel(true);
+                }
+            } catch (ExecutionException ee) {
+                logger.error("Error while calibrating REMS Sensor for sol = " + sol, ee);
+            } catch (InterruptedException ie) {
+                logger.error("Interruption Error while calibrating REMS Sensor for sol = " + sol, ie);
+            }
+            calibratingSensor = false;
+            logger.info("REMS finished calibration. Time taken = " + (rover.getSpacecraftClock().getEphemerisTime() -
+                    calibrationKickOffTime) + " seconds. Calibration successful = " + Boolean.toString
+                    (calibrationSuccessful));
+        }
+    }
+
+    private class RemsCalibrater implements Callable<File> {
+        List<String> urls     = new ArrayList<>();
+        int          threadId = -1;
+
+        public RemsCalibrater(List<String> urlSet, int threadId, int biteSize) {
+            this.threadId = threadId;
+            for (int i = (threadId * biteSize); i < ((threadId * biteSize) + biteSize); i++) {
+                urls.add(urlSet.get(i));
+            }
+        }
+
+        @Override
+        public File call() throws Exception {
+            Thread.currentThread().setName("remsCalibrationThread" + Integer.toString(threadId));
+            logger.info("ThreadId = " + threadId + " started for remsCalibration for sol = " + sol);
+            File weatherFile = weatherDataService.downloadCalibrationData(urls);
+            return weatherFile;
+        }
     }
 }

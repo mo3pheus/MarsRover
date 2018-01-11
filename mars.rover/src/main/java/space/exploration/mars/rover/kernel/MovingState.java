@@ -58,12 +58,13 @@ public class MovingState implements State {
     }
 
     public void receiveMessage(byte[] message) {
+        rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         try {
             rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
                     .getInstructionQueue().size());
-        } catch (InvalidProtocolBufferException e) {
-            rover.writeErrorLog("Invalid protocol", e);
+        } catch (InvalidProtocolBufferException ipe) {
+            rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
         }
     }
 
@@ -111,6 +112,7 @@ public class MovingState implements State {
     }
 
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
+        rover.reflectRoverState();
         requests.mark();
         MarsArchitect  architect     = rover.getMarsArchitect();
         java.awt.Point robotPosition = rover.getMarsArchitect().getRobot().getLocation();

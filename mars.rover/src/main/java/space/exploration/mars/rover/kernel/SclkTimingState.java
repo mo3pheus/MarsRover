@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
@@ -29,7 +30,14 @@ public class SclkTimingState implements State {
     public void receiveMessage(byte[] message) {
         logger.info("Saving the message to the instruction queue. Current instructionQueue length = " + rover
                 .getInstructionQueue().size());
+        rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
+        try {
+            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+                    .getInstructionQueue().size());
+        } catch (InvalidProtocolBufferException ipe) {
+            rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
+        }
     }
 
     @Override
@@ -43,6 +51,7 @@ public class SclkTimingState implements State {
             logger.info("Synchronizing sclk and positionSensor to " + utcTime);
 
             logger.info("Houston, expect a diagnostics pause. Shutting down paceMaker");
+            rover.reflectRoverState();
             rover.getPacemaker().interrupt();
 
             logger.info("Houston, be advised - garbageCollection is paused. Please wait before sending new signals.");
@@ -131,6 +140,7 @@ public class SclkTimingState implements State {
 
     @Override
     public void getSclkInformation() {
+        rover.reflectRoverState();
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         rBuilder.setModuleReporting(ModuleDirectory.Module.SPACECRAFT_CLOCK.getValue());
         rBuilder.setModuleName(ModuleDirectory.Module.SPACECRAFT_CLOCK.getName());

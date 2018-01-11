@@ -26,6 +26,7 @@ public class SleepingState implements State {
     @Override
     public void receiveMessage(byte[] message) {
         logger.info("Awaking from sleeping state");
+        rover.reflectRoverState();
         sleepingAnimationEngine.wakeupRover();
         rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
                                                                                         .getProperty
@@ -94,6 +95,7 @@ public class SleepingState implements State {
     @Override
     public void sleep() {
         requests.mark();
+        rover.reflectRoverState();
         sleepingAnimationEngine = new SleepingAnimationEngine(rover);
         sleepingAnimationEngine.sleep();
     }
@@ -106,6 +108,7 @@ public class SleepingState implements State {
     @Override
     public void wakeUp() {
         requests.mark();
+        rover.reflectRoverState();
         sleepingAnimationEngine.wakeupRover();
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.setState(rover.getListeningState());
