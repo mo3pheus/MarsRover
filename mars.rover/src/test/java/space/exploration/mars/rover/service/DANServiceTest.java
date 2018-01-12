@@ -49,4 +49,9 @@ public class DANServiceTest extends TestCase {
         System.out.println("End of DAN Calibration test!");
         System.out.println(SEPARATOR);
     }
+
+    @Test
+    public void testDanURL() throws Exception {
+        System.out.println(danService.getQueryString());
+    }
 }

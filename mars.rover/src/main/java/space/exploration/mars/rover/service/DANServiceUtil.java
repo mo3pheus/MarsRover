@@ -3,6 +3,7 @@ package space.exploration.mars.rover.service;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +18,8 @@ public class DANServiceUtil extends QueryService {
     @Override
     public String getQueryString() {
         StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("http://pds-geosciences.wustl.edu/msl/msl-m-dan-3_4-rdr-v1/msldan_1xxx/data" + convertSolToString());
+        queryBuilder.append("http://pds-geosciences.wustl.edu/msl/msl-m-dan-3_4-rdr-v1/msldan_1xxx/data" +
+                                    convertSolToString());
         return queryBuilder.toString();
     }
 
@@ -25,9 +27,9 @@ public class DANServiceUtil extends QueryService {
     public String getTargetURL() {
         try {
             Document responseDoc = Jsoup.connect(getQueryString()).get();
-            for (Element element : responseDoc.getAllElements()) {
+            for (Element element : responseDoc.select("a[href]")) {
                 if (element.text().contains("rpa") && element.text().contains("dat")) {
-                    return element.text();
+                    return (getQueryString() + element.text());
                 }
             }
         } catch (Exception e) {
@@ -41,7 +43,7 @@ public class DANServiceUtil extends QueryService {
         int slots  = 4;
         int digits = Integer.toString(sol).length();
 
-        String convertedInt = "/";
+        String convertedInt = "/sol";
         for (int i = 0; i < (slots - digits); i++) {
             convertedInt += "0";
         }
