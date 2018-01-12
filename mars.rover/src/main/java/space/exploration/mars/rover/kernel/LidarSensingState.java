@@ -71,6 +71,10 @@ public class LidarSensingState implements State {
         logger.debug("Can not move in " + getStateName());
     }
 
+    @Override
+    public void shootNeutrons() {
+    }
+
     public void hibernate() {
     }
 

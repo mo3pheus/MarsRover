@@ -50,6 +50,7 @@ public class Rover {
     State sleepingState;
     State weatherSensingState;
     State sclkBeepingState;
+    State danSensingState;
 
     /* Status messages */
     private long    creationTime = 0l;
@@ -80,6 +81,7 @@ public class Rover {
     private volatile Radio            radio            = null;
     private          Lidar            lidar            = null;
     private          Spectrometer     spectrometer     = null;
+    private          DANSpectrometer  danSpectrometer  = null;
     private          Camera           camera           = null;
     private          Radar            radar            = null;
     private volatile WeatherSensor    weatherSensor    = null;
@@ -157,7 +159,7 @@ public class Rover {
         try {
             if (resultSet.isClosed()) {
                 resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                      ".logTableName"));
+                                                                                              ".logTableName"));
             }
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -165,7 +167,7 @@ public class Rover {
             blob.setBytes(1, targetPackage.toByteArray());
             resultSet.updateBlob("MESSAGE_DETAILS", blob);
             resultSet.updateString("MESSAGE", targetPackage.getAction() + " Instruction Queue length = " +
-                    instructionQueueLength);
+                                              instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
             logger.error("SQLException", e);
@@ -182,7 +184,7 @@ public class Rover {
         try {
             if (resultSet.isClosed()) {
                 resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                      ".logTableName"));
+                                                                                              ".logTableName"));
             }
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -190,7 +192,7 @@ public class Rover {
             blob.setBytes(1, instructionPayload.toByteArray());
             resultSet.updateBlob("MESSAGE_DETAILS", blob);
             resultSet.updateString("MESSAGE", "message added to instruction queue" + " Instruction Queue length = " +
-                    instructionQueueLength);
+                                              instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
             logger.error("SQLException", e);
@@ -206,12 +208,12 @@ public class Rover {
         try {
             if (resultSet.isClosed()) {
                 resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                      ".logTableName"));
+                                                                                              ".logTableName"));
             }
             resultSet.moveToInsertRow();
             resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
             resultSet.updateString("MESSAGE", message + " Instruction Queue length = " +
-                    instructionQueueLength);
+                                              instructionQueueLength);
             resultSet.insertRow();
         } catch (SQLException e) {
             logger.error("SQLException", e);
@@ -227,7 +229,7 @@ public class Rover {
         try {
             if (errorSet.isClosed()) {
                 errorSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                     ".errorTableName"));
+                                                                                             ".errorTableName"));
             }
             errorSet.moveToInsertRow();
             errorSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -270,6 +272,10 @@ public class Rover {
         this.inRechargingModeTime = inRechargingModeTime;
     }
 
+    public synchronized void shootNeutrons() {
+        state.shootNeutrons();
+    }
+
     public String getNasaApiAuthKey() {
         return nasaApiAuthKey;
     }
@@ -302,8 +308,12 @@ public class Rover {
         return sclkBeepingState;
     }
 
-    public State getHibernatingState() {
+    public synchronized State getHibernatingState() {
         return hibernatingState;
+    }
+
+    public synchronized State getDanSensingState() {
+        return danSensingState;
     }
 
     public synchronized NavigationEngine getNavigationEngine() {
@@ -325,6 +335,7 @@ public class Rover {
      */
     public synchronized void updateSensors(int sol) {
         weatherSensor.calibrateREMS(sol);
+        danSpectrometer.calibrateDanSensor(sol);
     }
 
     public synchronized Camera getCamera() {
@@ -378,8 +389,8 @@ public class Rover {
     public synchronized void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
         /* Choose to filter upon modules here */
         logger.debug("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife " +
-                             "set" +
-                             " to " + Boolean.toString(equipmentEOL));
+                     "set" +
+                     " to " + Boolean.toString(equipmentEOL));
         state = transmittingState;
         transmitMessage(message);
     }
@@ -410,6 +421,10 @@ public class Rover {
 
     public synchronized Lidar getLidar() {
         return lidar;
+    }
+
+    public synchronized DANSpectrometer getDanSpectrometer() {
+        return danSpectrometer;
     }
 
     public synchronized Spectrometer getSpectrometer() {
@@ -480,16 +495,16 @@ public class Rover {
             dbPassword = logDBConfig.getProperty("mars.rover.database.password");
             logDBConnection = DriverManager
                     .getConnection("jdbc:mysql://" + logDBConfig.getProperty("mars.rover.database.host")
-                                           + "/" + logDBConfig.getProperty("mars.rover.database.dbName")
-                                           + "?user=" + dbUserName + "&password=" + dbPassword);
+                                   + "/" + logDBConfig.getProperty("mars.rover.database.dbName")
+                                   + "?user=" + dbUserName + "&password=" + dbPassword);
             statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
             resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                  ".logTableName"));
+                                                                                          ".logTableName"));
             errorStatement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
             errorSet = errorStatement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                      ".errorTableName"));
+                                                                                              ".errorTableName"));
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -673,6 +688,7 @@ public class Rover {
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
         this.weatherSensor = new WeatherSensor(this);
+        this.danSpectrometer = new DANSpectrometer(this);
 
         this.spacecraftClock = new SpacecraftClock(marsConfig);
         spacecraftClock.setRover(this);
@@ -693,6 +709,7 @@ public class Rover {
         this.sleepingState = new SleepingState(this);
         this.marsArchitect = new MarsArchitect(marsConfig);
         this.sclkBeepingState = new SclkTimingState(this);
+        this.danSensingState = new DANSensingState(this);
 
         this.instructionQueue = new ArrayList<byte[]>();
         this.logger = LoggerFactory.getLogger(Rover.class);
@@ -721,9 +738,10 @@ public class Rover {
         this.spectrometer = new Spectrometer(location, this);
         spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
 
-        this.camera = (cameraImageCacheLocation == null) ? new Camera(this.marsConfig, this) : new Camera(this.marsConfig,
-                                                                                                          this,
-                                                                                                          cameraImageCacheLocation);
+        this.camera =
+                (cameraImageCacheLocation == null) ? new Camera(this.marsConfig, this) : new Camera(this.marsConfig,
+                        this,
+                        cameraImageCacheLocation);
         this.radar = new Radar(this);
 
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());

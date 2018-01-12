@@ -1,6 +1,3 @@
-/**
- *
- */
 package space.exploration.mars.rover.kernel;
 
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -16,21 +13,20 @@ import space.exploration.mars.rover.environment.MarsArchitect;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author sanketkorgaonkar
- */
-public class ExploringState implements State {
+public class DANSensingState implements State {
+    private Logger logger   = LoggerFactory.getLogger(DANSensingState.class);
     private Meter  requests = null;
     private Rover  rover    = null;
-    private Logger logger   = LoggerFactory.getLogger(ExploringState.class);
 
-    public ExploringState(Rover rover) {
+    public DANSensingState(Rover rover) {
         this.rover = rover;
-        requests = this.rover.getMetrics().newMeter(ExploringState.class, getStateName(), "requests", TimeUnit
+        requests = this.rover.getMetrics().newMeter(DANSensingState.class, getStateName(), "requests", TimeUnit
                 .HOURS);
     }
 
+    @Override
     public void receiveMessage(byte[] message) {
+        logger.info("Adding message to the instruction Queue, current length = " + rover.getInstructionQueue().size());
         rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         try {
@@ -41,26 +37,14 @@ public class ExploringState implements State {
         }
     }
 
+    @Override
     public void shootNeutrons() {
-    }
-
-    public void transmitMessage(byte[] message) {
-    }
-
-    public void exploreArea() {
         requests.mark();
         rover.reflectRoverState();
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         Cell          robot         = marsArchitect.getRobot();
-        rover.configureSpectrometer(robot.getLocation());
-        rover.getSpectrometer().setCellWidth(marsArchitect.getCellWidth());
-        rover.getSpectrometer().setSurfaceComp(marsArchitect.getSoilCompositionMap());
-        rover.getSpectrometer().processSurroundingArea();
 
-        marsArchitect.createSpectrometerAnimationEngine(rover.getSpectrometer());
-        marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
-
-        marsArchitect.returnSurfaceToNormal();
+        /* perform animations here. */
 
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
@@ -69,35 +53,48 @@ public class ExploringState implements State {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
                 .setSolNumber(rover.getSpacecraftClock().getSol())
-                .setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
-                .setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
-                .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE
-                                                                                .getValue())
+                .setLocation(lBuilder.build()).setNotes("DAN Spectroscope engaged!")
+                .setModuleMessage(rover.getDanSpectrometer().scanForWater().toByteString())
+                .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.DAN_SPECTROMETER.getValue())
                 .build();
 
         rover.state = rover.transmittingState;
         rover.transmitMessage(status.toByteArray());
     }
 
-    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
-        logger.debug("Can not move in " + getStateName());
+    @Override
+    public void transmitMessage(byte[] message) {
+
     }
 
+    @Override
+    public void exploreArea() {
+
+    }
+
+    @Override
+    public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage payload) {
+
+    }
+
+    @Override
     public void hibernate() {
+
     }
 
+    @Override
     public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
+
     }
 
+    @Override
     public void scanSurroundings() {
+
     }
 
     @Override
     public void activateCameraById(String camId) {
 
-    }
-
-    public void activateCameraById() {
     }
 
     @Override
@@ -117,22 +114,22 @@ public class ExploringState implements State {
 
     @Override
     public void getSclkInformation() {
-        logger.error("Can not get sclkInformation while in exploringState");
+
     }
 
     @Override
     public String getStateName() {
-        return "Exploring State";
+        return "DANSensing State";
     }
 
     @Override
     public void synchronizeClocks(String utcTime) {
-        logger.debug("Can not sync clocks in " + getStateName());
+
     }
 
     @Override
     public void gracefulShutdown() {
-        logger.error(" Can not perform gracefulShutdown while in " + getStateName());
+
     }
 
     @Override

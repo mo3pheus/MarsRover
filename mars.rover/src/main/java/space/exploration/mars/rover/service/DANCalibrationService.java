@@ -17,8 +17,6 @@ public class DANCalibrationService {
     public static final int[]  BYTE_SCHEMA = {4, 23, 4, 4, 4, 4, 4, 4, 4, 4, 4, 8};
     private             Logger logger      = LoggerFactory.getLogger(DANCalibrationService.class);
 
-    private int sol = 0;
-
     private DANServiceUtil danServiceUtil = null;
 
     public DANCalibrationService(int sol) {
@@ -31,7 +29,6 @@ public class DANCalibrationService {
         byte[]                          content    = ServiceUtil.download(url);
 
         int numRows = (int) (content.length / 71);
-        System.out.println(numRows);
         for (int i = 0; i < numRows; i++) {
             danPayload.add(parseDanData(readDataRow(content, (i * 71))));
         }
@@ -114,7 +111,6 @@ public class DANCalibrationService {
         dBuilder.setLocalSolarTime(new String(fields.get(11)));
 
         DanRDRData.DANDerivedData danDerivedData = dBuilder.build();
-        System.out.println(danDerivedData);
         return danDerivedData;
     }
 

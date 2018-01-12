@@ -3,7 +3,6 @@ package space.exploration.mars.rover.service;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,15 +15,15 @@ public class DANServiceUtil extends QueryService {
     }
 
     @Override
-    public String getQueryString() {
+    public final String getQueryString() {
         StringBuilder queryBuilder = new StringBuilder();
         queryBuilder.append("http://pds-geosciences.wustl.edu/msl/msl-m-dan-3_4-rdr-v1/msldan_1xxx/data" +
-                                    convertSolToString());
+                            convertSolToString());
         return queryBuilder.toString();
     }
 
 
-    public String getTargetURL() {
+    public final String getTargetURL() {
         try {
             Document responseDoc = Jsoup.connect(getQueryString()).get();
             for (Element element : responseDoc.select("a[href]")) {
@@ -39,7 +38,7 @@ public class DANServiceUtil extends QueryService {
         return null;
     }
 
-    private String convertSolToString() {
+    private final String convertSolToString() {
         int slots  = 4;
         int digits = Integer.toString(sol).length();
 

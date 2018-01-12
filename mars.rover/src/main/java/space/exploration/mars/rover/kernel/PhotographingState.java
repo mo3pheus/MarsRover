@@ -65,6 +65,10 @@ public class PhotographingState implements State {
     }
 
     @Override
+    public void shootNeutrons() {
+    }
+
+    @Override
     public Meter getRequests() {
         return requests;
     }

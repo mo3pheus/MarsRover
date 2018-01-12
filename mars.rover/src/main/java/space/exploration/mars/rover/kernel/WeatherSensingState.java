@@ -55,6 +55,10 @@ public class WeatherSensingState implements State {
     }
 
     @Override
+    public void shootNeutrons() {
+    }
+
+    @Override
     public void hibernate() {
 
     }
