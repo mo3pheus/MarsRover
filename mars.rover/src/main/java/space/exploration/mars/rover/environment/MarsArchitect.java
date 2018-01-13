@@ -20,6 +20,7 @@ public class MarsArchitect {
     private LidarAnimationEngine        lidarEngine        = null;
     private SpectrometerAnimationEngine spectrometerEngine = null;
     private WeatherAnimationEngine      weatherEngine      = null;
+    private DanAnimationEngine          danAnimationEngine = null;
     private Cell                        robot              = null;
     private int                         cellWidth          = 0;
     private int                         robotStepSize      = 0;
@@ -40,11 +41,16 @@ public class MarsArchitect {
         this.propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robot);
         this.telemetrySensor = new TelemetrySensor(propulsionEngine);
         this.weatherEngine = new WeatherAnimationEngine(marsConfig, robot.getLocation(), 150, marsSurface);
+        this.danAnimationEngine = new DanAnimationEngine(marsConfig, robot.getLocation(), 200, marsSurface);
         soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
     }
 
     public WeatherAnimationEngine getWeatherEngine() {
         return weatherEngine;
+    }
+
+    public DanAnimationEngine getDanAnimationEngine() {
+        return danAnimationEngine;
     }
 
     public CameraAnimationEngine getCameraAnimationEngine(Point location) {

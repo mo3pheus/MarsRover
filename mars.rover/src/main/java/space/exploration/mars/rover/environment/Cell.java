@@ -9,8 +9,6 @@ import java.util.Properties;
 
 public class Cell extends VirtualElement {
     public static final  String     CELL_WIDTH       = "maze.environment.cell.width";
-    public static final  String     CELL_LOCATION    = "maze.environment.destination.position";
-    public static final  String     CELL_COLOR       = "maze.environment.destination.color";
     public static final  Integer    ROBOT_DEPTH      = new Integer(100);
     /**
      *
@@ -35,8 +33,6 @@ public class Cell extends VirtualElement {
         super.setMatrixConfig(matrixConfig);
         super.setLayout();
         cellWidth = Integer.parseInt(matrixConfig.getProperty(CELL_WIDTH));
-        location = new Point(Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[0]),
-                             Integer.parseInt(matrixConfig.getProperty(CELL_LOCATION).split(",")[1]));
     }
 
     public Point getLocation() {
@@ -63,7 +59,7 @@ public class Cell extends VirtualElement {
 
     @Override
     public Color getColor() {
-        return EnvironmentUtils.findColor(matrixConfig.getProperty(CELL_COLOR));
+        return EnvironmentUtils.findColor(EnvironmentUtils.MARS_SURFACE_COLOR);
     }
 
     public void setColor(Color cellColor) {

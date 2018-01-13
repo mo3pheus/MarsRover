@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.mars.rover.animation.DanAnimationEngine;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
 
@@ -45,6 +46,9 @@ public class DANSensingState implements State {
         Cell          robot         = marsArchitect.getRobot();
 
         /* perform animations here. */
+        DanAnimationEngine danAnimationEngine = marsArchitect.getDanAnimationEngine();
+        danAnimationEngine.updateLocation(robot.getLocation());
+        danAnimationEngine.renderWeatherAnimation();
 
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
@@ -55,7 +59,8 @@ public class DANSensingState implements State {
                 .setSolNumber(rover.getSpacecraftClock().getSol())
                 .setLocation(lBuilder.build()).setNotes("DAN Spectroscope engaged!")
                 .setModuleMessage(rover.getDanSpectrometer().scanForWater().toByteString())
-                .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.DAN_SPECTROMETER.getValue())
+                .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.DAN_SPECTROMETER
+                                                                                .getValue())
                 .build();
 
         rover.state = rover.transmittingState;

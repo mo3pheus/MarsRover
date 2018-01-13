@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DANSpectrometer implements IsEquipment {
-    public static final String                          DAN_UTC_FORMAT = "yyyy-MM-ddThh:mm:ss.sss";
+    public static final String                          DAN_UTC_FORMAT = "yyyy-MM-dd~HH:mm:ss.sss";
     private             Logger                          logger         = LoggerFactory.getLogger(DANSpectrometer.class);
     private             int                             lifeSpan       = 0;
     private             Rover                           rover          = null;
@@ -22,10 +22,19 @@ public class DANSpectrometer implements IsEquipment {
     public DANSpectrometer(Rover rover) {
         this.rover = rover;
         danDerivedData = new ArrayList<>();
+        try {
+            lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.dan.lifespan"), 10);
+        } catch (NumberFormatException nfe) {
+            logger.error("Property not found in marsConfig - mars.rover.dan.lifespan . Defaulting the value to 1000 " +
+                                 "", nfe);
+            lifeSpan = 1000;
+        }
     }
 
     public DanRDRData.DANDerivedData scanForWater() {
-        return SensorUtil.getClosestDanRecord(danDerivedData, (long) rover.getSpacecraftClock().getEphemerisTime());
+        lifeSpan--;
+        return SensorUtil.getClosestDanRecord(danDerivedData, (long) rover.getSpacecraftClock().getInternalClock()
+                .getMillis());
     }
 
     @Override
@@ -60,7 +69,7 @@ public class DANSpectrometer implements IsEquipment {
             this.danDerivedData = danCalibrationService.getDanPayload();
         } catch (IOException e) {
             logger.info("Encountered exception when calibrating DAN Spectrometer, DANDerivedRDRData may not be " +
-                        "available for sol = " + sol, e);
+                                "available for sol = " + sol, e);
         }
     }
 }
