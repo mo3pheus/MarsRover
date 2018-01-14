@@ -59,7 +59,7 @@ public class Cell extends VirtualElement {
 
     @Override
     public Color getColor() {
-        return EnvironmentUtils.findColor(EnvironmentUtils.MARS_SURFACE_COLOR);
+        return EnvironmentUtils.findColor("black");
     }
 
     public void setColor(Color cellColor) {
