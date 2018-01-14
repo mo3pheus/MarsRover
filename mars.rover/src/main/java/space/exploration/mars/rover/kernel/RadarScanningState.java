@@ -71,6 +71,10 @@ public class RadarScanningState implements State {
     }
 
     @Override
+    public void shootNeutrons() {
+    }
+
+    @Override
     public void gracefulShutdown() {
         logger.error(" Can not perform gracefulShutdown while in " + getStateName());
     }

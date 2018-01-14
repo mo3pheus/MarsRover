@@ -77,11 +77,9 @@ public class AnimationUtil {
 
         Grid        grid            = new Grid(marsRoverConfig);
         WallBuilder wallBuilder     = new WallBuilder(marsRoverConfig);
-        Cell        destinationCell = new Cell(marsRoverConfig);
 
         content.add(grid);
         content.add(wallBuilder);
-        content.add(destinationCell);
 
         Map<Point, RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(marsRoverConfig);
         for (Point p : oldRovers.keySet()) {

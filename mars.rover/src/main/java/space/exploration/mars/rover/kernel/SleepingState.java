@@ -38,6 +38,10 @@ public class SleepingState implements State {
     }
 
     @Override
+    public void shootNeutrons() {
+    }
+
+    @Override
     public void synchronizeClocks(String utcTime) {
         logger.debug("Can not sync clocks in " + getStateName());
     }

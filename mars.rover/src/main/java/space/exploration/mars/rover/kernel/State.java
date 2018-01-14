@@ -2,6 +2,7 @@ package space.exploration.mars.rover.kernel;
 
 import com.yammer.metrics.core.Meter;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
+import space.exploration.communications.protocol.service.DanRDRData;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 
 public interface State {
@@ -36,4 +37,6 @@ public interface State {
     void gracefulShutdown();
 
     Meter getRequests();
+
+    void shootNeutrons();
 }

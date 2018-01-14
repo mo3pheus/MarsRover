@@ -10,6 +10,8 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+import static space.exploration.mars.rover.utils.ServiceUtil.download;
+
 public class WeatherDataService {
     public static final  String                  REMS_CALIBRATION_FILE   = "remsCalibrationFile.dat";
     public static final  Integer                 SOL_SECONDS             = 88775;
@@ -153,31 +155,6 @@ public class WeatherDataService {
         }
         solPart += Integer.toString(sol);
         return solPart;
-    }
-
-    private byte[] download(String urlString) throws IOException {
-        URL           url = new URL(urlString);
-        URLConnection uc  = url.openConnection();
-        int           len = uc.getContentLength();
-        InputStream   is  = new BufferedInputStream(uc.getInputStream());
-        try {
-            byte[] data   = new byte[len];
-            int    offset = 0;
-            while (offset < len) {
-                int read = is.read(data, offset, data.length - offset);
-                if (read < 0) {
-                    break;
-                }
-                offset += read;
-            }
-            if (offset < len) {
-                throw new IOException(
-                        String.format("Read %d bytes; expected %d", offset, len));
-            }
-            return data;
-        } finally {
-            is.close();
-        }
     }
 
     private boolean downloadFile(String url) {

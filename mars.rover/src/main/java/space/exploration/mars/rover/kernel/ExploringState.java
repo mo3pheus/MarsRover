@@ -41,6 +41,9 @@ public class ExploringState implements State {
         }
     }
 
+    public void shootNeutrons() {
+    }
+
     public void transmitMessage(byte[] message) {
     }
 

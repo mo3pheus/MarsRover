@@ -72,8 +72,8 @@ public class ListeningState implements State {
             for (InstructionPayload.TargetPackage tp : payload.getTargetsList()) {
                 rover.writeSystemLog(tp, rover.getInstructionQueue().size());
                 logger.info(Long.toString(System.currentTimeMillis()) + ","
-                                    + Integer.toString(tp.getRoverModule()) + "," + tp.getAction()
-                                    + " Current instructionQueue length = " + rover.getInstructionQueue().size());
+                            + Integer.toString(tp.getRoverModule()) + "," + tp.getAction()
+                            + " Current instructionQueue length = " + rover.getInstructionQueue().size());
 
                 if (!requestPower(tp)) {
                     logger.error("Going into hibernation from Listening state.");
@@ -89,7 +89,7 @@ public class ListeningState implements State {
 
                     Properties marsConfig = rover.getMarsConfig();
                     Color robotColor = EnvironmentUtils.findColor(marsConfig.getProperty(EnvironmentUtils
-                                                                                                 .ROBOT_COLOR));
+                            .ROBOT_COLOR));
                     rover.getMarsArchitect().getRobot().setColor(robotColor);
                     rover.getMarsArchitect().getMarsSurface().repaint();
 
@@ -120,9 +120,13 @@ public class ListeningState implements State {
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.KERNEL.getValue()) {
                         rover.state = rover.listeningState;
                         rover.gracefulShutdown();
+                    } else if (tp.getRoverModule() == ModuleDirectory.Module.DAN_SPECTROMETER.getValue()) {
+                        logger.info(" Rover " + Rover.ROVER_NAME + " will do a Dynamic Albedo of Neutrons Scan");
+                        rover.state = rover.danSensingState;
+                        rover.shootNeutrons();
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.SPACECRAFT_CLOCK.getValue()) {
                         logger.info("Rover will get detailed spacecraftClock information. " +
-                                            "Houston, this is CuriosityActual.");
+                                    "Houston, this is CuriosityActual.");
                         rover.state = rover.sclkBeepingState;
 
                         switch (tp.getAction()) {
@@ -161,11 +165,11 @@ public class ListeningState implements State {
             String propulsionChoice = rover.getMarsConfig().getProperty(PROPULSION_CHOICE);
             AStarPropulsionUnit aStarPropulsionUnit = new AStarPropulsionUnit(rover, robotPosition, new java.awt.Point
                     (destination.getX(),
-                     destination.getY()));
+                            destination.getY()));
             LearningPropulsionUnit learningPropulsionUnit = new LearningPropulsionUnit(rover, robotPosition, new java
                     .awt
                     .Point(destination.getX(),
-                           destination.getY()));
+                    destination.getY()));
 
             PropulsionUnit powerTran = (propulsionChoice.equals("rl")) ? learningPropulsionUnit : aStarPropulsionUnit;
             powerRequested = powerTran.getPowerConsumptionPerUnit() * powerTran.getTrajectory().size();
@@ -227,6 +231,10 @@ public class ListeningState implements State {
     @Override
     public void wakeUp() {
 
+    }
+
+    @Override
+    public void shootNeutrons() {
     }
 
     @Override
