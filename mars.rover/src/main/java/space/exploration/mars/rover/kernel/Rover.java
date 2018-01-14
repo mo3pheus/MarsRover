@@ -698,6 +698,7 @@ public class Rover {
         this.positionSensor = new PositionSensor(marsConfig);
         positionSensor.start();
 
+        this.marsArchitect = new MarsArchitect(marsConfig);
         this.listeningState = new ListeningState(this);
         this.hibernatingState = new HibernatingState(this);
         this.exploringState = new ExploringState(this);
@@ -708,7 +709,6 @@ public class Rover {
         this.radarScanningState = new RadarScanningState(this);
         this.weatherSensingState = new WeatherSensingState(this);
         this.sleepingState = new SleepingState(this);
-        this.marsArchitect = new MarsArchitect(marsConfig);
         this.sclkBeepingState = new SclkTimingState(this);
         this.danSensingState = new DANSensingState(this);
 

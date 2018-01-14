@@ -3,10 +3,10 @@ package space.exploration.mars.rover.sensor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.service.DanRDRData;
+import space.exploration.communications.protocol.service.DanRDRDataSeriesOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.service.DANCalibrationService;
-import space.exploration.mars.rover.utils.SensorUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +16,7 @@ public class DANSpectrometer implements IsEquipment {
     public static final String                          DAN_UTC_FORMAT = "yyyy-MM-dd~HH:mm:ss.sss";
     private             Logger                          logger         = LoggerFactory.getLogger(DANSpectrometer.class);
     private             int                             lifeSpan       = 0;
+    private             int                             sol            = 0;
     private             Rover                           rover          = null;
     private             List<DanRDRData.DANDerivedData> danDerivedData = null;
 
@@ -23,7 +24,7 @@ public class DANSpectrometer implements IsEquipment {
         this.rover = rover;
         danDerivedData = new ArrayList<>();
         try {
-            lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.dan.lifespan"), 10);
+            lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.dan.lifespan"));
         } catch (NumberFormatException nfe) {
             logger.error("Property not found in marsConfig - mars.rover.dan.lifespan . Defaulting the value to 1000 " +
                                  "", nfe);
@@ -31,10 +32,15 @@ public class DANSpectrometer implements IsEquipment {
         }
     }
 
-    public DanRDRData.DANDerivedData scanForWater() {
+    public DanRDRDataSeriesOuterClass.DanRDRDataSeries scanForWater() {
         lifeSpan--;
-        return SensorUtil.getClosestDanRecord(danDerivedData, (long) rover.getSpacecraftClock().getInternalClock()
-                .getMillis());
+        DanRDRDataSeriesOuterClass.DanRDRDataSeries.Builder dBuilder = DanRDRDataSeriesOuterClass.DanRDRDataSeries
+                .newBuilder();
+        if (danDerivedData != null) {
+            dBuilder.addAllDanData(danDerivedData);
+        }
+        dBuilder.setSol(sol);
+        return dBuilder.build();
     }
 
     @Override
@@ -64,6 +70,7 @@ public class DANSpectrometer implements IsEquipment {
      */
     public void calibrateDanSensor(int sol) {
         logger.info("Commencing calibration for DAN Spectrometer for sol = " + sol);
+        this.sol = sol;
         DANCalibrationService danCalibrationService = new DANCalibrationService(sol);
         try {
             this.danDerivedData = danCalibrationService.getDanPayload();
