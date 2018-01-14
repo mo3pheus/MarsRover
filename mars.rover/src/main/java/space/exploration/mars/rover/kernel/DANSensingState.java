@@ -8,19 +8,17 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
-import space.exploration.mars.rover.animation.SleepBreather;
+import space.exploration.mars.rover.animation.DanAnimationEngine;
 import space.exploration.mars.rover.animation.SleepingAnimationEngine;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
 
-import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class DANSensingState implements State {
     private Logger                  logger             = LoggerFactory.getLogger(DANSensingState.class);
     private Meter                   requests           = null;
     private Rover                   rover              = null;
-    private SleepingAnimationEngine danAnimationEngine = null;
 
     public DANSensingState(Rover rover) {
         this.rover = rover;
@@ -47,19 +45,11 @@ public class DANSensingState implements State {
         rover.reflectRoverState();
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         Cell          robot         = marsArchitect.getRobot();
-        Color         robotColor    = robot.getColor();
 
         /* perform animations here. */
-        SleepBreather sleepBreather = new SleepBreather(robot, new Color(102, 0, 102), new Color(153, 204, 255));
-        danAnimationEngine = new SleepingAnimationEngine(rover, sleepBreather);
-        danAnimationEngine.sleep();
-        try {
-            Thread.sleep(30000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        danAnimationEngine.wakeupRover();
-        robot.setColor(robotColor);
+        DanAnimationEngine danAnimationEngine = new DanAnimationEngine(rover.getMarsConfig(), robot.getLocation(),
+                                                                       200l, marsArchitect.getMarsSurface());
+        danAnimationEngine.renderDanAnimation();
 
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder().setX(robot.getLocation().x).setY(robot.getLocation

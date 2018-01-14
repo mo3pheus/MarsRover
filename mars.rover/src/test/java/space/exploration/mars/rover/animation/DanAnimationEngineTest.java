@@ -24,6 +24,6 @@ public class DanAnimationEngineTest extends TestCase {
 
     @Test
     public void testAnimation() throws Exception {
-        danAnimationEngine.renderWeatherAnimation();
+        danAnimationEngine.renderDanAnimation();
     }
 }

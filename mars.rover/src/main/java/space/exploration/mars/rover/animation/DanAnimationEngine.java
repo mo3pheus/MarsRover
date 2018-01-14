@@ -24,13 +24,16 @@ public class DanAnimationEngine {
         this.location = location;
     }
 
-    public void renderWeatherAnimation() {
+    public void renderDanAnimation() {
         JLayeredPane contentPane = AnimationUtil.getContent(marsConfig);
-        //contentPane.add(robot, Cell.ROBOT_DEPTH);
         int NUM_FLASHES = 10;
         for (int i = 0; i < NUM_FLASHES; i++) {
-            DanScanCell danScanCell = new DanScanCell(marsConfig, location);
-            contentPane.add(danScanCell, new Integer(Cell.ROBOT_DEPTH + 1));
+            Cell blueCell = new Cell(marsConfig);
+            blueCell.setCellWidth(15);
+            blueCell.setLocation(location);
+            //blueCell.setColor(new Color(102,0,102));
+            blueCell.setColor(new Color(51,153,255));
+            contentPane.add(blueCell, new Integer(Cell.ROBOT_DEPTH + 1));
             marsSurface.setContentPane(contentPane);
             marsSurface.setVisible(true);
             try {
@@ -38,10 +41,14 @@ public class DanAnimationEngine {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            contentPane.remove(danScanCell);
+            contentPane.remove(blueCell);
 
-            danScanCell.setVisible(false);
-            contentPane.add(danScanCell, new Integer(Cell.ROBOT_DEPTH + 1));
+            blueCell = new Cell(marsConfig);
+            blueCell.setCellWidth(15);
+            blueCell.setLocation(location);
+            blueCell.setColor(new Color(51,153,255));
+            blueCell.setVisible(false);
+            contentPane.add(blueCell, new Integer(Cell.ROBOT_DEPTH + 1));
             marsSurface.setContentPane(contentPane);
             marsSurface.setVisible(true);
             try {
@@ -49,7 +56,7 @@ public class DanAnimationEngine {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            contentPane.remove(danScanCell);
+            contentPane.remove(blueCell);
         }
     }
 }
