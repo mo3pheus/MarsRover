@@ -5,10 +5,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import junit.framework.TestCase;
+import org.junit.Ignore;
 import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
+import sun.awt.SunGraphicsCallback;
 
 import java.util.concurrent.TimeUnit;
 
+@Ignore
 public class PhotoQueryServiceTest extends TestCase {
     private PhotoQueryService photoQueryService = new PhotoQueryService();
 
@@ -21,6 +24,7 @@ public class PhotoQueryServiceTest extends TestCase {
     @org.junit.Test
     public void testFHAZCamera() {
         photoQueryService.setCamId("FHAZ");
+        photoQueryService.setSol(1210);
         System.out.println("Formatted query = " + photoQueryService.getQueryString());
         photoQueryService.executeQuery();
         System.out.println(photoQueryService.getQueryResponseType().toString());
