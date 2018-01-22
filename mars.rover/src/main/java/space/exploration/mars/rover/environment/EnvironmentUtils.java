@@ -82,13 +82,17 @@ public class EnvironmentUtils {
             return new Color(238, 118, 0);
         } else if (color.equals("spectrometerScanColor")) {
             return new Color(227, 168, 105);
+        } else if (color.equals("APXS")) {
+            return new Color(227, 168, 105);
+        } else if (color.equals("DAN")) {
+            return new Color(153, 153, 255);
         } else if (color.equals("black")) {
             return Color.black;
         } else if (color.equals("robotSleepMode")) {
             return new Color(40, 40, 40);
-        } else if (color.equals("robotShutdownMode")){
+        } else if (color.equals("robotShutdownMode")) {
             return new Color(0, 102, 255);
-        }else {
+        } else {
             logger.error(" Color is unknown - known choices are red, lightGray, darkGray, blue, green " + color);
             System.out.println(" Color is unknown - known choices are red, lightGray, darkGray, blue, green " + color);
             return null;

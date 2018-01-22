@@ -57,9 +57,7 @@ public class ExploringState implements State {
         rover.getSpectrometer().setSurfaceComp(marsArchitect.getSoilCompositionMap());
         rover.getSpectrometer().processSurroundingArea();
 
-        marsArchitect.createSpectrometerAnimationEngine(rover.getSpectrometer());
-        marsArchitect.getSpectrometerAnimationEngine().activateSpectrometer();
-
+        marsArchitect.getSpectrometerAnimationEngine().renderAnimation();
         marsArchitect.returnSurfaceToNormal();
 
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location

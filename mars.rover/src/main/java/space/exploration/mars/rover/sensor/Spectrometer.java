@@ -103,7 +103,7 @@ public class Spectrometer implements IsEquipment {
         for (int i = ((int) origin.getX() - cellWidth); i <= ((int) origin.getX() + cellWidth); i = (i + cellWidth)) {
             for (int j = ((int) origin.getY() - cellWidth); j <= ((int) origin.getY() + cellWidth); j = (j
                     + cellWidth)) {
-                if (i < 0 || j < 0 || i >= frameWidth || j > frameWidth) {
+                if (i < 0 || j < 0 || i >= frameWidth || j >= frameWidth) {
                     // If the point is outside the defined grid,
                     // soil composition will be invalid
                     continue;
