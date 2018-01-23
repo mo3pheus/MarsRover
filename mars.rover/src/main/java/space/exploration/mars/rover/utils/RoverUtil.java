@@ -138,4 +138,20 @@ public class RoverUtil {
         }
         return errorMessage;
     }
+
+    public static boolean detectShutdownSignal(Rover rover){
+        for(byte[] message:rover.getInstructionQueue()){
+            try {
+                InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
+                        .InstructionPayload.parseFrom(message);
+                if(instructionPayload.getTargets(0).getRoverModule() == ModuleDirectory.Module.KERNEL.getValue()
+                        && instructionPayload.getTargets(0).getAction().equals("Graceful Shutdown.")){
+                    return true;
+                }
+            } catch (InvalidProtocolBufferException invalidProtocol) {
+                rover.writeErrorLog("Invalid protocol buffer for instructionPayload", invalidProtocol);
+            }
+        }
+        return false;
+    }
 }

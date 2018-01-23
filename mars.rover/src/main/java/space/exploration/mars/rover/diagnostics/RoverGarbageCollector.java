@@ -42,6 +42,14 @@ public class RoverGarbageCollector {
                         rover.getInstructionQueue().clear();
                         rover.setState(rover.getTransmittingState());
                         rover.transmitMessage(distressSignal);
+
+                        if (RoverUtil.detectShutdownSignal(rover)) {
+                            logger.info("RoverGC detected a graceful shutdown signal in instructionQueue. Will honor " +
+                                                "gracefulShutdown.");
+                            rover.setState(rover.getListeningState());
+                            rover.gracefulShutdown();
+                        }
+
                     } catch (Exception e) {
                         logger.error("Encountered error while generating distressSignal.", e);
                         rover.getInstructionQueue().clear();
