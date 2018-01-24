@@ -36,7 +36,7 @@ public class Rover {
     public static final String PROPULSION_CHOICE = "mars.rover.propulsion.engine.choice";
 
     protected String marsConfigLocation = null;
-    State state = null;
+    volatile  State  state              = null;
 
     /* Kernel definition */
     State listeningState;
@@ -68,14 +68,14 @@ public class Rover {
     private boolean    dbLoggingEnabled = false;
 
     /* Configuration */
-    private Properties    marsConfig               = null;
-    private Properties    comsConfig               = null;
-    private Properties    logDBConfig              = null;
-    private String        cameraImageCacheLocation = null;
-    private String        dataArchiveLocation      = null;
-    private MarsArchitect marsArchitect            = null;
-    private Point         location                 = null;
-    private String        nasaApiAuthKey           = null;
+    private volatile MarsArchitect marsArchitect            = null;
+    private          Properties    marsConfig               = null;
+    private          Properties    comsConfig               = null;
+    private          Properties    logDBConfig              = null;
+    private          String        cameraImageCacheLocation = null;
+    private          String        dataArchiveLocation      = null;
+    private          Point         location                 = null;
+    private          String        nasaApiAuthKey           = null;
 
     /* Equipment Stack */
     private volatile Radio            radio            = null;
@@ -96,6 +96,7 @@ public class Rover {
     private volatile List<byte[]>          instructionQueue     = null;
     private volatile long                  inRechargingModeTime = 0l;
     private volatile long                  timeMessageReceived  = 0l;
+    private volatile boolean               gracefulShutdown     = false;
 
     /* Resource Management Stack */
     private volatile Semaphore             accessLock            = new Semaphore(1);
@@ -246,6 +247,14 @@ public class Rover {
         } catch (Exception exception) {
             logger.error("Exception while writing errorLog", e);
         }
+    }
+
+    public boolean isGracefulShutdown() {
+        return gracefulShutdown;
+    }
+
+    public synchronized void setGracefulShutdown(boolean gracefulShutdown) {
+        this.gracefulShutdown = gracefulShutdown;
     }
 
     public MetricsRegistry getMetrics() {

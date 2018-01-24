@@ -34,22 +34,22 @@ public class RoverGarbageCollector {
                             "reached.";
                     logger.error(errorMessage);
 
-                    errorMessage += " Number of messages lost = " + RoverUtil.getInstructionQueue(rover);
+                    errorMessage += " Number of messages lost = " + rover.getInstructionQueue().size() + " :: " +
+                            RoverUtil.getInstructionQueue(rover);
 
                     try {
                         byte[] distressSignal = getDistressSignal();
                         rover.writeErrorLog(errorMessage, null);
                         rover.getInstructionQueue().clear();
-                        rover.setState(rover.getTransmittingState());
-                        rover.transmitMessage(distressSignal);
 
-                        if (RoverUtil.detectShutdownSignal(rover)) {
+                        if (rover.isGracefulShutdown()) {
                             logger.info("RoverGC detected a graceful shutdown signal in instructionQueue. Will honor " +
                                                 "gracefulShutdown.");
-                            rover.setState(rover.getListeningState());
-                            rover.gracefulShutdown();
+                            rover.getInstructionQueue().add(RoverUtil.getGracefulShutdownCommand().toByteArray());
                         }
 
+                        rover.setState(rover.getTransmittingState());
+                        rover.transmitMessage(distressSignal);
                     } catch (Exception e) {
                         logger.error("Encountered error while generating distressSignal.", e);
                         rover.getInstructionQueue().clear();
