@@ -3,7 +3,6 @@ package space.exploration.mars.rover.environment;
 import space.exploration.communications.protocol.propulsion.TelemetryPacketOuterClass;
 import space.exploration.mars.rover.animation.*;
 import space.exploration.mars.rover.sensor.Lidar;
-import space.exploration.mars.rover.sensor.Spectrometer;
 import space.exploration.mars.rover.sensor.TelemetrySensor;
 
 import javax.swing.*;
@@ -18,9 +17,9 @@ public class MarsArchitect {
     private Properties                  marsConfig         = null;
     private TrackingAnimationEngine     propulsionEngine   = null;
     private LidarAnimationEngine        lidarEngine        = null;
-    private SpectrometerAnimationEngine spectrometerEngine = null;
+    private SpecAnimationEngine         spectrometerEngine = null;
     private WeatherAnimationEngine      weatherEngine      = null;
-    private DanAnimationEngine          danAnimationEngine = null;
+    private SpecAnimationEngine         danAnimationEngine = null;
     private Cell                        robot              = null;
     private int                         cellWidth          = 0;
     private int                         robotStepSize      = 0;
@@ -41,7 +40,10 @@ public class MarsArchitect {
         this.propulsionEngine = new TrackingAnimationEngine(marsConfig, marsSurface, robot);
         this.telemetrySensor = new TelemetrySensor(propulsionEngine);
         this.weatherEngine = new WeatherAnimationEngine(marsConfig, robot.getLocation(), 150, marsSurface);
-        this.danAnimationEngine = new DanAnimationEngine(marsConfig, robot.getLocation(), 200, marsSurface);
+        this.danAnimationEngine = (new SpecAnimationFactory(marsSurface, marsConfig, robot))
+                .getSpectrometerAnimationEngine("DAN");
+        this.spectrometerEngine = (new SpecAnimationFactory(marsSurface, marsConfig, robot))
+                .getSpectrometerAnimationEngine("APXS");
         soilCompositionMap = EnvironmentUtils.setUpSurfaceComposition(marsConfig);
     }
 
@@ -49,7 +51,7 @@ public class MarsArchitect {
         return weatherEngine;
     }
 
-    public DanAnimationEngine getDanAnimationEngine() {
+    public SpecAnimationEngine getDanAnimationEngine() {
         return danAnimationEngine;
     }
 
@@ -62,12 +64,8 @@ public class MarsArchitect {
         return this.soilCompositionMap;
     }
 
-    public SpectrometerAnimationEngine getSpectrometerAnimationEngine() {
+    public SpecAnimationEngine getSpectrometerAnimationEngine() {
         return this.spectrometerEngine;
-    }
-
-    public void createSpectrometerAnimationEngine(Spectrometer spectrometer) {
-        this.spectrometerEngine = new SpectrometerAnimationEngine(marsConfig, robot, spectrometer, marsSurface);
     }
 
     public SoilComposition getSoilComposition(Point p) {

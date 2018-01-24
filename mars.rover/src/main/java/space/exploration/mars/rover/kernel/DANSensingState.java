@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
-import space.exploration.mars.rover.animation.DanAnimationEngine;
-import space.exploration.mars.rover.animation.SleepingAnimationEngine;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
 
@@ -47,9 +45,7 @@ public class DANSensingState implements State {
         Cell          robot         = marsArchitect.getRobot();
 
         /* perform animations here. */
-        DanAnimationEngine danAnimationEngine = new DanAnimationEngine(rover.getMarsConfig(), robot.getLocation(),
-                                                                       200l, marsArchitect.getMarsSurface());
-        danAnimationEngine.renderDanAnimation();
+        marsArchitect.getDanAnimationEngine().renderAnimation();
 
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder().setX(robot.getLocation().x).setY(robot.getLocation

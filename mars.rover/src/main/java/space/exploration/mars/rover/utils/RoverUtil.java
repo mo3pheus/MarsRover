@@ -130,12 +130,38 @@ public class RoverUtil {
             try {
                 InstructionPayloadOuterClass.InstructionPayload instructionPayload =
                         InstructionPayloadOuterClass.InstructionPayload.parseFrom(message);
-
-                errorMessage += instructionPayload.toString();
+                boolean gracefulShutdown = false;
+                for (InstructionPayloadOuterClass.InstructionPayload.TargetPackage tp : instructionPayload
+                        .getTargetsList()) {
+                    if (tp.getAction().equals("Graceful Shutdown.") && tp.getRoverModule() == ModuleDirectory.Module
+                            .KERNEL.getValue()) {
+                        gracefulShutdown = true;
+                        rover.setGracefulShutdown(true);
+                        break;
+                    }
+                }
+                if (!gracefulShutdown) {
+                    errorMessage += instructionPayload.toString();
+                }
             } catch (InvalidProtocolBufferException invalidProtocol) {
                 rover.writeErrorLog("Invalid protocol buffer for instructionPayload", invalidProtocol);
             }
         }
         return errorMessage;
+    }
+
+    public static final InstructionPayloadOuterClass.InstructionPayload getGracefulShutdownCommand() {
+        InstructionPayloadOuterClass.InstructionPayload.Builder iBuilder = InstructionPayloadOuterClass
+                .InstructionPayload.newBuilder();
+        iBuilder.setTimeStamp(System.currentTimeMillis());
+        iBuilder.setSOS(false);
+
+        InstructionPayloadOuterClass.InstructionPayload.TargetPackage.Builder tBuilder = InstructionPayloadOuterClass
+                .InstructionPayload.TargetPackage.newBuilder();
+        tBuilder.setAction("Graceful Shutdown.");
+        tBuilder.setRoverModule(ModuleDirectory.Module.KERNEL.getValue());
+        tBuilder.setEstimatedPowerUsage(0);
+        iBuilder.addTargets(tBuilder.build());
+        return iBuilder.build();
     }
 }
