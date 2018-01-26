@@ -13,20 +13,21 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
+import space.exploration.mars.rover.sensors.apxs.ApxsData;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author sanketkorgaonkar
  */
-public class ExploringState implements State {
+public class ApxsSensingState implements State {
     private Meter  requests = null;
     private Rover  rover    = null;
-    private Logger logger   = LoggerFactory.getLogger(ExploringState.class);
+    private Logger logger   = LoggerFactory.getLogger(ApxsSensingState.class);
 
-    public ExploringState(Rover rover) {
+    public ApxsSensingState(Rover rover) {
         this.rover = rover;
-        requests = this.rover.getMetrics().newMeter(ExploringState.class, getStateName(), "requests", TimeUnit
+        requests = this.rover.getMetrics().newMeter(ApxsSensingState.class, "ApxsSpectrometer", "requests", TimeUnit
                 .HOURS);
     }
 
@@ -50,13 +51,9 @@ public class ExploringState implements State {
     public void exploreArea() {
         requests.mark();
         rover.reflectRoverState();
+
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         Cell          robot         = marsArchitect.getRobot();
-        rover.configureSpectrometer(robot.getLocation());
-        rover.getSpectrometer().setCellWidth(marsArchitect.getCellWidth());
-        rover.getSpectrometer().setSurfaceComp(marsArchitect.getSoilCompositionMap());
-        rover.getSpectrometer().processSurroundingArea();
-
         marsArchitect.getSpectrometerAnimationEngine().renderAnimation();
         marsArchitect.returnSurfaceToNormal();
 
@@ -64,14 +61,32 @@ public class ExploringState implements State {
                 .newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
                         ().y);
 
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
-        RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
-                .setSolNumber(rover.getSpacecraftClock().getSol())
-                .setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
-                .setModuleMessage(rover.getSpectrometer().getSpectrometerReading().toByteString())
-                .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE
-                                                                                .getValue())
-                .build();
+        ApxsData.ApxsDataPacket           apxsDataPacket = rover.getApxsSpectrometer().getApxsDataPacket();
+        RoverStatusOuterClass.RoverStatus status         = null;
+
+        if (apxsDataPacket == null) {
+            String errorString = "ApxsData unavailable for sol = " + rover.getSpacecraftClock().getSol();
+            logger.error(errorString);
+            RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+            status = rBuilder.setBatteryLevel(rover.getBattery()
+                                                      .getPrimaryPowerUnits())
+                    .setSolNumber(rover.getSpacecraftClock().getSol())
+                    .setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
+                    .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE
+                                                                                    .getValue())
+                    .setNotes(errorString)
+                    .build();
+        } else {
+            RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+            status = rBuilder.setBatteryLevel(rover.getBattery()
+                                                      .getPrimaryPowerUnits())
+                    .setSolNumber(rover.getSpacecraftClock().getSol())
+                    .setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
+                    .setModuleMessage(rover.getApxsSpectrometer().getApxsDataPacket().toByteString())
+                    .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE
+                                                                                    .getValue())
+                    .build();
+        }
 
         rover.state = rover.transmittingState;
         rover.transmitMessage(status.toByteArray());
@@ -120,7 +135,7 @@ public class ExploringState implements State {
 
     @Override
     public String getStateName() {
-        return "Exploring State";
+        return "ApxsSensingState";
     }
 
     @Override

@@ -80,7 +80,7 @@ public class Rover {
     /* Equipment Stack */
     private volatile Radio            radio            = null;
     private          Lidar            lidar            = null;
-    private          Spectrometer     spectrometer     = null;
+    private          ApxsSpectrometer apxsSpectrometer = null;
     private          DANSpectrometer  danSpectrometer  = null;
     private          Camera           camera           = null;
     private          Radar            radar            = null;
@@ -345,6 +345,7 @@ public class Rover {
     public synchronized void updateSensors(int sol) {
         weatherSensor.calibrateREMS(sol);
         danSpectrometer.calibrateDanSensor(sol);
+        apxsSpectrometer.calibrateApxsSpectrometer(sol);
     }
 
     public synchronized Camera getCamera() {
@@ -436,8 +437,8 @@ public class Rover {
         return danSpectrometer;
     }
 
-    public synchronized Spectrometer getSpectrometer() {
-        return spectrometer;
+    public synchronized ApxsSpectrometer getApxsSpectrometer() {
+        return apxsSpectrometer;
     }
 
     public synchronized State getState() {
@@ -520,11 +521,9 @@ public class Rover {
     }
 
     public synchronized void configureSpectrometer(Point origin) {
-        int     spectrometerLifeSpan = spectrometer.getLifeSpan();
-        boolean spectrometerEOL      = spectrometer.isEndOfLife();
-        this.spectrometer = new Spectrometer(origin, this);
-        spectrometer.setLifeSpan(spectrometerLifeSpan);
-        spectrometer.setEndOfLife(spectrometerEOL);
+        int     spectrometerLifeSpan = apxsSpectrometer.getLifeSpan();
+        boolean spectrometerEOL      = apxsSpectrometer.isEndOfLife();
+        this.apxsSpectrometer = new ApxsSpectrometer(this);
     }
 
     public synchronized void configureLidar(Point origin, int cellWidth, int range) {
@@ -598,7 +597,7 @@ public class Rover {
         equipmentList.add(this.radio);
         equipmentList.add(this.lidar);
         equipmentList.add(this.camera);
-        equipmentList.add(this.spectrometer);
+        equipmentList.add(this.apxsSpectrometer);
         equipmentList.add(this.radar);
         equipmentList.add(this.weatherSensor);
         equipmentList.add(this.spacecraftClock);
@@ -710,7 +709,7 @@ public class Rover {
         this.marsArchitect = new MarsArchitect(marsConfig);
         this.listeningState = new ListeningState(this);
         this.hibernatingState = new HibernatingState(this);
-        this.exploringState = new ExploringState(this);
+        this.exploringState = new ApxsSensingState(this);
         this.movingState = new MovingState(this);
         this.photoGraphingState = new PhotographingState(this);
         this.sensingState = new LidarSensingState(this);
@@ -745,9 +744,7 @@ public class Rover {
         this.lidar = new Lidar(location, cellWidth, cellWidth, this);
         lidar.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Lidar.LIFESPAN)));
 
-        this.spectrometer = new Spectrometer(location, this);
-        spectrometer.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Spectrometer.LIFESPAN)));
-
+        this.apxsSpectrometer = new ApxsSpectrometer(this);
         this.camera =
                 (cameraImageCacheLocation == null) ? new Camera(this.marsConfig, this) : new Camera(this.marsConfig,
                                                                                                     this,

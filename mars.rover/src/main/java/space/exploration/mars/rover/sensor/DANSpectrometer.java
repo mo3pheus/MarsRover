@@ -69,13 +69,13 @@ public class DANSpectrometer implements IsEquipment {
      * @param sol
      */
     public void calibrateDanSensor(int sol) {
-        logger.info("Commencing calibration for DAN Spectrometer for sol = " + sol);
+        logger.info("Commencing calibration for DAN ApxsSpectrometer for sol = " + sol);
         this.sol = sol;
         DANCalibrationService danCalibrationService = new DANCalibrationService(sol);
         try {
             this.danDerivedData = danCalibrationService.getDanPayload();
         } catch (IOException e) {
-            logger.info("Encountered exception when calibrating DAN Spectrometer, DANDerivedRDRData may not be " +
+            logger.info("Encountered exception when calibrating DAN ApxsSpectrometer, DANDerivedRDRData may not be " +
                                 "available for sol = " + sol, e);
         }
     }

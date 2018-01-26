@@ -50,4 +50,37 @@ public class ApxsCalibrationTest extends TestCase {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testUrlExtraction() {
+        ApxsDataService apxsDataService = null;
+        try {
+            apxsDataService = new ApxsDataService(1294);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ApxsData.ApxsDataPacket apxsDataPacket = apxsDataService.getApxsDataPacket();
+        assertNotNull(apxsDataPacket);
+        assertEquals(1294, apxsDataPacket.getSol());
+
+        double totalPercentage = 0.0d;
+        for (ApxsData.ApxsDataPacket.apxsElement apxsElement : apxsDataPacket.getElementCompositionList()) {
+            totalPercentage += apxsElement.getPercentage();
+        }
+        assertTrue(totalPercentage > 99.9d);
+
+        System.out.println(apxsDataPacket);
+        System.out.println(PRETTY_STRING);
+    }
+
+    @Test
+    public void testInvalidUrl() throws IOException {
+        boolean exceptionThrown = false;
+        try {
+            ApxsDataService apxsDataService = new ApxsDataService(-122);
+        } catch (IOException io) {
+            exceptionThrown = true;
+        }
+        assertTrue(exceptionThrown);
+    }
 }

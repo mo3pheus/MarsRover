@@ -42,34 +42,27 @@ public class ServiceUtil {
         return new File(fileName);
     }
 
-    public static final ApxsData.ApxsDataPacket extractApxsData(File apxsDataFile) {
+    public static final ApxsData.ApxsDataPacket extractApxsData(File apxsDataFile) throws IOException {
         ApxsData.ApxsDataPacket.Builder apxsBuilder = ApxsData.ApxsDataPacket.newBuilder();
 
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(apxsDataFile));
-            String         dataLine       = null;
-            boolean        first          = true;
-            while ((dataLine = bufferedReader.readLine()) != null) {
-                if (!first) {
-                    String[] dataParts = dataLine.split(",");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(apxsDataFile));
+        String         dataLine       = null;
+        boolean        first          = true;
+        while ((dataLine = bufferedReader.readLine()) != null) {
+            if (!first) {
+                String[] dataParts = dataLine.split(",");
 
-                    ApxsData.ApxsDataPacket.apxsElement.Builder elementBuilder = ApxsData.ApxsDataPacket.apxsElement
-                            .newBuilder();
-                    elementBuilder.setOxide(dataParts[0]);
-                    elementBuilder.setPercentage(Double.parseDouble(dataParts[1]));
-                    elementBuilder.setUncertainty(Double.parseDouble(dataParts[2]));
-                    apxsBuilder.addElementComposition(elementBuilder.build());
-                } else {
-                    first = false;
-                }
+                ApxsData.ApxsDataPacket.apxsElement.Builder elementBuilder = ApxsData.ApxsDataPacket.apxsElement
+                        .newBuilder();
+                elementBuilder.setOxide(dataParts[0]);
+                elementBuilder.setPercentage(Double.parseDouble(dataParts[1]));
+                elementBuilder.setUncertainty(Double.parseDouble(dataParts[2]));
+                apxsBuilder.addElementComposition(elementBuilder.build());
+            } else {
+                first = false;
             }
-        } catch (NumberFormatException nfe) {
-            logger.error("Error parsing DataFile " + apxsDataFile.getName(), nfe);
-        } catch (FileNotFoundException e) {
-            logger.error("ApxsDataFile missing.", e);
-        } catch (IOException e) {
-            logger.error("ApxsDataFile missing or corrupted.", e);
         }
+
         return apxsBuilder.build();
     }
 }
