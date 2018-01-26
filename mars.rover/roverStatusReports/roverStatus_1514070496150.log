@@ -8,7 +8,7 @@
 2017-12-23 17:08:21,396 [roverMain] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
 2017-12-23 17:08:23,398 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=525,y=100]
 2017-12-23 17:08:24,401 [roverMain] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
-2017-12-23 17:08:25,404 [roverMain] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:08:25,404 [roverMain] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:08:26,629 [roverMain] INFO space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
 2017-12-23 17:08:27,633 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
 2017-12-23 17:08:29,093 [roverMain] INFO space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
@@ -350,7 +350,7 @@ targets {
 
 2017-12-23 17:09:34,591 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514070574591,5,Explore Current instructionQueue length = 0
 2017-12-23 17:09:34,592 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:09:35,592 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:09:35,592 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:10:05,727 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25636068182678E8
 stateCuriosity: -4.1086917152E7
 stateCuriosity: -1.11142220744E8
@@ -414,7 +414,7 @@ targets {
 
 2017-12-23 17:10:14,839 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514070614839,5,Explore Current instructionQueue length = 0
 2017-12-23 17:10:14,839 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:10:15,839 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:10:15,839 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:10:45,900 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25638468182678E8
 stateCuriosity: -4.1061429237E7
 stateCuriosity: -1.11171981202E8
@@ -528,7 +528,7 @@ targets {
 
 2017-12-23 17:11:04,015 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514070664015,5,Explore Current instructionQueue length = 0
 2017-12-23 17:11:04,015 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:11:05,015 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:11:05,015 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:11:35,067 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25641408182677E8
 stateCuriosity: -4.1030240992E7
 stateCuriosity: -1.11208352462E8
@@ -1141,7 +1141,7 @@ targets {
 
 2017-12-23 17:15:01,926 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514070901926,5,Explore Current instructionQueue length = 0
 2017-12-23 17:15:01,926 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:15:02,927 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:15:02,927 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:15:32,975 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25655688182675E8
 stateCuriosity: -4.087983028E7
 stateCuriosity: -1.11384443231E8
@@ -1674,7 +1674,7 @@ targets {
 
 2017-12-23 17:18:38,631 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514071118631,5,Explore Current instructionQueue length = 0
 2017-12-23 17:18:38,631 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:18:39,631 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:18:39,631 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:19:09,677 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25668708182672E8
 stateCuriosity: -4.0744446489E7
 stateCuriosity: -1.11545990283E8
@@ -3657,7 +3657,7 @@ sclkValue: " 1/01444:22:16:05:80546"
 2017-12-23 17:33:32,327 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 438.574
 2017-12-23 17:33:38,289 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514072018289,5,Explore Current instructionQueue length = 6
 2017-12-23 17:33:38,289 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:33:39,290 [roverGarbageCollector] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:33:39,290 [roverGarbageCollector] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:34:09,378 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25722708182662E8
 stateCuriosity: -4.0169319176E7
 stateCuriosity: -1.12228522935E8
@@ -5109,7 +5109,7 @@ targets {
 
 2017-12-23 17:42:47,857 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514072567857,5,Explore Current instructionQueue length = 0
 2017-12-23 17:42:47,857 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:42:48,857 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:42:48,857 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:43:18,903 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25755648182655E8
 stateCuriosity: -3.9811727577E7
 stateCuriosity: -1.12635402423E8
@@ -5223,7 +5223,7 @@ targets {
 
 2017-12-23 17:43:37,016 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514072617016,5,Explore Current instructionQueue length = 0
 2017-12-23 17:43:37,016 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:43:38,016 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:43:38,016 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:44:08,063 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25758588182655E8
 stateCuriosity: -3.9780244006E7
 stateCuriosity: -1.12672068951E8
@@ -5968,7 +5968,7 @@ targets {
 
 2017-12-23 17:49:39,061 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514072979061,5,Explore Current instructionQueue length = 2
 2017-12-23 17:49:39,062 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:49:40,062 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:49:40,062 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:50:10,151 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25780308182651E8
 stateCuriosity: -3.9546235565E7
 stateCuriosity: -1.12946542549E8
@@ -6954,7 +6954,7 @@ targets {
 
 2017-12-23 17:55:42,583 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514073342583,5,Explore Current instructionQueue length = 0
 2017-12-23 17:55:42,584 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 17:55:43,584 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 17:55:43,584 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 17:56:13,628 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25802148182646E8
 stateCuriosity: -3.9303554638E7
 stateCuriosity: -1.13223299812E8
@@ -7983,7 +7983,7 @@ targets {
 
 2017-12-23 18:02:45,438 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514073765438,5,Explore Current instructionQueue length = 11
 2017-12-23 18:02:45,438 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 18:02:46,439 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 18:02:46,439 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 18:03:16,491 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25827528182642E8
 stateCuriosity: -3.9016927465E7
 stateCuriosity: -1.13537466702E8
@@ -8310,7 +8310,7 @@ targets {
 
 2017-12-23 18:06:28,783 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514073988783,5,Explore Current instructionQueue length = 6
 2017-12-23 18:06:28,783 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 18:06:29,783 [roverGarbageCollector] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 18:06:29,783 [roverGarbageCollector] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 18:06:59,828 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25840908182639E8
 stateCuriosity: -3.8867813743E7
 stateCuriosity: -1.13702272797E8
@@ -8410,7 +8410,7 @@ sclkValue: " 1/01446:07:20:32:51282"
 2017-12-23 18:07:32,150 [radio] INFO space.exploration.mars.rover.communication.Radio  - One Way Light Time computed by SPICE :: 442.563
 2017-12-23 18:07:38,119 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514074058119,5,Explore Current instructionQueue length = 4
 2017-12-23 18:07:38,119 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 18:07:39,120 [roverGarbageCollector] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 18:07:39,120 [roverGarbageCollector] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 18:08:09,163 [roverGarbageCollector] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25845048182638E8
 stateCuriosity: -3.8821981888E7
 stateCuriosity: -1.13753639886E8
@@ -8718,7 +8718,7 @@ targets {
 
 2017-12-23 18:09:57,465 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514074197465,5,Explore Current instructionQueue length = 1
 2017-12-23 18:09:57,466 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 18:09:58,466 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 18:09:58,466 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 18:10:28,520 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25853448182637E8
 stateCuriosity: -3.872908573E7
 stateCuriosity: -1.13858637609E8
@@ -9116,7 +9116,7 @@ targets {
 
 2017-12-23 18:13:04,558 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1514074384557,5,Explore Current instructionQueue length = 0
 2017-12-23 18:13:04,558 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2017-12-23 18:13:05,558 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2017-12-23 18:13:05,558 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2017-12-23 18:13:35,612 [radio] ERROR space.exploration.mars.rover.communication.Radio  - Encountered exception when getting comsDelay. There may be a coverage gap at this time.Radio is returning the last known communications delay.
 java.lang.NumberFormatException: empty String
 	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1842)
@@ -9128,7 +9128,7 @@ java.lang.NumberFormatException: empty String
 	at space.exploration.mars.rover.communication.Radio.sendMessage(Radio.java:78)
 	at space.exploration.mars.rover.kernel.TransmittingState.transmitMessage(TransmittingState.java:43)
 	at space.exploration.mars.rover.kernel.Rover.transmitMessage(Rover.java:339)
-	at space.exploration.mars.rover.kernel.ExploringState.exploreArea(ExploringState.java:66)
+	at space.exploration.mars.rover.kernel.ApxsSensingState.exploreArea(ExploringState.java:66)
 	at space.exploration.mars.rover.kernel.Rover.exploreArea(Rover.java:335)
 	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:93)
 	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:307)

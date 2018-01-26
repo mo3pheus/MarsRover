@@ -16,7 +16,7 @@ java.lang.NumberFormatException: null
 2018-01-21 21:26:07,450 [roverMain] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
 2018-01-21 21:26:09,458 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=525,y=100]
 2018-01-21 21:26:10,461 [roverMain] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
-2018-01-21 21:26:11,464 [roverMain] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:26:11,464 [roverMain] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:26:12,791 [roverMain] INFO space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
 2018-01-21 21:26:13,794 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
 2018-01-21 21:26:15,049 [roverMain] INFO space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
@@ -264,7 +264,7 @@ targets {
 
 2018-01-21 21:26:33,748 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1516591593748,5,Explore Current instructionQueue length = 0
 2018-01-21 21:26:33,749 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2018-01-21 21:26:34,749 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:26:34,749 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:27:13,948 [radio] INFO space.exploration.mars.rover.kernel.PositionSensor  - Houston - this is curiosityActual.ephemerisTime: 5.25510008182704E8
 stateCuriosity: -4.2373621392E7
 stateCuriosity: -1.09556495561E8
@@ -841,12 +841,12 @@ targets {
 
 2018-01-21 21:28:58,116 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1516591738116,5,Explore Current instructionQueue length = 0
 2018-01-21 21:28:58,116 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2018-01-21 21:28:59,116 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:28:59,116 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:28:59,117 [radio] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
 java.lang.NullPointerException
-	at space.exploration.mars.rover.sensor.Spectrometer$SoilComp.toString(Spectrometer.java:179)
-	at space.exploration.mars.rover.sensor.Spectrometer.processSurroundingArea(Spectrometer.java:116)
-	at space.exploration.mars.rover.kernel.ExploringState.exploreArea(ExploringState.java:58)
+	at space.exploration.mars.rover.sensor.ApxsSpectrometer$SoilComp.toString(Spectrometer.java:179)
+	at space.exploration.mars.rover.sensor.ApxsSpectrometer.processSurroundingArea(Spectrometer.java:116)
+	at space.exploration.mars.rover.kernel.ApxsSensingState.exploreArea(ExploringState.java:58)
 	at space.exploration.mars.rover.kernel.Rover.exploreArea(Rover.java:374)
 	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:107)
 	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:346)
@@ -1021,12 +1021,12 @@ targets {
 
 2018-01-21 21:30:04,909 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1516591804909,5,Explore Current instructionQueue length = 0
 2018-01-21 21:30:04,909 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2018-01-21 21:30:05,910 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:30:05,910 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:30:05,910 [radio] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
 java.lang.NullPointerException
-	at space.exploration.mars.rover.sensor.Spectrometer$SoilComp.toString(Spectrometer.java:179)
-	at space.exploration.mars.rover.sensor.Spectrometer.processSurroundingArea(Spectrometer.java:116)
-	at space.exploration.mars.rover.kernel.ExploringState.exploreArea(ExploringState.java:58)
+	at space.exploration.mars.rover.sensor.ApxsSpectrometer$SoilComp.toString(Spectrometer.java:179)
+	at space.exploration.mars.rover.sensor.ApxsSpectrometer.processSurroundingArea(Spectrometer.java:116)
+	at space.exploration.mars.rover.kernel.ApxsSensingState.exploreArea(ExploringState.java:58)
 	at space.exploration.mars.rover.kernel.Rover.exploreArea(Rover.java:374)
 	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:107)
 	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:346)
