@@ -13,7 +13,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class SpecAnimationEngine implements SpectrometerAnimation {
-    public static final long    DELAY_MS           = TimeUnit.SECONDS.toMillis(3l);
+    public static final long    DELAY_MS           = TimeUnit.SECONDS.toMillis(1l);
     public static final Integer SPECTROMETER_DEPTH = new Integer(99);
 
     private Logger     logger      = LoggerFactory.getLogger(SpecAnimationEngine.class);

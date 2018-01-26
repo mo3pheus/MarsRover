@@ -39,6 +39,8 @@ public class ApxsSpectrometer implements IsEquipment {
     }
 
     public ApxsData.ApxsDataPacket getApxsDataPacket() {
+        requests.mark();
+        lifeSpan--;
         return apxsDataPacket;
     }
 
