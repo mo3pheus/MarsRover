@@ -82,7 +82,7 @@ public class ApxsSensingState implements State {
                                                       .getPrimaryPowerUnits())
                     .setSolNumber(rover.getSpacecraftClock().getSol())
                     .setLocation(lBuilder.build()).setNotes("Spectroscope engaged!")
-                    .setModuleMessage(rover.getApxsSpectrometer().getApxsDataPacket().toByteString())
+                    .setModuleMessage(apxsDataPacket.toByteString())
                     .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SCIENCE
                                                                                     .getValue())
                     .build();
