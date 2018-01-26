@@ -16,7 +16,7 @@ java.lang.NumberFormatException: null
 2018-01-21 21:30:25,471 [roverMain] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
 2018-01-21 21:30:27,473 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=525,y=100]
 2018-01-21 21:30:28,475 [roverMain] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
-2018-01-21 21:30:29,482 [roverMain] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:30:29,482 [roverMain] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:30:30,775 [roverMain] INFO space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
 2018-01-21 21:30:31,782 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
 2018-01-21 21:30:33,083 [roverMain] INFO space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
@@ -814,7 +814,7 @@ targets {
 
 2018-01-21 21:33:19,563 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1516591999563,5,Explore Current instructionQueue length = 0
 2018-01-21 21:33:19,563 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2018-01-21 21:33:20,563 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:33:20,563 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:33:33,732 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 12897ms for sessionid 0x16111f6ce22000e, closing socket connection and attempting reconnect
 2018-01-21 21:33:41,916 [kafka-consumer-scheduler-0] INFO org.I0Itec.zkclient.ZkClient  - Waiting for keeper state SyncConnected
 2018-01-21 21:33:41,932 [roverMain-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
@@ -1019,9 +1019,9 @@ targets {
 2018-01-21 21:34:52,299 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 8894ms for sessionid 0x16111f6ce220011, closing socket connection and attempting reconnect
 2018-01-21 21:35:58,240 [radio] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
 java.lang.NullPointerException
-	at space.exploration.mars.rover.sensor.Spectrometer$SoilComp.toString(Spectrometer.java:179)
-	at space.exploration.mars.rover.sensor.Spectrometer.processSurroundingArea(Spectrometer.java:116)
-	at space.exploration.mars.rover.kernel.ExploringState.exploreArea(ExploringState.java:58)
+	at space.exploration.mars.rover.sensor.ApxsSpectrometer$SoilComp.toString(Spectrometer.java:179)
+	at space.exploration.mars.rover.sensor.ApxsSpectrometer.processSurroundingArea(Spectrometer.java:116)
+	at space.exploration.mars.rover.kernel.ApxsSensingState.exploreArea(ExploringState.java:58)
 	at space.exploration.mars.rover.kernel.Rover.exploreArea(Rover.java:374)
 	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:107)
 	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:346)

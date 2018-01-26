@@ -16,7 +16,7 @@ java.lang.NumberFormatException: null
 2018-01-21 21:36:50,945 [roverMain] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
 2018-01-21 21:36:52,946 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=675,y=675]
 2018-01-21 21:36:53,949 [roverMain] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
-2018-01-21 21:36:54,950 [roverMain] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:36:54,950 [roverMain] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:36:56,273 [roverMain] INFO space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
 2018-01-21 21:36:57,283 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
 2018-01-21 21:36:58,675 [roverMain] INFO space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
@@ -264,7 +264,7 @@ targets {
 
 2018-01-21 21:37:17,427 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1516592237427,5,Explore Current instructionQueue length = 0
 2018-01-21 21:37:17,428 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2018-01-21 21:37:18,430 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:37:18,430 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:37:25,944 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Client session timed out, have not heard from server in 7250ms for sessionid 0x16111f6ce220012, closing socket connection and attempting reconnect
 2018-01-21 21:37:26,046 [roverMain-EventThread] INFO org.I0Itec.zkclient.ZkClient  - zookeeper state changed (Disconnected)
 2018-01-21 21:37:27,266 [roverMain-SendThread(localhost:2181)] INFO org.apache.zookeeper.ClientCnxn  - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)

@@ -8,7 +8,7 @@
 2018-01-21 21:22:27,657 [roverMain] INFO space.exploration.mars.rover.diagnostics.RoverGarbageCollector  - Starting garbageCollection
 2018-01-21 21:22:29,658 [roverMain] INFO space.exploration.mars.rover.kernel.Rover  - Rover current position is = java.awt.Point[x=525,y=100]
 2018-01-21 21:22:30,660 [roverMain] INFO space.exploration.mars.rover.sensor.Lidar  - Lidar initialized and ready!
-2018-01-21 21:22:31,662 [roverMain] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:22:31,662 [roverMain] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:22:33,018 [roverMain] INFO space.exploration.mars.rover.sensor.Camera  - Camera initialized and ready!
 2018-01-21 21:22:34,021 [roverMain] INFO space.exploration.mars.rover.sensor.Radar  - Radar configured:: 
 2018-01-21 21:22:35,379 [roverMain] INFO space.exploration.mars.rover.power.Battery  - Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
@@ -598,12 +598,12 @@ targets {
 
 2018-01-21 21:24:24,015 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - 1516591464015,5,Explore Current instructionQueue length = 0
 2018-01-21 21:24:24,015 [radio] INFO space.exploration.mars.rover.kernel.ListeningState  - Rover Curiosity is on a scientific mission!
-2018-01-21 21:24:25,016 [radio] INFO space.exploration.mars.rover.sensor.Spectrometer  - Spectrometer initialized and ready!
+2018-01-21 21:24:25,016 [radio] INFO space.exploration.mars.rover.sensor.ApxsSpectrometer  - Spectrometer initialized and ready!
 2018-01-21 21:24:25,018 [radio] ERROR space.exploration.mars.rover.communication.Radio  - Houston, we have a problem!
 java.lang.NullPointerException
-	at space.exploration.mars.rover.sensor.Spectrometer$SoilComp.toString(Spectrometer.java:179)
-	at space.exploration.mars.rover.sensor.Spectrometer.processSurroundingArea(Spectrometer.java:116)
-	at space.exploration.mars.rover.kernel.ExploringState.exploreArea(ExploringState.java:58)
+	at space.exploration.mars.rover.sensor.ApxsSpectrometer$SoilComp.toString(Spectrometer.java:179)
+	at space.exploration.mars.rover.sensor.ApxsSpectrometer.processSurroundingArea(Spectrometer.java:116)
+	at space.exploration.mars.rover.kernel.ApxsSensingState.exploreArea(ExploringState.java:58)
 	at space.exploration.mars.rover.kernel.Rover.exploreArea(Rover.java:374)
 	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:107)
 	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:346)
