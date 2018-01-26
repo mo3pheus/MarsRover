@@ -32,15 +32,18 @@ public class ApxsSpectrometer implements IsEquipment {
     public void calibrateApxsSpectrometer(int sol) {
         try {
             apxsDataService = new ApxsDataService(sol);
+            apxsDataPacket = apxsDataService.getApxsDataPacket();
         } catch (IOException e) {
+            apxsDataPacket = null;
             logger.error("ApxsData not available for sol = " + sol, e);
         }
-        apxsDataPacket = apxsDataService.getApxsDataPacket();
     }
 
     public ApxsData.ApxsDataPacket getApxsDataPacket() {
         requests.mark();
-        lifeSpan--;
+        if (apxsDataPacket != null) {
+            lifeSpan--;
+        }
         return apxsDataPacket;
     }
 

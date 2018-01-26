@@ -54,8 +54,6 @@ public class ApxsSensingState implements State {
 
         MarsArchitect marsArchitect = rover.getMarsArchitect();
         Cell          robot         = marsArchitect.getRobot();
-        marsArchitect.getSpectrometerAnimationEngine().renderAnimation();
-        marsArchitect.returnSurfaceToNormal();
 
         RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
                 .newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
@@ -77,6 +75,9 @@ public class ApxsSensingState implements State {
                     .setNotes(errorString)
                     .build();
         } else {
+            marsArchitect.getSpectrometerAnimationEngine().renderAnimation();
+            marsArchitect.returnSurfaceToNormal();
+
             RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
             status = rBuilder.setBatteryLevel(rover.getBattery()
                                                       .getPrimaryPowerUnits())

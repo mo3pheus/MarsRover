@@ -33,10 +33,10 @@ public class DANSpectrometer implements IsEquipment {
     }
 
     public DanRDRDataSeriesOuterClass.DanRDRDataSeries scanForWater() {
-        lifeSpan--;
         DanRDRDataSeriesOuterClass.DanRDRDataSeries.Builder dBuilder = DanRDRDataSeriesOuterClass.DanRDRDataSeries
                 .newBuilder();
         if (danDerivedData != null) {
+            lifeSpan--;
             dBuilder.addAllDanData(danDerivedData);
         }
         dBuilder.setSol(sol);
@@ -63,19 +63,14 @@ public class DANSpectrometer implements IsEquipment {
         return rover.getDanSensingState().getRequests().count();
     }
 
-    /**
-     * This should be fired from the rover during sol Change.
-     *
-     * @param sol
-     */
     public void calibrateDanSensor(int sol) {
-        logger.info("Commencing calibration for DAN ApxsSpectrometer for sol = " + sol);
+        logger.info("Commencing calibration for DAN Spectrometer for sol = " + sol);
         this.sol = sol;
         DANCalibrationService danCalibrationService = new DANCalibrationService(sol);
         try {
             this.danDerivedData = danCalibrationService.getDanPayload();
         } catch (IOException e) {
-            logger.info("Encountered exception when calibrating DAN ApxsSpectrometer, DANDerivedRDRData may not be " +
+            logger.info("Encountered exception when calibrating DAN Spectrometer, DANDerivedRDRData may not be " +
                                 "available for sol = " + sol, e);
         }
     }
