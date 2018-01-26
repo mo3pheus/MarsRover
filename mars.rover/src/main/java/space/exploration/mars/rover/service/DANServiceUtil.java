@@ -22,7 +22,6 @@ public class DANServiceUtil extends QueryService {
         return queryBuilder.toString();
     }
 
-
     public final String getTargetURL() {
         try {
             Document responseDoc = Jsoup.connect(getQueryString()).get();
