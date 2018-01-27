@@ -1,8 +1,11 @@
 package space.exploration.mars.rover.service;
 
 import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import space.exploration.mars.rover.sensors.apxs.ApxsData;
+import space.exploration.mars.rover.utils.FileUtil;
 import space.exploration.mars.rover.utils.ServiceUtil;
 
 import java.io.BufferedReader;
@@ -10,12 +13,17 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+@Ignore
 public class ApxsCalibrationTest extends TestCase {
-    public static final String PRETTY_STRING = "==================================================================";
+    public static final  String PRETTY_STRING     =
+            "==================================================================";
+    private static final String TEST_ARCHIVE_PATH = "/dataArchives/APXS/test/";
 
-    @Override
+    @Before
     public void setUp() {
         System.out.println(PRETTY_STRING);
+        FileUtil.processDirectories("/dataArchives/APXS/");
+        FileUtil.processDirectories("/dataArchives/APXS/test/");
         System.out.println("Running ApxsCalibrationTest");
         System.out.println(PRETTY_STRING);
     }
@@ -53,9 +61,10 @@ public class ApxsCalibrationTest extends TestCase {
 
     @Test
     public void testUrlExtraction() {
+
         ApxsDataService apxsDataService = null;
         try {
-            apxsDataService = new ApxsDataService(1294);
+            apxsDataService = new ApxsDataService(1294, TEST_ARCHIVE_PATH);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +86,7 @@ public class ApxsCalibrationTest extends TestCase {
     public void testInvalidUrl() throws IOException {
         boolean exceptionThrown = false;
         try {
-            ApxsDataService apxsDataService = new ApxsDataService(-122);
+            ApxsDataService apxsDataService = new ApxsDataService(-122, TEST_ARCHIVE_PATH);
         } catch (IOException io) {
             exceptionThrown = true;
         }

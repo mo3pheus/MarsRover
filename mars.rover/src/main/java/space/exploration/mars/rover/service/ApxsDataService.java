@@ -6,24 +6,27 @@ import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.sensors.apxs.ApxsData;
+import space.exploration.mars.rover.utils.FileUtil;
 import space.exploration.mars.rover.utils.ServiceUtil;
 
 import java.io.IOException;
 
 public class ApxsDataService {
+    private String                  archivePath    = null;
     private String                  fileUrl        = "http://pds-geosciences.wustl" +
             ".edu/msl/msl-m-apxs-4_5-rdr-v1/mslapx_1xxx/data/sol";
     private int                     sol            = 0;
     private Logger                  logger         = LoggerFactory.getLogger(ApxsDataService.class);
     private ApxsData.ApxsDataPacket apxsDataPacket = null;
 
-    public ApxsDataService(int sol) throws IOException {
+    public ApxsDataService(int sol, String archivePath) throws IOException {
+        this.archivePath = archivePath;
         this.sol = sol;
         fileUrl += getSolString();
         fileUrl = getTargetURL();
-        apxsDataPacket = ServiceUtil.extractApxsData(ServiceUtil.downloadCsv(fileUrl, ("apxsData_" + Integer
-                .toString
-                        (sol) + ".data")));
+        FileUtil.processDirectories(archivePath);
+        apxsDataPacket = ServiceUtil.extractApxsData(ServiceUtil.downloadCsv(fileUrl, (archivePath + "apxsData_" +
+                Integer.toString(sol) + ".data")));
         ApxsData.ApxsDataPacket.Builder apxsBuilder = ApxsData.ApxsDataPacket.newBuilder().mergeFrom
                 (apxsDataPacket).setSol(sol);
         apxsDataPacket = apxsBuilder.build();

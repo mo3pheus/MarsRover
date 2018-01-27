@@ -75,8 +75,8 @@ public class CameraUtil {
                 image_source_list.add(imgString);
             }
         }
-        processDirectories(dataArchiveLocation + "/" + earthDateDir);
-        processDirectories(dataArchiveLocation + "/" + earthDateDir + "/" + id_Dir);
+        FileUtil.processDirectories(dataArchiveLocation + "/" + earthDateDir);
+        FileUtil.processDirectories(dataArchiveLocation + "/" + earthDateDir + "/" + id_Dir);
 
         int imgIndex = 0;
         for (JsonElement jsonElement : jsonElements) {
@@ -106,13 +106,6 @@ public class CameraUtil {
             logger.error("IOException", io);
         }
         return null;
-    }
-
-    private static void processDirectories(String path) {
-        File temp = new File(path);
-        if (!temp.exists()) {
-            temp.mkdir();
-        }
     }
 
     private static String getImageFileName(String imageSource) throws IllegalArgumentException {

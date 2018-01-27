@@ -22,7 +22,6 @@ public class ApxsSpectrometer implements IsEquipment {
     private ApxsData.ApxsDataPacket apxsDataPacket  = null;
     private Rover                   rover           = null;
 
-
     public ApxsSpectrometer(Rover rover) {
         this.rover = rover;
         requests = this.rover.getMetrics().newMeter(ApxsSpectrometer.class, "ApxsSpectrometer", "requests", TimeUnit
@@ -31,7 +30,7 @@ public class ApxsSpectrometer implements IsEquipment {
 
     public void calibrateApxsSpectrometer(int sol) {
         try {
-            apxsDataService = new ApxsDataService(sol);
+            apxsDataService = new ApxsDataService(sol, rover.getDataArchiveLocation() + "/APXS/");
             apxsDataPacket = apxsDataService.getApxsDataPacket();
         } catch (IOException e) {
             apxsDataPacket = null;
