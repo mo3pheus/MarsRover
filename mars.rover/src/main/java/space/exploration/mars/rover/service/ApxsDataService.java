@@ -12,21 +12,20 @@ import space.exploration.mars.rover.utils.ServiceUtil;
 import java.io.IOException;
 
 public class ApxsDataService {
-    private String                  archivePath    = null;
-    private String                  fileUrl        = "http://pds-geosciences.wustl" +
+    private String                  fileUrl         = "http://pds-geosciences.wustl" +
             ".edu/msl/msl-m-apxs-4_5-rdr-v1/mslapx_1xxx/data/sol";
-    private int                     sol            = 0;
-    private Logger                  logger         = LoggerFactory.getLogger(ApxsDataService.class);
-    private ApxsData.ApxsDataPacket apxsDataPacket = null;
+    private int                     sol             = 0;
+    private Logger                  logger          = LoggerFactory.getLogger(ApxsDataService.class);
+    private ApxsData.ApxsDataPacket apxsDataPacket  = null;
+    private String                  archiveLocation = null;
 
-    public ApxsDataService(int sol, String archivePath) throws IOException {
-        this.archivePath = archivePath;
+    public ApxsDataService(int sol, String archiveLocation) throws IOException {
         this.sol = sol;
         fileUrl += getSolString();
         fileUrl = getTargetURL();
-        FileUtil.processDirectories(archivePath);
-        apxsDataPacket = ServiceUtil.extractApxsData(ServiceUtil.downloadCsv(fileUrl, (archivePath + "apxsData_" +
-                Integer.toString(sol) + ".data")));
+        this.archiveLocation = archiveLocation;
+        apxsDataPacket = ServiceUtil.extractApxsData(ServiceUtil.downloadCsv(fileUrl, archiveLocation + ("apxsData_"
+                + Integer.toString(sol) + ".data")));
         ApxsData.ApxsDataPacket.Builder apxsBuilder = ApxsData.ApxsDataPacket.newBuilder().mergeFrom
                 (apxsDataPacket).setSol(sol);
         apxsDataPacket = apxsBuilder.build();

@@ -1,7 +1,6 @@
 package space.exploration.mars.rover.service;
 
 import junit.framework.TestCase;
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import space.exploration.mars.rover.sensors.apxs.ApxsData;
@@ -33,7 +32,7 @@ public class ApxsCalibrationTest extends TestCase {
         String url = "http://pds-geosciences.wustl" +
                 ".edu/msl/msl-m-apxs-4_5-rdr-v1/mslapx_1xxx/data/sol01444/apb_525711448rwp14440571020_______p1.csv";
         try {
-            File apxsFile = ServiceUtil.downloadCsv(url, "testApxs.txt");
+            File apxsFile = ServiceUtil.downloadCsv(url, "testApxs1.txt");
             assertNotNull(apxsFile);
             BufferedReader bufferedReader = new BufferedReader(new FileReader(apxsFile));
             String         dataLine       = null;
@@ -64,7 +63,7 @@ public class ApxsCalibrationTest extends TestCase {
 
         ApxsDataService apxsDataService = null;
         try {
-            apxsDataService = new ApxsDataService(1294, TEST_ARCHIVE_PATH);
+            apxsDataService = new ApxsDataService(1294,"apxsCalibrationTest");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,7 +85,7 @@ public class ApxsCalibrationTest extends TestCase {
     public void testInvalidUrl() throws IOException {
         boolean exceptionThrown = false;
         try {
-            ApxsDataService apxsDataService = new ApxsDataService(-122, TEST_ARCHIVE_PATH);
+            ApxsDataService apxsDataService = new ApxsDataService(-122,"apxsCalibrationTest");
         } catch (IOException io) {
             exceptionThrown = true;
         }

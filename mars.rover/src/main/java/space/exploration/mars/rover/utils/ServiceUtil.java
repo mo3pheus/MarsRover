@@ -37,8 +37,9 @@ public class ServiceUtil {
     }
 
     public static final File downloadCsv(String urlString, String fileName) throws IOException {
+        byte[]           fileContents     = download(urlString);
         FileOutputStream fileOutputStream = new FileOutputStream(fileName);
-        fileOutputStream.write(download(urlString));
+        fileOutputStream.write(fileContents);
         return new File(fileName);
     }
 
