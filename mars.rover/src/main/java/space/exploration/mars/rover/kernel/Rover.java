@@ -766,27 +766,27 @@ public class Rover {
     protected void shutdownRover() {
         logger.info("Stopping all daemon processes.");
 
-        logger.info(" 3.1 Stopping Pacemaker.");
+        logger.info(" 1. Stopping Pacemaker.");
         pacemaker.hardInterrupt();
         pacemaker = null;
 
-        logger.info(" 3.2 Stopping GarbageCollector.");
+        logger.info(" 2. Stopping GarbageCollector.");
         roverGarbageCollector.hardInterrupt();
         roverGarbageCollector = null;
 
-        logger.info(" 3.3 Stopping BatteryMonitor. ");
+        logger.info(" 3. Stopping BatteryMonitor. ");
         batteryMonitor.hardInterrupt();
         batteryMonitor = null;
 
-        logger.info(" 3.4. Stopping SleepMonitor. ");
+        logger.info(" 4. Stopping SleepMonitor. ");
         sleepMonitor.hardInterrupt();
         sleepMonitor = null;
 
-        logger.info(" 3.5 Stopping PositionSensor.");
+        logger.info(" 5. Stopping PositionSensor.");
         positionSensor.hardInterrupt();
         positionSensor = null;
 
-        logger.info("3.6. Saving properties file. ");
+        logger.info("6. Saving properties file. ");
 
         String utcTime = spacecraftClock.getUTCTime();
         marsConfig.replace(SpacecraftClock.SCLK_START_TIME, utcTime);
@@ -797,15 +797,15 @@ public class Rover {
             logger.error("Encountered an exception when writing properties file during shutdown.", e);
         }
 
-        logger.info(" 3.7 Stopping SpacecraftClock. ");
+        logger.info(" 7. Stopping SpacecraftClock. ");
         spacecraftClock.hardInterrupt();
         spacecraftClock = null;
 
-        logger.info(" 3.8 Shutting down graphics.");
+        logger.info(" 8. Shutting down graphics.");
         marsArchitect.getMarsSurface().dispose();
         marsArchitect = null;
 
-        logger.info(" 3.9 Stopping Radio Communications.");
+        logger.info(" 9. Stopping Radio Communications.");
         radio.stopRadio();
         radio = null;
 
