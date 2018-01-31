@@ -18,7 +18,7 @@ public class ApxsCalibrationTest extends TestCase {
             "==================================================================";
     private static final String TEST_ARCHIVE_PATH = "/dataArchives/APXS/test/";
 
-    @Before
+    @Override
     public void setUp() {
         System.out.println(PRETTY_STRING);
         FileUtil.processDirectories("/dataArchives/APXS/");
@@ -63,7 +63,7 @@ public class ApxsCalibrationTest extends TestCase {
 
         ApxsDataService apxsDataService = null;
         try {
-            apxsDataService = new ApxsDataService(1294,"apxsCalibrationTest");
+            apxsDataService = new ApxsDataService(1294, "apxsCalibrationTest");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,7 +85,7 @@ public class ApxsCalibrationTest extends TestCase {
     public void testInvalidUrl() throws IOException {
         boolean exceptionThrown = false;
         try {
-            ApxsDataService apxsDataService = new ApxsDataService(-122,"apxsCalibrationTest");
+            ApxsDataService apxsDataService = new ApxsDataService(-122, "apxsCalibrationTest");
         } catch (IOException io) {
             exceptionThrown = true;
         }

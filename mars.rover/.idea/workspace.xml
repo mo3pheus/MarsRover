@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8d088b51-0983-4843-b94d-c72a85f72349" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/remsCalibrationFile.dat" afterPath="$PROJECT_DIR$/remsCalibrationFile.dat" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/marsConfig.properties" afterPath="$PROJECT_DIR$/src/main/resources/marsConfig.properties" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,12 +26,12 @@
             <state relative-caret-position="492">
               <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
               <folding>
-                <marker date="1517365203729" expanded="true" signature="6881:6895" ph="SELECT * FRO... missingValue" />
-                <marker date="1517365203729" expanded="true" signature="7987:8001" ph="SELECT * FRO... missingValue" />
-                <marker date="1517365203729" expanded="true" signature="9045:9059" ph="SELECT * FRO... missingValue" />
-                <marker date="1517365203729" expanded="true" signature="9879:9893" ph="SELECT * FRO... missingValue" />
-                <marker date="1517365203729" expanded="true" signature="18452:18466" ph="SELECT * FRO... missingValue" />
-                <marker date="1517365203729" expanded="true" signature="18833:18847" ph="SELECT * FRO... missingValue" />
+                <marker date="1517372718016" expanded="true" signature="6881:6895" ph="SELECT * FRO... missingValue" />
+                <marker date="1517372718016" expanded="true" signature="7987:8001" ph="SELECT * FRO... missingValue" />
+                <marker date="1517372718016" expanded="true" signature="9045:9059" ph="SELECT * FRO... missingValue" />
+                <marker date="1517372718016" expanded="true" signature="9879:9893" ph="SELECT * FRO... missingValue" />
+                <marker date="1517372718016" expanded="true" signature="18452:18466" ph="SELECT * FRO... missingValue" />
+                <marker date="1517372718016" expanded="true" signature="18833:18847" ph="SELECT * FRO... missingValue" />
               </folding>
             </state>
           </provider>
@@ -49,11 +47,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QueryService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="QueryService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/QueryService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            <state relative-caret-position="684">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApxsCalibrationTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -158,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/marsConfig.properties" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/utils/CameraUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/ApxsDataService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/ApxsSpectrometer.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/utils/FileUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/utils/ServiceUtil.java" />
@@ -167,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/kernel/SerializationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/RoverState.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/Rover.java" />
+        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java" />
       </list>
     </option>
   </component>
@@ -185,7 +193,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="-1696" />
-    <option name="y" value="-1419" />
+    <option name="y" value="21" />
     <option name="width" value="1696" />
     <option name="height" value="1419" />
   </component>
@@ -286,6 +294,15 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="rover" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rover" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -573,7 +590,7 @@
       <workItem from="1516507743905" duration="33198000" />
       <workItem from="1517171720305" duration="605000" />
       <workItem from="1517172442212" duration="4003000" />
-      <workItem from="1517371507152" duration="831000" />
+      <workItem from="1517371507152" duration="1772000" />
     </task>
     <servers />
   </component>
@@ -610,10 +627,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256840000" />
+    <option name="totallyTimeSpent" value="257781000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1696" y="-1419" width="1696" height="1419" extended-state="4" />
+    <frame x="-1696" y="21" width="1696" height="1419" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -858,13 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="82" column="22" lean-forward="false" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apxsData_1210.data" />
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/io/File.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -893,10 +903,10 @@
         <state relative-caret-position="378">
           <caret line="27" column="70" lean-forward="false" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
           <folding>
-            <marker date="1517311545286" expanded="true" signature="1158:1475" ph="{...}" />
-            <marker date="1517311545286" expanded="true" signature="1194:1475" ph="{...}" />
-            <marker date="1517311545286" expanded="true" signature="1612:1910" ph="{...}" />
-            <marker date="1517311545286" expanded="true" signature="1952:2442" ph="{...}" />
+            <marker date="1517372553590" expanded="true" signature="1210:1527" ph="{...}" />
+            <marker date="1517372553590" expanded="true" signature="1246:1527" ph="{...}" />
+            <marker date="1517372553590" expanded="true" signature="1664:1962" ph="{...}" />
+            <marker date="1517372553590" expanded="true" signature="2004:2494" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -929,6 +939,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -936,6 +947,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="786">
           <caret line="53" column="57" lean-forward="false" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -983,12 +995,12 @@
         <state relative-caret-position="492">
           <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
           <folding>
-            <marker date="1517365203729" expanded="true" signature="6881:6895" ph="SELECT * FRO... missingValue" />
-            <marker date="1517365203729" expanded="true" signature="7987:8001" ph="SELECT * FRO... missingValue" />
-            <marker date="1517365203729" expanded="true" signature="9045:9059" ph="SELECT * FRO... missingValue" />
-            <marker date="1517365203729" expanded="true" signature="9879:9893" ph="SELECT * FRO... missingValue" />
-            <marker date="1517365203729" expanded="true" signature="18452:18466" ph="SELECT * FRO... missingValue" />
-            <marker date="1517365203729" expanded="true" signature="18833:18847" ph="SELECT * FRO... missingValue" />
+            <marker date="1517372718016" expanded="true" signature="6881:6895" ph="SELECT * FRO... missingValue" />
+            <marker date="1517372718016" expanded="true" signature="7987:8001" ph="SELECT * FRO... missingValue" />
+            <marker date="1517372718016" expanded="true" signature="9045:9059" ph="SELECT * FRO... missingValue" />
+            <marker date="1517372718016" expanded="true" signature="9879:9893" ph="SELECT * FRO... missingValue" />
+            <marker date="1517372718016" expanded="true" signature="18452:18466" ph="SELECT * FRO... missingValue" />
+            <marker date="1517372718016" expanded="true" signature="18833:18847" ph="SELECT * FRO... missingValue" />
           </folding>
         </state>
       </provider>
@@ -1011,8 +1023,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/QueryService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        <state relative-caret-position="684">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
