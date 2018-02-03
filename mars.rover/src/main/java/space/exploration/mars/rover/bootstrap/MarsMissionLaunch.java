@@ -1,10 +1,7 @@
 package space.exploration.mars.rover.bootstrap;
 
 import communications.protocol.KafkaConfig;
-import org.apache.log4j.FileAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.PatternLayout;
-import org.apache.log4j.Priority;
+import org.apache.log4j.*;
 import space.exploration.mars.rover.kernel.Rover;
 
 import java.io.IOException;
@@ -46,13 +43,13 @@ public class MarsMissionLaunch {
             fa.setFile("analysisLogs/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
         }
 
-        fa.setLayout(new PatternLayout("%d [%t] %p %c %x - %m%n"));
-
+        fa.setLayout(new EnhancedPatternLayout("%-6d [%25.35t] %-5p %40.80c - %m%n"));
         fa.activateOptions();
         org.apache.log4j.Logger.getRootLogger().addAppender(fa);
         return fa.getFile();
     }
 
+    @Deprecated
     public static void configureLogging(boolean debug, String className) {
         FileAppender fa = new FileAppender();
 
