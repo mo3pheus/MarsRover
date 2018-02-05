@@ -6,9 +6,8 @@ import space.exploration.mars.rover.learning.ReinforcementLearner;
 import java.awt.*;
 
 public class LearningPropulsionUnit extends PropulsionUnit {
-
-    public LearningPropulsionUnit(Rover rover, Point source, Point destination){
-        super(rover,source,destination);
+    public LearningPropulsionUnit(Rover rover, Point source, Point destination) {
+        super(rover, source, destination);
         requestPropulsion();
     }
 

@@ -6,6 +6,7 @@ import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
 import space.exploration.mars.rover.navigation.AdjacencyCalculator;
+import space.exploration.mars.rover.utils.HeatMap;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -21,8 +22,8 @@ public class ReinforcementLearner {
 
     private Logger logger = LoggerFactory.getLogger(ReinforcementLearner.class);
 
-    private Properties marsConfig = null;
-    private RCell[][]  navGrid    = null;
+    private          Properties marsConfig = null;
+    private volatile RCell[][]  navGrid    = null;
 
     private int lidarUsage       = 0;
     private int frameWidth       = 0;
@@ -33,12 +34,13 @@ public class ReinforcementLearner {
     private RCell       source      = null;
     private RCell       destination = null;
 
-    private double gamma         = 0.0d;
-    private double alpha         = 0.0d;
-    private int    minReward     = 0;
-    private int    maxReward     = 0;
-    private int    normalReward  = 0;
-    private int    maxIterations = 0;
+    private double  gamma         = 0.0d;
+    private double  alpha         = 0.0d;
+    private int     minReward     = 0;
+    private int     maxReward     = 0;
+    private int     normalReward  = 0;
+    private int     maxIterations = 0;
+    private HeatMap heatMap       = new HeatMap();
 
     public ReinforcementLearner(Properties marsConfig) {
         this.marsConfig = marsConfig;
@@ -94,9 +96,11 @@ public class ReinforcementLearner {
                 current = next;
                 explorationSteps++;
             }
-            System.out.println("Reinforcement Learning progress = " + (i + 1) + "%");
+            //System.out.println("Reinforcement Learning progress = " + (i + 1) + "%");
         }
-        logger.debug(" rlEngine logging totalExplorationSteps = " + explorationSteps);
+        heatMap.updateReinforcementLearner(this);
+        heatMap.renderHeatMap();
+        logger.info(" rlEngine logging totalExplorationSteps = " + explorationSteps);
     }
 
     @Deprecated

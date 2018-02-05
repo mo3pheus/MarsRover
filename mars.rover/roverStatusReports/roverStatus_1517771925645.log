@@ -1,0 +1,29 @@
+2018-02-04 13:18:47,050 [                roverMain] ERROR space.exploration.mars.rover.sensor.DANSpectrometer - Property not found in marsConfig - mars.rover.dan.lifespan . Defaulting the value to 1000 
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at space.exploration.mars.rover.sensor.DANSpectrometer.<init>(DANSpectrometer.java:27)
+	at space.exploration.mars.rover.kernel.Rover.bootUp(Rover.java:700)
+	at space.exploration.mars.rover.kernel.Rover.<init>(Rover.java:121)
+	at space.exploration.mars.rover.kernel.SetupTestRover.setupTestRover(SetupTestRover.java:19)
+	at space.exploration.mars.rover.navigation.NavigationEngineTest.setUp(NavigationEngineTest.java:30)
+	at junit.framework.TestCase.runBare(TestCase.java:139)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+2018-02-04 13:18:48,133 [                roverMain] INFO  space.exploration.mars.rover.kernel.SpacecraftClock - Valid utc time ranges are dictated by clockService as follows:
+2018-02-04 13:18:48,134 [                roverMain] INFO  space.exploration.mars.rover.kernel.SpacecraftClock - APPLICABLE_START_TIME=2000-001T11:58:55.816, APPLICABLE_STOP_TIME=2017-360T19:17:40.149
+2018-02-04 13:18:48,134 [                roverMain] INFO  space.exploration.mars.rover.kernel.SpacecraftClock - Given UTC = 2016-08-26~17:49:00
+2018-02-04 13:18:48,134 [                roverMain] INFO  space.exploration.mars.rover.kernel.SpacecraftClock - Please ensure that positionSensor and sclk are synchronized
+2018-02-04 13:18:48,147 [                roverMain] INFO  space.exploration.mars.rover.kernel.SpacecraftClock - Curiosity internal spacecraft clock started at :: 2016-08-26T22:49:00.000Z
+2018-02-04 13:18:48,147 [                roverMain] INFO  space.exploration.mars.rover.kernel.SpacecraftClock - Mission duration is set to :: 1 year(s).
+2018-02-04 13:18:48,147 [                roverMain] INFO  space.exploration.mars.rover.kernel.SpacecraftClock - Mission duration = 31536000000

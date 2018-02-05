@@ -28,9 +28,9 @@ import static space.exploration.mars.rover.kernel.Rover.PROPULSION_CHOICE;
  * @author sanketkorgaonkar
  */
 public class MovingState implements State {
-    private             Meter  requests          = null;
-    private             Rover  rover             = null;
-    private             Logger logger            = LoggerFactory.getLogger(MovingState.class);
+    private Meter  requests = null;
+    private Rover  rover    = null;
+    private Logger logger   = LoggerFactory.getLogger(MovingState.class);
 
     public MovingState(Rover rover) {
         this.rover = rover;
@@ -143,11 +143,9 @@ public class MovingState implements State {
 
         String propulsionChoice = rover.getMarsConfig().getProperty(PROPULSION_CHOICE);
         AStarPropulsionUnit aStarPropulsionUnit = new AStarPropulsionUnit(rover, robotPosition, new java.awt.Point
-                (destination.getX(),
-                                                                                                                   destination.getY()));
+                (destination.getX(), destination.getY()));
         LearningPropulsionUnit learningPropulsionUnit = new LearningPropulsionUnit(rover, robotPosition, new java.awt
-                .Point(destination.getX(),
-                                                                                                                            destination.getY()));
+                .Point(destination.getX(), destination.getY()));
 
         PropulsionUnit powerTran = (propulsionChoice.equals("rl")) ? learningPropulsionUnit : aStarPropulsionUnit;
         if (!powerTran.isTrajectoryValid()) {

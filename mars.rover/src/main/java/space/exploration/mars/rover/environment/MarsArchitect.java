@@ -4,6 +4,7 @@ import space.exploration.communications.protocol.propulsion.TelemetryPacketOuter
 import space.exploration.mars.rover.animation.*;
 import space.exploration.mars.rover.sensor.Lidar;
 import space.exploration.mars.rover.sensor.TelemetrySensor;
+import space.exploration.mars.rover.utils.HeatMap;
 
 import javax.swing.*;
 import java.awt.*;
