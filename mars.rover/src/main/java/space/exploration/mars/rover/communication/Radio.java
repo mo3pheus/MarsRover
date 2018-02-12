@@ -76,7 +76,7 @@ public class Radio implements IsEquipment {
         } catch (Exception e) {
             logger.error("Houston, we have a problem!", e);
             logger.error("The following instruction may have been lost." + instructionPayload.toString());
-            rover.writeErrorLog("Houston, we have a problem!", e);
+            RoverUtil.writeErrorLog(rover, "Houston, we have a problem!", e);
             rover.setState(rover.getListeningState());
         }
     }
@@ -92,11 +92,11 @@ public class Radio implements IsEquipment {
                 lifeSpan--;
             } else {
                 logger.error("Radio lifeSpan has ended.");
-                rover.writeErrorLog("Radio lifeSpan has ended", null);
+                RoverUtil.writeErrorLog(rover, "Radio lifeSpan has ended", null);
             }
         } catch (InterruptedException e) {
             logger.error("InterruptedException", e);
-            rover.writeErrorLog("InterruptedException", e);
+            RoverUtil.writeErrorLog(rover, "InterruptedException", e);
         } finally {
             bootUp = false;
         }

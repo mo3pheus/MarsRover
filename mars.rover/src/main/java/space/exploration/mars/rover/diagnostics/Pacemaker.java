@@ -125,13 +125,15 @@ public class Pacemaker {
                 if (rover.getState() == rover.getHibernatingState()) {
                     logger.error("Diagnostics inhibited because rover is in hibernating state."
                                          + " Current instructionQueue length = " + rover.getInstructionQueue().size());
-                    rover.writeErrorLog("Diagnostics inhibited because rover is in hibernating state.", null);
+                    RoverUtil.writeErrorLog(rover, "Diagnostics inhibited because rover is in hibernating state.",
+                                            null);
                 } else if (rover.getState() == rover.getSleepingState()) {
                     logger.info("Diagnostics inhibited because rover is sleeping to conserve battery"
                                         + " Current instructionQueue length = " + rover.getInstructionQueue()
                             .size());
-                    rover.writeSystemLog("Diagnostics inhibited because rover is sleeping to conserve battery",
-                                         rover.getInstructionQueue().size());
+                    RoverUtil.writeSystemLog(rover, "Diagnostics inhibited because rover is sleeping to conserve " +
+                                                     "battery",
+                                             rover.getInstructionQueue().size());
                 } else if (rover.isDiagnosticFriendly()) {
                     sendHeartBeat(false);
                 }

@@ -10,6 +10,7 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,10 +31,10 @@ public class DANSensingState implements State {
         rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+            RoverUtil.writeSystemLog(rover, InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
                     .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
-            rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
+            RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
     }
 

@@ -39,7 +39,7 @@ public class RoverGarbageCollector {
 
                     try {
                         byte[] distressSignal = getDistressSignal();
-                        rover.writeErrorLog(errorMessage, null);
+                        RoverUtil.writeErrorLog(rover, errorMessage, null);
                         rover.getInstructionQueue().clear();
 
                         if (rover.isGracefulShutdown()) {

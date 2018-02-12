@@ -11,6 +11,9 @@ import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -144,7 +147,7 @@ public class RoverUtil {
                     errorMessage += instructionPayload.toString();
                 }
             } catch (InvalidProtocolBufferException invalidProtocol) {
-                rover.writeErrorLog("Invalid protocol buffer for instructionPayload", invalidProtocol);
+                RoverUtil.writeErrorLog(rover, "Invalid protocol buffer for instructionPayload", invalidProtocol);
             }
         }
         return errorMessage;
@@ -163,5 +166,106 @@ public class RoverUtil {
         tBuilder.setEstimatedPowerUsage(0);
         iBuilder.addTargets(tBuilder.build());
         return iBuilder.build();
+    }
+
+    public static void writeSystemLog(Rover rover, InstructionPayloadOuterClass.InstructionPayload.TargetPackage
+            targetPackage, int
+                                              instructionQueueLength) {
+
+        if (!rover.isDbLoggingEnabled()) {
+            return;
+        }
+
+        try {
+            if (rover.getResultSet().isClosed()) {
+                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getLogDBConfig()
+                        .getProperty("mars.rover.database.logTableName")));
+            }
+            rover.getResultSet().moveToInsertRow();
+            rover.getResultSet().updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            Blob blob = rover.getLogDBConnection().createBlob();
+            blob.setBytes(1, targetPackage.toByteArray());
+            rover.getResultSet().updateBlob("MESSAGE_DETAILS", blob);
+            rover.getResultSet().updateString("MESSAGE", targetPackage.getAction() + " Instruction Queue length = " +
+                    instructionQueueLength);
+            rover.getResultSet().insertRow();
+        } catch (SQLException e) {
+            rover.getLogger().error("SQLException", e);
+        }
+    }
+
+    public static void writeSystemLog(Rover rover, InstructionPayloadOuterClass.InstructionPayload
+            instructionPayload, int
+                                              instructionQueueLength) {
+
+        if (!rover.isDbLoggingEnabled()) {
+            return;
+        }
+
+        try {
+            if (rover.getResultSet().isClosed()) {
+                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getLogDBConfig()
+                        .getProperty("mars.rover.database.logTableName")));
+            }
+            rover.getResultSet().moveToInsertRow();
+            rover.getResultSet().updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            Blob blob = rover.getLogDBConnection().createBlob();
+            blob.setBytes(1, instructionPayload.toByteArray());
+            rover.getResultSet().updateBlob("MESSAGE_DETAILS", blob);
+            rover.getResultSet().updateString("MESSAGE", "message added to instruction queue" + " Instruction Queue " +
+                    "length = " +
+                    instructionQueueLength);
+            rover.getResultSet().insertRow();
+        } catch (SQLException e) {
+            rover.getLogger().error("SQLException", e);
+        }
+    }
+
+    public static void writeSystemLog(Rover rover, String message, int instructionQueueLength) {
+        if (!rover.isDbLoggingEnabled()) {
+            return;
+        }
+
+        try {
+            if (rover.getResultSet().isClosed()) {
+                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getLogDBConfig()
+                        .getProperty("mars.rover.database.logTableName")));
+            }
+            rover.getResultSet().moveToInsertRow();
+            rover.getResultSet().updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            rover.getResultSet().updateString("MESSAGE", message + " Instruction Queue length = " +
+                    instructionQueueLength);
+            rover.getResultSet().insertRow();
+        } catch (SQLException e) {
+            rover.getLogger().error("SQLException", e);
+        }
+    }
+
+    public static void writeErrorLog(Rover rover, String message, Exception e) {
+
+        if (!rover.isDbLoggingEnabled()) {
+            return;
+        }
+
+        try {
+            if (rover.getErrorSet().isClosed()) {
+                rover.setErrorSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getLogDBConfig()
+                        .getProperty("mars.rover.database.errorTableName")));
+            }
+            rover.getErrorSet().moveToInsertRow();
+            rover.getErrorSet().updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
+            rover.getErrorSet().updateString("MESSAGE", message);
+
+            if (e != null) {
+                String stackTrace = "";
+                for (StackTraceElement stackTraceElement : e.getStackTrace()) {
+                    stackTrace += stackTraceElement.toString() + "|";
+                }
+                rover.getErrorSet().updateString("MESSAGE_DETAILS", stackTrace);
+            }
+            rover.getErrorSet().insertRow();
+        } catch (Exception exception) {
+            rover.getLogger().error("Exception while writing errorLog", e);
+        }
     }
 }

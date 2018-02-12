@@ -13,6 +13,7 @@ import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.service.PhotoQueryService;
 import space.exploration.mars.rover.utils.CameraUtil;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -36,10 +37,10 @@ public class PhotographingState implements State {
         logger.debug("Photographing state received message. Saving to instruction queue");
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+            RoverUtil.writeSystemLog(rover, InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
                     .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
-            rover.writeErrorLog("Invalid protocolBuffer Exception", ipe);
+            RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
     }
 
@@ -96,7 +97,7 @@ public class PhotographingState implements State {
         String responseString = photoQueryService.getResponseAsString();
         logger.debug("Query String::" + photoQueryService.getQueryString());
         logger.debug("Response String::" + responseString);
-        rover.writeSystemLog(responseString, rover.getInstructionQueue().size());
+        RoverUtil.writeSystemLog(rover, responseString, rover.getInstructionQueue().size());
 
         CameraPayload.CamPayload camPayload = null;
         try {

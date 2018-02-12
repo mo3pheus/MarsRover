@@ -18,6 +18,7 @@ import space.exploration.mars.rover.environment.WallBuilder;
 import space.exploration.mars.rover.propulsion.AStarPropulsionUnit;
 import space.exploration.mars.rover.propulsion.LearningPropulsionUnit;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
+import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
 
 import java.util.concurrent.TimeUnit;
@@ -61,10 +62,10 @@ public class MovingState implements State {
         rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+            RoverUtil.writeSystemLog(rover, InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
                     .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
-            rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
+            RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
     }
 
@@ -125,7 +126,7 @@ public class MovingState implements State {
             positions = RobotPositions.parseFrom(targetPackage.getAuxiliaryData().toByteArray());
         } catch (InvalidProtocolBufferException e) {
             logger.error("Invalid / corrupted move command.", e);
-            rover.writeErrorLog("Invalid / corrupted move command.", e);
+            RoverUtil.writeErrorLog(rover, "Invalid / corrupted move command.", e);
             rover.setState(rover.getListeningState());
             return;
         }
@@ -134,7 +135,7 @@ public class MovingState implements State {
         logger.debug("In moving state, destination demanded = " + destination.toString());
         if (!isDestinationValid(new java.awt.Point(destination.getX(), destination.getY()))) {
             logger.error("Destination passed in is invalid - intersects with a wall! " + destination.toString());
-            rover.writeErrorLog("Destination passed in is invalid - intersects with a wall! " + destination
+            RoverUtil.writeErrorLog(rover, "Destination passed in is invalid - intersects with a wall! " + destination
                     .toString(), null);
             sendFailureToEarth(rover.getMarsArchitect().getRobot().getLocation(), destination, "Destination passed in" +
                     " is invalid.");
@@ -151,7 +152,7 @@ public class MovingState implements State {
         if (!powerTran.isTrajectoryValid()) {
             logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
                     .getLocation().toString() + " and " + destination.toString());
-            rover.writeErrorLog("No route found between robot current position at " + rover.getMarsArchitect()
+            RoverUtil.writeErrorLog(rover,"No route found between robot current position at " + rover.getMarsArchitect()
                     .getRobot()
                     .getLocation().toString() + " and " + destination.toString(), null);
             sendFailureToEarth(robotPosition, destination, "Rover was unable to find path between supplied source" +

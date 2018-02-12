@@ -63,10 +63,10 @@ public class RadarScanningState implements State {
         logger.debug("Radar Module received message, adding to rover's instruction queue");
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+            RoverUtil.writeSystemLog(rover, InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
                     .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
-            rover.writeErrorLog("InvalidProtocolBuffer", ipe);
+            RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
     }
 

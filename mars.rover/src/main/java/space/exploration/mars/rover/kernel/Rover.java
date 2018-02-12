@@ -6,7 +6,6 @@ import com.yammer.metrics.core.MetricsRegistry;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
@@ -150,103 +149,260 @@ public class Rover {
         receiveMessage(instructionQueue.remove(0));
     }
 
-    public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage, int
-            instructionQueueLength) {
-
-        if (!dbLoggingEnabled) {
-            return;
-        }
-
-        try {
-            if (resultSet.isClosed()) {
-                resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                      ".logTableName"));
-            }
-            resultSet.moveToInsertRow();
-            resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
-            Blob blob = logDBConnection.createBlob();
-            blob.setBytes(1, targetPackage.toByteArray());
-            resultSet.updateBlob("MESSAGE_DETAILS", blob);
-            resultSet.updateString("MESSAGE", targetPackage.getAction() + " Instruction Queue length = " +
-                    instructionQueueLength);
-            resultSet.insertRow();
-        } catch (SQLException e) {
-            logger.error("SQLException", e);
-        }
+    public String getMarsConfigLocation() {
+        return marsConfigLocation;
     }
 
-    public void writeSystemLog(InstructionPayloadOuterClass.InstructionPayload instructionPayload, int
-            instructionQueueLength) {
-
-        if (!dbLoggingEnabled) {
-            return;
-        }
-
-        try {
-            if (resultSet.isClosed()) {
-                resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                      ".logTableName"));
-            }
-            resultSet.moveToInsertRow();
-            resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
-            Blob blob = logDBConnection.createBlob();
-            blob.setBytes(1, instructionPayload.toByteArray());
-            resultSet.updateBlob("MESSAGE_DETAILS", blob);
-            resultSet.updateString("MESSAGE", "message added to instruction queue" + " Instruction Queue length = " +
-                    instructionQueueLength);
-            resultSet.insertRow();
-        } catch (SQLException e) {
-            logger.error("SQLException", e);
-        }
+    public long getCreationTime() {
+        return creationTime;
     }
 
-    public void writeSystemLog(String message, int instructionQueueLength) {
-
-        if (!dbLoggingEnabled) {
-            return;
-        }
-
-        try {
-            if (resultSet.isClosed()) {
-                resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                      ".logTableName"));
-            }
-            resultSet.moveToInsertRow();
-            resultSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
-            resultSet.updateString("MESSAGE", message + " Instruction Queue length = " +
-                    instructionQueueLength);
-            resultSet.insertRow();
-        } catch (SQLException e) {
-            logger.error("SQLException", e);
-        }
+    public Connection getLogDBConnection() {
+        return logDBConnection;
     }
 
-    public void writeErrorLog(String message, Exception e) {
+    public ResultSet getResultSet() {
+        return resultSet;
+    }
 
-        if (!dbLoggingEnabled) {
-            return;
-        }
+    public ResultSet getErrorSet() {
+        return errorSet;
+    }
 
-        try {
-            if (errorSet.isClosed()) {
-                errorSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                     ".errorTableName"));
-            }
-            errorSet.moveToInsertRow();
-            errorSet.updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
-            errorSet.updateString("MESSAGE", message);
+    public Logger getLogger() {
+        return logger;
+    }
 
-            if (e != null) {
-                String stackTrace = "";
-                for (StackTraceElement stackTraceElement : e.getStackTrace()) {
-                    stackTrace += stackTraceElement.toString() + "|";
-                }
-                errorSet.updateString("MESSAGE_DETAILS", stackTrace);
-            }
-            errorSet.insertRow();
-        } catch (Exception exception) {
-            logger.error("Exception while writing errorLog", e);
-        }
+    public String getDbUserName() {
+        return dbUserName;
+    }
+
+    public String getDbPassword() {
+        return dbPassword;
+    }
+
+    public Statement getStatement() {
+        return statement;
+    }
+
+    public Statement getErrorStatement() {
+        return errorStatement;
+    }
+
+    public boolean isDbLoggingEnabled() {
+        return dbLoggingEnabled;
+    }
+
+    public Properties getComsConfig() {
+        return comsConfig;
+    }
+
+    public Properties getLogDBConfig() {
+        return logDBConfig;
+    }
+
+    public String getCameraImageCacheLocation() {
+        return cameraImageCacheLocation;
+    }
+
+    public Point getLocation() {
+        return location;
+    }
+
+    public Map<Point, RoverCell> getPreviousRovers() {
+        return previousRovers;
+    }
+
+    public Semaphore getAccessLock() {
+        return accessLock;
+    }
+
+    public RoverGarbageCollector getRoverGarbageCollector() {
+        return roverGarbageCollector;
+    }
+
+    public void setMarsConfigLocation(String marsConfigLocation) {
+        this.marsConfigLocation = marsConfigLocation;
+    }
+
+    public void setListeningState(State listeningState) {
+        this.listeningState = listeningState;
+    }
+
+    public void setSensingState(State sensingState) {
+        this.sensingState = sensingState;
+    }
+
+    public void setMovingState(State movingState) {
+        this.movingState = movingState;
+    }
+
+    public void setExploringState(State exploringState) {
+        this.exploringState = exploringState;
+    }
+
+    public void setTransmittingState(State transmittingState) {
+        this.transmittingState = transmittingState;
+    }
+
+    public void setHibernatingState(State hibernatingState) {
+        this.hibernatingState = hibernatingState;
+    }
+
+    public void setPhotoGraphingState(State photoGraphingState) {
+        this.photoGraphingState = photoGraphingState;
+    }
+
+    public void setRadarScanningState(State radarScanningState) {
+        this.radarScanningState = radarScanningState;
+    }
+
+    public void setSleepingState(State sleepingState) {
+        this.sleepingState = sleepingState;
+    }
+
+    public void setSclkBeepingState(State sclkBeepingState) {
+        this.sclkBeepingState = sclkBeepingState;
+    }
+
+    public void setDanSensingState(State danSensingState) {
+        this.danSensingState = danSensingState;
+    }
+
+    public void setCreationTime(long creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public void setLogDBConnection(Connection logDBConnection) {
+        this.logDBConnection = logDBConnection;
+    }
+
+    public void setResultSet(ResultSet resultSet) {
+        this.resultSet = resultSet;
+    }
+
+    public void setErrorSet(ResultSet errorSet) {
+        this.errorSet = errorSet;
+    }
+
+    public void setLogger(Logger logger) {
+        this.logger = logger;
+    }
+
+    public void setDbUserName(String dbUserName) {
+        this.dbUserName = dbUserName;
+    }
+
+    public void setDbPassword(String dbPassword) {
+        this.dbPassword = dbPassword;
+    }
+
+    public void setStatement(Statement statement) {
+        this.statement = statement;
+    }
+
+    public void setErrorStatement(Statement errorStatement) {
+        this.errorStatement = errorStatement;
+    }
+
+    public void setDbLoggingEnabled(boolean dbLoggingEnabled) {
+        this.dbLoggingEnabled = dbLoggingEnabled;
+    }
+
+    public void setMarsArchitect(MarsArchitect marsArchitect) {
+        this.marsArchitect = marsArchitect;
+    }
+
+    public void setMarsConfig(Properties marsConfig) {
+        this.marsConfig = marsConfig;
+    }
+
+    public void setComsConfig(Properties comsConfig) {
+        this.comsConfig = comsConfig;
+    }
+
+    public void setLogDBConfig(Properties logDBConfig) {
+        this.logDBConfig = logDBConfig;
+    }
+
+    public void setCameraImageCacheLocation(String cameraImageCacheLocation) {
+        this.cameraImageCacheLocation = cameraImageCacheLocation;
+    }
+
+    public void setDataArchiveLocation(String dataArchiveLocation) {
+        this.dataArchiveLocation = dataArchiveLocation;
+    }
+
+    public void setLocation(Point location) {
+        this.location = location;
+    }
+
+    public void setNasaApiAuthKey(String nasaApiAuthKey) {
+        this.nasaApiAuthKey = nasaApiAuthKey;
+    }
+
+    public void setRadio(Radio radio) {
+        this.radio = radio;
+    }
+
+    public void setLidar(Lidar lidar) {
+        this.lidar = lidar;
+    }
+
+    public void setApxsSpectrometer(ApxsSpectrometer apxsSpectrometer) {
+        this.apxsSpectrometer = apxsSpectrometer;
+    }
+
+    public void setDanSpectrometer(DANSpectrometer danSpectrometer) {
+        this.danSpectrometer = danSpectrometer;
+    }
+
+    public void setCamera(Camera camera) {
+        this.camera = camera;
+    }
+
+    public void setRadar(Radar radar) {
+        this.radar = radar;
+    }
+
+    public void setWeatherSensor(WeatherSensor weatherSensor) {
+        this.weatherSensor = weatherSensor;
+    }
+
+    public void setNavigationEngine(NavigationEngine navigationEngine) {
+        this.navigationEngine = navigationEngine;
+    }
+
+    public void setInstructionQueue(List<byte[]> instructionQueue) {
+        this.instructionQueue = instructionQueue;
+    }
+
+    public void setAccessLock(Semaphore accessLock) {
+        this.accessLock = accessLock;
+    }
+
+    public void setPacemaker(Pacemaker pacemaker) {
+        this.pacemaker = pacemaker;
+    }
+
+    public void setBattery(Battery battery) {
+        this.battery = battery;
+    }
+
+    public void setBatteryMonitor(BatteryMonitor batteryMonitor) {
+        this.batteryMonitor = batteryMonitor;
+    }
+
+    public void setSleepMonitor(SleepMonitor sleepMonitor) {
+        this.sleepMonitor = sleepMonitor;
+    }
+
+    public void setBatteryGauge(Gauge<Integer> batteryGauge) {
+        this.batteryGauge = batteryGauge;
+    }
+
+    public void setInstructionQueueGauge(Gauge<Integer> instructionQueueGauge) {
+        this.instructionQueueGauge = instructionQueueGauge;
     }
 
     public boolean isGracefulShutdown() {

@@ -33,10 +33,10 @@ public class SclkTimingState implements State {
         rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+            RoverUtil.writeSystemLog(rover, InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
                     .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
-            rover.writeErrorLog("Invalid Protocol Buffer Exception", ipe);
+            RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
     }
 

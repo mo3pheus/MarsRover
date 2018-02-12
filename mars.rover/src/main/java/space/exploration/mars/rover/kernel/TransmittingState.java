@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
+import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,10 +32,10 @@ public class TransmittingState implements State {
         rover.reflectRoverState();
         rover.getInstructionQueue().add(message);
         try {
-            rover.writeSystemLog(InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
+            RoverUtil.writeSystemLog(rover, InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
                     .getInstructionQueue().size());
         } catch (InvalidProtocolBufferException ipe) {
-            rover.writeErrorLog("InvalidProtocolBufferException", ipe);
+            RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
     }
 

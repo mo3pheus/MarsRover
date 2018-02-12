@@ -59,7 +59,7 @@ public class Lidar implements IsEquipment {
     public List<Point> getContacts() {
         if (wallBuilder == null) {
             logger.error("WallBuilder not set before asking for contacts");
-            rover.writeErrorLog("WallBuilder not set before asking for contacts", null);
+            RoverUtil.writeErrorLog(rover, "WallBuilder not set before asking for contacts", null);
             return null;
         }
         return contacts;
