@@ -748,7 +748,7 @@ public class Rover {
     }
 
     public synchronized List<IsEquipment> getEquimentList() {
-        List<IsEquipment> equipmentList = new ArrayList<IsEquipment>();
+        List<IsEquipment> equipmentList = new ArrayList<>();
         equipmentList.add(this.battery);
         equipmentList.add(this.radio);
         equipmentList.add(this.lidar);
@@ -876,7 +876,7 @@ public class Rover {
         this.sclkBeepingState = new SclkTimingState(this);
         this.danSensingState = new DANSensingState(this);
 
-        this.instructionQueue = new ArrayList<byte[]>();
+        this.instructionQueue = new ArrayList<>();
         this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
 

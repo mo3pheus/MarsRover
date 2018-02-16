@@ -79,7 +79,7 @@ public class RoverGarbageCollector {
 
     public void start() {
         logger.info("Starting garbageCollection");
-        roverGC.scheduleAtFixedRate(queueMonitor, 0l, 10l, TimeUnit.SECONDS);
+        roverGC.scheduleAtFixedRate(queueMonitor, 0L, 10L, TimeUnit.SECONDS);
     }
 
     public void interrupt() {
