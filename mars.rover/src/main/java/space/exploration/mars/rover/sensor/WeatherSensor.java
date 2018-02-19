@@ -13,20 +13,18 @@ import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by skorgao on 10/10/2017.
  */
 public class WeatherSensor implements IsEquipment {
     private static final String WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
-    private static final int    NUM_CALIBRATION_THREADS = 100;
-
-    private Logger logger = LoggerFactory.getLogger(WeatherSensor.class);
+    private              Logger logger                  = LoggerFactory.getLogger(WeatherSensor.class);
 
     private          double                                            staleDataThresholdHours  = 0.0d;
     private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = null;
@@ -37,9 +35,8 @@ public class WeatherSensor implements IsEquipment {
     private          double                                            queryRate                = 0.0d;
     private volatile boolean                                           calibratingSensor        = false;
     private volatile double                                            calibrationKickOffTime   = 0.0d;
-    private          Future<File>[]                                    calibrationTasks         = null;
-    private          ExecutorService                                   calibrationService       = null;
-    private          ExecutorService                                   calibrationKickOff       = null;
+    private          ExecutorService                                   calibrationService       = Executors
+            .newSingleThreadScheduledExecutor();
     private          int                                               sol                      = 0;
 
     public WeatherSensor(Rover rover) {
@@ -49,9 +46,6 @@ public class WeatherSensor implements IsEquipment {
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();
         this.staleDataThresholdHours = TimeUnit.MILLISECONDS.toHours(rover.getOneSolDuration());
-        calibrationService = Executors.newFixedThreadPool(NUM_CALIBRATION_THREADS);
-        calibrationTasks = new Future[NUM_CALIBRATION_THREADS];
-        calibrationKickOff = Executors.newSingleThreadExecutor();
     }
 
     public boolean isCalibratingSensor() {
@@ -60,7 +54,7 @@ public class WeatherSensor implements IsEquipment {
 
     public void calibrateREMS(int sol) {
         this.sol = sol;
-        calibrationKickOff.submit(new CalibrationKickOff());
+        calibrationService.submit(new CalibrationKickOff(sol));
         calibrationKickOffTime = rover.getSpacecraftClock().getEphemerisTime();
     }
 
@@ -151,62 +145,23 @@ public class WeatherSensor implements IsEquipment {
     }
 
     private class CalibrationKickOff implements Runnable {
+        int sol;
+
+        CalibrationKickOff(int sol) {
+            this.sol = sol;
+        }
+
         @Override
         public void run() {
             Thread.currentThread().setName("remsCalibrationKickOff");
             calibratingSensor = true;
-            List<String> urls     = weatherDataService.getURLCombinations(sol);
-            int          biteSize = (int) ((double) urls.size() / (double) NUM_CALIBRATION_THREADS);
-
-            for (int i = 0; i < calibrationTasks.length; i++) {
-                calibrationTasks[i] = calibrationService.submit(new RemsCalibrater(urls, i, biteSize));
+            File weatherFile = weatherDataService.downloadCalibrationData(sol);
+            if (weatherFile != null) {
+                weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
+                calibratingSensor = false;
+            } else {
+                logger.info("No weather data for sol = " + sol);
             }
-
-            boolean calibrationSuccessful = false;
-            try {
-                for (int i = 0; i < calibrationTasks.length; i++) {
-                    File weatherFile = calibrationTasks[i].get();
-                    if (weatherFile != null) {
-                        weatherEnvReducedDataMap = WeatherUtil.readWeatherDataFile(weatherFile);
-                        calibrationSuccessful = true;
-                        break;
-                    } else {
-                        logger.info("Thread id = " + i + " finished checking urls, file not found. Done status = " +
-                                            calibrationTasks[i].isDone());
-                    }
-                }
-                for (Future<File> calibrationTask : calibrationTasks) {
-                    calibrationTask.cancel(true);
-                }
-            } catch (ExecutionException ee) {
-                logger.error("Error while calibrating REMS Sensor for sol = " + sol, ee);
-            } catch (InterruptedException ie) {
-                logger.error("Interruption Error while calibrating REMS Sensor for sol = " + sol, ie);
-            }
-            calibratingSensor = false;
-            logger.info("REMS finished calibration. Time taken = " + (rover.getSpacecraftClock().getEphemerisTime() -
-                    calibrationKickOffTime) + " seconds. Calibration successful = " + Boolean.toString
-                    (calibrationSuccessful));
-        }
-    }
-
-    private class RemsCalibrater implements Callable<File> {
-        List<String> urls     = new ArrayList<>();
-        int          threadId = -1;
-
-        public RemsCalibrater(List<String> urlSet, int threadId, int biteSize) {
-            this.threadId = threadId;
-            for (int i = (threadId * biteSize); i < ((threadId * biteSize) + biteSize); i++) {
-                urls.add(urlSet.get(i));
-            }
-        }
-
-        @Override
-        public File call() throws Exception {
-            Thread.currentThread().setName("remsCalibrationThread" + Integer.toString(threadId));
-            logger.info("ThreadId = " + threadId + " started for remsCalibration for sol = " + sol);
-            File weatherFile = weatherDataService.downloadCalibrationData(urls);
-            return weatherFile;
         }
     }
 }
