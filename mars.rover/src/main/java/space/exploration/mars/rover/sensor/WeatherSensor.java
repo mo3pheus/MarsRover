@@ -73,8 +73,7 @@ public class WeatherSensor implements IsEquipment {
         } else {
             WeatherRDRData.WeatherEnvReducedData weatherEnvReducedData = findClosestWeatherData(currentEphemerisTime);
             if (weatherEnvReducedData != null) {
-                rBuilder.setModuleMessage(ByteString.copyFrom(findClosestWeatherData(currentEphemerisTime)
-                                                                      .toByteArray()));
+                rBuilder.setModuleMessage(ByteString.copyFrom(weatherEnvReducedData.toByteArray()));
 
             } else {
                 rBuilder.setNotes("Weather Data not available at this time. Please calibrate the weatherSensor." +
