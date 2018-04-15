@@ -83,7 +83,7 @@ public class Rover {
     private          DANSpectrometer  danSpectrometer  = null;
     private          Camera           camera           = null;
     private          Radar            radar            = null;
-    private volatile WeatherSensor    weatherSensor    = null;
+    private          WeatherSensor    weatherSensor    = null;
     private          NavigationEngine navigationEngine = null;
 
     /* Kernel Sensors   */
