@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.util.concurrent.TimeUnit;
@@ -38,6 +39,11 @@ public class HibernatingState implements State {
         } catch (InvalidProtocolBufferException ipe) {
             RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
+    }
+
+    @Override
+    public void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage) {
+        logger.error("Can not update software in " + getStateName());
     }
 
     @Override

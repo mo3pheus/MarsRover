@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.mars.rover.animation.SleepingAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 
@@ -35,6 +36,11 @@ public class SleepingState implements State {
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.setState(rover.getListeningState());
         rover.receiveMessage(message);
+    }
+
+    @Override
+    public void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage) {
+        logger.error("Can not update software in " + getStateName());
     }
 
     @Override

@@ -12,6 +12,7 @@ import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
@@ -90,6 +91,11 @@ public class MovingState implements State {
     @Override
     public void performRadarScan() {
 
+    }
+
+    @Override
+    public void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage) {
+        logger.error("Can not update software in " + getStateName());
     }
 
     @Override

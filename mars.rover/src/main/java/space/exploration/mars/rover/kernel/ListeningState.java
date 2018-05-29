@@ -8,25 +8,33 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
+import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.robot.RobotPositionsOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.propulsion.AStarPropulsionUnit;
 import space.exploration.mars.rover.propulsion.LearningPropulsionUnit;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
 import space.exploration.mars.rover.utils.RoverUtil;
+import space.exploration.mars.rover.utils.ServiceUtil;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.attribute.PosixFilePermission;
+import java.util.HashSet;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import static communications.protocol.ModuleDirectory.SCLK_COMMAND;
-import static communications.protocol.ModuleDirectory.SCLK_SYNC;
+import static communications.protocol.ModuleDirectory.*;
 import static space.exploration.mars.rover.kernel.Rover.PROPULSION_CHOICE;
 
 public class ListeningState implements State {
-
     private Meter  requests       = null;
     private Logger logger         = LoggerFactory.getLogger(ListeningState.class);
     private Rover  rover          = null;
@@ -50,6 +58,24 @@ public class ListeningState implements State {
     @Override
     public void synchronizeClocks(String utcTime) {
         logger.debug("Can not sync clocks in " + getStateName());
+    }
+
+    @Override
+    public void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage) {
+        rover.reflectRoverState();
+        logger.info("Rover commencing software update.");
+        logger.info("Stopping pacemaker");
+        rover.getPacemaker().hardInterrupt();
+
+        RoverUtil.processSoftwareUpdate(rover, swUpdatePackage);
+
+        logger.info("Sending software update complete message.");
+        rover.state = rover.transmittingState;
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverUtil.generateUpdateStatus();
+        rover.transmitMessage(rBuilder.build().toByteArray());
+
+        logger.info("Commencing rover shutdown");
+        rover.gracefulShutdown();
     }
 
     @Override
@@ -119,8 +145,23 @@ public class ListeningState implements State {
                         rover.state = rover.weatherSensingState;
                         rover.senseWeather(null);
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.KERNEL.getValue()) {
-                        rover.state = rover.listeningState;
-                        rover.gracefulShutdown();
+                        switch (tp.getAction()) {
+                            case GRACEFUL_SHUTDOWN: {
+                                rover.gracefulShutdown();
+                                rover.shutdownSystem();
+                            }
+                            break;
+                            case SOFTWARE_UPDATE: {
+                                SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage = SwUpdatePackageOuterClass
+                                        .SwUpdatePackage.parseFrom(tp.getAuxiliaryData());
+                                rover.updateSoftware(swUpdatePackage);
+                            }
+                            break;
+                            default: {
+                                logger.warn("Unknown action specified for Kernel module.");
+                            }
+                        }
+
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.DAN_SPECTROMETER.getValue()) {
                         logger.info(" Rover " + Rover.ROVER_NAME + " will do a Dynamic Albedo of Neutrons Scan");
                         rover.state = rover.danSensingState;

@@ -75,6 +75,7 @@ public class RoverGarbageCollector {
         this.rover = rover;
         this.roverGC = Executors.newSingleThreadScheduledExecutor();
         queueMonitor = new QueueMonitor();
+        logger.info("RoverGarbageCollector initialized");
     }
 
     public void start() {

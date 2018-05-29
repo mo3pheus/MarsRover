@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
@@ -75,6 +76,8 @@ public class Rover {
     private          String        dataArchiveLocation      = null;
     private          Point         location                 = null;
     private          String        nasaApiAuthKey           = null;
+    private          String        workingDirectory         = null;
+    private          double        softwareVersion          = 0.0d;
 
     /* Equipment Stack */
     private volatile Radio            radio            = null;
@@ -111,6 +114,7 @@ public class Rover {
     private       Gauge<Integer>  instructionQueueGauge = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String marsConfigLocation) {
+        this.workingDirectory = System.getProperty("user.dir");
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
@@ -122,6 +126,7 @@ public class Rover {
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String
             cameraImageCacheLocation, String dataArchiveLocation, String marsConfigLocation) {
+        this.workingDirectory = System.getProperty("user.dir");
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
@@ -140,21 +145,13 @@ public class Rover {
         return time;
     }
 
-    protected void setRoverConfigProperties(Properties marsConfig) {
-        this.marsConfig = marsConfig;
-    }
-
     public synchronized void processPendingMessageQueue() {
         state = listeningState;
         receiveMessage(instructionQueue.remove(0));
     }
 
-    public String getMarsConfigLocation() {
-        return marsConfigLocation;
-    }
-
-    public long getCreationTime() {
-        return creationTime;
+    public String getWorkingDirectory() {
+        return workingDirectory;
     }
 
     public Connection getLogDBConnection() {
@@ -173,108 +170,20 @@ public class Rover {
         return logger;
     }
 
-    public String getDbUserName() {
-        return dbUserName;
-    }
-
-    public String getDbPassword() {
-        return dbPassword;
-    }
-
     public Statement getStatement() {
         return statement;
-    }
-
-    public Statement getErrorStatement() {
-        return errorStatement;
     }
 
     public boolean isDbLoggingEnabled() {
         return dbLoggingEnabled;
     }
 
-    public Properties getComsConfig() {
-        return comsConfig;
-    }
-
     public Properties getLogDBConfig() {
         return logDBConfig;
     }
 
-    public String getCameraImageCacheLocation() {
-        return cameraImageCacheLocation;
-    }
-
     public Point getLocation() {
         return location;
-    }
-
-    public Map<Point, RoverCell> getPreviousRovers() {
-        return previousRovers;
-    }
-
-    public Semaphore getAccessLock() {
-        return accessLock;
-    }
-
-    public RoverGarbageCollector getRoverGarbageCollector() {
-        return roverGarbageCollector;
-    }
-
-    public void setMarsConfigLocation(String marsConfigLocation) {
-        this.marsConfigLocation = marsConfigLocation;
-    }
-
-    public void setListeningState(State listeningState) {
-        this.listeningState = listeningState;
-    }
-
-    public void setSensingState(State sensingState) {
-        this.sensingState = sensingState;
-    }
-
-    public void setMovingState(State movingState) {
-        this.movingState = movingState;
-    }
-
-    public void setExploringState(State exploringState) {
-        this.exploringState = exploringState;
-    }
-
-    public void setTransmittingState(State transmittingState) {
-        this.transmittingState = transmittingState;
-    }
-
-    public void setHibernatingState(State hibernatingState) {
-        this.hibernatingState = hibernatingState;
-    }
-
-    public void setPhotoGraphingState(State photoGraphingState) {
-        this.photoGraphingState = photoGraphingState;
-    }
-
-    public void setRadarScanningState(State radarScanningState) {
-        this.radarScanningState = radarScanningState;
-    }
-
-    public void setSleepingState(State sleepingState) {
-        this.sleepingState = sleepingState;
-    }
-
-    public void setSclkBeepingState(State sclkBeepingState) {
-        this.sclkBeepingState = sclkBeepingState;
-    }
-
-    public void setDanSensingState(State danSensingState) {
-        this.danSensingState = danSensingState;
-    }
-
-    public void setCreationTime(long creationTime) {
-        this.creationTime = creationTime;
-    }
-
-    public void setLogDBConnection(Connection logDBConnection) {
-        this.logDBConnection = logDBConnection;
     }
 
     public void setResultSet(ResultSet resultSet) {
@@ -289,56 +198,12 @@ public class Rover {
         this.logger = logger;
     }
 
-    public void setDbUserName(String dbUserName) {
-        this.dbUserName = dbUserName;
-    }
-
-    public void setDbPassword(String dbPassword) {
-        this.dbPassword = dbPassword;
-    }
-
-    public void setStatement(Statement statement) {
-        this.statement = statement;
-    }
-
-    public void setErrorStatement(Statement errorStatement) {
-        this.errorStatement = errorStatement;
-    }
-
-    public void setDbLoggingEnabled(boolean dbLoggingEnabled) {
-        this.dbLoggingEnabled = dbLoggingEnabled;
-    }
-
-    public void setMarsArchitect(MarsArchitect marsArchitect) {
-        this.marsArchitect = marsArchitect;
-    }
-
     public void setMarsConfig(Properties marsConfig) {
         this.marsConfig = marsConfig;
     }
 
-    public void setComsConfig(Properties comsConfig) {
-        this.comsConfig = comsConfig;
-    }
-
-    public void setLogDBConfig(Properties logDBConfig) {
-        this.logDBConfig = logDBConfig;
-    }
-
-    public void setCameraImageCacheLocation(String cameraImageCacheLocation) {
-        this.cameraImageCacheLocation = cameraImageCacheLocation;
-    }
-
-    public void setDataArchiveLocation(String dataArchiveLocation) {
-        this.dataArchiveLocation = dataArchiveLocation;
-    }
-
     public void setLocation(Point location) {
         this.location = location;
-    }
-
-    public void setNasaApiAuthKey(String nasaApiAuthKey) {
-        this.nasaApiAuthKey = nasaApiAuthKey;
     }
 
     public void setRadio(Radio radio) {
@@ -349,14 +214,6 @@ public class Rover {
         this.lidar = lidar;
     }
 
-    public void setApxsSpectrometer(ApxsSpectrometer apxsSpectrometer) {
-        this.apxsSpectrometer = apxsSpectrometer;
-    }
-
-    public void setDanSpectrometer(DANSpectrometer danSpectrometer) {
-        this.danSpectrometer = danSpectrometer;
-    }
-
     public void setCamera(Camera camera) {
         this.camera = camera;
     }
@@ -365,44 +222,12 @@ public class Rover {
         this.radar = radar;
     }
 
-    public void setWeatherSensor(WeatherSensor weatherSensor) {
-        this.weatherSensor = weatherSensor;
-    }
-
-    public void setNavigationEngine(NavigationEngine navigationEngine) {
-        this.navigationEngine = navigationEngine;
-    }
-
     public void setInstructionQueue(List<byte[]> instructionQueue) {
         this.instructionQueue = instructionQueue;
     }
 
-    public void setAccessLock(Semaphore accessLock) {
-        this.accessLock = accessLock;
-    }
-
-    public void setPacemaker(Pacemaker pacemaker) {
-        this.pacemaker = pacemaker;
-    }
-
     public void setBattery(Battery battery) {
         this.battery = battery;
-    }
-
-    public void setBatteryMonitor(BatteryMonitor batteryMonitor) {
-        this.batteryMonitor = batteryMonitor;
-    }
-
-    public void setSleepMonitor(SleepMonitor sleepMonitor) {
-        this.sleepMonitor = sleepMonitor;
-    }
-
-    public void setBatteryGauge(Gauge<Integer> batteryGauge) {
-        this.batteryGauge = batteryGauge;
-    }
-
-    public void setInstructionQueueGauge(Gauge<Integer> instructionQueueGauge) {
-        this.instructionQueueGauge = instructionQueueGauge;
     }
 
     public boolean isGracefulShutdown() {
@@ -552,6 +377,11 @@ public class Rover {
         state.gracefulShutdown();
     }
 
+    public synchronized void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage softwarePackage) {
+        logger.warn("Updating software. This is always a bit tricky!");
+        state.updateSoftware(softwarePackage);
+    }
+
     public synchronized void authorizeTransmission(ModuleDirectory.Module module, byte[] message) {
         /* Choose to filter upon modules here */
         logger.debug("Module " + module.getValue() + " overriding rover state to authorize transmission. endOfLife " +
@@ -605,22 +435,12 @@ public class Rover {
         this.state = state;
     }
 
-    public synchronized boolean isEquipmentEOL() {
-        return equipmentEOL;
-    }
-
     public synchronized void setEquipmentEOL(boolean equipmentEOL) {
         this.equipmentEOL = equipmentEOL;
     }
 
     public SpacecraftClock getSpacecraftClock() {
         return spacecraftClock;
-    }
-
-    public synchronized void setSpacecraftClock(SpacecraftClock spacecraftClock) {
-        this.spacecraftClock.stopClock();
-        this.spacecraftClock = spacecraftClock;
-        this.spacecraftClock.start();
     }
 
     public synchronized Pacemaker getPacemaker() {
@@ -633,10 +453,6 @@ public class Rover {
 
     public synchronized void setGarbageCollector(RoverGarbageCollector garbageCollector) {
         this.roverGarbageCollector = garbageCollector;
-    }
-
-    public synchronized void setRoverGarbageCollector(RoverGarbageCollector roverGarbageCollector) {
-        this.roverGarbageCollector = roverGarbageCollector;
     }
 
     public synchronized boolean isDiagnosticFriendly() {
@@ -674,12 +490,6 @@ public class Rover {
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
-    }
-
-    public synchronized void configureSpectrometer(Point origin) {
-        int     spectrometerLifeSpan = apxsSpectrometer.getLifeSpan();
-        boolean spectrometerEOL      = apxsSpectrometer.isEndOfLife();
-        this.apxsSpectrometer = new ApxsSpectrometer(this);
     }
 
     public synchronized void configureLidar(Point origin, int cellWidth, int range) {
@@ -735,14 +545,6 @@ public class Rover {
         battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - powerConsumed);
     }
 
-    public Gauge<Integer> getBatteryGauge() {
-        return batteryGauge;
-    }
-
-    public Gauge<Integer> getInstructionQueueGauge() {
-        return instructionQueueGauge;
-    }
-
     public synchronized void activateCameraById(String camId) {
         state.activateCameraById(camId);
     }
@@ -783,24 +585,8 @@ public class Rover {
         return weatherSensingState;
     }
 
-    public synchronized void setWeatherSensingState(State weatherSensingState) {
-        this.weatherSensingState = weatherSensingState;
-    }
-
-    public synchronized BatteryMonitor getBatteryMonitor() {
-        return batteryMonitor;
-    }
-
-    public synchronized SleepMonitor getSleepMonitor() {
-        return sleepMonitor;
-    }
-
     public PositionSensor getPositionSensor() {
         return positionSensor;
-    }
-
-    public synchronized void setPositionSensor(PositionSensor positionSensor) {
-        this.positionSensor = positionSensor;
     }
 
     private void setUpGauges() {
@@ -823,14 +609,6 @@ public class Rover {
         return sensingState;
     }
 
-    public State getMovingState() {
-        return movingState;
-    }
-
-    public State getExploringState() {
-        return exploringState;
-    }
-
     public State getPhotoGraphingState() {
         return photoGraphingState;
     }
@@ -846,6 +624,21 @@ public class Rover {
 
     public synchronized void bootUp() {
         Thread.currentThread().setName("roverMain");
+
+        this.logger = LoggerFactory.getLogger(Rover.class);
+        RoverUtil.cleanOutOldLogFiles(this);
+
+        try {
+            this.softwareVersion = Double.parseDouble(marsConfig.getProperty("mars.rover.software.version"));
+            logger.info("marsRover launched with software version = " + softwareVersion);
+        } catch (NumberFormatException nfe) {
+            logger.error("Could not get software version information", nfe);
+            logger.error("Mars Config content = ");
+            for (String key : marsConfig.stringPropertyNames()) {
+                logger.error(" Key = " + key + " Value = " + marsConfig.getProperty(key));
+            }
+        }
+
         setUpGauges();
         metrics.newGauge(new MetricName(Rover.class, "RoverBattery"), batteryGauge);
         metrics.newGauge(new MetricName(Rover.class, "RoverInstructionQueue"), instructionQueueGauge);
@@ -877,8 +670,8 @@ public class Rover {
         this.danSensingState = new DANSensingState(this);
 
         this.instructionQueue = new ArrayList<>();
-        this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");
+        logger.info("Rover + " + ROVER_NAME + " states initialized. ");
 
         this.pacemaker = new Pacemaker(this);
         pacemaker.pulse();
@@ -964,7 +757,9 @@ public class Rover {
         logger.info(" 9. Stopping Radio Communications.");
         radio.stopRadio();
         radio = null;
+    }
 
+    protected void shutdownSystem() {
         logger.info("Houston this is Curiosity saying goodbye! Hope I did OK!");
         Runtime.getRuntime().halt(0);
     }

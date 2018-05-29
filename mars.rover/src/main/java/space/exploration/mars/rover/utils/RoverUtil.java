@@ -2,20 +2,29 @@ package space.exploration.mars.rover.utils;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import communications.protocol.ModuleDirectory;
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.mars.rover.kernel.Rover;
 
 import java.awt.*;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.PosixFilePermission;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * Created by sanket on 5/15/17.
@@ -41,6 +50,116 @@ public class RoverUtil {
             System.out.println(logger.getName() + " ERROR ::" + message);
             logger.error(message);
         }
+    }
+
+    public static void cleanOutOldLogFiles(Rover rover) {
+        boolean isDirectory = Files.isDirectory(Paths.get("roverStatusReports/"));
+        rover.getLogger().info("IsDirectory result = " + isDirectory);
+
+        int                  count = 0;
+        java.util.List<Path> paths = null;
+        try {
+            paths = Files.walk(Paths.get("roverStatusReports/")).collect(Collectors.toList());
+        } catch (IOException e) {
+            rover.getLogger().error("Could not find directory roverStatusReports ");
+            return;
+        }
+
+        for (Path path : paths) {
+            String fileName = path.toString();
+            fileName = fileName.replace("roverStatus", "");
+            fileName = fileName.replace(".log", "");
+
+            Long timeStamp = 0l;
+            try {
+                timeStamp = Long.parseLong(fileName);
+            } catch (NumberFormatException nfe) {
+                rover.getLogger().info("Could not get timestamp for :: " + timeStamp);
+                continue;
+            }
+
+            DateTime currentDate = new DateTime();
+            DateTime fileDate    = new DateTime(timeStamp);
+
+            int daysBetween = (int) TimeUnit.MILLISECONDS.toDays(currentDate.getMillis() - fileDate.getMillis());
+
+            if (daysBetween >= 10) {
+                rover.getLogger().debug("Deleting file " + path.toString());
+                try {
+                    Files.delete(path);
+                } catch (IOException e) {
+                    rover.getLogger().error("Could not delete file " + path);
+                }
+                count++;
+            }
+        }
+        rover.getLogger().info("Deleted " + count + " old log files.");
+    }
+
+    public static void deleteAllJarFiles(Rover rover) throws IOException {
+        List<Path> paths = Files.walk(Paths.get(rover.getWorkingDirectory())).collect(Collectors.toList());
+        for (Path path : paths) {
+            if (path.toString().contains(".jar")) {
+                rover.getLogger().info("Deleting file " + path);
+                Files.delete(path);
+            }
+        }
+    }
+
+    public static void processSoftwareUpdate(Rover rover, SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage) {
+        try {
+            deleteAllJarFiles(rover);
+        } catch (IOException io) {
+            rover.getLogger().error("Could not delete old jar files. Software update abandoned!", io);
+            return;
+        }
+
+        String jarFileLocation = swUpdatePackage.getJarFileLocation();
+        String scriptLocation  = swUpdatePackage.getLaunchScriptLocation();
+        String jarFilename     = swUpdatePackage.getJarFileName();
+        String scriptFilename  = swUpdatePackage.getScriptFileName();
+
+        try {
+            byte[] jarFileContent    = ServiceUtil.download(jarFileLocation);
+            byte[] scriptFileContent = ServiceUtil.download(scriptLocation);
+
+            File jarFile    = new File(jarFilename);
+            File scriptFile = new File(scriptFilename);
+
+            FileOutputStream jarFos    = new FileOutputStream(jarFile);
+            FileOutputStream scriptFos = new FileOutputStream(scriptFile);
+
+            jarFos.write(jarFileContent);
+            scriptFos.write(scriptFileContent);
+
+            Set<PosixFilePermission> permissions = new HashSet<>();
+
+            permissions.add(PosixFilePermission.OWNER_READ);
+            permissions.add(PosixFilePermission.OTHERS_READ);
+            permissions.add(PosixFilePermission.OTHERS_WRITE);
+            permissions.add(PosixFilePermission.OWNER_WRITE);
+            Files.setPosixFilePermissions(jarFile.toPath(), permissions);
+
+            permissions.add(PosixFilePermission.OWNER_EXECUTE);
+            Files.setPosixFilePermissions(scriptFile.toPath(), permissions);
+
+            jarFos.close();
+            scriptFos.close();
+
+            rover.getLogger().info("Downloaded new jar file :: " + jarFilename);
+            rover.getLogger().info("Downloaded new launch script :: " + scriptFilename);
+        } catch (IOException e) {
+            rover.getLogger().error("Error during software update. Reverting to original software.", e);
+        }
+    }
+
+    public static RoverStatusOuterClass.RoverStatus.Builder generateUpdateStatus() {
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus
+                .newBuilder();
+        rBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
+
+        rBuilder.setNotes("Rover is going to shutdown after a software update.");
+        return rBuilder;
     }
 
     public static String getPropertiesAsString(Properties properties) {

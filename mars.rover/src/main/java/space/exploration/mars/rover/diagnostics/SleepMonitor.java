@@ -23,6 +23,7 @@ public class SleepMonitor {
         monitor.scheduleAtFixedRate(snooze, 0l, 1l, TimeUnit.MINUTES);
         sleepAfterTimeMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
                                                                                            ".minutes"));
+        logger.info("SleepMonitor initialized and activated!");
     }
 
     public void hardInterrupt() {

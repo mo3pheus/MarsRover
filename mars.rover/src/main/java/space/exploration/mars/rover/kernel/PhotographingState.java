@@ -9,6 +9,7 @@ import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.CameraPayload;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
+import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.service.PhotoQueryService;
@@ -42,6 +43,11 @@ public class PhotographingState implements State {
         } catch (InvalidProtocolBufferException ipe) {
             RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
+    }
+
+    @Override
+    public void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage) {
+        logger.error("Can not update software in " + getStateName());
     }
 
     @Override

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.diagnostics.HeartBeatOuterClass;
 import space.exploration.communications.protocol.kernel.EquipmentHealthOuterClass;
+import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.communications.protocol.spice.MSLRelativePositions;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
@@ -34,6 +35,7 @@ public class Pacemaker {
         this.rover = rover;
         this.scheduler = Executors.newSingleThreadScheduledExecutor();
         pulse = new Pulse();
+        logger.info("Pacemaker initialized");
     }
 
     public void sendHeartBeat(boolean shutdown) {

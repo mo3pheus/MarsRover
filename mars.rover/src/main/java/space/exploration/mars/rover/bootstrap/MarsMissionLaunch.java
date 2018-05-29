@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class MarsMissionLaunch {
+
     public static void main(String[] args) {
         String logFilePath = "";
         try {
@@ -43,7 +44,7 @@ public class MarsMissionLaunch {
             fa.setFile("analysisLogs/roverStatus_" + Long.toString(System.currentTimeMillis()) + ".log");
         }
 
-        fa.setLayout(new EnhancedPatternLayout("%-6d [%25.35t] %-5p %40.80c - %m%n"));
+        fa.setLayout(new EnhancedPatternLayout("%-6d [%t] %-5p %40.80c - %m%n"));
         fa.activateOptions();
         org.apache.log4j.Logger.getRootLogger().addAppender(fa);
         return fa.getFile();
