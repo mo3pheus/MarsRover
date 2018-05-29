@@ -146,6 +146,10 @@ public class RoverUtil {
             jarFos.close();
             scriptFos.close();
 
+            rover.setSoftwareVersion(swUpdatePackage.getVersion());
+            rover.getMarsConfig().setProperty("mars.rover.software.version", Double.toString(swUpdatePackage
+                                                                                                     .getVersion()));
+
             rover.getLogger().info("Downloaded new jar file :: " + jarFilename);
             rover.getLogger().info("Downloaded new launch script :: " + scriptFilename);
         } catch (IOException e) {

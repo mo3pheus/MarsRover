@@ -62,20 +62,6 @@ public class ListeningState implements State {
 
     @Override
     public void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage) {
-        rover.reflectRoverState();
-        logger.info("Rover commencing software update.");
-        logger.info("Stopping pacemaker");
-        rover.getPacemaker().hardInterrupt();
-
-        RoverUtil.processSoftwareUpdate(rover, swUpdatePackage);
-
-        logger.info("Sending software update complete message.");
-        rover.state = rover.transmittingState;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverUtil.generateUpdateStatus();
-        rover.transmitMessage(rBuilder.build().toByteArray());
-
-        logger.info("Commencing rover shutdown");
-        rover.gracefulShutdown();
     }
 
     @Override
@@ -145,10 +131,11 @@ public class ListeningState implements State {
                         rover.state = rover.weatherSensingState;
                         rover.senseWeather(null);
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.KERNEL.getValue()) {
+                        rover.state = rover.maintenanceState;
                         switch (tp.getAction()) {
                             case GRACEFUL_SHUTDOWN: {
+
                                 rover.gracefulShutdown();
-                                rover.shutdownSystem();
                             }
                             break;
                             case SOFTWARE_UPDATE: {
@@ -161,7 +148,6 @@ public class ListeningState implements State {
                                 logger.warn("Unknown action specified for Kernel module.");
                             }
                         }
-
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.DAN_SPECTROMETER.getValue()) {
                         logger.info(" Rover " + Rover.ROVER_NAME + " will do a Dynamic Albedo of Neutrons Scan");
                         rover.state = rover.danSensingState;
@@ -249,20 +235,7 @@ public class ListeningState implements State {
 
     @Override
     public void gracefulShutdown() {
-        rover.reflectRoverState();
-        logger.info("Rover initiating a gracefulShutdown.");
-        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor("robotShutdownMode"));
-        rover.getMarsArchitect().getMarsSurface().repaint();
 
-        logger.info("Synchronizing Clocks.");
-        rover.state = rover.sclkBeepingState;
-        rover.synchronizeClocks(rover.getSpacecraftClock().getUTCTime());
-
-        logger.info("Sending diagnostic heartbeat.");
-        rover.getPacemaker().sendHeartBeat(true);
-
-        logger.info("Severing ties with the rover.");
-        rover.shutdownRover();
     }
 
     @Override

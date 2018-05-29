@@ -11,6 +11,7 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.mars.rover.communication.Radio;
+import space.exploration.mars.rover.diagnostics.LauncherMonitor;
 import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
 import space.exploration.mars.rover.diagnostics.SleepMonitor;
@@ -51,6 +52,7 @@ public class Rover {
     State weatherSensingState;
     State sclkBeepingState;
     State danSensingState;
+    State maintenanceState;
 
     /* Status messages */
     private long    creationTime = 0l;
@@ -99,6 +101,8 @@ public class Rover {
     private volatile long                  inRechargingModeTime = 0l;
     private volatile long                  timeMessageReceived  = 0l;
     private volatile boolean               gracefulShutdown     = false;
+    private volatile Process               launcherProcess      = null;
+    private volatile LauncherMonitor       launcherMonitor      = null;
 
     /* Resource Management Stack */
     private volatile Semaphore             accessLock            = new Semaphore(1);
@@ -174,6 +178,7 @@ public class Rover {
         return statement;
     }
 
+
     public boolean isDbLoggingEnabled() {
         return dbLoggingEnabled;
     }
@@ -216,6 +221,14 @@ public class Rover {
 
     public void setCamera(Camera camera) {
         this.camera = camera;
+    }
+
+    public Process getLauncherProcess() {
+        return launcherProcess;
+    }
+
+    public void setLauncherProcess(Process launcherProcess) {
+        this.launcherProcess = launcherProcess;
     }
 
     public void setRadar(Radar radar) {
@@ -397,6 +410,14 @@ public class Rover {
 
     public synchronized Radio getRadio() {
         return radio;
+    }
+
+    public double getSoftwareVersion() {
+        return softwareVersion;
+    }
+
+    public void setSoftwareVersion(double softwareVersion) {
+        this.softwareVersion = softwareVersion;
     }
 
     public synchronized MarsArchitect getMarsArchitect() {
@@ -643,6 +664,7 @@ public class Rover {
         metrics.newGauge(new MetricName(Rover.class, "RoverBattery"), batteryGauge);
         metrics.newGauge(new MetricName(Rover.class, "RoverInstructionQueue"), instructionQueueGauge);
 
+        this.launcherMonitor = new LauncherMonitor(this);
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
         this.weatherSensor = new WeatherSensor(this);
@@ -658,6 +680,7 @@ public class Rover {
         this.marsArchitect = new MarsArchitect(marsConfig);
         this.listeningState = new ListeningState(this);
         this.hibernatingState = new HibernatingState(this);
+        this.maintenanceState = new MaintenanceState(this);
         this.exploringState = new ApxsSensingState(this);
         this.movingState = new MovingState(this);
         this.photoGraphingState = new PhotographingState(this);

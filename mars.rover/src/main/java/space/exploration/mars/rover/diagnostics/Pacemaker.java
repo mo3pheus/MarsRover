@@ -12,6 +12,7 @@ import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
 
+import java.lang.management.ManagementFactory;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -76,7 +77,8 @@ public class Pacemaker {
         HeartBeatOuterClass.HeartBeat.Builder hBuilder = HeartBeatOuterClass.HeartBeat.newBuilder();
         hBuilder.setSCET(rover.getSpacecraftClock().getInternalClock().getMillis());
         hBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
-        hBuilder.setNotes("This is rover Curiosity. Sending HeartBeat!");
+        hBuilder.setNotes("This is rover Curiosity. Sending HeartBeat! Rover software version = " + rover
+                .getSoftwareVersion() + " Current process pid = " + ManagementFactory.getRuntimeMXBean().getName());
         hBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
         hBuilder.setSolNumber(rover.getSpacecraftClock().getSol());
 
