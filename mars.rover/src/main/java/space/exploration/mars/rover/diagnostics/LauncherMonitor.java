@@ -23,6 +23,7 @@ public class LauncherMonitor {
     public class LaunchProcessMonitor implements Runnable {
         @Override
         public void run() {
+            Thread.currentThread().setName("launchProcessMonitor");
             if (rover.getLauncherProcess().isAlive() && runThread) {
                 InputStream inputStream = rover.getLauncherProcess().getInputStream();
                 try {
@@ -47,6 +48,6 @@ public class LauncherMonitor {
     public LauncherMonitor(Rover rover) {
         this.rover = rover;
         roverLauncherMonitor = Executors.newSingleThreadScheduledExecutor();
-        roverLauncherMonitor.schedule(new LaunchProcessMonitor(), 500l, TimeUnit.MILLISECONDS);
+        roverLauncherMonitor.scheduleAtFixedRate(new LaunchProcessMonitor(), 0l, 500l, TimeUnit.MILLISECONDS);
     }
 }

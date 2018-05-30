@@ -134,7 +134,7 @@ public class ListeningState implements State {
                         rover.state = rover.maintenanceState;
                         switch (tp.getAction()) {
                             case GRACEFUL_SHUTDOWN: {
-
+                                rover.setGracefulShutdown(true);
                                 rover.gracefulShutdown();
                             }
                             break;

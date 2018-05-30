@@ -26,6 +26,7 @@ import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
@@ -664,7 +665,6 @@ public class Rover {
         metrics.newGauge(new MetricName(Rover.class, "RoverBattery"), batteryGauge);
         metrics.newGauge(new MetricName(Rover.class, "RoverInstructionQueue"), instructionQueueGauge);
 
-        this.launcherMonitor = new LauncherMonitor(this);
         this.creationTime = System.currentTimeMillis();
         this.previousRovers = new HashMap<>();
         this.weatherSensor = new WeatherSensor(this);
