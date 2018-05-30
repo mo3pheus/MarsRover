@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DANSpectrometer implements IsEquipment {
+    public static final String                          LIFESPAN       = "mars.rover.dan.spectrometer.lifespan";
     public static final String                          DAN_UTC_FORMAT = "yyyy-MM-dd~HH:mm:ss.sss";
     private             Logger                          logger         = LoggerFactory.getLogger(DANSpectrometer.class);
     private             int                             lifeSpan       = 0;
@@ -24,7 +25,7 @@ public class DANSpectrometer implements IsEquipment {
         this.rover = rover;
         danDerivedData = new ArrayList<>();
         try {
-            lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.dan.lifespan"));
+            lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
         } catch (NumberFormatException nfe) {
             logger.error("Property not found in marsConfig - mars.rover.dan.lifespan . Defaulting the value to 1000 " +
                                  "", nfe);
@@ -61,6 +62,11 @@ public class DANSpectrometer implements IsEquipment {
     @Override
     public long getRequestMetric() {
         return rover.getDanSensingState().getRequests().count();
+    }
+
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return LIFESPAN;
     }
 
     public void calibrateDanSensor(int sol) {

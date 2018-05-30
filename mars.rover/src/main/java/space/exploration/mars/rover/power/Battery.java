@@ -8,13 +8,14 @@ import space.exploration.mars.rover.utils.RoverUtil;
 import java.util.Properties;
 
 public class Battery implements IsEquipment {
-    private int     primaryPowerUnits;
-    private int     auxiliaryPowerUnits;
-    private int     alertThreshold;
-    private int     rechargeTime;
-    private int     lifeSpan;
-    private boolean endOfLife;
-    private Logger logger = LoggerFactory.getLogger(Battery.class);
+    public static final String  LIFESPAN = "mars.rover.battery.lifespan";
+    private             int     primaryPowerUnits;
+    private             int     auxiliaryPowerUnits;
+    private             int     alertThreshold;
+    private             int     rechargeTime;
+    private             int     lifeSpan;
+    private             boolean endOfLife;
+    private             Logger  logger   = LoggerFactory.getLogger(Battery.class);
 
     public Battery(Properties batteryConfig) {
         try {
@@ -22,7 +23,7 @@ public class Battery implements IsEquipment {
             this.rechargeTime = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery.rechargeTime"));
             this.primaryPowerUnits = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery" +
                                                                                         ".primaryPowerUnits"));
-            this.lifeSpan = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery.lifeSpan"));
+            this.lifeSpan = Integer.parseInt(batteryConfig.getProperty(LIFESPAN));
             this.auxiliaryPowerUnits = Integer.parseInt(batteryConfig.getProperty("mars.rover.battery" +
                                                                                           ".auxiliaryPowerUnits"));
             RoverUtil.roverSystemLog(logger, "Battery configured, batteryLife:primaryPowerUnits = " + primaryPowerUnits
@@ -42,6 +43,11 @@ public class Battery implements IsEquipment {
     @Override
     public long getRequestMetric() {
         return primaryPowerUnits;
+    }
+
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return LIFESPAN;
     }
 
     public void setEndOfLife(boolean endOfLife) {

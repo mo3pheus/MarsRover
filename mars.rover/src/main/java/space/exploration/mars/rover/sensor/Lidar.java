@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lidar implements IsEquipment {
-    public static final  String LIFESPAN       = "mars.rover.lidar.lifeSpan";
+    public static final  String LIFESPAN       = "mars.rover.lidar.lifespan";
     private static final int    DELTA_THETA    = 5;
     private static final int    NUM_LAST_SCANS = 100;
 
@@ -45,6 +45,7 @@ public class Lidar implements IsEquipment {
         this.cellWidth = cellWidth;
         this.powerConsumption = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
                                                                                            .LIDAR_POWER_CONSUMPTION));
+        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
         fillGridCells();
     }
 
@@ -124,6 +125,11 @@ public class Lidar implements IsEquipment {
         return rover.getSensingState().getRequests().count();
     }
 
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return LIFESPAN;
+    }
+
     public void setEndOfLife(boolean endOfLife) {
         this.endOfLife = endOfLife;
     }
@@ -134,10 +140,6 @@ public class Lidar implements IsEquipment {
 
     public int getLifeSpan() {
         return lifeSpan;
-    }
-
-    public void setLifeSpan(int lifeSpan) {
-        this.lifeSpan = lifeSpan;
     }
 
     @Override

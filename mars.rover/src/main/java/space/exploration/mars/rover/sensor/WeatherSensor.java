@@ -23,8 +23,8 @@ import java.util.concurrent.TimeUnit;
  * Created by skorgao on 10/10/2017.
  */
 public class WeatherSensor implements IsEquipment {
-    private static final String WEATHER_SENSOR_LIFESPAN = "mars.rover.weather.station.lifeSpan";
-    private              Logger logger                  = LoggerFactory.getLogger(WeatherSensor.class);
+    public static final String LIFESPAN = "mars.rover.rems.lifespan";
+    private             Logger logger   = LoggerFactory.getLogger(WeatherSensor.class);
 
     private          double                                            staleDataThresholdHours  = 0.0d;
     private volatile Map<Double, WeatherRDRData.WeatherEnvReducedData> weatherEnvReducedDataMap = null;
@@ -41,7 +41,7 @@ public class WeatherSensor implements IsEquipment {
 
     public WeatherSensor(Rover rover) {
         this.rover = rover;
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(WEATHER_SENSOR_LIFESPAN));
+        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
         this.fullLifeSpan = lifeSpan;
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();
@@ -131,6 +131,11 @@ public class WeatherSensor implements IsEquipment {
     @Override
     public long getRequestMetric() {
         return rover.getWeatherSensingState().getRequests().count();
+    }
+
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return LIFESPAN;
     }
 
     private RoverStatusOuterClass.RoverStatus.Builder getGeneralRoverStatus() {

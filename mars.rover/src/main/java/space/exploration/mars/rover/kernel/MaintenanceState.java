@@ -134,30 +134,33 @@ public class MaintenanceState implements State {
             logger.info("Old software version = " + rover.getSoftwareVersion() + " upgrading to " + newVersion);
             RoverUtil.processSoftwareUpdate(rover, swUpdatePackage);
             rover.setSoftwareVersion(swUpdatePackage.getVersion());
-        }
 
-        logger.info("Sending software update complete message.");
-        rover.state = rover.transmittingState;
-        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverUtil.generateUpdateStatus();
-        rover.transmitMessage(rBuilder.build().toByteArray());
+            logger.info("Sending software update complete message.");
+            rover.state = rover.transmittingState;
+            RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverUtil.generateUpdateStatus();
+            rover.transmitMessage(rBuilder.build().toByteArray());
 
-        logger.info("Commencing rover shutdown");
-        rover.state = rover.maintenanceState;
-        rover.gracefulShutdown();
+            logger.info("Commencing rover shutdown");
+            rover.state = rover.maintenanceState;
+            rover.gracefulShutdown();
 
-        try {
-            String[] commands = {"./" + swUpdatePackage.getScriptFileName()};
-            Process  process  = Runtime.getRuntime().exec(commands);
-            rover.setLauncherProcess(process);
+            try {
+                String[] commands = {"./" + swUpdatePackage.getScriptFileName()};
+                Process  process  = Runtime.getRuntime().exec(commands);
+                rover.setLauncherProcess(process);
 
-            commands[0] = "./smartTail.sh";
-            Runtime.getRuntime().exec(commands);
-            Thread.sleep(TimeUnit.MINUTES.toMillis(2l));
-            rover.shutdownSystem();
-        } catch (IOException e) {
-            logger.error("Error while launching new launch script.", e);
-        } catch (InterruptedException e) {
-            logger.error("Interrupted Exception while waiting for process to kill runtime env.", e);
+                commands[0] = "./smartTail.sh";
+                Runtime.getRuntime().exec(commands);
+                Thread.sleep(TimeUnit.MINUTES.toMillis(2l));
+                rover.shutdownSystem();
+            } catch (IOException e) {
+                logger.error("Error while launching new launch script.", e);
+            } catch (InterruptedException e) {
+                logger.error("Interrupted Exception while waiting for process to kill runtime env.", e);
+            }
+        } else {
+            logger.error("Software already up to date.");
+            rover.state = rover.listeningState;
         }
     }
 }

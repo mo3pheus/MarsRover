@@ -2,6 +2,7 @@ package space.exploration.mars.rover.communication;
 
 import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
+import kafka.controller.LeaderIsrAndControllerEpoch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 4/27/17.
  */
 public class Radio implements IsEquipment {
-    public static final String      LIFESPAN        = "mars.rover.radio.lifeSpan";
+    public static final String      LIFESPAN        = "mars.rover.radio.lifespan";
     public static final int         SOS_RESERVE     = 10;
     private             Rover       rover           = null;
     private             Transmitter transmitter     = null;
@@ -41,8 +42,7 @@ public class Radio implements IsEquipment {
         receiver.setRadioCheckPulse(radioCheckPulse);
         receiver.start();
 
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(Radio.LIFESPAN));
-
+        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
         RoverUtil.roverSystemLog(logger, "Radio configured:: " + RoverUtil.getPropertiesAsString(comsConfig), "INFO");
     }
 
@@ -54,6 +54,11 @@ public class Radio implements IsEquipment {
     @Override
     public long getRequestMetric() {
         return requests.count();
+    }
+
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return "mars.rover.radio.lifespan";
     }
 
     public void setEndOfLife(boolean endOfLife) {
@@ -119,17 +124,6 @@ public class Radio implements IsEquipment {
         return this.receiver;
     }
 
-    /*
-    This needs to be replaced by computed lightTime from SPICE Data
-
-    Requirements:
-    1) Radio should go black if Curiosity does not have line of sight with Earth DNS Station
-    2) LightTime should be computed - include calculations packet with every telemetry signal
-    3) Find the angle of separation between Curiosity Radio Mast and LOS to Earth
-        LOS vs HGA, LOS vs LGA and LOS vs UHF
-    4) For UHF figure out if MEO/MRO/MOO can deliver data.
-    5) Transmit overhead pass time for each satellite along with telemetry.
-    */
     private int getComsDelaySecs() {
         try {
             double owlt = rover.getPositionSensor().getPositionsData().getOwltMSLEarth();

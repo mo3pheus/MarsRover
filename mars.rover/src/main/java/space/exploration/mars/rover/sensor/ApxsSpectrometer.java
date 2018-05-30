@@ -16,18 +16,20 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 5/2/17.
  */
 public class ApxsSpectrometer implements IsEquipment {
-    private Logger                  logger          = LoggerFactory.getLogger(ApxsSpectrometer.class);
-    private String                  archivePath     = "/APXS/";
-    private Meter                   requests        = null;
-    private int                     lifeSpan        = 1000;
-    private ApxsDataService         apxsDataService = null;
-    private ApxsData.ApxsDataPacket apxsDataPacket  = null;
-    private Rover                   rover           = null;
+    public static final String                  LIFESPAN        = "mars.rover.apxs.spectrometer.lifespan";
+    private             Logger                  logger          = LoggerFactory.getLogger(ApxsSpectrometer.class);
+    private             String                  archivePath     = "/APXS/";
+    private             Meter                   requests        = null;
+    private             int                     lifeSpan        = 1000;
+    private             ApxsDataService         apxsDataService = null;
+    private             ApxsData.ApxsDataPacket apxsDataPacket  = null;
+    private             Rover                   rover           = null;
 
     public ApxsSpectrometer(Rover rover) {
         this.rover = rover;
         requests = this.rover.getMetrics().newMeter(ApxsSpectrometer.class, "ApxsSpectrometer", "requests", TimeUnit
                 .HOURS);
+        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
     }
 
     public void calibrateApxsSpectrometer(int sol) {
@@ -69,5 +71,10 @@ public class ApxsSpectrometer implements IsEquipment {
     @Override
     public long getRequestMetric() {
         return requests.count();
+    }
+
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return LIFESPAN;
     }
 }

@@ -11,4 +11,6 @@ public interface IsEquipment {
     boolean isEndOfLife();
 
     long getRequestMetric();
+
+    String getEquipmentLifeSpanProperty();
 }

@@ -97,6 +97,11 @@ public class PositionSensor implements IsEquipment {
         return 0;
     }
 
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return "mars.rover.position.sensor.lifespan";
+    }
+
     public void hardInterrupt() {
         logger.info("PositionSensor is shutting down.");
         runThread = false;

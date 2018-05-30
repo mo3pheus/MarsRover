@@ -486,6 +486,16 @@ public class Rover {
         this.nasaApiAuthKey = marsConfig.getProperty("nasa.api.authentication.key");
     }
 
+    public synchronized void saveOffSensorLifespans() {
+        for (IsEquipment equipment : getEquimentList()) {
+            if (gracefulShutdown) {
+                marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), 1000);
+            } else {
+                marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), equipment.getLifeSpan());
+            }
+        }
+    }
+
     public synchronized void configureDB() {
         dbLoggingEnabled = Boolean.parseBoolean(logDBConfig.getProperty("mars.rover.database.logging.enable"));
 
@@ -494,7 +504,6 @@ public class Rover {
         }
 
         try {
-            System.out.println("Configuring database");
             dbUserName = logDBConfig.getProperty("mars.rover.database.user");
             dbPassword = logDBConfig.getProperty("mars.rover.database.password");
             logDBConnection = DriverManager
@@ -515,10 +524,8 @@ public class Rover {
     }
 
     public synchronized void configureLidar(Point origin, int cellWidth, int range) {
-        int     lidarLifespan = lidar.getLifeSpan();
-        boolean lidarEOL      = lidar.isEndOfLife();
+        boolean lidarEOL = lidar.isEndOfLife();
         this.lidar = new Lidar(origin, cellWidth, range, this);
-        lidar.setLifeSpan(lidarLifespan);
         lidar.setEndOfLife(lidarEOL);
     }
 
@@ -714,7 +721,6 @@ public class Rover {
         int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 
         this.lidar = new Lidar(location, cellWidth, cellWidth, this);
-        lidar.setLifeSpan(Integer.parseInt(marsConfig.getProperty(Lidar.LIFESPAN)));
 
         this.apxsSpectrometer = new ApxsSpectrometer(this);
         this.camera =
@@ -722,7 +728,6 @@ public class Rover {
                                                                                                     this,
                                                                                                     cameraImageCacheLocation);
         this.radar = new Radar(this);
-
         this.navigationEngine = new NavigationEngine(this.getMarsConfig());
 
         configureDB();

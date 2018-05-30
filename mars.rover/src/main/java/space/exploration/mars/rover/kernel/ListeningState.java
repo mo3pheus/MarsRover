@@ -135,10 +135,12 @@ public class ListeningState implements State {
                         switch (tp.getAction()) {
                             case GRACEFUL_SHUTDOWN: {
                                 rover.setGracefulShutdown(true);
+                                rover.saveOffSensorLifespans();
                                 rover.gracefulShutdown();
                             }
                             break;
                             case SOFTWARE_UPDATE: {
+                                rover.saveOffSensorLifespans();
                                 SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage = SwUpdatePackageOuterClass
                                         .SwUpdatePackage.parseFrom(tp.getAuxiliaryData());
                                 rover.updateSoftware(swUpdatePackage);

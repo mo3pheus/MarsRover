@@ -19,6 +19,7 @@ import java.util.Map;
  * Created by sanket on 5/30/17.
  */
 public class Radar implements IsEquipment {
+    public static final  String      LIFESPAN       = "mars.rover.radar.lifespan";
     public static final  String      RADAR_PREFIX   = "mars.rover.radar";
     private static final String      SCALE_FACTOR   = "mars.rover.radarContact.scaleFactor";
     private              int         lifeSpan       = 0;
@@ -34,7 +35,7 @@ public class Radar implements IsEquipment {
     public Radar(Rover rover) {
         this.rover = rover;
         this.scaleFactor = Double.parseDouble(rover.getMarsConfig().getProperty(SCALE_FACTOR));
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(RADAR_PREFIX + ".lifeSpan"));
+        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
         this.previousRovers = new ArrayList<>();
         this.relativeRovers = new ArrayList<>();
 
@@ -65,6 +66,11 @@ public class Radar implements IsEquipment {
     @Override
     public long getRequestMetric() {
         return rover.getRadarScanningState().getRequests().count();
+    }
+
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return LIFESPAN;
     }
 
     public void setEndOfLife(boolean endOfLife) {

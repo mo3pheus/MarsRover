@@ -144,6 +144,11 @@ public class SpacecraftClock extends Observable implements IsEquipment {
         return sclkGauge.value();
     }
 
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return "mars.rover.spacecraft.clock.lifespan";
+    }
+
     public void stopClock() {
         clockCounter.shutdown();
     }

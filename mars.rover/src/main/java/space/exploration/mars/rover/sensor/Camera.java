@@ -23,7 +23,7 @@ import java.util.Properties;
  * Created by sanketkorgaonkar on 5/9/17.
  */
 public class Camera implements IsEquipment {
-    private static final String          LIFESPAN           = "mars.rover.camera.lifeSpan";
+    public static final  String          LIFESPAN           = "mars.rover.camera.lifespan";
     private static final int             LAST_SHOTS_RESERVE = 10;
     private              int             numImages          = 0;
     private              int             numImageCaches     = 0;
@@ -106,6 +106,11 @@ public class Camera implements IsEquipment {
     @Override
     public long getRequestMetric() {
         return rover.getPhotoGraphingState().getRequests().count();
+    }
+
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return LIFESPAN;
     }
 
     public void setEndOfLife(boolean endOfLife) {
