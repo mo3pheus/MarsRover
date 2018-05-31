@@ -489,7 +489,7 @@ public class Rover {
     public synchronized void saveOffSensorLifespans() {
         for (IsEquipment equipment : getEquimentList()) {
             if (gracefulShutdown) {
-                marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), 1000);
+                marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), "1000");
             } else {
                 marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), Integer.toString(equipment.getLifeSpan()));
             }
