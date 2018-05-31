@@ -491,7 +491,7 @@ public class Rover {
             if (gracefulShutdown) {
                 marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), 1000);
             } else {
-                marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), equipment.getLifeSpan());
+                marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), Integer.toString(equipment.getLifeSpan()));
             }
         }
     }
