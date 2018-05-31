@@ -4,6 +4,7 @@ import com.yammer.metrics.core.Gauge;
 import com.yammer.metrics.core.MetricName;
 import com.yammer.metrics.core.MetricsRegistry;
 import communications.protocol.ModuleDirectory;
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
@@ -32,6 +33,8 @@ import java.util.*;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+
+import static space.exploration.mars.rover.power.Battery.LIFESPAN;
 
 public class Rover {
     public static final String ROVER_NAME        = "Curiosity";
@@ -552,7 +555,7 @@ public class Rover {
         this.battery = new Battery(marsConfig);
         if (recharged) {
             battery.setLifeSpan(lifeSpan - 1);
-            int fullBatteryLifeSpan = Integer.parseInt(marsConfig.getProperty("mars.rover.battery.lifeSpan"));
+            int fullBatteryLifeSpan = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
             battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - (fullBatteryLifeSpan - battery.getLifeSpan
                     ()));
         }
@@ -647,7 +650,8 @@ public class Rover {
     }
 
     protected synchronized void reflectRoverState() {
-        marsArchitect.getMarsSurface().setTitle(state.getStateName());
+        marsArchitect.getMarsSurface().setTitle(state.getStateName() + " Software Version - " + Double.toString
+                (softwareVersion));
         marsArchitect.getMarsSurface().repaint();
     }
 
