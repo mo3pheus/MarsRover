@@ -1,15 +1,20 @@
 package space.exploration.mars.rover.communication;
 
+import certificates.RsaSecureComsCertificate;
+import com.google.protobuf.ByteString;
 import com.yammer.metrics.core.Meter;
+import communications.encryption.EncryptionUtil;
 import communications.protocol.ModuleDirectory;
 import kafka.controller.LeaderIsrAndControllerEpoch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.security.SecureMessage;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.utils.RoverUtil;
 
+import java.io.File;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -17,18 +22,20 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 4/27/17.
  */
 public class Radio implements IsEquipment {
-    public static final String      LIFESPAN        = "mars.rover.radio.lifespan";
-    public static final int         SOS_RESERVE     = 10;
-    private             Rover       rover           = null;
-    private             Transmitter transmitter     = null;
-    private             Receiver    receiver        = null;
-    private             Logger      logger          = LoggerFactory.getLogger(Radio.class);
-    private             boolean     endOfLife       = false;
-    private             double      timeScaleFactor = 0.0d;
-    private             int         lifeSpan        = 0;
-    private             boolean     bootUp          = true;
-    private             Integer     comsDelay       = 0;
-    private             Meter       requests        = null;
+    public static final  String      LIFESPAN        = "mars.rover.radio.lifespan";
+    private static final String      CERT_LOCATION   = "src/main/resources/certificates/server.ser";
+    public static final  int         SOS_RESERVE     = 10;
+    private              Rover       rover           = null;
+    private              Transmitter transmitter     = null;
+    private              Receiver    receiver        = null;
+    private              Logger      logger          = LoggerFactory.getLogger(Radio.class);
+    private              boolean     endOfLife       = false;
+    private              double      timeScaleFactor = 0.0d;
+    private              int         lifeSpan        = 0;
+    private              boolean     bootUp          = true;
+    private              Integer     comsDelay       = 0;
+    private              Meter       requests        = null;
+    protected            File        comsCertificate = null;
 
     public Radio(Properties comsConfig, Rover rover) {
         this.rover = rover;
@@ -44,6 +51,8 @@ public class Radio implements IsEquipment {
 
         this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
         RoverUtil.roverSystemLog(logger, "Radio configured:: " + RoverUtil.getPropertiesAsString(comsConfig), "INFO");
+
+        this.comsCertificate = new File(CERT_LOCATION);
     }
 
     @Override
@@ -65,13 +74,20 @@ public class Radio implements IsEquipment {
         this.endOfLife = endOfLife;
     }
 
-    public void receiveMessage(InstructionPayloadOuterClass.InstructionPayload instructionPayload) {
+    public void receiveMessage(SecureMessage.SecureMessagePacket secureMessagePacket) {
         requests.mark();
         try {
             if (lifeSpan > SOS_RESERVE) {
                 Thread.sleep(getComsDelaySecs());
-                rover.receiveMessage(instructionPayload.toByteArray());
-                lifeSpan--;
+                if (encryption.EncryptionUtil.verifyMessage(comsCertificate, secureMessagePacket)) {
+                    byte[] content = encryption.EncryptionUtil.decryptMessage(comsCertificate, secureMessagePacket);
+                    InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
+                            .InstructionPayload.parseFrom(content);
+                    rover.receiveMessage(instructionPayload.toByteArray());
+                    lifeSpan--;
+                } else {
+                    logger.error("Could not verify the authenticity of the message." + secureMessagePacket.toString());
+                }
             } else {
                 sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
                         Rover.ROVER_NAME + " Radio at " +
@@ -80,7 +96,7 @@ public class Radio implements IsEquipment {
             }
         } catch (Exception e) {
             logger.error("Houston, we have a problem!", e);
-            logger.error("The following instruction may have been lost." + instructionPayload.toString());
+            logger.error("The following instruction may have been lost." + secureMessagePacket.toString());
             RoverUtil.writeErrorLog(rover, "Houston, we have a problem!", e);
             rover.setState(rover.getListeningState());
         }
@@ -93,15 +109,22 @@ public class Radio implements IsEquipment {
                 if (!bootUp) {
                     Thread.sleep(getComsDelaySecs());
                 }
-                transmitter.transmitMessage(message);
+                SecureMessage.SecureMessagePacket.Builder sBuilder         = SecureMessage.SecureMessagePacket
+                        .newBuilder();
+                byte[]                                    encryptedMessage = encryption.EncryptionUtil.encryptMessage
+                        (comsCertificate, message);
+                sBuilder.setContent(ByteString.copyFrom(encryptedMessage));
+                sBuilder.setSignature(ByteString.copyFrom(encryption.EncryptionUtil.signMessage(comsCertificate,
+                                                                                                encryptedMessage)));
+                transmitter.transmitMessage(sBuilder.build().toByteArray());
                 lifeSpan--;
             } else {
                 logger.error("Radio lifeSpan has ended.");
                 RoverUtil.writeErrorLog(rover, "Radio lifeSpan has ended", null);
             }
-        } catch (InterruptedException e) {
-            logger.error("InterruptedException", e);
-            RoverUtil.writeErrorLog(rover, "InterruptedException", e);
+        } catch (Exception e) {
+            logger.error("Exception", e);
+            RoverUtil.writeErrorLog(rover, "Exception", e);
         } finally {
             bootUp = false;
         }

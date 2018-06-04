@@ -4,6 +4,7 @@
 package space.exploration.mars.rover.communication;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import encryption.EncryptionUtil;
 import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
@@ -12,6 +13,7 @@ import kafka.javaapi.consumer.ConsumerConnector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.security.SecureMessage;
 
 import java.util.HashMap;
 import java.util.List;
@@ -62,8 +64,9 @@ public class Receiver extends Thread {
             }
 
             try {
-                InstructionPayloadOuterClass.InstructionPayload received = (InstructionPayloadOuterClass
-                        .InstructionPayload.parseFrom(it.next().message()));
+                SecureMessage.SecureMessagePacket received = (SecureMessage.SecureMessagePacket.parseFrom(it.next().message()));
+//                InstructionPayloadOuterClass.InstructionPayload received = (InstructionPayloadOuterClass
+//                        .InstructionPayload.parseFrom(it.next().message()));
                 radio.receiveMessage(received);
             } catch (InvalidProtocolBufferException e) {
                 e.printStackTrace();
