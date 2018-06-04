@@ -1,11 +1,9 @@
 package space.exploration.mars.rover.communication;
 
-import certificates.RsaSecureComsCertificate;
 import com.google.protobuf.ByteString;
 import com.yammer.metrics.core.Meter;
 import communications.encryption.EncryptionUtil;
 import communications.protocol.ModuleDirectory;
-import kafka.controller.LeaderIsrAndControllerEpoch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
@@ -80,6 +78,7 @@ public class Radio implements IsEquipment {
             if (lifeSpan > SOS_RESERVE) {
                 Thread.sleep(getComsDelaySecs());
                 if (encryption.EncryptionUtil.verifyMessage(comsCertificate, secureMessagePacket)) {
+                    logger.info("Message is authentic. Sender id = " + secureMessagePacket.getSenderId());
                     byte[] content = encryption.EncryptionUtil.decryptMessage(comsCertificate, secureMessagePacket);
                     InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
                             .InstructionPayload.parseFrom(content);
@@ -109,13 +108,14 @@ public class Radio implements IsEquipment {
                 if (!bootUp) {
                     Thread.sleep(getComsDelaySecs());
                 }
-                SecureMessage.SecureMessagePacket.Builder sBuilder         = SecureMessage.SecureMessagePacket
+                SecureMessage.SecureMessagePacket.Builder sBuilder = SecureMessage.SecureMessagePacket
                         .newBuilder();
-                byte[]                                    encryptedMessage = encryption.EncryptionUtil.encryptMessage
+                byte[] encryptedMessage = encryption.EncryptionUtil.encryptMessage
                         (comsCertificate, message);
                 sBuilder.setContent(ByteString.copyFrom(encryptedMessage));
                 sBuilder.setSignature(ByteString.copyFrom(encryption.EncryptionUtil.signMessage(comsCertificate,
                                                                                                 encryptedMessage)));
+                sBuilder.setSenderId(Rover.ROVER_NAME);
                 transmitter.transmitMessage(sBuilder.build().toByteArray());
                 lifeSpan--;
             } else {
