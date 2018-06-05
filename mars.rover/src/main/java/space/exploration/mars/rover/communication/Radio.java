@@ -2,7 +2,6 @@ package space.exploration.mars.rover.communication;
 
 import com.google.protobuf.ByteString;
 import com.yammer.metrics.core.Meter;
-import communications.encryption.EncryptionUtil;
 import communications.protocol.ModuleDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -79,7 +78,8 @@ public class Radio implements IsEquipment {
                 Thread.sleep(getComsDelaySecs());
                 if (encryption.EncryptionUtil.verifyMessage(comsCertificate, secureMessagePacket)) {
                     logger.info("Message is authentic. Sender id = " + secureMessagePacket.getSenderId());
-                    byte[] content = encryption.EncryptionUtil.decryptMessage(comsCertificate, secureMessagePacket);
+                    byte[] content = encryption.EncryptionUtil.decryptMessage(comsCertificate, secureMessagePacket
+                            .getContent().toByteArray());
                     InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
                             .InstructionPayload.parseFrom(content);
                     rover.receiveMessage(instructionPayload.toByteArray());

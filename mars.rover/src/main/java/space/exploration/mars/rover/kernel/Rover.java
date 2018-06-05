@@ -4,10 +4,9 @@ import com.yammer.metrics.core.Gauge;
 import com.yammer.metrics.core.MetricName;
 import com.yammer.metrics.core.MetricsRegistry;
 import communications.protocol.ModuleDirectory;
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.*;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
@@ -27,14 +26,11 @@ import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.awt.*;
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-
-import static space.exploration.mars.rover.power.Battery.LIFESPAN;
 
 public class Rover {
     public static final String ROVER_NAME        = "Curiosity";
