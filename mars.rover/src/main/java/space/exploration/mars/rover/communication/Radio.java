@@ -3,6 +3,7 @@ package space.exploration.mars.rover.communication;
 import com.google.protobuf.ByteString;
 import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
+import encryption.EncryptionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
@@ -76,17 +77,11 @@ public class Radio implements IsEquipment {
         try {
             if (lifeSpan > SOS_RESERVE) {
                 Thread.sleep(getComsDelaySecs());
-                if (encryption.EncryptionUtil.verifyMessage(comsCertificate, secureMessagePacket)) {
-                    logger.info("Message is authentic. Sender id = " + secureMessagePacket.getSenderId());
-                    byte[] content = encryption.EncryptionUtil.decryptMessage(comsCertificate, secureMessagePacket
-                            .getContent().toByteArray());
-                    InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
-                            .InstructionPayload.parseFrom(content);
-                    rover.receiveMessage(instructionPayload.toByteArray());
-                    lifeSpan--;
-                } else {
-                    logger.error("Could not verify the authenticity of the message." + secureMessagePacket.toString());
-                }
+                byte[] decryptedContents = EncryptionUtil.decryptContent(comsCertificate, secureMessagePacket);
+                InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
+                        .InstructionPayload.parseFrom(decryptedContents);
+                rover.receiveMessage(instructionPayload.toByteArray());
+                lifeSpan--;
             } else {
                 sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
                         Rover.ROVER_NAME + " Radio at " +
@@ -108,21 +103,18 @@ public class Radio implements IsEquipment {
                 if (!bootUp) {
                     Thread.sleep(getComsDelaySecs());
                 }
-                SecureMessage.SecureMessagePacket.Builder sBuilder = SecureMessage.SecureMessagePacket
-                        .newBuilder();
-                byte[] encryptedMessage = encryption.EncryptionUtil.encryptMessage
-                        (comsCertificate, message);
-                sBuilder.setContent(ByteString.copyFrom(encryptedMessage));
-                sBuilder.setSignature(ByteString.copyFrom(encryption.EncryptionUtil.signMessage(comsCertificate,
-                                                                                                encryptedMessage)));
-                sBuilder.setSenderId(Rover.ROVER_NAME);
-                transmitter.transmitMessage(sBuilder.build().toByteArray());
+                SecureMessage.SecureMessagePacket secureMessagePacket = EncryptionUtil.encryptData(Rover.ROVER_NAME,
+                                                                                                   comsCertificate,
+                                                                                                   message);
+                logger.info("Message encryption successful.");
+                transmitter.transmitMessage(secureMessagePacket.toByteArray());
                 lifeSpan--;
             } else {
                 logger.error("Radio lifeSpan has ended.");
                 RoverUtil.writeErrorLog(rover, "Radio lifeSpan has ended", null);
             }
         } catch (Exception e) {
+            rover.setState(rover.getListeningState());
             logger.error("Exception", e);
             RoverUtil.writeErrorLog(rover, "Exception", e);
         } finally {
