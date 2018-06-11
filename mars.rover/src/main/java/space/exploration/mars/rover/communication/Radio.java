@@ -20,20 +20,21 @@ import java.util.concurrent.TimeUnit;
  * Created by sanketkorgaonkar on 4/27/17.
  */
 public class Radio implements IsEquipment {
-    public static final  String      LIFESPAN        = "mars.rover.radio.lifespan";
-    private static final String      CERT_LOCATION   = "src/main/resources/certificates/server.ser";
-    public static final  int         SOS_RESERVE     = 10;
-    private              Rover       rover           = null;
-    private              Transmitter transmitter     = null;
-    private              Receiver    receiver        = null;
-    private              Logger      logger          = LoggerFactory.getLogger(Radio.class);
-    private              boolean     endOfLife       = false;
-    private              double      timeScaleFactor = 0.0d;
-    private              int         lifeSpan        = 0;
-    private              boolean     bootUp          = true;
-    private              Integer     comsDelay       = 0;
-    private              Meter       requests        = null;
-    protected            File        comsCertificate = null;
+    public static final  String      LIFESPAN              = "mars.rover.radio.lifespan";
+    private static final String      CERT_LOCATION         = "src/main/resources/certificates/server.ser";
+    public static final  int         SOS_RESERVE           = 10;
+    private              Rover       rover                 = null;
+    private              Transmitter transmitter           = null;
+    private              Receiver    receiver              = null;
+    private              Logger      logger                = LoggerFactory.getLogger(Radio.class);
+    private              boolean     endOfLife             = false;
+    private              double      timeScaleFactor       = 0.0d;
+    private              int         lifeSpan              = 0;
+    private              boolean     bootUp                = true;
+    private              Integer     comsDelay             = 0;
+    private              long        encryptionWaitMinutes = 1l;
+    private              Meter       requests              = null;
+    protected            File        comsCertificate       = null;
 
     public Radio(Properties comsConfig, Rover rover) {
         this.rover = rover;
@@ -41,6 +42,8 @@ public class Radio implements IsEquipment {
         long radioCheckPulse = Long.parseLong(rover.getMarsConfig().getProperty("mars.rover.radio.check.pulse"));
         this.timeScaleFactor = Double.parseDouble(rover.getMarsConfig().getProperty("mars.rover.radio" +
                                                                                             ".timeScaleFactor"));
+        this.encryptionWaitMinutes = Long.parseLong(rover.getMarsConfig().getProperty("mars.rover.radio.encryption" +
+                                                                                              ".waitTimeMinutes"));
 
         this.transmitter = new Transmitter(comsConfig);
         this.receiver = new Receiver(comsConfig, this);
@@ -77,7 +80,8 @@ public class Radio implements IsEquipment {
         try {
             if (lifeSpan > SOS_RESERVE) {
                 Thread.sleep(getComsDelaySecs());
-                byte[] decryptedContents = EncryptionUtil.decryptSecureMessage(comsCertificate, secureMessagePacket);
+                byte[] decryptedContents = EncryptionUtil.decryptSecureMessage(comsCertificate, secureMessagePacket,
+                                                                               encryptionWaitMinutes);
                 InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
                         .InstructionPayload.parseFrom(decryptedContents);
                 rover.receiveMessage(instructionPayload.toByteArray());
@@ -105,7 +109,8 @@ public class Radio implements IsEquipment {
                 }
                 SecureMessage.SecureMessagePacket secureMessagePacket = EncryptionUtil.encryptData(Rover.ROVER_NAME,
                                                                                                    comsCertificate,
-                                                                                                   message);
+                                                                                                   message,
+                                                                                                   encryptionWaitMinutes);
                 logger.info("Message encryption successful.");
                 transmitter.transmitMessage(secureMessagePacket.toByteArray());
                 lifeSpan--;
