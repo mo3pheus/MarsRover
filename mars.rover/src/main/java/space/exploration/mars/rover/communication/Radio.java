@@ -77,7 +77,7 @@ public class Radio implements IsEquipment {
         try {
             if (lifeSpan > SOS_RESERVE) {
                 Thread.sleep(getComsDelaySecs());
-                byte[] decryptedContents = EncryptionUtil.decryptContent(comsCertificate, secureMessagePacket);
+                byte[] decryptedContents = EncryptionUtil.decryptSecureMessage(comsCertificate, secureMessagePacket);
                 InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
                         .InstructionPayload.parseFrom(decryptedContents);
                 rover.receiveMessage(instructionPayload.toByteArray());
