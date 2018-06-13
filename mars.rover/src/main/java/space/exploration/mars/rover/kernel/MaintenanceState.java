@@ -1,16 +1,28 @@
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.ByteString;
 import com.yammer.metrics.core.Meter;
+import communications.protocol.ModuleDirectory;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
+import space.exploration.kernel.diagnostics.LogRequest;
+import space.exploration.kernel.diagnostics.LogResponse;
+import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
+import space.exploration.mars.rover.utils.FileUtil;
 import space.exploration.mars.rover.utils.RoverUtil;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MaintenanceState implements State {
@@ -112,6 +124,57 @@ public class MaintenanceState implements State {
             logger.info("No pre-existing launcher process found. Shutting down system.");
             rover.shutdownSystem();
         }
+    }
+
+    @Override
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
+        List<LogResponse.LogResponsePacket.LogFile> logContents = new ArrayList<>();
+
+        logger.info("Requesting logs in date format = " + logRequestPacket.getDateFormat());
+        logger.info("Start date = " + logRequestPacket.getStartDate() + " End date = " + logRequestPacket.getEndDate());
+        DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(logRequestPacket.getDateFormat());
+        DateTime          startTime         = dateTimeFormatter.parseDateTime(logRequestPacket.getStartDate());
+        DateTime          endTime           = dateTimeFormatter.parseDateTime(logRequestPacket.getEndDate());
+
+        try {
+            List<File> logFiles = FileUtil.getLogFiles(startTime, endTime);
+            for (int i = 0; i < logFiles.size(); i++) {
+                File logFile = logFiles.get(i);
+                logContents.add(buildLogFile(logFile.getName(), FileUtil.getFileContent(logFile.getName())));
+            }
+        } catch (IOException io) {
+            logger.error("IOException while retrieving log files. Requested startDate = " + startTime + " endDate = "
+                                 + endTime, io);
+        }
+
+        LogResponse.LogResponsePacket.Builder logBuilder = LogResponse.LogResponsePacket.newBuilder();
+        logBuilder.setStartDate(startTime.toString());
+        logBuilder.setEndDate(endTime.toString());
+        logBuilder.addAllLogFiles(logContents);
+
+        Cell robot = rover.getMarsArchitect().getRobot();
+        RoverStatusOuterClass.RoverStatus.Location.Builder lBuilder = RoverStatusOuterClass.RoverStatus.Location
+                .newBuilder().setX(robot.getLocation().x).setY(robot.getLocation
+                        ().y);
+
+        RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
+        RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
+                .setSolNumber(rover.getSpacecraftClock().getSol())
+                .setLocation(lBuilder.build()).setNotes("DAN Spectroscope engaged!")
+                .setModuleMessage(ByteString.copyFrom(logBuilder.build().toByteArray()))
+                .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.KERNEL
+                                                                                .getValue())
+                .build();
+
+        rover.state = rover.transmittingState;
+        rover.transmitMessage(status.toByteArray());
+    }
+
+    private LogResponse.LogResponsePacket.LogFile buildLogFile(String fileName, String content) {
+        LogResponse.LogResponsePacket.LogFile.Builder lBuilder = LogResponse.LogResponsePacket.LogFile.newBuilder();
+        lBuilder.setFilename(fileName);
+        lBuilder.setContent(content);
+        return lBuilder.build();
     }
 
     @Override

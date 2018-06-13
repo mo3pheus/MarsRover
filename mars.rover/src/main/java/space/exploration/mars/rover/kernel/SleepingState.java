@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
+import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.animation.SleepingAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 
@@ -36,6 +37,10 @@ public class SleepingState implements State {
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.setState(rover.getListeningState());
         rover.receiveMessage(message);
+    }
+
+    @Override
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
     }
 
     @Override

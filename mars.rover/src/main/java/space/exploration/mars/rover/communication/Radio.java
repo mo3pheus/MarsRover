@@ -1,6 +1,5 @@
 package space.exploration.mars.rover.communication;
 
-import com.google.protobuf.ByteString;
 import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
 import encryption.EncryptionUtil;

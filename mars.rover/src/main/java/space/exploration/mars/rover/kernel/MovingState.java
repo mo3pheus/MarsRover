@@ -13,6 +13,7 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.robot.RobotPositionsOuterClass.RobotPositions;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
+import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
@@ -42,6 +43,10 @@ public class MovingState implements State {
     @Override
     public void activateCameraById(String camId) {
 
+    }
+
+    @Override
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
     }
 
     @Override

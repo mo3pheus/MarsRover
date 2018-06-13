@@ -12,6 +12,7 @@ import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
+import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.sensors.apxs.ApxsData;
@@ -44,6 +45,11 @@ public class ApxsSensingState implements State {
         }
     }
 
+    @Override
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
+    }
+
+    @Override
     public void shootNeutrons() {
     }
 
@@ -52,9 +58,11 @@ public class ApxsSensingState implements State {
         logger.error("Can not update software in " + getStateName());
     }
 
+    @Override
     public void transmitMessage(byte[] message) {
     }
 
+    @Override
     public void exploreArea() {
         requests.mark();
         rover.reflectRoverState();
@@ -100,22 +108,25 @@ public class ApxsSensingState implements State {
         rover.transmitMessage(status.toByteArray());
     }
 
+    @Override
     public void move(InstructionPayloadOuterClass.InstructionPayload.TargetPackage targetPackage) {
         logger.debug("Can not move in " + getStateName());
     }
 
+    @Override
     public void hibernate() {
     }
 
+    @Override
     public void senseWeather(WeatherQueryOuterClass.WeatherQuery weatherQuery) {
     }
 
+    @Override
     public void scanSurroundings() {
     }
 
     @Override
     public void activateCameraById(String camId) {
-
     }
 
     public void activateCameraById() {

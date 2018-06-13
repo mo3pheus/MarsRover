@@ -10,6 +10,7 @@ import space.exploration.communications.protocol.InstructionPayloadOuterClass.In
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
+import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.diagnostics.LauncherMonitor;
 import space.exploration.mars.rover.diagnostics.Pacemaker;
@@ -470,6 +471,10 @@ public class Rover {
 
     public synchronized RoverGarbageCollector getGarbageCollector() {
         return this.roverGarbageCollector;
+    }
+
+    public synchronized void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
+        state.requestLogs(logRequestPacket);
     }
 
     public synchronized void setGarbageCollector(RoverGarbageCollector garbageCollector) {

@@ -12,6 +12,7 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.robot.RobotPositionsOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
+import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.propulsion.AStarPropulsionUnit;
@@ -62,6 +63,10 @@ public class ListeningState implements State {
 
     @Override
     public void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage) {
+    }
+
+    @Override
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
     }
 
     @Override
@@ -144,6 +149,12 @@ public class ListeningState implements State {
                                 SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage = SwUpdatePackageOuterClass
                                         .SwUpdatePackage.parseFrom(tp.getAuxiliaryData());
                                 rover.updateSoftware(swUpdatePackage);
+                            }
+                            break;
+                            case REQUEST_LOGS: {
+                                LogRequest.LogRequestPacket logRequestPacket = LogRequest.LogRequestPacket.parseFrom
+                                        (tp.getAuxiliaryData());
+                                rover.requestLogs(logRequestPacket);
                             }
                             break;
                             default: {

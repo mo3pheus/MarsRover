@@ -10,6 +10,7 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.service.CameraPayload;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
+import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.service.PhotoQueryService;
@@ -31,6 +32,10 @@ public class PhotographingState implements State {
         this.rover = rover;
         requests = this.rover.getMetrics().newMeter(PhotographingState.class, getStateName(), "requests", TimeUnit
                 .HOURS);
+    }
+
+    @Override
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
     }
 
     public void receiveMessage(byte[] message) {

@@ -10,6 +10,7 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.communications.protocol.spacecraftClock.SpacecraftClock.SclkPacket;
+import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
 import space.exploration.mars.rover.utils.RoverUtil;
@@ -39,6 +40,10 @@ public class SclkTimingState implements State {
         } catch (InvalidProtocolBufferException ipe) {
             RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
+    }
+
+    @Override
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
     }
 
     @Override

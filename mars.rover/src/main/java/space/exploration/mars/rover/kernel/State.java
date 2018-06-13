@@ -4,6 +4,7 @@ import com.yammer.metrics.core.Meter;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
+import space.exploration.kernel.diagnostics.LogRequest;
 
 public interface State {
     void receiveMessage(byte[] message);
@@ -41,4 +42,6 @@ public interface State {
     void shootNeutrons();
 
     void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage swUpdatePackage);
+
+    void requestLogs(LogRequest.LogRequestPacket logRequestPacket);
 }
