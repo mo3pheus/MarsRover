@@ -1,12 +1,15 @@
 package space.exploration.mars.rover.kernel;
 
+import com.google.protobuf.ByteString;
 import com.yammer.metrics.core.Gauge;
+import communications.protocol.ModuleDirectory;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.spice.utilities.TimeUtils;
 
@@ -15,6 +18,8 @@ import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import static communications.protocol.ModuleDirectory.REQUEST_LOGS;
 
 /**
  * Note: Be very careful in adding log statements in this class. Chances are the clock will log once every
@@ -227,16 +232,12 @@ public class SpacecraftClock extends Observable implements IsEquipment {
                 if (sol != previousSol) {
                     previousSol = sol;
                     rover.updateSensors(sol);
-                    try {
-                        sendRoverLogs();
-                    } catch (InterruptedException ie) {
-                        logger.error("Error while sending roverLogs for sol = " + sol);
-                    }
+                    sendRoverLogs();
                 }
             }
         }
 
-        private void sendRoverLogs() throws InterruptedException {
+        private void sendRoverLogs() {
             LogRequest.LogRequestPacket.Builder lBuilder = LogRequest.LogRequestPacket.newBuilder();
             lBuilder.setDateFormat(clockFormat);
             DateTime endDate   = (new DateTime()).withZone(DateTimeZone.UTC).withTimeAtStartOfDay();
@@ -244,17 +245,19 @@ public class SpacecraftClock extends Observable implements IsEquipment {
             lBuilder.setStartDate(clockFormatter.print(startDate));
             lBuilder.setEndDate(clockFormatter.print(endDate));
 
-            long startTime = System.currentTimeMillis();
-            while (rover.state != rover.listeningState) {
-                if ((System.currentTimeMillis() - startTime) < logWaitDuration) {
-                    Thread.sleep(10l);
-                }
-            }
+            InstructionPayloadOuterClass.InstructionPayload.Builder iBuilder = InstructionPayloadOuterClass
+                    .InstructionPayload.newBuilder();
+            InstructionPayloadOuterClass.InstructionPayload.TargetPackage.Builder tBuilder =
+                    InstructionPayloadOuterClass.InstructionPayload.TargetPackage.newBuilder();
+            tBuilder.setAction(REQUEST_LOGS);
+            tBuilder.setRoverModule(ModuleDirectory.Module.KERNEL.getValue());
+            tBuilder.setAuxiliaryData(ByteString.copyFrom(lBuilder.build().toByteArray()));
 
-            if (rover.state == rover.listeningState) {
-                rover.state = rover.maintenanceState;
-                rover.requestLogs(lBuilder.build());
-            }
+            iBuilder.addTargets(tBuilder.build());
+            iBuilder.setTimeStamp(System.currentTimeMillis());
+            iBuilder.setSOS(false);
+
+            rover.getInstructionQueue().add(iBuilder.build().toByteArray());
         }
     }
 }
