@@ -15,7 +15,6 @@ import java.util.List;
 
 public class FileUtil {
     private static       Logger logger       = LoggerFactory.getLogger(FileUtil.class);
-    private static final String LOG_FILEPATH = "roverStatusReports/";
 
     public static void processDirectories(String path) {
         File temp = new File(path);
@@ -41,10 +40,10 @@ public class FileUtil {
         }
     }
 
-    public static List<File> getLogFiles(DateTime startDate, DateTime endDate) {
+    public static List<File> getLogFiles(DateTime startDate, DateTime endDate, String archiveLocation) {
         List<File> relevantFiles = new ArrayList<>();
 
-        File file = new File(LOG_FILEPATH);
+        File file = new File(archiveLocation);
         for (File tempFile : file.listFiles()) {
             String fileName = tempFile.getName();
 
@@ -62,10 +61,10 @@ public class FileUtil {
         return relevantFiles;
     }
 
-    public static String getFileContent(String fileName) throws IOException {
+    public static String getFileContent(File file) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         String         dataLine;
         while ((dataLine = bufferedReader.readLine()) != null) {
             contentBuilder.append(dataLine);

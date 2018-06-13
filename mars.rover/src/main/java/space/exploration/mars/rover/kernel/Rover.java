@@ -60,15 +60,16 @@ public class Rover {
     private boolean equipmentEOL = false;
 
     /* Logging Details */
-    private Connection logDBConnection  = null;
-    private ResultSet  resultSet        = null;
-    private ResultSet  errorSet         = null;
-    private Logger     logger           = null;
-    private String     dbUserName       = null;
-    private String     dbPassword       = null;
-    private Statement  statement        = null;
-    private Statement  errorStatement   = null;
-    private boolean    dbLoggingEnabled = false;
+    private Connection logDBConnection    = null;
+    private ResultSet  resultSet          = null;
+    private ResultSet  errorSet           = null;
+    private Logger     logger             = null;
+    private String     dbUserName         = null;
+    private String     dbPassword         = null;
+    private Statement  statement          = null;
+    private Statement  errorStatement     = null;
+    private String     logArchiveLocation = null;
+    private boolean    dbLoggingEnabled   = false;
 
     /* Configuration */
     private volatile MarsArchitect marsArchitect            = null;
@@ -650,6 +651,10 @@ public class Rover {
         return radarScanningState;
     }
 
+    public String getLogArchiveLocation() {
+        return logArchiveLocation;
+    }
+
     protected synchronized void reflectRoverState() {
         marsArchitect.getMarsSurface().setTitle(state.getStateName() + " Software Version - " + Double.toString
                 (softwareVersion));
@@ -672,6 +677,8 @@ public class Rover {
                 logger.error(" Key = " + key + " Value = " + marsConfig.getProperty(key));
             }
         }
+
+        this.logArchiveLocation = marsConfig.getProperty("mars.rover.kernel.log.archive");
 
         setUpGauges();
         metrics.newGauge(new MetricName(Rover.class, "RoverBattery"), batteryGauge);

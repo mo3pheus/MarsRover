@@ -137,10 +137,10 @@ public class MaintenanceState implements State {
         DateTime          endTime           = dateTimeFormatter.parseDateTime(logRequestPacket.getEndDate());
 
         try {
-            List<File> logFiles = FileUtil.getLogFiles(startTime, endTime);
+            List<File> logFiles = FileUtil.getLogFiles(startTime, endTime, rover.getLogArchiveLocation());
             for (int i = 0; i < logFiles.size(); i++) {
                 File logFile = logFiles.get(i);
-                logContents.add(buildLogFile(logFile.getName(), FileUtil.getFileContent(logFile.getName())));
+                logContents.add(buildLogFile(logFile.getName(), FileUtil.getFileContent(logFile)));
             }
         } catch (IOException io) {
             logger.error("IOException while retrieving log files. Requested startDate = " + startTime + " endDate = "

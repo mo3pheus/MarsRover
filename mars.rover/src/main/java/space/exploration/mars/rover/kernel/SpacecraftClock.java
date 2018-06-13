@@ -7,6 +7,7 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.spice.utilities.TimeUtils;
 
 import java.util.Observable;
@@ -33,6 +34,7 @@ public class SpacecraftClock extends Observable implements IsEquipment {
                                                                                                 .class);
     private          ScheduledExecutorService clockCounter    = null;
     private          DateTimeFormatter        clockFormatter  = null;
+    private          String                   clockFormat     = null;
     private          String                   sclkStartTime   = null;
     private          int                      timeScaleFactor = 0;
     private          long                     missionDuration = 0l;
@@ -43,12 +45,14 @@ public class SpacecraftClock extends Observable implements IsEquipment {
     private          Gauge<Long>              sclkGauge       = null;
     private          int                      previousSol     = 0;
     private          Rover                    rover           = null;
+    private          long                     logWaitDuration = TimeUnit.MINUTES.toMillis(3);
 
     private DateTime internalClock;
     private Clock    clock;
 
     public SpacecraftClock(Properties marsConfig) {
-        clockFormatter = DateTimeFormat.forPattern(marsConfig.getProperty(SCLK_FORMAT));
+        clockFormat = marsConfig.getProperty(SCLK_FORMAT);
+        clockFormatter = DateTimeFormat.forPattern(clockFormat);
         sclkStartTime = marsConfig.getProperty(SCLK_START_TIME);
         timeScaleFactor = Integer.parseInt(marsConfig.getProperty(SCLK_TIME_SCALE_FACTOR));
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
@@ -223,7 +227,33 @@ public class SpacecraftClock extends Observable implements IsEquipment {
                 if (sol != previousSol) {
                     previousSol = sol;
                     rover.updateSensors(sol);
+                    try {
+                        sendRoverLogs();
+                    } catch (InterruptedException ie) {
+                        logger.error("Error while sending roverLogs for sol = " + sol);
+                    }
                 }
+            }
+        }
+
+        private void sendRoverLogs() throws InterruptedException {
+            LogRequest.LogRequestPacket.Builder lBuilder = LogRequest.LogRequestPacket.newBuilder();
+            lBuilder.setDateFormat(clockFormat);
+            DateTime endDate   = (new DateTime()).withZone(DateTimeZone.UTC).withTimeAtStartOfDay();
+            DateTime startDate = endDate.minusDays(1);
+            lBuilder.setStartDate(clockFormatter.print(startDate));
+            lBuilder.setEndDate(clockFormatter.print(endDate));
+
+            long startTime = System.currentTimeMillis();
+            while (rover.state != rover.listeningState) {
+                if ((System.currentTimeMillis() - startTime) < logWaitDuration) {
+                    Thread.sleep(10l);
+                }
+            }
+
+            if (rover.state == rover.listeningState) {
+                rover.state = rover.maintenanceState;
+                rover.requestLogs(lBuilder.build());
             }
         }
     }
