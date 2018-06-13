@@ -11,6 +11,7 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.kernel.diagnostics.LogRequest;
+import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
 import space.exploration.mars.rover.communication.Radio;
 import space.exploration.mars.rover.diagnostics.LauncherMonitor;
 import space.exploration.mars.rover.diagnostics.Pacemaker;
@@ -69,6 +70,7 @@ public class Rover {
     private Statement  statement          = null;
     private Statement  errorStatement     = null;
     private String     logArchiveLocation = null;
+    private long       startOfLog         = 0l;
     private boolean    dbLoggingEnabled   = false;
 
     /* Configuration */
@@ -491,6 +493,10 @@ public class Rover {
         this.nasaApiAuthKey = marsConfig.getProperty("nasa.api.authentication.key");
     }
 
+    public void setStartOfLog(long startOfLog) {
+        this.startOfLog = startOfLog;
+    }
+
     public synchronized void saveOffSensorLifespans() {
         for (IsEquipment equipment : getEquimentList()) {
             if (gracefulShutdown) {
@@ -655,6 +661,10 @@ public class Rover {
         return logArchiveLocation;
     }
 
+    public long getStartOfLog() {
+        return startOfLog;
+    }
+
     protected synchronized void reflectRoverState() {
         marsArchitect.getMarsSurface().setTitle(state.getStateName() + " Software Version - " + Double.toString
                 (softwareVersion));
@@ -663,6 +673,9 @@ public class Rover {
 
     public synchronized void bootUp() {
         Thread.currentThread().setName("roverMain");
+
+        this.startOfLog = System.currentTimeMillis();
+        MarsMissionLaunch.configureLogging(false);
 
         this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.cleanOutOldLogFiles(this);

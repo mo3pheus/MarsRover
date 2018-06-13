@@ -39941,3 +39941,21 @@ source.topic::earth_to_curiosity_5
 metadata.broker.list::localhost:9092
 space.exploration.mars.rover.sensor.Radar INFO ::Radar configured:: 
 LogFilePath = roverStatusReports/roverStatus_1528865232662.log
+space.exploration.mars.rover.kernel.Rover INFO ::Rover current position is = java.awt.Point[x=525,y=100]
+space.exploration.mars.rover.sensor.Lidar INFO ::Lidar initialized and ready!
+space.exploration.mars.rover.sensor.Camera INFO ::Camera initialized and ready!
+space.exploration.mars.rover.sensor.Radar INFO ::Radar configured:: 
+space.exploration.mars.rover.power.Battery INFO ::Battery configured, batteryLife:primaryPowerUnits = 1200 auxiliaryPowerUnits = 100 alertThreshold: 100 rechargeTime = 60000
+space.exploration.mars.rover.kernel.Rover INFO ::Battery Monitor configured!
+space.exploration.mars.rover.communication.Radio INFO ::Radio configured:: 
+group.id::space.exploration.mars.rover.curiosity.1528866422255
+auto.offset.reset::largest
+bootstrap.servers::localhost:9092
+value.serializer::org.apache.kafka.common.serialization.ByteArraySerializer
+destination.topic::curiosity_to_earth_5
+zookeeper.connect::localhost:2181
+key.serializer::org.apache.kafka.common.serialization.StringSerializer
+source.topic::earth_to_curiosity_5
+metadata.broker.list::localhost:9092
+space.exploration.mars.rover.sensor.Radar INFO ::Radar configured:: 
+LogFilePath = roverStatusReports/roverStatus_1528866422217.log

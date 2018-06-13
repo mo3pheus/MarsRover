@@ -160,7 +160,7 @@ public class MaintenanceState implements State {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus.newBuilder();
         RoverStatusOuterClass.RoverStatus status = rBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits())
                 .setSolNumber(rover.getSpacecraftClock().getSol())
-                .setLocation(lBuilder.build()).setNotes("DAN Spectroscope engaged!")
+                .setLocation(lBuilder.build()).setNotes("Rover logs requested.")
                 .setModuleMessage(ByteString.copyFrom(logBuilder.build().toByteArray()))
                 .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.KERNEL
                                                                                 .getValue())
