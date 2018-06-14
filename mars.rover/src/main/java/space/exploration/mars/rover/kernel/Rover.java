@@ -109,6 +109,8 @@ public class Rover {
     private       Gauge<Integer>  instructionQueueGauge = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String marsConfigLocation) {
+        this.roverConfig = new RoverConfig(marsConfig, comsConfig, logsDBConfig, "src/main/resources/",
+                                           "dataArchives/", marsConfigLocation);
         bootUp();
     }
 
@@ -584,6 +586,8 @@ public class Rover {
     }
 
     protected synchronized void reflectRoverState() {
+        logger.info("Trying to reflect rover state." + state.getStateName() + " Software Version - " + Double.toString
+                (roverConfig.getSoftwareVersion()));
         marsArchitect.getMarsSurface().setTitle(state.getStateName() + " Software Version - " + Double.toString
                 (roverConfig.getSoftwareVersion()));
         marsArchitect.getMarsSurface().repaint();

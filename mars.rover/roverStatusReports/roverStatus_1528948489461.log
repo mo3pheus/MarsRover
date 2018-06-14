@@ -1,0 +1,265 @@
+2018-06-13 22:54:55,568 [pacemaker] INFO  space.exploration.mars.rover.kernel.PositionSensor - Houston - this is curiosityActual.ephemerisTime: 5.25511508182703E8
+stateCuriosity: -4.2358906277E7
+stateCuriosity: -1.09575625323E8
+stateCuriosity: -5.4318855705E7
+stateCuriosity: 9.822
+stateCuriosity: -12.758
+stateCuriosity: -5.793
+owltMSLEarth: 431.726
+stateEarth: 4.2352050168E7
+stateEarth: 1.09557888913E8
+stateEarth: 5.4310062745E7
+stateEarth: -9.82
+stateEarth: 12.757
+stateEarth: 5.793
+owltEarthMSL: 431.656
+positionEarthWRTCuriosity: 4.2352050168E7
+positionEarthWRTCuriosity: 1.09557888913E8
+positionEarthWRTCuriosity: 5.4310062745E7
+owltEarthMSL2: 431.656
+angSepHGAEarth: 117.239
+utcTime: "2016-08-26~19:24:00"
+sol: 1442
+sclkValue: " 1/01442:13:46:17:21217"
+
+2018-06-13 22:54:55,604 [pacemaker] INFO  space.exploration.mars.rover.kernel.PositionSensor - ephemerisTime: 5.25511508182703E8
+stateCuriosity: -4.2358906277E7
+stateCuriosity: -1.09575625323E8
+stateCuriosity: -5.4318855705E7
+stateCuriosity: 9.822
+stateCuriosity: -12.758
+stateCuriosity: -5.793
+owltMSLEarth: 431.726
+stateEarth: 4.2352050168E7
+stateEarth: 1.09557888913E8
+stateEarth: 5.4310062745E7
+stateEarth: -9.82
+stateEarth: 12.757
+stateEarth: 5.793
+owltEarthMSL: 431.656
+positionEarthWRTCuriosity: 4.2352050168E7
+positionEarthWRTCuriosity: 1.09557888913E8
+positionEarthWRTCuriosity: 5.4310062745E7
+owltEarthMSL2: 431.656
+angSepHGAEarth: 117.239
+utcTime: "2016-08-26~19:24:00"
+sol: 1442
+sclkValue: " 1/01442:13:46:17:21217"
+
+2018-06-13 22:54:55,605 [pacemaker] INFO  space.exploration.mars.rover.communication.Radio - One Way Light Time computed by SPICE :: 431.726
+2018-06-13 22:54:55,628 [pacemaker] INFO  space.exploration.mars.rover.communication.Radio - Message encryption successful.
+2018-06-13 22:54:55,628 [pacemaker] INFO  space.exploration.mars.rover.communication.Transmitter - Sending information packet to curiosity_to_earth_5
+2018-06-13 22:54:58,629 [roverGarbageCollector] INFO  space.exploration.mars.rover.diagnostics.RoverGarbageCollector - RoverGC trimming instructionQueue. Current length = 1
+2018-06-13 22:54:58,632 [roverGarbageCollector] INFO  space.exploration.mars.rover.kernel.ListeningState - timeStamp: 1528948489461
+targets {
+  roverModule: 6
+  action: "Request Rover Logs"
+  auxiliaryData: "\n\023yyyy-MM-dd~HH:mm:ss\022\0232018-06-13~22:54:46\032\0232018-06-14~00:00:00"
+}
+
+2018-06-13 22:55:04,666 [roverGarbageCollector] INFO  space.exploration.mars.rover.kernel.ListeningState - 1528948504666,6,Request Rover Logs Current instructionQueue length = 0
+2018-06-13 22:55:04,667 [roverGarbageCollector] INFO  space.exploration.mars.rover.kernel.ListeningState - Requesting logs in date format = yyyy-MM-dd~HH:mm:ss
+2018-06-13 22:55:04,667 [roverGarbageCollector] INFO  space.exploration.mars.rover.kernel.ListeningState - Start date = 2018-06-13~22:54:46 End date = 2018-06-14~00:00:00
+2018-06-13 22:55:04,667 [roverGarbageCollector] ERROR space.exploration.mars.rover.diagnostics.RoverGarbageCollector - Encountered exception while processing instructionQueue
+java.lang.NullPointerException
+	at java.io.File.<init>(File.java:277)
+	at space.exploration.mars.rover.utils.FileUtil.getLogFiles(FileUtil.java:46)
+	at space.exploration.mars.rover.kernel.MaintenanceState.requestLogs(MaintenanceState.java:140)
+	at space.exploration.mars.rover.kernel.Rover.requestLogs(Rover.java:416)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:149)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:302)
+	at space.exploration.mars.rover.kernel.Rover.processPendingMessageQueue(Rover.java:139)
+	at space.exploration.mars.rover.diagnostics.RoverGarbageCollector$QueueMonitor.run(RoverGarbageCollector.java:63)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:308)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2018-06-13 22:55:06,720 [batteryMonitor] INFO  space.exploration.mars.rover.power.BatteryMonitor - BatteryMonitor performing due diligence. SCET = 1528948506720 Rover state = Listening State
+2018-06-13 22:55:06,721 [batteryMonitor] INFO  space.exploration.mars.rover.power.BatteryMonitor -  Battery primaryUnits = 1199 auxiliaryPowerUnits = 100
+2018-06-13 22:55:21,839 [pacemaker] INFO  space.exploration.mars.rover.kernel.PositionSensor - Houston - this is curiosityActual.ephemerisTime: 5.25513128182703E8
+stateCuriosity: -4.2342971921E7
+stateCuriosity: -1.09596298853E8
+stateCuriosity: -5.4328253578E7
+stateCuriosity: 9.85
+stateCuriosity: -12.765
+stateCuriosity: -5.809
+owltMSLEarth: 431.78
+stateEarth: 4.2336119021E7
+stateEarth: 1.09578560688E8
+stateEarth: 5.4319459845E7
+stateEarth: -9.848
+stateEarth: 12.763
+stateEarth: 5.808
+owltEarthMSL: 431.71
+positionEarthWRTCuriosity: 4.2336119021E7
+positionEarthWRTCuriosity: 1.09578560688E8
+positionEarthWRTCuriosity: 5.4319459845E7
+owltEarthMSL2: 431.71
+angSepHGAEarth: 123.632
+utcTime: "2016-08-26~19:51:00"
+sol: 1442
+sclkValue: " 1/01442:14:12:33:86793"
+
+2018-06-13 22:55:21,888 [pacemaker] INFO  space.exploration.mars.rover.kernel.PositionSensor - ephemerisTime: 5.25513128182703E8
+stateCuriosity: -4.2342971921E7
+stateCuriosity: -1.09596298853E8
+stateCuriosity: -5.4328253578E7
+stateCuriosity: 9.85
+stateCuriosity: -12.765
+stateCuriosity: -5.809
+owltMSLEarth: 431.78
+stateEarth: 4.2336119021E7
+stateEarth: 1.09578560688E8
+stateEarth: 5.4319459845E7
+stateEarth: -9.848
+stateEarth: 12.763
+stateEarth: 5.808
+owltEarthMSL: 431.71
+positionEarthWRTCuriosity: 4.2336119021E7
+positionEarthWRTCuriosity: 1.09578560688E8
+positionEarthWRTCuriosity: 5.4319459845E7
+owltEarthMSL2: 431.71
+angSepHGAEarth: 123.632
+utcTime: "2016-08-26~19:51:00"
+sol: 1442
+sclkValue: " 1/01442:14:12:33:86793"
+
+2018-06-13 22:55:21,889 [pacemaker] INFO  space.exploration.mars.rover.kernel.SpacecraftClock - Internal time::2016-08-26T19:52:00.000-05:00 sclk of::1/01442:14:13:32:26259
+2018-06-13 22:55:27,981 [pacemaker] INFO  space.exploration.mars.rover.kernel.PositionSensor - Houston - this is curiosityActual.ephemerisTime: 5.25513488182703E8
+stateCuriosity: -4.2339424796E7
+stateCuriosity: -1.09600894427E8
+stateCuriosity: -5.4330345371E7
+stateCuriosity: 9.856
+stateCuriosity: -12.766
+stateCuriosity: -5.812
+owltMSLEarth: 431.792
+stateEarth: 4.2332572549E7
+stateEarth: 1.0958315572E8
+stateEarth: 5.4321551391E7
+stateEarth: -9.855
+stateEarth: 12.765
+stateEarth: 5.811
+owltEarthMSL: 431.722
+positionEarthWRTCuriosity: 4.2332572549E7
+positionEarthWRTCuriosity: 1.0958315572E8
+positionEarthWRTCuriosity: 5.4321551391E7
+owltEarthMSL2: 431.722
+angSepHGAEarth: 125.047
+utcTime: "2016-08-26~19:57:00"
+sol: 1442
+sclkValue: " 1/01442:14:18:24:23588"
+
+2018-06-13 22:55:28,026 [pacemaker] INFO  space.exploration.mars.rover.kernel.PositionSensor - ephemerisTime: 5.25513488182703E8
+stateCuriosity: -4.2339424796E7
+stateCuriosity: -1.09600894427E8
+stateCuriosity: -5.4330345371E7
+stateCuriosity: 9.856
+stateCuriosity: -12.766
+stateCuriosity: -5.812
+owltMSLEarth: 431.792
+stateEarth: 4.2332572549E7
+stateEarth: 1.0958315572E8
+stateEarth: 5.4321551391E7
+stateEarth: -9.855
+stateEarth: 12.765
+stateEarth: 5.811
+owltEarthMSL: 431.722
+positionEarthWRTCuriosity: 4.2332572549E7
+positionEarthWRTCuriosity: 1.0958315572E8
+positionEarthWRTCuriosity: 5.4321551391E7
+owltEarthMSL2: 431.722
+angSepHGAEarth: 125.047
+utcTime: "2016-08-26~19:57:00"
+sol: 1442
+sclkValue: " 1/01442:14:18:24:23588"
+
+2018-06-13 22:55:28,026 [pacemaker] INFO  space.exploration.mars.rover.communication.Radio - One Way Light Time computed by SPICE :: 431.792
+2018-06-13 22:55:28,044 [pacemaker] INFO  space.exploration.mars.rover.communication.Radio - Message encryption successful.
+2018-06-13 22:55:28,045 [pacemaker] INFO  space.exploration.mars.rover.communication.Transmitter - Sending information packet to curiosity_to_earth_5
+2018-06-13 22:55:36,720 [batteryMonitor] INFO  space.exploration.mars.rover.power.BatteryMonitor - BatteryMonitor performing due diligence. SCET = 1528948536720 Rover state = Listening State
+2018-06-13 22:55:36,721 [batteryMonitor] INFO  space.exploration.mars.rover.power.BatteryMonitor -  Battery primaryUnits = 1198 auxiliaryPowerUnits = 100
+2018-06-13 22:56:06,720 [batteryMonitor] INFO  space.exploration.mars.rover.power.BatteryMonitor - BatteryMonitor performing due diligence. SCET = 1528948566720 Rover state = Listening State
+2018-06-13 22:56:06,721 [batteryMonitor] INFO  space.exploration.mars.rover.power.BatteryMonitor -  Battery primaryUnits = 1198 auxiliaryPowerUnits = 100
+2018-06-13 22:56:17,175 [radio] INFO  space.exploration.mars.rover.communication.Receiver - Time Elapsed since last message = 128438
+2018-06-13 22:56:17,209 [radio] INFO  space.exploration.mars.rover.kernel.PositionSensor - Houston - this is curiosityActual.ephemerisTime: 5.25516428182702E8
+stateCuriosity: -4.2310369269E7
+stateCuriosity: -1.09638436203E8
+stateCuriosity: -5.4347471934E7
+stateCuriosity: 9.91
+stateCuriosity: -12.771
+stateCuriosity: -5.838
+owltMSLEarth: 431.89
+stateEarth: 4.2303521528E7
+stateEarth: 1.09620690973E8
+stateEarth: 5.4338674914E7
+stateEarth: -9.909
+stateEarth: 12.768
+stateEarth: 5.837
+owltEarthMSL: 431.82
+positionEarthWRTCuriosity: 4.2303521528E7
+positionEarthWRTCuriosity: 1.09620690973E8
+positionEarthWRTCuriosity: 5.4338674914E7
+owltEarthMSL2: 431.82
+angSepHGAEarth: 136.507
+utcTime: "2016-08-26~20:46:00"
+sol: 1442
+sclkValue: " 1/01442:15:06:05:57411"
+
+2018-06-13 22:56:17,242 [radio] INFO  space.exploration.mars.rover.kernel.PositionSensor - ephemerisTime: 5.25516428182702E8
+stateCuriosity: -4.2310369269E7
+stateCuriosity: -1.09638436203E8
+stateCuriosity: -5.4347471934E7
+stateCuriosity: 9.91
+stateCuriosity: -12.771
+stateCuriosity: -5.838
+owltMSLEarth: 431.89
+stateEarth: 4.2303521528E7
+stateEarth: 1.09620690973E8
+stateEarth: 5.4338674914E7
+stateEarth: -9.909
+stateEarth: 12.768
+stateEarth: 5.837
+owltEarthMSL: 431.82
+positionEarthWRTCuriosity: 4.2303521528E7
+positionEarthWRTCuriosity: 1.09620690973E8
+positionEarthWRTCuriosity: 5.4338674914E7
+owltEarthMSL2: 431.82
+angSepHGAEarth: 136.507
+utcTime: "2016-08-26~20:46:00"
+sol: 1442
+sclkValue: " 1/01442:15:06:05:57411"
+
+2018-06-13 22:56:17,242 [radio] INFO  space.exploration.mars.rover.communication.Radio - One Way Light Time computed by SPICE :: 431.89
+2018-06-13 22:56:18,070 [radio] INFO  space.exploration.mars.rover.kernel.ListeningState - timeStamp: 1528948577002
+targets {
+  roverModule: 6
+  action: "Request Rover Logs"
+  auxiliaryData: "\n\023yyyy-MM-dd~HH:mm:ss\022\0232018-05-19~00:00:00\032\0232018-05-30~00:00:00"
+}
+
+2018-06-13 22:56:24,085 [radio] INFO  space.exploration.mars.rover.kernel.ListeningState - 1528948584085,6,Request Rover Logs Current instructionQueue length = 0
+2018-06-13 22:56:24,085 [radio] INFO  space.exploration.mars.rover.kernel.ListeningState - Requesting logs in date format = yyyy-MM-dd~HH:mm:ss
+2018-06-13 22:56:24,085 [radio] INFO  space.exploration.mars.rover.kernel.ListeningState - Start date = 2018-05-19~00:00:00 End date = 2018-05-30~00:00:00
+2018-06-13 22:56:24,086 [radio] ERROR space.exploration.mars.rover.communication.Radio - Houston, we have a problem!
+java.lang.NullPointerException
+	at java.io.File.<init>(File.java:277)
+	at space.exploration.mars.rover.utils.FileUtil.getLogFiles(FileUtil.java:46)
+	at space.exploration.mars.rover.kernel.MaintenanceState.requestLogs(MaintenanceState.java:140)
+	at space.exploration.mars.rover.kernel.Rover.requestLogs(Rover.java:416)
+	at space.exploration.mars.rover.kernel.ListeningState.receiveMessage(ListeningState.java:149)
+	at space.exploration.mars.rover.kernel.Rover.receiveMessage(Rover.java:302)
+	at space.exploration.mars.rover.communication.Radio.receiveMessage(Radio.java:89)
+	at space.exploration.mars.rover.communication.Receiver.run(Receiver.java:68)
+2018-06-13 22:56:24,087 [radio] ERROR space.exploration.mars.rover.communication.Radio - The following instruction may have been lost.senderId: "mission.control@Houston"
+signature: "0,\002\024\001p}\026\331\240\354K4\377\355o\252\025\023HH\035q\020\002\024|\204\232/\234t\206\033Z\034R\002\274\030\n\377\273\314\207V"
+contentLength: 96
+checkSum: "\213\a\3365u\365%Rpa\222h;\3419@r\212\235\"\025\033\252\353m\223\351\004\323\207\255\235"
+processingTime: 83
+content: "E\315\373\250\216\b\'u\3630F\370\337\346\271ach\303\260\231\005\242\b\250\002m\006:\244J\203\252\2763\272\204\177\344HI\313o\000\237\266;\370\343\261\327PvO8\021M\016]\205W\230h\323\375\221\275o(\227\363\373\214\310_\231\312\253\322<t\355D\b@I\356(,u{\305\302WH/4\210\r\345\2646\341\222\n\2145\241\025\345\2177-\fv0j/\345\204\212\306\212\3045\'\207\230!Q\243\363\242\2419\356P\367je\2635\201\270\216\355\333\366a\333t\352\277\205l\266\222\360\320\027;\2200n\362\016\344\360\262\263\377\237\334-\304AP\322\333\204T\0258\246\277w/ \345:z+TXnro\227\n\214\266D\255\275\331\b\224\006\241\300\326\"\031\341\217\341\276\306\n \244\027q\377\222\227\206z\215\377\375\362\315*vf\315]\253X\244`\3759C\a\245Lf\r\377@\344a_\345,:\bz\b\225-\026Y\027\313\332, S\2617N-[\3121\207\"\003\224\265\352\333F\201\323=\303[\276~\004\\\253\2729\314\342\200\321\272(\300Y\343\2407\021\366\004\323~\270\266\361H\bm\326\312\020f\341\327-\351\037\016Eh\230!\225=.7\021\355\233\"&{RU\351\206=\240\210\300\370g\335\326\342\033#\361\2037\337f\377\223U\227\242|\306\361\344\001\333\2332D\265\004\216\377\274\230Q\261b\305\342NN\215\306\372\323OQ$IRG\001\262\322#\377\222\314\263O|9\004YM\301\027{FJU\223S\032\321\205\aoh\337\253cv\n-V\273\341\245dG\213\267\242\031\373s@\214\260\033~\004\336\370*\303\t\357\344\204\220&U5\316l\024\025V\'6^\214M\020#\344\2078+\332\315\333E\346\315]\363E\231\233\000\312\373\322\2059 [\234=\350\356\bE\005\255p*\341\324\361DHX>>\345{\305,v\241Gw\030\252\265\nc\216\001\261] \240t\374\a\373\352q\277\360\320hX\341n\325\303E\307Q\310t#\0215\360G\244\030Y\271\030\030[\374\201\261\236\031y\321\243\262E$\340\306\331 71\374\354\307{X\346\202T$\313;e\231\322A\232sx\036\356\216`\036\345u\000\v\321\230\276G\224\033Bb\r\233)\271\244\235\032\372\230\315\230e]i\0012$\034cz\370\334\356\033A\030U\363\222\266rc<\226\034\027\f\206\273q\307\306\\7\213\267\306\034\370+\021\331x\312\310m\210\315\332\317\265\271\230\240B\036\232\343\325T8/\371h\227X\001\255\202GP\260B>\226\345z\207_\265.\307\270\r^\003e\005k?{\303x+|\262\002;DDS[\342[\030\337\272.\305\251\320b\024\342Hq\373\251\273\323\221\316g\0337&\321@\241\306\374z0!U\016\3769\257/\320a`\370\362\225~_\215\205\034\323\021\016\270\205\343\200\203\2337\361/,7k\311R\260q\240\237\305D\205\320\265\002A{\020<~\223\304\023\356\016Z\241\377#\231\247S\360o]\246\222\b}\203\v\245\346\372\245<_{\024c4h\356\016\364\210\"1\303\344`\210\214A\001\323`\035\254U \351!;\206p\341X%\303J\255`jn\233\256\027\334L\356\356\032L\021>\341(\373\032?x\372\034\001\234\326\377\341\vZ\312\251\371\264\267mH\314\260\237\024-}\034\2471\'&\266\023r\036\367\263\270\021j\306\210\2612?\303k\v\207\334o0\223\263\025pX\202\226o\354Owm\304\017l\240\245$D\242\216\201\322Y9\001\232@\0271oqb\025;\nxQ`\304T\257\211\311t\276L\032\363\260\236`\a@\246\0256\034\217D\177rQ\310\351\255\330\252V\257\324\225\343\fD\a<N\003\241\264ai\377c<b\3206\267:uZv-\343b\340\t\365\336\313-\261at\343\032\241u\022\3776\223\225_3J\322\341\304\341\273*H\035h\257\213\310\210\227t\372V\370\221N\375\350](OeL\345`|\270\340\341{eaY:04\222p\254\276\375\036\224M\020\315\240\216!+cB\325\324\353\270n\375\r\212\376/\244\357f\350\322E\303F\006,\1770\356f~Z\036\347\320\301\374\273\252]\244\377\262\373\246\b\220\035\"\2063s\020[r;\017\357\341\326t\f\361g\217W\201\301\314\255!\254\236)\000\300\311]\224l\307\310\250\252\331\343~Kl\247\243\'?\315\264\\\312\373-h\205\024\001\\t\242\033c\245\370?{`uT\262\222N?\320-~\323\0365e\351\237\266\341\226\233\0021\aL\022\246\270\261\200\371\357\274\027\'\215\354\253{\304\bFt\215\206\226\221\227\242\005\034R5K\000,\367\340\350@w\252m\327w\243\207c\227\351\203\267/$l\230C\202\207\310\006\260\357j\vH\000\357\225\265\367\n\313\023tR\255\f6\320\355\003\255\256\337a\274\240\270\313l\217@\347T\263mn<x\360\316\301{\217\262r\035\320\223J&L\312\005\373\271Ye\217FY\177\342Hqq+z\235F5U\223\035Cv\200%\200\036\253\233\020\263\356\244B\032\261\376rR6\tC\nm\327\227\340\362\200I\274\031C\fm\026ea\032#\004\211\a\347\204]!:\276P% \236\330\362\315\255\3378\005O\033\016\344\270\023\246tb\b\333\rj$*q\232\337RK\300\234@\224\036R=D\002\320\210\\C\255\2769\236\213\'\257\210jp&\243\313\236\247T\301\017\313V\270\b_>3%\337M\314\335\2122\275\262\340\024A\037\375j\307\"d\364\334\022~YT\276%(\212\224{\360\2305\a\v\214\274\t8-\252\357\251R\2615\005\316v\314\363\032\304\0269\235\373dg^\376\313\023\306\r_\301\025\206\222\323\253c6\034\304\270\227s\341,\320:\360\357\305\304;\352!\377,\a\344\245\377\332\037\035\336\255\224KP\275s\215O\320t\333\244\207o\245\214\027[\fv\\\237\302\223\206\335\212\033\304ad\017\256\300q\350\001g4M\366?\241\357\v\273d/4A\311\022+\002\034\304\321\300 \243\267\265\325z\275\263%\236\261\244\362=\324\031\025\203U\022|\301*\205\033\211\367m\037\202I\276\337\367\ff\022Yj\331\273[\326\005#\341U8\350\270\b\327T\314\342\023\274Q\327\347\003s\263q\302\366T\225\231\256\226B\235\003\033\r\374\377\3428\317\266\250U\351As\270\026\261\224\247\231E\024^\fw`\231\241.d\033\025aq\352\267\v@\302%\206C$_\351\252\000\363\222\fo\267\306*]cr\v_&l\220hD\257\277\006\227\264\331\271\335!\306J\354}\221\303\3560\207\326\300\001\242\251\304\372\327\302:\301\236\034\200\004\240E\345\205\361\241\345\t\b\n\302\205\\\307\3729\220\365\025\271+\fZ\231\335\034$$\363\324*}%\000g\030\362\201\257\216)\342\351i\200.\254D\235e\360\352\303\311y\033m\303\000I7\202\020U#\364gV\234i3\nDnXzT`\267\224\334\226sm\034\034\201]\360\364n\217\fY\000R\336\265p\313S\347G\306=\371]\303\344\276\265?9\353e\311]\312E\250\254\274-\314R\250\371i\377\375\202\326\002\375\177\272?\375D\005J\210\330-|\263\005\210\326\r3g\252V\341H\372S\273\3674t\222\022\311R\356a\330zZ\235\264\211V\312\322\220O\204\216j\225\276_\346\336\027\027\336\317\372\327\251\220\323\250\315C\031o\250}6\217H\364\355\267B^\204cF\301\024w\303V5\337\263\361\032}"
+
+2018-06-13 22:56:36,720 [batteryMonitor] INFO  space.exploration.mars.rover.power.BatteryMonitor - BatteryMonitor performing due diligence. SCET = 1528948596720 Rover state = Listening State
+2018-06-13 22:56:36,720 [batteryMonitor] INFO  space.exploration.mars.rover.power.BatteryMonitor -  Battery primaryUnits = 1198 auxiliaryPowerUnits = 100

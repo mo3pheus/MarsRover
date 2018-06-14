@@ -36,10 +36,13 @@ public class RoverConfig {
         this.logArchiveLocation = marsConfig.getProperty("mars.rover.kernel.log.archive");
         this.dbLoggingEnabled = Boolean.parseBoolean(logsDBConfig.getProperty("mars.rover.database.logging" +
                                                                                                  ".enable"));
+        this.nasaApiAuthKey = marsConfig.getProperty("nasa.api.authentication.key");
         this.workingDirectory = System.getProperty("user.dir");
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
         this.logDBConfig = logsDBConfig;
+        this.dbUserName = logDBConfig.getProperty("mars.rover.database.user");
+        this.dbPassword = logDBConfig.getProperty("mars.rover.database.password");
         this.cameraImageCacheLocation = cameraImageCacheLocation;
         this.dataArchiveLocation = dataArchiveLocation;
         this.marsConfigLocation = marsConfigLocation;
