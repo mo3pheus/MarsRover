@@ -50,7 +50,7 @@ public class LidarSensingState implements State {
     }
 
     @Override
-    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
     }
 
     @Override
@@ -109,7 +109,7 @@ public class LidarSensingState implements State {
 
         rover.configureLidar(marsArchitect.getRobot().getLocation(), marsArchitect.getCellWidth(),
                              marsArchitect.getCellWidth());
-        rover.getLidar().setWallBuilder(new WallBuilder(rover.getMarsConfig()));
+        rover.getLidar().setWallBuilder(new WallBuilder(rover.getRoverConfig().getMarsConfig()));
         rover.getLidar().scanArea();
 
         marsArchitect.setLidarAnimationEngine(rover.getLidar());

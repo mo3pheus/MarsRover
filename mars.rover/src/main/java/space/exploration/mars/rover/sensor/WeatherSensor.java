@@ -41,7 +41,7 @@ public class WeatherSensor implements IsEquipment {
 
     public WeatherSensor(Rover rover) {
         this.rover = rover;
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
+        this.lifeSpan = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(LIFESPAN));
         this.fullLifeSpan = lifeSpan;
         this.weatherEnvReducedDataMap = new HashMap<>();
         this.weatherDataService = new WeatherDataService();

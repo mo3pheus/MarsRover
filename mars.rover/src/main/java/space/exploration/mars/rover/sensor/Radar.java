@@ -34,12 +34,12 @@ public class Radar implements IsEquipment {
 
     public Radar(Rover rover) {
         this.rover = rover;
-        this.scaleFactor = Double.parseDouble(rover.getMarsConfig().getProperty(SCALE_FACTOR));
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
+        this.scaleFactor = Double.parseDouble(rover.getRoverConfig().getMarsConfig().getProperty(SCALE_FACTOR));
+        this.lifeSpan = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(LIFESPAN));
         this.previousRovers = new ArrayList<>();
         this.relativeRovers = new ArrayList<>();
 
-        int frameWidth = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
+        int frameWidth = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         this.center = new Point(frameWidth / 2, frameWidth / 2);
         this.origin = center;
         populateRoverPositions();
@@ -132,7 +132,7 @@ public class Radar implements IsEquipment {
     }
 
     private void populateRoverPositions() {
-        Map<Point, RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(rover.getMarsConfig());
+        Map<Point, RoverCell> oldRovers = EnvironmentUtils.setUpOldRovers(rover.getRoverConfig().getMarsConfig());
         previousRovers.addAll(oldRovers.keySet());
         rover.setPreviousRovers(oldRovers);
     }

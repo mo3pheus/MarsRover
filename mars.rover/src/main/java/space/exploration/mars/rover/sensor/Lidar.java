@@ -43,9 +43,9 @@ public class Lidar implements IsEquipment {
         RoverUtil.roverSystemLog(logger, "Lidar initialized and ready!", "INFO");
         status = "Instantiated";
         this.cellWidth = cellWidth;
-        this.powerConsumption = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
-                                                                                           .LIDAR_POWER_CONSUMPTION));
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
+        this.powerConsumption = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(EnvironmentUtils
+                                                                                                            .LIDAR_POWER_CONSUMPTION));
+        this.lifeSpan = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(LIFESPAN));
         fillGridCells();
     }
 

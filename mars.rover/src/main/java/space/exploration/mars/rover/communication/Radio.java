@@ -9,6 +9,7 @@ import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.security.SecureMessage;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.kernel.config.RoverConfig;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.io.File;
@@ -38,18 +39,20 @@ public class Radio implements IsEquipment {
     public Radio(Properties comsConfig, Rover rover) {
         this.rover = rover;
         requests = this.rover.getMetrics().newMeter(Radio.class, "Radio", "requests", TimeUnit.HOURS);
-        long radioCheckPulse = Long.parseLong(rover.getMarsConfig().getProperty("mars.rover.radio.check.pulse"));
-        this.timeScaleFactor = Double.parseDouble(rover.getMarsConfig().getProperty("mars.rover.radio" +
-                                                                                            ".timeScaleFactor"));
-        this.encryptionWaitMinutes = Long.parseLong(rover.getMarsConfig().getProperty("mars.rover.radio.encryption" +
-                                                                                              ".waitTimeMinutes"));
+        long radioCheckPulse = Long.parseLong(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio" +
+                                                                                                         ".check" +
+                                                                                                         ".pulse"));
+        this.timeScaleFactor = Double.parseDouble(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio" +
+                                                                                                             ".timeScaleFactor"));
+        this.encryptionWaitMinutes = Long.parseLong(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio.encryption" +
+                                                                                                               ".waitTimeMinutes"));
 
         this.transmitter = new Transmitter(comsConfig);
         this.receiver = new Receiver(comsConfig, this);
         receiver.setRadioCheckPulse(radioCheckPulse);
         receiver.start();
 
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
+        this.lifeSpan = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(LIFESPAN));
         RoverUtil.roverSystemLog(logger, "Radio configured:: " + RoverUtil.getPropertiesAsString(comsConfig), "INFO");
 
         this.comsCertificate = new File(CERT_LOCATION);
@@ -87,7 +90,7 @@ public class Radio implements IsEquipment {
                 lifeSpan--;
             } else {
                 sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
-                        Rover.ROVER_NAME + " Radio at " +
+                        RoverConfig.ROVER_NAME + " Radio at " +
                         "end of life. Any last wishes " +
                         "Earth?", rover).toByteArray());
             }
@@ -106,7 +109,9 @@ public class Radio implements IsEquipment {
                 if (!bootUp) {
                     Thread.sleep(getComsDelaySecs());
                 }
-                SecureMessage.SecureMessagePacket secureMessagePacket = EncryptionUtil.encryptData(Rover.ROVER_NAME,
+
+                SecureMessage.SecureMessagePacket secureMessagePacket = EncryptionUtil.encryptData(RoverConfig
+                                                                                                           .ROVER_NAME,
                                                                                                    comsCertificate,
                                                                                                    message,
                                                                                                    encryptionWaitMinutes);

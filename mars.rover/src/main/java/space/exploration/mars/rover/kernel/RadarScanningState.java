@@ -45,7 +45,7 @@ public class RadarScanningState implements State {
     }
 
     @Override
-    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
     }
 
     @Override
@@ -170,7 +170,7 @@ public class RadarScanningState implements State {
     }
 
     private void renderRadarAnimation() {
-        Properties                       marsConfig           = rover.getMarsConfig();
+        Properties                       marsConfig           = rover.getRoverConfig().getMarsConfig();
         RadarAnimationEngine             radarAnimationEngine = new RadarAnimationEngine(marsConfig);
         List<RadialContact>              temp                 = rover.getRadar().getRadialContacts();
         java.util.List<RadarContactCell> contacts             = new ArrayList<>();

@@ -35,7 +35,7 @@ public class PhotographingState implements State {
     }
 
     @Override
-    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
     }
 
     public void receiveMessage(byte[] message) {
@@ -102,7 +102,7 @@ public class PhotographingState implements State {
         PhotoQueryService photoQueryService = new PhotoQueryService();
         photoQueryService.setCamId(camId);
         photoQueryService.setSol(rover.getSpacecraftClock().getSol());
-        photoQueryService.setAuthenticationKey(rover.getNasaApiAuthKey());
+        photoQueryService.setAuthenticationKey(rover.getRoverConfig().getNasaApiAuthKey());
         photoQueryService.executeQuery();
 
         String responseString = photoQueryService.getResponseAsString();
@@ -113,7 +113,7 @@ public class PhotographingState implements State {
         CameraPayload.CamPayload camPayload = null;
         try {
             camPayload =
-                    CameraUtil.convertToCamPayload(responseString, rover.getDataArchiveLocation()
+                    CameraUtil.convertToCamPayload(responseString, rover.getRoverConfig().getDataArchiveLocation()
                             + "/" + camId);
         } catch (IOException e) {
             logger.error("IOException here", e);

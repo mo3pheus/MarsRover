@@ -65,8 +65,6 @@ public class Receiver extends Thread {
 
             try {
                 SecureMessage.SecureMessagePacket received = (SecureMessage.SecureMessagePacket.parseFrom(it.next().message()));
-//                InstructionPayloadOuterClass.InstructionPayload received = (InstructionPayloadOuterClass
-//                        .InstructionPayload.parseFrom(it.next().message()));
                 radio.receiveMessage(received);
             } catch (InvalidProtocolBufferException e) {
                 e.printStackTrace();

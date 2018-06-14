@@ -8,32 +8,23 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
-import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
 import space.exploration.communications.protocol.robot.RobotPositionsOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.animation.RadioAnimationEngine;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
+import space.exploration.mars.rover.kernel.config.RoverConfig;
 import space.exploration.mars.rover.propulsion.AStarPropulsionUnit;
 import space.exploration.mars.rover.propulsion.LearningPropulsionUnit;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
 import space.exploration.mars.rover.utils.RoverUtil;
-import space.exploration.mars.rover.utils.ServiceUtil;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.attribute.PosixFilePermission;
-import java.util.HashSet;
 import java.util.Properties;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static communications.protocol.ModuleDirectory.*;
-import static space.exploration.mars.rover.kernel.Rover.PROPULSION_CHOICE;
 
 public class ListeningState implements State {
     private Meter  requests       = null;
@@ -66,7 +57,7 @@ public class ListeningState implements State {
     }
 
     @Override
-    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
     }
 
     @Override
@@ -83,7 +74,8 @@ public class ListeningState implements State {
             payload = InstructionPayload.parseFrom(message);
             logger.info(payload.toString());
 
-            RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
+            RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getRoverConfig().getMarsConfig
+                    (), rover
                     .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
             radioAnimationEngine.activateRadio();
 
@@ -105,7 +97,7 @@ public class ListeningState implements State {
                 } else {
                     rover.getBattery().setPrimaryPowerUnits(rover.getBattery().getPrimaryPowerUnits() - powerRequested);
 
-                    Properties marsConfig = rover.getMarsConfig();
+                    Properties marsConfig = rover.getRoverConfig().getMarsConfig();
                     Color robotColor = EnvironmentUtils.findColor(marsConfig.getProperty(EnvironmentUtils
                                                                                                  .ROBOT_COLOR));
                     rover.getMarsArchitect().getRobot().setColor(robotColor);
@@ -116,19 +108,19 @@ public class ListeningState implements State {
                         rover.state = rover.sensingState;
                         rover.scanSurroundings();
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.PROPULSION.getValue()) {
-                        logger.info("Rover " + Rover.ROVER_NAME + " is on the move!");
+                        logger.info("Rover " + RoverConfig.ROVER_NAME + " is on the move!");
                         rover.state = rover.movingState;
                         rover.move(tp);
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.SCIENCE.getValue()) {
-                        logger.info("Rover " + Rover.ROVER_NAME + " is on a scientific mission!");
+                        logger.info("Rover " + RoverConfig.ROVER_NAME + " is on a scientific mission!");
                         rover.state = rover.exploringState;
                         rover.exploreArea();
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.CAMERA_SENSOR.getValue()) {
-                        logger.info("Rover " + Rover.ROVER_NAME + " is going to try to take pictures!");
+                        logger.info("Rover " + RoverConfig.ROVER_NAME + " is going to try to take pictures!");
                         rover.state = rover.photoGraphingState;
                         rover.activateCameraById(tp.getRoverSubModule());
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.RADAR.getValue()) {
-                        logger.info("Rover " + Rover.ROVER_NAME + " will do a radarScan!");
+                        logger.info("Rover " + RoverConfig.ROVER_NAME + " will do a radarScan!");
                         rover.state = rover.radarScanningState;
                         rover.performRadarScan();
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.WEATHER_SENSOR.getValue()) {
@@ -162,7 +154,7 @@ public class ListeningState implements State {
                             }
                         }
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.DAN_SPECTROMETER.getValue()) {
-                        logger.info(" Rover " + Rover.ROVER_NAME + " will do a Dynamic Albedo of Neutrons Scan");
+                        logger.info(" Rover " + RoverConfig.ROVER_NAME + " will do a Dynamic Albedo of Neutrons Scan");
                         rover.state = rover.danSensingState;
                         rover.shootNeutrons();
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.SPACECRAFT_CLOCK.getValue()) {
@@ -203,7 +195,7 @@ public class ListeningState implements State {
                     (targetPackage.getAuxiliaryData().toByteArray());
             RobotPositionsOuterClass.RobotPositions.Point destination = positions.getPositions(0);
 
-            String propulsionChoice = rover.getMarsConfig().getProperty(PROPULSION_CHOICE);
+            String propulsionChoice = rover.getRoverConfig().getMarsConfig().getProperty(RoverConfig.PROPULSION_CHOICE);
             AStarPropulsionUnit aStarPropulsionUnit = new AStarPropulsionUnit(rover, robotPosition, new java.awt.Point
                     (destination.getX(),
                      destination.getY()));

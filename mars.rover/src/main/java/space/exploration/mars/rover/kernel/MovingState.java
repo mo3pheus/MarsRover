@@ -17,6 +17,7 @@ import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.Wall;
 import space.exploration.mars.rover.environment.WallBuilder;
+import space.exploration.mars.rover.kernel.config.RoverConfig;
 import space.exploration.mars.rover.propulsion.AStarPropulsionUnit;
 import space.exploration.mars.rover.propulsion.LearningPropulsionUnit;
 import space.exploration.mars.rover.propulsion.PropulsionUnit;
@@ -24,8 +25,6 @@ import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.TrackingAnimationUtil;
 
 import java.util.concurrent.TimeUnit;
-
-import static space.exploration.mars.rover.kernel.Rover.PROPULSION_CHOICE;
 
 /**
  * @author sanketkorgaonkar
@@ -46,7 +45,7 @@ public class MovingState implements State {
     }
 
     @Override
-    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
     }
 
     @Override
@@ -153,7 +152,7 @@ public class MovingState implements State {
             return;
         }
 
-        String propulsionChoice = rover.getMarsConfig().getProperty(PROPULSION_CHOICE);
+        String propulsionChoice = rover.getRoverConfig().getMarsConfig().getProperty(RoverConfig.PROPULSION_CHOICE);
         AStarPropulsionUnit aStarPropulsionUnit = new AStarPropulsionUnit(rover, robotPosition, new java.awt.Point
                 (destination.getX(), destination.getY()));
         LearningPropulsionUnit learningPropulsionUnit = new LearningPropulsionUnit(rover, robotPosition, new java.awt
@@ -163,7 +162,8 @@ public class MovingState implements State {
         if (!powerTran.isTrajectoryValid()) {
             logger.error("No route found between robot current position at " + rover.getMarsArchitect().getRobot()
                     .getLocation().toString() + " and " + destination.toString());
-            RoverUtil.writeErrorLog(rover,"No route found between robot current position at " + rover.getMarsArchitect()
+            RoverUtil.writeErrorLog(rover, "No route found between robot current position at " + rover
+                    .getMarsArchitect()
                     .getRobot()
                     .getLocation().toString() + " and " + destination.toString(), null);
             sendFailureToEarth(robotPosition, destination, "Rover was unable to find path between supplied source" +
@@ -188,7 +188,7 @@ public class MovingState implements State {
      */
     private boolean isDestinationValid(java.awt.Point destination) {
         boolean     invalid     = false;
-        WallBuilder wallBuilder = new WallBuilder(rover.getMarsConfig());
+        WallBuilder wallBuilder = new WallBuilder(rover.getRoverConfig().getMarsConfig());
         for (Wall wall : wallBuilder.getWalls()) {
             invalid = (invalid || wall.intersects(destination));
         }

@@ -20,6 +20,7 @@ import space.exploration.mars.rover.diagnostics.SleepMonitor;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 import space.exploration.mars.rover.environment.MarsArchitect;
 import space.exploration.mars.rover.environment.RoverCell;
+import space.exploration.mars.rover.kernel.config.RoverConfig;
 import space.exploration.mars.rover.navigation.NavigationEngine;
 import space.exploration.mars.rover.power.Battery;
 import space.exploration.mars.rover.power.BatteryMonitor;
@@ -34,12 +35,10 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-public class Rover {
-    public static final String ROVER_NAME        = "Curiosity";
-    public static final String PROPULSION_CHOICE = "mars.rover.propulsion.engine.choice";
+import static space.exploration.mars.rover.kernel.config.RoverConfig.ROVER_NAME;
 
-    protected String marsConfigLocation = null;
-    volatile  State  state              = null;
+public class Rover {
+    volatile State state = null;
 
     /* Kernel definition */
     State listeningState;
@@ -59,31 +58,19 @@ public class Rover {
     /* Status messages */
     private long    creationTime = 0l;
     private boolean equipmentEOL = false;
+    private Point   location     = null;
 
     /* Logging Details */
-    private Connection logDBConnection    = null;
-    private ResultSet  resultSet          = null;
-    private ResultSet  errorSet           = null;
-    private Logger     logger             = null;
-    private String     dbUserName         = null;
-    private String     dbPassword         = null;
-    private Statement  statement          = null;
-    private Statement  errorStatement     = null;
-    private String     logArchiveLocation = null;
-    private long       startOfLog         = 0l;
-    private boolean    dbLoggingEnabled   = false;
+    private Connection logDBConnection = null;
+    private ResultSet  resultSet       = null;
+    private ResultSet  errorSet        = null;
+    private Logger     logger          = null;
+    private Statement  statement       = null;
+    private Statement  errorStatement  = null;
 
     /* Configuration */
-    private volatile MarsArchitect marsArchitect            = null;
-    private          Properties    marsConfig               = null;
-    private          Properties    comsConfig               = null;
-    private          Properties    logDBConfig              = null;
-    private          String        cameraImageCacheLocation = null;
-    private          String        dataArchiveLocation      = null;
-    private          Point         location                 = null;
-    private          String        nasaApiAuthKey           = null;
-    private          String        workingDirectory         = null;
-    private          double        softwareVersion          = 0.0d;
+    private volatile MarsArchitect marsArchitect = null;
+    private volatile RoverConfig   roverConfig   = null;
 
     /* Equipment Stack */
     private volatile Radio            radio            = null;
@@ -122,25 +109,13 @@ public class Rover {
     private       Gauge<Integer>  instructionQueueGauge = null;
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String marsConfigLocation) {
-        this.workingDirectory = System.getProperty("user.dir");
-        this.marsConfig = marsConfig;
-        this.comsConfig = comsConfig;
-        this.logDBConfig = logsDBConfig;
-        this.marsConfigLocation = marsConfigLocation;
-        this.dataArchiveLocation = "/dataArchives";
-        this.nasaApiAuthKey = "DEMO_KEY";
         bootUp();
     }
 
     public Rover(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String
             cameraImageCacheLocation, String dataArchiveLocation, String marsConfigLocation) {
-        this.workingDirectory = System.getProperty("user.dir");
-        this.marsConfig = marsConfig;
-        this.comsConfig = comsConfig;
-        this.logDBConfig = logsDBConfig;
-        this.cameraImageCacheLocation = cameraImageCacheLocation;
-        this.dataArchiveLocation = dataArchiveLocation;
-        this.marsConfigLocation = marsConfigLocation;
+        this.roverConfig = new RoverConfig(marsConfig, comsConfig, logsDBConfig, cameraImageCacheLocation,
+                                           dataArchiveLocation, marsConfigLocation);
         bootUp();
     }
 
@@ -153,13 +128,13 @@ public class Rover {
         return time;
     }
 
+    public synchronized RoverConfig getRoverConfig() {
+        return roverConfig;
+    }
+
     public synchronized void processPendingMessageQueue() {
         state = listeningState;
         receiveMessage(instructionQueue.remove(0));
-    }
-
-    public String getWorkingDirectory() {
-        return workingDirectory;
     }
 
     public Connection getLogDBConnection() {
@@ -182,19 +157,6 @@ public class Rover {
         return statement;
     }
 
-
-    public boolean isDbLoggingEnabled() {
-        return dbLoggingEnabled;
-    }
-
-    public Properties getLogDBConfig() {
-        return logDBConfig;
-    }
-
-    public Point getLocation() {
-        return location;
-    }
-
     public void setResultSet(ResultSet resultSet) {
         this.resultSet = resultSet;
     }
@@ -205,14 +167,6 @@ public class Rover {
 
     public void setLogger(Logger logger) {
         this.logger = logger;
-    }
-
-    public void setMarsConfig(Properties marsConfig) {
-        this.marsConfig = marsConfig;
-    }
-
-    public void setLocation(Point location) {
-        this.location = location;
     }
 
     public void setRadio(Radio radio) {
@@ -283,20 +237,12 @@ public class Rover {
         state.shootNeutrons();
     }
 
-    public String getNasaApiAuthKey() {
-        return nasaApiAuthKey;
-    }
-
     public long getTimeMessageReceived() {
         return timeMessageReceived;
     }
 
     public void setTimeMessageReceived(long timeMessageReceived) {
         this.timeMessageReceived = timeMessageReceived;
-    }
-
-    public String getDataArchiveLocation() {
-        return dataArchiveLocation;
     }
 
     public synchronized State getListeningState() {
@@ -416,20 +362,8 @@ public class Rover {
         return radio;
     }
 
-    public double getSoftwareVersion() {
-        return softwareVersion;
-    }
-
-    public void setSoftwareVersion(double softwareVersion) {
-        this.softwareVersion = softwareVersion;
-    }
-
     public synchronized MarsArchitect getMarsArchitect() {
         return marsArchitect;
-    }
-
-    public synchronized Properties getMarsConfig() {
-        return marsConfig;
     }
 
     public synchronized List<byte[]> getInstructionQueue() {
@@ -489,46 +423,38 @@ public class Rover {
                 && (instructionQueue.isEmpty()));
     }
 
-    public synchronized void getNasaApiCredentials() {
-        this.nasaApiAuthKey = marsConfig.getProperty("nasa.api.authentication.key");
-    }
-
-    public void setStartOfLog(long startOfLog) {
-        this.startOfLog = startOfLog;
-    }
-
     public synchronized void saveOffSensorLifespans() {
         for (IsEquipment equipment : getEquimentList()) {
             if (gracefulShutdown) {
-                marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), "1000");
+                roverConfig.getMarsConfig().replace(equipment.getEquipmentLifeSpanProperty(), "1000");
             } else {
-                marsConfig.replace(equipment.getEquipmentLifeSpanProperty(), Integer.toString(equipment.getLifeSpan()));
+                roverConfig.getMarsConfig().replace(equipment.getEquipmentLifeSpanProperty(), Integer.toString
+                        (equipment.getLifeSpan()));
             }
         }
     }
 
     public synchronized void configureDB() {
-        dbLoggingEnabled = Boolean.parseBoolean(logDBConfig.getProperty("mars.rover.database.logging.enable"));
-
-        if (!dbLoggingEnabled) {
+        if (!roverConfig.isDbLoggingEnabled()) {
             return;
         }
 
         try {
-            dbUserName = logDBConfig.getProperty("mars.rover.database.user");
-            dbPassword = logDBConfig.getProperty("mars.rover.database.password");
             logDBConnection = DriverManager
-                    .getConnection("jdbc:mysql://" + logDBConfig.getProperty("mars.rover.database.host")
-                                           + "/" + logDBConfig.getProperty("mars.rover.database.dbName")
-                                           + "?user=" + dbUserName + "&password=" + dbPassword);
+                    .getConnection("jdbc:mysql://" + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
+                                                                                                      ".host")
+                                           + "/" + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
+                                                                                                    ".dbName")
+                                           + "?user=" + roverConfig.getDbUserName() + "&password=" + roverConfig
+                            .getDbPassword());
             statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
-            resultSet = statement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                  ".logTableName"));
+            resultSet = statement.executeQuery("SELECT * FROM " + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
+                                                                                                                   ".logTableName"));
             errorStatement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
-            errorSet = errorStatement.executeQuery("SELECT * FROM " + logDBConfig.getProperty("mars.rover.database" +
-                                                                                                      ".errorTableName"));
+            errorSet = errorStatement.executeQuery("SELECT * FROM " + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
+                                                                                                                       ".errorTableName"));
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -560,10 +486,10 @@ public class Rover {
             lifeSpan = battery.getLifeSpan();
         }
 
-        this.battery = new Battery(marsConfig);
+        this.battery = new Battery(roverConfig.getMarsConfig());
         if (recharged) {
             battery.setLifeSpan(lifeSpan - 1);
-            int fullBatteryLifeSpan = Integer.parseInt(marsConfig.getProperty(Battery.LIFESPAN));
+            int fullBatteryLifeSpan = Integer.parseInt(roverConfig.getMarsConfig().getProperty(Battery.LIFESPAN));
             battery.setPrimaryPowerUnits(battery.getPrimaryPowerUnits() - (fullBatteryLifeSpan - battery.getLifeSpan
                     ()));
         }
@@ -574,7 +500,7 @@ public class Rover {
     }
 
     private synchronized void configureRadio() {
-        this.radio = new Radio(comsConfig, this);
+        this.radio = new Radio(roverConfig.getComsConfig(), this);
     }
 
     public synchronized Radar getRadar() {
@@ -657,41 +583,29 @@ public class Rover {
         return radarScanningState;
     }
 
-    public String getLogArchiveLocation() {
-        return logArchiveLocation;
-    }
-
-    public long getStartOfLog() {
-        return startOfLog;
-    }
-
     protected synchronized void reflectRoverState() {
         marsArchitect.getMarsSurface().setTitle(state.getStateName() + " Software Version - " + Double.toString
-                (softwareVersion));
+                (roverConfig.getSoftwareVersion()));
         marsArchitect.getMarsSurface().repaint();
     }
 
     public synchronized void bootUp() {
         Thread.currentThread().setName("roverMain");
 
-        this.startOfLog = System.currentTimeMillis();
-        MarsMissionLaunch.configureLogging(false);
+        MarsMissionLaunch.configureLogging(roverConfig.isDebugEnabled());
 
         this.logger = LoggerFactory.getLogger(Rover.class);
         RoverUtil.cleanOutOldLogFiles(this);
 
         try {
-            this.softwareVersion = Double.parseDouble(marsConfig.getProperty("mars.rover.software.version"));
-            logger.info("marsRover launched with software version = " + softwareVersion);
+            logger.info("marsRover launched with software version = " + roverConfig.getSoftwareVersion());
         } catch (NumberFormatException nfe) {
             logger.error("Could not get software version information", nfe);
             logger.error("Mars Config content = ");
-            for (String key : marsConfig.stringPropertyNames()) {
-                logger.error(" Key = " + key + " Value = " + marsConfig.getProperty(key));
+            for (String key : roverConfig.getMarsConfig().stringPropertyNames()) {
+                logger.error(" Key = " + key + " Value = " + roverConfig.getMarsConfig().getProperty(key));
             }
         }
-
-        this.logArchiveLocation = marsConfig.getProperty("mars.rover.kernel.log.archive");
 
         setUpGauges();
         metrics.newGauge(new MetricName(Rover.class, "RoverBattery"), batteryGauge);
@@ -702,14 +616,14 @@ public class Rover {
         this.weatherSensor = new WeatherSensor(this);
         this.danSpectrometer = new DANSpectrometer(this);
 
-        this.spacecraftClock = new SpacecraftClock(marsConfig);
+        this.spacecraftClock = new SpacecraftClock(roverConfig.getMarsConfig());
         spacecraftClock.setRover(this);
         spacecraftClock.start();
 
-        this.positionSensor = new PositionSensor(marsConfig);
+        this.positionSensor = new PositionSensor(roverConfig.getMarsConfig());
         positionSensor.start();
 
-        this.marsArchitect = new MarsArchitect(marsConfig);
+        this.marsArchitect = new MarsArchitect(roverConfig.getMarsConfig());
         this.listeningState = new ListeningState(this);
         this.hibernatingState = new HibernatingState(this);
         this.maintenanceState = new MaintenanceState(this);
@@ -739,24 +653,24 @@ public class Rover {
         roverGarbageCollector.start();
         RoverUtil.roverSystemLog(logger, "RoverGC initialized. ", "INFO ");
 
-        String[] stPosition = marsConfig.getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
+        String[] stPosition = roverConfig.getMarsConfig().getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
         location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
         RoverUtil.roverSystemLog(logger, "Rover current position is = " + location.toString(), "INFO");
 
-        int cellWidth = Integer.parseInt(marsConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+        int cellWidth = Integer.parseInt(roverConfig.getMarsConfig().getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 
         this.lidar = new Lidar(location, cellWidth, cellWidth, this);
 
         this.apxsSpectrometer = new ApxsSpectrometer(this);
         this.camera =
-                (cameraImageCacheLocation == null) ? new Camera(this.marsConfig, this) : new Camera(this.marsConfig,
-                                                                                                    this,
-                                                                                                    cameraImageCacheLocation);
+                (roverConfig.getCameraImageCacheLocation() == null) ? new Camera(roverConfig.getMarsConfig(), this) :
+                        new Camera(roverConfig.getMarsConfig(),
+                                   this,
+                                   roverConfig.getCameraImageCacheLocation());
         this.radar = new Radar(this);
-        this.navigationEngine = new NavigationEngine(this.getMarsConfig());
+        this.navigationEngine = new NavigationEngine(roverConfig.getMarsConfig());
 
         configureDB();
-        getNasaApiCredentials();
         configureBattery(false);
         configureRadio();
         configureRadar();
@@ -791,10 +705,10 @@ public class Rover {
         logger.info("6. Saving properties file. ");
 
         String utcTime = spacecraftClock.getUTCTime();
-        marsConfig.replace(SpacecraftClock.SCLK_START_TIME, utcTime);
+        roverConfig.getMarsConfig().replace(SpacecraftClock.SCLK_START_TIME, utcTime);
         try {
-            logger.info("Writing properties file to :: " + marsConfigLocation);
-            RoverUtil.saveOffProperties(marsConfig, marsConfigLocation);
+            logger.info("Writing properties file to :: " + roverConfig.getMarsConfigLocation());
+            RoverUtil.saveOffProperties(roverConfig.getMarsConfig(), roverConfig.getMarsConfigLocation());
         } catch (IOException e) {
             logger.error("Encountered an exception when writing properties file during shutdown.", e);
         }

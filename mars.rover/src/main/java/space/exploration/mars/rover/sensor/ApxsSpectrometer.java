@@ -29,11 +29,12 @@ public class ApxsSpectrometer implements IsEquipment {
         this.rover = rover;
         requests = this.rover.getMetrics().newMeter(ApxsSpectrometer.class, "ApxsSpectrometer", "requests", TimeUnit
                 .HOURS);
-        this.lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
+        this.lifeSpan = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(LIFESPAN));
     }
 
     public void calibrateApxsSpectrometer(int sol) {
-        String fileArchiveLocation = rover.getDataArchiveLocation() + archivePath + Integer.toString(sol) + "/";
+        String fileArchiveLocation = rover.getRoverConfig().getDataArchiveLocation() + archivePath + Integer.toString
+                (sol) + "/";
         try {
             FileUtil.processDirectories(fileArchiveLocation);
             apxsDataService = new ApxsDataService(sol, fileArchiveLocation);

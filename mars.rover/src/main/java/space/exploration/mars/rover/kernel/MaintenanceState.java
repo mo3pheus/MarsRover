@@ -137,7 +137,8 @@ public class MaintenanceState implements State {
         DateTime          endTime           = dateTimeFormatter.parseDateTime(logRequestPacket.getEndDate());
 
         try {
-            List<File> logFiles = FileUtil.getLogFiles(startTime, endTime, rover.getLogArchiveLocation());
+            List<File> logFiles = FileUtil.getLogFiles(startTime, endTime, rover.getRoverConfig()
+                    .getLogArchiveLocation());
             for (int i = 0; i < logFiles.size(); i++) {
                 File logFile = logFiles.get(i);
                 logContents.add(buildLogFile(logFile.getName(), FileUtil.getFileContent(logFile)));
@@ -193,10 +194,11 @@ public class MaintenanceState implements State {
         logger.info("Rover commencing software update.");
 
         double newVersion = swUpdatePackage.getVersion();
-        if (newVersion > rover.getSoftwareVersion()) {
-            logger.info("Old software version = " + rover.getSoftwareVersion() + " upgrading to " + newVersion);
+        if (newVersion > rover.getRoverConfig().getSoftwareVersion()) {
+            logger.info("Old software version = " + rover.getRoverConfig().getSoftwareVersion() + " upgrading to " +
+                                newVersion);
             RoverUtil.processSoftwareUpdate(rover, swUpdatePackage);
-            rover.setSoftwareVersion(swUpdatePackage.getVersion());
+            rover.getRoverConfig().setSoftwareVersion(swUpdatePackage.getVersion());
 
             logger.info("Sending software update complete message.");
             rover.state = rover.transmittingState;

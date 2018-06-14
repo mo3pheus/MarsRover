@@ -25,7 +25,7 @@ public class DANSpectrometer implements IsEquipment {
         this.rover = rover;
         danDerivedData = new ArrayList<>();
         try {
-            lifeSpan = Integer.parseInt(rover.getMarsConfig().getProperty(LIFESPAN));
+            lifeSpan = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(LIFESPAN));
         } catch (NumberFormatException nfe) {
             logger.error("Property not found in marsConfig - mars.rover.dan.lifespan . Defaulting the value to 1000 " +
                                  "", nfe);

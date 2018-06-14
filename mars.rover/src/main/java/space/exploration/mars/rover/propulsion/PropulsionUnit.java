@@ -17,8 +17,8 @@ public abstract class PropulsionUnit {
         this.rover = rover;
         this.source = source;
         this.destination = destination;
-        powerConsumptionPerUnit = Integer.parseInt(rover.getMarsConfig().getProperty(EnvironmentUtils
-                                                                                             .PROPULSION_POWER_CONSUMPTION));
+        powerConsumptionPerUnit = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty(EnvironmentUtils
+                                                                                                              .PROPULSION_POWER_CONSUMPTION));
     }
 
     public int getPowerConsumptionPerUnit() {
@@ -35,7 +35,7 @@ public abstract class PropulsionUnit {
 
     abstract void requestPropulsion();
 
-    protected void computeTrajValidity(){
+    protected void computeTrajValidity() {
         int trajectoryLength = trajectory.size();
         trajectoryValid = (trajectoryLength > 1) ? (trajectory.get(trajectoryLength - 1).equals(destination)) :
                 trajectory.get(0).equals(destination);

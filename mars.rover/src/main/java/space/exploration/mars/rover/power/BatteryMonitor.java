@@ -71,7 +71,7 @@ public class BatteryMonitor {
                         logger.info("Battery Monitor restoring the rover to normal after recharge");
                         interrupt();
                         rover.configureBattery(true);
-                        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
+                        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getRoverConfig().getMarsConfig()
                                                                                                         .getProperty
                                                                                                                 (EnvironmentUtils.ROBOT_COLOR)));
 

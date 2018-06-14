@@ -97,7 +97,8 @@ public class RoverUtil {
     }
 
     public static void deleteAllJarFiles(Rover rover) throws IOException {
-        List<Path> paths = Files.walk(Paths.get(rover.getWorkingDirectory())).collect(Collectors.toList());
+        List<Path> paths = Files.walk(Paths.get(rover.getRoverConfig().getWorkingDirectory())).collect(Collectors
+                                                                                                               .toList());
         for (Path path : paths) {
             if (path.toString().contains(".jar")) {
                 rover.getLogger().info("Deleting file " + path);
@@ -146,9 +147,10 @@ public class RoverUtil {
             jarFos.close();
             scriptFos.close();
 
-            rover.setSoftwareVersion(swUpdatePackage.getVersion());
-            rover.getMarsConfig().setProperty("mars.rover.software.version", Double.toString(swUpdatePackage
-                                                                                                     .getVersion()));
+            rover.getRoverConfig().setSoftwareVersion(swUpdatePackage.getVersion());
+            rover.getRoverConfig().getMarsConfig().setProperty("mars.rover.software.version", Double.toString
+                    (swUpdatePackage
+                             .getVersion()));
 
             rover.getLogger().info("Downloaded new jar file :: " + jarFilename);
             rover.getLogger().info("Downloaded new launch script :: " + scriptFilename);
@@ -295,13 +297,14 @@ public class RoverUtil {
             targetPackage, int
                                               instructionQueueLength) {
 
-        if (!rover.isDbLoggingEnabled()) {
+        if (!rover.getRoverConfig().isDbLoggingEnabled()) {
             return;
         }
 
         try {
             if (rover.getResultSet().isClosed()) {
-                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getLogDBConfig()
+                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getRoverConfig()
+                        .getLogDBConfig()
                         .getProperty("mars.rover.database.logTableName")));
             }
             rover.getResultSet().moveToInsertRow();
@@ -321,13 +324,14 @@ public class RoverUtil {
             instructionPayload, int
                                               instructionQueueLength) {
 
-        if (!rover.isDbLoggingEnabled()) {
+        if (!rover.getRoverConfig().isDbLoggingEnabled()) {
             return;
         }
 
         try {
             if (rover.getResultSet().isClosed()) {
-                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getLogDBConfig()
+                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getRoverConfig()
+                        .getLogDBConfig()
                         .getProperty("mars.rover.database.logTableName")));
             }
             rover.getResultSet().moveToInsertRow();
@@ -345,14 +349,14 @@ public class RoverUtil {
     }
 
     public static void writeSystemLog(Rover rover, String message, int instructionQueueLength) {
-        if (!rover.isDbLoggingEnabled()) {
+        if (!rover.getRoverConfig().isDbLoggingEnabled()) {
             return;
         }
 
         try {
             if (rover.getResultSet().isClosed()) {
-                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getLogDBConfig()
-                        .getProperty("mars.rover.database.logTableName")));
+                rover.setResultSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getRoverConfig()
+                        .getLogDBConfig().getProperty("mars.rover.database.logTableName")));
             }
             rover.getResultSet().moveToInsertRow();
             rover.getResultSet().updateTimestamp("EVENT_TIME", new Timestamp(System.currentTimeMillis()));
@@ -366,13 +370,14 @@ public class RoverUtil {
 
     public static void writeErrorLog(Rover rover, String message, Exception e) {
 
-        if (!rover.isDbLoggingEnabled()) {
+        if (!rover.getRoverConfig().isDbLoggingEnabled()) {
             return;
         }
 
         try {
             if (rover.getErrorSet().isClosed()) {
-                rover.setErrorSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getLogDBConfig()
+                rover.setErrorSet(rover.getStatement().executeQuery("SELECT * FROM " + rover.getRoverConfig()
+                        .getLogDBConfig()
                         .getProperty("mars.rover.database.errorTableName")));
             }
             rover.getErrorSet().moveToInsertRow();

@@ -10,7 +10,6 @@ public class SerializationUtil {
             out.writeObject(obj);
             return byteOut.toByteArray();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return null;

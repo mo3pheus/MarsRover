@@ -46,7 +46,7 @@ public class TransmittingState implements State {
     }
 
     @Override
-    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
     }
 
     @Override
@@ -67,7 +67,8 @@ public class TransmittingState implements State {
     public void transmitMessage(byte[] message) {
         requests.mark();
         rover.reflectRoverState();
-        RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getMarsConfig(), rover
+        RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getRoverConfig().getMarsConfig(),
+                                                                             rover
                 .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), true);
         radioAnimationEngine.activateRadio();
         rover.getRadio().sendMessage(message);

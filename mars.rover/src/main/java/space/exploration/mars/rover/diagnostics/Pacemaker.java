@@ -57,8 +57,8 @@ public class Pacemaker {
     }
 
     public void pulse() {
-        int pulseInterval = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.heartbeat" +
-                                                                                       ".pulse"));
+        int pulseInterval = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.heartbeat" +
+                                                                                                        ".pulse"));
         ScheduledFuture<?> trigger = scheduler.scheduleAtFixedRate(pulse, 60, pulseInterval, TimeUnit.SECONDS);
     }
 
@@ -78,7 +78,8 @@ public class Pacemaker {
         hBuilder.setSCET(rover.getSpacecraftClock().getInternalClock().getMillis());
         hBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());
         hBuilder.setNotes("This is rover Curiosity. Sending HeartBeat! Rover software version = " + rover
-                .getSoftwareVersion() + " Current process pid = " + ManagementFactory.getRuntimeMXBean().getName());
+                .getRoverConfig().getSoftwareVersion() + " Current process pid = " + ManagementFactory
+                .getRuntimeMXBean().getName());
         hBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
         hBuilder.setSolNumber(rover.getSpacecraftClock().getSol());
 

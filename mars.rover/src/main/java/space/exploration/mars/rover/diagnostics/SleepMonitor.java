@@ -21,7 +21,7 @@ public class SleepMonitor {
         monitor = Executors.newSingleThreadScheduledExecutor();
         snooze = new Snooze();
         monitor.scheduleAtFixedRate(snooze, 0l, 1l, TimeUnit.MINUTES);
-        sleepAfterTimeMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
+        sleepAfterTimeMinutes = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
                                                                                            ".minutes"));
         logger.info("SleepMonitor initialized and activated!");
     }
@@ -39,7 +39,7 @@ public class SleepMonitor {
 
     private boolean isRoverRested() {
         if (rover.getState() == rover.getSleepingState()) {
-            int maxSleepForMinutes = Integer.parseInt(rover.getMarsConfig().getProperty("mars.rover.sleepForMax" +
+            int maxSleepForMinutes = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.sleepForMax" +
                                                                                                 ".minutes"));
             long timeInSleepMins = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - rover
                     .getTimeMessageReceived());

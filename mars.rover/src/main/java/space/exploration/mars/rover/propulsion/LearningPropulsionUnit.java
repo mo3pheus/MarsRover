@@ -13,7 +13,7 @@ public class LearningPropulsionUnit extends PropulsionUnit {
 
     @Override
     void requestPropulsion() {
-        ReinforcementLearner learningEngine = new ReinforcementLearner(rover.getMarsConfig());
+        ReinforcementLearner learningEngine = new ReinforcementLearner(rover.getRoverConfig().getMarsConfig());
         learningEngine.train(source, destination);
         trajectory = learningEngine.getShortestPath();
         computeTrajValidity();

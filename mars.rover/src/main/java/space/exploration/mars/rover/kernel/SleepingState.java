@@ -30,17 +30,15 @@ public class SleepingState implements State {
         logger.info("Awaking from sleeping state");
         rover.reflectRoverState();
         sleepingAnimationEngine.wakeupRover();
-        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getMarsConfig()
-                                                                                        .getProperty
-                                                                                                (EnvironmentUtils
-                                                                                                         .ROBOT_COLOR)));
+        rover.getMarsArchitect().getRobot().setColor(EnvironmentUtils.findColor(rover.getRoverConfig().getMarsConfig
+                ().getProperty(EnvironmentUtils.ROBOT_COLOR)));
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.setState(rover.getListeningState());
         rover.receiveMessage(message);
     }
 
     @Override
-    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket){
+    public void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
     }
 
     @Override

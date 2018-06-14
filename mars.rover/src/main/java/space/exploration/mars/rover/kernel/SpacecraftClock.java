@@ -239,10 +239,10 @@ public class SpacecraftClock extends Observable implements IsEquipment {
         }
 
         private void sendRoverLogs() {
-            rover.setStartOfLog(System.currentTimeMillis());
+            rover.getRoverConfig().setStartOfLog(System.currentTimeMillis());
             LogRequest.LogRequestPacket.Builder lBuilder = LogRequest.LogRequestPacket.newBuilder();
             lBuilder.setDateFormat(clockFormat);
-            DateTime startDate = new DateTime(rover.getStartOfLog());
+            DateTime startDate = new DateTime(rover.getRoverConfig().getStartOfLog());
             DateTime endDate   = (new DateTime()).withZone(DateTimeZone.UTC).withTimeAtStartOfDay();
             lBuilder.setStartDate(clockFormatter.print(startDate));
             lBuilder.setEndDate(clockFormatter.print(endDate));
@@ -259,8 +259,8 @@ public class SpacecraftClock extends Observable implements IsEquipment {
             iBuilder.setTimeStamp(System.currentTimeMillis());
             iBuilder.setSOS(false);
 
-            MarsMissionLaunch.configureLogging(false);
-            rover.setStartOfLog(endDate.getMillis());
+            MarsMissionLaunch.configureLogging(rover.getRoverConfig().isDebugEnabled());
+            rover.getRoverConfig().setStartOfLog(endDate.getMillis());
             rover.getInstructionQueue().add(iBuilder.build().toByteArray());
         }
     }
