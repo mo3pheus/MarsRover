@@ -35,6 +35,7 @@ public class SpacecraftClock extends Observable implements IsEquipment {
     public static final String SCLK_START_TIME        = "mars.rover.mission.clock.start";
     public static final String SCLK_MISSION_DURATION  = "mars.rover.mission.duration.years";
     public static final String SCLK_TIME_SCALE_FACTOR = "mars.rover.clock.timeScaleFactor";
+    public static final String SCLK_UTIL_FILE         = "mars.rover.spice.timeUtilFile";
 
     private          Logger                   logger          = LoggerFactory.getLogger(SpacecraftClock
                                                                                                 .class);
@@ -63,7 +64,7 @@ public class SpacecraftClock extends Observable implements IsEquipment {
         timeScaleFactor = Integer.parseInt(marsConfig.getProperty(SCLK_TIME_SCALE_FACTOR));
         internalClock = clockFormatter.parseDateTime(sclkStartTime);
         internalClock = internalClock.withZone(DateTimeZone.UTC);
-        clockService = new TimeUtils();
+        clockService = new TimeUtils(marsConfig.getProperty(SCLK_UTIL_FILE));
 
         logger.info("Valid utc time ranges are dictated by clockService as follows:");
         logger.info(clockService.getApplicableTimeFrame());

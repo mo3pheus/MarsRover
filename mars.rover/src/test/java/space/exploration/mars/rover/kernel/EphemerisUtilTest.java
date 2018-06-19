@@ -7,7 +7,7 @@ import space.exploration.spice.utilities.EphemerisConversionUtil;
 import java.util.concurrent.TimeUnit;
 
 public class EphemerisUtilTest extends TestCase {
-    private EphemerisConversionUtil ephemerisConversionUtil = new EphemerisConversionUtil();
+    private EphemerisConversionUtil ephemerisConversionUtil = new EphemerisConversionUtil("/src/main/resources/ephemerisLib.out");
 
     @Test
     public void testEphemerisConversion(){
@@ -16,6 +16,7 @@ public class EphemerisUtilTest extends TestCase {
             ephemerisConversionUtil.updateClock(Double.toString(ephemerisTime));
             assertEquals(1239,ephemerisConversionUtil.getSol());
             ephemerisTime += TimeUnit.MINUTES.toSeconds(1l);
+            System.out.println(ephemerisConversionUtil.getSclkTime());
         }
     }
 }

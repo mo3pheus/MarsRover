@@ -27,6 +27,11 @@ public class RoverConfig {
     private String     workingDirectory         = null;
     private double     softwareVersion          = 0.0d;
 
+    /* Spice config */
+    private String ephemerisUtilFile = "";
+    private String timeUtilFile      = "";
+    private String positionUtilFile  = "";
+
     public RoverConfig(Properties marsConfig, Properties comsConfig, Properties logsDBConfig, String
             cameraImageCacheLocation, String dataArchiveLocation, String marsConfigLocation) {
         this.marsConfig = marsConfig;
@@ -35,8 +40,7 @@ public class RoverConfig {
         this.softwareVersion = Double.parseDouble(marsConfig.getProperty("mars.rover.software.version"));
         this.logArchiveLocation = marsConfig.getProperty("mars.rover.kernel.log.archive");
         this.dbLoggingEnabled = Boolean.parseBoolean(logsDBConfig.getProperty("mars.rover.database.logging" +
-                                                                                                 ".enable"));
-        this.nasaApiAuthKey = marsConfig.getProperty("nasa.api.authentication.key");
+                                                                                      ".enable"));
         this.workingDirectory = System.getProperty("user.dir");
         this.marsConfig = marsConfig;
         this.comsConfig = comsConfig;
@@ -46,6 +50,25 @@ public class RoverConfig {
         this.cameraImageCacheLocation = cameraImageCacheLocation;
         this.dataArchiveLocation = dataArchiveLocation;
         this.marsConfigLocation = marsConfigLocation;
+
+        this.ephemerisUtilFile = marsConfig.getProperty("mars.rover.spice.ephemerisFile");
+        this.timeUtilFile = marsConfig.getProperty("mars.rover.spice.timeUtilFile");
+        this.positionUtilFile = marsConfig.getProperty("mars.rover.spice.positionUtilFile");
+        this.dbUserName = logsDBConfig.getProperty("mars.rover.database.user");
+        this.dbPassword = logDBConfig.getProperty("mars.rover.database.password");
+        this.nasaApiAuthKey = marsConfig.getProperty("nasa.api.authentication.key");
+    }
+
+    public String getEphemerisUtilFile() {
+        return ephemerisUtilFile;
+    }
+
+    public String getTimeUtilFile() {
+        return timeUtilFile;
+    }
+
+    public String getPositionUtilFile() {
+        return positionUtilFile;
     }
 
     public void setStartOfLog(long startOfLog) {

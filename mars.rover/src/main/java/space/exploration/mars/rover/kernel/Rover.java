@@ -457,6 +457,11 @@ public class Rover {
                     .CONCUR_UPDATABLE);
             errorSet = errorStatement.executeQuery("SELECT * FROM " + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
                                                                                                                        ".errorTableName"));
+            if (resultSet == null || errorSet == null || errorSet == null || statement == null) {
+                logger.error("Error encountered while configuring database.");
+                return;
+            }
+
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }

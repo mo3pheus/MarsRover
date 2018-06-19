@@ -22,24 +22,26 @@ import static space.exploration.mars.rover.kernel.SpacecraftClock.*;
  * Lives as long as the spacecraftClock lives - since there is a dependency between the two.
  */
 public class PositionSensor implements IsEquipment {
-    private          Logger                   logger          = LoggerFactory.getLogger(PositionSensor.class);
-    private          ScheduledExecutorService sensorUpdate    = null;
-    private          Properties               roverProperties = null;
-    private          DateTime                 internalClock   = null;
-    private          DateTimeFormatter        clockFormatter  = null;
-    private          String                   sclkStartTime   = null;
-    private          int                      timeScaleFactor = 0;
-    private          long                     timeElapsedMs   = 0l;
-    private          long                     missionDuration = 0l;
-    private          PositionUtils            positionUtils   = null;
-    private          Gauge<String>            positionGauge   = null;
-    private volatile boolean                  runThread       = true;
+    public static final String                   POSITION_CALC_FILE_PROPERTY = "mars.rover.spice.positionUtilFile";
+    private             Logger                   logger                      = LoggerFactory.getLogger(PositionSensor
+                                                                                                               .class);
+    private             ScheduledExecutorService sensorUpdate                = null;
+    private             Properties               roverProperties             = null;
+    private             DateTime                 internalClock               = null;
+    private             DateTimeFormatter        clockFormatter              = null;
+    private             String                   sclkStartTime               = null;
+    private             int                      timeScaleFactor             = 0;
+    private             long                     timeElapsedMs               = 0l;
+    private             long                     missionDuration             = 0l;
+    private             PositionUtils            positionUtils               = null;
+    private             Gauge<String>            positionGauge               = null;
+    private volatile    boolean                  runThread                   = true;
 
     private PositionUpdate positionUpdate;
 
     public PositionSensor(Properties roverProperties) {
         this.roverProperties = roverProperties;
-        this.positionUtils = new PositionUtils();
+        this.positionUtils = new PositionUtils(roverProperties.getProperty(POSITION_CALC_FILE_PROPERTY));
         this.sensorUpdate = Executors.newSingleThreadScheduledExecutor();
         clockFormatter = DateTimeFormat.forPattern(roverProperties.getProperty(SCLK_FORMAT));
         sclkStartTime = roverProperties.getProperty(SCLK_START_TIME);
