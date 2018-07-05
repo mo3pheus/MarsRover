@@ -121,6 +121,8 @@ public class Radio implements IsEquipment {
             } else {
                 logger.error("Radio lifeSpan has ended.");
                 RoverUtil.writeErrorLog(rover, "Radio lifeSpan has ended", null);
+                rover.saveOffSensorLifespans();
+                rover.shutdownRover();
             }
         } catch (Exception e) {
             rover.setState(rover.getListeningState());

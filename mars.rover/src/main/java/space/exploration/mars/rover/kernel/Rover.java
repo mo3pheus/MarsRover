@@ -688,7 +688,7 @@ public class Rover {
         transmitMessage(getBootupMessage());
     }
 
-    protected void shutdownRover() {
+    public void shutdownRover() {
         logger.info("Stopping all daemon processes.");
 
         logger.info(" 1. Stopping Pacemaker.");
