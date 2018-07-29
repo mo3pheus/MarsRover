@@ -8,7 +8,7 @@ import space.exploration.communications.protocol.communication.RoverStatusOuterC
 import space.exploration.communications.protocol.service.WeatherRDRData;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
-import space.exploration.mars.rover.service.WeatherDataService;
+import space.exploration.mars.rover.service.calibration.weather.WeatherDataService;
 import space.exploration.mars.rover.utils.RoverUtil;
 import space.exploration.mars.rover.utils.WeatherUtil;
 

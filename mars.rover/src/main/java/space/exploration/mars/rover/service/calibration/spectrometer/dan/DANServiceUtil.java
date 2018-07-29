@@ -1,10 +1,11 @@
-package space.exploration.mars.rover.service;
+package space.exploration.mars.rover.service.calibration.spectrometer.dan;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.service.QueryService;
 
 public class DANServiceUtil extends QueryService {
     private Logger logger = LoggerFactory.getLogger(DANServiceUtil.class);

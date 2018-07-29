@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.service;
+package space.exploration.mars.rover.service.calibration.weather;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.service;
+package space.exploration.mars.rover.service.calibration.spectrometer.apxs;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -6,7 +6,6 @@ import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.sensors.apxs.ApxsData;
-import space.exploration.mars.rover.utils.FileUtil;
 import space.exploration.mars.rover.utils.ServiceUtil;
 
 import java.io.IOException;

@@ -6,7 +6,7 @@ import space.exploration.communications.protocol.service.DanRDRData;
 import space.exploration.communications.protocol.service.DanRDRDataSeriesOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
-import space.exploration.mars.rover.service.DANCalibrationService;
+import space.exploration.mars.rover.service.calibration.spectrometer.dan.DANCalibrationService;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -2,6 +2,7 @@ package space.exploration.mars.rover.service;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import space.exploration.mars.rover.service.calibration.spectrometer.dan.DANCalibrationService;
 import space.exploration.mars.rover.utils.ServiceUtil;
 
 import java.io.File;

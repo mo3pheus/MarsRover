@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.sensors.apxs.ApxsData;
-import space.exploration.mars.rover.service.ApxsDataService;
+import space.exploration.mars.rover.service.calibration.spectrometer.apxs.ApxsDataService;
 import space.exploration.mars.rover.utils.FileUtil;
 
 import java.io.IOException;

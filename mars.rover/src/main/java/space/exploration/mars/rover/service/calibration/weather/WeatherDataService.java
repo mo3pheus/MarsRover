@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.service;
+package space.exploration.mars.rover.service.calibration.weather;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

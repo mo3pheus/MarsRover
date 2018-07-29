@@ -1,4 +1,6 @@
-package space.exploration.mars.rover.service;
+package space.exploration.mars.rover.service.calibration.camera;
+
+import space.exploration.mars.rover.service.QueryService;
 
 public class PhotoQueryService extends QueryService {
     private String camId = "";

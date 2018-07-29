@@ -69,9 +69,11 @@ public class QueryService implements isSpaceQuery {
         logger.debug(getTargetUrl().toString());
         try {
             dataLink = (HttpURLConnection) getTargetUrl().openConnection();
+            dataLink.setConnectTimeout(50000);
             dataLink.setRequestMethod("GET");
         } catch (IOException e) {
             logger.error("Could not execute query for cameraAPI", e);
+            dataLink.disconnect();
         }
     }
 

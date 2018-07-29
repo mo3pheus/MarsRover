@@ -13,7 +13,7 @@ import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageO
 import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.animation.CameraAnimationEngine;
 import space.exploration.mars.rover.environment.MarsArchitect;
-import space.exploration.mars.rover.service.PhotoQueryService;
+import space.exploration.mars.rover.service.calibration.camera.PhotoQueryService;
 import space.exploration.mars.rover.utils.CameraUtil;
 import space.exploration.mars.rover.utils.RoverUtil;
 

@@ -1,0 +1,32 @@
+2018-07-28 02:39:16,752 [samUrlExtractionTaskeid25030] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25030HTTP error fetching URL
+2018-07-28 02:39:16,782 [samUrlExtractionTaskeid25039] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25039HTTP error fetching URL
+2018-07-28 02:39:16,782 [samUrlExtractionTaskeid25042] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25042HTTP error fetching URL
+2018-07-28 02:39:16,784 [samUrlExtractionTaskeid25046] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25046HTTP error fetching URL
+2018-07-28 02:39:16,784 [samUrlExtractionTaskeid25035] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25035HTTP error fetching URL
+2018-07-28 02:39:16,788 [samUrlExtractionTaskeid25075] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25075HTTP error fetching URL
+2018-07-28 02:39:16,788 [samUrlExtractionTaskeid25062] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25062HTTP error fetching URL
+2018-07-28 02:39:16,788 [samUrlExtractionTaskeid25070] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25070HTTP error fetching URL
+2018-07-28 02:39:16,789 [samUrlExtractionTaskeid25057] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25057HTTP error fetching URL
+2018-07-28 02:39:16,789 [samUrlExtractionTaskeid25065] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25065HTTP error fetching URL
+2018-07-28 02:39:16,789 [samUrlExtractionTaskeid25084] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25084HTTP error fetching URL
+2018-07-28 02:39:16,790 [samUrlExtractionTaskeid25085] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25085HTTP error fetching URL
+2018-07-28 02:39:16,790 [samUrlExtractionTaskeid25089] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25089HTTP error fetching URL
+2018-07-28 02:39:16,793 [samUrlExtractionTaskeid25081] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25081HTTP error fetching URL
+2018-07-28 02:39:16,793 [samUrlExtractionTaskeid25092] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25092HTTP error fetching URL
+2018-07-28 02:39:16,793 [samUrlExtractionTaskeid25095] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25095HTTP error fetching URL
+2018-07-28 02:39:16,807 [samUrlExtractionTaskeid25088] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25088HTTP error fetching URL
+2018-07-28 02:39:16,810 [samUrlExtractionTaskeid25117] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25117HTTP error fetching URL
+2018-07-28 02:39:16,812 [samUrlExtractionTaskeid25120] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25120HTTP error fetching URL
+2018-07-28 02:39:16,813 [samUrlExtractionTaskeid25113] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25113HTTP error fetching URL
+2018-07-28 02:39:16,813 [samUrlExtractionTaskeid25106] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25106HTTP error fetching URL
+2018-07-28 02:39:16,814 [samUrlExtractionTaskeid25111] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25111HTTP error fetching URL
+2018-07-28 02:39:16,816 [samUrlExtractionTaskeid25150] ERROR space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask - SAM data unavailable for experiment id = eid25150HTTP error fetching URL
+2018-07-28 02:39:18,012 [main] ERROR space.exploration.mars.rover.sensor.SamSensor - SamSensor calibration encountered error
+org.jsoup.HttpStatusException: HTTP error fetching URL. Status=404, URL=http://pds-geosciences.wustl.edu/msl/msl-m-sam-2-rdr-l0-v1/mslsam_1xxx/data/eid25030/level2
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:537)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:493)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:205)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:194)
+	at space.exploration.mars.rover.service.calibration.spectrometer.sam.UrlExtractTask.getDataAvailability(UrlExtractTask.java:42)
+	at space.exploration.mars.rover.sensor.SamSensor.<init>(SamSensor.java:44)
+	at space.exploration.mars.rover.service.calibration.spectrometer.sam.SamCalibrationUtil.main(SamCalibrationUtil.java:41)

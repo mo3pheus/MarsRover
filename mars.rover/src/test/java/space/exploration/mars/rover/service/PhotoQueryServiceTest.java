@@ -7,7 +7,7 @@ import com.google.gson.JsonParser;
 import junit.framework.TestCase;
 import org.junit.Ignore;
 import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
-import sun.awt.SunGraphicsCallback;
+import space.exploration.mars.rover.service.calibration.camera.PhotoQueryService;
 
 import java.util.concurrent.TimeUnit;
 

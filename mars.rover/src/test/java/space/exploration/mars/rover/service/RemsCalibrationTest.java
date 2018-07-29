@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.kernel.SpacecraftClock;
+import space.exploration.mars.rover.service.calibration.weather.WeatherDataService;
 
 import java.util.Properties;
 
