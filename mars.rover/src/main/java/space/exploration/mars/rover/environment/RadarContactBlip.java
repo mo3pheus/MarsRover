@@ -65,7 +65,7 @@ public class RadarContactBlip extends Thread {
             contentPane.remove(contact);
             contact.setContactDiameter(8);
         } catch (Exception e) {
-            logger.error("Radar Contact Blip animation error", e);
+            logger.error("RadarSensor Contact Blip animation error", e);
         }
         this.interrupt();
     }

@@ -65,13 +65,13 @@ public class RadarScanningState implements State {
 
     @Override
     public String getStateName() {
-        return "Radar Scanning State";
+        return "RadarSensor Scanning State";
     }
 
     @Override
     public void receiveMessage(byte[] message) {
         rover.reflectRoverState();
-        logger.debug("Radar Module received message, adding to rover's instruction queue");
+        logger.debug("RadarSensor Module received message, adding to rover's instruction queue");
         rover.getInstructionQueue().add(message);
         try {
             RoverUtil.writeSystemLog(rover, InstructionPayloadOuterClass.InstructionPayload.parseFrom(message), rover
@@ -125,7 +125,7 @@ public class RadarScanningState implements State {
     public void performRadarScan() {
         requests.mark();
         rover.reflectRoverState();
-        logger.debug("Performing Radar Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
+        logger.debug("Performing RadarSensor Scan, current position = " + rover.getMarsArchitect().getRobot().getLocation()
                 .toString());
         MarsArchitect marsArchitect = rover.getMarsArchitect();
 
@@ -145,7 +145,7 @@ public class RadarScanningState implements State {
 
         status = rBuilder.setBatteryLevel(rover.getBattery()
                                                   .getPrimaryPowerUnits())
-                .setSolNumber(rover.getSpacecraftClock().getSol()).setLocation(location).setNotes("Radar scan performed!")
+                .setSolNumber(rover.getSpacecraftClock().getSol()).setLocation(location).setNotes("RadarSensor scan performed!")
                 .setSCET(System
                                  .currentTimeMillis())
                 .setModuleMessage(rContactListBuilder.build().toByteString())

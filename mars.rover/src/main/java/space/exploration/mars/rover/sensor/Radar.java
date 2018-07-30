@@ -43,7 +43,7 @@ public class Radar implements IsEquipment {
         this.center = new Point(frameWidth / 2, frameWidth / 2);
         this.origin = center;
         populateRoverPositions();
-        RoverUtil.roverSystemLog(logger, "Radar configured:: ", "INFO");
+        RoverUtil.roverSystemLog(logger, "RadarSensor configured:: ", "INFO");
     }
 
     public int getLifeSpan() {
@@ -55,7 +55,7 @@ public class Radar implements IsEquipment {
     }
 
     public String getEquipmentName() {
-        return "Radar";
+        return "RadarSensor";
     }
 
     @Override

@@ -47,7 +47,7 @@ public class RadarAnimationEngine {
         radarWindow = new JFrame();
         radarWindow.setSize((int) windowWidth, (int) windowWidth);
         radarWindow.setVisible(true);
-        radarWindow.setTitle("Radar Scan Window");
+        radarWindow.setTitle("RadarSensor Scan Window");
         int originCo = (int) ((windowWidth) / 2.0d);
         origin = new Point(originCo, originCo);
 
@@ -147,7 +147,7 @@ public class RadarAnimationEngine {
 
     private void reflectContacts(Laser laser, JLayeredPane contentPane) {
         if (contacts == null) {
-            logger.debug("Radar had no contacts for " + laser.getBeam().toString());
+            logger.debug("RadarSensor had no contacts for " + laser.getBeam().toString());
             return;
         }
 

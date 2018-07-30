@@ -2,46 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d088b51-0983-4843-b94d-c72a85f72349" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/SamSensor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/DataAvailabilityPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamBaseUrlCrawl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/UrlExtractTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/IsCalibrationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/sam/SamBaseUrlCrawlTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/sam/UrlExtractTaskTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/CHEMCAM/2016-05-03/557741/CR0_515565585EDR_F0540938CCAM01330M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/CHEMCAM/2016-05-03/557741/CR0_515565585EDR_F0540938CCAM01330M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/CHEMCAM/2016-05-03/557741/CR0_515565585PRC_F0540938CCAM01330L1.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/CHEMCAM/2016-05-03/557741/CR0_515565585PRC_F0540938CCAM01330L1.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/CHEMCAM/2016-05-03/557741/CR0_515566792EDR_F0540938CCAM01330M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/CHEMCAM/2016-05-03/557741/CR0_515566792EDR_F0540938CCAM01330M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/CHEMCAM/2016-05-03/557741/CR0_515566792PRC_F0540938CCAM01330L1.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/CHEMCAM/2016-05-03/557741/CR0_515566792PRC_F0540938CCAM01330L1.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515574277EDR_F0540938FHAZ00323M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515574277EDR_F0540938FHAZ00323M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515575765EDR_F0540938FHAZ00206M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515575765EDR_F0540938FHAZ00206M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515576993EDR_F0540938FHAZ00206M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515576993EDR_F0540938FHAZ00206M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515577654EDR_F0540938FHAZ00208M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515577654EDR_F0540938FHAZ00208M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515577755EDR_F0540938FHAZ00208M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515577755EDR_F0540938FHAZ00208M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515578339EDR_F0540938FHAZ00206M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FLB_515578339EDR_F0540938FHAZ00206M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515574277EDR_F0540938FHAZ00323M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515574277EDR_F0540938FHAZ00323M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515575765EDR_F0540938FHAZ00206M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515575765EDR_F0540938FHAZ00206M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515576993EDR_F0540938FHAZ00206M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515576993EDR_F0540938FHAZ00206M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515577654EDR_F0540938FHAZ00208M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515577654EDR_F0540938FHAZ00208M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515577755EDR_F0540938FHAZ00208M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515577755EDR_F0540938FHAZ00208M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515578339EDR_F0540938FHAZ00206M_.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/dataArchives/FHAZ/2016-05-03/557708/FRB_515578339EDR_F0540938FHAZ00206M_.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mars.rover.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mars.rover.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PhotographingState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PhotographingState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/ApxsSpectrometer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/ApxsSpectrometer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/DANSpectrometer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/DANSpectrometer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/WeatherSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/WeatherSensor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/ApxsDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/apxs/ApxsDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/DANCalibrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/dan/DANCalibrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/DANServiceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/dan/DANServiceUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/PhotoQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/camera/PhotoQueryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/QueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/QueryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/RemsDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/weather/RemsDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/WeatherDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/weather/WeatherDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ByteConversionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ByteConversionsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/DanCalibrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/DanCalibrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/PhotoQueryServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/PhotoQueryServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/RemsCalibrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/RemsCalibrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/animation/RadarAnimationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/animation/RadarAnimationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/environment/RadarContactBlip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/environment/RadarContactBlip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/RadarScanningState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/RadarScanningState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Radar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/SamSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/SamSensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/UrlExtractTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/UrlExtractTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/testMarsConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/testMarsConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/Radar/PolarCoordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/RadarSensor/PolarCoordTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/Radar/RadarAnimationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/RadarSensor/RadarAnimationTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,8 +55,8 @@
       <file leaf-file-name="SamCalibrationUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+            <state relative-caret-position="288">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,15 +64,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SamSensor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PolarCoordTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/RadarSensor/PolarCoordTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RadarAnimationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/RadarSensor/RadarAnimationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApxsCalibrationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UrlExtractTaskTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/sam/UrlExtractTaskTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="34" column="77" lean-forward="true" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SamBaseUrlCrawlTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/sam/SamBaseUrlCrawlTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SamSensor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/SamSensor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="778">
-              <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+            <state relative-caret-position="94">
+              <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3763#3764#0" expanded="true" />
                 <element signature="e#3844#3845#0" expanded="true" />
+                <element signature="e#2336#2337#0" expanded="true" />
+                <element signature="e#2405#2406#0" expanded="true" />
                 <element signature="e#3890#3891#0" expanded="true" />
                 <element signature="e#3974#3975#0" expanded="true" />
               </folding>
@@ -106,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roverStatus_1532885782485.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1532885782485.log">
+      <file leaf-file-name="IsCalibrationService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/IsCalibrationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1131">
-              <caret line="387" lean-forward="true" selection-start-line="387" selection-end-line="387" />
+            <state relative-caret-position="72">
+              <caret line="4" column="37" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -118,10 +145,12 @@
       <file leaf-file-name="UrlExtractTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/UrlExtractTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="562">
+              <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1879#1880#0" expanded="true" />
+                <element signature="e#1956#1957#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -188,10 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/IsEquipment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/PositionSensor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/power/Battery.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Camera.java" />
         <option value="$PROJECT_DIR$/deployment/deploy.sh" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/State.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/ApxsSensingState.java" />
@@ -236,9 +261,13 @@
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/QueryService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/QueryConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/IsCalibrationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/UrlExtractTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/SamSensor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/RadarSensor/PolarCoordTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/sam/UrlExtractTaskTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/sam/SamBaseUrlCrawlTest.java" />
       </list>
     </option>
   </component>
@@ -287,11 +316,6 @@
             <path>
               <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
               <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
-              <item name="roverStatusReports" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -344,30 +368,6 @@
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="calibration" type="462c0819:PsiDirectoryNode" />
               <item name="spectrometer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rover" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="calibration" type="462c0819:PsiDirectoryNode" />
-              <item name="spectrometer" type="462c0819:PsiDirectoryNode" />
-              <item name="apxs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rover" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="calibration" type="462c0819:PsiDirectoryNode" />
-              <item name="spectrometer" type="462c0819:PsiDirectoryNode" />
-              <item name="dan" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
@@ -380,6 +380,65 @@
               <item name="calibration" type="462c0819:PsiDirectoryNode" />
               <item name="spectrometer" type="462c0819:PsiDirectoryNode" />
               <item name="sam" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rover" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rover" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rover" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+              <item name="RadarSensor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rover" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+              <item name="sam" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mars.rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mars.rover" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rover" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -396,16 +455,17 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/misc" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="space.exploration.mars.rover.sensor" />
       <recent name="space.exploration.mars.rover.service" />
       <recent name="space.exploration.mars.rover.navigation" />
       <recent name="space.exploration.mars.rover.kernel" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/certificates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/misc" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -420,7 +480,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SamCalibrationUtil">
+  <component name="RunManager" selected="JUnit.SamBaseUrlCrawlTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -431,17 +491,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="space.exploration.mars.rover.bootstrap.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="RemsDataService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="space.exploration.mars.rover.service.calibration.weather.RemsDataService" />
-      <module name="mars.rover" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="space.exploration.mars.rover.service.dan.calibration.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -483,18 +532,41 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="NavigationEngineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SamBaseUrlCrawlTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mars.rover" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="space.exploration.mars.rover.navigation.*" />
+          <option name="PATTERN" value="space.exploration.mars.rover.sensor.sam.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="space.exploration.mars.rover.navigation" />
-      <option name="MAIN_CLASS_NAME" value="space.exploration.mars.rover.navigation.NavigationEngineTest" />
+      <option name="PACKAGE_NAME" value="space.exploration.mars.rover.sensor.sam" />
+      <option name="MAIN_CLASS_NAME" value="space.exploration.mars.rover.sensor.sam.SamBaseUrlCrawlTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="UrlExtractTaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mars.rover" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="space.exploration.mars.rover.sensor.sam.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="space.exploration.mars.rover.sensor.sam" />
+      <option name="MAIN_CLASS_NAME" value="space.exploration.mars.rover.sensor.sam.UrlExtractTaskTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -546,18 +618,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.MarsMissionLaunch" />
-      <item itemvalue="JUnit.NavigationEngineTest" />
-      <item itemvalue="Application.RemsDataService" />
       <item itemvalue="JUnit.LogRetrievalTest" />
       <item itemvalue="Application.SamCalibrationUtil" />
+      <item itemvalue="JUnit.UrlExtractTaskTest" />
+      <item itemvalue="JUnit.SamBaseUrlCrawlTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SamBaseUrlCrawlTest" />
+        <item itemvalue="JUnit.UrlExtractTaskTest" />
         <item itemvalue="Application.SamCalibrationUtil" />
         <item itemvalue="Application.MarsMissionLaunch" />
         <item itemvalue="JUnit.LogRetrievalTest" />
-        <item itemvalue="Application.RemsDataService" />
-        <item itemvalue="JUnit.NavigationEngineTest" />
       </list>
     </recent_temporary>
   </component>
@@ -672,26 +744,11 @@
       <workItem from="1528947410305" duration="3133000" />
       <workItem from="1532837669789" duration="2008000" />
       <workItem from="1532884438470" duration="20000" />
-      <workItem from="1532884481187" duration="1434000" />
+      <workItem from="1532884481187" duration="6596000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LogRetrievalTest - 2018.06.12 at 22h 14m 35s.xml">
-      <configuration name="LogRetrievalTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LogRetrievalTest - 2018.06.12 at 22h 15m 22s.xml">
-      <configuration name="LogRetrievalTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LogRetrievalTest - 2018.06.12 at 22h 15m 43s.xml">
-      <configuration name="LogRetrievalTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LogRetrievalTest - 2018.06.12 at 22h 16m 36s.xml">
-      <configuration name="LogRetrievalTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LogRetrievalTest - 2018.06.12 at 22h 16m 57s.xml">
-      <configuration name="LogRetrievalTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LogRetrievalTest - 2018.06.12 at 22h 19m 03s.xml">
       <configuration name="LogRetrievalTest" configurationId="JUnit" />
     </history-entry>
@@ -707,9 +764,24 @@
     <history-entry file="LogRetrievalTest - 2018.06.12 at 22h 21m 02s.xml">
       <configuration name="LogRetrievalTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UrlExtractTaskTest - 2018.07.29 at 20h 56m 57s.xml">
+      <configuration name="UrlExtractTaskTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UrlExtractTaskTest - 2018.07.29 at 20h 58m 42s.xml">
+      <configuration name="UrlExtractTaskTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SamBaseUrlCrawlTest - 2018.07.29 at 20h 59m 13s.xml">
+      <configuration name="SamBaseUrlCrawlTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SamBaseUrlCrawlTest - 2018.07.29 at 21h 00m 11s.xml">
+      <configuration name="SamBaseUrlCrawlTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SamBaseUrlCrawlTest - 2018.07.29 at 21h 00m 35s.xml">
+      <configuration name="SamBaseUrlCrawlTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="506750000" />
+    <option name="totallyTimeSpent" value="511912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1748" y="24" width="1692" height="1416" extended-state="4" />
@@ -729,9 +801,10 @@
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989373" weight="0.340625" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23699763" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23699763" />
       <window_info anchor="bottom" id="Tail" order="9" weight="0.253125" />
       <window_info anchor="right" id="Database" order="9" weight="0.32996812" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3265625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -745,7 +818,6 @@
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32939088" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24973433" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32729104" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
@@ -796,82 +868,11 @@
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java</url>
-          <line>54</line>
-          <properties />
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="67" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/SamSensor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3763#3764#0" expanded="true" />
-            <element signature="e#3844#3845#0" expanded="true" />
-            <element signature="e#3890#3891#0" expanded="true" />
-            <element signature="e#3974#3975#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/UrlExtractTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/SpacecraftClock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/TransmittingState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/kernel/WeatherSensingState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/DANSpectrometer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -1108,21 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/DataAvailabilityPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#870#871#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1532763320403.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7722" />
@@ -1185,30 +1171,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1532885446414.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3483">
           <caret line="25" column="77" selection-start-line="25" selection-start-column="77" selection-end-line="25" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/UrlExtractTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1219,16 +1185,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/roverStatusReports/roverStatus_1532885919388.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="387" lean-forward="true" selection-start-line="387" selection-end-line="387" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/IsCalibrationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/UrlExtractTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1879#1880#0" expanded="true" />
+            <element signature="e#1956#1957#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/DataAvailabilityPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#822#823#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/sensor/SamSensor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="778">
-          <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+        <state relative-caret-position="94">
+          <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3763#3764#0" expanded="true" />
             <element signature="e#3844#3845#0" expanded="true" />
+            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="e#2405#2406#0" expanded="true" />
             <element signature="e#3890#3891#0" expanded="true" />
             <element signature="e#3974#3975#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/space/exploration/mars/rover/service/calibration/spectrometer/sam/SamCalibrationUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/RadarSensor/PolarCoordTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/RadarSensor/RadarAnimationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/service/ApxsCalibrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/sam/UrlExtractTaskTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="34" column="77" lean-forward="true" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/space/exploration/mars/rover/sensor/sam/SamBaseUrlCrawlTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

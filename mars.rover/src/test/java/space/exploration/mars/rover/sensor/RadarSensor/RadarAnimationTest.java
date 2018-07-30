@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.Radar;
+package space.exploration.mars.rover.sensor.RadarSensor;
 
 import space.exploration.mars.rover.animation.RadarAnimationEngine;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;

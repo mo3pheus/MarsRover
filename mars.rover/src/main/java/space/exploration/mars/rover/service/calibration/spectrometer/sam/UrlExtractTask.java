@@ -12,9 +12,8 @@ import org.slf4j.LoggerFactory;
 import space.exploration.mars.rover.sensor.SamSensor;
 
 import java.util.List;
-import java.util.concurrent.*;
 
-public class UrlExtractTask implements Callable<DataAvailabilityPacket> {
+public class UrlExtractTask implements IsCalibrationService {
     private String              experimentId = null;
     private Logger              logger       = LoggerFactory.getLogger(UrlExtractTask.class);
     private CloseableHttpClient httpClient   = null;
@@ -47,21 +46,6 @@ public class UrlExtractTask implements Callable<DataAvailabilityPacket> {
 
     public String getQueryString() {
         return SamSensor.SAM_DATA_BASE_URL + experimentId + "/level2";
-    }
-
-    public DataAvailabilityPacket getDataAvailability1() throws Exception {
-        DataAvailabilityPacket dataAvailabilityPacket = new DataAvailabilityPacket();
-
-        Document responseDoc = Jsoup.connect(getQueryString()).get();
-        for (Element element : responseDoc.select("a[href]")) {
-            if (element.text().contains("csv")) {
-                dataAvailabilityPacket.addUrl(element.text());
-            }
-        }
-
-        dataAvailabilityPacket.setSol(extractSol(dataAvailabilityPacket.getUrls()));
-        dataAvailabilityPacket.setExperimentId(experimentId);
-        return dataAvailabilityPacket;
     }
 
     public DataAvailabilityPacket getDataAvailability() throws Exception {
