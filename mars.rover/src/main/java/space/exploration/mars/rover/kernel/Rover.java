@@ -74,12 +74,13 @@ public class Rover {
     /* Equipment Stack */
     private volatile Radio            radio            = null;
     private          Lidar            lidar            = null;
-    private          ApxsSpectrometer apxsSpectrometer = null;
-    private          DANSpectrometer  danSpectrometer  = null;
     private          Camera           camera           = null;
     private          Radar            radar            = null;
     private          WeatherSensor    weatherSensor    = null;
     private          NavigationEngine navigationEngine = null;
+    private          ApxsSpectrometer apxsSpectrometer = null;
+    private          DANSpectrometer  danSpectrometer  = null;
+    private          SamSensor        samSensor        = null;
 
     /* Kernel Sensors   */
     private volatile SpacecraftClock spacecraftClock = null;
@@ -541,6 +542,7 @@ public class Rover {
         equipmentList.add(this.spacecraftClock);
         equipmentList.add(this.positionSensor);
         equipmentList.add(this.danSpectrometer);
+        equipmentList.add(this.samSensor);
         return equipmentList;
     }
 
@@ -685,6 +687,7 @@ public class Rover {
                                    roverConfig.getCameraImageCacheLocation());
         this.radar = new Radar(this);
         this.navigationEngine = new NavigationEngine(roverConfig.getMarsConfig());
+        this.samSensor = new SamSensor(roverConfig.getMarsConfig());
 
         configureDB();
         configureBattery(false);

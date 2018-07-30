@@ -4,20 +4,18 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.service.calibration.spectrometer.sam.*;
 import space.exploration.mars.rover.service.calibration.spectrometer.sam.SamCalibrationUtil.CALIBRATION_STATUS_CODE;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 
-public class SamSensor {
+public class SamSensor implements IsEquipment {
     public static final String SAM_DATA_BASE_URL = "http://pds-geosciences.wustl" +
             ".edu/msl/msl-m-sam-2-rdr-l0-v1/mslsam_1xxx/data/";
+    public static final String LIFESPAN          = "mars.rover.sam.lifespan";
 
     private          Map<Integer, DataAvailabilityPacket> dataAvailabilityPacketMap = new HashMap<>();
     private          CALIBRATION_STATUS_CODE              calibrationStatusCode     = null;
@@ -25,31 +23,47 @@ public class SamSensor {
             (SamSensor.class);
     private volatile CloseableHttpClient                  httpClient                = null;
     private          RequestConfig                        requestConfig             = null;
+    private          Properties                           calibrationProperties     = null;
+    private          int                                  lifespan                  = 0;
+    private          int                                  useCount                  = 0;
 
     List<Future<DataAvailabilityPacket>> resultList      = new ArrayList<>();
     List<IsCalibrationService>           urlExtractTasks = new ArrayList<>();
     ExecutorService                      executorService = null;
 
-    public SamSensor(File samCalibrationFile) {
+    public SamSensor(Properties samCalibrationProperties) {
+        this.calibrationProperties = samCalibrationProperties;
+        this.lifespan = Integer.parseInt(calibrationProperties.getProperty(LIFESPAN));
         calibrationStatusCode = CALIBRATION_STATUS_CODE.INIT;
-        if (samCalibrationFile != null) {
-            // load from serialized file
-        } else {
-            populateTaskList();
-            init();
-            fireTasks();
-            populateAvailabilityMap();
-            cleanUp();
+        populateTaskList();
+        init();
+        fireTasks();
+        populateAvailabilityMap();
+        cleanUp();
 
-            calibrationStatusCode = (dataAvailabilityPacketMap.keySet().isEmpty()) ? CALIBRATION_STATUS_CODE.ERROR :
-                    CALIBRATION_STATUS_CODE.SUCCESS;
-            logger.debug("Sam data availability :: " + dataAvailabilityPacketMap);
-            logger.info("Sam Sensor successfully calibrated.");
-        }
+        calibrationStatusCode = (dataAvailabilityPacketMap.keySet().isEmpty()) ? CALIBRATION_STATUS_CODE.ERROR :
+                CALIBRATION_STATUS_CODE.SUCCESS;
+        logger.debug("Sam data availability :: " + dataAvailabilityPacketMap);
+        logger.info("Sam Sensor successfully calibrated.");
     }
 
     public boolean isCalibrated() {
         return (calibrationStatusCode == CALIBRATION_STATUS_CODE.SUCCESS);
+    }
+
+    public byte[] getSamData() {
+        if (calibrationStatusCode == CALIBRATION_STATUS_CODE.IN_PROGRESS
+                || calibrationStatusCode == CALIBRATION_STATUS_CODE.INIT
+                ) {
+            logger.info("Can not get samData at the moment. SAM Sensor is in calibration mode. Please try again later" +
+                                ".");
+        } else if (calibrationStatusCode == CALIBRATION_STATUS_CODE.ERROR) {
+            logger.error("Sam Calibration failed. Sam sensor unavailable");
+        } else {
+            lifespan--;
+            useCount++;
+        }
+        return null;
     }
 
     public void setErrorState() {
@@ -111,5 +125,30 @@ public class SamSensor {
                 logger.error("Error while executing samCalibration for experiment");
             }
         }
+    }
+
+    @Override
+    public int getLifeSpan() {
+        return lifespan;
+    }
+
+    @Override
+    public String getEquipmentName() {
+        return "SAM Sensor";
+    }
+
+    @Override
+    public boolean isEndOfLife() {
+        return (lifespan > 0);
+    }
+
+    @Override
+    public long getRequestMetric() {
+        return useCount;
+    }
+
+    @Override
+    public String getEquipmentLifeSpanProperty() {
+        return LIFESPAN;
     }
 }
