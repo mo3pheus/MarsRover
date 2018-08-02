@@ -1,5 +1,6 @@
 package space.exploration.mars.rover.sensor;
 
+import com.google.protobuf.ByteString;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.slf4j.Logger;
@@ -47,11 +48,15 @@ public class SamSensor implements IsEquipment {
         logger.info("Sam Sensor successfully calibrated.");
     }
 
+    public int getUseCount() {
+        return useCount;
+    }
+
     public boolean isCalibrated() {
         return (calibrationStatusCode == CALIBRATION_STATUS_CODE.SUCCESS);
     }
 
-    public byte[] getSamData() {
+    public ByteString getSamData() {
         if (calibrationStatusCode == CALIBRATION_STATUS_CODE.IN_PROGRESS
                 || calibrationStatusCode == CALIBRATION_STATUS_CODE.INIT
                 ) {
@@ -139,7 +144,7 @@ public class SamSensor implements IsEquipment {
 
     @Override
     public boolean isEndOfLife() {
-        return (lifespan > 0);
+        return (lifespan <= 0);
     }
 
     @Override

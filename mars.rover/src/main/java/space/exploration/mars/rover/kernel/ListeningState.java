@@ -134,9 +134,14 @@ public class ListeningState implements State {
                     } else if (tp.getRoverModule() == Module.SAM_SPECTROMETER.getValue()) {
                         logger.info("Rover will attempt sampleAnalysis on Mars for sol = " + rover.getSpacecraftClock
                                 ().getSol());
-                        rover.state = rover.sampleAnalysisState;
-                        SamQueryOuterClass.SamQuery samQuery = SamQueryOuterClass.SamQuery.parseFrom(tp.getAuxiliaryData());
-                        rover.sampleAnalysis(samQuery);
+                        try {
+                            SamQueryOuterClass.SamQuery samQuery = SamQueryOuterClass.SamQuery.parseFrom(tp.getAuxiliaryData());
+                            rover.state = rover.sampleAnalysisState;
+                            rover.sampleAnalysis(samQuery);
+                        } catch (InvalidProtocolBufferException ipb) {
+                            logger.error("Error while parsing samQuery.", ipb);
+                            rover.state = rover.listeningState;
+                        }
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.KERNEL.getValue()) {
                         rover.state = rover.maintenanceState;
                         switch (tp.getAction()) {

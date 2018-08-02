@@ -86,6 +86,8 @@ public class EnvironmentUtils {
             return new Color(227, 168, 105);
         } else if (color.equals("DAN")) {
             return new Color(153, 153, 255);
+        } else if (color.equals("SAM")) {
+            return new Color(102, 102, 0);
         } else if (color.equals("black")) {
             return Color.black;
         } else if (color.equals("robotSleepMode")) {
