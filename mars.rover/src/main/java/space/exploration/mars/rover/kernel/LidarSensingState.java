@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverPingOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.service.SamQueryOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.kernel.diagnostics.LogRequest;
@@ -34,6 +35,13 @@ public class LidarSensingState implements State {
                 .HOURS);
     }
 
+    @Override
+    public void sampleAnalysis(SamQueryOuterClass.SamQuery samQuery) {
+        rover.state = rover.listeningState;
+        logger.error("Sam sensor exercised while rover was in incorrect state. Setting the rover to listening state.");
+    }
+
+    @Override
     public void receiveMessage(byte[] message) {
         rover.reflectRoverState();
         rover.getInstructionQueue().add(message);

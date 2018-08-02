@@ -17,15 +17,15 @@ public class SamSensor implements IsEquipment {
             ".edu/msl/msl-m-sam-2-rdr-l0-v1/mslsam_1xxx/data/";
     public static final String LIFESPAN          = "mars.rover.sam.lifespan";
 
-    private          Map<Integer, DataAvailabilityPacket> dataAvailabilityPacketMap = new HashMap<>();
-    private          CALIBRATION_STATUS_CODE              calibrationStatusCode     = null;
-    private          Logger                               logger                    = LoggerFactory.getLogger
+    private Map<Integer, DataAvailabilityPacket> dataAvailabilityPacketMap = new HashMap<>();
+    private CALIBRATION_STATUS_CODE              calibrationStatusCode     = null;
+    private Logger                               logger                    = LoggerFactory.getLogger
             (SamSensor.class);
-    private volatile CloseableHttpClient                  httpClient                = null;
-    private          RequestConfig                        requestConfig             = null;
-    private          Properties                           calibrationProperties     = null;
-    private          int                                  lifespan                  = 0;
-    private          int                                  useCount                  = 0;
+    private CloseableHttpClient                  httpClient                = null;
+    private RequestConfig                        requestConfig             = null;
+    private Properties                           calibrationProperties     = null;
+    private int                                  lifespan                  = 0;
+    private int                                  useCount                  = 0;
 
     List<Future<DataAvailabilityPacket>> resultList      = new ArrayList<>();
     List<IsCalibrationService>           urlExtractTasks = new ArrayList<>();
@@ -150,5 +150,9 @@ public class SamSensor implements IsEquipment {
     @Override
     public String getEquipmentLifeSpanProperty() {
         return LIFESPAN;
+    }
+
+    public void updateDataCache(int sol) {
+        logger.info("Updating dataCache for samSensor - sol updated to " + sol);
     }
 }

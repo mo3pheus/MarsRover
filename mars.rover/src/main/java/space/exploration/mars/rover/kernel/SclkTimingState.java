@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.service.SamQueryOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.communications.protocol.spacecraftClock.SpacecraftClock.SclkPacket;
@@ -40,6 +41,12 @@ public class SclkTimingState implements State {
         } catch (InvalidProtocolBufferException ipe) {
             RoverUtil.writeErrorLog(rover, "Invalid Protocol Buffer Exception", ipe);
         }
+    }
+
+    @Override
+    public void sampleAnalysis(SamQueryOuterClass.SamQuery samQuery) {
+        rover.state = rover.listeningState;
+        logger.error("Sam sensor exercised while rover was in incorrect state. Setting the rover to listening state.");
     }
 
     @Override

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.*;
 import space.exploration.communications.protocol.communication.RoverStatusOuterClass;
+import space.exploration.communications.protocol.service.SamQueryOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.kernel.diagnostics.LogRequest;
@@ -52,6 +53,7 @@ public class Rover {
     State weatherSensingState;
     State sclkBeepingState;
     State danSensingState;
+    State sampleAnalysisState;
     State maintenanceState;
 
     /* Status messages */
@@ -291,6 +293,7 @@ public class Rover {
         weatherSensor.calibrateREMS(sol);
         danSpectrometer.calibrateDanSensor(sol);
         apxsSpectrometer.calibrateApxsSpectrometer(sol);
+        samSensor.updateDataCache(sol);
     }
 
     public synchronized Camera getCamera() {
@@ -351,7 +354,6 @@ public class Rover {
     }
 
     public synchronized void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage softwarePackage) {
-        logger.warn("Updating software. This is always a bit tricky!");
         state.updateSoftware(softwarePackage);
     }
 
@@ -418,6 +420,10 @@ public class Rover {
 
     public synchronized RoverGarbageCollector getGarbageCollector() {
         return this.roverGarbageCollector;
+    }
+
+    public synchronized SamSensor getSamSensor() {
+        return this.samSensor;
     }
 
     public synchronized void requestLogs(LogRequest.LogRequestPacket logRequestPacket) {
@@ -655,6 +661,7 @@ public class Rover {
         this.sleepingState = new SleepingState(this);
         this.sclkBeepingState = new SclkTimingState(this);
         this.danSensingState = new DANSensingState(this);
+        this.sampleAnalysisState = new SampleAnalysisState(this);
 
         this.instructionQueue = new ArrayList<>();
         RoverUtil.roverSystemLog(logger, "Rover + " + ROVER_NAME + " states initialized. ", "INFO ");

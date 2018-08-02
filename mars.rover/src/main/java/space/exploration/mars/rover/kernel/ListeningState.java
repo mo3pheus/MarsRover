@@ -9,6 +9,7 @@ import space.exploration.communications.protocol.InstructionPayloadOuterClass;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass.InstructionPayload.TargetPackage;
 import space.exploration.communications.protocol.robot.RobotPositionsOuterClass;
+import space.exploration.communications.protocol.service.SamQueryOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.kernel.diagnostics.LogRequest;
@@ -40,6 +41,10 @@ public class ListeningState implements State {
     @Override
     public void activateCameraById(String camId) {
 
+    }
+
+    @Override
+    public void sampleAnalysis(SamQueryOuterClass.SamQuery samQuery) {
     }
 
     @Override
@@ -126,6 +131,12 @@ public class ListeningState implements State {
                         logger.info("Rover will try to get weather measurements - actual Curiosity Data");
                         rover.state = rover.weatherSensingState;
                         rover.senseWeather(null);
+                    } else if (tp.getRoverModule() == Module.SAM_SPECTROMETER.getValue()) {
+                        logger.info("Rover will attempt sampleAnalysis on Mars for sol = " + rover.getSpacecraftClock
+                                ().getSol());
+                        rover.state = rover.sampleAnalysisState;
+                        SamQueryOuterClass.SamQuery samQuery = SamQueryOuterClass.SamQuery.parseFrom(tp.getAuxiliaryData());
+                        rover.sampleAnalysis(samQuery);
                     } else if (tp.getRoverModule() == ModuleDirectory.Module.KERNEL.getValue()) {
                         rover.state = rover.maintenanceState;
                         switch (tp.getAction()) {

@@ -8,6 +8,7 @@ import com.yammer.metrics.core.Meter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;
+import space.exploration.communications.protocol.service.SamQueryOuterClass;
 import space.exploration.communications.protocol.service.WeatherQueryOuterClass;
 import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageOuterClass;
 import space.exploration.kernel.diagnostics.LogRequest;
@@ -29,6 +30,13 @@ public class HibernatingState implements State {
                 .HOURS);
     }
 
+    @Override
+    public void sampleAnalysis(SamQueryOuterClass.SamQuery samQuery) {
+        rover.state = rover.listeningState;
+        logger.error("Sam sensor exercised while rover was in incorrect state. Setting the rover to listening state.");
+    }
+
+    @Override
     public void receiveMessage(byte[] message) {
         rover.reflectRoverState();
         logger.info("In hibernating state's receiveMessage(), adding message to instruction queue");
