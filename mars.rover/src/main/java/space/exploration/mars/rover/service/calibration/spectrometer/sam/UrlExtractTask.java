@@ -24,10 +24,10 @@ public class UrlExtractTask implements IsCalibrationService {
         Thread.currentThread().setName("samUrlExtractionTask" + experimentId);
         DataAvailabilityPacket dataAvailabilityPacket = null;
         try {
-            logger.info("Started httpRequest.");
+            logger.debug("Started httpRequest.");
             dataAvailabilityPacket = getDataAvailability();
-            logger.info(dataAvailabilityPacket.toString());
-            logger.info("Finished httpRequest.");
+            logger.debug(dataAvailabilityPacket.toString());
+            logger.debug("Finished httpRequest.");
         } catch (Exception e) {
             logger.error("SAM data unavailable for experiment id = " + experimentId + e.getMessage(), e);
         } finally {

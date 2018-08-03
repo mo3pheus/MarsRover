@@ -50,6 +50,20 @@ public class MarsMissionLaunch {
         return fa.getFile();
     }
 
+    public static void configureConsoleLogging(boolean debug) {
+        ConsoleAppender consoleAppender = new ConsoleAppender();
+
+        if (!debug) {
+            consoleAppender.setThreshold(Level.toLevel(Priority.INFO_INT));
+        } else {
+            consoleAppender.setThreshold(Level.toLevel(Priority.DEBUG_INT));
+        }
+
+        consoleAppender.setLayout(new EnhancedPatternLayout("%-6d [%t] %-5p %40.80c - %m%n"));
+        consoleAppender.activateOptions();
+        org.apache.log4j.Logger.getRootLogger().addAppender(consoleAppender);
+    }
+
     @Deprecated
     public static void configureLogging(boolean debug, String className) {
         FileAppender fa = new FileAppender();

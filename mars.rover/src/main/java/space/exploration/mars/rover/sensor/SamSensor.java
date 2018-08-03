@@ -159,5 +159,16 @@ public class SamSensor implements IsEquipment {
 
     public void updateDataCache(int sol) {
         logger.info("Updating dataCache for samSensor - sol updated to " + sol);
+
+        if (!dataAvailabilityPacketMap.containsKey(sol)) {
+            logger.error("Sam data unavailable for sol = " + sol);
+        } else {
+            DataAvailabilityPacket dataAvailabilityPacket = dataAvailabilityPacketMap.get(sol);
+            logger.info("Data links found sol = " + sol + " data links :: " + dataAvailabilityPacket.toString());
+        }
+    }
+
+    public Map<Integer, DataAvailabilityPacket> getDataAvailabilityPacketMap() {
+        return dataAvailabilityPacketMap;
     }
 }
