@@ -27,7 +27,7 @@ public class LogRetrievalTest extends TestCase {
         System.out.println("=========================================================================");
         System.out.println("Running log file retrieval test for");
         System.out.println("startDate = " + startDate + " endDate = " + endDate);
-        assertTrue(files.size() == 52);
+        assertTrue(files.size() == 54);
         System.out.println("=========================================================================");
     }
 }

@@ -46,7 +46,6 @@ public class SamSensorTest extends TestCase {
 
     @Test
     public void testFileDownload() {
-        //http://pds-geosciences.wustl.edu/msl/msl-m-sam-2-rdr-l0-v1/mslsam_1xxx/data/eid25327/level2/
         dataAvailabilityPacket = samSensor.getDataAvailabilityPacketMap().get(1225);
         String fileUrl = SamSensor.SAM_DATA_BASE_URL + dataAvailabilityPacket.getExperimentId() +
                 "/level2/sm25327f1225rdr2__spyr_qms_egacomp_1.csv";
