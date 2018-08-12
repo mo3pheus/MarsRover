@@ -77,18 +77,23 @@ public class Radio implements IsEquipment {
         this.endOfLife = endOfLife;
     }
 
+    private void honorMessageReceipt(SecureMessage.SecureMessagePacket secureMessagePacket) throws Exception {
+        Thread.sleep(getComsDelaySecs());
+        byte[] decryptedContents = EncryptionUtil.decryptSecureMessage(comsCertificate, secureMessagePacket,
+                                                                       encryptionWaitMinutes);
+        InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
+                .InstructionPayload.parseFrom(decryptedContents);
+        rover.receiveMessage(instructionPayload.toByteArray());
+        lifeSpan--;
+    }
+
     public void receiveMessage(SecureMessage.SecureMessagePacket secureMessagePacket) {
         requests.mark();
         try {
-            if (lifeSpan > SOS_RESERVE) {
-                Thread.sleep(getComsDelaySecs());
-                byte[] decryptedContents = EncryptionUtil.decryptSecureMessage(comsCertificate, secureMessagePacket,
-                                                                               encryptionWaitMinutes);
-                InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
-                        .InstructionPayload.parseFrom(decryptedContents);
-                rover.receiveMessage(instructionPayload.toByteArray());
-                lifeSpan--;
+            if ((lifeSpan > SOS_RESERVE) || (endOfLife && (lifeSpan > 0))) {
+                honorMessageReceipt(secureMessagePacket);
             } else {
+                endOfLife = true;
                 sendMessage(RoverUtil.getEndOfLifeMessage(ModuleDirectory.Module.COMS, "This is " +
                         RoverConfig.ROVER_NAME + " Radio at " +
                         "end of life. Any last wishes " +
@@ -123,6 +128,7 @@ public class Radio implements IsEquipment {
                 RoverUtil.writeErrorLog(rover, "Radio lifeSpan has ended", null);
                 rover.saveOffSensorLifespans();
                 rover.shutdownRover();
+                rover.distressShutdown();
             }
         } catch (Exception e) {
             rover.setState(rover.getListeningState());

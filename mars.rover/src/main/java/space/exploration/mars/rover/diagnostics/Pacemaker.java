@@ -73,7 +73,7 @@ public class Pacemaker {
         scheduler.shutdownNow();
     }
 
-    private HeartBeatOuterClass.HeartBeat generateHeartBeat() {
+    public HeartBeatOuterClass.HeartBeat generateHeartBeat() {
         HeartBeatOuterClass.HeartBeat.Builder hBuilder = HeartBeatOuterClass.HeartBeat.newBuilder();
         hBuilder.setSCET(rover.getSpacecraftClock().getInternalClock().getMillis());
         hBuilder.setBatteryLevel(rover.getBattery().getPrimaryPowerUnits());

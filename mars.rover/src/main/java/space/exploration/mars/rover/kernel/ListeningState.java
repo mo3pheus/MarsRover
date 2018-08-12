@@ -75,8 +75,7 @@ public class ListeningState implements State {
             logger.info(payload.toString());
 
             RadioAnimationEngine radioAnimationEngine = new RadioAnimationEngine(rover.getRoverConfig().getMarsConfig
-                    (), rover
-                    .getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
+                    (), rover.getMarsArchitect().getMarsSurface(), rover.getMarsArchitect().getRobot(), false);
             radioAnimationEngine.activateRadio();
 
             for (InstructionPayload.TargetPackage tp : payload.getTargetsList()) {

@@ -13,7 +13,6 @@ import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageO
 import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
 import space.exploration.mars.rover.communication.Radio;
-import space.exploration.mars.rover.diagnostics.LauncherMonitor;
 import space.exploration.mars.rover.diagnostics.Pacemaker;
 import space.exploration.mars.rover.diagnostics.RoverGarbageCollector;
 import space.exploration.mars.rover.diagnostics.SleepMonitor;
@@ -93,7 +92,6 @@ public class Rover {
     private volatile long                  timeMessageReceived  = 0l;
     private volatile boolean               gracefulShutdown     = false;
     private volatile Process               launcherProcess      = null;
-    private volatile LauncherMonitor       launcherMonitor      = null;
 
     /* Resource Management Stack */
     private volatile Semaphore             accessLock            = new Semaphore(1);
@@ -340,6 +338,15 @@ public class Rover {
 
     public synchronized void gracefulShutdown() {
         state.gracefulShutdown();
+    }
+
+    public synchronized void distressShutdown() {
+        logger.error("Shutting down rover in distress. System status:: " + pacemaker.generateHeartBeat());
+        shutdownSystem();
+    }
+
+    public synchronized void sampleAnalysis(SamQueryOuterClass.SamQuery samQuery) {
+        state.sampleAnalysis(samQuery);
     }
 
     public synchronized void updateSoftware(SwUpdatePackageOuterClass.SwUpdatePackage softwarePackage) {
@@ -693,23 +700,18 @@ public class Rover {
 
         logger.info(" 1. Stopping Pacemaker.");
         pacemaker.hardInterrupt();
-        pacemaker = null;
 
         logger.info(" 2. Stopping GarbageCollector.");
         roverGarbageCollector.hardInterrupt();
-        roverGarbageCollector = null;
 
         logger.info(" 3. Stopping BatteryMonitor. ");
         batteryMonitor.hardInterrupt();
-        batteryMonitor = null;
 
         logger.info(" 4. Stopping SleepMonitor. ");
         sleepMonitor.hardInterrupt();
-        sleepMonitor = null;
 
         logger.info(" 5. Stopping PositionSensor.");
         positionSensor.hardInterrupt();
-        positionSensor = null;
 
         logger.info("6. Saving properties file. ");
 
@@ -724,15 +726,12 @@ public class Rover {
 
         logger.info(" 7. Stopping SpacecraftClock. ");
         spacecraftClock.hardInterrupt();
-        spacecraftClock = null;
 
         logger.info(" 8. Shutting down graphics.");
         marsArchitect.getMarsSurface().dispose();
-        marsArchitect = null;
 
         logger.info(" 9. Stopping Radio Communications.");
         radio.stopRadio();
-        radio = null;
     }
 
     protected void shutdownSystem() {
