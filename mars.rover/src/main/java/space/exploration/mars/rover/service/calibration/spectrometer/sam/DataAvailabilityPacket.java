@@ -1,5 +1,11 @@
 package space.exploration.mars.rover.service.calibration.spectrometer.sam;
 
+import space.exploration.mars.rover.sensor.SamSensor;
+import space.exploration.mars.rover.utils.FileUtil;
+import space.exploration.mars.rover.utils.ServiceUtil;
+
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,5 +57,20 @@ public class DataAvailabilityPacket implements Serializable {
         }
 
         return stringBuilder.toString();
+    }
+
+    public List<File> downloadFiles() throws IOException {
+        List<File> downloadedFiles = null;
+
+        for (String url : urls) {
+            String targetUrl = SamSensor.SAM_DATA_BASE_URL + experimentId + "/level2/" + url;
+            String path      = "dataArchives/SAM/" + Integer.toString(sol);
+            FileUtil.processDirectories(path);
+            path += url;
+            File csvFile = ServiceUtil.downloadCsv(targetUrl, path);
+            downloadedFiles.add(csvFile);
+        }
+
+        return downloadedFiles;
     }
 }

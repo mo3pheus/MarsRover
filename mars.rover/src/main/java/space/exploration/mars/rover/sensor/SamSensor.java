@@ -27,6 +27,7 @@ public class SamSensor implements IsEquipment {
     private Properties                           calibrationProperties     = null;
     private int                                  lifespan                  = 0;
     private int                                  useCount                  = 0;
+    private DataAvailabilityPacket               currentDataPacket         = null;
 
     List<Future<DataAvailabilityPacket>> resultList      = new ArrayList<>();
     List<IsCalibrationService>           urlExtractTasks = new ArrayList<>();
@@ -67,7 +68,14 @@ public class SamSensor implements IsEquipment {
         } else {
             lifespan--;
             useCount++;
+            logger.info("Current data packet contains => " + currentDataPacket.toString());
+            try {
+                logger.info("Files downloaded = " + currentDataPacket.downloadFiles().size());
+            } catch (IOException e) {
+                logger.info("IOException while downloading files = ", e);
+            }
         }
+
         return null;
     }
 
@@ -163,8 +171,8 @@ public class SamSensor implements IsEquipment {
         if (!dataAvailabilityPacketMap.containsKey(sol)) {
             logger.error("Sam data unavailable for sol = " + sol);
         } else {
-            DataAvailabilityPacket dataAvailabilityPacket = dataAvailabilityPacketMap.get(sol);
-            logger.info("Data links found sol = " + sol + " data links :: " + dataAvailabilityPacket.toString());
+            currentDataPacket = dataAvailabilityPacketMap.get(sol);
+            logger.info("Data links found sol = " + sol + " data links :: " + currentDataPacket.toString());
         }
     }
 
