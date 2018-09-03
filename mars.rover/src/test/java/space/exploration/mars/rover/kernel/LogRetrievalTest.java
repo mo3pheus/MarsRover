@@ -4,12 +4,14 @@ import junit.framework.TestCase;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.junit.Ignore;
 import org.junit.Test;
 import space.exploration.mars.rover.utils.FileUtil;
 
 import java.io.File;
 import java.util.List;
 
+@Ignore
 public class LogRetrievalTest extends TestCase {
     private DateTime startDate;
     private DateTime endDate;

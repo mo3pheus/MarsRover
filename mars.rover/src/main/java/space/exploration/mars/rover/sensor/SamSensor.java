@@ -131,11 +131,9 @@ public class SamSensor implements IsEquipment {
             try {
                 DataAvailabilityPacket dataAvailabilityPacket = responseFuture.get();
                 dataAvailabilityPacketMap.put(dataAvailabilityPacket.getSol(), dataAvailabilityPacket);
-            } catch (ExecutionException e) {
+            } catch (Exception e) {
                 logger.error("Error while executing samCalibration for experiment");
                 continue;
-            } catch (InterruptedException ie) {
-                logger.error("Error while executing samCalibration for experiment");
             }
         }
     }

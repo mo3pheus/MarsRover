@@ -234,7 +234,7 @@ public class SpacecraftClock extends Observable implements IsEquipment {
                 if (sol != previousSol) {
                     previousSol = sol;
                     rover.updateSensors(sol);
-                    sendRoverLogs();
+                    //sendRoverLogs();
                 }
             }
         }

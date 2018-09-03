@@ -20,9 +20,9 @@ public class MarsMissionLaunch {
                 logFilePath = configureLogging(false);
                 Properties marsConfig         = MatrixCreation.convertToPropertyFiles(args[0]);
                 Properties dbConfig           = MatrixCreation.convertToPropertyFiles(args[1]);
+                String     marsConfigLocation = args[0];
                 String     camCacheLocation   = args[2];
                 String     archiveLocation    = args[3];
-                String     marsConfigLocation = args[0];
 
                 new Rover(marsConfig, KafkaConfig.getKafkaConfig("Rover"), dbConfig, camCacheLocation,
                           archiveLocation, marsConfigLocation);
