@@ -1,6 +1,5 @@
 package space.exploration.mars.rover.kernel;
 
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.spice.MSLRelativePositions;
@@ -8,6 +7,7 @@ import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 public class PositionTestDriver {
@@ -25,12 +25,12 @@ public class PositionTestDriver {
         }
 
         for (Long timestamp : coverageGaps) {
-            MSLRelativePositions.MSLRelPositionsPacket[] rangingData = positionSensorDataUtil
+            Map<Long, MSLRelativePositions.MSLRelPositionsPacket> positionsMap = positionSensorDataUtil
                     .getNearestValidData(timestamp);
-            logger.info("Coverage gap timestamp = " + timestamp + " validRange pulledout = " + rangingData.length);
+            logger.info("Coverage gap timestamp = " + timestamp + " validRange pulledout = " + positionsMap.size());
             logger.info("***************************************************");
-            for (MSLRelativePositions.MSLRelPositionsPacket positionsPacket : rangingData) {
-                logger.info(positionsPacket.toString());
+            for (Long ts : positionsMap.keySet()) {
+                logger.info("Position at " + ts + " => " + positionsMap.get(ts));
             }
         }
     }
