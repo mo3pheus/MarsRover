@@ -121,6 +121,10 @@ public class SpacecraftClock extends Observable implements IsEquipment {
         return clockFormatter.print(internalClock.getMillis());
     }
 
+    public Long getUTCTimestamp() {
+        return internalClock.getMillis();
+    }
+
     public String getSclkTime() {
         String sclkString = clockService.getSclkTime();
         logger.info("Internal time::" + internalClock + " sclk of::" + sclkString);

@@ -1,4 +1,4 @@
-package space.exploration.mars.rover.kernel;
+package space.exploration.mars.rover.utils;
 
 import org.apache.commons.math3.analysis.interpolation.SplineInterpolator;
 import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
@@ -13,13 +13,13 @@ import space.exploration.spice.utilities.PositionUtils;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class PositionSensorDataUtil {
+public class PositionPredictor {
     private final int           MAX_ATTEMPTS          = 1000;
     private       PositionUtils positionUtils         = null;
     private       DateTime      startTime             = null;
     private       DateTime      endTime               = null;
     private       Logger        logger                = LoggerFactory
-            .getLogger(PositionSensorDataUtil.class);
+            .getLogger(PositionPredictor.class);
     private       List<Long>    coverageGaps          = new ArrayList<>();
     private       List<String>  formattedCoverageGaps = new ArrayList<>();
     List<Long>                                            timestampList      = new ArrayList<>();
@@ -27,7 +27,7 @@ public class PositionSensorDataUtil {
 
     DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd~HH:mm:ss");
 
-    public PositionSensorDataUtil(Properties roverConfig) {
+    public PositionPredictor(Properties roverConfig) {
         positionUtils = new PositionUtils(roverConfig.getProperty("mars.rover.spice.positionUtilFile"));
     }
 
@@ -35,7 +35,7 @@ public class PositionSensorDataUtil {
         startTime = formatter.parseDateTime(startDate);
         endTime = formatter.parseDateTime(endDate);
 
-        while ( startTime.getMillis() < endTime.getMillis() ) {
+        while (startTime.getMillis() < endTime.getMillis()) {
             positionUtils.setUtcTime(formatter.print(startTime));
             try {
                 MSLRelativePositions.MSLRelPositionsPacket positionsPacket = positionUtils.getPositionPacket();
@@ -55,15 +55,14 @@ public class PositionSensorDataUtil {
     }
 
     protected Map<Long, MSLRelativePositions.MSLRelPositionsPacket> getNearestValidData(Long timestamp) throws IllegalArgumentException {
-        int i                  = 0;
         int preTimestampCount  = 0;
         int postTimestampCount = 0;
         int numAttempts        = 0;
 
         Long currentTimestamp = timestamp - TimeUnit.MINUTES.toMillis(1l);
 
-        while ( preTimestampCount < 100 ) {
-            if ( numAttempts++ > MAX_ATTEMPTS ) {
+        while (preTimestampCount < 100) {
+            if (numAttempts++ > MAX_ATTEMPTS) {
                 throw new IllegalArgumentException("Can not find valid range for timestamp = " + timestamp);
             }
 
@@ -72,7 +71,7 @@ public class PositionSensorDataUtil {
                 preTimestampCount++;
             } catch (Exception e) {
                 logger.debug("Gap at timestamp = " + currentTimestamp, e);
-                logger.info(
+                logger.debug(
                         "NumAttempts = " + numAttempts + " validCount so far = " + preTimestampCount + " currentTS = "
                                 + formatter
                                 .print(currentTimestamp));
@@ -81,8 +80,8 @@ public class PositionSensorDataUtil {
         }
 
         currentTimestamp = timestamp + TimeUnit.MINUTES.toMillis(1l);
-        while ( postTimestampCount < 50 ) {
-            if ( numAttempts++ > MAX_ATTEMPTS ) {
+        while (postTimestampCount < 50) {
+            if (numAttempts++ > MAX_ATTEMPTS) {
                 throw new IllegalArgumentException("Can not find valid range for timestamp = " + timestamp);
             }
 
@@ -91,10 +90,6 @@ public class PositionSensorDataUtil {
                 postTimestampCount++;
             } catch (Exception e) {
                 logger.debug("Gap at timestamp = " + currentTimestamp, e);
-                logger.info(
-                        "NumAttempts = " + numAttempts + " validCount so far = " + preTimestampCount + " currentTS = "
-                                + formatter
-                                .print(currentTimestamp));
             }
             currentTimestamp += TimeUnit.MINUTES.toMillis(1l);
         }
@@ -102,7 +97,7 @@ public class PositionSensorDataUtil {
         return positionsPacketMap;
     }
 
-    private void extractPositionData(Long timestamp) throws Exception {
+    private void extractPositionData(Long timestamp) {
         positionUtils.setUtcTime(formatter.print(timestamp));
         MSLRelativePositions.MSLRelPositionsPacket positionsPacket = positionUtils.getPositionPacket();
         timestampList.add(timestamp);
@@ -110,17 +105,22 @@ public class PositionSensorDataUtil {
     }
 
     public MSLRelativePositions.MSLRelPositionsPacket getPredictedPosition(Long timestamp) {
-        double[] timestamps = new double[positionsPacketMap.keySet().size()];
-        double[] x          = new double[positionsPacketMap.keySet().size()];
-        double[] y          = new double[positionsPacketMap.keySet().size()];
-        double[] z          = new double[positionsPacketMap.keySet().size()];
-        double[] vx         = new double[positionsPacketMap.keySet().size()];
-        double[] vy         = new double[positionsPacketMap.keySet().size()];
-        double[] vz         = new double[positionsPacketMap.keySet().size()];
-        double[] angSep     = new double[positionsPacketMap.keySet().size()];
+        getNearestValidData(timestamp);
+        double[] timestamps   = new double[positionsPacketMap.keySet().size()];
+        double[] x            = new double[positionsPacketMap.keySet().size()];
+        double[] y            = new double[positionsPacketMap.keySet().size()];
+        double[] z            = new double[positionsPacketMap.keySet().size()];
+        double[] vx           = new double[positionsPacketMap.keySet().size()];
+        double[] vy           = new double[positionsPacketMap.keySet().size()];
+        double[] vz           = new double[positionsPacketMap.keySet().size()];
+        double[] angSep       = new double[positionsPacketMap.keySet().size()];
+        double[] owltMSLEarth = new double[positionsPacketMap.keySet().size()];
 
-        int i = 0;
-        for (Long ts : positionsPacketMap.keySet()) {
+        int        i                = 0;
+        List<Long> sortedTimestamps = new ArrayList<>();
+        sortedTimestamps.addAll(positionsPacketMap.keySet());
+        Collections.sort(sortedTimestamps);
+        for (Long ts : sortedTimestamps) {
             MSLRelativePositions.MSLRelPositionsPacket packet = positionsPacketMap.get(ts);
             timestamps[i] = (double) ts;
             x[i] = packet.getStateCuriosity(0);
@@ -130,12 +130,13 @@ public class PositionSensorDataUtil {
             vy[i] = packet.getStateCuriosity(4);
             vz[i] = packet.getStateCuriosity(5);
             angSep[i] = packet.getAngSepHGAEarth();
+            owltMSLEarth[i] = packet.getOwltMSLEarth();
             i++;
         }
 
-        SplineInterpolator[]       positionPredictor         = new SplineInterpolator[7];
-        PolynomialSplineFunction[] polynomialSplineFunctions = new PolynomialSplineFunction[7];
-        for (int j = 0; j < 7; j++) {
+        SplineInterpolator[]       positionPredictor         = new SplineInterpolator[8];
+        PolynomialSplineFunction[] polynomialSplineFunctions = new PolynomialSplineFunction[8];
+        for (int j = 0; j < 8; j++) {
             positionPredictor[j] = new SplineInterpolator();
         }
 
@@ -146,12 +147,15 @@ public class PositionSensorDataUtil {
         polynomialSplineFunctions[4] = positionPredictor[4].interpolate(timestamps, vy);
         polynomialSplineFunctions[5] = positionPredictor[5].interpolate(timestamps, vz);
         polynomialSplineFunctions[6] = positionPredictor[6].interpolate(timestamps, angSep);
+        polynomialSplineFunctions[7] = positionPredictor[7].interpolate(timestamps, owltMSLEarth);
 
-        MSLRelativePositions.MSLRelPositionsPacket.Builder mBuilder = MSLRelativePositions.MSLRelPositionsPacket.newBuilder();
+        MSLRelativePositions.MSLRelPositionsPacket.Builder mBuilder = MSLRelativePositions.MSLRelPositionsPacket
+                .newBuilder();
         for (int k = 0; k < 6; k++) {
-            mBuilder.setStateCuriosity(k, polynomialSplineFunctions[k].value(timestamp));
+            mBuilder.addStateCuriosity(polynomialSplineFunctions[k].value(timestamp));
         }
         mBuilder.setAngSepHGAEarth(polynomialSplineFunctions[6].value(timestamp));
+        mBuilder.setOwltMSLEarth(polynomialSplineFunctions[7].value(timestamp));
 
         return mBuilder.build();
     }

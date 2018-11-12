@@ -10,6 +10,7 @@ import space.exploration.communications.protocol.softwareUpdate.SwUpdatePackageO
 import space.exploration.communications.protocol.spice.MSLRelativePositions;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
+import space.exploration.mars.rover.utils.PositionPredictor;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.lang.management.ManagementFactory;
@@ -105,7 +106,18 @@ public class Pacemaker {
     private RoverStatusOuterClass.RoverStatus generateDiagnosticStatus(boolean shutdown) {
         RoverStatusOuterClass.RoverStatus.Builder rBuilder = RoverStatusOuterClass.RoverStatus
                 .newBuilder();
-        MSLRelativePositions.MSLRelPositionsPacket mslRelPositionsPacket = rover.getPositionSensor().getPositionsData();
+
+        MSLRelativePositions.MSLRelPositionsPacket mslRelPositionsPacket;
+        try {
+            mslRelPositionsPacket = rover.getPositionSensor().getPositionsData();
+        } catch (Exception e) {
+            logger.info("Coverage gap encountered at " + rover.getSpacecraftClock()
+                    .getUTCTime() + " using predicted position instead.");
+            PositionPredictor positionPredictor = new PositionPredictor(rover.getRoverConfig().getMarsConfig());
+            mslRelPositionsPacket = positionPredictor
+                    .getPredictedPosition(rover.getSpacecraftClock().getUTCTimestamp());
+        }
+
         rBuilder.setMslPositionsPacket(mslRelPositionsPacket);
         rBuilder.setModuleReporting(ModuleDirectory.Module.DIAGNOSTICS.getValue());
         rBuilder.setModuleMessage(generateHeartBeat().toByteString());

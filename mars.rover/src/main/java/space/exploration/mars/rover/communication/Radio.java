@@ -10,6 +10,7 @@ import space.exploration.communications.protocol.security.SecureMessage;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.kernel.Rover;
 import space.exploration.mars.rover.kernel.config.RoverConfig;
+import space.exploration.mars.rover.utils.PositionPredictor;
 import space.exploration.mars.rover.utils.RoverUtil;
 
 import java.io.File;
@@ -42,10 +43,12 @@ public class Radio implements IsEquipment {
         long radioCheckPulse = Long.parseLong(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio" +
                                                                                                          ".check" +
                                                                                                          ".pulse"));
-        this.timeScaleFactor = Double.parseDouble(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio" +
-                                                                                                             ".timeScaleFactor"));
-        this.encryptionWaitMinutes = Long.parseLong(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio.encryption" +
-                                                                                                               ".waitTimeMinutes"));
+        this.timeScaleFactor = Double
+                .parseDouble(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio" +
+                                                                                        ".timeScaleFactor"));
+        this.encryptionWaitMinutes = Long
+                .parseLong(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio.encryption" +
+                                                                                      ".waitTimeMinutes"));
 
         this.transmitter = new Transmitter(comsConfig);
         this.receiver = new Receiver(comsConfig, this);
@@ -157,15 +160,21 @@ public class Radio implements IsEquipment {
     }
 
     private int getComsDelaySecs() {
+        double owlt = 0.0d;
         try {
-            double owlt = rover.getPositionSensor().getPositionsData().getOwltMSLEarth();
+            owlt = rover.getPositionSensor().getPositionsData().getOwltMSLEarth();
             logger.info("One Way Light Time computed by SPICE :: " + Double.toString(owlt));
-            comsDelay = (int) (owlt / timeScaleFactor);
         } catch (Exception e) {
+            PositionPredictor positionPredictor = new PositionPredictor(
+                    rover.getRoverConfig().getMarsConfig());
+            owlt = positionPredictor.getPredictedPosition(rover.getSpacecraftClock().getUTCTimestamp())
+                    .getOwltMSLEarth();
+
             logger.error("Encountered exception when getting comsDelay. There may be a coverage gap at this time." +
-                                 "Radio is returning the last known communications delay." + comsDelay + " utcTime = " +
+                                 "Radio is returning best predicted communications delay." + comsDelay + " utcTime = " +
                                  "" + rover.getSpacecraftClock().getUTCTime(), e);
         } finally {
+            comsDelay = (int) (owlt / timeScaleFactor);
             return comsDelay;
         }
     }

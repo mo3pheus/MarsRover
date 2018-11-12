@@ -14,8 +14,9 @@ public class MarsMissionLaunch {
         try {
             if (args.length == 0) {
                 logFilePath = configureLogging(false);
-                new Rover(MatrixCreation.getConfig(), KafkaConfig.getKafkaConfig("Rover"), MatrixCreation
-                        .getRoverDBConfig(), MatrixCreation.getConfigFilePath());
+                new Rover(MatrixCreation.getConfig(), KafkaConfig.getKafkaConfig("Rover", "zion-portable"),
+                          MatrixCreation
+                                  .getRoverDBConfig(), MatrixCreation.getConfigFilePath());
             } else {
                 logFilePath = configureLogging(false);
                 Properties marsConfig         = MatrixCreation.convertToPropertyFiles(args[0]);
@@ -24,7 +25,7 @@ public class MarsMissionLaunch {
                 String     camCacheLocation   = args[2];
                 String     archiveLocation    = args[3];
 
-                new Rover(marsConfig, KafkaConfig.getKafkaConfig("Rover"), dbConfig, camCacheLocation,
+                new Rover(marsConfig, KafkaConfig.getKafkaConfig("Rover", args[4]), dbConfig, camCacheLocation,
                           archiveLocation, marsConfigLocation);
             }
             System.out.println("LogFilePath = " + logFilePath);
