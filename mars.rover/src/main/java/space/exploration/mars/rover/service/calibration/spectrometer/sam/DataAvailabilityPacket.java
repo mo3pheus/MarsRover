@@ -60,15 +60,17 @@ public class DataAvailabilityPacket implements Serializable {
     }
 
     public List<File> downloadFiles() throws IOException {
-        List<File> downloadedFiles = null;
+        List<File> downloadedFiles = new ArrayList<>();
 
         for (String url : urls) {
             String targetUrl = SamSensor.SAM_DATA_BASE_URL + experimentId + "/level2/" + url;
-            String path      = "dataArchives/SAM/" + Integer.toString(sol);
+            String path      = "dataArchives/SAM/" + sol;
             FileUtil.processDirectories(path);
             path += url;
             File csvFile = ServiceUtil.downloadCsv(targetUrl, path);
-            downloadedFiles.add(csvFile);
+            if (csvFile != null) {
+                downloadedFiles.add(csvFile);
+            }
         }
 
         return downloadedFiles;

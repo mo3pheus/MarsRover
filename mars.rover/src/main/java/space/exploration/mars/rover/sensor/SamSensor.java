@@ -5,11 +5,14 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import space.exploration.communications.protocol.service.SampleAnalysisDataOuterClass;
 import space.exploration.mars.rover.kernel.IsEquipment;
 import space.exploration.mars.rover.service.calibration.spectrometer.sam.*;
 import space.exploration.mars.rover.service.calibration.spectrometer.sam.SamCalibrationUtil.CALIBRATION_STATUS_CODE;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -58,9 +61,10 @@ public class SamSensor implements IsEquipment {
     }
 
     public ByteString getSamData() {
+        List<File> dataFiles = new ArrayList<>();
         if (calibrationStatusCode == CALIBRATION_STATUS_CODE.IN_PROGRESS
                 || calibrationStatusCode == CALIBRATION_STATUS_CODE.INIT
-                ) {
+        ) {
             logger.info("Can not get samData at the moment. SAM Sensor is in calibration mode. Please try again later" +
                                 ".");
         } else if (calibrationStatusCode == CALIBRATION_STATUS_CODE.ERROR) {
@@ -68,15 +72,30 @@ public class SamSensor implements IsEquipment {
         } else {
             lifespan--;
             useCount++;
+
             logger.info("Current data packet contains => " + currentDataPacket.toString());
             try {
-                logger.info("Files downloaded = " + currentDataPacket.downloadFiles().size());
+                dataFiles = currentDataPacket.downloadFiles();
+                logger.info("Files downloaded = " + dataFiles.size());
+
             } catch (IOException e) {
                 logger.info("IOException while downloading files = ", e);
             }
         }
 
-        return null;
+        SampleAnalysisDataOuterClass.SampleAnalysisData.Builder sBuilder =
+                SampleAnalysisDataOuterClass.SampleAnalysisData
+                        .newBuilder();
+        try {
+            for (File dataFile : dataFiles) {
+                byte[] content = Files.readAllBytes(dataFile.toPath());
+                sBuilder.addDataFiles(ByteString.copyFrom(content));
+            }
+            sBuilder.setSol(currentDataPacket.getSol());
+        } catch (IOException io) {
+            logger.error("Error while reading file content.", io);
+        }
+        return sBuilder.build().toByteString();
     }
 
     public void setErrorState() {
