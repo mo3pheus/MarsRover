@@ -17,8 +17,8 @@ import space.exploration.kernel.diagnostics.LogRequest;
 import space.exploration.kernel.diagnostics.LogResponse;
 import space.exploration.mars.rover.environment.Cell;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
-import space.exploration.mars.rover.utils.FileUtil;
 import space.exploration.mars.rover.utils.RoverUtil;
+import util.FileUtil;
 
 import java.io.File;
 import java.io.IOException;

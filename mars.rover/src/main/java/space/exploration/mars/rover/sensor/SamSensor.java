@@ -89,7 +89,14 @@ public class SamSensor implements IsEquipment {
         try {
             for (File dataFile : dataFiles) {
                 byte[] content = Files.readAllBytes(dataFile.toPath());
-                sBuilder.addDataFiles(ByteString.copyFrom(content));
+
+                SampleAnalysisDataOuterClass.SampleAnalysisData.SampleDataFile.Builder sDataBuilder =
+                        SampleAnalysisDataOuterClass.SampleAnalysisData.SampleDataFile
+                                .newBuilder();
+                sDataBuilder.setContent(ByteString.copyFrom(content));
+                sDataBuilder.setFileName(dataFile.getName());
+
+                sBuilder.addDataFiles(sDataBuilder.build());
             }
             sBuilder.setSol(currentDataPacket.getSol());
         } catch (IOException io) {
@@ -108,7 +115,7 @@ public class SamSensor implements IsEquipment {
     }
 
     private void populateTaskList() {
-        logger.info("Populating taskList to crawl data source");
+        logger.debug("Populating taskList to crawl data source");
         SamBaseUrlCrawl samBaseUrlCrawl = new SamBaseUrlCrawl();
         httpClient = SamCalibrationUtil.getDefaultHttpClient(samBaseUrlCrawl.getExperimentIds().size());
         for (String experiment : samBaseUrlCrawl.getExperimentIds()) {
@@ -117,13 +124,13 @@ public class SamSensor implements IsEquipment {
     }
 
     private void init() {
-        logger.info("Initializing executorService and requestConfig");
+        logger.debug("Initializing executorService and requestConfig");
         requestConfig = SamCalibrationUtil.getDefaultRequestConfig();
         executorService = Executors.newFixedThreadPool(urlExtractTasks.size());
     }
 
     private void fireTasks() {
-        logger.info("Firing tasks");
+        logger.debug("Firing tasks");
         try {
             calibrationStatusCode = CALIBRATION_STATUS_CODE.IN_PROGRESS;
             resultList = executorService.invokeAll(urlExtractTasks);
@@ -134,7 +141,7 @@ public class SamSensor implements IsEquipment {
     }
 
     private void cleanUp() {
-        logger.info("Calibration cleanup!");
+        logger.debug("Calibration cleanup!");
         try {
             httpClient.close();
             executorService.shutdown();
@@ -144,7 +151,7 @@ public class SamSensor implements IsEquipment {
     }
 
     private void populateAvailabilityMap() {
-        logger.info("Populating data availability map");
+        logger.debug("Populating data availability map");
         for (int i = 0; i < urlExtractTasks.size(); i++) {
             Future<DataAvailabilityPacket> responseFuture = resultList.get(i);
             try {

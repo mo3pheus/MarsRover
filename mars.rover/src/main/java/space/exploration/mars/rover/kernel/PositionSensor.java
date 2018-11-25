@@ -74,8 +74,8 @@ public class PositionSensor implements IsEquipment {
 
     public MSLRelativePositions.MSLRelPositionsPacket getPositionsData() {
         MSLRelativePositions.MSLRelPositionsPacket positionsPacket = positionUtils.getPositionPacket();
-        logger.info("Houston - this is curiosityActual." + positionsPacket.toString());
-        logger.info(positionGauge.value());
+        logger.info("Houston - this is curiosityActual. " + positionsPacket.toString());
+        logger.debug(positionGauge.value());
         return positionsPacket;
     }
 

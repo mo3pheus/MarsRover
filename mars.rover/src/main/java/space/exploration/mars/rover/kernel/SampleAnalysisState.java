@@ -161,6 +161,7 @@ public class SampleAnalysisState implements State {
             status = rBuilder.setBatteryLevel(rover.getBattery()
                                                       .getPrimaryPowerUnits())
                     .setSolNumber(rover.getSpacecraftClock().getSol())
+                    .setModuleName(ModuleDirectory.Module.SAM_SPECTROMETER.getName())
                     .setLocation(lBuilder.build()).setNotes("SAM Spectroscope unavailable!")
                     .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SAM_SPECTROMETER
                                                                                     .getValue())
@@ -170,6 +171,7 @@ public class SampleAnalysisState implements State {
                                                       .getPrimaryPowerUnits())
                     .setSolNumber(rover.getSpacecraftClock().getSol())
                     .setLocation(lBuilder.build()).setNotes("SAM Spectroscope engaged!")
+                    .setModuleName(ModuleDirectory.Module.SAM_SPECTROMETER.getName())
                     .setModuleMessage(samData)
                     .setSCET(System.currentTimeMillis()).setModuleReporting(ModuleDirectory.Module.SAM_SPECTROMETER
                                                                                     .getValue())

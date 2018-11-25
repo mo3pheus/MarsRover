@@ -6,7 +6,7 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.junit.Ignore;
 import org.junit.Test;
-import space.exploration.mars.rover.utils.FileUtil;
+import util.FileUtil;
 
 import java.io.File;
 import java.util.List;

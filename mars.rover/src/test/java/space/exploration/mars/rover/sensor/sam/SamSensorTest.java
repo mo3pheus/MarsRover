@@ -6,8 +6,9 @@ import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;
 import space.exploration.mars.rover.sensor.SamSensor;
 import space.exploration.mars.rover.service.calibration.spectrometer.sam.DataAvailabilityPacket;
-import space.exploration.mars.rover.utils.FileUtil;
+
 import space.exploration.mars.rover.utils.ServiceUtil;
+import util.FileUtil;
 
 import java.io.BufferedReader;
 import java.io.File;

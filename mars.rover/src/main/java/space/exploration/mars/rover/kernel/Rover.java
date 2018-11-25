@@ -465,12 +465,14 @@ public class Rover {
                             .getDbPassword());
             statement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
-            resultSet = statement.executeQuery("SELECT * FROM " + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
-                                                                                                                   ".logTableName"));
+            resultSet = statement
+                    .executeQuery("SELECT * FROM " + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
+                                                                                                      ".logTableName"));
             errorStatement = logDBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet
                     .CONCUR_UPDATABLE);
-            errorSet = errorStatement.executeQuery("SELECT * FROM " + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
-                                                                                                                       ".errorTableName"));
+            errorSet = errorStatement
+                    .executeQuery("SELECT * FROM " + roverConfig.getLogDBConfig().getProperty("mars.rover.database" +
+                                                                                                      ".errorTableName"));
             if (resultSet == null || errorSet == null || errorSet == null || statement == null) {
                 logger.error("Error encountered while configuring database.");
                 return;
@@ -606,10 +608,10 @@ public class Rover {
     }
 
     protected synchronized void reflectRoverState() {
-        logger.info("Trying to reflect rover state." + state.getStateName() + " Software Version - " + Double.toString
-                (roverConfig.getSoftwareVersion()));
-        marsArchitect.getMarsSurface().setTitle(state.getStateName() + " Software Version - " + Double.toString
-                (roverConfig.getSoftwareVersion()));
+        logger.info("Trying to reflect rover state." + state.getStateName() + " Software Version - " +
+                            (roverConfig.getSoftwareVersion()));
+        marsArchitect.getMarsSurface().setTitle(state.getStateName() + " Software Version - " +
+                                                        (roverConfig.getSoftwareVersion()));
         marsArchitect.getMarsSurface().repaint();
     }
 
@@ -669,18 +671,18 @@ public class Rover {
 
         this.pacemaker = new Pacemaker(this);
         pacemaker.pulse();
-        RoverUtil.roverSystemLog(logger, "Pacemaker initialized. ", "INFO ");
+        logger.info("Pacemaker initialized. ");
 
         sleepMonitor = new SleepMonitor(this);
-        RoverUtil.roverSystemLog(logger, "SleepMonitor initialized. ", "INFO ");
+        logger.info("SleepMonitor initialized. ");
 
         roverGarbageCollector = new RoverGarbageCollector(this);
         roverGarbageCollector.start();
-        RoverUtil.roverSystemLog(logger, "RoverGC initialized. ", "INFO ");
+        logger.info("RoverGC initialized. ");
 
         String[] stPosition = roverConfig.getMarsConfig().getProperty(EnvironmentUtils.ROBOT_START_LOCATION).split(",");
         location = new Point(Integer.parseInt(stPosition[0]), Integer.parseInt(stPosition[1]));
-        RoverUtil.roverSystemLog(logger, "Rover current position is = " + location.toString(), "INFO");
+        logger.info("Rover current position is = " + location.toString());
 
         int cellWidth = Integer.parseInt(roverConfig.getMarsConfig().getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
 
