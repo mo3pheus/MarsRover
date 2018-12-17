@@ -74,6 +74,7 @@ public class Rover {
     private volatile RoverConfig   roverConfig   = null;
 
     /* Equipment Stack */
+    private volatile Battery          battery          = null;
     private volatile Radio            radio            = null;
     private          Lidar            lidar            = null;
     private          Camera           camera           = null;
@@ -83,6 +84,7 @@ public class Rover {
     private          ApxsSpectrometer apxsSpectrometer = null;
     private          DANSpectrometer  danSpectrometer  = null;
     private          SamSensor        samSensor        = null;
+
 
     /* Kernel Sensors   */
     private volatile SpacecraftClock spacecraftClock = null;
@@ -99,7 +101,6 @@ public class Rover {
     /* Resource Management Stack */
     private volatile Semaphore             accessLock            = new Semaphore(1);
     private volatile Pacemaker             pacemaker             = null;
-    private volatile Battery               battery               = null;
     private volatile BatteryMonitor        batteryMonitor        = null;
     private volatile SleepMonitor          sleepMonitor          = null;
     private volatile RoverGarbageCollector roverGarbageCollector = null;

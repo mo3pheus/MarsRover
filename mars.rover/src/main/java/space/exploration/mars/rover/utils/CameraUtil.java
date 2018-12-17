@@ -5,7 +5,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.protobuf.ByteString;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.service.CameraPayload;
@@ -20,6 +19,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * Created by sanket on 5/9/17.
@@ -48,10 +48,10 @@ public class CameraUtil {
         ImageIO.write(image, "jpg", byteArrayOutputStream);
         byteArrayOutputStream.flush();
 
-        String base64String = Base64.encode(byteArrayOutputStream.toByteArray());
+        String base64String = Base64.encodeBase64String(byteArrayOutputStream.toByteArray());
         byteArrayOutputStream.close();
 
-        return Base64.decode(base64String);
+        return Base64.decodeBase64(base64String);
     }
 
     public static CameraPayload.CamPayload convertToCamPayload(String payloadString, String dataArchiveLocation)

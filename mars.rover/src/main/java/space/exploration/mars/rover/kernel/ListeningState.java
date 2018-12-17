@@ -3,6 +3,7 @@ package space.exploration.mars.rover.kernel;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.yammer.metrics.core.Meter;
 import communications.protocol.ModuleDirectory;
+import communications.protocol.ModuleDirectory.Module;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import space.exploration.communications.protocol.InstructionPayloadOuterClass;

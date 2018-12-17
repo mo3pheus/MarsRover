@@ -1,6 +1,5 @@
 package space.exploration.mars.rover.kernel;
 
-import com.sun.org.apache.regexp.internal.RE;
 import com.yammer.metrics.core.Meter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
