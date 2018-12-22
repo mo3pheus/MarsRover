@@ -21,8 +21,9 @@ public class SleepMonitor {
         monitor = Executors.newSingleThreadScheduledExecutor();
         snooze = new Snooze();
         monitor.scheduleAtFixedRate(snooze, 0l, 1l, TimeUnit.MINUTES);
-        sleepAfterTimeMinutes = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
-                                                                                           ".minutes"));
+        sleepAfterTimeMinutes = Integer
+                .parseInt(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.sleepAfterTime" +
+                                                                                     ".minutes"));
         logger.info("SleepMonitor initialized and activated!");
     }
 
@@ -33,14 +34,18 @@ public class SleepMonitor {
     }
 
     private boolean isRoverSleepy() {
+        logger.info("Rover received last message at :: " + rover.getTimeMessageReceived());
+        logger.info("Time elapsed since last message = " + ((System.currentTimeMillis() - rover
+                .getTimeMessageReceived()) + " milliseconds."));
         return (((System.currentTimeMillis() - rover.getTimeMessageReceived()) > TimeUnit.MINUTES.toMillis
-                (sleepAfterTimeMinutes)) && (rover.getState() == rover.getListeningState()));
+                (sleepAfterTimeMinutes)));
     }
 
     private boolean isRoverRested() {
         if (rover.getState() == rover.getSleepingState()) {
-            int maxSleepForMinutes = Integer.parseInt(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.sleepForMax" +
-                                                                                                ".minutes"));
+            int maxSleepForMinutes = Integer
+                    .parseInt(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.sleepForMax" +
+                                                                                         ".minutes"));
             long timeInSleepMins = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - rover
                     .getTimeMessageReceived());
 
@@ -52,20 +57,16 @@ public class SleepMonitor {
     public class Snooze implements Runnable {
         @Override
         public void run() {
+            Thread.currentThread().setName("sleepMonitor");
+            logger.info("RunThread = " + runThread);
             if (runThread) {
-                Thread.currentThread().setName("sleepMonitor");
-
                 if (isRoverRested()) {
+                    rover.setState(rover.getSleepingState());
                     logger.info("Awakening rover from slumber");
                     rover.wakeUp();
                 } else if (isRoverSleepy()) {
-                    try {
-                        rover.acquireAceessLock("sleepMonitor");
-                        rover.setState(rover.getSleepingState());
-                        rover.releaseAccessLock("sleepMonitor");
-                    } catch (InterruptedException ie) {
-                        logger.error("Exception while acquiring rover.accessLock mutex", ie);
-                    }
+                    rover.setState(rover.getSleepingState());
+                    logger.info("Rover is sleepy");
                     rover.sleep();
                 }
             }

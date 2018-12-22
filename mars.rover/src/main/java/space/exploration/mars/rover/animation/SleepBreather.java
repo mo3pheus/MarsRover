@@ -20,7 +20,7 @@ public class SleepBreather implements Runnable {
     @Override
     public void run() {
         Thread.currentThread().setName("sleepBreather");
-        logger.debug("Sleep breather started");
+        logger.info("Sleep breather started");
         Cell  robot      = rover.getMarsArchitect().getRobot();
         Color robotColor = EnvironmentUtils.findColor("robotSleepMode");
         robot.setColor(robotColor);

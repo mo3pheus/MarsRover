@@ -113,8 +113,8 @@ public class PositionSensor implements IsEquipment {
     private class PositionUpdate implements Runnable {
         @Override
         public void run() {
+            Thread.currentThread().setName("positionSensor");
             if (runThread) {
-                Thread.currentThread().setName("positionSensor");
                 internalClock = new DateTime(internalClock.getMillis() + (timeScaleFactor * TimeUnit.SECONDS.toMillis
                         (1)));
                 timeElapsedMs += (timeScaleFactor * TimeUnit.SECONDS.toMillis(1));

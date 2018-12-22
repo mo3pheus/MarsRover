@@ -17,17 +17,19 @@ public class SleepingAnimationEngine {
 
     public SleepingAnimationEngine(Rover rover) {
         this.rover = rover;
-        sleepBreather = new SleepBreather(rover);
     }
 
     public void sleep() {
-        ScheduledFuture<?> sleepingRover = nap.scheduleAtFixedRate(sleepBreather, 0l, 6, TimeUnit.SECONDS);
+        sleepBreather = new SleepBreather(rover);
+        ScheduledFuture<?> sleepingRover = nap.scheduleAtFixedRate(sleepBreather, 0l, 120, TimeUnit.SECONDS);
         logger.info("Rover is sleeping now");
     }
 
     public void wakeupRover() {
         logger.info("Waking up rover");
-        sleepBreather.hardInterrupt();
+        if (sleepBreather != null) {
+            sleepBreather.hardInterrupt();
+        }
         nap.shutdownNow();
     }
 }

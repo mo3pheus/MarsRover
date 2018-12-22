@@ -219,14 +219,14 @@ public class Rover {
 
     public synchronized void acquireAceessLock(String acquiringParty) throws InterruptedException {
         accessLock.acquire();
-        logger.debug("Rover accessLock acquired by " + acquiringParty);
-        logger.debug(" Rover's current state = " + getState().getStateName());
+        logger.info("Rover accessLock acquired by " + acquiringParty);
+        logger.info(" Rover's current state = " + getState().getStateName());
     }
 
     public synchronized void releaseAccessLock(String releasingParty) {
         accessLock.release();
-        logger.debug("Rover accessLock released by " + releasingParty);
-        logger.debug(" Rover's current state = " + getState().getStateName());
+        logger.info("Rover accessLock released by " + releasingParty);
+        logger.info(" Rover's current state = " + getState().getStateName());
     }
 
     public synchronized long getInRechargingModeTime() {
@@ -608,7 +608,7 @@ public class Rover {
         return radarScanningState;
     }
 
-    protected synchronized void reflectRoverState() {
+    public synchronized void reflectRoverState() {
         logger.info("Trying to reflect rover state." + state.getStateName() + " Software Version - " +
                             (roverConfig.getSoftwareVersion()));
         marsArchitect.getMarsSurface().setTitle(state.getStateName() + " Software Version - " +

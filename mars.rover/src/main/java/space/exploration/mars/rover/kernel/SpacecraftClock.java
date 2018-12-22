@@ -221,9 +221,8 @@ public class SpacecraftClock extends Observable implements IsEquipment {
     private class Clock implements Runnable {
         @Override
         public void run() {
+            Thread.currentThread().setName("spacecraftClock");
             if (runThread) {
-                Thread.currentThread().setName("spacecraftClock");
-
                 if (timeElapsedMs > missionDuration) {
                     logger.error("Houston! Spacecraft clock has reached end of mission life.");
                     stopClock();

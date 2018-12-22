@@ -137,8 +137,9 @@ public class Pacemaker {
     private class Pulse implements Runnable {
         @Override
         public void run() {
+            Thread.currentThread().setName("pacemaker");
+            logger.info("Rover current state = " + rover.getState().getStateName() + " runThread = " + runThread);
             if (runThread) {
-                Thread.currentThread().setName("pacemaker");
                 if (rover.getState() == rover.getHibernatingState()) {
                     logger.error("Diagnostics inhibited because rover is in hibernating state."
                                          + " Current instructionQueue length = " + rover.getInstructionQueue().size());

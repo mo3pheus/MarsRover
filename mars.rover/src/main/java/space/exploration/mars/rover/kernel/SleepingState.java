@@ -115,7 +115,6 @@ public class SleepingState implements State {
     public void sleep() {
         requests.mark();
         rover.reflectRoverState();
-        sleepingAnimationEngine = new SleepingAnimationEngine(rover);
         sleepingAnimationEngine.sleep();
     }
 
@@ -127,11 +126,11 @@ public class SleepingState implements State {
     @Override
     public void wakeUp() {
         requests.mark();
-        rover.reflectRoverState();
         sleepingAnimationEngine.wakeupRover();
         rover.getMarsArchitect().returnSurfaceToNormal();
         rover.setState(rover.getListeningState());
         rover.setTimeMessageReceived(System.currentTimeMillis());
+        rover.reflectRoverState();
     }
 
     @Override
