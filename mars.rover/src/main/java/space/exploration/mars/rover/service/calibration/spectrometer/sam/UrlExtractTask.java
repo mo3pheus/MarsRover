@@ -1,9 +1,11 @@
 package space.exploration.mars.rover.service.calibration.spectrometer.sam;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -26,7 +28,7 @@ public class UrlExtractTask implements IsCalibrationService {
         try {
             logger.debug("Started httpRequest.");
             dataAvailabilityPacket = getDataAvailability();
-            logger.debug(dataAvailabilityPacket.toString());
+            logger.info(dataAvailabilityPacket.toString());
             logger.debug("Finished httpRequest.");
         } catch (Exception e) {
             logger.error("SAM data unavailable for experiment id = " + experimentId + e.getMessage(), e);
@@ -52,8 +54,10 @@ public class UrlExtractTask implements IsCalibrationService {
         DataAvailabilityPacket dataAvailabilityPacket = new DataAvailabilityPacket();
 
         HttpResponse httpResponse = httpClient.execute(httpGet);
-        Document responseDoc = Jsoup.parse(httpResponse.getEntity().getContent(), "UTF-8", SamSensor
+        HttpEntity   httpEntity   = httpResponse.getEntity();
+        Document responseDoc = Jsoup.parse(httpEntity.getContent(), "UTF-8", SamSensor
                 .SAM_DATA_BASE_URL);
+        EntityUtils.consumeQuietly(httpEntity);
         for (Element element : responseDoc.select("a[href]")) {
             if (element.text().contains("csv")) {
                 dataAvailabilityPacket.addUrl(element.text());

@@ -19,7 +19,7 @@ public class SamCalibrationUtil {
         PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = new
                 PoolingHttpClientConnectionManager();
         poolingHttpClientConnectionManager.setMaxTotal(maxConnections);
-        poolingHttpClientConnectionManager.setDefaultMaxPerRoute(1);
+        poolingHttpClientConnectionManager.setDefaultMaxPerRoute(maxConnections);
 
         CloseableHttpClient closeableHttpClient = HttpClients.custom().setConnectionManager
                 (poolingHttpClientConnectionManager).build();
