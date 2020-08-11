@@ -1,6 +1,7 @@
 package space.exploration.mars.rover.sensor.sam;
 
 import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
 import space.exploration.mars.rover.bootstrap.MarsMissionLaunch;
 import space.exploration.mars.rover.bootstrap.MatrixCreation;
@@ -22,12 +23,12 @@ public class SamSensorTest extends TestCase {
     Properties             marsConfig             = null;
     DataAvailabilityPacket dataAvailabilityPacket = null;
 
-    @Test
+    @Before
     public void setUp() {
         try {
             MarsMissionLaunch.configureConsoleLogging(false);
             marsConfig = MatrixCreation.getConfig();
-            samSensor = new SamSensor(marsConfig);
+            samSensor  = new SamSensor(marsConfig);
             FileUtil.processDirectories("dataArchives/SAM/");
             FileUtil.processDirectories("dataArchives/SAM/test/");
         } catch (IOException e) {
@@ -57,6 +58,7 @@ public class SamSensorTest extends TestCase {
             File           csvFile        = ServiceUtil.downloadCsv(fileUrl, path);
             BufferedReader bufferedReader = new BufferedReader(new FileReader(csvFile));
             String         line           = null;
+
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
                 System.out.println("==================================");
@@ -69,11 +71,12 @@ public class SamSensorTest extends TestCase {
                 }
                 int startQuote = line.indexOf("\"");
                 int endQuote   = line.lastIndexOf("\"");
-                System.out.println(line.substring(startQuote+1, endQuote));
+                System.out.println(line.substring(startQuote + 1, endQuote));
                 System.out.println(abundance);
                 System.out.println("==================================");
             }
             bufferedReader.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

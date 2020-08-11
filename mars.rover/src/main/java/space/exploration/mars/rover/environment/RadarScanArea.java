@@ -25,7 +25,6 @@ public class RadarScanArea extends VirtualElement {
 
     @Override
     public void draw(Graphics2D g2) {
-        //draw square of size d.
         g2.setColor(Color.BLACK);
         g2.fill(new Rectangle2D.Double(0, 0, diameter, diameter));
 
@@ -67,5 +66,4 @@ public class RadarScanArea extends VirtualElement {
     public void paint(Graphics g) {
         draw((Graphics2D) g);
     }
-
 }

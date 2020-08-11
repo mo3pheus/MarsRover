@@ -85,7 +85,6 @@ public class Rover {
     private          DANSpectrometer  danSpectrometer  = null;
     private          SamSensor        samSensor        = null;
 
-
     /* Kernel Sensors   */
     private volatile SpacecraftClock spacecraftClock = null;
     private volatile PositionSensor  positionSensor  = null;

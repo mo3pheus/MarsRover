@@ -20,13 +20,13 @@ public class PolarCoordTest {
         RadialContact cR = new RadialContact(a, c);
 
         System.out.println("bR center = " + bR.getCenter().toString() + " contact= " + bR.getContactPoint().toString()
-                                   + " bR polarPoint = " + bR.getPolarPoint().toString()
+                + " bR polarPoint = " + bR.getPolarPoint().toString()
         );
 
         System.out.println(" Angle = " + Math.toDegrees(bR.getPolarPoint().getTheta()));
 
         System.out.println("cR center = " + cR.getCenter().toString() + " contact= " + cR.getContactPoint().toString()
-                                   + " cR polarPoint = " + cR.getPolarPoint().toString()
+                + " cR polarPoint = " + cR.getPolarPoint().toString()
         );
 
         System.out.println(" Angle = " + Math.toDegrees(cR.getPolarPoint().getTheta()));

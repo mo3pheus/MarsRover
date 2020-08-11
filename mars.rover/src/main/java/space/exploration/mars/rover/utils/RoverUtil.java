@@ -67,7 +67,7 @@ public class RoverUtil {
 
         for (Path path : paths) {
             String fileName = path.toString();
-            fileName = fileName.replace("roverStatus", "");
+            fileName = fileName.replace("roverStatus_", "");
             fileName = fileName.replace(".log", "");
 
             Long timeStamp = 0l;

@@ -25,6 +25,6 @@ public class DanCalibrationTest extends TestCase {
             System.out.println("=============================================================");
             Thread.sleep(10);
         }
-        assertEquals(198, danPayload.size());
+        assertEquals(3, danPayload.size());
     }
 }

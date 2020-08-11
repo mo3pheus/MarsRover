@@ -16,8 +16,8 @@ import java.util.Properties;
  */
 public class Transmitter {
     private Producer<String, byte[]> earthChannel;
-    private Logger logger = LoggerFactory.getLogger(Transmitter.class);
-    private Properties kafkaProperties;
+    private Logger                   logger = LoggerFactory.getLogger(Transmitter.class);
+    private Properties               kafkaProperties;
 
     public Transmitter(Properties comsConfig) {
         kafkaProperties = comsConfig;

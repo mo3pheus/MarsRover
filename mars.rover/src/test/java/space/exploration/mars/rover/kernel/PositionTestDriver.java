@@ -17,6 +17,7 @@ public class PositionTestDriver {
         MarsMissionLaunch.configureConsoleLogging(false);
         Properties        roverConfig       = MatrixCreation.getConfig();
         PositionPredictor positionPredictor = new PositionPredictor(roverConfig);
+
         List<Long> coverageGaps = positionPredictor
                 .getCoverageData("2016-03-17~11:00:00", "2016-03-17~13:00:00");
         for (String timestamp : positionPredictor.getFormattedCoverageGaps()) {

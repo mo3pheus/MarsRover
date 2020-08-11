@@ -39,19 +39,19 @@ public class Radio implements IsEquipment {
 
     public Radio(Properties comsConfig, Rover rover) {
         this.rover = rover;
-        requests = this.rover.getMetrics().newMeter(Radio.class, "Radio", "requests", TimeUnit.HOURS);
+        requests   = this.rover.getMetrics().newMeter(Radio.class, "Radio", "requests", TimeUnit.HOURS);
         long radioCheckPulse = Long.parseLong(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio" +
-                                                                                                         ".check" +
-                                                                                                         ".pulse"));
-        this.timeScaleFactor = Double
+                ".check" +
+                ".pulse"));
+        this.timeScaleFactor       = Double
                 .parseDouble(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio" +
-                                                                                        ".timeScaleFactor"));
+                        ".timeScaleFactor"));
         this.encryptionWaitMinutes = Long
                 .parseLong(rover.getRoverConfig().getMarsConfig().getProperty("mars.rover.radio.encryption" +
-                                                                                      ".waitTimeMinutes"));
+                        ".waitTimeMinutes"));
 
         this.transmitter = new Transmitter(comsConfig);
-        this.receiver = new Receiver(comsConfig, this);
+        this.receiver    = new Receiver(comsConfig, this);
         receiver.setRadioCheckPulse(radioCheckPulse);
         receiver.start();
 
@@ -83,7 +83,7 @@ public class Radio implements IsEquipment {
     private void honorMessageReceipt(SecureMessage.SecureMessagePacket secureMessagePacket) throws Exception {
         Thread.sleep(getComsDelaySecs());
         byte[] decryptedContents = EncryptionUtil.decryptSecureMessage(comsCertificate, secureMessagePacket,
-                                                                       encryptionWaitMinutes);
+                encryptionWaitMinutes);
         InstructionPayloadOuterClass.InstructionPayload instructionPayload = InstructionPayloadOuterClass
                 .InstructionPayload.parseFrom(decryptedContents);
         rover.receiveMessage(instructionPayload.toByteArray());
@@ -119,11 +119,12 @@ public class Radio implements IsEquipment {
                 }
 
                 SecureMessage.SecureMessagePacket secureMessagePacket = EncryptionUtil.encryptData(RoverConfig
-                                                                                                           .ROVER_NAME,
-                                                                                                   comsCertificate,
-                                                                                                   message,
-                                                                                                   encryptionWaitMinutes);
+                                .ROVER_NAME,
+                        comsCertificate,
+                        message,
+                        encryptionWaitMinutes);
                 logger.info("Message encryption successful.");
+                logger.info("Message length = " + secureMessagePacket.toByteArray().length);
                 transmitter.transmitMessage(secureMessagePacket.toByteArray());
                 lifeSpan--;
             } else {
@@ -171,8 +172,8 @@ public class Radio implements IsEquipment {
                     .getOwltMSLEarth();
 
             logger.error("Encountered exception when getting comsDelay. There may be a coverage gap at this time." +
-                                 "Radio is returning best predicted communications delay." + comsDelay + " utcTime = " +
-                                 "" + rover.getSpacecraftClock().getUTCTime(), e);
+                    "Radio is returning best predicted communications delay." + comsDelay + " utcTime = " +
+                    "" + rover.getSpacecraftClock().getUTCTime(), e);
         } finally {
             comsDelay = (int) (owlt / timeScaleFactor);
             return comsDelay;

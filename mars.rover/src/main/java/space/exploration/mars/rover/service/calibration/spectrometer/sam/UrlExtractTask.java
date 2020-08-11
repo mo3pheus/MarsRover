@@ -22,7 +22,7 @@ public class UrlExtractTask implements IsCalibrationService {
     private HttpGet             httpGet      = null;
 
     @Override
-    public DataAvailabilityPacket call() throws Exception {
+    public DataAvailabilityPacket call() {
         Thread.currentThread().setName("samUrlExtractionTask" + experimentId);
         DataAvailabilityPacket dataAvailabilityPacket = null;
         try {

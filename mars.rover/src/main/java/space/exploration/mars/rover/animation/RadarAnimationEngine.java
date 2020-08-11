@@ -34,17 +34,17 @@ public class RadarAnimationEngine {
 
     public RadarAnimationEngine(Properties radarConfig) {
         this.radarConfig = radarConfig;
-        laserBeams = new ArrayList<>();
+        laserBeams       = new ArrayList<>();
         setUpRadarWindow();
     }
 
     public void setUpRadarWindow() {
         int    fWidth      = Integer.parseInt(radarConfig.getProperty(EnvironmentUtils.FRAME_WIDTH_PROPERTY));
         double scaleFactor = Double.parseDouble(radarConfig.getProperty(Radar.RADAR_PREFIX + ".scaleFactor"));
-        windowWidth = scaleFactor * fWidth;
-        numRevs = Integer.parseInt(radarConfig.getProperty(Radar.RADAR_PREFIX + ".numberOfRevelutions"));
+        windowWidth   = scaleFactor * fWidth;
+        numRevs       = Integer.parseInt(radarConfig.getProperty(Radar.RADAR_PREFIX + ".numberOfRevelutions"));
         laserDiameter = (int) (windowWidth - (2 * RadarScanArea.RING_OFFSET));
-        radarWindow = new JFrame();
+        radarWindow   = new JFrame();
         radarWindow.setSize((int) windowWidth, (int) windowWidth);
         radarWindow.setVisible(true);
         radarWindow.setTitle("RadarSensor Scan Window");
@@ -72,7 +72,7 @@ public class RadarAnimationEngine {
                         .RADAR);
                 double angleAdditionFactor = (i * 360.0d);
                 laser.setAngle(angleAdditionFactor + r.getPolarPoint().getTheta());
-                System.out.println("Creating lasers now - " + r.getContactPoint().toString() + " Angle = " + laser
+                logger.info("Creating lasers now - " + r.getContactPoint().toString() + " Angle = " + laser
                         .getAngle() + " r = " + laser.getLaserLength());
 
                 contactLasers.add(laser);
@@ -116,7 +116,6 @@ public class RadarAnimationEngine {
             radarWindow.setContentPane(contentPane);
             radarWindow.setVisible(true);
             try {
-
                 if (Math.abs((laserDiameter * 0.5d) - laser.getLaserLength()) > 5.0d) {
                     Thread.sleep(LASER_DELAY);
                 }

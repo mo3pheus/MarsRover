@@ -24,15 +24,15 @@ import static space.exploration.mars.rover.kernel.SpacecraftClock.*;
 public class PositionSensor implements IsEquipment {
     public static final String                   POSITION_CALC_FILE_PROPERTY = "mars.rover.spice.positionUtilFile";
     private             Logger                   logger                      = LoggerFactory.getLogger(PositionSensor
-                                                                                                               .class);
+            .class);
     private             ScheduledExecutorService sensorUpdate                = null;
     private             Properties               roverProperties             = null;
     private             DateTime                 internalClock               = null;
     private             DateTimeFormatter        clockFormatter              = null;
     private             String                   sclkStartTime               = null;
     private             int                      timeScaleFactor             = 0;
-    private             long                     timeElapsedMs               = 0l;
-    private             long                     missionDuration             = 0l;
+    private             long                     timeElapsedMs               = 0L;
+    private             long                     missionDuration             = 0L;
     private             PositionUtils            positionUtils               = null;
     private             Gauge<String>            positionGauge               = null;
     private volatile    boolean                  runThread                   = true;
@@ -111,6 +111,11 @@ public class PositionSensor implements IsEquipment {
     }
 
     private class PositionUpdate implements Runnable {
+
+        PositionUpdate() {
+            logger.info("Position Update started.");
+        }
+
         @Override
         public void run() {
             Thread.currentThread().setName("positionSensor");

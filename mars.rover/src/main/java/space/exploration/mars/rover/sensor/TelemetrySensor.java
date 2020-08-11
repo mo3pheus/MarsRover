@@ -30,7 +30,7 @@ public class TelemetrySensor implements Observer {
     public TelemetrySensor(Observable observable) {
         observable.addObserver(this);
         if (observable instanceof TrackingAnimationEngine) {
-            propulsionEngine = (TrackingAnimationEngine) observable;
+            propulsionEngine           = (TrackingAnimationEngine) observable;
             telemetryCompressionFactor = Integer.parseInt(propulsionEngine.getMarsRoverConfig().getProperty
                     (TELEMETRY_COMPRESSION_FACTOR));
         }
@@ -59,7 +59,7 @@ public class TelemetrySensor implements Observer {
 
                 startLocation = new Point((int) propulsionEngine.getRobot().getLocation().getX(), (int)
                         propulsionEngine.getRobot().getLocation().getY());
-                startTimeMs = System.currentTimeMillis();
+                startTimeMs   = System.currentTimeMillis();
                 logger.info("Telemetry relay commenced.");
             } else {
                 Point robotLocation = new Point((int) propulsionEngine.getRobot().getLocation().getX(), (int)

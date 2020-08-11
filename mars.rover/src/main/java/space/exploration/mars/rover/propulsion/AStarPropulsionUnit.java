@@ -18,7 +18,6 @@ public class AStarPropulsionUnit extends PropulsionUnit {
 
     @Override
     void requestPropulsion() {
-
         NavigationEngine navigationEngine = rover.getNavigationEngine();
         NavCell start = navigationEngine.getGridMap().get(NavUtil.findNavId(navigationEngine
                                                                                     .getGridMap()
