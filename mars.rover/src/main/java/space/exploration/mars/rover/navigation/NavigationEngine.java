@@ -6,8 +6,8 @@ import space.exploration.mars.rover.animation.AnimationUtil;
 import space.exploration.mars.rover.environment.EnvironmentUtils;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class NavigationEngine implements PerformsNavigation {
@@ -21,10 +21,10 @@ public class NavigationEngine implements PerformsNavigation {
     private              Logger                logger            = LoggerFactory.getLogger(NavigationEngine.class);
 
     public NavigationEngine(Properties matrixConfig) {
-        this.matrixConfig = matrixConfig;
-        this.gridMap = new HashMap<Integer, NavCell>();
-        gridMap = NavUtil.populateGridMap(matrixConfig);
-        this.cellWidth = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
+        this.matrixConfig      = matrixConfig;
+        this.gridMap           = new HashMap<Integer, NavCell>();
+        gridMap                = NavUtil.populateGridMap(matrixConfig);
+        this.cellWidth         = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.CELL_WIDTH_PROPERTY));
         this.animationStepSize = Integer.parseInt(matrixConfig.getProperty(EnvironmentUtils.ANIMATION_STEP_SIZE));
 
         configureAdjacency();
@@ -127,7 +127,7 @@ public class NavigationEngine implements PerformsNavigation {
     }
 
     private void configureAdjacency() {
-        for (int id : gridMap.keySet()) {
+        for (Integer id : gridMap.keySet()) {
             NavCell             nCell    = gridMap.get(id);
             AdjacencyCalculator adSensor = new AdjacencyCalculator(nCell.getCenter(), matrixConfig);
             nCell.setAdjacentNodes(adSensor.getAdjacentNodes());

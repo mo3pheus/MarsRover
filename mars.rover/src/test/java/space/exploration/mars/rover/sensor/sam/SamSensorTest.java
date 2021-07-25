@@ -19,8 +19,8 @@ import java.util.Properties;
 
 public class SamSensorTest extends TestCase {
 
-    SamSensor              samSensor              = null;
-    Properties             marsConfig             = null;
+    SamSensor samSensor = null;
+    Properties marsConfig = null;
     DataAvailabilityPacket dataAvailabilityPacket = null;
 
     @Before
@@ -28,7 +28,7 @@ public class SamSensorTest extends TestCase {
         try {
             MarsMissionLaunch.configureConsoleLogging(false);
             marsConfig = MatrixCreation.getConfig();
-            samSensor  = new SamSensor(marsConfig);
+            samSensor = new SamSensor(marsConfig);
             FileUtil.processDirectories("dataArchives/SAM/");
             FileUtil.processDirectories("dataArchives/SAM/test/");
         } catch (IOException e) {
@@ -38,39 +38,42 @@ public class SamSensorTest extends TestCase {
 
     @Test
     public void testSamDataAvailability() {
-        System.out.println(samSensor.getDataAvailabilityPacketMap().get(1225).toString());
-        dataAvailabilityPacket = samSensor.getDataAvailabilityPacketMap().get(1225);
-        assertEquals(1225, dataAvailabilityPacket.getSol());
-        assertEquals("eid25327", dataAvailabilityPacket.getExperimentId());
-        assertTrue(dataAvailabilityPacket.getUrls().contains("sm25327f1225rdr2__spyr_qms_egacomp_1.csv"));
-        assertTrue(dataAvailabilityPacket.getUrls().contains("sm25327f1225rdr2__spyr_qms_egaxxxx_1.csv"));
+        System.out.println(samSensor.getDataAvailabilityPacketMap().containsKey(1546));
+        //System.out.println(samSensor.getDataAvailabilityPacketMap().get(1225).toString());
+        if (samSensor.getDataAvailabilityPacketMap().containsKey(1546)) {
+            dataAvailabilityPacket = samSensor.getDataAvailabilityPacketMap().get(1546);
+            assertEquals(1546, dataAvailabilityPacket.getSol());
+            assertEquals("eid25387", dataAvailabilityPacket.getExperimentId());
+            assertTrue(dataAvailabilityPacket.getUrls().contains("sm25387f1546rdr2__spyr_qms_egacomp_1.csv"));
+            assertTrue(dataAvailabilityPacket.getUrls().contains("sm25387f1546rdr2__spyr_qms_egaxxxx_1.csv"));
+        }
     }
 
     @Test
     public void testFileDownload() {
-        dataAvailabilityPacket = samSensor.getDataAvailabilityPacketMap().get(1225);
+        dataAvailabilityPacket = samSensor.getDataAvailabilityPacketMap().get(1546);
         String fileUrl = SamSensor.SAM_DATA_BASE_URL + dataAvailabilityPacket.getExperimentId() +
-                "/level2/sm25327f1225rdr2__spyr_qms_egacomp_1.csv";
+                "/level2/sm25387f1546rdr2__spyr_qms_egacomp_1.csv";
         try {
             String path = "dataArchives/SAM/test/" + Integer.toString(dataAvailabilityPacket.getSol());
             FileUtil.processDirectories(path);
-            path += "/1225SamData.csv";
-            File           csvFile        = ServiceUtil.downloadCsv(fileUrl, path);
+            path += "/1546SamData.csv";
+            File csvFile = ServiceUtil.downloadCsv(fileUrl, path);
             BufferedReader bufferedReader = new BufferedReader(new FileReader(csvFile));
-            String         line           = null;
+            String line = null;
 
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
                 System.out.println("==================================");
-                String[] parts     = line.split(",");
-                Double   abundance = 0.0d;
+                String[] parts = line.split(",");
+                Double abundance = 0.0d;
                 try {
                     abundance = Double.parseDouble(parts[parts.length - 1]);
                 } catch (NumberFormatException nfe) {
                     continue;
                 }
                 int startQuote = line.indexOf("\"");
-                int endQuote   = line.lastIndexOf("\"");
+                int endQuote = line.lastIndexOf("\"");
                 System.out.println(line.substring(startQuote + 1, endQuote));
                 System.out.println(abundance);
                 System.out.println("==================================");
